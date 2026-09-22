@@ -1,0 +1,195 @@
+{
+  "lesson_id": "lesson-7-10-a1-final-mission",
+  "lesson_number": "7.10",
+  "revision": 1,
+  "output_namespace": "unit-7-mission-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.20",
+    "estimated_usd": "0.95",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "automatic_retries": 0,
+    "human_approval": "pending",
+    "note": "18 mission-only stills for the rebuilt Unit 7 capstone mission: a kickoff, nine listening scenes and the question and response views of four voice gates. The stub mission's courtyard, hall and podium scenes cannot be kept, because the approved photo-edit record for each one pins its stub card exactly as inspected, so the rebuilt beats bind their own stills and the stub scenes are retired with evidence. The kickoff fixes the family cast, and every later scene with people is generated from it. Objects and actions are identified clearly by visual context, never by printed answer words. No automatic retries.",
+    "identity_reference": "kickoff"
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.",
+  "assets": [
+    {
+      "id": "kickoff",
+      "runtime_filename": "a1_u7_outing_v1_kickoff.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the kickoff shot that states the mission and fixes the faces and clothes every later scene reuses."
+      },
+      "prompt": "A multigenerational Hispanic family of five standing together at the open-air entrance of a town festival park in bright daylight, photographed straight on from across the path, side by side and clearly separated, all facing the camera with friendly relaxed expressions: a mother in her thirties with dark hair in a red jacket and dark pants; a father in his forties with a short beard in a blue shirt and grey pants; a grandfather with white hair in a beige coat and brown shoes; a girl of about twelve with a long braid wearing a yellow shirt and green skirt; and a boy of about eight in a striped shirt and jeans. In the background a festival garden with banners and flower beds. Every face is sharp and every person is complete from head to feet. No readable words, no signs with letters, no logos."
+    },
+    {
+      "id": "weather-prep",
+      "runtime_filename": "a1_u7_outing_v1_weather_prep.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the opening weather and clothing needs scene."
+      },
+      "prompt": "An outdoor pavilion display in daylight with four clearly separated weather exhibition sections in a row, with clear space between each: (1) at the left, a bright sunny pedestal in direct sunlight displaying a wide-brimmed straw sun hat; (2) left of centre, a rainy demonstration area with falling water droplets displaying an open black umbrella and yellow rain boots; (3) right of centre, a windy display area where fabric wind streamers blow sideways, displaying a thick navy windproof jacket on a stand; (4) at the right, a cool cloudy display area under soft grey cloud cover showing heavy hiking boots on a stone block. Each section is sharp and occupies its own horizontal zone with clear headroom above for UI markers. No people, no letters, no words, no logos."
+    },
+    {
+      "id": "clothing-line",
+      "runtime_filename": "a1_u7_outing_v1_clothing_line.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the clothing identification scene where family members wear distinct garments."
+      },
+      "reference": "kickoff",
+      "prompt": "Four family members from the kickoff standing side by side along a festival garden path in bright daylight, well separated horizontally from left to right with open ground between them: (1) on the left, the mother wearing a bright red knee-length dress; (2) left of centre, the father wearing a light yellow cotton shirt and dark trousers; (3) right of centre, the girl wearing a dark blue jacket and green skirt; (4) on the right, the boy wearing bright blue pants and clean black shoes. All four are complete from head to feet with clear space above each head for UI markers. No overlap, natural daylight, no text, no logos."
+    },
+    {
+      "id": "feelings",
+      "runtime_filename": "a1_u7_outing_v1_feelings.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the physical states and emotional feelings scene."
+      },
+      "reference": "kickoff",
+      "prompt": "Four family members from the kickoff seated or standing along a wide garden stone wall in daylight, well separated horizontally: (1) on the far left, the mother smiling joyfully with open arms, clearly happy; (2) left of centre, the grandfather sitting with his head resting on his hand, eyelids drooping, visibly tired; (3) right of centre, the boy looking eagerly at a sandwich held in both hands, clearly hungry; (4) on the far right, the girl drinking refreshing water from a clear glass bottle, clearly thirsty. Each person is distinct, well spaced, with clear space above their heads for UI markers. No overlap, natural daylight, no text, no logos."
+    },
+    {
+      "id": "body-health",
+      "runtime_filename": "a1_u7_outing_v1_body_health.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the body parts and wellness demonstration scene."
+      },
+      "reference": "kickoff",
+      "prompt": "Four family members from the kickoff spaced evenly across a manicured green lawn in bright daylight, each clearly indicating a different part of the body: (1) on the left, the father raising both hands to touch the top of his head; (2) left of centre, the mother holding her hands up framing her eyes and ears; (3) right of centre, the boy extending both arms straight out with hands and fingers open wide; (4) on the right, the girl stepping high to display both her legs and sneakers clearly. All four are complete and separated from left to right with clear space above their heads for UI markers. No overlap, natural daylight, no text, no logos."
+    },
+    {
+      "id": "hobbies",
+      "runtime_filename": "a1_u7_outing_v1_hobbies.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the free-time hobbies and leisure activities scene."
+      },
+      "reference": "kickoff",
+      "prompt": "Four family members from the kickoff enjoying leisure activities under a park pavilion in daylight, well separated from left to right: (1) on the left, the grandfather sitting on a wooden bench reading an open hardback book; (2) left of centre, the boy kneeling on a picnic mat playing enthusiastically with wooden toy blocks; (3) right of centre, the girl seated with over-ear headphones on her head, eyes closed smiling, visibly listening to music; (4) on the far right, the father standing with arms crossed, turning his back away from a small television screen visible inside the pavilion window, expressing clear disinterest in watching TV. All four are distinct and non-overlapping, with clear space above heads for UI markers. No text, no logos."
+    },
+    {
+      "id": "invitations",
+      "runtime_filename": "a1_u7_outing_v1_invitations.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the invitations, acceptance and polite refusal scene."
+      },
+      "reference": "kickoff",
+      "prompt": "Four distinct interactions along a stone courtyard path in daylight, well separated across the frame: (1) on the far left, the boy holding out a colourful soccer ball in an inviting gesture to play; (2) left of centre, a friend smiling warmly with hands together in gratitude, nodding in enthusiastic acceptance ('Yes, thank you'); (3) right of centre, the girl holding an open storybook offering to read together; (4) on the far right, another child holding up one hand in a gentle polite refusal with a regretful friendly smile ('Sorry, no'). All four people are clear, distinct and separated from left to right, with empty space above each head for UI markers. No text, no logos."
+    },
+    {
+      "id": "table-refreshments",
+      "runtime_filename": "a1_u7_outing_v1_table_refreshments.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the table scene integrating clock time, price inquiries, drinks, and counted descriptions."
+      },
+      "prompt": "A wide wooden festival picnic table photographed straight on in daylight, with no people. Exactly four distinct items/features are arranged across the table and back wall, clearly separated: (1) on the far left, an elegant round wooden wall clock mounted on a post showing exactly five o'clock; (2) left of centre on the table, a clean chalkboard sign showing price tags with simple numerals '$2' and '$3'; (3) right of centre, two tall clear glass carafes filled with cold water and clean drinking glasses; (4) on the far right, a shallow wooden bowl holding exactly three bright red apples. Each item is sharp, large and visually distinct, with clear space above each item for UI markers. No people, no readable words except numerals, no logos."
+    },
+    {
+      "id": "communication-help",
+      "runtime_filename": "a1_u7_outing_v1_communication_help.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the communication repair and assistance scene."
+      },
+      "reference": "kickoff",
+      "prompt": "Four people standing along an information counter at the festival in daylight, well separated horizontally, each exhibiting a clear communicative gesture: (1) on the far left, the mother with an unfolded map looking puzzled and gesturing for help ('I need help'); (2) left of centre, the father with raised eyebrows and open palms held out in confusion ('I do not understand'); (3) right of centre, the girl cupping one hand around her ear leaning forward attentively ('Please repeat'); (4) on the far right, the grandfather with one hand raised palm forward in a gentle calming gesture asking the speaker to slow down ('Please speak slowly'). All four are distinct, sharp and separated, with clear space above heads for UI markers. No text, no logos."
+    },
+    {
+      "id": "navigation",
+      "runtime_filename": "a1_u7_outing_v1_navigation.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the navigation, directions, bathroom location, and identity review scene."
+      },
+      "reference": "kickoff",
+      "prompt": "A festival courtyard crossroads in bright daylight, showing four clearly separated landmarks and people: (1) on the far left, a doorway under a large universal pictogram sign showing bathroom figures (man and woman outline, no words); (2) left of centre, a festival park signpost with a straight green arrow pointing forward along the path; (3) right of centre, a second signpost with an arrow pointing right toward the flower gardens; (4) on the far right, a pleasant older couple (the grandparents from the kickoff) standing together smiling towards the visitor. All four targets are well spaced from left to right with clear headroom above each for UI markers. No readable words, no logos."
+    },
+    {
+      "id": "feelings-question",
+      "runtime_filename": "a1_u7_outing_v1_feelings_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the first voice gate question view asking personal feelings and identity."
+      },
+      "prompt": "A welcoming female festival host in her thirties standing outdoors in natural daylight, smiling warmly as she addresses the learner with an open-handed greeting gesture, speaking: 'What is your name? How are you?' Natural park background, friendly and encouraging expression. Upper body framing, sharp detail, no text, no logos."
+    },
+    {
+      "id": "feelings-response",
+      "runtime_filename": "a1_u7_outing_v1_feelings_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the first voice gate response view answering personal information and state."
+      },
+      "prompt": "A closer view of a young friendly learner named Alex in a casual shirt, smiling with a happy confident expression, placing one hand over the chest in a warm introduction gesture, replying: 'My name is Alex. I am happy.' Soft daylight, sharp eyes and smile, no text, no logos."
+    },
+    {
+      "id": "bathroom-question",
+      "runtime_filename": "a1_u7_outing_v1_bathroom_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the second voice gate question view asking for the bathroom location."
+      },
+      "prompt": "A polite man in his forties in a casual jacket holding an unfolded festival programme, looking directly towards the learner with an inquiring expression, speaking: 'Excuse me. Where is the bathroom?' Bright daytime lighting on a park promenade, friendly conversational framing, no text, no logos."
+    },
+    {
+      "id": "bathroom-response",
+      "runtime_filename": "a1_u7_outing_v1_bathroom_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the second voice gate response view giving clear directions."
+      },
+      "prompt": "A closer view of a clear walkway intersection: looking straight down a clean stone corridor that turns left towards a door marked with a universal bathroom pictogram. The perspective clearly illustrates the route: 'Go straight. Turn left.' Bright daylight, sharp architectural guidance, no readable words, no logos."
+    },
+    {
+      "id": "purchase-question",
+      "runtime_filename": "a1_u7_outing_v1_purchase_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the third voice gate question view asking the price at six o'clock."
+      },
+      "prompt": "A woman in her thirties standing behind a clean wooden beverage stall in daylight, smiling as she gestures towards the counter while a prominent wall clock behind her shows exactly six o'clock: 'It is six o'clock. How much is it?' Natural daylight, sharp stall display, no readable words, no logos."
+    },
+    {
+      "id": "purchase-response",
+      "runtime_filename": "a1_u7_outing_v1_purchase_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the third voice gate response view stating price and ordering a drink."
+      },
+      "prompt": "A close-up view of the wooden counter top in natural daylight: two one-dollar coins rest neatly beside a fresh, tall glass of cold orange juice with a straw. The scene clearly demonstrates: 'Two dollars. Juice, please.' Crisp details, refreshing droplets on glass, no text, no logos."
+    },
+    {
+      "id": "invitation-question",
+      "runtime_filename": "a1_u7_outing_v1_invitation_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the fourth voice gate question view extending a musical invitation."
+      },
+      "prompt": "A young acoustic musician in his twenties holding an acoustic guitar on an outdoor garden festival stage in daylight, smiling warmly towards the learner with an inviting nod: 'Do you want to listen to music?' Festive garden backdrop, soft sunlight, encouraging friendly performance, no text, no logos."
+    },
+    {
+      "id": "invitation-response",
+      "runtime_filename": "a1_u7_outing_v1_invitation_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 7 parity mission: the fourth voice gate response view accepting the invitation and completing A1."
+      },
+      "prompt": "A joyful celebration scene in front of the stage: the learner in the audience smiling brightly, clapping hands with delight and appreciation: 'Yes, thank you. I like listening to music.' Warm golden hour daylight, celebratory confetti in air, festive garden atmosphere, no text, no logos."
+    }
+  ]
+}

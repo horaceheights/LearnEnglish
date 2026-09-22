@@ -12,19 +12,55 @@
   "goal": "Synthesize all A1 language structures in a comprehensive narrative challenge and complete final voice gates.",
   "vocabulary": [],
   "review_vocabulary": [
-    "teacher",
-    "helping",
-    "writing",
-    "reading",
+    "head",
+    "eyes",
+    "ears",
+    "mouth",
+    "arms",
+    "hands",
+    "legs",
+    "feet",
     "happy",
-    "sitting",
-    "chair",
-    "eating",
-    "mother",
-    "father",
-    "parents",
-    "grandfather",
-    "grandmother"
+    "sad",
+    "tired",
+    "hungry",
+    "thirsty",
+    "How are you?",
+    "shirt",
+    "pants",
+    "dress",
+    "jacket",
+    "shoes",
+    "hat",
+    "socks",
+    "skirt",
+    "sunny",
+    "rainy",
+    "hot",
+    "cold",
+    "windy",
+    "cloudy",
+    "umbrella",
+    "boots",
+    "watching",
+    "TV",
+    "music",
+    "listening to",
+    "watching TV",
+    "listening to music",
+    "Do you want to...?",
+    "watch TV",
+    "listen to music",
+    "read",
+    "play",
+    "help",
+    "understand",
+    "repeat",
+    "slowly",
+    "I need help.",
+    "I do not understand.",
+    "Please repeat.",
+    "Please speak slowly."
   ],
   "grammar_function": "Full A1 cumulative grammar synthesis: present continuous, states, actions, and polite responses.",
   "prerequisite": "Lessons 1.1 through 7.9 completed.",
@@ -38,232 +74,212 @@
     {
       "slide_id": "M01",
       "interaction_type": "mission-game",
-      "prompt": "The mother is talking to the teacher. The father is helping the girl. The boy is writing. The grandmother is reading a book.",
+      "prompt": "It is sunny. It is hot. I need a hat. It is rainy. I need an umbrella and boots. It is windy. It is cold. I need a jacket. It is cloudy. I need boots.",
       "stage": "Listen",
-      "correct_option_id": "mother-teacher",
+      "correct_option_id": "weather-prep-1",
       "correct_option_ids": [
-        "mother-teacher",
-        "father-helping",
-        "boy-writing",
-        "grandmother-reading"
+        "weather-prep-1",
+        "weather-prep-2",
+        "weather-prep-3",
+        "weather-prep-4"
       ],
       "options": [
         {
-          "id": "mother-teacher",
+          "id": "weather-prep-1",
           "image_url": "",
-          "label": "The mother is talking to the teacher."
+          "label": "It is sunny. It is hot. I need a hat."
         },
         {
-          "id": "father-helping",
+          "id": "weather-prep-2",
           "image_url": "",
-          "label": "The father is helping the girl."
+          "label": "It is rainy. I need an umbrella and boots."
         },
         {
-          "id": "boy-writing",
+          "id": "weather-prep-3",
           "image_url": "",
-          "label": "The boy is writing."
+          "label": "It is windy. It is cold. I need a jacket."
         },
         {
-          "id": "grandmother-reading",
+          "id": "weather-prep-4",
           "image_url": "",
-          "label": "The grandmother is reading a book."
+          "label": "It is cloudy. I need boots."
         }
       ],
-      "audio_text": "The mother is talking to the teacher. The father is helping the girl. The boy is writing. The grandmother is reading a book.",
+      "audio_text": "It is sunny. It is hot. I need a hat. It is rainy. I need an umbrella and boots. It is windy. It is cold. I need a jacket. It is cloudy. I need boots.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp",
-      "spanish_translation": "La madre habla con la maestra, el padre ayuda a la ni\u00f1a, el ni\u00f1o est\u00e1 escribiendo y la abuela lee un libro.",
-      "pedagogy_note": "Mission beat 01/03: the learner tracks four family members across the courtyard during event preparation.",
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp",
+      "spanish_translation": "Est\u00e1 soleado. Hace calor. Necesito un sombrero. Est\u00e1 lluvioso. Necesito un paraguas y botas. Est\u00e1 ventoso. Hace fr\u00edo. Necesito una chamarra. Est\u00e1 nublado. Necesito botas.",
+      "pedagogy_note": "Mission beat 01/13: Revisa el clima para la salida: toca la estaci\u00f3n seg\u00fan lo que escuchas.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "The mother is talking to the teacher.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp"
+          "text": "It is sunny. It is hot. I need a hat.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp"
         },
         {
-          "text": "The father is helping the girl.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp"
+          "text": "It is rainy. I need an umbrella and boots.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp"
         },
         {
-          "text": "The boy is writing.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp"
+          "text": "It is windy. It is cold. I need a jacket.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp"
         },
         {
-          "text": "The grandmother is reading a book.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp"
+          "text": "It is cloudy. I need boots.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c001-mission-intro-4e279a12bebfcc6c03fa",
+          "id": "lesson-7-10-a1-final-mission-c001-mission-intro-3c2ae39c7ae18144d7e2",
           "purpose": "mission-intro",
-          "text": "\u00daltima misi\u00f3n del nivel A1: acompa\u00f1a a la familia en la gran celebraci\u00f3n. Sigue las acciones de cada persona, escucha con atenci\u00f3n y responde en voz alta.",
+          "text": "\u00daltima misi\u00f3n del nivel A1: acompa\u00f1a a la familia en la gran celebraci\u00f3n y salida al parque. Escucha cada pista y toca el clima, la ropa, c\u00f3mo se siente cada persona, las actividades y las indicaciones. Al final, responde cuatro veces en voz alta para completar tu certificaci\u00f3n A1.",
           "mode": "prompt",
           "variant": "mission-intro",
-          "image_ref": "/lesson-assets/a1_u7_mission_kickoff.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_kickoff.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-1-39fb6ab5841db6cb128f",
+          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-1-7875aeb8334f85678335",
           "purpose": "prompt-turn-1",
-          "text": "The mother is talking to the teacher.",
+          "text": "It is sunny. It is hot. I need a hat.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-2-e941a3e52978ff0f0a1e",
+          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-2-8eac872884503cb5549a",
           "purpose": "prompt-turn-2",
-          "text": "The father is helping the girl.",
+          "text": "It is rainy. I need an umbrella and boots.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-3-edf0f77748f5fed2404e",
+          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-3-2a78a4f710988df390e1",
           "purpose": "prompt-turn-3",
-          "text": "The boy is writing.",
+          "text": "It is windy. It is cold. I need a jacket.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-4-19a708985c090ce58211",
+          "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-4-e8214cb49eb3e1b3d7bc",
           "purpose": "prompt-turn-4",
-          "text": "The grandmother is reading a book.",
+          "text": "It is cloudy. I need boots.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-10-a1-final-mission-c001-answer-026c5a8042b259a67e9e",
-          "purpose": "answer",
-          "text": "The mother is talking to the teacher.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u7_scene_01_courtyard_fullframe_v2.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
-      "mission_chapter_id": "ch1-courtyard-setup",
+      "mission_chapter_id": "clima",
       "mission_game": {
         "kind": "guided-search",
         "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
-            "id": "mother-teacher",
-            "label_es": "Madre y maestra",
+            "id": "weather-prep-1",
+            "label_es": "Est\u00e1 soleado. Hace calor. Necesito un sombrero.",
             "rect": {
-              "x": 0.271,
-              "y": 0.327,
-              "width": 0.142,
-              "height": 0.386
+              "x": 0.05,
+              "y": 0.25,
+              "width": 0.18,
+              "height": 0.55
             },
             "accepted_option_ids": [
-              "mother-teacher"
+              "weather-prep-1"
             ],
             "head_anchors": [
               {
-                "x": 0.306,
-                "y": 0.34
-              },
-              {
-                "x": 0.368,
-                "y": 0.328
+                "x": 0.14,
+                "y": 0.26
               }
             ],
             "group_chest_anchor": null
           },
           {
-            "id": "father-helping",
-            "label_es": "Padre ayudando",
+            "id": "weather-prep-2",
+            "label_es": "Est\u00e1 lluvioso. Necesito un paraguas y botas.",
             "rect": {
-              "x": 0.418,
-              "y": 0.279,
-              "width": 0.12,
-              "height": 0.428
+              "x": 0.28,
+              "y": 0.2,
+              "width": 0.19,
+              "height": 0.62
             },
             "accepted_option_ids": [
-              "father-helping"
+              "weather-prep-2"
             ],
             "head_anchors": [
               {
-                "x": 0.467,
-                "y": 0.279
-              },
-              {
-                "x": 0.512,
-                "y": 0.306
+                "x": 0.37,
+                "y": 0.21
               }
             ],
             "group_chest_anchor": null
           },
           {
-            "id": "boy-writing",
-            "label_es": "Ni\u00f1o escribiendo",
+            "id": "weather-prep-3",
+            "label_es": "Est\u00e1 ventoso. Hace fr\u00edo. Necesito una chamarra.",
             "rect": {
-              "x": 0.4625,
-              "y": 0.481,
-              "width": 0.12,
-              "height": 0.302
+              "x": 0.52,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.6
             },
             "accepted_option_ids": [
-              "boy-writing"
+              "weather-prep-3"
             ],
             "head_anchors": [
               {
-                "x": 0.535,
-                "y": 0.479
+                "x": 0.61,
+                "y": 0.23
               }
             ],
             "group_chest_anchor": null
           },
           {
-            "id": "grandmother-reading",
-            "label_es": "Abuela leyendo",
+            "id": "weather-prep-4",
+            "label_es": "Est\u00e1 nublado. Necesito botas.",
             "rect": {
-              "x": 0.604,
-              "y": 0.448,
-              "width": 0.165,
-              "height": 0.434
+              "x": 0.75,
+              "y": 0.28,
+              "width": 0.19,
+              "height": 0.52
             },
             "accepted_option_ids": [
-              "grandmother-reading"
+              "weather-prep-4"
             ],
             "head_anchors": [
               {
-                "x": 0.717,
-                "y": 0.45
+                "x": 0.84,
+                "y": 0.29
               }
             ],
             "group_chest_anchor": null
@@ -271,251 +287,235 @@
         ],
         "cues": [
           {
-            "id": "cue-mother-teacher",
-            "text": "The mother is talking to the teacher.",
-            "answer_text": "The mother is talking to the teacher.",
-            "target_id": "mother-teacher",
-            "option_id": "mother-teacher"
+            "id": "cue-weather-prep-1",
+            "text": "It is sunny. It is hot. I need a hat.",
+            "answer_text": "It is sunny. It is hot. I need a hat.",
+            "target_id": "weather-prep-1",
+            "option_id": "weather-prep-1"
           },
           {
-            "id": "cue-father-helping",
-            "text": "The father is helping the girl.",
-            "answer_text": "The father is helping the girl.",
-            "target_id": "father-helping",
-            "option_id": "father-helping"
+            "id": "cue-weather-prep-2",
+            "text": "It is rainy. I need an umbrella and boots.",
+            "answer_text": "It is rainy. I need an umbrella and boots.",
+            "target_id": "weather-prep-2",
+            "option_id": "weather-prep-2"
           },
           {
-            "id": "cue-boy-writing",
-            "text": "The boy is writing.",
-            "answer_text": "The boy is writing.",
-            "target_id": "boy-writing",
-            "option_id": "boy-writing"
+            "id": "cue-weather-prep-3",
+            "text": "It is windy. It is cold. I need a jacket.",
+            "answer_text": "It is windy. It is cold. I need a jacket.",
+            "target_id": "weather-prep-3",
+            "option_id": "weather-prep-3"
           },
           {
-            "id": "cue-grandmother-reading",
-            "text": "The grandmother is reading a book.",
-            "answer_text": "The grandmother is reading a book.",
-            "target_id": "grandmother-reading",
-            "option_id": "grandmother-reading"
+            "id": "cue-weather-prep-4",
+            "text": "It is cloudy. I need boots.",
+            "answer_text": "It is cloudy. I need boots.",
+            "target_id": "weather-prep-4",
+            "option_id": "weather-prep-4"
           }
         ],
-        "tutorial_mode": null,
+        "tutorial_mode": "guided-no-fail",
         "cue_audio_text": null
       }
     },
     {
       "slide_id": "M02",
       "interaction_type": "mission-game",
-      "prompt": "The grandfather is sitting on the chair. The parents are happy. The girl is playing. The boy is eating an apple.",
+      "prompt": "She has a red dress. He has a yellow shirt. She has a blue jacket and a green skirt. He has blue pants and black shoes.",
       "stage": "Listen",
-      "correct_option_id": "grandfather-chair",
+      "correct_option_id": "clothing-line-1",
       "correct_option_ids": [
-        "grandfather-chair",
-        "parents-happy",
-        "girl-playing",
-        "boy-eating"
+        "clothing-line-1",
+        "clothing-line-2",
+        "clothing-line-3",
+        "clothing-line-4"
       ],
       "options": [
         {
-          "id": "grandfather-chair",
+          "id": "clothing-line-1",
           "image_url": "",
-          "label": "The grandfather is sitting on the chair."
+          "label": "She has a red dress."
         },
         {
-          "id": "parents-happy",
+          "id": "clothing-line-2",
           "image_url": "",
-          "label": "The parents are happy."
+          "label": "He has a yellow shirt."
         },
         {
-          "id": "girl-playing",
+          "id": "clothing-line-3",
           "image_url": "",
-          "label": "The girl is playing."
+          "label": "She has a blue jacket and a green skirt."
         },
         {
-          "id": "boy-eating",
+          "id": "clothing-line-4",
           "image_url": "",
-          "label": "The boy is eating an apple."
+          "label": "He has blue pants and black shoes."
         }
       ],
-      "audio_text": "The grandfather is sitting on the chair. The parents are happy. The girl is playing. The boy is eating an apple.",
+      "audio_text": "She has a red dress. He has a yellow shirt. She has a blue jacket and a green skirt. He has blue pants and black shoes.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp",
-      "spanish_translation": "El abuelo est\u00e1 sentado en la silla, los padres est\u00e1n felices, la ni\u00f1a est\u00e1 jugando y el ni\u00f1o come una manzana.",
-      "pedagogy_note": "Mission beat 02/03: the learner identifies the celebration hall gathering: resting grandfather, happy parents, playing girl, and eating boy.",
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp",
+      "spanish_translation": "Ella tiene un vestido rojo. \u00c9l tiene una camisa amarilla. Ella tiene una chamarra azul y una falda verde. \u00c9l tiene pantalones azules y zapatos negros.",
+      "pedagogy_note": "Mission beat 02/13: Encuentra qu\u00e9 ropa lleva cada persona en la reuni\u00f3n familiar.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "The grandfather is sitting on the chair.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp"
+          "text": "She has a red dress.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp"
         },
         {
-          "text": "The parents are happy.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp"
+          "text": "He has a yellow shirt.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp"
         },
         {
-          "text": "The girl is playing.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp"
+          "text": "She has a blue jacket and a green skirt.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp"
         },
         {
-          "text": "The boy is eating an apple.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp"
+          "text": "He has blue pants and black shoes.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-1-559a3ae2b9294ebc75a1",
+          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-1-c0e0657a53a8654b969a",
           "purpose": "prompt-turn-1",
-          "text": "The grandfather is sitting on the chair.",
+          "text": "She has a red dress.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-2-32cc3667390a2ace7d43",
+          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-2-fb7b16fee40cfdb2a5f1",
           "purpose": "prompt-turn-2",
-          "text": "The parents are happy.",
+          "text": "He has a yellow shirt.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-3-da3021b03634aa973b92",
+          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-3-c2e8ceb753fbcc2727f9",
           "purpose": "prompt-turn-3",
-          "text": "The girl is playing.",
+          "text": "She has a blue jacket and a green skirt.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-4-528968e379f030c86cd6",
+          "id": "lesson-7-10-a1-final-mission-c002-prompt-turn-4-b9ba3cc6cd236c9e87d5",
           "purpose": "prompt-turn-4",
-          "text": "The boy is eating an apple.",
+          "text": "He has blue pants and black shoes.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_clothing_line.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-10-a1-final-mission-c002-answer-a7737a912701f24d65ca",
-          "purpose": "answer",
-          "text": "The grandfather is sitting on the chair.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u7_scene_02_entrance_hall_fullframe_v2.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
-      "mission_chapter_id": "ch2-hall-celebration",
+      "mission_chapter_id": "ropa",
       "mission_game": {
-        "kind": "guided-search",
+        "kind": "crowd-search",
         "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
-            "id": "grandfather-chair",
-            "label_es": "Abuelo sentado",
+            "id": "clothing-line-1",
+            "label_es": "Ella tiene un vestido rojo.",
             "rect": {
-              "x": 0.207,
-              "y": 0.47,
-              "width": 0.143,
-              "height": 0.426
+              "x": 0.06,
+              "y": 0.18,
+              "width": 0.18,
+              "height": 0.68
             },
             "accepted_option_ids": [
-              "grandfather-chair"
+              "clothing-line-1"
             ],
             "head_anchors": [
               {
-                "x": 0.266,
-                "y": 0.469
+                "x": 0.15,
+                "y": 0.19
               }
             ],
             "group_chest_anchor": null
           },
           {
-            "id": "parents-happy",
-            "label_es": "Padres felices",
+            "id": "clothing-line-2",
+            "label_es": "\u00c9l tiene una camisa amarilla.",
             "rect": {
-              "x": 0.348,
-              "y": 0.34,
-              "width": 0.135,
-              "height": 0.455
+              "x": 0.29,
+              "y": 0.18,
+              "width": 0.18,
+              "height": 0.68
             },
             "accepted_option_ids": [
-              "parents-happy"
+              "clothing-line-2"
             ],
             "head_anchors": [
               {
-                "x": 0.388,
-                "y": 0.372
-              },
-              {
-                "x": 0.43,
-                "y": 0.342
+                "x": 0.38,
+                "y": 0.19
               }
             ],
             "group_chest_anchor": null
           },
           {
-            "id": "girl-playing",
-            "label_es": "Ni\u00f1a jugando",
+            "id": "clothing-line-3",
+            "label_es": "Ella tiene una chamarra azul y una falda verde.",
             "rect": {
-              "x": 0.481,
-              "y": 0.546,
-              "width": 0.12,
-              "height": 0.274
+              "x": 0.52,
+              "y": 0.22,
+              "width": 0.18,
+              "height": 0.64
             },
             "accepted_option_ids": [
-              "girl-playing"
+              "clothing-line-3"
             ],
             "head_anchors": [
               {
-                "x": 0.527,
-                "y": 0.547
+                "x": 0.61,
+                "y": 0.23
               }
             ],
             "group_chest_anchor": null
           },
           {
-            "id": "boy-eating",
-            "label_es": "Ni\u00f1o comiendo",
+            "id": "clothing-line-4",
+            "label_es": "\u00c9l tiene pantalones azules y zapatos negros.",
             "rect": {
-              "x": 0.6675,
-              "y": 0.482,
-              "width": 0.12,
-              "height": 0.368
+              "x": 0.74,
+              "y": 0.25,
+              "width": 0.18,
+              "height": 0.61
             },
             "accepted_option_ids": [
-              "boy-eating"
+              "clothing-line-4"
             ],
             "head_anchors": [
               {
-                "x": 0.731,
-                "y": 0.482
+                "x": 0.83,
+                "y": 0.26
               }
             ],
             "group_chest_anchor": null
@@ -523,32 +523,32 @@
         ],
         "cues": [
           {
-            "id": "cue-grandfather-chair",
-            "text": "The grandfather is sitting on the chair.",
-            "answer_text": "The grandfather is sitting on the chair.",
-            "target_id": "grandfather-chair",
-            "option_id": "grandfather-chair"
+            "id": "cue-clothing-line-1",
+            "text": "She has a red dress.",
+            "answer_text": "She has a red dress.",
+            "target_id": "clothing-line-1",
+            "option_id": "clothing-line-1"
           },
           {
-            "id": "cue-parents-happy",
-            "text": "The parents are happy.",
-            "answer_text": "The parents are happy.",
-            "target_id": "parents-happy",
-            "option_id": "parents-happy"
+            "id": "cue-clothing-line-2",
+            "text": "He has a yellow shirt.",
+            "answer_text": "He has a yellow shirt.",
+            "target_id": "clothing-line-2",
+            "option_id": "clothing-line-2"
           },
           {
-            "id": "cue-girl-playing",
-            "text": "The girl is playing.",
-            "answer_text": "The girl is playing.",
-            "target_id": "girl-playing",
-            "option_id": "girl-playing"
+            "id": "cue-clothing-line-3",
+            "text": "She has a blue jacket and a green skirt.",
+            "answer_text": "She has a blue jacket and a green skirt.",
+            "target_id": "clothing-line-3",
+            "option_id": "clothing-line-3"
           },
           {
-            "id": "cue-boy-eating",
-            "text": "The boy is eating an apple.",
-            "answer_text": "The boy is eating an apple.",
-            "target_id": "boy-eating",
-            "option_id": "boy-eating"
+            "id": "cue-clothing-line-4",
+            "text": "He has blue pants and black shoes.",
+            "answer_text": "He has blue pants and black shoes.",
+            "target_id": "clothing-line-4",
+            "option_id": "clothing-line-4"
           }
         ],
         "tutorial_mode": null,
@@ -557,81 +557,201 @@
     },
     {
       "slide_id": "M03",
-      "interaction_type": "mission-finale",
-      "prompt": "I am happy.",
-      "stage": "Speak",
-      "correct_option_id": "voice-happy-graduation",
+      "interaction_type": "mission-game",
+      "prompt": "How are you? I am happy. I am tired. I am hungry. I am thirsty.",
+      "stage": "Listen",
+      "correct_option_id": "feelings-1",
+      "correct_option_ids": [
+        "feelings-1",
+        "feelings-2",
+        "feelings-3",
+        "feelings-4"
+      ],
       "options": [
         {
-          "id": "voice-happy-graduation",
-          "image_url": "/lesson-assets/a1_u7_scene_03_stage_podium_fullframe_v2.webp",
-          "label": "I am happy."
+          "id": "feelings-1",
+          "image_url": "",
+          "label": "How are you? I am happy."
+        },
+        {
+          "id": "feelings-2",
+          "image_url": "",
+          "label": "I am tired."
+        },
+        {
+          "id": "feelings-3",
+          "image_url": "",
+          "label": "I am hungry."
+        },
+        {
+          "id": "feelings-4",
+          "image_url": "",
+          "label": "I am thirsty."
         }
       ],
-      "audio_text": "I am happy.",
+      "audio_text": "How are you? I am happy. I am tired. I am hungry. I am thirsty.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_u7_scene_03_stage_podium_fullframe_v2.webp",
-      "spanish_translation": "Estoy feliz.",
-      "pedagogy_note": "Mission beat 03/03: the learner completes the A1 course finale by answering the teacher aloud at the celebration podium.",
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp",
+      "spanish_translation": "\u00bfC\u00f3mo est\u00e1s? Estoy feliz. Estoy cansado. Tengo hambre. Tengo sed.",
+      "pedagogy_note": "Mission beat 03/13: Escucha c\u00f3mo se siente cada familiar antes de comenzar las actividades.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "How are you?",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u7_scene_03_stage_podium_fullframe_v2.webp"
+          "text": "How are you? I am happy.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
+        },
+        {
+          "text": "I am tired.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
+        },
+        {
+          "text": "I am hungry.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
+        },
+        {
+          "text": "I am thirsty.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c003-mission-cue-54189b50951304e4843e",
-          "purpose": "mission-cue",
-          "text": "How are you?",
+          "id": "lesson-7-10-a1-final-mission-c003-prompt-turn-1-fd6a1347dc874430f5f0",
+          "purpose": "prompt-turn-1",
+          "text": "How are you? I am happy.",
           "mode": "prompt",
-          "variant": "question",
-          "image_ref": "/lesson-assets/a1_u7_scene_03_stage_podium_fullframe_v2.webp",
-          "semantic_role": "question",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_feelings.webp",
+          "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c003-prompt-turn-1-20f684b269d88b49fef1",
-          "purpose": "prompt-turn-1",
-          "text": "How are you?",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u7_scene_03_stage_podium_fullframe_v2.webp",
-          "semantic_role": "question",
-          "speaker_role": "female-character",
+          "id": "lesson-7-10-a1-final-mission-c003-prompt-turn-2-e36e6a9f3dad7ac45ecb",
+          "purpose": "prompt-turn-2",
+          "text": "I am tired.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_feelings.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c003-prompt-turn-3-8a3d471ad1c29166e1f5",
+          "purpose": "prompt-turn-3",
+          "text": "I am hungry.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_feelings.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c003-prompt-turn-4-3867bd8e7426797cdd6d",
+          "purpose": "prompt-turn-4",
+          "text": "I am thirsty.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_feelings.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
-      "mission_chapter_id": "ch3-grand-finale",
+      "mission_chapter_id": "estados",
       "mission_game": {
-        "kind": "voice-gate",
-        "instruction_es": "Escucha y responde en voz alta al llegar al podio.",
-        "validation": "single",
+        "kind": "action-hunt",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
+        "validation": "ordered",
         "targets": [
           {
-            "id": "stage-podium",
-            "label_es": "Podio de graduaci\u00f3n",
+            "id": "feelings-1",
+            "label_es": "\u00bfC\u00f3mo est\u00e1s? Estoy feliz.",
             "rect": {
-              "x": 0.357,
-              "y": 0.311,
-              "width": 0.343,
-              "height": 0.689
+              "x": 0.05,
+              "y": 0.2,
+              "width": 0.19,
+              "height": 0.65
             },
             "accepted_option_ids": [
-              "voice-happy-graduation"
+              "feelings-1"
             ],
             "head_anchors": [
               {
-                "x": 0.438,
-                "y": 0.316
+                "x": 0.14,
+                "y": 0.21
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "feelings-2",
+            "label_es": "Estoy cansado.",
+            "rect": {
+              "x": 0.28,
+              "y": 0.24,
+              "width": 0.19,
+              "height": 0.61
+            },
+            "accepted_option_ids": [
+              "feelings-2"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.25
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "feelings-3",
+            "label_es": "Tengo hambre.",
+            "rect": {
+              "x": 0.51,
+              "y": 0.25,
+              "width": 0.19,
+              "height": 0.6
+            },
+            "accepted_option_ids": [
+              "feelings-3"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.26
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "feelings-4",
+            "label_es": "Tengo sed.",
+            "rect": {
+              "x": 0.74,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.63
+            },
+            "accepted_option_ids": [
+              "feelings-4"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.83,
+                "y": 0.23
               }
             ],
             "group_chest_anchor": null
@@ -639,50 +759,1882 @@
         ],
         "cues": [
           {
-            "id": "stage-podium",
-            "text": "How are you?",
-            "answer_text": "I am happy.",
-            "target_id": "stage-podium",
-            "option_id": "voice-happy-graduation"
+            "id": "cue-feelings-1",
+            "text": "How are you? I am happy.",
+            "answer_text": "How are you? I am happy.",
+            "target_id": "feelings-1",
+            "option_id": "feelings-1"
+          },
+          {
+            "id": "cue-feelings-2",
+            "text": "I am tired.",
+            "answer_text": "I am tired.",
+            "target_id": "feelings-2",
+            "option_id": "feelings-2"
+          },
+          {
+            "id": "cue-feelings-3",
+            "text": "I am hungry.",
+            "answer_text": "I am hungry.",
+            "target_id": "feelings-3",
+            "option_id": "feelings-3"
+          },
+          {
+            "id": "cue-feelings-4",
+            "text": "I am thirsty.",
+            "answer_text": "I am thirsty.",
+            "target_id": "feelings-4",
+            "option_id": "feelings-4"
           }
         ],
         "tutorial_mode": null,
-        "cue_audio_text": "How are you?"
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M04",
+      "interaction_type": "mission-game",
+      "prompt": "My head is warm. My eyes and ears. My hands and arms. My legs and feet.",
+      "stage": "Listen",
+      "correct_option_id": "body-health-1",
+      "correct_option_ids": [
+        "body-health-1",
+        "body-health-2",
+        "body-health-3",
+        "body-health-4"
+      ],
+      "options": [
+        {
+          "id": "body-health-1",
+          "image_url": "",
+          "label": "My head is warm."
+        },
+        {
+          "id": "body-health-2",
+          "image_url": "",
+          "label": "My eyes and ears."
+        },
+        {
+          "id": "body-health-3",
+          "image_url": "",
+          "label": "My hands and arms."
+        },
+        {
+          "id": "body-health-4",
+          "image_url": "",
+          "label": "My legs and feet."
+        }
+      ],
+      "audio_text": "My head is warm. My eyes and ears. My hands and arms. My legs and feet.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp",
+      "spanish_translation": "Mi cabeza est\u00e1 caliente. Mis ojos y orejas. Mis manos y brazos. Mis piernas y pies.",
+      "pedagogy_note": "Mission beat 04/13: En la zona de bienestar, toca la parte del cuerpo que demuestra cada persona.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "My head is warm.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
+        },
+        {
+          "text": "My eyes and ears.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
+        },
+        {
+          "text": "My hands and arms.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
+        },
+        {
+          "text": "My legs and feet.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c004-prompt-turn-1-61a88808367f2db83bb3",
+          "purpose": "prompt-turn-1",
+          "text": "My head is warm.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_body_health.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c004-prompt-turn-2-18731185c2700e76117b",
+          "purpose": "prompt-turn-2",
+          "text": "My eyes and ears.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_body_health.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c004-prompt-turn-3-52a1d3ed4a3eebee072d",
+          "purpose": "prompt-turn-3",
+          "text": "My hands and arms.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_body_health.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c004-prompt-turn-4-5a8e24f831f840f5e4dd",
+          "purpose": "prompt-turn-4",
+          "text": "My legs and feet.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_body_health.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "cuerpo",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "body-health-1",
+            "label_es": "Mi cabeza est\u00e1 caliente.",
+            "rect": {
+              "x": 0.06,
+              "y": 0.16,
+              "width": 0.18,
+              "height": 0.7
+            },
+            "accepted_option_ids": [
+              "body-health-1"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.17
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "body-health-2",
+            "label_es": "Mis ojos y orejas.",
+            "rect": {
+              "x": 0.29,
+              "y": 0.18,
+              "width": 0.18,
+              "height": 0.68
+            },
+            "accepted_option_ids": [
+              "body-health-2"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.38,
+                "y": 0.19
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "body-health-3",
+            "label_es": "Mis manos y brazos.",
+            "rect": {
+              "x": 0.52,
+              "y": 0.24,
+              "width": 0.18,
+              "height": 0.62
+            },
+            "accepted_option_ids": [
+              "body-health-3"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.61,
+                "y": 0.25
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "body-health-4",
+            "label_es": "Mis piernas y pies.",
+            "rect": {
+              "x": 0.74,
+              "y": 0.2,
+              "width": 0.18,
+              "height": 0.66
+            },
+            "accepted_option_ids": [
+              "body-health-4"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.83,
+                "y": 0.21
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-body-health-1",
+            "text": "My head is warm.",
+            "answer_text": "My head is warm.",
+            "target_id": "body-health-1",
+            "option_id": "body-health-1"
+          },
+          {
+            "id": "cue-body-health-2",
+            "text": "My eyes and ears.",
+            "answer_text": "My eyes and ears.",
+            "target_id": "body-health-2",
+            "option_id": "body-health-2"
+          },
+          {
+            "id": "cue-body-health-3",
+            "text": "My hands and arms.",
+            "answer_text": "My hands and arms.",
+            "target_id": "body-health-3",
+            "option_id": "body-health-3"
+          },
+          {
+            "id": "cue-body-health-4",
+            "text": "My legs and feet.",
+            "answer_text": "My legs and feet.",
+            "target_id": "body-health-4",
+            "option_id": "body-health-4"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M05",
+      "interaction_type": "mission-game",
+      "prompt": "I like reading. I like playing. I like listening to music. I do not like watching TV.",
+      "stage": "Listen",
+      "correct_option_id": "hobbies-1",
+      "correct_option_ids": [
+        "hobbies-1",
+        "hobbies-2",
+        "hobbies-3",
+        "hobbies-4"
+      ],
+      "options": [
+        {
+          "id": "hobbies-1",
+          "image_url": "",
+          "label": "I like reading."
+        },
+        {
+          "id": "hobbies-2",
+          "image_url": "",
+          "label": "I like playing."
+        },
+        {
+          "id": "hobbies-3",
+          "image_url": "",
+          "label": "I like listening to music."
+        },
+        {
+          "id": "hobbies-4",
+          "image_url": "",
+          "label": "I do not like watching TV."
+        }
+      ],
+      "audio_text": "I like reading. I like playing. I like listening to music. I do not like watching TV.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp",
+      "spanish_translation": "Me gusta leer. Me gusta jugar. Me gusta escuchar m\u00fasica. No me gusta ver televisi\u00f3n.",
+      "pedagogy_note": "Mission beat 05/13: Escucha qu\u00e9 le gusta y qu\u00e9 no le gusta hacer a cada familiar en el parque.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "I like reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
+        },
+        {
+          "text": "I like playing.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
+        },
+        {
+          "text": "I like listening to music.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
+        },
+        {
+          "text": "I do not like watching TV.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c005-prompt-turn-1-f7dff13793f82e4e94ba",
+          "purpose": "prompt-turn-1",
+          "text": "I like reading.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_hobbies.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c005-prompt-turn-2-998b1aef6aad0cf5cb8f",
+          "purpose": "prompt-turn-2",
+          "text": "I like playing.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_hobbies.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c005-prompt-turn-3-7dc2511f521a849fc044",
+          "purpose": "prompt-turn-3",
+          "text": "I like listening to music.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_hobbies.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c005-prompt-turn-4-b9851ddb81d6b9254e19",
+          "purpose": "prompt-turn-4",
+          "text": "I do not like watching TV.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_hobbies.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "pasatiempos",
+      "mission_game": {
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "hobbies-1",
+            "label_es": "Me gusta leer.",
+            "rect": {
+              "x": 0.05,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.63
+            },
+            "accepted_option_ids": [
+              "hobbies-1"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.14,
+                "y": 0.23
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "hobbies-2",
+            "label_es": "Me gusta jugar.",
+            "rect": {
+              "x": 0.28,
+              "y": 0.32,
+              "width": 0.19,
+              "height": 0.53
+            },
+            "accepted_option_ids": [
+              "hobbies-2"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.33
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "hobbies-3",
+            "label_es": "Me gusta escuchar m\u00fasica.",
+            "rect": {
+              "x": 0.51,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.63
+            },
+            "accepted_option_ids": [
+              "hobbies-3"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.23
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "hobbies-4",
+            "label_es": "No me gusta ver televisi\u00f3n.",
+            "rect": {
+              "x": 0.74,
+              "y": 0.18,
+              "width": 0.19,
+              "height": 0.67
+            },
+            "accepted_option_ids": [
+              "hobbies-4"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.83,
+                "y": 0.19
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-hobbies-1",
+            "text": "I like reading.",
+            "answer_text": "I like reading.",
+            "target_id": "hobbies-1",
+            "option_id": "hobbies-1"
+          },
+          {
+            "id": "cue-hobbies-2",
+            "text": "I like playing.",
+            "answer_text": "I like playing.",
+            "target_id": "hobbies-2",
+            "option_id": "hobbies-2"
+          },
+          {
+            "id": "cue-hobbies-3",
+            "text": "I like listening to music.",
+            "answer_text": "I like listening to music.",
+            "target_id": "hobbies-3",
+            "option_id": "hobbies-3"
+          },
+          {
+            "id": "cue-hobbies-4",
+            "text": "I do not like watching TV.",
+            "answer_text": "I do not like watching TV.",
+            "target_id": "hobbies-4",
+            "option_id": "hobbies-4"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M06",
+      "interaction_type": "mission-game",
+      "prompt": "Do you want to play? Yes, thank you. Do you want to read? Sorry, no.",
+      "stage": "Listen",
+      "correct_option_id": "invitations-1",
+      "correct_option_ids": [
+        "invitations-1",
+        "invitations-2",
+        "invitations-3",
+        "invitations-4"
+      ],
+      "options": [
+        {
+          "id": "invitations-1",
+          "image_url": "",
+          "label": "Do you want to play?"
+        },
+        {
+          "id": "invitations-2",
+          "image_url": "",
+          "label": "Yes, thank you."
+        },
+        {
+          "id": "invitations-3",
+          "image_url": "",
+          "label": "Do you want to read?"
+        },
+        {
+          "id": "invitations-4",
+          "image_url": "",
+          "label": "Sorry, no."
+        }
+      ],
+      "audio_text": "Do you want to play? Yes, thank you. Do you want to read? Sorry, no.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
+      "spanish_translation": "\u00bfQuieres jugar? S\u00ed, gracias. \u00bfQuieres leer? Lo siento, no.",
+      "pedagogy_note": "Mission beat 06/13: Cuatro amigos se invitan y responden: toca a quien corresponde cada frase.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Do you want to play?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
+        },
+        {
+          "text": "Yes, thank you.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
+        },
+        {
+          "text": "Do you want to read?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c006-prompt-turn-1-8af7c893b81c00226824",
+          "purpose": "prompt-turn-1",
+          "text": "Do you want to play?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c006-prompt-turn-2-d5149e9a9ad6a8ac95a8",
+          "purpose": "prompt-turn-2",
+          "text": "Yes, thank you.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c006-prompt-turn-3-564713fe7d1c61e3aec3",
+          "purpose": "prompt-turn-3",
+          "text": "Do you want to read?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c006-prompt-turn-4-a8715899da6741ef7cbe",
+          "purpose": "prompt-turn-4",
+          "text": "Sorry, no.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "invitaciones",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "invitations-1",
+            "label_es": "\u00bfQuieres jugar?",
+            "rect": {
+              "x": 0.05,
+              "y": 0.24,
+              "width": 0.19,
+              "height": 0.62
+            },
+            "accepted_option_ids": [
+              "invitations-1"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.14,
+                "y": 0.25
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "invitations-2",
+            "label_es": "S\u00ed, gracias.",
+            "rect": {
+              "x": 0.28,
+              "y": 0.2,
+              "width": 0.19,
+              "height": 0.66
+            },
+            "accepted_option_ids": [
+              "invitations-2"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.21
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "invitations-3",
+            "label_es": "\u00bfQuieres leer?",
+            "rect": {
+              "x": 0.51,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.64
+            },
+            "accepted_option_ids": [
+              "invitations-3"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.23
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "invitations-4",
+            "label_es": "Lo siento, no.",
+            "rect": {
+              "x": 0.74,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.64
+            },
+            "accepted_option_ids": [
+              "invitations-4"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.83,
+                "y": 0.23
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-invitations-1",
+            "text": "Do you want to play?",
+            "answer_text": "Do you want to play?",
+            "target_id": "invitations-1",
+            "option_id": "invitations-1"
+          },
+          {
+            "id": "cue-invitations-2",
+            "text": "Yes, thank you.",
+            "answer_text": "Yes, thank you.",
+            "target_id": "invitations-2",
+            "option_id": "invitations-2"
+          },
+          {
+            "id": "cue-invitations-3",
+            "text": "Do you want to read?",
+            "answer_text": "Do you want to read?",
+            "target_id": "invitations-3",
+            "option_id": "invitations-3"
+          },
+          {
+            "id": "cue-invitations-4",
+            "text": "Sorry, no.",
+            "answer_text": "Sorry, no.",
+            "target_id": "invitations-4",
+            "option_id": "invitations-4"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M07",
+      "interaction_type": "mission-game",
+      "prompt": "It is five o'clock. How much is it? Water, please. Three red apples.",
+      "stage": "Listen",
+      "correct_option_id": "table-refreshments-1",
+      "correct_option_ids": [
+        "table-refreshments-1",
+        "table-refreshments-2",
+        "table-refreshments-3",
+        "table-refreshments-4"
+      ],
+      "options": [
+        {
+          "id": "table-refreshments-1",
+          "image_url": "",
+          "label": "It is five o'clock."
+        },
+        {
+          "id": "table-refreshments-2",
+          "image_url": "",
+          "label": "How much is it?"
+        },
+        {
+          "id": "table-refreshments-3",
+          "image_url": "",
+          "label": "Water, please."
+        },
+        {
+          "id": "table-refreshments-4",
+          "image_url": "",
+          "label": "Three red apples."
+        }
+      ],
+      "audio_text": "It is five o'clock. How much is it? Water, please. Three red apples.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp",
+      "spanish_translation": "Son las cinco en punto. \u00bfCu\u00e1nto cuesta? Agua, por favor. Tres manzanas rojas.",
+      "pedagogy_note": "Mission beat 07/13: En la mesa de comida y bebidas, encuentra la hora, el precio y las cosas.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "It is five o'clock.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp"
+        },
+        {
+          "text": "How much is it?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp"
+        },
+        {
+          "text": "Water, please.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp"
+        },
+        {
+          "text": "Three red apples.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c007-prompt-turn-1-e498dac9c4c451413626",
+          "purpose": "prompt-turn-1",
+          "text": "It is five o'clock.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c007-prompt-turn-2-2d58e1e075335663ff96",
+          "purpose": "prompt-turn-2",
+          "text": "How much is it?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c007-prompt-turn-3-06114b29c91e9845acfe",
+          "purpose": "prompt-turn-3",
+          "text": "Water, please.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c007-prompt-turn-4-d26b3dc7317e5e8e12af",
+          "purpose": "prompt-turn-4",
+          "text": "Three red apples.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_table_refreshments.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "mesa",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "table-refreshments-1",
+            "label_es": "Son las cinco en punto.",
+            "rect": {
+              "x": 0.06,
+              "y": 0.2,
+              "width": 0.18,
+              "height": 0.45
+            },
+            "accepted_option_ids": [
+              "table-refreshments-1"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.21
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "table-refreshments-2",
+            "label_es": "\u00bfCu\u00e1nto cuesta?",
+            "rect": {
+              "x": 0.28,
+              "y": 0.28,
+              "width": 0.19,
+              "height": 0.48
+            },
+            "accepted_option_ids": [
+              "table-refreshments-2"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.29
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "table-refreshments-3",
+            "label_es": "Agua, por favor.",
+            "rect": {
+              "x": 0.51,
+              "y": 0.25,
+              "width": 0.19,
+              "height": 0.52
+            },
+            "accepted_option_ids": [
+              "table-refreshments-3"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.26
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "table-refreshments-4",
+            "label_es": "Tres manzanas rojas.",
+            "rect": {
+              "x": 0.74,
+              "y": 0.32,
+              "width": 0.19,
+              "height": 0.44
+            },
+            "accepted_option_ids": [
+              "table-refreshments-4"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.83,
+                "y": 0.33
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-table-refreshments-1",
+            "text": "It is five o'clock.",
+            "answer_text": "It is five o'clock.",
+            "target_id": "table-refreshments-1",
+            "option_id": "table-refreshments-1"
+          },
+          {
+            "id": "cue-table-refreshments-2",
+            "text": "How much is it?",
+            "answer_text": "How much is it?",
+            "target_id": "table-refreshments-2",
+            "option_id": "table-refreshments-2"
+          },
+          {
+            "id": "cue-table-refreshments-3",
+            "text": "Water, please.",
+            "answer_text": "Water, please.",
+            "target_id": "table-refreshments-3",
+            "option_id": "table-refreshments-3"
+          },
+          {
+            "id": "cue-table-refreshments-4",
+            "text": "Three red apples.",
+            "answer_text": "Three red apples.",
+            "target_id": "table-refreshments-4",
+            "option_id": "table-refreshments-4"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M08",
+      "interaction_type": "mission-game",
+      "prompt": "I need help. I do not understand. Please repeat. Please speak slowly.",
+      "stage": "Listen",
+      "correct_option_id": "communication-help-1",
+      "correct_option_ids": [
+        "communication-help-1",
+        "communication-help-2",
+        "communication-help-3",
+        "communication-help-4"
+      ],
+      "options": [
+        {
+          "id": "communication-help-1",
+          "image_url": "",
+          "label": "I need help."
+        },
+        {
+          "id": "communication-help-2",
+          "image_url": "",
+          "label": "I do not understand."
+        },
+        {
+          "id": "communication-help-3",
+          "image_url": "",
+          "label": "Please repeat."
+        },
+        {
+          "id": "communication-help-4",
+          "image_url": "",
+          "label": "Please speak slowly."
+        }
+      ],
+      "audio_text": "I need help. I do not understand. Please repeat. Please speak slowly.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_communication_help.webp",
+      "spanish_translation": "Necesito ayuda. No entiendo. Por favor repite. Por favor habla despacio.",
+      "pedagogy_note": "Mission beat 08/13: Escucha a las personas pidiendo ayuda o aclaraciones en la fiesta.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "I need help.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_communication_help.webp"
+        },
+        {
+          "text": "I do not understand.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_communication_help.webp"
+        },
+        {
+          "text": "Please repeat.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_communication_help.webp"
+        },
+        {
+          "text": "Please speak slowly.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_communication_help.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c008-prompt-turn-1-bc5783b009bd59351996",
+          "purpose": "prompt-turn-1",
+          "text": "I need help.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_communication_help.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c008-prompt-turn-2-b655d4a5c3b0eb43fc3e",
+          "purpose": "prompt-turn-2",
+          "text": "I do not understand.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_communication_help.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c008-prompt-turn-3-2dd1bce175160e04d7bf",
+          "purpose": "prompt-turn-3",
+          "text": "Please repeat.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_communication_help.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c008-prompt-turn-4-02388f0489f35684c1c5",
+          "purpose": "prompt-turn-4",
+          "text": "Please speak slowly.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_communication_help.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "ayuda",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "communication-help-1",
+            "label_es": "Necesito ayuda.",
+            "rect": {
+              "x": 0.05,
+              "y": 0.2,
+              "width": 0.19,
+              "height": 0.65
+            },
+            "accepted_option_ids": [
+              "communication-help-1"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.14,
+                "y": 0.21
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "communication-help-2",
+            "label_es": "No entiendo.",
+            "rect": {
+              "x": 0.28,
+              "y": 0.18,
+              "width": 0.19,
+              "height": 0.67
+            },
+            "accepted_option_ids": [
+              "communication-help-2"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.19
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "communication-help-3",
+            "label_es": "Por favor repite.",
+            "rect": {
+              "x": 0.51,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.63
+            },
+            "accepted_option_ids": [
+              "communication-help-3"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.23
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "communication-help-4",
+            "label_es": "Por favor habla despacio.",
+            "rect": {
+              "x": 0.74,
+              "y": 0.2,
+              "width": 0.19,
+              "height": 0.65
+            },
+            "accepted_option_ids": [
+              "communication-help-4"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.83,
+                "y": 0.21
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-communication-help-1",
+            "text": "I need help.",
+            "answer_text": "I need help.",
+            "target_id": "communication-help-1",
+            "option_id": "communication-help-1"
+          },
+          {
+            "id": "cue-communication-help-2",
+            "text": "I do not understand.",
+            "answer_text": "I do not understand.",
+            "target_id": "communication-help-2",
+            "option_id": "communication-help-2"
+          },
+          {
+            "id": "cue-communication-help-3",
+            "text": "Please repeat.",
+            "answer_text": "Please repeat.",
+            "target_id": "communication-help-3",
+            "option_id": "communication-help-3"
+          },
+          {
+            "id": "cue-communication-help-4",
+            "text": "Please speak slowly.",
+            "answer_text": "Please speak slowly.",
+            "target_id": "communication-help-4",
+            "option_id": "communication-help-4"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M09",
+      "interaction_type": "mission-game",
+      "prompt": "Where is the bathroom? Go straight. Turn right. Who are they?",
+      "stage": "Listen",
+      "correct_option_id": "navigation-1",
+      "correct_option_ids": [
+        "navigation-1",
+        "navigation-2",
+        "navigation-3",
+        "navigation-4"
+      ],
+      "options": [
+        {
+          "id": "navigation-1",
+          "image_url": "",
+          "label": "Where is the bathroom?"
+        },
+        {
+          "id": "navigation-2",
+          "image_url": "",
+          "label": "Go straight."
+        },
+        {
+          "id": "navigation-3",
+          "image_url": "",
+          "label": "Turn right."
+        },
+        {
+          "id": "navigation-4",
+          "image_url": "",
+          "label": "Who are they?"
+        }
+      ],
+      "audio_text": "Where is the bathroom? Go straight. Turn right. Who are they?",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el ba\u00f1o? Sigue derecho. Gira a la derecha. \u00bfQui\u00e9nes son ellos?",
+      "pedagogy_note": "Mission beat 09/13: Ubica el ba\u00f1o, las direcciones del camino y a los invitados.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Where is the bathroom?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp"
+        },
+        {
+          "text": "Go straight.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp"
+        },
+        {
+          "text": "Turn right.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp"
+        },
+        {
+          "text": "Who are they?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c009-prompt-turn-1-7b569dd6ed58cfb04867",
+          "purpose": "prompt-turn-1",
+          "text": "Where is the bathroom?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_navigation.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c009-prompt-turn-2-8bcf4bd3f90b7f71b068",
+          "purpose": "prompt-turn-2",
+          "text": "Go straight.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_navigation.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c009-prompt-turn-3-f52667cce10d165504b6",
+          "purpose": "prompt-turn-3",
+          "text": "Turn right.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_navigation.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c009-prompt-turn-4-185fdf5d23c95c143df6",
+          "purpose": "prompt-turn-4",
+          "text": "Who are they?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_navigation.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "indicaciones",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "navigation-1",
+            "label_es": "\u00bfD\u00f3nde est\u00e1 el ba\u00f1o?",
+            "rect": {
+              "x": 0.05,
+              "y": 0.18,
+              "width": 0.19,
+              "height": 0.65
+            },
+            "accepted_option_ids": [
+              "navigation-1"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.14,
+                "y": 0.19
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "navigation-2",
+            "label_es": "Sigue derecho.",
+            "rect": {
+              "x": 0.28,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.58
+            },
+            "accepted_option_ids": [
+              "navigation-2"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.23
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "navigation-3",
+            "label_es": "Gira a la derecha.",
+            "rect": {
+              "x": 0.51,
+              "y": 0.22,
+              "width": 0.19,
+              "height": 0.58
+            },
+            "accepted_option_ids": [
+              "navigation-3"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.23
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "navigation-4",
+            "label_es": "\u00bfQui\u00e9nes son ellos?",
+            "rect": {
+              "x": 0.73,
+              "y": 0.2,
+              "width": 0.21,
+              "height": 0.65
+            },
+            "accepted_option_ids": [
+              "navigation-4"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.83,
+                "y": 0.21
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-navigation-1",
+            "text": "Where is the bathroom?",
+            "answer_text": "Where is the bathroom?",
+            "target_id": "navigation-1",
+            "option_id": "navigation-1"
+          },
+          {
+            "id": "cue-navigation-2",
+            "text": "Go straight.",
+            "answer_text": "Go straight.",
+            "target_id": "navigation-2",
+            "option_id": "navigation-2"
+          },
+          {
+            "id": "cue-navigation-3",
+            "text": "Turn right.",
+            "answer_text": "Turn right.",
+            "target_id": "navigation-3",
+            "option_id": "navigation-3"
+          },
+          {
+            "id": "cue-navigation-4",
+            "text": "Who are they?",
+            "answer_text": "Who are they?",
+            "target_id": "navigation-4",
+            "option_id": "navigation-4"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M10",
+      "interaction_type": "mission-speak",
+      "prompt": "My name is Alex. I am happy.",
+      "stage": "Speak",
+      "correct_option_id": "feelings-response",
+      "options": [
+        {
+          "id": "feelings-response",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_feelings_response.webp",
+          "label": "My name is Alex. I am happy."
+        }
+      ],
+      "audio_text": "My name is Alex. I am happy.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Mi nombre es Alex. Estoy feliz.",
+      "pedagogy_note": "Mission beat 10/13: La anfitriona te da la bienvenida; pres\u00e9ntate y dile c\u00f3mo est\u00e1s.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What is your name? How are you?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_feelings_question.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c010-mission-cue-62ad66727103efac1fae",
+          "purpose": "mission-cue",
+          "text": "What is your name? How are you?",
+          "mode": "prompt",
+          "variant": "question",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_feelings_response.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c010-prompt-turn-1-2c761877fe8750034e77",
+          "purpose": "prompt-turn-1",
+          "text": "What is your name? How are you?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_feelings_question.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "pregunta",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la frase. Despu\u00e9s lee la respuesta en voz alta.",
+        "validation": "single",
+        "targets": [
+          {
+            "id": "feelings-response",
+            "label_es": "Mi nombre es Alex. Estoy feliz.",
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            },
+            "accepted_option_ids": [
+              "feelings-response"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-feelings-response",
+            "text": "What is your name? How are you?",
+            "answer_text": "My name is Alex. I am happy.",
+            "target_id": "feelings-response",
+            "option_id": "feelings-response"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": "What is your name? How are you?"
+      }
+    },
+    {
+      "slide_id": "M11",
+      "interaction_type": "mission-speak",
+      "prompt": "Go straight. Turn left.",
+      "stage": "Speak",
+      "correct_option_id": "bathroom-response",
+      "options": [
+        {
+          "id": "bathroom-response",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_bathroom_response.webp",
+          "label": "Go straight. Turn left."
+        }
+      ],
+      "audio_text": "Go straight. Turn left.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Sigue derecho. Gira a la izquierda.",
+      "pedagogy_note": "Mission beat 11/13: Un invitado busca el ba\u00f1o; dale las indicaciones claras.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Excuse me. Where is the bathroom?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_bathroom_question.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c011-mission-cue-27f20852f02475320a18",
+          "purpose": "mission-cue",
+          "text": "Excuse me. Where is the bathroom?",
+          "mode": "prompt",
+          "variant": "question",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_bathroom_response.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c011-prompt-turn-1-04dfc7816d107a51e708",
+          "purpose": "prompt-turn-1",
+          "text": "Excuse me. Where is the bathroom?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_bathroom_question.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "pregunta",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la frase. Despu\u00e9s lee la respuesta en voz alta.",
+        "validation": "single",
+        "targets": [
+          {
+            "id": "bathroom-response",
+            "label_es": "Sigue derecho. Gira a la izquierda.",
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            },
+            "accepted_option_ids": [
+              "bathroom-response"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-bathroom-response",
+            "text": "Excuse me. Where is the bathroom?",
+            "answer_text": "Go straight. Turn left.",
+            "target_id": "bathroom-response",
+            "option_id": "bathroom-response"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": "Excuse me. Where is the bathroom?"
+      }
+    },
+    {
+      "slide_id": "M12",
+      "interaction_type": "mission-speak",
+      "prompt": "Two dollars. Juice, please.",
+      "stage": "Speak",
+      "correct_option_id": "purchase-response",
+      "options": [
+        {
+          "id": "purchase-response",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_purchase_response.webp",
+          "label": "Two dollars. Juice, please."
+        }
+      ],
+      "audio_text": "Two dollars. Juice, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Dos d\u00f3lares. Jugo, por favor.",
+      "pedagogy_note": "Mission beat 12/13: En el puesto de bebidas revisan la hora y el precio; pide tu bebida cort\u00e9smente.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "It is six o'clock. How much is it?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_purchase_question.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c012-mission-cue-de58d0a037ec76748b84",
+          "purpose": "mission-cue",
+          "text": "It is six o'clock. How much is it?",
+          "mode": "prompt",
+          "variant": "question",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_purchase_response.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c012-prompt-turn-1-f305dd5cec6e762f9e76",
+          "purpose": "prompt-turn-1",
+          "text": "It is six o'clock. How much is it?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_purchase_question.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "pregunta",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la frase. Despu\u00e9s lee la respuesta en voz alta.",
+        "validation": "single",
+        "targets": [
+          {
+            "id": "purchase-response",
+            "label_es": "Dos d\u00f3lares. Jugo, por favor.",
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            },
+            "accepted_option_ids": [
+              "purchase-response"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-purchase-response",
+            "text": "It is six o'clock. How much is it?",
+            "answer_text": "Two dollars. Juice, please.",
+            "target_id": "purchase-response",
+            "option_id": "purchase-response"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": "It is six o'clock. How much is it?"
+      }
+    },
+    {
+      "slide_id": "M13",
+      "interaction_type": "mission-finale",
+      "prompt": "Yes, thank you. I like listening to music.",
+      "stage": "Speak",
+      "correct_option_id": "invitation-response",
+      "options": [
+        {
+          "id": "invitation-response",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_invitation_response.webp",
+          "label": "Yes, thank you. I like listening to music."
+        }
+      ],
+      "audio_text": "Yes, thank you. I like listening to music.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "S\u00ed, gracias. Me gusta escuchar m\u00fasica.",
+      "pedagogy_note": "Mission beat 13/13: El m\u00fasico te invita al concierto final; responde con entusiasmo para completar el nivel A1.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Do you want to listen to music?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u7_outing_v1_invitation_question.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-10-a1-final-mission-c013-mission-cue-ee3d65db855d2076cb78",
+          "purpose": "mission-cue",
+          "text": "Do you want to listen to music?",
+          "mode": "prompt",
+          "variant": "question",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_invitation_response.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-10-a1-final-mission-c013-prompt-turn-1-35a904136ffd6155e8a7",
+          "purpose": "prompt-turn-1",
+          "text": "Do you want to listen to music?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u7_outing_v1_invitation_question.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "pregunta",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la frase. Despu\u00e9s lee la respuesta en voz alta.",
+        "validation": "single",
+        "targets": [
+          {
+            "id": "invitation-response",
+            "label_es": "S\u00ed, gracias. Me gusta escuchar m\u00fasica.",
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            },
+            "accepted_option_ids": [
+              "invitation-response"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-invitation-response",
+            "text": "Do you want to listen to music?",
+            "answer_text": "Yes, thank you. I like listening to music.",
+            "target_id": "invitation-response",
+            "option_id": "invitation-response"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": "Do you want to listen to music?"
       }
     }
   ],
   "experience_type": "mission",
   "content_revision": 1,
   "mission": {
-    "label": "MISI\u00d3N FINAL DE CURSO \u00b7 A1",
+    "label": "MISI\u00d3N FINAL \u00b7 NIVEL A1",
     "title": "Gran misi\u00f3n de familia",
-    "briefing": "\u00daltima misi\u00f3n del nivel A1: acompa\u00f1a a la familia en la gran celebraci\u00f3n. Sigue las acciones de cada persona, escucha con atenci\u00f3n y responde en voz alta.",
-    "kickoff_image_url": "/lesson-assets/a1_u7_mission_kickoff.webp",
+    "briefing": "\u00daltima misi\u00f3n del nivel A1: acompa\u00f1a a la familia en la gran celebraci\u00f3n y salida al parque. Escucha cada pista y toca el clima, la ropa, c\u00f3mo se siente cada persona, las actividades y las indicaciones. Al final, responde cuatro veces en voz alta para completar tu certificaci\u00f3n A1.",
+    "kickoff_image_url": "/lesson-assets/a1_u7_outing_v1_kickoff.webp",
     "objectives": [
-      "Identifica a cada familiar y sus acciones en el evento",
-      "Demuestra tu comprensi\u00f3n en las diferentes escenas",
-      "Supera el desaf\u00edo final en voz alta para completar el nivel A1"
+      "Verifica el clima y la ropa",
+      "Sigue las acciones y sentimientos",
+      "Responde cuatro veces en voz alta"
     ],
     "completion_title": "\u00a1Nivel A1 Completado!",
-    "completion_message": "\u00a1Felicidades! Superaste todos los desaf\u00edos de la gran misi\u00f3n familiar, demostraste tu comprensi\u00f3n auditiva y hablaste en ingl\u00e9s con confianza.",
+    "completion_message": "\u00a1Felicidades! Superaste todos los desaf\u00edos de la gran misi\u00f3n familiar, demostraste tu comprensi\u00f3n auditiva y hablaste en ingl\u00e9s con confianza en todo el nivel A1.",
     "voice_heading": "COMPLETA TU RETO A1",
     "voice_instruction": "Responde en voz alta para terminar",
     "voice_success_label": "RETO SUPERADO",
     "chapters": [
       {
-        "id": "ch1-courtyard-setup",
-        "title": "Preparaci\u00f3n en el patio",
-        "objective": "Ubica a la madre con la maestra, al padre ayudando, al ni\u00f1o escribiendo y a la abuela leyendo."
+        "id": "clima",
+        "title": "El clima y la salida",
+        "objective": "Escucha el clima y qu\u00e9 ropa o accesorio se necesita."
       },
       {
-        "id": "ch2-hall-celebration",
-        "title": "Celebraci\u00f3n en el sal\u00f3n",
-        "objective": "Ubica al abuelo sentado, a los padres felices, a la ni\u00f1a jugando y al ni\u00f1o comiendo."
+        "id": "ropa",
+        "title": "La vestimenta",
+        "objective": "Escucha qu\u00e9 prenda lleva cada persona y t\u00f3cala."
       },
       {
-        "id": "ch3-grand-finale",
-        "title": "Graduaci\u00f3n A1",
-        "objective": "Responde la pregunta final en el podio en voz alta."
+        "id": "estados",
+        "title": "\u00bfC\u00f3mo nos sentimos?",
+        "objective": "Escucha el estado de \u00e1nimo o necesidad f\u00edsica de cada familiar."
+      },
+      {
+        "id": "cuerpo",
+        "title": "El cuerpo y la salud",
+        "objective": "Escucha la parte del cuerpo y t\u00f3cala en la escena."
+      },
+      {
+        "id": "pasatiempos",
+        "title": "Pasatiempos y descanso",
+        "objective": "Escucha qu\u00e9 le gusta y qu\u00e9 no le gusta hacer a cada persona."
+      },
+      {
+        "id": "invitaciones",
+        "title": "Invitaciones entre amigos",
+        "objective": "Escucha qui\u00e9n invita, qui\u00e9n acepta y qui\u00e9n rechaza amablemente."
+      },
+      {
+        "id": "mesa",
+        "title": "La mesa de refrigerios",
+        "objective": "Confirma la hora, el precio, las bebidas y la fruta."
+      },
+      {
+        "id": "ayuda",
+        "title": "Pedir ayuda y entender",
+        "objective": "Escucha qui\u00e9n pide ayuda, repetici\u00f3n o habla pausada."
+      },
+      {
+        "id": "indicaciones",
+        "title": "Ubicaci\u00f3n y camino",
+        "objective": "Ubica el ba\u00f1o, sigue las direcciones e identifica a los invitados."
+      },
+      {
+        "id": "pregunta",
+        "title": "Pregunta y responde",
+        "objective": "Escucha cada pregunta y responde en voz alta para superar el reto final A1."
       }
     ]
   }

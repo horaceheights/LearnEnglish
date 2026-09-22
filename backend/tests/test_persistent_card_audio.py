@@ -296,14 +296,15 @@ class PersistentCardAudioTests(unittest.TestCase):
         # speaking-voice review check then moved 3.4 U1/U3 to Luis (a reused take).
         # 2026-09-21: the Unit 4, Unit 5 and Unit 6 parity rebuilds added the male lines of their
         # reviews and of their nine mission scenes and four gates each (+50 net).
+        # 2026-09-22: the Unit 7 parity rebuild adds the male lines of 7.9 and 7.10 (+4 net).
         self.assertEqual(
-            Counter({"male-character": 369, "luis": 102, "diego": 12}),
+            Counter({"male-character": 373, "luis": 102, "diego": 12}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
-        self.assertEqual(483, len(selected))
+        self.assertEqual(487, len(selected))
         self.assertEqual(105, len(jobs))
         self.assertEqual(105, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(1668, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(1641, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
