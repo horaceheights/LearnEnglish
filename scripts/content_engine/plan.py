@@ -61,10 +61,12 @@ def compose_lesson(plan: dict) -> dict:
 def recipe_coverage(plan: dict) -> dict:
     """Cards composed purely from a recipe, versus cards that need exceptions."""
     cards = plan["cards"]
-    pure = [spec for spec in cards if spec["recipe"] != "verbatim" and not spec.get("exceptions")]
+    # Mission cards are kept as authored until mission beats have recipes of their own.
+    pure = [spec for spec in cards if spec["recipe"] not in ("verbatim", "mission") and not spec.get("exceptions")]
     fields: dict[str, int] = {}
     for spec in cards:
         for field in spec.get("exceptions", {}):
             fields[field] = fields.get(field, 0) + 1
     return {"cards": len(cards), "pure": len(pure),
-            "verbatim": sum(spec["recipe"] == "verbatim" for spec in cards), "exception_fields": fields}
+            "verbatim": sum(spec["recipe"] == "verbatim" for spec in cards),
+            "mission": sum(spec["recipe"] == "mission" for spec in cards), "exception_fields": fields}
