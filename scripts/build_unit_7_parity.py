@@ -309,8 +309,8 @@ def compile_79(base: dict, pack: dict) -> dict:
                   "retrieval of hospital and bank directions across preserved review scenes")
 
     retrieval_note = "audio-to-English retrieval without a picture"
-    listen_text("N13", "I am happy today.", "Estoy feliz hoy.",
-                ["I am happy today.", "I am sad today.", "I am tired today."], retrieval_note)
+    listen_text("N13", "Please speak slowly.", "Por favor habla despacio.",
+                ["Please speak slowly.", "Please repeat.", "Where is the bathroom?"], retrieval_note)
     listen_text("N14", "Do you want to play?", "¿Quieres jugar?",
                 ["Do you want to play?", "Do you want to read?", "Do you want to watch TV?"], retrieval_note)
     listen_text("N15", "Yes, thank you.", "Sí, gracias.",
