@@ -9,6 +9,13 @@
 - Before implementing a fix, check earlier fixes and guardrails for conflicts or regression risk; challenge contradictory fixes before changing behavior.
 - Preserve unrelated working-tree changes. Never stage, revert, overwrite, or discard them.
 
+# Content creation
+
+- For new or substantially revised lessons and units, follow `docs/product/new-content-engine.md`.
+- Derive the content brief from the applicable course-design documents and approved guardrails; for current A1 work, use `docs/product/course-design-a1.md` and its relevant unit/lesson requirements. Use the requested unit/lesson; for next-content requests, follow the documented course sequence and prerequisites within the authorized scope. Keep `docs/planning/roadmap.md` for product priorities and the content-scaling gate. Do not ask the user to provide a separate content brief.
+- Ask only which tools to use for audio and image generation when those choices have not already been supplied for the task. Reuse existing choices without reconfirmation; derive the remaining authoring inputs from the project documents.
+- Create supported new content through shared behavior and content/configuration, without adding unit-specific programs or application exceptions. Follow the user's explicit scope; analysis-only work remains local documentation work.
+
 # Repository hygiene
 
 - Treat `origin/main` as the canonical integration line and keep the primary checkout on an up-to-date local `main` when no recovery operation is in progress.

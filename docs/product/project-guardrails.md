@@ -6,6 +6,8 @@ This file is the durable product and engineering memory for SpanGlish. It exists
 
 The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](course-design-a1.md). This file defines the reusable rules that the implementation must preserve.
 
+For new or substantially revised lessons and units, follow the [New Content Engine agent guide](new-content-engine.md) for required inputs, reusable authoring, validation, and review outputs. Derive the content brief from the applicable course-design documents—currently [A1 course design](course-design-a1.md)—and approved standards; ask only which audio and image generation tools to use when those choices have not already been supplied for the task. Its creation workflow applies within the user's explicit task scope; it does not authorize implementation or publication during analysis-only work.
+
 ## 1. Change Discipline
 
 ### Units 2–7: Unit 1 parity rollout (approved 2026-09-13)
