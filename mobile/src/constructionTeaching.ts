@@ -128,13 +128,6 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `En ${quote(original)}, “and” va entre las dos características para unirlas.`);
       return true;
     }
-    if (end - start === 2 && keys[start] === 'very' && STATES.has(keys[start + 1])) {
-      teach(start, end, `En ${quote(original)}, “very” intensifica la cualidad y va antes de ${quote(tokens[start + 1])}.`);
-      teach(start, start + 1, `“Very” intensifica la cualidad y va antes de ${quote(tokens[start + 1])}.`);
-      teach(start + 1, end, `${quote(tokens[start + 1])} describe cómo está el sujeto; “very” va delante para intensificarlo.`);
-      relations.push({ start, end, explanation: `En ${quote(original)}, “very” va antes de ${quote(tokens[start + 1])} para intensificar la cualidad.` });
-      return true;
-    }
     if (ACTIONS.has(keys[start])) {
       teach(start, start + 1, `${quote(tokens[start])} expresa la acción; aquí va después de ${quote(anchor)}.`);
       if (keys[start] === 'listening' && keys[start + 1] === 'to') {

@@ -105,9 +105,10 @@ EXACT_ROLE_CHANGES = {
 # The Unit 6 rebuild replaces 6.9's three explicit speakers with the fifteen lines its pictured
 # people and transport riders say (+12 net).
 # The Unit 7 rebuild updates 7.9 explicit speakers (-2 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 573
+# The Unit 7 quality fix gives 7.9 U7's "I like music." its pictured man's voice (+2).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 575
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "454542034acd04b7f5967ae6759fccfc440362e593bbca76b4e8ea09436e52f0"
+    "ac59973612383e2b1bbdda5386cd6a03f1329c72febbcdad7411e73b31662845"
 )
 
 

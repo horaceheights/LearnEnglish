@@ -113515,14 +113515,16 @@
       "bytes": 20781,
       "text": "I am happy.",
       "compatible_speaker_roles": [
-        "answer"
+        "answer",
+        "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
         "prompt"
       ],
       "compatible_variants": [
-        "answer"
+        "answer",
+        "prompt"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -116110,6 +116112,667 @@
             "staged_reuse": false,
             "request_id": "1e3UAZ8TJljav2z372bY",
             "trace_id": "9089fabe2d25d45d7855656d39efb543"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "c717b3b2e2977d230b10eab1cec4fe91d730b5a22ef4031310939516291b6651": {
+      "file": "takes/c717b3b2e2977d230b10eab1cec4fe91d730b5a22ef4031310939516291b6651.mp3",
+      "audio_sha256": "c717b3b2e2977d230b10eab1cec4fe91d730b5a22ef4031310939516291b6651",
+      "bytes": 26253,
+      "text": "Hello. How are you?",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "question"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:43.210632+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "6M3RCqshPm2HsvaP5d5f",
+        "trace_id": "f0a0b1f79cc8c858f6d5b5a1f94619b6",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "Hello. How are you?",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "6M3RCqshPm2HsvaP5d5f",
+            "trace_id": "f0a0b1f79cc8c858f6d5b5a1f94619b6"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "f8bb78428b4ffeafc17df4e19058a0de9fce1cfd1a0b351ebef60e7d9e1ccd1b": {
+      "file": "takes/f8bb78428b4ffeafc17df4e19058a0de9fce1cfd1a0b351ebef60e7d9e1ccd1b.mp3",
+      "audio_sha256": "f8bb78428b4ffeafc17df4e19058a0de9fce1cfd1a0b351ebef60e7d9e1ccd1b",
+      "bytes": 24813,
+      "text": "Do you want to read?",
+      "compatible_speaker_roles": [
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:44.253187+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "jVbKOLurNmnYXl8wfQDn",
+        "trace_id": "2f0af47e993a93daf6d5b5a1f94618fd",
+        "character_cost": 11,
+        "incremental_character_cost": 11,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "Do you want to read?",
+            "character_cost": 11,
+            "incremental_character_cost": 11,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "11",
+            "staged_reuse": false,
+            "request_id": "jVbKOLurNmnYXl8wfQDn",
+            "trace_id": "2f0af47e993a93daf6d5b5a1f94618fd"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "d4f4ff71bb1f2db5ccbe8d88a355beb245ff563c4218cdea57c8ffca70cf3f04": {
+      "file": "takes/d4f4ff71bb1f2db5ccbe8d88a355beb245ff563c4218cdea57c8ffca70cf3f04.mp3",
+      "audio_sha256": "d4f4ff71bb1f2db5ccbe8d88a355beb245ff563c4218cdea57c8ffca70cf3f04",
+      "bytes": 26253,
+      "text": "Hello. How are you?",
+      "compatible_speaker_roles": [
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:45.400555+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "SU2FK4gsqWwe33duQWFr",
+        "trace_id": "cbdb5f70333e3953f6d5b5a1f9461a89",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "Hello. How are you?",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "SU2FK4gsqWwe33duQWFr",
+            "trace_id": "cbdb5f70333e3953f6d5b5a1f9461a89"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "78c818090dc4ae69c431bc4f9ef914befa75bfe295af2bad86a913a256ca3bb8": {
+      "file": "takes/78c818090dc4ae69c431bc4f9ef914befa75bfe295af2bad86a913a256ca3bb8.mp3",
+      "audio_sha256": "78c818090dc4ae69c431bc4f9ef914befa75bfe295af2bad86a913a256ca3bb8",
+      "bytes": 25677,
+      "text": "My eyes and ears.",
+      "compatible_speaker_roles": [
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:46.555587+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "pC2kZ7FHjz6ZcUmxwTfu",
+        "trace_id": "89da737673afc634f6d5b5a1f9461a3d",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "My eyes and ears.",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "pC2kZ7FHjz6ZcUmxwTfu",
+            "trace_id": "89da737673afc634f6d5b5a1f9461a3d"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "68a463259869dc57ec4a605fbddb270c363dd1b1310394e06cf01ea99a69922c": {
+      "file": "takes/68a463259869dc57ec4a605fbddb270c363dd1b1310394e06cf01ea99a69922c.mp3",
+      "audio_sha256": "68a463259869dc57ec4a605fbddb270c363dd1b1310394e06cf01ea99a69922c",
+      "bytes": 24525,
+      "text": "My legs and feet.",
+      "compatible_speaker_roles": [
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:47.659929+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "R2WQlMq6fbXrIeNQDHZ6",
+        "trace_id": "ad22a5cea51057cff6d5b5a1f9461e67",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "My legs and feet.",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "R2WQlMq6fbXrIeNQDHZ6",
+            "trace_id": "ad22a5cea51057cff6d5b5a1f9461e67"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "ba04a5736c9da54246ee77947f548f0f7a106d9abf4a251e0e73969874c77fe3": {
+      "file": "takes/ba04a5736c9da54246ee77947f548f0f7a106d9abf4a251e0e73969874c77fe3.mp3",
+      "audio_sha256": "ba04a5736c9da54246ee77947f548f0f7a106d9abf4a251e0e73969874c77fe3",
+      "bytes": 21069,
+      "text": "I am hungry.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:49.104037+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "IMacmSoSuELMbvNqcm2b",
+        "trace_id": "1a4bd5bc2360ab23f6d5b5a1f94612f4",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am hungry.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "IMacmSoSuELMbvNqcm2b",
+            "trace_id": "1a4bd5bc2360ab23f6d5b5a1f94612f4"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "51c86665e575e7ca2198b709e1d86a7107af16f68115c25a98d3a00a7f6273b0": {
+      "file": "takes/51c86665e575e7ca2198b709e1d86a7107af16f68115c25a98d3a00a7f6273b0.mp3",
+      "audio_sha256": "51c86665e575e7ca2198b709e1d86a7107af16f68115c25a98d3a00a7f6273b0",
+      "bytes": 32877,
+      "text": "I do not like watching TV.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:50.542144+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "4Ji9qCccZaaSdUsjJHDW",
+        "trace_id": "0e616f711ef0b5ccf6d5b5a1f9461d41",
+        "character_cost": 14,
+        "incremental_character_cost": 14,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I do not like watching TV.",
+            "character_cost": 14,
+            "incremental_character_cost": 14,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "14",
+            "staged_reuse": false,
+            "request_id": "4Ji9qCccZaaSdUsjJHDW",
+            "trace_id": "0e616f711ef0b5ccf6d5b5a1f9461d41"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "60ff25d84bacd11d126ad3e0b312ac4186a4e43348bc099c5813f7a9db9dee99": {
+      "file": "takes/60ff25d84bacd11d126ad3e0b312ac4186a4e43348bc099c5813f7a9db9dee99.mp3",
+      "audio_sha256": "60ff25d84bacd11d126ad3e0b312ac4186a4e43348bc099c5813f7a9db9dee99",
+      "bytes": 22509,
+      "text": "I like music.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:52.228447+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "Sx8GwEkNGuYh4Wccyx8i",
+        "trace_id": "713f0efce9bd435bf6d5b5a1f9461945",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I like music.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "Sx8GwEkNGuYh4Wccyx8i",
+            "trace_id": "713f0efce9bd435bf6d5b5a1f9461945"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "3acd3b63f1ccf3f74eb8745d766d43e57b269a822480473f21b8a6fad43f7124": {
+      "file": "takes/3acd3b63f1ccf3f74eb8745d766d43e57b269a822480473f21b8a6fad43f7124.mp3",
+      "audio_sha256": "3acd3b63f1ccf3f74eb8745d766d43e57b269a822480473f21b8a6fad43f7124",
+      "bytes": 23085,
+      "text": "I like playing.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:53.544370+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "X7Oy9Lq8A83IbH6x3qO9",
+        "trace_id": "42fe68e969cbaa97f6d5b5a1f9461dd2",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I like playing.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "X7Oy9Lq8A83IbH6x3qO9",
+            "trace_id": "42fe68e969cbaa97f6d5b5a1f9461dd2"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "d64506cb09749f47af7375411ea6836981361890d8d9dddd9638d32eb3a5b057": {
+      "file": "takes/d64506cb09749f47af7375411ea6836981361890d8d9dddd9638d32eb3a5b057.mp3",
+      "audio_sha256": "d64506cb09749f47af7375411ea6836981361890d8d9dddd9638d32eb3a5b057",
+      "bytes": 26253,
+      "text": "My hands and arms.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-23T16:37:54.781938+00:00",
+        "approved_at": "2026-09-23T16:37:41.156323+00:00",
+        "request_id": "OqH3Sqtgg10rQcPDIAdM",
+        "trace_id": "5a03c3ae58803622f6d5b5a1f9461003",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "My hands and arms.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "OqH3Sqtgg10rQcPDIAdM",
+            "trace_id": "5a03c3ae58803622f6d5b5a1f9461003"
           }
         ],
         "review": {
@@ -147010,6 +147673,11 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c001-prompt-turn-2-9ec4e27b6230a136f1dd": {
+      "take_id": "f39edb8196533497d12733c2f557dfb8e90b19ea77047cf88b4d8387a87c4b61",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-10-a1-final-mission-c001-prompt-turn-2-d45c70d14eca91dda60f": {
       "take_id": "c329ed2b33c61a21de2941fe4fb012b63dc9e1f1c5c95aadf99aade9368b2fa6",
       "approved_at": "2026-09-12T00:24:44.016630+00:00",
@@ -147160,14 +147828,29 @@
       "approved_at": "2026-09-12T00:24:44.016630+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c003-prompt-turn-1-f73ddfcff5ad22d10db2": {
+      "take_id": "cdda8d0072b53f40034809e7238ddf26cb705f1490e40ee9af58076f49135e1a",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-10-a1-final-mission-c003-prompt-turn-1-fd6a1347dc874430f5f0": {
       "take_id": "098492c55b32404d1bf7c9b1d1fe0f4ecaad4374378c25cbc1bb851ec58d40f3",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c003-prompt-turn-2-6f5cd9d4afe56206dabb": {
+      "take_id": "5c88e45b4159ac9a26e8b80e48127da3b5b3565d5a289bea59178a7092cab36b",
+      "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-10-a1-final-mission-c003-prompt-turn-2-e36e6a9f3dad7ac45ecb": {
       "take_id": "98de15cc7095393b946d7ff173fb7d82c712a4ce5b42ace33ef69b729c16340f",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-10-a1-final-mission-c003-prompt-turn-3-87408191753c6a238c46": {
+      "take_id": "ba04a5736c9da54246ee77947f548f0f7a106d9abf4a251e0e73969874c77fe3",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-7-10-a1-final-mission-c003-prompt-turn-3-8a3d471ad1c29166e1f5": {
@@ -147180,6 +147863,11 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c003-prompt-turn-4-dbe911e941b426385237": {
+      "take_id": "e857b0bb1d2b16668c6d85fcbef5626d8f7d1d820da44cadcf19b247d34dae4a",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-10-a1-final-mission-c004-answer-eb918ded211a002963a2": {
       "take_id": "d60eac596780d55bc6f7123cb606ffb73378f2482958c1a6e7f78025556b90c7",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -147189,6 +147877,11 @@
       "take_id": "d60eac596780d55bc6f7123cb606ffb73378f2482958c1a6e7f78025556b90c7",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-10-a1-final-mission-c004-prompt-turn-1-2f15b5ad2e21a3c4cb5d": {
+      "take_id": "5624acd1069be5ae5cb820ce835f417888dfd4e9d58955f3fdeefeefad5071f5",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-10-a1-final-mission-c004-prompt-turn-1-61a88808367f2db83bb3": {
       "take_id": "4e47780633f4ba88c24e4bf8e3a62f38260780aa5011d7021e07336a0d83c69b",
@@ -147200,9 +147893,19 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c004-prompt-turn-2-ecf52788232c2c3dfc4b": {
+      "take_id": "78c818090dc4ae69c431bc4f9ef914befa75bfe295af2bad86a913a256ca3bb8",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-7-10-a1-final-mission-c004-prompt-turn-3-52a1d3ed4a3eebee072d": {
       "take_id": "c3df4846a02a5234fb61d746dcfa7d4479776336c5b695310138df20d9cf80e7",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-10-a1-final-mission-c004-prompt-turn-3-55e5c13876aefc3b9942": {
+      "take_id": "d64506cb09749f47af7375411ea6836981361890d8d9dddd9638d32eb3a5b057",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-7-10-a1-final-mission-c004-prompt-turn-4-5a8e24f831f840f5e4dd": {
@@ -147210,14 +147913,29 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c004-prompt-turn-4-bddeb01a55379a803660": {
+      "take_id": "68a463259869dc57ec4a605fbddb270c363dd1b1310394e06cf01ea99a69922c",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-7-10-a1-final-mission-c005-answer-30f1aa8060d729d5cea4": {
       "take_id": "ef1fbc9a09e26d53a878ee152ad08a24d573375161db363e70ca6f5c76760092",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c005-prompt-turn-1-4dfecb06b6bf8fead042": {
+      "take_id": "6369e77ff87d5f30bbeae926ab54c97cded22e3ea71b9c34c7b61c5eec146964",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-10-a1-final-mission-c005-prompt-turn-1-f7dff13793f82e4e94ba": {
       "take_id": "168b418411c4a0ff544dd08c97375f4773989a6575f22e4bd9f3e2d063753532",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-10-a1-final-mission-c005-prompt-turn-2-211bd77202fb990a3566": {
+      "take_id": "3acd3b63f1ccf3f74eb8745d766d43e57b269a822480473f21b8a6fad43f7124",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-7-10-a1-final-mission-c005-prompt-turn-2-998b1aef6aad0cf5cb8f": {
@@ -147230,6 +147948,16 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c005-prompt-turn-3-f50b8986cbdb7b1b18b9": {
+      "take_id": "a508b7edbf61bb8bf996659c7c4ec1f80411eaef9c59cac9574d1fc3a0eb9864",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-10-a1-final-mission-c005-prompt-turn-4-26e3305faa2090651e14": {
+      "take_id": "51c86665e575e7ca2198b709e1d86a7107af16f68115c25a98d3a00a7f6273b0",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-7-10-a1-final-mission-c005-prompt-turn-4-b9851ddb81d6b9254e19": {
       "take_id": "7e594ea9afb7548145bccf391cc682a75166fc88c79058dd57bdc41631ee9239",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -147239,6 +147967,11 @@
       "take_id": "459ec8f0221cf8452c3b3b4ca72ce5c7b4911731a222530d9947231a1ea9c15c",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-10-a1-final-mission-c006-prompt-turn-1-292789fff0cccf23d6cc": {
+      "take_id": "29600edf6169a2aa829d118b89e685b14e08a165a76cc27c0fafe3b5e7230c2d",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-10-a1-final-mission-c006-prompt-turn-1-8af7c893b81c00226824": {
       "take_id": "cc1b00a8daf0c5ac25b6537454b345f2e80979fa20d464bcd08f851f0e7c9ad7",
@@ -147250,14 +147983,29 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-10-a1-final-mission-c006-prompt-turn-2-f71f28bc9c7fcb1604ac": {
+      "take_id": "ff2318e3ffa911c3d66ea642aa6c22f3bbc1e7517004b2e052c86a40e0e68234",
+      "approved_at": "2026-09-19T00:50:52.366394+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-10-a1-final-mission-c006-prompt-turn-3-564713fe7d1c61e3aec3": {
       "take_id": "0d85c5baddef3ba15e5308317fcf43e9977978d72892159e624c48e6b4402f97",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-7-10-a1-final-mission-c006-prompt-turn-3-d62aec61ea220863e049": {
+      "take_id": "f8bb78428b4ffeafc17df4e19058a0de9fce1cfd1a0b351ebef60e7d9e1ccd1b",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-7-10-a1-final-mission-c006-prompt-turn-4-a8715899da6741ef7cbe": {
       "take_id": "eb3f610fc042459e75226c6a4caf0a08cdefa075bdc06f1ca00db109aeae3018",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-10-a1-final-mission-c006-prompt-turn-4-c2362c70184eb579b5e7": {
+      "take_id": "b6a8bfb87c773279cb8ff3d3870b61c2fabbce37335d1e59c7c3fedfb6e8cfc0",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-10-a1-final-mission-c007-answer-047986ee989a9ce328d6": {
@@ -147380,9 +148128,19 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c012-mission-cue-13fb65ccad55542df170": {
+      "take_id": "c717b3b2e2977d230b10eab1cec4fe91d730b5a22ef4031310939516291b6651",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-7-10-a1-final-mission-c012-mission-cue-de58d0a037ec76748b84": {
       "take_id": "1f6684e6e046c5790d77153e6bc2b224b67bfe827486f7d879896a4da98dda1e",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-10-a1-final-mission-c012-prompt-turn-1-6c05bcc3cbbd58083f35": {
+      "take_id": "d4f4ff71bb1f2db5ccbe8d88a355beb245ff563c4218cdea57c8ffca70cf3f04",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-7-10-a1-final-mission-c012-prompt-turn-1-f305dd5cec6e762f9e76": {
@@ -152205,6 +152963,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-9-complete-a1-review-c009-answer-ef6f25e5d030f0abc06e": {
+      "take_id": "0d945d7f4ce1fd37b835e6a1bf9cf61784f9162d46c500e22998474e15700006",
+      "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-complete-a1-review-c010-answer-1142f2c041fd6744f323": {
       "take_id": "675baab12879997da5b1c4bb091bfd2b051ba35fb499b6772e046b73b99034f9",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
@@ -152915,10 +153678,20 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-9-complete-a1-review-c042-answer-a87d130725ef0eac317f": {
+      "take_id": "675baab12879997da5b1c4bb091bfd2b051ba35fb499b6772e046b73b99034f9",
+      "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-7-9-complete-a1-review-c042-prompt-4bb8977b6d1d4324b7df": {
       "take_id": "64440e42292727a5c76ab899068edc980d9c8926e2b257b561cb670542d88454",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-9-complete-a1-review-c042-prompt-a1a6cd2e68eeab2b3f01": {
+      "take_id": "675baab12879997da5b1c4bb091bfd2b051ba35fb499b6772e046b73b99034f9",
+      "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-7-9-complete-a1-review-c043-answer-77bab4e7a506fd603e3f": {
       "take_id": "abde35884ef3620d02fa45924b3318dbb5bac6c6b51a821f50be9c6807897646",
@@ -152975,9 +153748,19 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-9-complete-a1-review-c047-answer-c4d17b3d088b6aa3e418": {
+      "take_id": "60ff25d84bacd11d126ad3e0b312ac4186a4e43348bc099c5813f7a9db9dee99",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-7-9-complete-a1-review-c047-prompt-3700d85be8d2c6ea119d": {
       "take_id": "5e006a4af7d909000858a07440bb7aab3b1b6fc8b0daac18826860bcdd9690cf",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-9-complete-a1-review-c047-prompt-de30baebf8a9b6cba76a": {
+      "take_id": "60ff25d84bacd11d126ad3e0b312ac4186a4e43348bc099c5813f7a9db9dee99",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-7-9-complete-a1-review-c048-answer-472ae49ccb499147868f": {

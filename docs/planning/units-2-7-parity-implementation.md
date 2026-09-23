@@ -75,6 +75,8 @@ Branch `claude/unit-7-parity` on `origin/main`. Unit 7 now passes
 - Media: 30 fresh stills generated and installed (12 review stills, 18 mission stills) across canonical,
   mobile, and frontend directories. Receipts, prompts, hash-bound agent inspections, and measured target
   geometry are recorded in `docs/qa/unit-7-{review,mission}-media-v1.json` and `docs/product/unit-7-{review,mission}-pack.json`.
+  Reported usage totals US$1.361876 for 30 attempts at uncached list rates. Units 4–7 together spent US$5.69 of
+  the US$9 approved for the rollout.
 - Audio: 51 provider requests rendered via ElevenLabs (incremental character cost: 771 characters against operator ceiling);
   all 137 assets in 7.9 and 7.10 are satisfied with 0 provider requests remaining. Catalog exported with 4,847 immutable assets.
   `validate_course_audio_cast.py` passed with code 0.
@@ -104,6 +106,7 @@ Branch `claude/unit-6-parity`, stacked on `claude/unit-5-parity` (PR #186). Unit
   mission-only still generated from the kickoff cast. Each retired original stays byte-for-byte on disk.
 - Media: 29 stills generated and installed (11 review, 18 mission). Receipts, prompts, hash-bound agent inspections
   and measured targets are recorded in `docs/qa/unit-6-{review,mission}-media-v1.json`.
+  Reported usage totals US$1.337704 for 29 attempts, all usable, at uncached list rates.
 - Audio: 24 new takes, 40 reused, 802 billable characters against a declared 1,200-character ceiling. The
   missing-asset dry run is zero, the pinned-cast validator passes and every new spoken line over a picture has a
   reviewed, gender-matched voice in `docs/qa/speaking-voice-review-v1.json`.

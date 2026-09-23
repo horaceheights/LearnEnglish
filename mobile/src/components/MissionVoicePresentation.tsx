@@ -129,7 +129,7 @@ export function MissionVoicePresentation({
           </View>
           {liveSignal ? <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">{signal}</View> : null}
         </View>
-        {answer && !unavailable ? <Text accessibilityLiveRegion="polite" adjustsFontSizeToFit minimumFontScale={0.65}
+        {answer && !unavailable ? <Text accessibilityLiveRegion="polite" adjustsFontSizeToFit minimumFontScale={0.8}
           numberOfLines={2} style={styles.answer}>
           {answer.map((segment, index) => (
             <Text key={`${index}-${segment.text}`} style={segmentStyle(segment.state)}>{segment.text}</Text>

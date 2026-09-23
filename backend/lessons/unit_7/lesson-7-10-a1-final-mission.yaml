@@ -67,7 +67,7 @@
       {
         "id": "indicaciones",
         "title": "Ubicación y camino",
-        "objective": "Ubica el baño, sigue las direcciones e identifica a los invitados."
+        "objective": "Ubica el baño, sigue las direcciones e identifica al abuelo."
       },
       {
         "id": "pregunta",
@@ -146,7 +146,7 @@
       "mission_chapter_id": "clima",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "It is sunny. It is hot. I need a hat. It is rainy. I need an umbrella and boots. It is windy. It is cold. I need a jacket. It is cloudy. I need boots.",
+      "prompt": "It is sunny. It is hot. I need a hat. It is rainy. I need an umbrella. It is windy. It is cold. I need a jacket. It is cloudy. I need boots.",
       "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp",
       "options": [
         {
@@ -157,7 +157,7 @@
         {
           "id": "weather-prep-2",
           "image_url": "",
-          "label": "It is rainy. I need an umbrella and boots."
+          "label": "It is rainy. I need an umbrella."
         },
         {
           "id": "weather-prep-3",
@@ -177,7 +177,7 @@
         "weather-prep-3",
         "weather-prep-4"
       ],
-      "audio_text": "It is sunny. It is hot. I need a hat. It is rainy. I need an umbrella and boots. It is windy. It is cold. I need a jacket. It is cloudy. I need boots.",
+      "audio_text": "It is sunny. It is hot. I need a hat. It is rainy. I need an umbrella. It is windy. It is cold. I need a jacket. It is cloudy. I need boots.",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -186,7 +186,7 @@
           "image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp"
         },
         {
-          "text": "It is rainy. I need an umbrella and boots.",
+          "text": "It is rainy. I need an umbrella.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp"
         },
@@ -201,7 +201,7 @@
           "image_url": "/lesson-assets/a1_u7_outing_v1_weather_prep.webp"
         }
       ],
-      "spanish_translation": "Está soleado. Hace calor. Necesito un sombrero. Está lluvioso. Necesito un paraguas y botas. Está ventoso. Hace frío. Necesito una chamarra. Está nublado. Necesito botas.",
+      "spanish_translation": "Está soleado. Hace calor. Necesito un sombrero. Está lluvioso. Necesito un paraguas. Está ventoso. Hace frío. Necesito una chamarra. Está nublado. Necesito botas.",
       "pedagogy_note": "Mission beat 01/13: Revisa el clima para la salida: toca la estación según lo que escuchas.",
       "mission_game": {
         "kind": "guided-search",
@@ -215,34 +215,34 @@
               "weather-prep-1"
             ],
             "rect": {
-              "x": 0.05,
-              "y": 0.25,
-              "width": 0.18,
-              "height": 0.55
+              "x": 0.02,
+              "y": 0.365,
+              "width": 0.175,
+              "height": 0.26
             },
             "head_anchors": [
               {
-                "x": 0.14,
-                "y": 0.26
+                "x": 0.105,
+                "y": 0.37
               }
             ]
           },
           {
             "id": "weather-prep-2",
-            "label_es": "Está lluvioso. Necesito un paraguas y botas.",
+            "label_es": "Está lluvioso. Necesito un paraguas.",
             "accepted_option_ids": [
               "weather-prep-2"
             ],
             "rect": {
-              "x": 0.28,
-              "y": 0.2,
-              "width": 0.19,
-              "height": 0.62
+              "x": 0.22,
+              "y": 0.23,
+              "width": 0.285,
+              "height": 0.44
             },
             "head_anchors": [
               {
-                "x": 0.37,
-                "y": 0.21
+                "x": 0.367,
+                "y": 0.235
               }
             ]
           },
@@ -253,15 +253,15 @@
               "weather-prep-3"
             ],
             "rect": {
-              "x": 0.52,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.6
+              "x": 0.505,
+              "y": 0.275,
+              "width": 0.205,
+              "height": 0.33
             },
             "head_anchors": [
               {
-                "x": 0.61,
-                "y": 0.23
+                "x": 0.62,
+                "y": 0.28
               }
             ]
           },
@@ -272,15 +272,15 @@
               "weather-prep-4"
             ],
             "rect": {
-              "x": 0.75,
-              "y": 0.28,
-              "width": 0.19,
-              "height": 0.52
+              "x": 0.82,
+              "y": 0.4925,
+              "width": 0.135,
+              "height": 0.16
             },
             "head_anchors": [
               {
-                "x": 0.84,
-                "y": 0.29
+                "x": 0.885,
+                "y": 0.515
               }
             ]
           }
@@ -295,8 +295,8 @@
           },
           {
             "id": "cue-weather-prep-2",
-            "text": "It is rainy. I need an umbrella and boots.",
-            "answer_text": "It is rainy. I need an umbrella and boots.",
+            "text": "It is rainy. I need an umbrella.",
+            "answer_text": "It is rainy. I need an umbrella.",
             "target_id": "weather-prep-2",
             "option_id": "weather-prep-2"
           },
@@ -392,15 +392,15 @@
               "clothing-line-1"
             ],
             "rect": {
-              "x": 0.06,
-              "y": 0.18,
-              "width": 0.18,
-              "height": 0.68
+              "x": 0.075,
+              "y": 0.11,
+              "width": 0.175,
+              "height": 0.8
             },
             "head_anchors": [
               {
-                "x": 0.15,
-                "y": 0.19
+                "x": 0.175,
+                "y": 0.12
               }
             ]
           },
@@ -411,15 +411,15 @@
               "clothing-line-2"
             ],
             "rect": {
-              "x": 0.29,
-              "y": 0.18,
-              "width": 0.18,
-              "height": 0.68
+              "x": 0.31,
+              "y": 0.07,
+              "width": 0.205,
+              "height": 0.83
             },
             "head_anchors": [
               {
-                "x": 0.38,
-                "y": 0.19
+                "x": 0.415,
+                "y": 0.075
               }
             ]
           },
@@ -430,15 +430,15 @@
               "clothing-line-3"
             ],
             "rect": {
-              "x": 0.52,
-              "y": 0.22,
-              "width": 0.18,
-              "height": 0.64
+              "x": 0.555,
+              "y": 0.205,
+              "width": 0.145,
+              "height": 0.715
             },
             "head_anchors": [
               {
-                "x": 0.61,
-                "y": 0.23
+                "x": 0.635,
+                "y": 0.215
               }
             ]
           },
@@ -449,15 +449,15 @@
               "clothing-line-4"
             ],
             "rect": {
-              "x": 0.74,
-              "y": 0.25,
-              "width": 0.18,
-              "height": 0.61
+              "x": 0.785,
+              "y": 0.255,
+              "width": 0.13,
+              "height": 0.655
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.26
+                "x": 0.848,
+                "y": 0.265
               }
             ]
           }
@@ -499,13 +499,13 @@
       "mission_chapter_id": "estados",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "How are you? I am happy. I am tired. I am hungry. I am thirsty.",
+      "prompt": "I am happy. I am tired. I am hungry. I am thirsty.",
       "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp",
       "options": [
         {
           "id": "feelings-1",
           "image_url": "",
-          "label": "How are you? I am happy."
+          "label": "I am happy."
         },
         {
           "id": "feelings-2",
@@ -530,53 +530,53 @@
         "feelings-3",
         "feelings-4"
       ],
-      "audio_text": "How are you? I am happy. I am tired. I am hungry. I am thirsty.",
+      "audio_text": "I am happy. I am tired. I am hungry. I am thirsty.",
       "answer_audio_text": null,
       "audio_turns": [
         {
-          "text": "How are you? I am happy.",
-          "speaker_role": "teacher",
+          "text": "I am happy.",
+          "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
         },
         {
           "text": "I am tired.",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
         },
         {
           "text": "I am hungry.",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
         },
         {
           "text": "I am thirsty.",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_feelings.webp"
         }
       ],
-      "spanish_translation": "¿Cómo estás? Estoy feliz. Estoy cansado. Tengo hambre. Tengo sed.",
+      "spanish_translation": "Estoy feliz. Estoy cansado. Tengo hambre. Tengo sed.",
       "pedagogy_note": "Mission beat 03/13: Escucha cómo se siente cada familiar antes de comenzar las actividades.",
       "mission_game": {
         "kind": "action-hunt",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
         "validation": "ordered",
         "targets": [
           {
             "id": "feelings-1",
-            "label_es": "¿Cómo estás? Estoy feliz.",
+            "label_es": "Estoy feliz.",
             "accepted_option_ids": [
               "feelings-1"
             ],
             "rect": {
-              "x": 0.05,
-              "y": 0.2,
-              "width": 0.19,
-              "height": 0.65
+              "x": 0.01,
+              "y": 0.135,
+              "width": 0.32,
+              "height": 0.77
             },
             "head_anchors": [
               {
-                "x": 0.14,
-                "y": 0.21
+                "x": 0.19,
+                "y": 0.145
               }
             ]
           },
@@ -587,15 +587,15 @@
               "feelings-2"
             ],
             "rect": {
-              "x": 0.28,
-              "y": 0.24,
-              "width": 0.19,
-              "height": 0.61
+              "x": 0.335,
+              "y": 0.26,
+              "width": 0.185,
+              "height": 0.6
             },
             "head_anchors": [
               {
-                "x": 0.37,
-                "y": 0.25
+                "x": 0.4,
+                "y": 0.27
               }
             ]
           },
@@ -606,15 +606,15 @@
               "feelings-3"
             ],
             "rect": {
-              "x": 0.51,
-              "y": 0.25,
-              "width": 0.19,
-              "height": 0.6
+              "x": 0.595,
+              "y": 0.255,
+              "width": 0.125,
+              "height": 0.645
             },
             "head_anchors": [
               {
-                "x": 0.6,
-                "y": 0.26
+                "x": 0.66,
+                "y": 0.265
               }
             ]
           },
@@ -625,15 +625,15 @@
               "feelings-4"
             ],
             "rect": {
-              "x": 0.74,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.63
+              "x": 0.8,
+              "y": 0.185,
+              "width": 0.18,
+              "height": 0.72
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.23
+                "x": 0.845,
+                "y": 0.195
               }
             ]
           }
@@ -641,8 +641,8 @@
         "cues": [
           {
             "id": "cue-feelings-1",
-            "text": "How are you? I am happy.",
-            "answer_text": "How are you? I am happy.",
+            "text": "I am happy.",
+            "answer_text": "I am happy.",
             "target_id": "feelings-1",
             "option_id": "feelings-1"
           },
@@ -675,13 +675,13 @@
       "mission_chapter_id": "cuerpo",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "My head is warm. My eyes and ears. My hands and arms. My legs and feet.",
+      "prompt": "My head. My eyes and ears. My hands and arms. My legs and feet.",
       "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp",
       "options": [
         {
           "id": "body-health-1",
           "image_url": "",
-          "label": "My head is warm."
+          "label": "My head."
         },
         {
           "id": "body-health-2",
@@ -706,53 +706,53 @@
         "body-health-3",
         "body-health-4"
       ],
-      "audio_text": "My head is warm. My eyes and ears. My hands and arms. My legs and feet.",
+      "audio_text": "My head. My eyes and ears. My hands and arms. My legs and feet.",
       "answer_audio_text": null,
       "audio_turns": [
         {
-          "text": "My head is warm.",
-          "speaker_role": "teacher",
+          "text": "My head.",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
         },
         {
           "text": "My eyes and ears.",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
         },
         {
           "text": "My hands and arms.",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
         },
         {
           "text": "My legs and feet.",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_body_health.webp"
         }
       ],
-      "spanish_translation": "Mi cabeza está caliente. Mis ojos y orejas. Mis manos y brazos. Mis piernas y pies.",
-      "pedagogy_note": "Mission beat 04/13: En la zona de bienestar, toca la parte del cuerpo que demuestra cada persona.",
+      "spanish_translation": "Mi cabeza. Mis ojos y orejas. Mis manos y brazos. Mis piernas y pies.",
+      "pedagogy_note": "Mission beat 04/13: En la zona de bienestar, toca a quien muestra cada parte del cuerpo.",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
         "validation": "ordered",
         "targets": [
           {
             "id": "body-health-1",
-            "label_es": "Mi cabeza está caliente.",
+            "label_es": "Mi cabeza.",
             "accepted_option_ids": [
               "body-health-1"
             ],
             "rect": {
-              "x": 0.06,
-              "y": 0.16,
-              "width": 0.18,
-              "height": 0.7
+              "x": 0.02,
+              "y": 0.05,
+              "width": 0.26,
+              "height": 0.84
             },
             "head_anchors": [
               {
-                "x": 0.15,
-                "y": 0.17
+                "x": 0.155,
+                "y": 0.055
               }
             ]
           },
@@ -763,15 +763,15 @@
               "body-health-2"
             ],
             "rect": {
-              "x": 0.29,
-              "y": 0.18,
-              "width": 0.18,
-              "height": 0.68
+              "x": 0.275,
+              "y": 0.12,
+              "width": 0.205,
+              "height": 0.78
             },
             "head_anchors": [
               {
-                "x": 0.38,
-                "y": 0.19
+                "x": 0.39,
+                "y": 0.13
               }
             ]
           },
@@ -782,14 +782,14 @@
               "body-health-3"
             ],
             "rect": {
-              "x": 0.52,
+              "x": 0.455,
               "y": 0.24,
-              "width": 0.18,
-              "height": 0.62
+              "width": 0.325,
+              "height": 0.635
             },
             "head_anchors": [
               {
-                "x": 0.61,
+                "x": 0.605,
                 "y": 0.25
               }
             ]
@@ -801,15 +801,15 @@
               "body-health-4"
             ],
             "rect": {
-              "x": 0.74,
-              "y": 0.2,
-              "width": 0.18,
-              "height": 0.66
+              "x": 0.795,
+              "y": 0.16,
+              "width": 0.175,
+              "height": 0.72
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.21
+                "x": 0.875,
+                "y": 0.17
               }
             ]
           }
@@ -817,8 +817,8 @@
         "cues": [
           {
             "id": "cue-body-health-1",
-            "text": "My head is warm.",
-            "answer_text": "My head is warm.",
+            "text": "My head.",
+            "answer_text": "My head.",
             "target_id": "body-health-1",
             "option_id": "body-health-1"
           },
@@ -887,22 +887,22 @@
       "audio_turns": [
         {
           "text": "I like reading.",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
         },
         {
           "text": "I like playing.",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
         },
         {
           "text": "I like listening to music.",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
         },
         {
           "text": "I do not like watching TV.",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_hobbies.webp"
         }
       ],
@@ -910,7 +910,7 @@
       "pedagogy_note": "Mission beat 05/13: Escucha qué le gusta y qué no le gusta hacer a cada familiar en el parque.",
       "mission_game": {
         "kind": "contrast-hunt",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
         "validation": "ordered",
         "targets": [
           {
@@ -920,15 +920,15 @@
               "hobbies-1"
             ],
             "rect": {
-              "x": 0.05,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.63
+              "x": 0.025,
+              "y": 0.27,
+              "width": 0.275,
+              "height": 0.57
             },
             "head_anchors": [
               {
-                "x": 0.14,
-                "y": 0.23
+                "x": 0.12,
+                "y": 0.28
               }
             ]
           },
@@ -939,15 +939,15 @@
               "hobbies-2"
             ],
             "rect": {
-              "x": 0.28,
-              "y": 0.32,
-              "width": 0.19,
-              "height": 0.53
+              "x": 0.3,
+              "y": 0.44,
+              "width": 0.24,
+              "height": 0.44
             },
             "head_anchors": [
               {
-                "x": 0.37,
-                "y": 0.33
+                "x": 0.415,
+                "y": 0.45
               }
             ]
           },
@@ -958,15 +958,15 @@
               "hobbies-3"
             ],
             "rect": {
-              "x": 0.51,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.63
+              "x": 0.57,
+              "y": 0.31,
+              "width": 0.17,
+              "height": 0.55
             },
             "head_anchors": [
               {
-                "x": 0.6,
-                "y": 0.23
+                "x": 0.62,
+                "y": 0.32
               }
             ]
           },
@@ -977,15 +977,15 @@
               "hobbies-4"
             ],
             "rect": {
-              "x": 0.74,
-              "y": 0.18,
-              "width": 0.19,
-              "height": 0.67
+              "x": 0.765,
+              "y": 0.085,
+              "width": 0.235,
+              "height": 0.705
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.19
+                "x": 0.84,
+                "y": 0.095
               }
             ]
           }
@@ -1063,22 +1063,22 @@
       "audio_turns": [
         {
           "text": "Do you want to play?",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         },
         {
           "text": "Yes, thank you.",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         },
         {
           "text": "Do you want to read?",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         },
         {
           "text": "Sorry, no.",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         }
       ],
@@ -1086,7 +1086,7 @@
       "pedagogy_note": "Mission beat 06/13: Cuatro amigos se invitan y responden: toca a quien corresponde cada frase.",
       "mission_game": {
         "kind": "action-hunt",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
         "validation": "ordered",
         "targets": [
           {
@@ -1096,15 +1096,15 @@
               "invitations-1"
             ],
             "rect": {
-              "x": 0.05,
-              "y": 0.24,
-              "width": 0.19,
-              "height": 0.62
+              "x": 0.055,
+              "y": 0.2,
+              "width": 0.23,
+              "height": 0.7
             },
             "head_anchors": [
               {
-                "x": 0.14,
-                "y": 0.25
+                "x": 0.12,
+                "y": 0.21
               }
             ]
           },
@@ -1115,15 +1115,15 @@
               "invitations-2"
             ],
             "rect": {
-              "x": 0.28,
-              "y": 0.2,
-              "width": 0.19,
-              "height": 0.66
+              "x": 0.275,
+              "y": 0.08,
+              "width": 0.175,
+              "height": 0.795
             },
             "head_anchors": [
               {
-                "x": 0.37,
-                "y": 0.21
+                "x": 0.35,
+                "y": 0.09
               }
             ]
           },
@@ -1134,15 +1134,15 @@
               "invitations-3"
             ],
             "rect": {
-              "x": 0.51,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.64
+              "x": 0.535,
+              "y": 0.16,
+              "width": 0.225,
+              "height": 0.74
             },
             "head_anchors": [
               {
-                "x": 0.6,
-                "y": 0.23
+                "x": 0.61,
+                "y": 0.17
               }
             ]
           },
@@ -1153,15 +1153,15 @@
               "invitations-4"
             ],
             "rect": {
-              "x": 0.74,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.64
+              "x": 0.765,
+              "y": 0.195,
+              "width": 0.175,
+              "height": 0.7
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.23
+                "x": 0.87,
+                "y": 0.205
               }
             ]
           }
@@ -1272,15 +1272,15 @@
               "table-refreshments-1"
             ],
             "rect": {
-              "x": 0.06,
-              "y": 0.2,
+              "x": 0.025,
+              "y": 0.065,
               "width": 0.18,
-              "height": 0.45
+              "height": 0.28
             },
             "head_anchors": [
               {
-                "x": 0.15,
-                "y": 0.21
+                "x": 0.115,
+                "y": 0.07
               }
             ]
           },
@@ -1291,15 +1291,15 @@
               "table-refreshments-2"
             ],
             "rect": {
-              "x": 0.28,
-              "y": 0.28,
-              "width": 0.19,
-              "height": 0.48
+              "x": 0.155,
+              "y": 0.435,
+              "width": 0.22,
+              "height": 0.355
             },
             "head_anchors": [
               {
-                "x": 0.37,
-                "y": 0.29
+                "x": 0.265,
+                "y": 0.44
               }
             ]
           },
@@ -1310,15 +1310,15 @@
               "table-refreshments-3"
             ],
             "rect": {
-              "x": 0.51,
-              "y": 0.25,
-              "width": 0.19,
-              "height": 0.52
+              "x": 0.455,
+              "y": 0.425,
+              "width": 0.31,
+              "height": 0.395
             },
             "head_anchors": [
               {
-                "x": 0.6,
-                "y": 0.26
+                "x": 0.61,
+                "y": 0.43
               }
             ]
           },
@@ -1329,15 +1329,15 @@
               "table-refreshments-4"
             ],
             "rect": {
-              "x": 0.74,
-              "y": 0.32,
-              "width": 0.19,
-              "height": 0.44
+              "x": 0.76,
+              "y": 0.625,
+              "width": 0.215,
+              "height": 0.175
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.33
+                "x": 0.87,
+                "y": 0.63
               }
             ]
           }
@@ -1448,15 +1448,15 @@
               "communication-help-1"
             ],
             "rect": {
-              "x": 0.05,
-              "y": 0.2,
-              "width": 0.19,
-              "height": 0.65
+              "x": 0.03,
+              "y": 0.105,
+              "width": 0.21,
+              "height": 0.815
             },
             "head_anchors": [
               {
                 "x": 0.14,
-                "y": 0.21
+                "y": 0.115
               }
             ]
           },
@@ -1467,15 +1467,15 @@
               "communication-help-2"
             ],
             "rect": {
-              "x": 0.28,
-              "y": 0.18,
-              "width": 0.19,
-              "height": 0.67
+              "x": 0.26,
+              "y": 0.065,
+              "width": 0.285,
+              "height": 0.83
             },
             "head_anchors": [
               {
-                "x": 0.37,
-                "y": 0.19
+                "x": 0.4,
+                "y": 0.075
               }
             ]
           },
@@ -1486,15 +1486,15 @@
               "communication-help-3"
             ],
             "rect": {
-              "x": 0.51,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.63
+              "x": 0.575,
+              "y": 0.2,
+              "width": 0.165,
+              "height": 0.7
             },
             "head_anchors": [
               {
-                "x": 0.6,
-                "y": 0.23
+                "x": 0.67,
+                "y": 0.21
               }
             ]
           },
@@ -1505,15 +1505,15 @@
               "communication-help-4"
             ],
             "rect": {
-              "x": 0.74,
-              "y": 0.2,
-              "width": 0.19,
-              "height": 0.65
+              "x": 0.77,
+              "y": 0.105,
+              "width": 0.215,
+              "height": 0.815
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.21
+                "x": 0.865,
+                "y": 0.115
               }
             ]
           }
@@ -1555,7 +1555,7 @@
       "mission_chapter_id": "indicaciones",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "Where is the bathroom? Go straight. Turn right. Who are they?",
+      "prompt": "Where is the bathroom? Go straight. Turn right. Who is he? He is the grandfather.",
       "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp",
       "options": [
         {
@@ -1576,7 +1576,7 @@
         {
           "id": "navigation-4",
           "image_url": "",
-          "label": "Who are they?"
+          "label": "Who is he? He is the grandfather."
         }
       ],
       "correct_option_id": "navigation-1",
@@ -1586,7 +1586,7 @@
         "navigation-3",
         "navigation-4"
       ],
-      "audio_text": "Where is the bathroom? Go straight. Turn right. Who are they?",
+      "audio_text": "Where is the bathroom? Go straight. Turn right. Who is he? He is the grandfather.",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -1605,13 +1605,13 @@
           "image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp"
         },
         {
-          "text": "Who are they?",
+          "text": "Who is he? He is the grandfather.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u7_outing_v1_navigation.webp"
         }
       ],
-      "spanish_translation": "¿Dónde está el baño? Sigue derecho. Gira a la derecha. ¿Quiénes son ellos?",
-      "pedagogy_note": "Mission beat 09/13: Ubica el baño, las direcciones del camino y a los invitados.",
+      "spanish_translation": "¿Dónde está el baño? Sigue derecho. Gira a la derecha. ¿Quién es él? Es el abuelo.",
+      "pedagogy_note": "Mission beat 09/13: Ubica el baño, las direcciones del camino y al abuelo.",
       "mission_game": {
         "kind": "guided-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -1624,15 +1624,15 @@
               "navigation-1"
             ],
             "rect": {
-              "x": 0.05,
-              "y": 0.18,
-              "width": 0.19,
-              "height": 0.65
+              "x": 0.0,
+              "y": 0.1,
+              "width": 0.29,
+              "height": 0.57
             },
             "head_anchors": [
               {
-                "x": 0.14,
-                "y": 0.19
+                "x": 0.115,
+                "y": 0.11
               }
             ]
           },
@@ -1643,15 +1643,15 @@
               "navigation-2"
             ],
             "rect": {
-              "x": 0.28,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.58
+              "x": 0.325,
+              "y": 0.2,
+              "width": 0.12,
+              "height": 0.43
             },
             "head_anchors": [
               {
-                "x": 0.37,
-                "y": 0.23
+                "x": 0.385,
+                "y": 0.235
               }
             ]
           },
@@ -1662,34 +1662,34 @@
               "navigation-3"
             ],
             "rect": {
-              "x": 0.51,
-              "y": 0.22,
-              "width": 0.19,
-              "height": 0.58
+              "x": 0.57,
+              "y": 0.205,
+              "width": 0.12,
+              "height": 0.42
             },
             "head_anchors": [
               {
-                "x": 0.6,
-                "y": 0.23
+                "x": 0.63,
+                "y": 0.235
               }
             ]
           },
           {
             "id": "navigation-4",
-            "label_es": "¿Quiénes son ellos?",
+            "label_es": "¿Quién es él? Es el abuelo.",
             "accepted_option_ids": [
               "navigation-4"
             ],
             "rect": {
-              "x": 0.73,
-              "y": 0.2,
-              "width": 0.21,
-              "height": 0.65
+              "x": 0.83,
+              "y": 0.295,
+              "width": 0.125,
+              "height": 0.63
             },
             "head_anchors": [
               {
-                "x": 0.83,
-                "y": 0.21
+                "x": 0.87,
+                "y": 0.305
               }
             ]
           }
@@ -1718,8 +1718,8 @@
           },
           {
             "id": "cue-navigation-4",
-            "text": "Who are they?",
-            "answer_text": "Who are they?",
+            "text": "Who is he? He is the grandfather.",
+            "answer_text": "Who is he? He is the grandfather.",
             "target_id": "navigation-4",
             "option_id": "navigation-4"
           }
@@ -1845,36 +1845,36 @@
       "mission_chapter_id": "pregunta",
       "interaction_type": "mission-speak",
       "stage": "Speak",
-      "prompt": "Two dollars. Juice, please.",
+      "prompt": "I am thirsty. Juice, please.",
       "prompt_image_url": "",
       "options": [
         {
           "id": "purchase-response",
-          "label": "Two dollars. Juice, please.",
+          "label": "I am thirsty. Juice, please.",
           "image_url": "/lesson-assets/a1_u7_outing_v1_purchase_response.webp"
         }
       ],
       "correct_option_id": "purchase-response",
-      "audio_text": "Two dollars. Juice, please.",
+      "audio_text": "I am thirsty. Juice, please.",
       "answer_audio_text": null,
       "audio_turns": [
         {
-          "text": "It is six o'clock. How much is it?",
+          "text": "Hello. How are you?",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_purchase_question.webp"
         }
       ],
-      "spanish_translation": "Dos dólares. Jugo, por favor.",
-      "pedagogy_note": "Mission beat 12/13: En el puesto de bebidas revisan la hora y el precio; pide tu bebida cortésmente.",
+      "spanish_translation": "Tengo sed. Jugo, por favor.",
+      "pedagogy_note": "Mission beat 12/13: En el puesto de bebidas la vendedora te saluda; dile cómo estás y pide tu jugo cortésmente.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la frase. Después lee la respuesta en voz alta.",
         "validation": "single",
-        "cue_audio_text": "It is six o'clock. How much is it?",
+        "cue_audio_text": "Hello. How are you?",
         "targets": [
           {
             "id": "purchase-response",
-            "label_es": "Dos dólares. Jugo, por favor.",
+            "label_es": "Tengo sed. Jugo, por favor.",
             "accepted_option_ids": [
               "purchase-response"
             ],
@@ -1889,8 +1889,8 @@
         "cues": [
           {
             "id": "cue-purchase-response",
-            "text": "It is six o'clock. How much is it?",
-            "answer_text": "Two dollars. Juice, please.",
+            "text": "Hello. How are you?",
+            "answer_text": "I am thirsty. Juice, please.",
             "target_id": "purchase-response",
             "option_id": "purchase-response"
           }
@@ -1902,17 +1902,17 @@
       "mission_chapter_id": "pregunta",
       "interaction_type": "mission-finale",
       "stage": "Speak",
-      "prompt": "Yes, thank you. I like listening to music.",
+      "prompt": "Yes, thank you. I like music.",
       "prompt_image_url": "",
       "options": [
         {
           "id": "invitation-response",
-          "label": "Yes, thank you. I like listening to music.",
+          "label": "Yes, thank you. I like music.",
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitation_response.webp"
         }
       ],
       "correct_option_id": "invitation-response",
-      "audio_text": "Yes, thank you. I like listening to music.",
+      "audio_text": "Yes, thank you. I like music.",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -1921,7 +1921,7 @@
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitation_question.webp"
         }
       ],
-      "spanish_translation": "Sí, gracias. Me gusta escuchar música.",
+      "spanish_translation": "Sí, gracias. Me gusta la música.",
       "pedagogy_note": "Mission beat 13/13: El músico te invita al concierto final; responde con entusiasmo para completar el nivel A1.",
       "mission_game": {
         "kind": "voice-gate",
@@ -1931,7 +1931,7 @@
         "targets": [
           {
             "id": "invitation-response",
-            "label_es": "Sí, gracias. Me gusta escuchar música.",
+            "label_es": "Sí, gracias. Me gusta la música.",
             "accepted_option_ids": [
               "invitation-response"
             ],
@@ -1947,7 +1947,7 @@
           {
             "id": "cue-invitation-response",
             "text": "Do you want to listen to music?",
-            "answer_text": "Yes, thank you. I like listening to music.",
+            "answer_text": "Yes, thank you. I like music.",
             "target_id": "invitation-response",
             "option_id": "invitation-response"
           }
