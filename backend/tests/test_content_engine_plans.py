@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from scripts.content_engine.catalog import load_catalog, load_standards
+from scripts.content_engine.install import lesson_text
 from scripts.content_engine.plan import compose_lesson, import_card, import_lesson, recipe_coverage
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -23,6 +24,14 @@ class ContentEnginePlanTests(unittest.TestCase):
                 plan = json.loads(json.dumps(import_lesson(lesson.data), ensure_ascii=False))
                 self.assertEqual(compose_lesson(plan), original)
                 self.assertEqual(lesson.data, original, "Importing must not modify the lesson.")
+
+    def test_json_lessons_rebuild_byte_for_byte(self):
+        for lesson in load_catalog(ROOT, load_standards(ROOT, "a1")):
+            text = lesson.path.read_bytes().decode("utf-8").replace("\r\n", "\n")
+            if not text.lstrip().startswith("{"):
+                continue  # Hand-written YAML matches as data; the engine writes JSON.
+            with self.subTest(lesson=lesson.number):
+                self.assertEqual(lesson_text(compose_lesson(import_lesson(lesson.data))), text)
 
     def test_a_standard_teach_card_is_pure_recipe_content(self):
         card = {"slide_id": "L1", "interaction_type": "teach", "prompt": "A boy", "stage": "Learn",

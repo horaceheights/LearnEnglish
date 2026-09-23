@@ -11,6 +11,20 @@ from scripts.content_engine.recipes import RECIPES, recipe_for
 
 PLAN_VERSION = 1
 ABSENT = {"$absent": True}
+PLAN_KEYS = ("recipe", "exceptions", "answer", "mirror_translation", "field_order")
+# The standard field order for a card. A live card written in another order
+# keeps that order in its plan so reinstalling it changes no bytes.
+FIELD_ORDER = (
+    "slide_id", "interaction_type", "prompt", "mission_chapter_id", "stage", "correct_option_id", "options",
+    "audio_text", "answer_audio_text", "answer_audio_turns", "prompt_image_url", "audio_turns",
+    "spanish_translation", "translation", "correct_option_ids", "audio_revision", "answer_audio_speaker",
+    "pedagogy_note", "audio_speaker", "answer_audio_revision", "mission_game",
+)
+
+
+def standard_order(fields) -> list[str]:
+    rank = {field: index for index, field in enumerate(FIELD_ORDER)}
+    return sorted(fields, key=lambda field: (rank.get(field, len(rank)), field))
 
 
 def import_card(card: dict) -> dict:
@@ -33,29 +47,35 @@ def import_card(card: dict) -> dict:
     spec = {"recipe": name, **spec}
     if exceptions:
         spec["exceptions"] = exceptions
+    if list(card) != standard_order(card):
+        spec["field_order"] = list(card)
     return spec
 
 
 def compose_card(spec: dict) -> dict:
-    content = {key: value for key, value in spec.items()
-               if key not in ("recipe", "exceptions", "answer", "mirror_translation")}
+    content = {key: value for key, value in spec.items() if key not in PLAN_KEYS}
     card = {**content, **RECIPES[spec["recipe"]](spec), **spec.get("exceptions", {})}
     card = {key: value for key, value in card.items() if value != ABSENT}
     if spec.get("mirror_translation"):
         card["translation"] = card["spanish_translation"]
-    return card
+    order = spec.get("field_order") or standard_order(card)
+    return {field: card[field] for field in order}
 
 
 def import_lesson(lesson: dict) -> dict:
     metadata = {key: value for key, value in lesson.items() if key != "cards"}
-    return {"plan_version": PLAN_VERSION, "lesson": metadata,
+    plan = {"plan_version": PLAN_VERSION, "lesson": metadata,
             "cards": [import_card(card) for card in lesson.get("cards") or []]}
+    if list(lesson) != [*metadata, "cards"]:
+        plan["field_order"] = list(lesson)
+    return plan
 
 
 def compose_lesson(plan: dict) -> dict:
     if plan.get("plan_version") != PLAN_VERSION:
         raise ValueError(f"Unsupported plan version {plan.get('plan_version')!r}.")
-    return {**plan["lesson"], "cards": [compose_card(spec) for spec in plan["cards"]]}
+    lesson = {**plan["lesson"], "cards": [compose_card(spec) for spec in plan["cards"]]}
+    return {field: lesson[field] for field in plan.get("field_order") or lesson}
 
 
 def recipe_coverage(plan: dict) -> dict:

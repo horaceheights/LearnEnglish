@@ -33,13 +33,15 @@ These live in `scripts/parity_pack.py`, `scripts/render_course_stills.py` and `s
 - archived and rejected sources are never overwritten with different pixels;
 - replaced media needs a reviewed preservation plan.
 
-## Still only in unit builders: the engine must add them before retirement
+## Install safety: moved into the engine
 
-| Rule | Where it lives today | Engine requirement |
+`scripts/content_engine/install.py` (`scripts/content_engine_plans.py --install`) now carries the rules that lived only in unit builders:
+
+| Rule | Where it lived | Engine status |
 |---|---|---|
-| Stop if the canonical lesson changed since the plan was taken ("concurrent canonical edit") | `build_unit_2_*`, `build_unit_3..7_parity.py` | The install step compares the lesson against the plan's source revision and refuses on drift. |
-| Never install draft or placeholder mission geometry | `build_unit_3..7_parity.py` | Installing requires measured target geometry; placeholders cannot compose into a lesson. |
-| Never crop a generated scene into compliance | `build_unit_2_mission_pack.py`, `build_unit_2_review_pack.py` | The media step rejects crop-to-fit repairs; a failing still is regenerated. |
-| Install only after the new lessons are fully built and validated | every unit builder | Compose everything, validate the whole course, then write. |
+| Stop if the canonical lesson changed after the plan was taken | `build_unit_2_*`, `build_unit_3..7_parity.py` | Done. Each exported plan records its source file hash; install refuses on drift. |
+| Never install draft or placeholder geometry | `build_unit_3..7_parity.py` | Done. Plans marked `draft` are refused. |
+| Build everything, validate the course, then keep the files | every unit builder | Done. Every plan is composed before any write. The lesson validator (Preview policy) and the practice ratchet then run, and every file is restored if either fails. |
+| Never crop a generated scene into compliance | `build_unit_2_mission_pack.py`, `build_unit_2_review_pack.py` | Open. Belongs to the engine's media step, still to be built. Until then, the unit's existing media flow applies. |
 
 Unit-specific reviewed data those builders reference stays as data and is not retired: mission head and chest anchors, reviewed photo edits, preservation plans, and answer-choice contracts.

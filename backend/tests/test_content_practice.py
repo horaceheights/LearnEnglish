@@ -28,7 +28,7 @@ def card(stage, text, distractor="A dog"):
 
 def lesson(number, vocabulary, cards, role="standard"):
     data = {"sub_lesson_id": number, "vocabulary": vocabulary, "cards": cards}
-    return CatalogLesson(number, int(number.split(".")[0]), role, data)
+    return CatalogLesson(number, int(number.split(".")[0]), role, data, Path(f"{number}.yaml"))
 
 
 def rules(findings, rule):
