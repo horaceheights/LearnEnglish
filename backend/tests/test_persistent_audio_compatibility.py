@@ -11,6 +11,7 @@ import yaml
 from backend.app import main
 from backend.app.card_audio_assets import asset_index as canonical_asset_index
 from backend.app.data import LESSONS
+from scripts.course_contract import expected_lesson_count
 from backend.app.course_audio_profile import NEUTRAL_SPEAKER_ROLES
 from backend.app.course_audio_registry import load_approved_take_registry
 from backend.app.persistent_audio_assets import (
@@ -40,7 +41,7 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
         rebuilt["source_ref"] = catalog["source_ref"]
         self.assertEqual(rebuilt, catalog)
         self.assertEqual(canonical_asset_index(LESSONS), asset_index())
-        self.assertEqual(70, catalog["lesson_count"])
+        self.assertEqual(expected_lesson_count(), catalog["lesson_count"])
         self.assertEqual(catalog["asset_count"], catalog["registry_asset_count"] + catalog["legacy_manifest_asset_count"])
         self.assertEqual(catalog["asset_count"], len(asset_index()))
 

@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 const test = require('node:test');
 const ts = require('typescript');
 
@@ -198,7 +199,7 @@ test('every generated construction has explanations for every slot and every leg
       verify([...card.correct_option_ids.slice(1), card.correct_option_ids[0]]);
     }
   }
-  assert.equal(files.length, 70);
+  assert.equal(files.length, courseContract.lessonCount);
   assert.ok(cards >= 459, 'Do not silently reduce the course audit.');
   assert.ok(progressiveChecks > 0, 'The course must exercise progressive grammar semantics.');
   console.log(`Teaching guardrail checked ${cards} constructions, ${attempts} reachable wrong attempts and ${progressiveChecks} progressive verb pairs across ${files.length} lessons.`);

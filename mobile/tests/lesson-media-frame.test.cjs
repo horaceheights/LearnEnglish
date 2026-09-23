@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const generatedRoot = path.join(mobileRoot, 'src', 'generated');
@@ -59,8 +60,8 @@ for (const filename of lessonFiles) {
   }
 }
 
-assert.equal(lessonFiles.length, 70, 'the frame audit must inspect all 70 A1 lessons');
-assert.equal(units.size, 7, 'prompt-image framing must cover all seven units');
+assert.equal(lessonFiles.length, courseContract.lessonCount, 'the frame audit must inspect every A1 lesson');
+assert.equal(units.size, courseContract.unitCount, 'prompt-image framing must cover every unit');
 assert.ok(promptImageCards.length >= 713, 'the frame audit must cover the complete prompt-image catalog');
 assert.ok((stageCounts.get('Use') || 0) >= 459, 'Completa/Use prompt images must remain in the global frame audit');
 assert.ok((stageCounts.get('Recognize') || 0) >= 218, 'Recognize prompt images must remain in the global frame audit');

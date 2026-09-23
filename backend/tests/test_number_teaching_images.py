@@ -13,6 +13,7 @@ import re
 import unittest
 
 from scripts.audit_course_media_preservation import IMAGE_ROOTS, images, lessons
+from scripts.course_contract import expected_lesson_count
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -88,7 +89,8 @@ class NumberTeachingImageTests(unittest.TestCase):
     def test_course_menu_never_opens_a_lesson_with_an_untaught_counted_object(self) -> None:
         source = COURSE_SCREEN.read_text(encoding="utf-8")
         entries = re.findall(r"'(lesson-[^'\s]+)':\s*\{\s*image:\s*'([^']+)'", source)
-        self.assertGreaterEqual(len(entries), 70, "CourseScreen must keep an explicit thumbnail per lesson")
+        self.assertGreaterEqual(len(entries), expected_lesson_count(),
+                                "CourseScreen must keep an explicit thumbnail per lesson")
         for lesson_id, filename in entries:
             row = self.counting.get(filename)
             if row is None:

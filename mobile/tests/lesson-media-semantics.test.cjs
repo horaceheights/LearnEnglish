@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 const vm = require('node:vm');
 const crypto = require('node:crypto');
 
@@ -123,7 +124,7 @@ if (process.argv.includes('--source-only')) {
 }
 assertParallelUnitOneChoices(course, 'Embedded Unit 1 course');
 
-assert.equal(course.length, 70, 'semantic media QA must cover all 70 A1 lessons');
+assert.equal(course.length, courseContract.lessonCount, 'semantic media QA must cover every A1 lesson');
 
 const lesson = (number) => {
   const result = course.find((item) => item.sub_lesson_id === number);
@@ -641,7 +642,7 @@ for (const filename of rejectedUnitTwoAssets) {
   assert.equal(
     allCourseMedia.has(filename),
     false,
-    `${filename} failed semantic review and must not be referenced by any of the 70 lessons`,
+    `${filename} failed semantic review and must not be referenced by any lesson`,
   );
   assert.equal(
     courseScreen.includes(filename),

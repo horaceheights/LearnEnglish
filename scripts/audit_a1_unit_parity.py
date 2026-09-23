@@ -16,6 +16,9 @@ from typing import Any
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.course_contract import is_foundation, is_mission, is_review  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACTS = ROOT / "docs/product/a1-unit-parity-contracts.json"
 
@@ -82,19 +85,25 @@ def review_reuse(review: dict[str, Any], earlier: list[dict[str, Any]], image_ro
     }
 
 
+def lesson_position(number: object) -> tuple[int, ...]:
+    return tuple(map(int, str(number).split(".")))
+
+
 def audit(lessons: list[dict[str, Any]], contracts: dict[str, Any], image_root: Path) -> dict[str, Any]:
     by_number = {str(lesson["sub_lesson_id"]): lesson for lesson in lessons}
     output: dict[str, Any] = {"ready": True, "units": {}}
     for unit, contract in contracts["units"].items():
-        mission = by_number.get(f"{unit}.10", {})
-        review = by_number.get(f"{unit}.9", {})
+        # Unit size follows content: find each role from the lesson data, not its number.
+        in_unit = [lesson for lesson in lessons if str(lesson["sub_lesson_id"]).split(".")[0] == str(unit)]
+        mission = next((lesson for lesson in in_unit if is_mission(lesson)), {})
+        review = next((lesson for lesson in in_unit if is_review(lesson)), {})
         cards = mission.get("cards", [])
         voices = [i for i, card in enumerate(cards) if card.get("mission_game", {}).get("kind") == "voice-gate"]
         listens = [card for card in cards if card.get("mission_game", {}).get("kind") not in (None, "voice-gate")]
         decisions = sum(len(card["mission_game"].get("cues", [])) for card in listens)
         gaps: list[str] = []
         if mission.get("experience_type") != "mission":
-            gaps.append("Lesson 10 must use the continuous mission experience.")
+            gaps.append("The unit must close with a continuous mission experience.")
         if decisions < contracts["minimum_listening_decisions"]:
             gaps.append(f"Only {decisions} listening decisions; expand meaningful unit coverage.")
         if len(voices) < contracts["minimum_voice_gates"]:
@@ -119,16 +128,16 @@ def audit(lessons: list[dict[str, Any]], contracts: dict[str, Any], image_root: 
             learn = {**source, "cards": [card for card in source.get("cards", []) if card.get("stage") == "Learn"]}
             if function_coverage(learn, [function])[function["id"]]["missing_patterns"]:
                 gaps.append(f"Teach {function['id']} explicitly in {function['taught_in']} before assessing it.")
-        earlier = [lesson for number, lesson in by_number.items()
-                   if tuple(map(int, number.split("."))) < (int(unit), 9)]
+        review_position = lesson_position(review["sub_lesson_id"]) if review else (int(unit) + 1, 0)
+        earlier = [lesson for number, lesson in by_number.items() if lesson_position(number) < review_position]
         reuse = review_reuse(review, earlier, image_root)
         if not review.get("cards"):
-            gaps.append("Lesson 9 review is missing.")
+            gaps.append("The unit review is missing.")
         if reuse["reused_images"]:
             gaps.append(f"Review reuses {len(reuse['reused_images'])} earlier images (exact bytes).")
         if reuse["missing_images"]:
             gaps.append("Review references missing images.")
-        own_foundations = [by_number.get(f"{unit}.{n}", {}) for n in range(1, 9)]
+        own_foundations = [lesson for lesson in in_unit if is_foundation(lesson)]
         vocabulary = {normalize(word) for lesson in own_foundations for word in lesson.get("vocabulary", []) if word}
         review_lines = successful_language(review)
         retrieved = {word for word in vocabulary if any(re.search(r"\b" + re.escape(word) + r"\b", line) for line in review_lines)}

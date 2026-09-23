@@ -81,4 +81,4 @@ assert.equal([...expectedMissionTapCards].filter(id => id.startsWith('lesson-10-
   'All 18 Unit 1 listening scenes must remain in scope.');
 assert.deepEqual(checkedMissionTapCards, expectedMissionTapCards, 'Every declared listening mission must retain audited hidden candidates.');
 assert.equal(missionTapCandidateSets, expectedMissionTapCards.size, 'Each listening mission must be checked exactly once.');
-console.log(`Text-tile option limit passed for ${textTileCards} cards across 70 lessons, including ${missionTapCandidateSets} hidden tap-candidate sets and ${missionConstructionBanks} bounded construction banks.`);
+console.log(`Text-tile option limit passed for ${textTileCards} cards across the complete course, including ${missionTapCandidateSets} hidden tap-candidate sets and ${missionConstructionBanks} bounded construction banks.`);

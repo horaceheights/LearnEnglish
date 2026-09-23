@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from scripts.course_contract import expected_lesson_count, expected_lessons_by_unit
 
 from scripts.a1_media_runtime_contracts import (
     card_media_usages,
@@ -252,10 +253,11 @@ class A1MediaRuntimeContractTests(unittest.TestCase):
         usages = course_browser_media_usages(lessons)
         roles = [usage["context"]["media_role"] for usage in usages]
 
-        self.assertEqual(len(usages), 147)
-        self.assertEqual(roles.count("lesson_thumbnail"), 70)
-        self.assertEqual(roles.count("continue_thumbnail"), 70)
-        self.assertEqual(roles.count("unit_thumbnail"), 7)
+        lesson_count, unit_count = expected_lesson_count(), len(expected_lessons_by_unit())
+        self.assertEqual(len(usages), 2 * lesson_count + unit_count)
+        self.assertEqual(roles.count("lesson_thumbnail"), lesson_count)
+        self.assertEqual(roles.count("continue_thumbnail"), lesson_count)
+        self.assertEqual(roles.count("unit_thumbnail"), unit_count)
         self.assertTrue(
             all(validate_review_context(usage["context"]) == usage["context"] for usage in usages)
         )

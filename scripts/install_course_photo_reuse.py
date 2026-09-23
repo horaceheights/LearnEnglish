@@ -8,6 +8,7 @@ import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
+from scripts.course_contract import is_mission, is_review  # noqa: E402
 from scripts.audit_course_media_preservation import IMAGE_ROOTS, digest, read_lesson
 
 PROOF='docs/qa/course-photo-reuse-v1.json'
@@ -44,8 +45,7 @@ def main():
             if path not in docs:
                 docs[path]=read_lesson(path)
             data=docs[path]
-            number=int(data['sub_lesson_id'].split('.')[1])
-            if data['id']!=scope['lesson_id'] or number==10 or (number==9 and not record.get('generation')):
+            if data['id']!=scope['lesson_id'] or is_mission(data) or (is_review(data) and not record.get('generation')):
                 raise ValueError('Unexpected lesson scope.')
             parent,key=pointer_parent(data,scope['pointer'])
             value=parent[key]

@@ -10,6 +10,7 @@ from scripts.audit_course_media_preservation import ROOT, BASELINE, PLANS, IMAGE
 from scripts.build_unit_2_review_pack import PACK, LESSON, compile_lesson
 from scripts.render_course_stills import load_pack, pack_output_directory
 from scripts.audit_a1_unit_parity import function_coverage, CONTRACTS, successful_language, normalize, review_reuse
+from scripts.course_contract import is_foundation
 
 
 class MediaPreservationTests(unittest.TestCase):
@@ -157,7 +158,8 @@ class MediaPreservationTests(unittest.TestCase):
         lines = successful_language(result)
         for word in ("two blue cars", "seven", "eight", "nine", "ten"):
             self.assertIn(word, lines)
-        foundations = [lesson for lesson in lessons(ROOT).values() if lesson["sub_lesson_id"] in [f"2.{n}" for n in range(1, 9)]]
+        foundations = [lesson for lesson in lessons(ROOT).values()
+                       if lesson["sub_lesson_id"].startswith("2.") and is_foundation(lesson)]
         vocabulary = {normalize(word) for lesson in foundations for word in lesson.get("vocabulary", [])}
         self.assertEqual(len(vocabulary), 43)
         missing = {word for word in vocabulary if not any(re.search(r"\b" + re.escape(word) + r"\b", line) for line in lines)}

@@ -25,6 +25,9 @@ from uuid import uuid4
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+from scripts.course_contract import is_mission  # noqa: E402
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 MODEL = "gpt-image-2.5-sunburst-2026-09-08"
 PRICE_SOURCE = "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
 FX = Decimal("16.9707")
@@ -207,7 +210,7 @@ def validate_legacy_photo_scene(asset: dict, control: dict) -> None:
                     raise ValueError('Staged candidate pixels changed before correction.')
         for scope in control['scopes']:
             lesson = current[scope['lesson_id']]
-            if int(lesson['sub_lesson_id'].split('.')[1]) == 10:
+            if is_mission(lesson):
                 raise ValueError('This still batch cannot change mission hotspot scenes.')
             parent,key = pointer_parent(lesson,scope['pointer'])
             if Path(parent[key].split('?',1)[0]).name != expected_binding:
