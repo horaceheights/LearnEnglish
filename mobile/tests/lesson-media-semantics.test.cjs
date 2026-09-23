@@ -670,16 +670,13 @@ for (const noun of demonstrativeNouns) {
   const far = demonstrativeContracts.get(`far-${noun}`);
   assert.ok(near, `missing near-${noun} demonstrative contract`);
   assert.ok(far, `missing far-${noun} demonstrative contract`);
-  assert.match(
-    near.description,
-    /(?:left hand (?:holds|grips) the near .+ while right hand points at it|left hand (?:still holds|holds|grips) the near .*?points left at the (?:held|gripped))/,
-  );
-  assert.match(near.description, /identical far|identical far chair/);
-  assert.match(
-    far.description,
-    new RegExp(`(?:left hand keeps (?:holding|gripping) (?:the )?(?:large )?near ${noun} while right hand points from below at .*identical far ${noun}|left hand (?:holds|gripping).*?(?:aims|points).*?(?:identical (?:green book|orange phone|red backpack)|far chair))`),
-  );
-  assert.match(far.description, /(?:without overlapping or touching it|stops (?:visibly below and short|well short|clearly below)|nothing overlaps or implies touch)/);
+  // The reviewed #164 pairs: the near photo points at the held object, the far photo aims up at its
+  // identical twin, and the fingertip never reaches either object.
+  assert.match(near.description, /left hand (?:still holds|grips) the near .+index finger (?:now )?points left at the (?:held|gripped)/);
+  assert.match(near.description, /identical far \w+ (?:stays complete|stands alone).*un-pointed/);
+  assert.match(far.description, /left hand (?:holds|gripping) /);
+  assert.match(far.description, /finger (?:aims up|now points up)/);
+  assert.match(far.description, /(?:fingertip stops (?:well short|clearly below|visibly below and short)|separates the fingertip from the far chair)/i);
 
   for (const filename of [near.filename, far.filename]) {
     const canonicalPath = path.join(repositoryRoot, 'Lessons', 'Lesson1', 'images', filename);
@@ -693,9 +690,9 @@ for (const noun of demonstrativeNouns) {
     );
   }
 }
-assert.match(demonstrativeContracts.get('near-chair').description, /(?:near chair is substantially larger|about 14 percent width)/);
-assert.match(demonstrativeContracts.get('far-chair').description, /(?:strong size contrast|empty floor separates the fingertip from the far chair's feet)/);
-assert.match(demonstrativeContracts.get('near-bag').description, /(?:far bag remains clearly readable|identical far backpack stays complete)/);
+assert.match(demonstrativeContracts.get('near-chair').description, /far chair stands alone .*about 14 percent width/);
+assert.match(demonstrativeContracts.get('far-chair').description, /empty floor separates the fingertip from the far chair's feet/);
+assert.match(demonstrativeContracts.get('near-bag').description, /identical far backpack stays complete/);
 
 requiredAssets.push(
   'a1_u1_review_baby_sleeping.webp',

@@ -187,8 +187,8 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "male-character", "R6"),
     ],
     "lesson-7-9-complete-a1-review": [
-        ("audio_speaker", "male-character", "N2 N7 U5"),
-        ("answer_audio_speaker", "male-character", "R7 U5"),
+        ("audio_speaker", "male-character", "N2 N7 U5 U7"),
+        ("answer_audio_speaker", "male-character", "R7 U5 U7"),
     ],
 }
 

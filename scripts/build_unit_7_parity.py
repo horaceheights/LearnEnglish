@@ -274,7 +274,7 @@ def compile_79(base: dict, pack: dict) -> dict:
     teach("L7", "I am hungry and thirsty.", "Tengo hambre y sed.", "hungry-person")
     teach("L8", "A blue dress and a green skirt.", "Un vestido azul y una falda verde.", "dress-skirt")
 
-    empty_recognize("R1", "My eyes and ears.", "My arms and hands.", "Elige la frase correcta.", "head-arms-hands", True)
+    empty_recognize("R1", "My arms and hands.", "My eyes and ears.", "Elige la frase correcta.", "head-arms-hands", True)
     empty_recognize("R2", "I am happy.", "I am sad.", "Elige la frase correcta.", "happy-person", True)
     image_to_text("R3", "How are you?", "I am thirsty.", "¿Cómo estás?", "thirsty-person",
                   ["I am thirsty.", "I am hungry."])
@@ -284,7 +284,7 @@ def compile_79(base: dict, pack: dict) -> dict:
     image_to_text("R7", "Do you want to listen to music?", "I like listening to music.",
                   "¿Quieres escuchar música?", "hobbies-music",
                   ["I like listening to music.", "I do not like music."], speaker="male-character")
-    empty_recognize("R8", "Please speak slowly.", "Where is the bathroom?", "Elige la frase correcta.", "please-repeat", False)
+    empty_recognize("R8", "Please repeat.", "Where is the bathroom?", "Elige la frase correcta.", "please-repeat", False)
 
     listen_image("N1", "My arms and hands.", "Mis brazos y manos.", "head-arms-hands", "legs-feet", True)
     listen_image("N2", "I am tired.", "Estoy cansado.", "tired-person", "happy-person", True, "male-character")
@@ -309,8 +309,8 @@ def compile_79(base: dict, pack: dict) -> dict:
                   "retrieval of hospital and bank directions across preserved review scenes")
 
     retrieval_note = "audio-to-English retrieval without a picture"
-    listen_text("N13", "I am happy today.", "Estoy feliz hoy.",
-                ["I am happy today.", "I am sad today.", "I am tired today."], retrieval_note)
+    listen_text("N13", "Please speak slowly.", "Por favor habla despacio.",
+                ["Please speak slowly.", "Please repeat.", "Where is the bathroom?"], retrieval_note)
     listen_text("N14", "Do you want to play?", "¿Quieres jugar?",
                 ["Do you want to play?", "Do you want to read?", "Do you want to watch TV?"], retrieval_note)
     listen_text("N15", "Yes, thank you.", "Sí, gracias.",
@@ -330,13 +330,13 @@ def compile_79(base: dict, pack: dict) -> dict:
     speak("S6", "I am tired. I need help.", "Estoy cansado. Necesito ayuda.", "tired-need-help")
 
     guided("U1", "My ___ ___ ___.", ["arms", "and", "hands"], "My arms and hands.", "Mis brazos y manos.", "head-arms-hands")
-    guided("U2", "I am ___ ___.", ["very", "happy"], "I am very happy.", "Estoy muy feliz.", "happy-person")
+    guided("U2", "___ am ___.", ["I", "happy"], "I am happy.", "Estoy feliz.", "happy-person")
     guided("U3", "There are five ___ ___.", ["green", "pens"], "There are five green pens.", "Hay cinco bolígrafos verdes.", "five-green-pens")
     guided("U4", "A blue ___ and a green ___.", ["dress", "skirt"], "A blue dress and a green skirt.", "Un vestido azul y una falda verde.", "dress-skirt")
 
     construct("U5", "I am tired.", "Estoy cansado.", "tired-person", "male-character")
     construct("U6", "It is sunny.", "Está soleado.", "sunny-hot-hat")
-    construct("U7", "I like music.", "Me gusta la música.", "hobbies-music")
+    construct("U7", "I like music.", "Me gusta la música.", "hobbies-music", "male-character")
     construct("U8", "Please repeat.", "Por favor repite.", "please-repeat")
 
     lesson["cards"] = cards
@@ -367,7 +367,7 @@ NEW_BEATS = [
     ("M01", "clima", "weather-prep", "guided-search", FIND_IT,
      "Revisa el clima para la salida: toca la estación según lo que escuchas.",
      [("It is sunny. It is hot. I need a hat.", "Está soleado. Hace calor. Necesito un sombrero.", "teacher"),
-      ("It is rainy. I need an umbrella and boots.", "Está lluvioso. Necesito un paraguas y botas.", "teacher"),
+      ("It is rainy. I need an umbrella.", "Está lluvioso. Necesito un paraguas.", "teacher"),
       ("It is windy. It is cold. I need a jacket.", "Está ventoso. Hace frío. Necesito una chamarra.", "teacher"),
       ("It is cloudy. I need boots.", "Está nublado. Necesito botas.", "teacher")]),
 
@@ -378,33 +378,33 @@ NEW_BEATS = [
       ("She has a blue jacket and a green skirt.", "Ella tiene una chamarra azul y una falda verde.", "teacher"),
       ("He has blue pants and black shoes.", "Él tiene pantalones azules y zapatos negros.", "teacher")]),
 
-    ("M03", "estados", "feelings", "action-hunt", FIND_IT,
+    ("M03", "estados", "feelings", "action-hunt", WHO_SAYS,
      "Escucha cómo se siente cada familiar antes de comenzar las actividades.",
-     [("How are you? I am happy.", "¿Cómo estás? Estoy feliz.", "teacher"),
-      ("I am tired.", "Estoy cansado.", "teacher"),
-      ("I am hungry.", "Tengo hambre.", "teacher"),
-      ("I am thirsty.", "Tengo sed.", "teacher")]),
+     [("I am happy.", "Estoy feliz.", "female-character"),
+      ("I am tired.", "Estoy cansado.", "male-character"),
+      ("I am hungry.", "Tengo hambre.", "male-character"),
+      ("I am thirsty.", "Tengo sed.", "female-character")]),
 
-    ("M04", "cuerpo", "body-health", "guided-search", FIND_IT,
-     "En la zona de bienestar, toca la parte del cuerpo que demuestra cada persona.",
-     [("My head is warm.", "Mi cabeza está caliente.", "teacher"),
-      ("My eyes and ears.", "Mis ojos y orejas.", "teacher"),
-      ("My hands and arms.", "Mis manos y brazos.", "teacher"),
-      ("My legs and feet.", "Mis piernas y pies.", "teacher")]),
+    ("M04", "cuerpo", "body-health", "guided-search", WHO_SAYS,
+     "En la zona de bienestar, toca a quien muestra cada parte del cuerpo.",
+     [("My head.", "Mi cabeza.", "male-character"),
+      ("My eyes and ears.", "Mis ojos y orejas.", "female-character"),
+      ("My hands and arms.", "Mis manos y brazos.", "male-character"),
+      ("My legs and feet.", "Mis piernas y pies.", "female-character")]),
 
-    ("M05", "pasatiempos", "hobbies", "contrast-hunt", FIND_IT,
+    ("M05", "pasatiempos", "hobbies", "contrast-hunt", WHO_SAYS,
      "Escucha qué le gusta y qué no le gusta hacer a cada familiar en el parque.",
-     [("I like reading.", "Me gusta leer.", "teacher"),
-      ("I like playing.", "Me gusta jugar.", "teacher"),
-      ("I like listening to music.", "Me gusta escuchar música.", "teacher"),
-      ("I do not like watching TV.", "No me gusta ver televisión.", "teacher")]),
+     [("I like reading.", "Me gusta leer.", "male-character"),
+      ("I like playing.", "Me gusta jugar.", "male-character"),
+      ("I like listening to music.", "Me gusta escuchar música.", "female-character"),
+      ("I do not like watching TV.", "No me gusta ver televisión.", "male-character")]),
 
-    ("M06", "invitaciones", "invitations", "action-hunt", FIND_IT,
+    ("M06", "invitaciones", "invitations", "action-hunt", WHO_SAYS,
      "Cuatro amigos se invitan y responden: toca a quien corresponde cada frase.",
-     [("Do you want to play?", "¿Quieres jugar?", "teacher"),
-      ("Yes, thank you.", "Sí, gracias.", "teacher"),
-      ("Do you want to read?", "¿Quieres leer?", "teacher"),
-      ("Sorry, no.", "Lo siento, no.", "teacher")]),
+     [("Do you want to play?", "¿Quieres jugar?", "male-character"),
+      ("Yes, thank you.", "Sí, gracias.", "male-character"),
+      ("Do you want to read?", "¿Quieres leer?", "female-character"),
+      ("Sorry, no.", "Lo siento, no.", "female-character")]),
 
     ("M07", "mesa", "table-refreshments", "crowd-search", FIND_IT,
      "En la mesa de comida y bebidas, encuentra la hora, el precio y las cosas.",
@@ -421,11 +421,11 @@ NEW_BEATS = [
       ("Please speak slowly.", "Por favor habla despacio.", "male-character")]),
 
     ("M09", "indicaciones", "navigation", "guided-search", FIND_IT,
-     "Ubica el baño, las direcciones del camino y a los invitados.",
+     "Ubica el baño, las direcciones del camino y al abuelo.",
      [("Where is the bathroom?", "¿Dónde está el baño?", "teacher"),
       ("Go straight.", "Sigue derecho.", "teacher"),
       ("Turn right.", "Gira a la derecha.", "teacher"),
-      ("Who are they?", "¿Quiénes son ellos?", "teacher")]),
+      ("Who is he? He is the grandfather.", "¿Quién es él? Es el abuelo.", "teacher")]),
 ]
 
 GATES = [
@@ -435,11 +435,11 @@ GATES = [
     ("M11", "bathroom", "Excuse me. Where is the bathroom?", "male-character",
      "Go straight. Turn left.", "Sigue derecho. Gira a la izquierda.",
      "Un invitado busca el baño; dale las indicaciones claras.", None),
-    ("M12", "purchase", "It is six o'clock. How much is it?", "female-character",
-     "Two dollars. Juice, please.", "Dos dólares. Jugo, por favor.",
-     "En el puesto de bebidas revisan la hora y el precio; pide tu bebida cortésmente.", None),
+    ("M12", "purchase", "Hello. How are you?", "female-character",
+     "I am thirsty. Juice, please.", "Tengo sed. Jugo, por favor.",
+     "En el puesto de bebidas la vendedora te saluda; dile cómo estás y pide tu jugo cortésmente.", None),
     ("M13", "invitation", "Do you want to listen to music?", "male-character",
-     "Yes, thank you. I like listening to music.", "Sí, gracias. Me gusta escuchar música.",
+     "Yes, thank you. I like music.", "Sí, gracias. Me gusta la música.",
      "El músico te invita al concierto final; responde con entusiasmo para completar el nivel A1.", None),
 ]
 
@@ -452,7 +452,7 @@ CHAPTERS = [
     {"id": "invitaciones", "title": "Invitaciones entre amigos", "objective": "Escucha quién invita, quién acepta y quién rechaza amablemente."},
     {"id": "mesa", "title": "La mesa de refrigerios", "objective": "Confirma la hora, el precio, las bebidas y la fruta."},
     {"id": "ayuda", "title": "Pedir ayuda y entender", "objective": "Escucha quién pide ayuda, repetición o habla pausada."},
-    {"id": "indicaciones", "title": "Ubicación y camino", "objective": "Ubica el baño, sigue las direcciones e identifica a los invitados."},
+    {"id": "indicaciones", "title": "Ubicación y camino", "objective": "Ubica el baño, sigue las direcciones e identifica al abuelo."},
     {"id": "pregunta", "title": "Pregunta y responde", "objective": "Escucha cada pregunta y responde en voz alta para superar el reto final A1."},
 ]
 
