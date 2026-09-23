@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "note": "Practice and pacing standards approved 2026-09-23. Each course reads its own block; thresholds are configuration, not code. See docs/product/new-content-engine.md.",
+  "courses": {
+    "a1": {
+      "lessons_root": "backend/lessons",
+      "lesson_glob": "unit_*/*.yaml",
+      "standard_lesson_cards": {"min": 40, "max": 42},
+      "review_lesson_cards": {"min": 48, "max": 54},
+      "max_new_items_per_lesson": 8,
+      "min_exposures_per_new_item": 5,
+      "min_stages_per_new_item": 4,
+      "new_item_needs_one_of_stages": ["Listen", "Speak"],
+      "min_later_lessons_per_new_item": 2,
+      "later_reuse_exempt_final_units": 1,
+      "instruction_words": ["listen", "choose"],
+      "proper_names": ["ana", "luis", "diego", "alex"]
+    }
+  }
+}

@@ -6,6 +6,8 @@ This file is the durable product and engineering memory for SpanGlish. It exists
 
 The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](course-design-a1.md). This file defines the reusable rules that the implementation must preserve.
 
+For new or substantially revised lessons and units, follow the [New Content Engine agent guide](new-content-engine.md) for required inputs, reusable authoring, validation, and review outputs. Derive the content brief from the applicable course-design documents—currently [A1 course design](course-design-a1.md)—and approved standards; ask only which audio and image generation tools to use when those choices have not already been supplied for the task. Its creation workflow applies within the user's explicit task scope; it does not authorize implementation or publication during analysis-only work.
+
 ## 1. Change Discipline
 
 ### Units 2–7: Unit 1 parity rollout (approved 2026-09-13)
@@ -208,6 +210,17 @@ Do not force every word through every step in a single lesson when that would ma
 
 - On `Learn` introduction cards, words declared in the lesson vocabulary contract use the shared readable yellow emphasis and one brief shine/stretch animation. The animation plays once per card, never loops, never shifts layout, and respects reduced-motion settings.
 - When `not` is the active new concept in Lesson 1.7, keep it larger and in the shared yellow new-word treatment throughout visible teaching and recognition prompts. Outside `Learn`, the emphasis is static rather than replaying the introduction animation.
+
+### Practice and pacing standards (approved 2026-09-23)
+
+The user approved these measurable standards so that learners can predict how long a lesson takes and no new word is left under-practiced. Thresholds are per-course configuration in [`content-standards.json`](content-standards.json), not code:
+
+- **Steady lesson length.** Every standard lesson has 40–42 cards; reviews stay 48–54. Missions will share one beat range, to be set when the engine defines missions as data. Lesson length stays constant; a unit's lesson count does not.
+- **New-language budget.** A lesson introduces at most 8 new vocabulary items. Large sets such as numbers, days, countries and foods are split across lessons instead of being squeezed into one (the problem Lesson 4.8 showed).
+- **Practice minimum.** Every new item has at least 5 exposures in its own lesson across at least 4 of the 5 stages, including Listen or Speak, and returns on the successful path of at least 2 later lessons, where the review and the mission count. Only prompts, audio, audio turns, mission cues and correct answers count as practice; distractors and metadata never do. Items in the course's final unit are exempt from the later-lesson rule.
+- **No untaught language.** Every English word on a card, including distractors, must already be declared in the current or an earlier lesson's vocabulary or review vocabulary. Regular plurals of taught nouns are accepted; third-person verb forms such as `goes` are not.
+- **Flexible unit size.** A unit has as many forward-building lessons as its content needs, always followed by one no-new-language review and one mission. This supersedes the fixed ten-lesson unit for future curriculum work. Until the release plumbing moves to a course-plan count, the existing 70-lesson release contract in sections 9 and 11 still applies.
+- `scripts/audit_content_practice.py` reports every finding; `--check` and `backend/tests/test_content_practice.py` ratchet the course against [`content-practice-baseline.json`](content-practice-baseline.json). Content that predates these standards is recorded there. New findings fail CI, and fixed findings must be removed from the baseline, so a rebuilt lesson cannot regress. Never add entries to the baseline to clear a new finding; fix the content.
 
 ### Unit progression and end-of-unit roles
 
@@ -647,6 +660,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 - 2026-09-06: Dedicated mission games were separated from the standard `Use`-stage grammar-animation lifecycle. A successful `Comprobar` now plays its authored feedback and advances to the next mission beat instead of waiting forever for a `LessonCardView` animation callback that the mission surface cannot emit; automated coverage pins the `Use`-stage mission case.
 - 2026-09-06: Unit 1 Lesson 1.10 moved from drag-and-check worksheets to one English-audio-driven touch adventure. All 18 listening beats use large neutral scene targets, immediate validation and cue advancement, progress-preserving retry, exact English replay, at least four visible candidates, and no `Comprobar`, answer bank, Undo, Reset, or lesson scrolling. Four consecutive voice gates close the same story through the real pronunciation engine. Spanish is limited to one spoken kickoff and concise visible mechanic guidance that never leaks the answer. Mission opening, progress, retry, voice, and finale cues were replaced by seven versioned, level-matched ElevenLabs acoustic assets, with longer distinct opening and resolution phrases.
 - 2026-09-07: Mission scenes standardized on one complete measured 3:2 canvas in portrait and landscape, with target coordinates mounted inside that canvas rather than a mismatched `cover` crop. Every visible candidate now receives exactly one cue before the beat can advance; round targets represent individuals and neutral elongated capsules represent pairs or groups. Short landscape viewports place the instructions and cue progress in a side rail so the uncropped scene can use the full available height without scrolling. The placement test also pins the SHA-256 of every visually reviewed mission scene, so a same-filename image replacement cannot silently inherit obsolete target coordinates.
+- 2026-09-23: The user approved measurable practice and pacing standards before any A1+ work: 40–42 cards per standard lesson, at most 8 new items per lesson, and at least 5 exposures across 4 stages (including Listen or Speak) with reuse in 2 later lessons. Language may not be used before it is taught, and a unit's size follows its content, not a fixed ten. A1 will be redone unit by unit through a shared, data-driven content engine, and the ratcheted `audit_content_practice.py` check starts from a baseline of existing findings.
 
 - 2026-09-03: Full-bleed media now explicitly includes encoded video pixels. The old solid-side-fill and cooking/walking inset exceptions contradicted the image standard and were enforced by a source-regex test. They are superseded by landscape-source generation, rejection of narrow footage, and decoded-frame QA. Seven replacement scenes, five matched posters, and the parents landscape master remove the known encoded bands. Release preflight decodes every mapped video, and generation checks the input pixels before sending a paid request.
 

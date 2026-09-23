@@ -73,6 +73,18 @@ Further mass content production begins only when:
 After this gate passes, the same engine can support rapid, large-scale course
 creation without proportionally increasing engineering effort.
 
+A1 rework (approved 2026-09-23) is the engine's proving path, not a mass
+expansion. It happens in four phases:
+
+1. The practice and pacing standards plus a ratcheted checker
+   (`scripts/audit_content_practice.py`).
+2. A data-driven engine that reproduces today's A1 exactly.
+3. Release counts taken from the course plan instead of a fixed 70.
+4. A1 rebuilt one unit per PR, Units 1 → 7, retiring each unit's legacy
+   builder scripts.
+
+A1+ and later levels wait until that path is proven.
+
 ## Status key
 
 - `[ ]` Not started
