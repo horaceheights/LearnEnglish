@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 const vm = require('node:vm');
 const ts = require('typescript');
 
@@ -17,12 +18,12 @@ const embeddedCourse = JSON.parse(fs.readFileSync(
 assert.match(
   qaSource,
   /const unitGroups = useMemo[\s\S]*?new Map<string, LessonSummary\[]>[\s\S]*?unitIdFor\(lesson\)/,
-  'Engine QA must group the complete catalog by unit instead of rendering one 70-lesson stack.',
+  'Engine QA must group the complete catalog by unit instead of rendering one whole-course stack.',
 );
 assert.match(
   qaSource,
   /selectedUnitLessons\.map\(\(lesson\)/,
-  'Engine QA must render only the ten lessons in the selected unit.',
+  'Engine QA must render only the lessons in the selected unit.',
 );
 assert.doesNotMatch(
   qaSource,
@@ -84,8 +85,8 @@ const countsByUnit = embeddedCourse.reduce((counts, lesson) => {
 }, {});
 assert.deepEqual(
   countsByUnit,
-  Object.fromEntries(Array.from({ length: 7 }, (_, index) => [`unit-${index + 1}`, 10])),
-  'The compact QA navigator requires seven units with ten lessons each.',
+  courseContract.lessonsByUnit,
+  'The compact QA navigator groups exactly the units and lessons pinned by the release manifest.',
 );
 
 // Render the course entry with native boundaries stubbed: the shortcut must be

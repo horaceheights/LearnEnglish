@@ -5,6 +5,8 @@ import unittest
 from pathlib import Path
 
 from scripts.audit_a1_unit_parity import CONTRACTS, audit, function_coverage, review_reuse, successful_language
+from backend.app.data import LESSONS
+from scripts.course_contract import is_foundation
 
 
 class UnitParityTests(unittest.TestCase):
@@ -14,7 +16,9 @@ class UnitParityTests(unittest.TestCase):
         for unit, contract in contracts["units"].items():
             with self.subTest(unit=unit):
                 taught = {function["taught_in"] for function in contract["functions"]}
-                self.assertTrue({f"{unit}.{n}" for n in range(1, 9)} <= taught)
+                foundations = {lesson.sub_lesson_id for lesson in LESSONS.values()
+                               if lesson.unit_id == f"unit-{unit}" and is_foundation(lesson)}
+                self.assertTrue(foundations and foundations <= taught)
                 ids = [function["id"] for function in contract["functions"]]
                 self.assertEqual(len(ids), len(set(ids)))
 

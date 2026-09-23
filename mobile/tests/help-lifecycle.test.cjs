@@ -96,13 +96,17 @@ function harness(saved = null, delayedRead = null) {
   const helpModule = {};
   new Function('exports', ts.transpileModule(helpSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(helpModule);
   const course = require('../src/generated/a1-course.json');
-  assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 1)).length, 63,
-    'All seven units introduce help in lessons 1–9.');
+  assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 1)).length,
+    course.filter(lesson => lesson.experience_type !== 'mission').length,
+    'Every unit introduces help in each standard and review lesson.');
   assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 0)).length, 0,
     'The first automatic card finishes before introduction.');
   assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 2)).length, 0,
     'No later card triggers another introduction.');
   assert.equal(course.filter(lesson => lesson.experience_type === 'mission' && helpModule.isFirstSectionHelpIntroduction(lesson, 1)).length, 0);
+  const longUnitLesson = { ...course.find(lesson => lesson.sub_lesson_id === '4.8'), sub_lesson_id: '4.11' };
+  assert.equal(helpModule.isFirstSectionHelpIntroduction(longUnitLesson, 1), true,
+    'A lesson numbered past 9 in a longer unit still introduces help.');
   for (const text of [screen, web]) {
     assert.match(text, /useContextualHelp\(\{/);
     assert.match(text, /isFirstSectionHelpIntroduction\(/);

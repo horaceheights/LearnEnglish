@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "backend" / "approved-course-audio" / "catalog.json"
 DEFAULT_SOURCE_REF = "main"
 COURSE_JSON_PATH = "mobile/src/generated/a1-course.json"
+RELEASE_MANIFEST_PATH = "mobile/release-integrity.json"
 REGISTRY_PATH = ROOT / "backend" / "approved-course-audio" / "registry.json"
 LEGACY_MANIFEST_PATH = ROOT / "frontend" / "lib" / "courseAudioManifest.json"
 LEGACY_AUDIO_DIR = ROOT / "frontend" / "public" / "audio-cache"
@@ -42,8 +43,10 @@ def git_commit(ref: str) -> str:
 
 def build_catalog(source_ref: str) -> dict[str, object]:
     lessons = json.loads(git_text(source_ref, COURSE_JSON_PATH))
-    if not isinstance(lessons, list) or len(lessons) != 70:
-        raise SystemExit("Persistent audio must be exported from the complete 70-lesson course.")
+    # The release manifest at the same commit pins the complete course's size.
+    expected = json.loads(git_text(source_ref, RELEASE_MANIFEST_PATH))["catalog"]["lessonCount"]
+    if not isinstance(lessons, list) or len(lessons) != expected:
+        raise SystemExit(f"Persistent audio must be exported from the complete {expected}-lesson course.")
 
     assets: dict[str, dict[str, object]] = {}
     for lesson in lessons:

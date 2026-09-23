@@ -87,6 +87,7 @@ console.log('Lesson mistake hint checks passed.');
 
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 assert.match(lessonMistakeHint(card('___ adult.', 'An', 'A'), 'wrong'), /an.+adult.+sonido de vocal/);
 assert.match(lessonMistakeHint(card('___ university.', 'A', 'An'), 'wrong'), /a.+university.+sonido de consonante/);
 assert.match(lessonMistakeHint(card('___ hour.', 'An', 'A'), 'wrong'), /an.+hour.+sonido de vocal/);
@@ -127,7 +128,7 @@ for (const [chosen, expected] of [
 }
 let checked = 0;
 const files = fs.readdirSync(generated).filter(name => /^lesson-.*\.json$/.test(name));
-assert.equal(files.length, 70);
+assert.equal(files.length, courseContract.lessonCount);
 for (const file of files) {
   const lesson = JSON.parse(fs.readFileSync(path.join(generated, file), 'utf8'));
   for (const c of lesson.cards) {

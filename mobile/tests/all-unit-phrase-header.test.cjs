@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
@@ -15,7 +16,7 @@ const units = new Set(course.map((lesson) => lesson.unit_id));
 const cards = course.flatMap((lesson) => lesson.cards);
 const stages = new Set(cards.map((card) => card.stage));
 
-assert.equal(course.length, 70, 'The shared phrase-box guardrail must cover all 70 A1 lessons.');
+assert.equal(course.length, courseContract.lessonCount, 'The shared phrase-box guardrail must cover every A1 lesson.');
 assert.equal(units.size, 7, 'The shared phrase-box guardrail must cover all seven A1 units.');
 for (const stage of ['Learn', 'Recognize', 'Listen', 'Speak', 'Use']) {
   assert.ok(stages.has(stage), `The shared phrase-box fixture must include ${stage}.`);
@@ -110,4 +111,4 @@ assert.match(
   'Preview verification must run the generic all-unit phrase-box guardrail.',
 );
 
-console.log(`Shared phrase-box checks cover ${cards.length} cards across all 70 lessons and seven units.`);
+console.log(`Shared phrase-box checks cover ${cards.length} cards across all ${course.length} lessons.`);

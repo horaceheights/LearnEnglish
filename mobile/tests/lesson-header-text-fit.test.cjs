@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
@@ -27,7 +28,7 @@ const authoredHeaderPrompts = course.flatMap((lesson) => (
     .map((card) => ({ lessonId: lesson.id, prompt: card.prompt, stage: card.stage }))
 ));
 
-assert.equal(course.length, 70, 'The adaptive header guardrail must cover the complete A1 course.');
+assert.equal(course.length, courseContract.lessonCount, 'The adaptive header guardrail must cover the complete A1 course.');
 assert.ok(
   authoredHeaderPrompts.some(({ prompt }) => prompt === 'The boy and the girl are writing. ___ ___ writing.'),
   'The guardrail fixture must include the annotated overflowing completion prompt.',
@@ -68,4 +69,4 @@ assert.match(
   'Preview interaction verification must run the lesson-header text-fit guardrail.',
 );
 
-console.log(`Adaptive fitting protects ${authoredHeaderPrompts.length} authored lesson headers across all 70 lessons, with a 16dp landscape floor.`);
+console.log(`Adaptive fitting protects ${authoredHeaderPrompts.length} authored lesson headers across all ${course.length} lessons, with a 16dp landscape floor.`);

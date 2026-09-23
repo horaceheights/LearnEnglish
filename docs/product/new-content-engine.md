@@ -16,7 +16,7 @@ Use this guide whenever creating or substantially revising lessons or units. The
 
 **For supported activities, a new unit must require content/configuration changes, not a new unit-specific program or application exception.** Unit identifiers may identify data; they must not select bespoke learning behavior. A genuinely new mechanic needs explicit approval and one reusable implementation.
 
-Reusing mechanics does not mean copying lessons: each unit needs its own communicative purpose, meaningful progression, and appropriate story. Future levels and unit sizes belong in configuration. Unit size follows content (approved 2026-09-23): a unit has as many forward-building lessons as it needs, followed by one review and one mission. Until the release plumbing counts lessons from the course plan, the protected A1 catalog keeps its current 70-lesson release contract.
+Reusing mechanics does not mean copying lessons: each unit needs its own communicative purpose, meaningful progression, and appropriate story. Future levels and unit sizes belong in configuration. Unit size follows content (approved 2026-09-23): a unit has as many forward-building lessons as it needs, followed by one review and one mission. The release manifest (`mobile/release-integrity.json`) pins each unit's lesson count; a rebuilt unit updates it in a deliberate curriculum release.
 
 ## 2. Read the governing sources
 

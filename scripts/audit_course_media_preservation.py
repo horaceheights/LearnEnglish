@@ -18,6 +18,10 @@ from types import SimpleNamespace
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from scripts.course_contract import is_mission, is_review  # noqa: E402
 BASELINE = ROOT / "docs/qa/course-media-preservation-baseline.json"
 PLANS = ROOT / "docs/product/course-media-change-plans.json"
 IMAGE_ROOTS = ("Lessons/Lesson1/images", "mobile/assets/lesson-assets", "frontend/public/lesson-assets")
@@ -96,7 +100,7 @@ def validate_dialogue_poster_plan(plan: dict, current: dict, root: Path) -> None
              (plan['lesson_id'],plan['old_filename'],plan['new_filename'],plan['old_sha256'])]
     if len(matches)!=1:raise ValueError('Missing exact dialogue poster pair.')
     row=matches[0];lesson=current[row['lesson_id']]
-    if int(lesson['sub_lesson_id'].split('.')[1])==10:raise ValueError('Not a mission-scene exception.')
+    if is_mission(lesson):raise ValueError('Not a mission-scene exception.')
     if row.get('crop_review')!='inspected-complete-3x2-dialogue' or len(row.get('new_observation',''))<35:
         raise ValueError('Dialogue framing has not been inspected.')
     for entry in row['cards']:
@@ -240,10 +244,9 @@ def validate_photo_reuse_record(record: dict, plan: dict, current: dict, root: P
             or len(record.get('old_observation', '')) < 35 or len(record.get('new_observation', '')) < 35):
         raise ValueError('Photo reuse requires actual pixel and crop inspection.')
     lesson = current[plan['lesson_id']]
-    number=int(lesson['sub_lesson_id'].split('.')[1])
-    if number == 10 or (number == 9 and not record.get('generation')):
+    if is_mission(lesson) or (is_review(lesson) and not record.get('generation')):
         raise ValueError('Foundation photo reuse must not replace fresh review/mission scenes.')
-    if number == 9:
+    if is_review(lesson):
         generation=record['generation']; source=root/generation['source_path'];receipt=generation['receipt']
         if not source.is_file() or digest(source)!=receipt.get('sha256') or receipt.get('status')!='image_saved':
             raise ValueError('Fresh review photo needs its immutable generation source and receipt.')

@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 const test = require('node:test');
 const crypto = require('node:crypto');
 const { missionVoiceProgress, missionChallengeLabel, missionFinale } = require('../src/missionPresentation.js');
@@ -51,7 +52,7 @@ test('every canonical mission counts actual voice gates, including interleaved g
       });
     }
   }
-  assert.equal(missions.length, 7);
+  assert.equal(missions.length, courseContract.unitCount);
   const listen = { mission_game: { kind: 'action-hunt' } };
   const voice = { mission_game: { kind: 'voice-gate', cues: [{ text: 'Where is it?' }] } };
   const lesson = { cards: [listen, voice, listen, voice], mission: { voice_heading: 'LLEGA AL PARQUE', voice_instruction: 'Confirma el camino con tu voz' } };

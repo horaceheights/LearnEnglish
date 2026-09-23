@@ -78,7 +78,9 @@ def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:
     if not lessons_dir.exists():
         return {}
 
-    yaml_files = sorted(lessons_dir.rglob("*.yaml"))
+    # Only this course's unit folders: another course kept under backend/lessons
+    # (for example a future A1+ folder) must never leak into the A1 catalog.
+    yaml_files = sorted(lessons_dir.glob("unit_*/*.yaml"))
     for file_path in yaml_files:
         lesson = load_lesson_from_file(file_path)
         loaded_lessons.append(lesson)

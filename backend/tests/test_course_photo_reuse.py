@@ -100,7 +100,7 @@ class PhotoReuseTests(unittest.TestCase):
                 'kind':'illustration-or-inset-retirement','old_observation':'Flat illustrated person and symbolic food, observed directly.',
                 'new_observation':'An adult in a real kitchen clearly enjoying a plate of eggs.',
                 'crop_review':'inspected-3x2-and-centered-4x5','scopes':[{'lesson_id':'lesson','pointer':'/cards/0/image_url'}]}
-            current={'lesson':{'sub_lesson_id':'5.4','cards':[{'image_url':'photo.webp'}]}}
+            current={'lesson':{'sub_lesson_id':'5.4','vocabulary':['eggs'],'cards':[{'image_url':'photo.webp'}]}}
             plan={'lesson_id':'lesson','old_filename':'old.webp','old_sha256':'a'*64,'new_filename':'photo.webp','evidence_file':'docs/qa/course-photo-reuse-v1.json'}
             def save(value):path.write_text(json.dumps({'assets':[value]}))
             save(record); validate_photo_reuse_plan(plan,current,root)
@@ -108,9 +108,11 @@ class PhotoReuseTests(unittest.TestCase):
                 with self.subTest(patch=patch),self.assertRaises(ValueError):
                     save({**record,**patch});validate_photo_reuse_plan(plan,current,root)
             save(record)
-            for number in ('5.9','5.10'):
-                with self.subTest(number=number),self.assertRaises(ValueError):
-                    changed=deepcopy(current);changed['lesson']['sub_lesson_id']=number
+            # Review and mission scenes are identified from lesson data, not their numbers.
+            for role,change in (('review',{'sub_lesson_id':'5.9','vocabulary':[]}),
+                                ('mission',{'sub_lesson_id':'5.10','vocabulary':[],'experience_type':'mission'})):
+                with self.subTest(role=role),self.assertRaises(ValueError):
+                    changed=deepcopy(current);changed['lesson'].update(change)
                     validate_photo_reuse_plan(plan,changed,root)
 
     def test_paid_namespace_cannot_escape_output_directory(self):

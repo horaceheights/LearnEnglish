@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
@@ -13,7 +14,7 @@ const profileSource = fs.readFileSync(
   'utf8',
 );
 
-assert.equal(course.length, 70, 'The cast audit must cover the complete 70-lesson A1 course.');
+assert.equal(course.length, courseContract.lessonCount, 'The cast audit must cover the complete A1 course.');
 
 const narratorVoiceIds = profileSource.match(/NARRATOR_VOICE_IDS = \{([\s\S]*?)\n\}/)?.[1];
 assert.ok(narratorVoiceIds, 'The persistent render profile must pin provider voice IDs.');

@@ -7,6 +7,7 @@ from types import SimpleNamespace
 from urllib.parse import urlparse
 
 from backend.app.data import LESSON_IMAGE_DIR, LESSONS
+from scripts.course_contract import expected_lessons_by_unit, is_foundation, is_mission, is_review
 from scripts.validate_lesson_cards import (
     MISSION_COMPLETION_INTERACTIONS,
     validate_family_adult_ambiguity,
@@ -199,16 +200,22 @@ class LessonStructureTests(unittest.TestCase):
         card.options[1].label='He wants bread.'
         self.assertTrue(self._semantic_findings(card))
 
-    def test_complete_a1_course_has_seven_units_and_ten_lessons_each(self):
-        self.assertEqual(70, len(LESSONS))
-        for unit in range(1, 8):
-            lessons = [lesson for lesson in LESSONS.values() if lesson.unit_id == f"unit-{unit}"]
-            with self.subTest(unit=unit):
-                self.assertEqual(10, len(lessons))
+    def test_course_matches_the_release_manifest_and_closes_each_unit(self):
+        # Unit size follows content (2026-09-23); the release manifest pins the counts.
+        expected = expected_lessons_by_unit()
+        self.assertEqual(sum(expected.values()), len(LESSONS))
+        self.assertEqual(set(expected), {lesson.unit_id for lesson in LESSONS.values()})
+        for unit_id, count in expected.items():
+            lessons = [lesson for lesson in LESSONS.values() if lesson.unit_id == unit_id]
+            number = unit_id.removeprefix("unit-")
+            with self.subTest(unit=unit_id):
                 self.assertEqual(
-                    [f"{unit}.{index}" for index in range(1, 11)],
+                    [f"{number}.{index}" for index in range(1, count + 1)],
                     [lesson.sub_lesson_id for lesson in lessons],
                 )
+                self.assertTrue(is_mission(lessons[-1]), "A unit ends with its mission.")
+                self.assertTrue(is_review(lessons[-2]), "The review comes right before the mission.")
+                self.assertTrue(all(is_foundation(lesson) for lesson in lessons[:-2]))
 
     def test_units_2_through_7_have_complete_execution_metadata(self):
         for lesson in LESSONS.values():

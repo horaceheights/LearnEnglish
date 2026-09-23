@@ -2,8 +2,10 @@ import type { Lesson, LessonCard } from './types';
 
 /** The first Aprende card models the task; introduce help on the next card. */
 export function isFirstSectionHelpIntroduction(lesson: Lesson | null | undefined, cardIndex: number): boolean {
+  // Every standard and review lesson introduces help, however long its unit is;
+  // the unit-closing mission is identified by its data, not by lesson number 10.
   return cardIndex === 1
-    && /^\d+\.[1-9]$/.test(lesson?.sub_lesson_id ?? '')
+    && Boolean(lesson)
     && lesson?.experience_type !== 'mission'
     && lesson?.cards[0]?.stage === 'Learn'
     && lesson.cards[0].options.length === 1

@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const qaSource = fs.readFileSync(
@@ -27,7 +28,7 @@ for (const [surface, source] of [
   );
 }
 
-assert.equal(embeddedCourse.length, 70, 'Preview must always ship the complete 70-lesson A1 catalog.');
+assert.equal(embeddedCourse.length, courseContract.lessonCount, 'Preview must always ship the complete A1 catalog pinned by the release manifest.');
 const lessonCountsByUnit = Object.groupBy
   ? Object.fromEntries(Object.entries(Object.groupBy(embeddedCourse, (lesson) => lesson.unit_id)).map(([unitId, lessons]) => [unitId, lessons.length]))
   : embeddedCourse.reduce((counts, lesson) => ({ ...counts, [lesson.unit_id]: (counts[lesson.unit_id] || 0) + 1 }), {});
