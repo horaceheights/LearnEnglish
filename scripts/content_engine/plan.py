@@ -7,11 +7,13 @@ the number of exceptions measures how far the lesson is from pure recipes.
 """
 from __future__ import annotations
 
+import json
+
 from scripts.content_engine.recipes import RECIPES, recipe_for
 
 PLAN_VERSION = 1
 ABSENT = {"$absent": True}
-PLAN_KEYS = ("recipe", "exceptions", "answer", "mirror_translation", "field_order")
+PLAN_KEYS = ("recipe", "exceptions", "answer", "mirror_translation", "field_order", "cue_speakers", "formatted")
 # The standard field order for a card. A live card written in another order
 # keeps that order in its plan so reinstalling it changes no bytes.
 FIELD_ORDER = (
@@ -34,16 +36,25 @@ def import_card(card: dict) -> dict:
         ids = [option["id"] for option in card["options"]]
         if card["correct_option_id"] in ids and ids.index(card["correct_option_id"]):
             spec["answer"] = ids.index(card["correct_option_id"])
+    if name == "mission" and (card.get("mission_game") or {}).get("kind") != "voice-gate":
+        speakers = [turn.get("speaker_role") for turn in card.get("audio_turns") or []]
+        if speakers and set(speakers) != {"teacher"}:
+            spec["cue_speakers"] = speakers
     if "translation" in card and card["translation"] == card.get("spanish_translation"):
         del spec["translation"]
         spec["mirror_translation"] = True
     derived = RECIPES[name](spec)
-    exceptions = {}
+    exceptions, formatted = {}, {}
     for field, value in derived.items():
         spec.pop(field, None)
         actual = card.get(field, ABSENT)
         if actual != value:
             exceptions[field] = actual
+        elif json.dumps(actual) != json.dumps(value):
+            # Same data written in another key order: formatting, not an exception.
+            formatted[field] = actual
+    if formatted:
+        spec["formatted"] = formatted
     spec = {"recipe": name, **spec}
     if exceptions:
         spec["exceptions"] = exceptions
@@ -54,7 +65,7 @@ def import_card(card: dict) -> dict:
 
 def compose_card(spec: dict) -> dict:
     content = {key: value for key, value in spec.items() if key not in PLAN_KEYS}
-    card = {**content, **RECIPES[spec["recipe"]](spec), **spec.get("exceptions", {})}
+    card = {**content, **RECIPES[spec["recipe"]](spec), **spec.get("formatted", {}), **spec.get("exceptions", {})}
     card = {key: value for key, value in card.items() if value != ABSENT}
     if spec.get("mirror_translation"):
         card["translation"] = card["spanish_translation"]
@@ -81,8 +92,7 @@ def compose_lesson(plan: dict) -> dict:
 def recipe_coverage(plan: dict) -> dict:
     """Cards composed purely from a recipe, versus cards that need exceptions."""
     cards = plan["cards"]
-    # Mission cards are kept as authored until mission beats have recipes of their own.
-    pure = [spec for spec in cards if spec["recipe"] not in ("verbatim", "mission") and not spec.get("exceptions")]
+    pure = [spec for spec in cards if spec["recipe"] != "verbatim" and not spec.get("exceptions")]
     fields: dict[str, int] = {}
     for spec in cards:
         for field in spec.get("exceptions", {}):

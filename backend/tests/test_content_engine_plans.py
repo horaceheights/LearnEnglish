@@ -63,6 +63,41 @@ class ContentEnginePlanTests(unittest.TestCase):
         self.assertEqual(compose_lesson(plan)["cards"][0], card)
         self.assertEqual(recipe_coverage(plan)["pure"], 0)
 
+    def test_a_scene_game_beat_is_authored_as_cues_and_targets(self):
+        game = {"kind": "find", "instruction_es": "Escucha y toca.", "validation": "any-order",
+                "targets": [{"id": "boy", "label_es": "Persona", "rect": {"x": 0.1, "y": 0.1, "width": 0.2, "height": 0.2},
+                             "accepted_option_ids": ["boy"]}],
+                "cues": [{"id": "boy", "text": "A boy.", "answer_text": "A boy.", "target_id": "boy", "option_id": "boy"},
+                         {"id": "girl", "text": "A girl.", "answer_text": "A girl.", "target_id": "girl", "option_id": "girl"}]}
+        card = {"slide_id": "M01", "interaction_type": "mission-game", "prompt": "", "stage": "Listen",
+                "correct_option_id": "boy", "options": [option("boy", "A boy."), option("girl", "A girl.")],
+                "audio_text": "A boy. A girl.", "answer_audio_text": None, "prompt_image_url": "scene.webp",
+                "correct_option_ids": ["boy", "girl"],
+                "audio_turns": [{"text": "A boy.", "speaker_role": "ana", "image_url": "scene.webp"},
+                                {"text": "A girl.", "speaker_role": "teacher", "image_url": "scene.webp"}],
+                "mission_game": game, "mission_chapter_id": "find", "spanish_translation": "", "pedagogy_note": "beat 1"}
+        spec = import_card(card)
+        self.assertEqual((spec["recipe"], spec["cue_speakers"]), ("mission", ["ana", "teacher"]))
+        self.assertNotIn("exceptions", spec)
+        for predicted in ("options", "audio_turns", "audio_text", "correct_option_ids"):
+            self.assertNotIn(predicted, spec)
+        plan = {"plan_version": 1, "lesson": {}, "cards": [spec]}
+        self.assertEqual(json.dumps(compose_lesson(plan)["cards"][0]), json.dumps(card))
+
+    def test_a_voice_gate_predicts_its_spoken_answer(self):
+        card = {"slide_id": "M19", "interaction_type": "mission-speak", "prompt": "He is the father.", "stage": "Speak",
+                "correct_option_id": "father", "options": [option("father", "He is the father.", "father.webp")],
+                "audio_text": "He is the father.", "answer_audio_text": None, "prompt_image_url": "",
+                "audio_turns": [{"text": "Who is he?", "speaker_role": "female-character", "image_url": "ask.webp"}],
+                "mission_game": {"kind": "voice-gate", "instruction_es": "Responde.", "validation": "single",
+                                 "targets": [], "cues": [{"id": "father", "text": "Who is he?",
+                                                          "answer_text": "He is the father.",
+                                                          "target_id": "father", "option_id": "father"}]}}
+        spec = import_card(card)
+        self.assertNotIn("exceptions", spec)
+        self.assertNotIn("prompt", spec)
+        self.assertEqual(compose_lesson({"plan_version": 1, "lesson": {}, "cards": [spec]})["cards"][0], card)
+
     def test_absent_fields_survive_a_round_trip(self):
         card = {"slide_id": "R1", "interaction_type": "i2t2", "prompt": "", "stage": "Recognize",
                 "correct_option_id": "a", "options": [option("a", "It is a park."), option("b", "It is a bank.")],

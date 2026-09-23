@@ -62,7 +62,32 @@ def complete(spec: dict) -> dict:
 
 
 def mission(spec: dict) -> dict:
-    return {}
+    """Mission beats: the cues and targets in `mission_game` are the authored content."""
+    game = spec["mission_game"]
+    cues = game.get("cues") or []
+    if game.get("kind") == "voice-gate":
+        answer = cues[0]["answer_text"] if cues else None
+        return {"prompt": answer, "audio_text": answer, "answer_audio_text": None, "prompt_image_url": "",
+                "correct_option_id": spec["options"][0]["id"]}
+    # A scene game: each cue is spoken in order and answered by tapping its option.
+    options, seen = [], set()
+    for cue in cues:
+        if cue["option_id"] not in seen:
+            seen.add(cue["option_id"])
+            options.append({"id": cue["option_id"], "image_url": "", "label": cue["answer_text"]})
+    scene = spec.get("prompt_image_url", "")
+    return {"interaction_type": "mission-game", "options": options,
+            "correct_option_id": options[0]["id"] if options else None,
+            "correct_option_ids": [option["id"] for option in options],
+            "audio_text": " ".join(cue["text"] for cue in cues), "answer_audio_text": None,
+            "audio_turns": [{"text": cue["text"], "speaker_role": speaker, "image_url": scene}
+                            for cue, speaker in zip(cues, cue_speakers(spec))]}
+
+
+def cue_speakers(spec: dict) -> list[str]:
+    """Who says each cue: the teacher unless the plan names a character."""
+    cues = spec["mission_game"].get("cues") or []
+    return spec.get("cue_speakers") or ["teacher"] * len(cues)
 
 
 def verbatim(spec: dict) -> dict:
