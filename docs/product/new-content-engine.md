@@ -112,6 +112,7 @@ Distinguish authored, automatically validated, agent-reviewed, human-approved, a
 |---|---|
 | [Legacy canvas builder](../../scripts/build_a1_units_2_7.py) | Historical generation path with overwrite protection; not a universal rebuild of current lessons. |
 | [Unit 3 builder](../../scripts/build_unit_3_parity.py), [Unit 7 builder](../../scripts/build_unit_7_parity.py) | Existing unit-specific assembly; inspect for reusable patterns, not as templates for proliferating custom programs. |
+| [Engine plans](../../scripts/content_engine/plan.py), [recipes](../../scripts/content_engine/recipes.py) | Imports live lessons into plans (content plus recipe) and composes them back exactly; `scripts/content_engine_plans.py` reports how many cards come purely from recipes. Rules the legacy builders enforce are inventoried in [the harvest](content-engine-harvest.md). |
 | [Parity pack helpers](../../scripts/parity_pack.py) | Shared media installation and evidence handling; not the complete authoring engine. |
 | [Still renderer](../../scripts/render_course_stills.py), [audio renderer](../../scripts/render_course_audio_assets.py) | Asset generation with planning/execution controls; neither establishes learning quality. |
 | [Mobile exporter](../../scripts/export_mobile_preview_lessons.py) | Packages canonical content for mobile; does not design lessons. |

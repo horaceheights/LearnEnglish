@@ -16,6 +16,7 @@ class CatalogLesson:
     unit: int
     role: str  # standard, review or mission
     data: dict
+    path: Path
 
 
 def load_standards(root: Path, course: str) -> dict:
@@ -38,5 +39,5 @@ def load_catalog(root: Path, standards: dict) -> list[CatalogLesson]:
     for path in (root / standards["lessons_root"]).glob(standards["lesson_glob"]):
         data = read_lesson(path)
         number = str(data["sub_lesson_id"])
-        lessons.append(CatalogLesson(number, int(number.split(".")[0]), lesson_role(data), data))
+        lessons.append(CatalogLesson(number, int(number.split(".")[0]), lesson_role(data), data, path))
     return sorted(lessons, key=lambda lesson: tuple(int(part) for part in lesson.number.split(".")))
