@@ -72,6 +72,44 @@ class ContentEngineAuthorTests(unittest.TestCase):
             with self.subTest(slide=bank["slide_id"]):
                 self.assertEqual({kinds[text] for text in bank["wrong"]}, {kinds[bank["correct"]]})
 
+    def test_learn_introduces_only_new_vocabulary(self):
+        # User decision, 2026-09-24: sentences on known frames are practice only.
+        brief = json.loads(json.dumps(self.brief))
+        for item in brief["items"]:
+            if item["kind"] == "family-action":
+                item["learn"] = False
+        brief["layout"] = {"Recognize": 12, "Listen": 10, "Speak": 8, "Use": 7}
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        learn = [card["options"][0]["label"] for card in lesson["cards"] if card["stage"] == "Learn"]
+        self.assertEqual(learn, ["Playing", "Studying", "Working", "Cooking", "Talking"])
+        practised = " ".join(str(card.get("answer_audio_text") or card.get("audio_text") or "")
+                             for card in lesson["cards"] if card["stage"] != "Learn")
+        self.assertIn("The mother is cooking.", practised)
+        self.assertEqual(len(lesson["cards"]), 42)
+        findings = audit([CatalogLesson("1.6", 1, lesson_role(lesson), lesson, BRIEF)], self.standards)
+        self.assertEqual([finding for finding in findings if finding.rule == "learn-new-only"], [])
+        with self.assertRaisesRegex(BriefError, "at least one new item"):
+            propose_lesson({**brief, "items": [{**item, "learn": False} for item in brief["items"]]}, self.standards)
+
+    def test_a_learn_card_on_a_known_frame_is_reported(self):
+        findings = audit([CatalogLesson("1.6", 1, lesson_role(self.lesson), self.lesson, BRIEF)], self.standards)
+        repeated = {finding.item for finding in findings if finding.rule == "learn-new-only"}
+        self.assertIn("The mother is cooking.", repeated)
+        self.assertNotIn("Cooking", repeated)
+
+    def test_a_grid_unsafe_picture_never_enters_a_four_picture_card(self):
+        brief = json.loads(json.dumps(self.brief))
+        unsafe = {item["image"] for item in brief["items"] if item["kind"] == "family-action"}
+        for item in brief["items"]:
+            if item["image"] in unsafe:
+                item["four_card"] = False
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        for card in lesson["cards"]:
+            images = [option["image_url"] for option in card.get("options") or [] if option.get("image_url")]
+            if len(images) == 4:
+                with self.subTest(slide=card["slide_id"]):
+                    self.assertFalse(unsafe & {Path(image).name for image in images} | unsafe & set(images))
+
     def test_the_proposal_meets_the_lesson_practice_standards(self):
         lesson = CatalogLesson("1.6", 1, lesson_role(self.lesson), self.lesson, BRIEF)
         findings = [finding for finding in audit([lesson], self.standards)

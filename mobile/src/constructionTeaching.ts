@@ -99,6 +99,10 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `Para decir la hora, el número va antes de “o'clock”: ${quote(original)}.`);
       return true;
     }
+    if (end - start === 2 && keys[start] === 'number' && NUMBERS.has(keys[start + 1]) && BE.has(anchor.toLowerCase())) {
+      teach(start, end, `Para decir qué número es, después de ${quote(anchor)} va “number” y luego el número: ${quote(original)}.`);
+      return true;
+    }
     if (end - start === 1 && NUMBERS.has(keys[start]) && BE.has(anchor.toLowerCase())) {
       teach(start, end, `Para decir qué número es, después de ${quote(anchor)} va el número: ${quote(original)}.`);
       return true;
@@ -192,12 +196,13 @@ function teachClause(text: string): ClausePlan {
     if (keys[4] === 'listen') teach(5, keys.length, '“Listen to music” significa escuchar música; “to” va entre “listen” y lo que escuchamos.');
     return { explanations, relations, supported: true };
   }
-  const question = /^(who|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
+  const question = /^(who|what number|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {
     const verbIndex = words(question[1]).length;
     const subjectEnd = keys[keys.length - 1] === 'from' ? keys.length - 1 : keys.length;
     teach(0, keys.length, `En esta pregunta, primero ${quote(phrase(0, verbIndex))}, luego ${quote(tokens[verbIndex])} y después ${quote(phrase(verbIndex + 1, subjectEnd))}. El verbo va antes de quien preguntamos.`);
-    if (verbIndex === 2) teach(0, 2, `“How ${tokens[1]}” pregunta ${keys[1] === 'old' ? 'la edad' : 'el precio'}: “How” va antes de ${quote(tokens[1])} y las dos palabras abren la pregunta.`);
+    if (verbIndex === 2 && keys[0] === 'what') teach(0, 2, '“What number” pregunta qué número es: “What” va antes de “number” y las dos palabras abren la pregunta.');
+    else if (verbIndex === 2) teach(0, 2, `“How ${tokens[1]}” pregunta ${keys[1] === 'old' ? 'la edad' : 'el precio'}: “How” va antes de ${quote(tokens[1])} y las dos palabras abren la pregunta.`);
     const supported = subject(verbIndex + 1, subjectEnd);
     if (subjectEnd < keys.length) teach(subjectEnd, keys.length, 'En “Where are you from?”, “Where” pregunta el lugar y “from” cierra la pregunta para indicar el origen.');
     return { explanations, relations, supported };

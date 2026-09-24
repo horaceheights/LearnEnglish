@@ -433,7 +433,6 @@ const requiredUnitTwoReplacementsByLesson = new Map([
     [
       'unit2_near_red_book.webp',
       'unit2_six_white_bags.webp',
-      'a1_scene_six-white-bags_f412a8a_four-card.webp',
     ],
   ],
   [
@@ -449,6 +448,17 @@ const requiredUnitTwoReplacementsByLesson = new Map([
     ],
   ],
 ]);
+
+// 2026-09-24: these *_four-card files are byte-identical copies of their 3:2 photos, and the
+// four-picture grid's centered crop cut the phones and bags. Lesson 2.9 shows the full photos
+// in three-picture cards instead.
+for (const retired of [
+  'a1_scene_six-white-bags_f412a8a_four-card.webp',
+  'a1_scene_five-black-phones_734dda6_four-card.webp',
+  'a1_three-green-books_four-card.webp',
+]) {
+  assert.ok(!mediaFilenames(lesson('2.9')).includes(retired), `lesson 2.9 must not show the unreframed ${retired}`);
+}
 
 for (const [number, expectedFilenames] of requiredUnitTwoReplacementsByLesson) {
   const filenames = new Set(mediaFilenames(lesson(number)));

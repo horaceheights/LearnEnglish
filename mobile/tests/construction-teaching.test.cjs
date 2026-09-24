@@ -69,6 +69,18 @@ test('copular descriptions and non-progressive -ing uses do not become auxiliari
   }
 });
 
+test('numbers after is: It is two, It is number eight and What number is it', () => {
+  // Lessons 2.6-2.7 (2026-09-24) name numeral cards; every swap gets a real rule, never a blank.
+  assert.ok(constructionTeachingPlan(construction('It is two.')).supported);
+  assert.ok(constructionTeachingPlan(construction('It is number eight.')).supported);
+  assert.ok(constructionTeachingPlan(construction('What number is it?')).supported);
+  assert.equal(hint('It is number eight.', 2, 3),
+    'Pusiste “eight” donde va “number”. Para decir qué número es, después de “is” va “number” y luego el número: “number eight”.');
+  assert.match(hint('What number is it?', 0, 1), /“What number” pregunta qué número es/);
+  assert.match(hint('What number is it?', 2, 3), /El verbo va antes de quien preguntamos/);
+  for (const [a, b] of [[0, 1], [1, 2], [0, 3], [1, 3]]) assert.ok(hint('It is number eight.', a, b));
+});
+
 test('the screenshot teaches article placement, with both words present', () => {
   const card = { ...construction('He is a boy.'), interaction_type: 'complete2', prompt: 'He is ___ ___.',
     correct_option_ids: ['2', '3'], options: construction('He is a boy.').options.slice(2) };
