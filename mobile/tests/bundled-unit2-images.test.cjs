@@ -9,16 +9,22 @@ const bundledRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
 const sourcePath = path.join(mobileRoot, 'src', 'lessonImageSources.ts');
 const source = fs.readFileSync(sourcePath, 'utf8');
 const referencedImages = new Set();
-const unit2SnapshotPattern = /^lesson-2-(\d+)-.+\.json$/;
+// Lesson ids are stable across renumbering, so the unit and number come from the snapshot.
+const snapshotNumber = new Map();
 const unit2Snapshots = fs.readdirSync(generatedRoot)
-  .filter((filename) => unit2SnapshotPattern.test(filename))
+  .filter((filename) => /^lesson-.+\.json$/.test(filename))
+  .filter((filename) => {
+    const lesson = JSON.parse(fs.readFileSync(path.join(generatedRoot, filename), 'utf8'));
+    snapshotNumber.set(filename, Number(String(lesson.sub_lesson_id).split('.')[1]));
+    return lesson.unit_id === 'unit-2';
+  })
   .sort();
 
 const unit2Count = courseContract.lessonsByUnit['unit-2'];
 assert.equal(unit2Snapshots.length, unit2Count, 'Every Unit 2 lesson snapshot must be bundled.');
 assert.deepEqual(
   unit2Snapshots
-    .map((filename) => Number(filename.match(unit2SnapshotPattern)[1]))
+    .map((filename) => snapshotNumber.get(filename))
     .sort((left, right) => left - right),
   Array.from({ length: unit2Count }, (_, index) => index + 1),
   'Unit 2 snapshots must include exactly one lesson each, numbered from 2.1 without gaps.',

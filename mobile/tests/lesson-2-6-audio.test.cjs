@@ -16,11 +16,11 @@ const registry = JSON.parse(fs.readFileSync(
 const approvedHash = '802f1c7d7e2d8a3e868f89f7d99fdb106f0f3b7fd4876cfe088634e4b9e9f432';
 
 const standaloneOneCards = lesson.cards.filter(
-  (card) => card.prompt === 'One' && card.audio_text === 'One',
+  (card) => card.audio_text === 'One',
 );
 assert.deepEqual(
   standaloneOneCards.map((card) => card.stage),
-  ['Learn', 'Recognize', 'Speak'],
+  ['Learn', 'Recognize', 'Listen'],
   'Every standalone One slide must remain covered by the corrected take.',
 );
 
@@ -44,10 +44,9 @@ assert.deepEqual(
   Object.fromEntries([...contractCounts.entries()].sort()),
   {
     'answer|prompt|answer': 3,
-    'teacher|prompt|prompt': 2,
-    'teacher|pronunciation_slow|split-ing': 1,
+    'teacher|prompt|prompt': 3,
   },
-  'The One override must stay limited to the approved Learn, Recognize, and Speak contracts.',
+  'The One override must stay limited to the approved Learn, Recognize, and Listen contracts.',
 );
 
 const approvedTake = registry.takes[approvedHash];

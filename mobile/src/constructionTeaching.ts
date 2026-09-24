@@ -99,6 +99,10 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `Para decir la hora, el número va antes de “o'clock”: ${quote(original)}.`);
       return true;
     }
+    if (end - start === 1 && NUMBERS.has(keys[start]) && BE.has(anchor.toLowerCase())) {
+      teach(start, end, `Para decir qué número es, después de ${quote(anchor)} va el número: ${quote(original)}.`);
+      return true;
+    }
     const prep = /^(next to|far from|in|on|under|near|from|by|at|for|to) (.+)$/.exec(tail);
     if (prep) {
       const length = words(prep[1]).length;

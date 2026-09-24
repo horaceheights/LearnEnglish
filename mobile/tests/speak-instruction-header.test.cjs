@@ -34,7 +34,8 @@ const speakCards = course.flatMap((lesson) => (
 const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 
 // 424 since the Unit 1 rebuild: three family lessons of seven Speak cards replace two, and Who Is He? keeps seven.
-assert.equal(speakCards.length, 424, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4, Unit 5, Unit 6 and Unit 7 mission gates each, plus the 3.3 current-action exchange and the rebuilt Unit 1 family lessons.');
+// 439 since the Unit 2 rebuild: the 40-card extensions and the new 2.7 Numbers 6-10 add 15 Speak cards.
+assert.equal(speakCards.length, 439, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4, Unit 5, Unit 6 and Unit 7 mission gates each, plus the 3.3 current-action exchange and the rebuilt Unit 1 family lessons.');
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-10-my-day-mission').length, 4);
