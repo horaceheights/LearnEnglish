@@ -35,6 +35,7 @@
     "U1",
     "U8"
   ],
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
@@ -353,6 +354,64 @@
       "pedagogy_note": "Repetition with growth: contrast thing answer (It is...) with person answer (She is...)"
     },
     {
+      "slide_id": "R9",
+      "interaction_type": "t2i4",
+      "prompt": "What is it? It is a phone.",
+      "stage": "Recognize",
+      "correct_option_id": "what-is-it-it-is-a-phone-r9",
+      "options": [
+        {
+          "id": "what-is-it-it-is-a-car-r9",
+          "image_url": "object_car.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-it-it-is-a-park-r9",
+          "image_url": "place_park.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-it-it-is-a-phone-r9",
+          "image_url": "a1_phone.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-it-it-is-a-bus-r9",
+          "image_url": "place_bus.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What is it? It is a phone.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Qué es? Es un teléfono.",
+      "pedagogy_note": "Extra practice: What is it? It is a phone."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "what-is-it-r10",
+      "options": [
+        {
+          "id": "what-is-it-r10",
+          "image_url": "",
+          "label": "What is it?"
+        },
+        {
+          "id": "it-is-a-book-r10",
+          "image_url": "",
+          "label": "It is a book."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "What is it?",
+      "prompt_image_url": "object_book.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Extra practice: What is it?"
+    },
+    {
       "slide_id": "N1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
@@ -507,6 +566,64 @@
       "pedagogy_note": "audio-to-text identity"
     },
     {
+      "slide_id": "N7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-is-it-it-is-a-phone-n7",
+      "options": [
+        {
+          "id": "what-is-it-it-is-a-bus-n7",
+          "image_url": "place_bus.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-it-it-is-a-car-n7",
+          "image_url": "object_car.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-it-it-is-a-park-n7",
+          "image_url": "place_park.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-it-it-is-a-phone-n7",
+          "image_url": "a1_phone.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What is it? It is a phone.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Extra practice: What is it? It is a phone."
+    },
+    {
+      "slide_id": "N8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-is-it-n8",
+      "options": [
+        {
+          "id": "it-is-a-book-n8",
+          "image_url": "",
+          "label": "It is a book."
+        },
+        {
+          "id": "what-is-it-n8",
+          "image_url": "",
+          "label": "What is it?"
+        }
+      ],
+      "audio_text": "What is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Extra practice: What is it?"
+    },
+    {
       "slide_id": "S1",
       "interaction_type": "repeat",
       "prompt": "What is it? It is a book.",
@@ -619,6 +736,25 @@
       "prompt_image_url": "",
       "spanish_translation": "¿Qué es? Es un parque.",
       "pedagogy_note": "complete exchange"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "What is it?",
+      "stage": "Speak",
+      "correct_option_id": "what-is-it-speak",
+      "options": [
+        {
+          "id": "what-is-it-speak",
+          "image_url": "object_book.webp",
+          "label": "What is it?"
+        }
+      ],
+      "audio_text": "What is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Qué es?",
+      "pedagogy_note": "Extra practice: What is it?"
     },
     {
       "slide_id": "U1",
@@ -893,6 +1029,41 @@
         "is",
         "he"
       ]
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "What"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "it"
+        }
+      ],
+      "audio_text": "What is it?",
+      "answer_audio_text": "What is it?",
+      "prompt_image_url": "object_book.webp",
+      "spanish_translation": "¿Qué es?",
+      "translation": "¿Qué es?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "pedagogy_note": "Extra practice: What is it?"
     }
   ]
 }

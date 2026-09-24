@@ -35,7 +35,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // 227 since the Unit 5 rebuild: its "Yes, please." card keeps the comma in the prompt and
   // offers two whole words, so it is an ordinary completion rather than a construction.
   // 230 since the Unit 1 rebuild: lessons 1.4-1.6 end with four constructions each (was 4 + 5).
-  assert.equal(rollout.length, 230);
+  // 242 since the Unit 2 rebuild: the new 2.7 lesson and the 40-card extensions add 12 constructions.
+  assert.equal(rollout.length, 242);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

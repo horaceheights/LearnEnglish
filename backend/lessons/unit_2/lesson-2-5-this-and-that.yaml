@@ -33,6 +33,7 @@
     "U7",
     "U8"
   ],
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
@@ -341,6 +342,54 @@
       "pedagogy_note": "Repetition with growth: demonstrative far contrast for chair"
     },
     {
+      "slide_id": "R9",
+      "interaction_type": "t2i2",
+      "prompt": "This",
+      "stage": "Recognize",
+      "correct_option_id": "this-r9",
+      "options": [
+        {
+          "id": "this-r9",
+          "image_url": "a1_photo_u2_this_book_v1.webp",
+          "label": null
+        },
+        {
+          "id": "that-r9",
+          "image_url": "a1_photo_u2_that_book_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "This",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Esto",
+      "pedagogy_note": "Extra practice: This"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "that-r10",
+      "options": [
+        {
+          "id": "that-r10",
+          "image_url": "",
+          "label": "That"
+        },
+        {
+          "id": "this-r10",
+          "image_url": "",
+          "label": "This"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "That",
+      "prompt_image_url": "a1_photo_u2_that_book_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Extra practice: That"
+    },
+    {
       "slide_id": "N1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
@@ -485,6 +534,54 @@
       "pedagogy_note": "text hidden"
     },
     {
+      "slide_id": "N7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "this-n7",
+      "options": [
+        {
+          "id": "that-n7",
+          "image_url": "a1_photo_u2_that_book_v1.webp",
+          "label": null
+        },
+        {
+          "id": "this-n7",
+          "image_url": "a1_photo_u2_this_book_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "This",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Extra practice: This"
+    },
+    {
+      "slide_id": "N8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "that-n8",
+      "options": [
+        {
+          "id": "this-n8",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "that-n8",
+          "image_url": "",
+          "label": "That"
+        }
+      ],
+      "audio_text": "That",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Extra practice: That"
+    },
+    {
       "slide_id": "S1",
       "interaction_type": "repeat",
       "prompt": "This is a book.",
@@ -597,6 +694,25 @@
       "prompt_image_url": "",
       "spanish_translation": "Esa es una silla.",
       "pedagogy_note": "far target"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "This is a book.",
+      "stage": "Speak",
+      "correct_option_id": "this-is-a-book-speak",
+      "options": [
+        {
+          "id": "this-is-a-book-speak",
+          "image_url": "a1_photo_u2_this_book_v1.webp",
+          "label": "This is a book."
+        }
+      ],
+      "audio_text": "This is a book.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Este es un libro.",
+      "pedagogy_note": "Extra practice: This is a book."
     },
     {
       "slide_id": "U1",
@@ -877,6 +993,47 @@
         "word-3",
         "word-4"
       ]
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "book"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "That"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "audio_text": "That is a book.",
+      "answer_audio_text": "That is a book.",
+      "prompt_image_url": "a1_photo_u2_that_book_v1.webp",
+      "spanish_translation": "Ese es un libro.",
+      "translation": "Ese es un libro.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "pedagogy_note": "Extra practice: That is a book."
     }
   ]
 }

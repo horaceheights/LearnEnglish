@@ -63,12 +63,14 @@ class NumberTeachingImageTests(unittest.TestCase):
                 self.assertEqual(row["sha256"], self.counting[row["byte_identical_copy_of"]]["sha256"])
 
     def test_lesson_2_6_introduces_every_number_with_its_numeral(self) -> None:
-        lesson = self.lessons["lesson-2-6-numbers-1-10"]
-        teaching = {card["slide_id"]: card for card in lesson["cards"] if card.get("stage") == "Learn"}
-        for number in range(1, 11):
+        # Since 2026-09-23 the numbers span Lessons 2.6 (1-5) and 2.7 (6-10).
+        words = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
+        teaching = {card["prompt"]: card
+                    for lesson_id in ("lesson-2-6-numbers-1-10", "lesson-2-numbers-6-10")
+                    for card in self.lessons[lesson_id]["cards"] if card.get("stage") == "Learn"}
+        for number, word in enumerate(words, 1):
             with self.subTest(number=number):
-                card = teaching[f"L{number}"]
-                self.assertEqual(card["options"][0]["image_url"], NUMERAL_CARD.format(number))
+                self.assertEqual(teaching[word]["options"][0]["image_url"], NUMERAL_CARD.format(number))
 
     def test_no_lesson_counts_objects_the_learner_has_not_been_taught(self) -> None:
         for lesson in self.lessons.values():

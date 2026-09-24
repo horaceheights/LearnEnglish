@@ -116,7 +116,12 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   },
   'lesson-2-6-numbers-1-10': {
     image: 'a1_photo_number_card_01_v1.webp',
-    description: 'Números del uno al diez.',
+    description: 'Números del uno al cinco.',
+    color: '#dff4ef',
+  },
+  'lesson-2-numbers-6-10': {
+    image: 'a1_photo_number_card_06_v1.webp',
+    description: 'Números del seis al diez.',
     color: '#dff4ef',
   },
   'lesson-2-7-basic-colors': {

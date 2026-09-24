@@ -1069,8 +1069,6 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'they_boy_girl_are_writing_3x2.webp': require('../assets/lesson-assets/they_boy_girl_are_writing_3x2.webp'),
   'unit2_l26_one_bag.webp': require('../assets/lesson-assets/unit2_l26_one_bag.webp'),
   'unit2_l26_one_book.webp': require('../assets/lesson-assets/unit2_l26_one_book.webp'),
-  'unit2_l26_one_chair.webp': require('../assets/lesson-assets/unit2_l26_one_chair.webp'),
-  'unit2_l26_one_phone.webp': require('../assets/lesson-assets/unit2_l26_one_phone.webp'),
   'unit2_l27_black_contrast.webp': require('../assets/lesson-assets/unit2_l27_black_contrast.webp'),
   'unit2_l27_green_contrast.webp': require('../assets/lesson-assets/unit2_l27_green_contrast.webp'),
   'unit2_l27_red_contrast.webp': require('../assets/lesson-assets/unit2_l27_red_contrast.webp'),

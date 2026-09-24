@@ -34,14 +34,15 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 
 // 174 since the Unit 7 rebuild: its review cards use 4 empty-prompt interactions.
 // 181 since the Unit 1 rebuild: lessons 1.4-1.6 each have five sentence-choice cards (was 8 across the old 1.4-1.5).
+// 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  181,
+  196,
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
   affectedLessons.size,
-  61, // the Unit 1 rebuild adds Lesson 1.5
+  63, // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4 and the new 2.7
   'The shared rule must cover every standard lesson that contains this interaction.',
 );
 // Section instructions are Spanish in every unit (2026-09-19): no Recognize card may

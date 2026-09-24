@@ -265,10 +265,19 @@ def render_jobs(args: argparse.Namespace) -> list[RenderJob]:
     )
 
 
+def in_use(registry: dict[str, Any], take_id: str | None) -> bool:
+    """A take is reusable only while an approved binding uses it.
+
+    Takes nothing is bound to are kept for history (rejected or superseded
+    recordings) and must never be picked up again by reuse.
+    """
+    return any(binding.get("take_id") == take_id for binding in registry["bindings"].values())
+
+
 def matching_take_id(registry: dict[str, Any], job: RenderJob) -> str | None:
     contract = job.completion_contract_metadata
     for take_id, take in registry["takes"].items():
-        if take.get("text") != job.text:
+        if take.get("text") != job.text or not in_use(registry, take_id):
             continue
         provenance = take.get("provenance") or {}
         is_reviewed_exact_override = (
@@ -365,7 +374,7 @@ def merge_take_compatibility(take: dict[str, Any], job: RenderJob) -> None:
 
 def equivalent_take(registry: dict[str, Any], take_id: str | None, job: RenderJob) -> bool:
     take = registry["takes"].get(take_id or "")
-    return bool(take) and take_metadata_matches(take, job)
+    return bool(take) and in_use(registry, take_id) and take_metadata_matches(take, job)
 
 
 def bind_take(registry: dict[str, Any], take_id: str, job: RenderJob, note: str) -> None:

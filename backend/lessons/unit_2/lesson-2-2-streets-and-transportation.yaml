@@ -37,6 +37,7 @@
     "S6",
     "U6"
   ],
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
@@ -398,6 +399,69 @@
       "pedagogy_note": "Repetition with growth: contrast bridge vs street with negation"
     },
     {
+      "slide_id": "R9",
+      "interaction_type": "t2i4",
+      "prompt": "A bridge",
+      "stage": "Recognize",
+      "correct_option_id": "a-bridge-r9",
+      "options": [
+        {
+          "id": "a-bus-r9",
+          "image_url": "place_bus.webp",
+          "label": null
+        },
+        {
+          "id": "a-car-r9",
+          "image_url": "object_car.webp",
+          "label": null
+        },
+        {
+          "id": "a-bridge-r9",
+          "image_url": "place_bridge.webp",
+          "label": null
+        },
+        {
+          "id": "a-street-r9",
+          "image_url": "place_street.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A bridge",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un puente",
+      "pedagogy_note": "Extra practice: A bridge"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "a-bike-r10",
+      "options": [
+        {
+          "id": "a-bike-r10",
+          "image_url": "",
+          "label": "A bike"
+        },
+        {
+          "id": "a-car-r10",
+          "image_url": "",
+          "label": "A car"
+        },
+        {
+          "id": "a-bus-r10",
+          "image_url": "",
+          "label": "A bus"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "A bike",
+      "prompt_image_url": "object_bike.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Extra practice: A bike"
+    },
+    {
       "slide_id": "N1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
@@ -552,6 +616,69 @@
       "pedagogy_note": "Repetition with growth: listen for bus vs car contrast"
     },
     {
+      "slide_id": "N7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-bridge-n7",
+      "options": [
+        {
+          "id": "a-street-n7",
+          "image_url": "place_street.webp",
+          "label": null
+        },
+        {
+          "id": "a-bus-n7",
+          "image_url": "place_bus.webp",
+          "label": null
+        },
+        {
+          "id": "a-car-n7",
+          "image_url": "object_car.webp",
+          "label": null
+        },
+        {
+          "id": "a-bridge-n7",
+          "image_url": "place_bridge.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A bridge",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Extra practice: A bridge"
+    },
+    {
+      "slide_id": "N8",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-bike-n8",
+      "options": [
+        {
+          "id": "a-car-n8",
+          "image_url": "",
+          "label": "A car"
+        },
+        {
+          "id": "a-bus-n8",
+          "image_url": "",
+          "label": "A bus"
+        },
+        {
+          "id": "a-bike-n8",
+          "image_url": "",
+          "label": "A bike"
+        }
+      ],
+      "audio_text": "A bike",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Extra practice: A bike"
+    },
+    {
       "slide_id": "S1",
       "interaction_type": "repeat",
       "prompt": "It is a street.",
@@ -664,6 +791,25 @@
       "prompt_image_url": "",
       "spanish_translation": "Es una calle, no un parque.",
       "pedagogy_note": "Repetition with growth: speak contrast sentence with negation"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "It is a car.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-a-car-speak",
+      "options": [
+        {
+          "id": "it-is-a-car-speak",
+          "image_url": "object_car.webp",
+          "label": "It is a car."
+        }
+      ],
+      "audio_text": "It is a car.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un automóvil.",
+      "pedagogy_note": "Extra practice: It is a car."
     },
     {
       "slide_id": "U1",
@@ -892,6 +1038,47 @@
         "word-6",
         "word-7"
       ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "bike"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "audio_text": "It is a bike.",
+      "answer_audio_text": "It is a bike.",
+      "prompt_image_url": "object_bike.webp",
+      "spanish_translation": "Es una bicicleta.",
+      "translation": "Es una bicicleta.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "pedagogy_note": "Extra practice: It is a bike."
     }
   ]
 }

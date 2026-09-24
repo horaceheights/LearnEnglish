@@ -40,14 +40,15 @@ SOURCE_AUDIO = ROOT / "mobile" / "assets" / "course-audio" / "one-corrected.mp3"
 KNOWN_REJECTED_TAKE_IDS = {
     "0613fa10f4c08d4302b287d726294ef947cac56818a346a685d9adad58d68b42"
 }
+# Since the 2026-09-23 Unit 2 rebuild, "One" is taught on Learn, Recognize and Listen
+# cards; Speak practises the number sentences instead.
 EXPECTED_ONE_CONTRACT_COUNTS = Counter(
     {
-        ("teacher", "prompt", "prompt"): 2,
-        ("teacher", "pronunciation_slow", "split-ing"): 1,
+        ("teacher", "prompt", "prompt"): 3,
         ("answer", "prompt", "answer"): 3,
     }
 )
-EXPECTED_ONE_STAGE_COUNTS = Counter({"Learn": 2, "Recognize": 2, "Speak": 2})
+EXPECTED_ONE_STAGE_COUNTS = Counter({"Learn": 2, "Recognize": 2, "Listen": 2})
 
 
 def standalone_one_assets() -> list[tuple[CourseAudioAsset, str, str]]:
@@ -72,7 +73,7 @@ def standalone_one_assets() -> list[tuple[CourseAudioAsset, str, str]]:
         "lesson-2-6-numbers-1-10"
     }:
         raise ValueError(
-            "The reviewed One override must target only the approved Learn, Recognize, and Speak cards."
+            "The reviewed One override must target only the approved Learn, Recognize, and Listen cards."
         )
     return matches
 
@@ -141,8 +142,13 @@ def planned_registry() -> tuple[dict[str, Any], bytes, list[tuple[CourseAudioAss
 
     registry = copy.deepcopy(load_approved_take_registry())
     existing_take = registry["takes"].get(APPROVED_ONE_AUDIO_SHA256)
-    if existing_take is not None and existing_take != take:
-        raise ValueError("The approved One take ID already has different metadata.")
+    if existing_take is not None:
+        # Compatibility is cumulative: a curriculum change may stop using a mode, but the
+        # reviewed take stays valid for everything it was already approved for.
+        for field in ("compatible_speaker_roles", "compatible_modes", "compatible_variants"):
+            take[field] = sorted(set(take.get(field, [])) | set(existing_take.get(field, [])))
+        if existing_take != take:
+            raise ValueError("The approved One take ID already has different metadata.")
     registry["takes"][APPROVED_ONE_AUDIO_SHA256] = take
 
     for asset, _lesson_id, _stage in assets:

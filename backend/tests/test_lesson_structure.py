@@ -224,12 +224,13 @@ class LessonStructureTests(unittest.TestCase):
                 continue
             with self.subTest(lesson=lesson.id):
                 self.assertGreaterEqual(len(lesson.cards), 32)
-                if lesson.sub_lesson_id in ("2.9", "3.9", "4.9", "5.9", "6.9", "7.9"):
+                if is_review(lesson):
                     # The reviewed rebuilds follow the comprehensive-review
                     # exception in course-design-a1.md; pin their intentional size.
                     self.assertEqual(len(lesson.cards), 48)
                 else:
-                    self.assertLessEqual(len(lesson.cards), 40)
+                    # 40-42 is the 2026-09-23 standard; units not yet rebuilt stay shorter.
+                    self.assertLessEqual(len(lesson.cards), 42)
                 self.assertTrue(lesson.unit_outcome)
                 self.assertTrue(lesson.grammar_function)
                 self.assertTrue(lesson.speaking_outcome)
@@ -733,25 +734,23 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertIn(question, normalized)
 
     def test_lesson_2_6_object_identity_card_uses_aligned_question_and_answers(self):
+        # 2026-09-23 rebuild: the object phrase card is "One book." against "One bag.".
         card = next(
             card
             for card in LESSONS["lesson-2-6-numbers-1-10"].cards
-            if card.slide_id == "R8"
+            if card.stage == "Recognize" and card.answer_audio_text == "One book."
         )
 
-        self.assertEqual("Recognize", card.stage)
         # The app shows the Spanish instruction for an empty Recognize prompt;
         # the English "Choose the words." prompt and its audio were retired.
         self.assertEqual("", card.prompt)
         self.assertEqual(card.prompt, card.audio_text)
-        self.assertEqual(
-            ["One phone.", "One chair."],
-            [option.label for option in card.options],
-        )
+        self.assertEqual({"One book.", "One bag."}, {option.label for option in card.options})
+        self.assertIn("unit2_l26_one_book.webp", card.prompt_image_url)
         correct_option = next(
             option for option in card.options if option.id == card.correct_option_id
         )
-        self.assertEqual("One phone.", correct_option.label)
+        self.assertEqual("One book.", correct_option.label)
         self.assertEqual(correct_option.label, card.answer_audio_text)
 
     def test_listen_hides_text_and_uses_audio_with_image_choices(self):

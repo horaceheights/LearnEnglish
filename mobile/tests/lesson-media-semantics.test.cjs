@@ -429,7 +429,7 @@ assert.equal(media39.get('My name is Ana.'), 'a1_u3_review_v1_ana_name.webp');
 
 const requiredUnitTwoReplacementsByLesson = new Map([
   [
-    '2.8',
+    '2.9',
     [
       'unit2_near_red_book.webp',
       'unit2_six_white_bags.webp',
@@ -437,11 +437,11 @@ const requiredUnitTwoReplacementsByLesson = new Map([
     ],
   ],
   [
-    '2.9',
+    '2.10',
     ['a1_u2_review_v1_white_bags.webp'],
   ],
   [
-    '2.10',
+    '2.11',
     [
       'a1_u2_meeting_v4_places.webp',
       'a1_u2_meeting_v4_transport.webp',
