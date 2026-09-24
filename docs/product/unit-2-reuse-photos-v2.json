@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-reuse-photos",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image; input images about $0.0011 each)",
+    "planned_images": 3,
+    "planned_images_without_optional_review": 20,
+    "expected_cost_usd": "0.42",
+    "requested_ceiling_usd": "4.00",
+    "no_automatic_retries": true,
+    "order": "Generate each pair's first state, inspect it at 360/250/180 px and at the centered 4:5 crop, then make its one edit. A fallback prompt is used only after its primary output is rejected, and every rejected output is reported with its cost."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "counting": "Counting photo: every counted object is complete, uncropped, separated from its neighbours by a clear gap, and easy to count on a phone 360 pixels wide. No other object of that kind anywhere, including the background and reflections.",
+    "color": "Color photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.",
+    "first_person": "Strict first-person view from the learner's own eyes: the learner's forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections."
+  },
+  "revision": 2,
+  "output_namespace": "unit-2-lesson-v5",
+  "authorization": "2026-09-24: redo of photos rejected under revision 1, inside the same US$4.00 ceiling the user approved for photos that need to be redone (\"1. Approve\"). Revision 1 rejected: eight-books (six books shown, US$0.137544), these-bags (the finger pointed between the near and far pairs, US$0.137672), and those-books (the edit deleted a near book, US$0.140312; its registered fallback was usable). Only these prompts change: the books form a 4 + 4 grid, and the backpacks lie flat like the books that worked. Revision 1 stays frozen and its receipts keep counting against the ceiling.",
+  "assets": [
+    {
+      "group": "counting",
+      "lesson": "2.7",
+      "item": "Eight books.",
+      "runtime_filename": "a1_photo_u2_eight_books_v1.webp",
+      "shared": [
+        "photo",
+        "counting"
+      ],
+      "four_card": false,
+      "id": "eight-books-r2",
+      "redoes": "eight-books",
+      "prompt": "EIGHT books, exactly 8, arranged as TWO rows of FOUR (4 + 4 = 8). Photograph looking straight down at a bare light-oak table. Eight identical closed hardcover books with plain dark-blue cloth covers and cream page edges lie flat in a neat grid: four books side by side in the top row and four books side by side in the bottom row, all the same size and turned the same way, with an even strip of bare wood between every book and between the two rows. The grid is centered and fills about 70 percent of the photo width and 75 percent of its height. Count: four in the top row, four in the bottom row, eight in all; never six, seven or nine. The covers are completely blank: no title, text, pattern or picture. Nothing else on the table."
+    },
+    {
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "These bags.",
+      "runtime_filename": "a1_photo_u2_these_bags_v1.webp",
+      "shared": [
+        "photo",
+        "first_person"
+      ],
+      "four_card": true,
+      "id": "these-bags-r2",
+      "redoes": "these-bags",
+      "prompt": "THESE state. The learner stands at the near end of a long, completely bare light-oak table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Exactly FOUR identical small plain grey canvas backpacks LYING FLAT on their backs, front pocket facing up, straps underneath, no logos, tags or text.\nNEAR PAIR: two backpacks lie flat side by side, a finger's width apart, at the near end of the table in the lower-left half of the photo. The LEFT hand rests flat on top of the left backpack. Together the two near backpacks span about 40 percent of the photo width.\nFAR PAIR: the other two lie flat side by side, a finger's width apart, about one meter farther along the same table in the upper center, alone on empty wood. Each far backpack is at least 12 percent of the photo width, clearly smaller than the near ones, sharp and unmistakably the same backpack.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just right of the near pair and level with it. Its straight index finger points LEFT and slightly DOWN at the right near backpack, the fingertip stopping about two finger-widths short of it; the other fingers are curled. The finger never points up the table. Nothing points at the far pair.\nNothing else on the table. The picture means: THESE bags, the two right here by my hands."
+    },
+    {
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "Those bags.",
+      "runtime_filename": "a1_photo_u2_those_bags_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "id": "those-bags-r2",
+      "reference": "these-bags-r2",
+      "prompt": "THOSE state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near pair, and keep everything else identical: camera, light, table, all four backpacks and the left hand on the near backpack. Now the straight index finger points up along the bare tabletop toward the FAR PAIR of backpacks, which stays complete, sharp and unmoved. A wide band of bare wood stays between the fingertip and the far backpacks; the finger never reaches, overlaps or touches them. Exactly four backpacks remain: two near under and beside the left hand, two far. No extra hands, objects, text or other changes. The picture now means: THOSE bags over there, while my left hand stays on THESE."
+    },
+    {
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "Those bags.",
+      "runtime_filename": "a1_photo_u2_those_bags_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "id": "those-bags-r2-alt",
+      "reference": "these-bags-r2",
+      "fallback_for": "those-bags-r2",
+      "prompt": "THOSE state, precise edit of Image 1. Change ONLY the learner's RIGHT index finger: rotate it at the knuckle so it points up the table toward the FAR PAIR of backpacks. The right hand, wrist and forearm do not move at all: the whole hand stays in the bottom third of the photo. Both near backpacks and the left hand stay exactly as they are; exactly four backpacks remain. At least a quarter of the photo height of bare wood separates the fingertip from the far backpacks; the finger never reaches, overlaps or touches them. No extra hands, objects, text or other changes. The picture now means: THOSE bags over there."
+    }
+  ]
+}
