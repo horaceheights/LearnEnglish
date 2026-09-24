@@ -3,8 +3,16 @@
 Last reviewed: 2026-09-17
 
 This is the persistent source of truth for product priorities. When work is
-completed, update this file in the same commit. When asked "what is next?",
-select the highest-value unfinished item whose dependencies are complete.
+completed, update this file in the same commit and move its Jira item to
+Finalizado.
+
+The Jira `SCRUM` backlog
+(<https://learnspanglish.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog>)
+holds the working order: one item per open line here, grouped in epics by
+priority tier, with a description, "done when" criteria, and blocking links.
+When asked "what is next?", take the highest-ranked unblocked Jira item. New
+work gets a line here first, then its Jira item. If the two disagree, this file
+wins; correct the Jira item.
 
 Statuses reflect checked-in implementation, automated guardrails, and recorded
 QA. Do not mark a physical-device or manual test complete based only on code or

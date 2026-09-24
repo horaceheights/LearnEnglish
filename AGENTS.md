@@ -2,7 +2,7 @@
 
 - Before changing curriculum, lesson behavior, shared UI, audio, pronunciation, media, or release code, read `docs/product/project-guardrails.md` and the relevant section of `docs/product/course-design-a1.md`.
 - Treat `docs/product/project-guardrails.md` as durable product memory. Inspect existing behavior and usages before replacing an established pattern.
-- Use `docs/planning/roadmap.md` for priorities, `docs/qa/` for verification, and `docs/operations/` plus `mobile/RELEASE.md` for deployment and release work. Start with `docs/README.md` when unsure.
+- Use `docs/planning/roadmap.md` for priorities (it wins over the Jira `SCRUM` backlog, which holds the work order), `docs/qa/` for verification, and `docs/operations/` plus `mobile/RELEASE.md` for deployment and release work. Start with `docs/README.md` when unsure.
 - When the user approves a reusable standard or changes an existing one, update the project guardrails in the same commit and add or update an automated guardrail when practical.
 - If a request conflicts with an existing guardrail, call out the conflict before implementation and let the newest explicit user decision control.
 - Do not refactor unrelated code while completing a task. Report unrelated problems separately unless they prevent completion.
