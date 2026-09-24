@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f4942551-8eb2-419d-ba8f-0edf4788a4e9",
+  "asset_id": "those-books-alt",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:30:38.575195+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "THOSE state, precise edit of Image 1. Change ONLY the learner's RIGHT index finger: rotate it at the knuckle so it points up the table toward the FAR PAIR of books. The right hand, wrist and forearm do not move at all: the whole hand stays in the bottom third of the photo. At least a quarter of the photo height of bare wood separates the fingertip from the far books; the finger never reaches, overlaps or touches them. Everything else stays identical: camera, light, table, all four books and the left hand. No extra hands, objects, text or other changes. The picture now means: THOSE books over there.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-2-lesson-v5/these-books.png",
+    "sha256": "0f8e9392d9e3ba7d4fbb196849360cac3af6a9035cce30237014fb71a99dff31"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "T2y1asWTIf2VmtkP4s6EuAs",
+  "usage": {
+    "promptTokenCount": 395,
+    "candidatesTokenCount": 1275,
+    "totalTokenCount": 1851,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 137
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 181,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136962",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 395,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 181
+  },
+  "elapsed_seconds": 25.96,
+  "output": "output/imagegen/unit-2-lesson-v5/those-books-alt.png",
+  "sha256": "fddc0fd7dc941d6493db554769744030c843405f78ef677121ccb4dce6f217c2",
+  "byte_count": 5028393,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

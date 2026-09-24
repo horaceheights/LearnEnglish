@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e7ee6d26-eddd-4cee-8d7a-bf78532fee32",
+  "asset_id": "which-red-bag",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:26:49.950494+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nStrict first-person view from the learner's own eyes: the learner's forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections.\n\nOnly the learner's RIGHT forearm and hand enter, from the lower-right corner; the left hand is not visible. The camera looks down at a bare light-oak table from standing height. Exactly TWO backpacks of the same simple model stand upright side by side on the table, a hand's width apart, both within arm's reach and the same size: the LEFT one is solid bright red, the RIGHT one is solid bright blue, with matching colored straps and no logos, tags or text. Together they span about 60 percent of the photo width, centered, both complete. The right hand stays in the bottom third of the photo; its straight index finger points clearly at the RED backpack, the fingertip stopping about two finger-widths short of it; the other fingers are curled. Nothing else on the table. The picture means: this red one, not the blue one.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "amu1atqQFvGKqtsPtYe5uQU",
+  "usage": {
+    "promptTokenCount": 381,
+    "candidatesTokenCount": 1350,
+    "totalTokenCount": 1956,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 381
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 225,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137462",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 381,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 225
+  },
+  "elapsed_seconds": 22.63,
+  "output": "output/imagegen/unit-2-lesson-v5/which-red-bag.png",
+  "sha256": "9af0f0bf1c12017cc0f06378f50d84990b997ae036c84af0bb836d97e9d3d576",
+  "byte_count": 6053283,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9ff862e6-eab4-4fc7-a91c-6fbb7946be27",
+  "asset_id": "blue-bike",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:21:51.010225+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nColor photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.\n\nBLUE. One bicycle with a solid bright blue frame, black tires and a black seat, standing alone on its kickstand in side view on a plain light-grey concrete path in front of a plain pale-beige wall. Complete and centered, both wheels whole. No basket, other bikes, people or text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "P2q1asjAEYnRz7IP_oGYyAo",
+  "usage": {
+    "promptTokenCount": 279,
+    "candidatesTokenCount": 1301,
+    "totalTokenCount": 1723,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 279
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 143,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136274",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 279,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 143
+  },
+  "elapsed_seconds": 22.79,
+  "output": "output/imagegen/unit-2-lesson-v5/blue-bike.png",
+  "sha256": "f367119e7c05644d6c968ef829364513f4dc7cf45b396420f3dceb07d18ab6c0",
+  "byte_count": 6423108,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "61eedfcf-398c-4ebb-8065-e035028e0fc9",
+  "asset_id": "review-bus-number",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:24:05.356142+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nWHAT NUMBER IS IT? Front view of a white and grey city bus waiting at a stop. The lit destination display above its windshield shows ONLY one large amber numeral 8 and nothing else; the numeral is large, sharp and readable on a phone. The whole front of the bus is visible. No other letters, words, logos, numbers or license-plate text anywhere; no people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "xWq1asn6LYbVz7IP5r-v-QM",
+  "usage": {
+    "promptTokenCount": 210,
+    "candidatesTokenCount": 1284,
+    "totalTokenCount": 1650,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 210
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 156,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136292",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 210,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 156
+  },
+  "elapsed_seconds": 22.29,
+  "output": "output/imagegen/unit-2-lesson-v5/review-bus-number.png",
+  "sha256": "f3eeca44a1600a1edbc51ed33b72b84dcc78048c56fa4e898f464a1a550a9f08",
+  "byte_count": 6264352,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

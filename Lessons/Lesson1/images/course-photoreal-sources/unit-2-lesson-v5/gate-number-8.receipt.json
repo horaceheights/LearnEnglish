@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "58ee81d8-8b76-406b-b077-eed361f01573",
+  "asset_id": "gate-number-8",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:24:52.112851+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Remove the 7, 9 and 10 number cards and their wooden stands completely, leaving bare weathered table wood, with natural light and shadows, where they stood. Keep the 8 card and its stand exactly where and how they are, and keep everything else identical: camera, light, park background and table. No new objects, text or numbers. The picture now shows only the number 8 card on the park table.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_station_numbers.webp",
+    "sha256": "ecdbdabe087274c7ad8bb957f924dac3cdfe62f3c1f3ac4cbf1f6f4f8c6222ce"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "9Gq1apHKMu-hz7IP5dad8Qg",
+  "usage": {
+    "promptTokenCount": 355,
+    "candidatesTokenCount": 1254,
+    "totalTokenCount": 1775,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 97
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 166,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136702",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 355,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 166
+  },
+  "elapsed_seconds": 22.08,
+  "output": "output/imagegen/unit-2-lesson-v5/gate-number-8.png",
+  "sha256": "86fad456204c4884e6f039ab22b7887dc90892d71e786988560d915e8024b0c9",
+  "byte_count": 6141254,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

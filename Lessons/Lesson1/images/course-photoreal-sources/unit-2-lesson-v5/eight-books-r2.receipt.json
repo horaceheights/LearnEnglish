@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9b252c97-02da-415a-9e72-f19a9cba1c98",
+  "asset_id": "eight-books-r2",
+  "pack_sha256": "17458509b22973506de50a5a52530abcbe3c3b1b678a3ff7de7c64f4dc3289af",
+  "started_at": "2026-09-24T18:31:52.319771+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nCounting photo: every counted object is complete, uncropped, separated from its neighbours by a clear gap, and easy to count on a phone 360 pixels wide. No other object of that kind anywhere, including the background and reflections.\n\nEIGHT books, exactly 8, arranged as TWO rows of FOUR (4 + 4 = 8). Photograph looking straight down at a bare light-oak table. Eight identical closed hardcover books with plain dark-blue cloth covers and cream page edges lie flat in a neat grid: four books side by side in the top row and four books side by side in the bottom row, all the same size and turned the same way, with an even strip of bare wood between every book and between the two rows. The grid is centered and fills about 70 percent of the photo width and 75 percent of its height. Count: four in the top row, four in the bottom row, eight in all; never six, seven or nine. The covers are completely blank: no title, text, pattern or picture. Nothing else on the table.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "mGy1apCZIvzrz7IP8MGB0Q0",
+  "usage": {
+    "promptTokenCount": 356,
+    "candidatesTokenCount": 1337,
+    "totalTokenCount": 1884,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 356
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 191,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137004",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 356,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 191
+  },
+  "elapsed_seconds": 22.13,
+  "output": "output/imagegen/unit-2-lesson-v5/eight-books-r2.png",
+  "sha256": "a3103e44c412d00d0f87e86f156ed28d48c67935fdb37466e70ddae323d33b4e",
+  "byte_count": 6908197,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

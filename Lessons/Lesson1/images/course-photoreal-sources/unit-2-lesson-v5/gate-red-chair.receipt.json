@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "62188cdc-d0ba-400e-9cd1-d64553843ff0",
+  "asset_id": "gate-red-chair",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:25:15.123904+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Remove the blue, green and yellow chairs completely, restoring the terracotta terrace tiles and their natural light and shadows where they stood. Keep the red chair exactly where and how it is, and keep everything else identical: camera, light, terrace, low wall, plants, lake and sky. No new objects, people or text. The picture now shows one red chair on the terrace.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_colors.webp",
+    "sha256": "1c8fef185f6e7910e03d2afed3b9d766e1d06ece4d5201518182a96df92cda03"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "C2u1apCzLP-UmtkP29jxmQs",
+  "usage": {
+    "promptTokenCount": 343,
+    "candidatesTokenCount": 1234,
+    "totalTokenCount": 1789,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 85
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 212,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137230",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 343,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 212
+  },
+  "elapsed_seconds": 23.53,
+  "output": "output/imagegen/unit-2-lesson-v5/gate-red-chair.png",
+  "sha256": "8cb264b51d935dbcd6b8d429f34c77eddd8d91e5c310e67a7053461bdd2e1a28",
+  "byte_count": 6113975,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

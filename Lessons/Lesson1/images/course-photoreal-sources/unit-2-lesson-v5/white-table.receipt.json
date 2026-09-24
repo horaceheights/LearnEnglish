@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "cbcba328-491c-4e41-af5a-35d87b72828d",
+  "asset_id": "white-table",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:23:21.190690+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nColor photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.\n\nWHITE. One simple rectangular table painted solid white, with four white legs, standing alone in three-quarter view on warm medium-brown wooden floorboards in front of a plain warm-grey wall. Complete, with nothing on it, and no chairs or other furniture.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "mWq1avjAI8OO6dkP25Sd0A0",
+  "usage": {
+    "promptTokenCount": 270,
+    "candidatesTokenCount": 1255,
+    "totalTokenCount": 1690,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 270
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 165,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136520",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 270,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 165
+  },
+  "elapsed_seconds": 21.68,
+  "output": "output/imagegen/unit-2-lesson-v5/white-table.png",
+  "sha256": "94c8d47bc144a8c0e988047f036a5997747da264e08ea028f71d7e9be19ec9f5",
+  "byte_count": 5018042,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

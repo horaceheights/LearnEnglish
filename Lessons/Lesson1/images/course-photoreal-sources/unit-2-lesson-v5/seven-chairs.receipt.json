@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "12940930-8ac2-4c91-a91e-7172d8e64477",
+  "asset_id": "seven-chairs",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:19:41.459641+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nCounting photo: every counted object is complete, uncropped, separated from its neighbours by a clear gap, and easy to count on a phone 360 pixels wide. No other object of that kind anywhere, including the background and reflections.\n\nSEVEN chairs, exactly 7. Eye-level photograph of one straight row of seven identical light-oak wooden chairs with plain solid seats and simple slatted backs, standing side by side against a plain off-white wall on pale floorboards in a bright, empty room, all facing the camera. The row is centered and fills about 85 percent of the photo width. A clear gap of floor separates every pair of neighbouring chairs; no chair hides, touches or overlaps another. Every chair is complete from the top of its back to its feet, with floor visible under every foot. No other furniture, people, pictures, plants or objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "vWm1arPrN4W8qtsPm-TWwAg",
+  "usage": {
+    "promptTokenCount": 313,
+    "candidatesTokenCount": 1262,
+    "totalTokenCount": 1718,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 313
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 143,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136342",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 313,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 143
+  },
+  "elapsed_seconds": 20.05,
+  "output": "output/imagegen/unit-2-lesson-v5/seven-chairs.png",
+  "sha256": "4b640fff877d86b0ade1cf73d912c0b55b714bb24441e95d3e64e5aa4ad59c43",
+  "byte_count": 4207938,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "df671159-314e-4397-985e-661ec6e74682",
+  "asset_id": "these-books",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:25:39.523710+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nStrict first-person view from the learner's own eyes: the learner's forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections.\n\nTHESE state. The learner stands at the near end of a long, completely bare light-oak table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Exactly FOUR identical closed hardcover books with plain deep-green cloth covers and cream page edges; the covers are completely blank.\nNEAR PAIR: two of the books lie flat side by side, a finger's width apart, at the near end of the table in the lower-left half of the photo. The LEFT hand rests flat on the table just left of them, its fingertips touching the edge of the left book. Together the two near books span about 40 percent of the photo width.\nFAR PAIR: the other two lie flat side by side, a finger's width apart, about one meter farther along the same table in the upper center, alone on empty wood. Each far book is at least 12 percent of the photo width, clearly smaller than the near books, sharp and unmistakably the same green book.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just right of the near pair. Its straight index finger points left and down at the NEAR PAIR, the fingertip stopping about two finger-widths short of them; the other fingers are curled. Nothing points at the far pair.\nNothing else on the table: no papers, phones, cups or plates; no bookshelves. The picture means: THESE books, the two right here by my hands.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "I2u1aqOwN7aeqtsP1OmkmQs",
+  "usage": {
+    "promptTokenCount": 521,
+    "candidatesTokenCount": 1390,
+    "totalTokenCount": 2180,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 521
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 269,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138270",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 521,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 269
+  },
+  "elapsed_seconds": 22.25,
+  "output": "output/imagegen/unit-2-lesson-v5/these-books.png",
+  "sha256": "0f8e9392d9e3ba7d4fbb196849360cac3af6a9035cce30237014fb71a99dff31",
+  "byte_count": 5305380,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "30ccde8b-7b4b-4341-b475-b254d4620cc2",
+  "asset_id": "green-chair",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:22:14.521497+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nColor photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.\n\nGREEN. One simple wooden chair painted solid bright green all over, seat, back and legs, standing alone in three-quarter view on pale oak floorboards in front of a plain off-white wall. Complete from the top of its back to its four feet. No other furniture, plants or objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Vmq1aqrsN92VmtkPo-jJ2Ac",
+  "usage": {
+    "promptTokenCount": 277,
+    "candidatesTokenCount": 1239,
+    "totalTokenCount": 1665,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 277
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 149,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136342",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 277,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 149
+  },
+  "elapsed_seconds": 20.13,
+  "output": "output/imagegen/unit-2-lesson-v5/green-chair.png",
+  "sha256": "873ffdf48c6764b3f3c8137eed7e0fdcb4b8a9fe6b9fc9d685cbaf5821fb19d1",
+  "byte_count": 4748682,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

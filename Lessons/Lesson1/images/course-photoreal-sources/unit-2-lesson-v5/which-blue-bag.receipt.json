@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "33149b55-ad53-44ee-8599-70b57e76bf1d",
+  "asset_id": "which-blue-bag",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:29:49.368779+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger so it points clearly at the BLUE backpack on the right; the hand, wrist and forearm stay where they are, in the bottom third of the photo, and the fingertip stops about two finger-widths short of the blue backpack. Keep everything else identical: camera, light, table and both backpacks. No extra hands, objects, text or other changes. The picture now means: this blue one, not the red one.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-2-lesson-v5/which-red-bag.png",
+    "sha256": "9af0f0bf1c12017cc0f06378f50d84990b997ae036c84af0bb836d97e9d3d576"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Hmy1auqVHp-fz7IPr9GwkA0",
+  "usage": {
+    "promptTokenCount": 365,
+    "candidatesTokenCount": 1249,
+    "totalTokenCount": 1755,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 107
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 141,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136422",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 365,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 141
+  },
+  "elapsed_seconds": 23.44,
+  "output": "output/imagegen/unit-2-lesson-v5/which-blue-bag.png",
+  "sha256": "5c66893ee608dbfdd5a306d1ceff0e80f82b8a65a902bb048a6574614b4dac76",
+  "byte_count": 5719511,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
