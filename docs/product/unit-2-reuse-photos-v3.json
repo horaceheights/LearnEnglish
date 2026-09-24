@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-reuse-photos",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "counting": "Counting photo: every counted object is complete, uncropped, separated from its neighbours by a clear gap, and easy to count on a phone 360 pixels wide. No other object of that kind anywhere, including the background and reflections.",
+    "color": "Color photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.",
+    "first_person": "Strict first-person view from the learner's own eyes: the learner's forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections."
+  },
+  "revision": 3,
+  "output_namespace": "unit-2-lesson-v5",
+  "authorization": "PENDING USER APPROVAL. 2026-09-24: two edits so the Unit 2 mission practises Lesson 2.10: a plural near/far scene for these/those, and a question photo for the What number is it? speaking gate. Revisions 1-2 spent US$3.564438 of the US$4.00 ceiling; these two need about US$0.28, leaving about US$0.16 for one redo.",
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image; input images about $0.0011 each)",
+    "planned_images": 2,
+    "planned_images_without_optional_review": 20,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "4.00",
+    "no_automatic_retries": true,
+    "order": "Generate each pair's first state, inspect it at 360/250/180 px and at the centered 4:5 crop, then make its one edit. A fallback prompt is used only after its primary output is rejected, and every rejected output is reported with its cost."
+  },
+  "assets": [
+    {
+      "id": "mission-these-those",
+      "group": "mission-scene",
+      "lesson": "2.12",
+      "item": "These are books. Those are books. These are phones. Those are phones.",
+      "runtime_filename": "a1_u2_meeting_v5_these_those.webp",
+      "shared": [],
+      "four_card": true,
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_near_far_tight.webp",
+        "sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723",
+        "observed_description": "First-person view down at a weathered park table: the left hand holds a red book and the right hand holds a blue-cased black phone near the camera; a matching red book and phone lie far away at the top of the table."
+      },
+      "prompt": "Precise edit of Image 1. Turn every object into a matching PAIR of two identical objects and change nothing else. NEAR: keep the red book in the left hand and the phone in the right hand exactly as they are, and add a second identical red book lying flat on the table just left of the held book, and a second identical blue-cased phone lying flat on the table just right of the held phone, each fully visible and touching nothing else. FAR: the far red book becomes two identical red books side by side with a small gap, and the far phone becomes two identical blue-cased phones side by side with a small gap, in the same far places and the same size as before. Exactly four red books and four phones in the whole photo: two of each near, two of each far. Keep the hands, sleeves, table, light, shadows and camera identical. No text, logos, extra hands or other objects."
+    },
+    {
+      "id": "gate-number-8-question",
+      "group": "mission-gate",
+      "lesson": "2.12",
+      "item": "What number is it?",
+      "runtime_filename": "a1_u2_meeting_v5_voice_number_question.webp",
+      "shared": [],
+      "four_card": true,
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_voice_phone_question.webp",
+        "sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f",
+        "observed_description": "The mission's woman in a teal T-shirt sits at a weathered park table by a lake and points down at a blue-cased phone lying on the table in front of her."
+      },
+      "prompt": "Precise edit of Image 1. Replace ONLY the phone on the table with one small cream table-number card standing upright on a little wooden stand, printed with one large black numeral 8 facing the camera, standing exactly where the phone lay. Her index finger now points at the card and stops just short of it. Keep the woman, her face, expression, hair, teal T-shirt, pose, the table, the park, the lake and the light identical. The only character anywhere is the single 8; no other text, numbers or objects."
+    }
+  ]
+}

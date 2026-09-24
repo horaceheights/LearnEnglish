@@ -276,7 +276,10 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
                       "pedagogy_note": note("Learn", item)})
     # Each section gives its cards to the least-practised new words, in story order.
     # Recognize alternates picture choices and sentence choices; two options come before four.
-    for index, item in enumerate(pick(items, layout["Recognize"])):
+    # A `"choices": false` item (a question such as "Which one?") has no wrong option of
+    # its own; it is heard as the prompt of its reply cards and practised in Speak.
+    choosable = [item for item in items if item.get("choices", True) is not False]
+    for index, item in enumerate(pick(choosable, layout["Recognize"])):
         practised(item)
         image = index % 2 == 0
         count = option_count(item, image, early=index < layout["Recognize"] // 2)
@@ -284,7 +287,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
                              instructions=instructions, rejected=rejected, captions=captions)
         cards.append(spec)
         banks.append(bank)
-    for index, item in enumerate(pick(items, layout["Listen"])):
+    for index, item in enumerate(pick(choosable, layout["Listen"])):
         practised(item)
         image = index % 3 != 2
         count = option_count(item, image, early=index < layout["Listen"] // 2)

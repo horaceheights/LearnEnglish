@@ -56,6 +56,7 @@ const MEANINGS: Record<string, string> = {
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',
   sitting: 'sentado', talking: 'hablando',
   red: 'rojo', blue: 'azul', green: 'verde', yellow: 'amarillo', black: 'negro', white: 'blanco',
+  this: 'este, cerca', that: 'ese, lejos', these: 'estos, cerca', those: 'esos, lejos',
   one: 'uno', two: 'dos', three: 'tres', four: 'cuatro', five: 'cinco', six: 'seis', seven: 'siete',
   eight: 'ocho', nine: 'nueve', ten: 'diez', eleven: 'once', twelve: 'doce', thirteen: 'trece',
   fourteen: 'catorce', fifteen: 'quince', sixteen: 'dieciséis', seventeen: 'diecisiete',
@@ -320,6 +321,25 @@ function grammarChoiceContrast(correct: string, wrong: string): string {
   if (/^then,/.test(expected) && /^first,/.test(selected)) {
     return '“First” marca el inicio; aquí la acción viene después, por eso usamos “Then”.';
   }
+  // These/those extend this/that: the first word says one or several, near or far.
+  const demonstratives: Record<string, [string, boolean]> = {
+    this: ['una sola cosa', true], that: ['una sola cosa', false],
+    these: ['varias cosas', true], those: ['varias cosas', false],
+  };
+  const [expectedFirst, selectedFirst] = [expected.split(' ')[0], selected.split(' ')[0]];
+  if (demonstratives[expectedFirst] && demonstratives[selectedFirst] && expectedFirst !== selectedFirst
+      && [expectedFirst, selectedFirst].some(word => word === 'these' || word === 'those')) {
+    const [rightAmount, rightNear] = demonstratives[expectedFirst];
+    const [wrongAmount, wrongNear] = demonstratives[selectedFirst];
+    const place = (near: boolean) => (near ? 'cerca' : 'lejos');
+    if (rightAmount === wrongAmount) {
+      return `“${selectedFirst}” señala ${wrongAmount} ${place(wrongNear)}; aquí están ${place(rightNear)}, por eso usamos “${expectedFirst}”.`;
+    }
+    if (rightNear === wrongNear) {
+      return `“${selectedFirst}” es para ${wrongAmount}; aquí hay ${rightAmount}, por eso usamos “${expectedFirst}”.`;
+    }
+    return `“${expectedFirst}” señala ${rightAmount} ${place(rightNear)}; “${selectedFirst}”, ${wrongAmount} ${place(wrongNear)}.`;
+  }
   const [right, mistake] = contrast(correct, wrong);
   if (['this', 'that'].includes(right) && ['this', 'that'].includes(mistake)) {
     return `“${mistake}” señala algo ${mistake === 'this' ? 'cercano' : 'lejano'}; aquí está ${right === 'this' ? 'cerca' : 'lejos'}, por eso usamos “${right}”.`;
@@ -578,6 +598,8 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   const rules: Record<string, string> = {
     this: '“This” significa esto o esta cosa: se usa para algo cercano a quien habla.',
     that: '“That” significa eso o aquella cosa: se usa para algo más lejano de quien habla.',
+    these: '“These” significa estos o estas: varias cosas cercanas a quien habla.',
+    those: '“Those” significa esos o esas: varias cosas más lejanas de quien habla.',
     in: '“In” significa dentro de; “on” significa sobre una superficie y “under”, debajo.',
     on: '“On” significa sobre una superficie; “in” significa dentro y “under”, debajo.',
     under: '“Under” significa debajo de: el objeto está más abajo que la referencia.',

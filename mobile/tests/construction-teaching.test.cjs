@@ -81,6 +81,21 @@ test('numbers after is: It is two, It is number eight and What number is it', ()
   for (const [a, b] of [[0, 1], [1, 2], [0, 3], [1, 3]]) assert.ok(hint('It is number eight.', a, b));
 });
 
+test('these and those are subjects, and a color can stand before "one"', () => {
+  // Lesson 2.10 (2026-09-24): plural demonstratives and "Which one? The red one."
+  for (const target of ['These are books.', 'Those are phones.', 'The red one.']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+  }
+  assert.match(hint('The red one.', 1, 2), /reemplaza al nombre/);
+  const choice = (answer, wrong) => ({ stage: 'Recognize', interaction_type: 'i2t2', prompt: '',
+    prompt_image_url: 'x.webp', correct_option_id: 'a', options: [{ id: 'a', label: answer }, { id: 'b', label: wrong }] });
+  assert.equal(lessonMistakeHint(choice('Those are books.', 'These are books.'), 'b'),
+    '“these” señala varias cosas cerca; aquí están lejos, por eso usamos “those”.');
+  assert.equal(lessonMistakeHint(choice('These are books.', 'This is a book.'), 'b'),
+    '“this” es para una sola cosa; aquí hay varias cosas, por eso usamos “these”.');
+  assert.match(lessonMistakeHint(choice('This is a book.', 'That is a book.'), 'b'), /señala algo lejano/);
+});
+
 test('the screenshot teaches article placement, with both words present', () => {
   const card = { ...construction('He is a boy.'), interaction_type: 'complete2', prompt: 'He is ___ ___.',
     correct_option_ids: ['2', '3'], options: construction('He is a boy.').options.slice(2) };
