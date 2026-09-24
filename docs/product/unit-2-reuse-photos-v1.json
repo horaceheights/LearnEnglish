@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "pack": "unit-2-reuse-photos",
+  "revision": 1,
+  "output_namespace": "unit-2-lesson-v5",
+  "authorization": "PENDING USER APPROVAL. 2026-09-24: the user approved the Unit 2 reuse plan (numbers count taught nouns, colors describe taught objects, these/those + Which one?, What number is it? in the review and mission) and asked for every prompt before any spend. Gemini is the approved image tool (2026-09-23; OpenAI credit exhausted). Nothing may be generated until the user approves this revision; a changed prompt is a new revision.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image; input images about $0.0011 each)",
+    "planned_images": 22,
+    "planned_images_without_optional_review": 20,
+    "expected_cost_usd": "2.95",
+    "requested_ceiling_usd": "4.00",
+    "no_automatic_retries": true,
+    "order": "Generate each pair's first state, inspect it at 360/250/180 px and at the centered 4:5 crop, then make its one edit. A fallback prompt is used only after its primary output is rejected, and every rejected output is reported with its cost."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.",
+    "counting": "Counting photo: every counted object is complete, uncropped, separated from its neighbours by a clear gap, and easy to count on a phone 360 pixels wide. No other object of that kind anywhere, including the background and reflections.",
+    "color": "Color photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.",
+    "first_person": "Strict first-person view from the learner's own eyes: the learner's forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections."
+  },
+  "assets": [
+    {
+      "id": "seven-chairs",
+      "group": "counting",
+      "lesson": "2.7",
+      "item": "Seven chairs.",
+      "runtime_filename": "a1_photo_u2_seven_chairs_v1.webp",
+      "shared": [
+        "photo",
+        "counting"
+      ],
+      "four_card": false,
+      "prompt": "SEVEN chairs, exactly 7. Eye-level photograph of one straight row of seven identical light-oak wooden chairs with plain solid seats and simple slatted backs, standing side by side against a plain off-white wall on pale floorboards in a bright, empty room, all facing the camera. The row is centered and fills about 85 percent of the photo width. A clear gap of floor separates every pair of neighbouring chairs; no chair hides, touches or overlaps another. Every chair is complete from the top of its back to its feet, with floor visible under every foot. No other furniture, people, pictures, plants or objects."
+    },
+    {
+      "id": "eight-books",
+      "group": "counting",
+      "lesson": "2.7",
+      "item": "Eight books.",
+      "runtime_filename": "a1_photo_u2_eight_books_v1.webp",
+      "shared": [
+        "photo",
+        "counting"
+      ],
+      "four_card": false,
+      "prompt": "EIGHT books, exactly 8. Photograph looking straight down at a long, bare light-oak table. Eight identical closed hardcover books with plain dark-blue cloth covers and cream page edges lie flat in one straight row, all the same size and turned the same way, with an even strip of bare wood between neighbours. The row is centered and fills about 85 percent of the photo width. The covers are completely blank: no title, text, pattern or picture. Nothing else on the table."
+    },
+    {
+      "id": "nine-cars",
+      "group": "counting",
+      "lesson": "2.7",
+      "item": "Nine cars.",
+      "runtime_filename": "a1_photo_u2_nine_cars_v1.webp",
+      "shared": [
+        "photo",
+        "counting"
+      ],
+      "four_card": false,
+      "prompt": "NINE cars, exactly 9. Photograph from directly above, like a drone, of one straight row of nine ordinary small hatchback cars parked side by side in marked spaces on grey asphalt, all facing the same way. Each car is one plain solid color, mixed among white, silver, grey, dark blue and dark red. A painted white line and a clear gap separate every car; no car touches or overlaps another. All nine are complete and the row is centered, filling about 90 percent of the photo width. No license-plate text, people, other vehicles, or trees covering any car."
+    },
+    {
+      "id": "red-bus",
+      "group": "color",
+      "lesson": "2.8",
+      "item": "Red",
+      "runtime_filename": "a1_photo_u2_red_bus_v1.webp",
+      "shared": [
+        "photo",
+        "color"
+      ],
+      "four_card": true,
+      "prompt": "RED. One bright red city bus, painted solid red, parked alone at an empty curb on a quiet street, seen from the front three-quarter angle and complete from roof to tires. Its destination display is blank and dark: no route number, text, advertising or logos. Soft overcast sky and pale grey buildings behind; no other vehicles and no people."
+    },
+    {
+      "id": "blue-bike",
+      "group": "color",
+      "lesson": "2.8",
+      "item": "Blue",
+      "runtime_filename": "a1_photo_u2_blue_bike_v1.webp",
+      "shared": [
+        "photo",
+        "color"
+      ],
+      "four_card": true,
+      "prompt": "BLUE. One bicycle with a solid bright blue frame, black tires and a black seat, standing alone on its kickstand in side view on a plain light-grey concrete path in front of a plain pale-beige wall. Complete and centered, both wheels whole. No basket, other bikes, people or text."
+    },
+    {
+      "id": "green-chair",
+      "group": "color",
+      "lesson": "2.8",
+      "item": "Green",
+      "runtime_filename": "a1_photo_u2_green_chair_v1.webp",
+      "shared": [
+        "photo",
+        "color"
+      ],
+      "four_card": true,
+      "prompt": "GREEN. One simple wooden chair painted solid bright green all over, seat, back and legs, standing alone in three-quarter view on pale oak floorboards in front of a plain off-white wall. Complete from the top of its back to its four feet. No other furniture, plants or objects."
+    },
+    {
+      "id": "yellow-bag",
+      "group": "color",
+      "lesson": "2.8",
+      "item": "Yellow",
+      "runtime_filename": "a1_photo_u2_yellow_bag_v1.webp",
+      "shared": [
+        "photo",
+        "color"
+      ],
+      "four_card": true,
+      "prompt": "YELLOW. One bright yellow backpack, solid yellow fabric with yellow straps and zipper tape, standing upright alone on a plain light-grey floor in front of a plain light-grey wall, front view, complete and centered. No logos, tags, text or patches."
+    },
+    {
+      "id": "black-car",
+      "group": "color",
+      "lesson": "2.8",
+      "item": "Black",
+      "runtime_filename": "a1_photo_u2_black_car_v1.webp",
+      "shared": [
+        "photo",
+        "color"
+      ],
+      "four_card": true,
+      "prompt": "BLACK. One shiny solid-black small car parked alone on a pale sunlit concrete driveway in front of a plain light-cream wall, seen from the front three-quarter angle, complete with all visible wheels whole. No license plate or a completely blank one; no logos, badges or text; no other vehicles or people."
+    },
+    {
+      "id": "white-table",
+      "group": "color",
+      "lesson": "2.8",
+      "item": "White",
+      "runtime_filename": "a1_photo_u2_white_table_v1.webp",
+      "shared": [
+        "photo",
+        "color"
+      ],
+      "four_card": true,
+      "prompt": "WHITE. One simple rectangular table painted solid white, with four white legs, standing alone in three-quarter view on warm medium-brown wooden floorboards in front of a plain warm-grey wall. Complete, with nothing on it, and no chairs or other furniture."
+    },
+    {
+      "id": "number",
+      "group": "number-word",
+      "lesson": "2.6",
+      "item": "Number",
+      "runtime_filename": "a1_photo_u2_number_v1.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "prompt": "NUMBER. Close photograph of the front wall of a house beside its front door: one large house-number plate with the black numerals 24 on a plain white plate, mounted on a pale stone wall. The plate is centered, fills about 40 percent of the photo width, and is sharp and perfectly legible; part of a plain wooden front door shows at the left edge. The only characters anywhere are the 2 and the 4 on the plate: no street name, letters, mailbox text or other numbers. Soft daylight, no people."
+    },
+    {
+      "id": "review-bus-number",
+      "group": "review-optional",
+      "lesson": "2.11",
+      "item": "What number is it? It is number eight.",
+      "runtime_filename": "a1_u2_review_v2_bus_number_8.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "optional": true,
+      "prompt": "WHAT NUMBER IS IT? Front view of a white and grey city bus waiting at a stop. The lit destination display above its windshield shows ONLY one large amber numeral 8 and nothing else; the numeral is large, sharp and readable on a phone. The whole front of the bus is visible. No other letters, words, logos, numbers or license-plate text anywhere; no people."
+    },
+    {
+      "id": "review-parking-number",
+      "group": "review-optional",
+      "lesson": "2.11",
+      "item": "What number is it? It is number seven.",
+      "runtime_filename": "a1_u2_review_v2_parking_number_7.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "optional": true,
+      "prompt": "WHAT NUMBER IS IT? Photograph looking down at one empty marked parking space on dark asphalt. Its bay number 7 is painted large in white inside the space, centered, about a third of the photo height. One parked silver car shows only partly at the left edge, in the neighbouring space. No other numbers, letters, signs or license-plate text anywhere; no people."
+    },
+    {
+      "id": "gate-number-8",
+      "group": "mission-gate",
+      "lesson": "2.12",
+      "item": "What number is it? It is number eight.",
+      "runtime_filename": "a1_u2_meeting_v5_voice_number_8.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Remove the 7, 9 and 10 number cards and their wooden stands completely, leaving bare weathered table wood, with natural light and shadows, where they stood. Keep the 8 card and its stand exactly where and how they are, and keep everything else identical: camera, light, park background and table. No new objects, text or numbers. The picture now shows only the number 8 card on the park table.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_station_numbers.webp",
+        "sha256": "ecdbdabe087274c7ad8bb957f924dac3cdfe62f3c1f3ac4cbf1f6f4f8c6222ce",
+        "observed_description": "Four white number cards (7, 8, 9, 10) in black numerals stand in wooden bases on a weathered park picnic table, trees and a lake behind; the 8 card is second from the left."
+      }
+    },
+    {
+      "id": "gate-red-chair",
+      "group": "mission-gate",
+      "lesson": "2.12",
+      "item": "What is it? It is a red chair.",
+      "runtime_filename": "a1_u2_meeting_v5_voice_red_chair.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Remove the blue, green and yellow chairs completely, restoring the terracotta terrace tiles and their natural light and shadows where they stood. Keep the red chair exactly where and how it is, and keep everything else identical: camera, light, terrace, low wall, plants, lake and sky. No new objects, people or text. The picture now shows one red chair on the terrace.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_colors.webp",
+        "sha256": "1c8fef185f6e7910e03d2afed3b9d766e1d06ece4d5201518182a96df92cda03",
+        "observed_description": "Four plastic chairs in a row on a terracotta terrace by a low stone wall and lake: red at the far left, then blue, green and yellow; bright sunlight."
+      }
+    },
+    {
+      "id": "these-books",
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "These books.",
+      "runtime_filename": "a1_photo_u2_these_books_v1.webp",
+      "shared": [
+        "photo",
+        "first_person"
+      ],
+      "four_card": true,
+      "prompt": "THESE state. The learner stands at the near end of a long, completely bare light-oak table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Exactly FOUR identical closed hardcover books with plain deep-green cloth covers and cream page edges; the covers are completely blank.\nNEAR PAIR: two of the books lie flat side by side, a finger's width apart, at the near end of the table in the lower-left half of the photo. The LEFT hand rests flat on the table just left of them, its fingertips touching the edge of the left book. Together the two near books span about 40 percent of the photo width.\nFAR PAIR: the other two lie flat side by side, a finger's width apart, about one meter farther along the same table in the upper center, alone on empty wood. Each far book is at least 12 percent of the photo width, clearly smaller than the near books, sharp and unmistakably the same green book.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just right of the near pair. Its straight index finger points left and down at the NEAR PAIR, the fingertip stopping about two finger-widths short of them; the other fingers are curled. Nothing points at the far pair.\nNothing else on the table: no papers, phones, cups or plates; no bookshelves. The picture means: THESE books, the two right here by my hands."
+    },
+    {
+      "id": "those-books",
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "Those books.",
+      "runtime_filename": "a1_photo_u2_those_books_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "these-books",
+      "prompt": "THOSE state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near pair, and keep everything else identical: camera, light, table, all four books and the left hand beside the near pair. Now the straight index finger points up along the bare tabletop toward the FAR PAIR of books, which stays complete, sharp and unmoved. A wide band of bare wood stays between the fingertip and the far books; the finger never reaches, overlaps or touches them. No extra hands, objects, text or other changes. The picture now means: THOSE books over there, while my left hand stays by THESE."
+    },
+    {
+      "id": "those-books-alt",
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "Those books.",
+      "runtime_filename": "a1_photo_u2_those_books_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "these-books",
+      "fallback_for": "those-books",
+      "prompt": "THOSE state, precise edit of Image 1. Change ONLY the learner's RIGHT index finger: rotate it at the knuckle so it points up the table toward the FAR PAIR of books. The right hand, wrist and forearm do not move at all: the whole hand stays in the bottom third of the photo. At least a quarter of the photo height of bare wood separates the fingertip from the far books; the finger never reaches, overlaps or touches them. Everything else stays identical: camera, light, table, all four books and the left hand. No extra hands, objects, text or other changes. The picture now means: THOSE books over there."
+    },
+    {
+      "id": "these-phones",
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "These phones.",
+      "runtime_filename": "a1_photo_u2_these_phones_v1.webp",
+      "shared": [
+        "photo",
+        "first_person"
+      ],
+      "four_card": true,
+      "prompt": "THESE state. The learner stands at the near end of a long, completely bare light-oak table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Exactly FOUR identical black smartphones lying face up, their screens dark and blank, with no text, icons or reflections of people.\nNEAR PAIR: two phones lie side by side, a finger's width apart, at the near end of the table in the lower-left half of the photo. The LEFT hand rests flat on the table just left of them, its fingertips touching the edge of the left phone. Together the two near phones span about 35 percent of the photo width.\nFAR PAIR: the other two lie side by side, a finger's width apart, about one meter farther along the same table in the upper center, alone on empty wood. Each far phone is at least 10 percent of the photo width, clearly smaller than the near phones, sharp and unmistakably the same phone.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just right of the near pair. Its straight index finger points left and down at the NEAR PAIR, the fingertip stopping about two finger-widths short of them; the other fingers are curled. Nothing points at the far pair.\nNothing else on the table: no papers, books, cups or plates. The picture means: THESE phones, the two right here by my hands."
+    },
+    {
+      "id": "those-phones",
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "Those phones.",
+      "runtime_filename": "a1_photo_u2_those_phones_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "these-phones",
+      "prompt": "THOSE state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near pair, and keep everything else identical: camera, light, table, all four phones and the left hand beside the near pair. Now the straight index finger points up along the bare tabletop toward the FAR PAIR of phones, which stays complete, sharp and unmoved. A wide band of bare wood stays between the fingertip and the far phones; the finger never reaches, overlaps or touches them. No extra hands, objects, text or other changes. The picture now means: THOSE phones over there, while my left hand stays by THESE."
+    },
+    {
+      "id": "these-bags",
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "These bags.",
+      "runtime_filename": "a1_photo_u2_these_bags_v1.webp",
+      "shared": [
+        "photo",
+        "first_person"
+      ],
+      "four_card": true,
+      "prompt": "THESE state. The learner stands at the near end of a long, completely bare light-oak table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Exactly FOUR identical small plain grey canvas backpacks, standing upright with no logos, tags or text.\nNEAR PAIR: two backpacks stand side by side, a hand's width apart, at the near end of the table in the lower-left half of the photo. The LEFT hand rests on the top handle of the left backpack. Together the two near backpacks span about 40 percent of the photo width.\nFAR PAIR: the other two stand side by side, a hand's width apart, about one and a half meters farther along the same table in the upper center, alone on empty wood. Each far backpack is at least 12 percent of the photo width, clearly smaller than the near ones, sharp, complete and unmistakably the same backpack.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just right of the near pair. Its straight index finger points left at the NEAR PAIR, the fingertip stopping about two finger-widths short of them; the other fingers are curled. Nothing points at the far pair.\nNothing else on the table. The picture means: THESE bags, the two right here by my hands."
+    },
+    {
+      "id": "those-bags",
+      "group": "these-those",
+      "lesson": "2.10",
+      "item": "Those bags.",
+      "runtime_filename": "a1_photo_u2_those_bags_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "these-bags",
+      "prompt": "THOSE state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near pair, and keep everything else identical: camera, light, table, all four backpacks and the left hand on the near backpack. Now the straight index finger points up along the bare tabletop toward the FAR PAIR of backpacks, which stays complete, sharp and unmoved. A wide band of bare wood stays between the fingertip and the far backpacks; the finger never reaches, overlaps or touches them. No extra hands, objects, text or other changes. The picture now means: THOSE bags over there, while my left hand stays on THESE."
+    },
+    {
+      "id": "which-red-bag",
+      "group": "which-one",
+      "lesson": "2.10",
+      "item": "Which one? The red one.",
+      "runtime_filename": "a1_photo_u2_which_red_bag_v1.webp",
+      "shared": [
+        "photo",
+        "first_person"
+      ],
+      "four_card": true,
+      "prompt": "Only the learner's RIGHT forearm and hand enter, from the lower-right corner; the left hand is not visible. The camera looks down at a bare light-oak table from standing height. Exactly TWO backpacks of the same simple model stand upright side by side on the table, a hand's width apart, both within arm's reach and the same size: the LEFT one is solid bright red, the RIGHT one is solid bright blue, with matching colored straps and no logos, tags or text. Together they span about 60 percent of the photo width, centered, both complete. The right hand stays in the bottom third of the photo; its straight index finger points clearly at the RED backpack, the fingertip stopping about two finger-widths short of it; the other fingers are curled. Nothing else on the table. The picture means: this red one, not the blue one."
+    },
+    {
+      "id": "which-blue-bag",
+      "group": "which-one",
+      "lesson": "2.10",
+      "item": "Which one? The blue one.",
+      "runtime_filename": "a1_photo_u2_which_blue_bag_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "which-red-bag",
+      "prompt": "Precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger so it points clearly at the BLUE backpack on the right; the hand, wrist and forearm stay where they are, in the bottom third of the photo, and the fingertip stops about two finger-widths short of the blue backpack. Keep everything else identical: camera, light, table and both backpacks. No extra hands, objects, text or other changes. The picture now means: this blue one, not the red one."
+    }
+  ]
+}

@@ -12,7 +12,9 @@ such as "It is number eight." or "Two cars.", is practised in every later
 section but never gets a Learn card. An item marked `"four_card": false` has a
 picture whose answer does not survive the 2x2 grid's centered 4:5 crop, such as
 a counting photo without a real reframe; it is never shown in a four-picture
-card and gets three pictures at most.
+card and gets three pictures at most. An item with a `question` (and
+`question_es`) is a reply: when the learner picks its sentence for the picture,
+the question is the card's heard prompt, as in "What number is it?".
 
 A proposal is always a draft. A person reviews every proposed answer bank
 (see docs/qa/answer-choice-review.md) and records it before the plan can be
@@ -142,6 +144,9 @@ def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *,
         spec["spanish_translation"] = item["es"]
         if not captions:
             spec["prompt"] = item["text"]
+    elif item.get("question"):
+        # A reply choice: the question plays over the picture and the chosen answer plays after.
+        spec.update(prompt=item["question"], prompt_image_url=item["image"], spanish_translation=item["question_es"])
     else:
         spec.update(prompt="", prompt_image_url=item["image"], spanish_translation=instructions["choose_sentence"])
     if spec["answer"] == 0:
@@ -198,6 +203,8 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         for field in ("text", "es", "image", "kind"):
             if not item.get(field):
                 raise BriefError(f"Item {item.get('text', item['_order'])!r} needs {field!r}.")
+        if item.get("question") and not item.get("question_es"):
+            raise BriefError(f"Item {item['text']!r} needs the Spanish of its question.")
     layout = {**DEFAULT_LAYOUT, **brief.get("layout", {})}
     taught = [item for item in items if item.get("learn", True) is not False]
     if not taught:
