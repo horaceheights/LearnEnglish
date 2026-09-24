@@ -288,6 +288,10 @@ def matching_take_id(registry: dict[str, Any], job: RenderJob) -> str | None:
         for asset in job.assets:
             existing = registry["bindings"].get(asset.id)
             if existing is not None and existing.get("take_id") != take_id:
+                # An asset already approved on an equivalent take (same text, voice,
+                # profile and contract) keeps that binding; it does not block reuse.
+                if equivalent_take(registry, existing.get("take_id"), job):
+                    continue
                 break
             validation_registry = {
                 "schema_version": registry.get("schema_version"),
@@ -359,6 +363,11 @@ def merge_take_compatibility(take: dict[str, Any], job: RenderJob) -> None:
     take["compatible_variants"] = sorted(variants)
 
 
+def equivalent_take(registry: dict[str, Any], take_id: str | None, job: RenderJob) -> bool:
+    take = registry["takes"].get(take_id or "")
+    return bool(take) and take_metadata_matches(take, job)
+
+
 def bind_take(registry: dict[str, Any], take_id: str, job: RenderJob, note: str) -> None:
     take = registry["takes"][take_id]
     merge_take_compatibility(take, job)
@@ -366,6 +375,8 @@ def bind_take(registry: dict[str, Any], take_id: str, job: RenderJob, note: str)
     note = binding_note_for_provenance(take["provenance"], note)
     for asset in job.assets:
         existing = registry["bindings"].get(asset.id)
+        if existing and existing.get("take_id") != take_id and equivalent_take(registry, existing.get("take_id"), job):
+            continue  # already approved on an equivalent take; keep that approval
         if existing and existing.get("take_id") != take_id:
             raise ValueError(f"Asset already has a different approved take: {asset.id}")
         if existing:

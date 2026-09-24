@@ -9,7 +9,7 @@ from backend.app.schemas import MissionGame
 
 class StandingGroupMarkerTests(unittest.TestCase):
     def setUp(self):
-        path = Path(__file__).resolve().parents[1] / "lessons/unit_1/1.10_family_scene_mission.yaml"
+        path = Path(__file__).resolve().parents[1] / "lessons/unit_1/1.11_family_scene_mission.yaml"
         self.cards = json.loads(path.read_text(encoding="utf-8"))["cards"]
 
     def test_reviewed_four_capsules_survive_backend_serialization(self):

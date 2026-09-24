@@ -152,7 +152,7 @@ assert.deepEqual(
 );
 
 const course = require(path.resolve(__dirname, '../src/generated/a1-course.json'));
-const unitOneMission = course.find((candidate) => candidate.sub_lesson_id === '1.10');
+const unitOneMission = course.find((candidate) => candidate.id === 'lesson-10-family-mission');
 assert.ok(unitOneMission, 'The embedded Unit 1 mission must be available to mobile QA.');
 assert.deepEqual(
   lessonNavigationGroups(unitOneMission).map((group) => ({

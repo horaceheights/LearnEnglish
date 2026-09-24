@@ -298,11 +298,12 @@ class PersistentCardAudioTests(unittest.TestCase):
         # reviews and of their nine mission scenes and four gates each (+50 net).
         # 2026-09-22: the Unit 7 parity rebuild adds the male lines of 7.9 and 7.10 (+4 net).
         # 2026-09-23: the Unit 7 quality fix voices the pictured men and boys of 7.10 M03-M06 and 7.9 U7 (+11).
+        # 2026-09-23: the Unit 1 rebuild trims five male Who questions (A7, S7, S9, U1, U3) from Lesson 1.9 (-10).
         self.assertEqual(
-            Counter({"male-character": 384, "luis": 102, "diego": 12}),
+            Counter({"male-character": 374, "luis": 102, "diego": 12}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
-        self.assertEqual(498, len(selected))
+        self.assertEqual(488, len(selected))
         self.assertEqual(111, len(jobs))
         self.assertEqual(111, sum(len(job.request_fragments()) for job in jobs))
         self.assertEqual(1740, sum(job.estimated_character_cost() for job in jobs))

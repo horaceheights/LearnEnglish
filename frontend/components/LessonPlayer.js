@@ -128,12 +128,17 @@ const COURSE_MENU_VISUALS = {
       accent: "#e5eefb",
     },
     "lesson-4-children-siblings": {
-      description: "Familia cercana: bebes, ninos, hermanos y hermanas.",
+      description: "La familia, los bebes y los ninos.",
       image: "family_all_members.webp",
       accent: "#ffe7bd",
     },
+    "lesson-1-5-brothers-sisters-adults": {
+      description: "Hermanos, hermanas y adultos.",
+      image: "family_sisters.webp",
+      accent: "#e5eefb",
+    },
     "lesson-5-parents-grandparents": {
-      description: "Familia: adultos, padres, madres y abuelos.",
+      description: "Padres, abuelos y nietos.",
       image: "family_grandparents.webp",
       accent: "#f1e4fa",
     },

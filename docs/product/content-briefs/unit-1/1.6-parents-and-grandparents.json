@@ -1,0 +1,155 @@
+{
+  "brief_version": 1,
+  "note": "Unit 1 rebuild (2026-09-23): parents and grandparents now have their own lesson.",
+  "target": "backend/lessons/unit_1/1.6_parents_and_grandparents.yaml",
+  "lesson": {
+    "id": "lesson-5-parents-grandparents",
+    "title": "1.6 Parents and Grandparents",
+    "level": "Beginner A1",
+    "unit_id": "unit-1",
+    "unit_title": "Unit 1: People, Family, and Actions",
+    "unit_outcome": "Understand and produce simple sentences about people, family members, and actions.",
+    "lesson_id": "lesson-1",
+    "lesson_title": "Unit 1: People, Family, and Actions",
+    "sub_lesson_id": "1.6",
+    "sub_lesson_title": "Parents and Grandparents",
+    "goal": "Name the father, the mother, the parents, and the grandparents, and connect grandparents with their grandchildren.",
+    "vocabulary": [
+      "father",
+      "mother",
+      "parents",
+      "grandfather",
+      "grandmother",
+      "grandparents",
+      "grandchildren"
+    ],
+    "review_vocabulary": [
+      "he",
+      "she",
+      "they",
+      "is",
+      "are",
+      "the",
+      "and",
+      "adult",
+      "adults",
+      "children"
+    ],
+    "grammar_function": "The + role; He/She is the + role; They are the + plural role; The + group and the + group.",
+    "prerequisite": "Lessons 1.4-1.5: family, children, an adult, and adults.",
+    "speaking_outcome": "Identify the father, the mother, the parents, the grandfather, the grandmother, and the grandparents with their grandchildren.",
+    "content_revision": 3
+  },
+  "items": [
+    {
+      "text": "The father",
+      "es": "El padre",
+      "image": "/lesson-assets/family_father.webp",
+      "kind": "role-word"
+    },
+    {
+      "text": "He is the father.",
+      "es": "Él es el padre.",
+      "image": "/lesson-assets/family_father.webp",
+      "kind": "role-sentence",
+      "avoid": [
+        "He is the grandfather."
+      ]
+    },
+    {
+      "text": "The mother",
+      "es": "La madre",
+      "image": "/lesson-assets/family_mother.webp",
+      "kind": "role-word"
+    },
+    {
+      "text": "She is the mother.",
+      "es": "Ella es la madre.",
+      "image": "/lesson-assets/family_mother.webp",
+      "kind": "role-sentence",
+      "avoid": [
+        "She is the grandmother."
+      ]
+    },
+    {
+      "text": "The parents",
+      "es": "Los padres",
+      "image": "/lesson-assets/family_parents.webp",
+      "kind": "role-word",
+      "avoid": [
+        "The father",
+        "The mother"
+      ]
+    },
+    {
+      "text": "They are the parents.",
+      "es": "Ellos son los padres.",
+      "image": "/lesson-assets/family_parents.webp",
+      "kind": "role-sentence",
+      "avoid": [
+        "He is the father.",
+        "He is the grandfather.",
+        "She is the grandmother.",
+        "She is the mother.",
+        "They are the grandparents."
+      ]
+    },
+    {
+      "text": "He is the grandfather.",
+      "es": "Él es el abuelo.",
+      "image": "/lesson-assets/family_grandfather.webp",
+      "kind": "role-sentence",
+      "avoid": [
+        "He is the father.",
+        "They are the grandparents."
+      ]
+    },
+    {
+      "text": "She is the grandmother.",
+      "es": "Ella es la abuela.",
+      "image": "/lesson-assets/family_grandmother.webp",
+      "kind": "role-sentence",
+      "avoid": [
+        "She is the mother.",
+        "They are the grandparents."
+      ]
+    },
+    {
+      "text": "They are the grandparents.",
+      "es": "Ellos son los abuelos.",
+      "image": "/lesson-assets/family_grandparents.webp",
+      "kind": "role-sentence",
+      "avoid": [
+        "They are the children.",
+        "They are the parents."
+      ]
+    },
+    {
+      "text": "The grandparents and the grandchildren",
+      "es": "Los abuelos y los nietos",
+      "image": "/lesson-assets/family_grandparents_grandchildren.webp",
+      "kind": "family-group",
+      "builds_on": true
+    }
+  ],
+  "pool": [
+    {
+      "text": "The parents and the children",
+      "es": "Los padres y los niños",
+      "image": "/lesson-assets/family_parents_children.webp",
+      "kind": "family-group"
+    },
+    {
+      "text": "The children",
+      "es": "Los niños",
+      "image": "/lesson-assets/family_children.webp",
+      "kind": "role-word"
+    },
+    {
+      "text": "They are the children.",
+      "es": "Ellos son los niños.",
+      "image": "/lesson-assets/family_children.webp",
+      "kind": "role-sentence"
+    }
+  ]
+}

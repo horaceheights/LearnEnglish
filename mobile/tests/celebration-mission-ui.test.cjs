@@ -6,7 +6,7 @@ const { missionVoiceProgress } = require('../src/missionPresentation.js');
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
 const mission = JSON.parse(fs.readFileSync(
-  path.join(repositoryRoot, 'backend/lessons/unit_1/1.10_family_scene_mission.yaml'),
+  path.join(repositoryRoot, 'backend/lessons/unit_1/1.11_family_scene_mission.yaml'),
   'utf8',
 ));
 const surface = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionGameSurface.tsx'), 'utf8');

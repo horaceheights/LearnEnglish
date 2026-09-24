@@ -51,12 +51,17 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   },
   'lesson-4-children-siblings': {
     image: 'family_children_3x2.webp',
-    description: 'Familia cercana: bebés, niños, hermanos y hermanas.',
+    description: 'La familia, los bebés y los niños.',
     color: '#ffe7bd',
+  },
+  'lesson-1-5-brothers-sisters-adults': {
+    image: 'family_sisters_3x2.webp',
+    description: 'Hermanos, hermanas y adultos.',
+    color: '#e5eefb',
   },
   'lesson-5-parents-grandparents': {
     image: 'family_grandparents_3x2.webp',
-    description: 'Familia: adultos, padres, madres y abuelos.',
+    description: 'Padres, abuelos y nietos.',
     color: '#f1e4fa',
   },
   'lesson-6-family-actions': {

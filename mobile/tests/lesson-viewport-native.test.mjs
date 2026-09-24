@@ -82,7 +82,7 @@ test('both portrait screenshot grids keep the lower images and full success/retr
 });
 
 test('landscape standard activities fit the full safe area, including wide phones, all options and feedback', () => {
-  assert.equal(lessons.length, 70);
+  assert.equal(lessons.length, JSON.parse(fs.readFileSync(new URL('../release-integrity.json', import.meta.url), 'utf8')).catalog.lessonCount);
   const examples = cards.filter(c => !c.mission_game && c.stage !== 'Speak' && !c.interaction_type?.startsWith('mission-'));
   // Run every content shape with the longest prompt/choice labels first.
   const unique = [...new Map(examples.map(c => [JSON.stringify([c.stage, c.interaction_type, c.prompt, c.options.map(o => [o.label, Boolean(o.image_url)])]), c])).values()];

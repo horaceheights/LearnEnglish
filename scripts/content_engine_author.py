@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.content_engine.author import BriefError, propose_lesson, review_sheet  # noqa: E402
+from scripts.content_engine.author import BriefError, propose_explained_lesson, review_sheet  # noqa: E402
 from scripts.content_engine.catalog import CatalogLesson, load_standards, lesson_role  # noqa: E402
 from scripts.content_engine.plan import compose_lesson  # noqa: E402
 from scripts.content_engine.practice import audit  # noqa: E402
@@ -36,7 +36,7 @@ def main() -> int:
     standards = load_standards(ROOT, args.course)
     brief = json.loads(args.brief.read_text(encoding="utf-8"))
     try:
-        plan, banks = propose_lesson(brief, standards)
+        plan, banks = propose_explained_lesson(brief, standards)
     except BriefError as error:
         print(f"Brief needs attention: {error}")
         return 1

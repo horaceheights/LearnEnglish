@@ -1,4 +1,5 @@
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -30,12 +31,19 @@ class ContentEngineAuthorTests(unittest.TestCase):
                          ["Learn", "Recognize", "Listen", "Speak", "Use"])
 
     def test_proposals_are_drafts_that_cannot_be_installed(self):
-        self.assertTrue(self.plan["draft"])
-        with self.assertRaisesRegex(InstallRefused, "draft"):
-            install(ROOT, [self.plan], validate=lambda root: [])
-        reviewed = {**self.plan, "draft": False}
-        with self.assertRaisesRegex(InstallRefused, "already exists"):
-            install(ROOT, [reviewed], validate=lambda root: [])
+        # Install into a scratch root: a test must never write into the real course.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            target = root / self.plan["source"]["path"]
+            target.parent.mkdir(parents=True)
+            target.write_text("{}", encoding="utf-8")
+            self.assertTrue(self.plan["draft"])
+            with self.assertRaisesRegex(InstallRefused, "draft"):
+                install(root, [self.plan], validate=lambda root: [])
+            reviewed = {**self.plan, "draft": False}
+            with self.assertRaisesRegex(InstallRefused, "already exists"):
+                install(root, [reviewed], validate=lambda root: [])
+            self.assertEqual(target.read_text(encoding="utf-8"), "{}")
 
     def test_every_proposed_bank_passes_the_shared_answer_bank_check(self):
         for card in self.lesson["cards"]:
@@ -79,8 +87,36 @@ class ContentEngineAuthorTests(unittest.TestCase):
     def test_a_brief_without_enough_same_kind_items_is_explained(self):
         brief = {**self.brief, "pool": [], "items": [
             {**item, "kind": "action" if index else "lonely"} for index, item in enumerate(self.brief["items"])]}
-        with self.assertRaisesRegex(BriefError, "Not enough lonely"):
+        with self.assertRaisesRegex(BriefError, "No lonely"):
             propose_lesson(brief, self.standards)
+
+    def test_avoided_options_are_never_proposed_and_banks_shrink_instead(self):
+        items = [{**item, "avoid": ["Studying", "Working"]} if item["text"] == "Playing" else item
+                 for item in self.brief["items"]]
+        plan, banks = propose_lesson({**self.brief, "items": items}, self.standards)
+        for bank in banks:
+            if bank["correct"] == "Playing":
+                self.assertFalse({"Studying", "Working"} & set(bank["wrong"]))
+        lesson = compose_lesson(plan)
+        self.assertEqual(len(lesson["cards"]), 42)
+
+    def test_wrong_options_without_a_specific_hint_are_replaced(self):
+        from scripts.content_engine.author import propose_explained_lesson
+        first_plan, first_banks = propose_lesson(self.brief, self.standards)
+        target = next(bank for bank in first_banks if len(bank["wrong"]) >= 1)
+        unexplained = {(target["correct"], target["wrong"][0])}
+        calls = []
+
+        def check(lesson):
+            calls.append(lesson["id"])
+            proposed = {(card["options"][0]["label"], option["label"]) for card in lesson["cards"] for option in card["options"]}
+            return unexplained & proposed if len(calls) == 1 else set()
+
+        plan, banks = propose_explained_lesson(self.brief, self.standards, check=check)
+        self.assertEqual(len(calls), 2)
+        for bank in banks:
+            if bank["correct"] == target["correct"]:
+                self.assertNotIn(target["wrong"][0], bank["wrong"])
 
     def test_a_brief_that_breaks_the_lesson_length_is_refused(self):
         with self.assertRaisesRegex(BriefError, "standard lessons need 40-42"):

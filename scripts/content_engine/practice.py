@@ -41,10 +41,17 @@ def card_evidence(card: dict) -> str:
     return " ".join(str(part) for part in parts if part).lower()
 
 
-def card_language(card: dict) -> str:
-    """Every English string shown or played on the card, including distractors."""
+def card_language(card: dict, instruction_phrases: tuple[str, ...] = ()) -> str:
+    """Every English string shown or played on the card, including distractors.
+
+    Fixed English task instructions such as "Listen and choose." are interface
+    copy, not lesson language, so they are left out.
+    """
     options = " ".join(str(option.get("label") or "") for option in card.get("options") or [])
-    return f"{card_evidence(card)} {options.lower()}"
+    text = f"{card_evidence(card)} {options.lower()}"
+    for phrase in instruction_phrases:
+        text = text.replace(phrase.lower(), " ")
+    return text
 
 
 def term_pattern(term: str) -> re.Pattern | None:
@@ -109,7 +116,8 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
 
         for item in vocabulary + [str(item) for item in lesson.data.get("review_vocabulary") or []]:
             known.update(WORD.findall(item.lower()))
-        untaught = sorted({word for card in cards for word in WORD.findall(card_language(card))
+        phrases = tuple(standards.get("instruction_phrases", ()))
+        untaught = sorted({word for card in cards for word in WORD.findall(card_language(card, phrases))
                            if not is_known(word, known)})
         findings += [Finding("untaught-word", lesson.number, word, "used before any lesson declares it")
                      for word in untaught]

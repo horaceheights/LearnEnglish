@@ -34,8 +34,8 @@ const lessonCountsByUnit = Object.groupBy
   : embeddedCourse.reduce((counts, lesson) => ({ ...counts, [lesson.unit_id]: (counts[lesson.unit_id] || 0) + 1 }), {});
 assert.deepEqual(
   lessonCountsByUnit,
-  Object.fromEntries(Array.from({ length: 7 }, (_, index) => [`unit-${index + 1}`, 10])),
-  'Preview must retain Units 1–7 with exactly 10 lessons in each unit.',
+  courseContract.lessonsByUnit,
+  'Preview must retain every unit with exactly the lesson count pinned by the release manifest.',
 );
 
 console.log('Preview and Engine QA use the same complete seven-unit embedded lesson catalog.');
