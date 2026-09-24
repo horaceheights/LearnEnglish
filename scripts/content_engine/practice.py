@@ -114,9 +114,24 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
                                             f"returns in {later} later lessons; needs "
                                             f"{standards['min_later_lessons_per_new_item']}"))
 
+        phrases = tuple(standards.get("instruction_phrases", ()))
+        # Learn holds only this lesson's new vocabulary (approved 2026-09-24): a
+        # standard lesson's Learn card never re-teaches a known frame such as "It is".
+        if lesson.role == "standard":
+            allowed = {word for item in vocabulary for word in WORD.findall(item.lower())}
+            allowed |= set(standards.get("learn_frame_words", ()))
+            for card in cards:
+                if card.get("stage") != "Learn":
+                    continue
+                language = card_language(card, phrases)
+                extra = sorted({word for word in WORD.findall(language) if not is_known(word, allowed)})
+                if extra:
+                    label = next((option.get("label") for option in card.get("options") or [] if option.get("label")),
+                                 None) or card.get("prompt") or card.get("slide_id")
+                    findings.append(Finding("learn-new-only", lesson.number, str(label),
+                                            f"Learn card repeats known words: {' '.join(extra)}"))
         for item in vocabulary + [str(item) for item in lesson.data.get("review_vocabulary") or []]:
             known.update(WORD.findall(item.lower()))
-        phrases = tuple(standards.get("instruction_phrases", ()))
         untaught = sorted({word for card in cards for word in WORD.findall(card_language(card, phrases))
                            if not is_known(word, known)})
         findings += [Finding("untaught-word", lesson.number, word, "used before any lesson declares it")

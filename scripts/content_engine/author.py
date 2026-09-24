@@ -1,10 +1,18 @@
 """Authoring layer: turn a short lesson brief into a proposed standard lesson.
 
 An author writes the lesson as an ordered list of items (English, Spanish,
-picture, kind). The engine proposes every card: Learn introduces each item;
-Recognize and Listen use two options before four; Speak repeats items; Use
-builds whole sentences from word tiles. It also proposes the wrong options,
+picture, kind). The engine proposes every card: Learn introduces each new
+item; Recognize and Listen use two options before four; Speak repeats items;
+Use builds whole sentences from word tiles. It also proposes the wrong options,
 drawn from items of the same kind and form.
+
+Learn holds only the lesson's new vocabulary (approved 2026-09-24). An item
+marked `"learn": false` is practice only: a sentence built on a known frame,
+such as "It is number eight." or "Two cars.", is practised in every later
+section but never gets a Learn card. An item marked `"four_card": false` has a
+picture whose answer does not survive the 2x2 grid's centered 4:5 crop, such as
+a counting photo without a real reframe; it is never shown in a four-picture
+card and gets three pictures at most.
 
 A proposal is always a draft. A person reviews every proposed answer bank
 (see docs/qa/answer-choice-review.md) and records it before the plan can be
@@ -26,6 +34,7 @@ WORD = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?")
 DEFAULT_LAYOUT = {"Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7}
 MAX_TEXT_OPTIONS = 3
 MAX_IMAGE_OPTIONS = 4
+GRID_UNSAFE_IMAGE_OPTIONS = 3  # the largest layout that keeps every picture in 3:2
 CONSTRUCTIONS = 4  # the last four Use cards build the whole sentence
 
 
@@ -77,6 +86,10 @@ def rotate(values: list, seed: str) -> list:
     return values[shift:] + values[:shift]
 
 
+def grid_safe(item: dict) -> bool:
+    return item.get("four_card", True) is not False
+
+
 def distractors(item: dict, candidates: list[dict], count: int, *, need_image: bool,
                 rejected: frozenset = frozenset()) -> list[dict]:
     """Up to `count` wrong options of the item's kind; at least one is required.
@@ -97,6 +110,8 @@ def distractors(item: dict, candidates: list[dict], count: int, *, need_image: b
         if form(other) != form(item) or not coherent([item, *chosen, other]):
             continue
         if need_image and (not other.get("image") or other["image"] in {item["image"], *(c["image"] for c in chosen)}):
+            continue
+        if need_image and count + 1 == MAX_IMAGE_OPTIONS and not grid_safe(other):
             continue
         if other["text"] in {c["text"] for c in chosen}:
             continue
@@ -184,18 +199,22 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
             if not item.get(field):
                 raise BriefError(f"Item {item.get('text', item['_order'])!r} needs {field!r}.")
     layout = {**DEFAULT_LAYOUT, **brief.get("layout", {})}
-    total = len(items) + sum(layout.values())
+    taught = [item for item in items if item.get("learn", True) is not False]
+    if not taught:
+        raise BriefError("A lesson needs at least one new item to introduce on a Learn card.")
+    total = len(taught) + sum(layout.values())
     bounds = standards["standard_lesson_cards"]
     if not bounds["min"] <= total <= bounds["max"]:
-        raise BriefError(f"{len(items)} items make {total} cards; standard lessons need {bounds['min']}-{bounds['max']}.")
+        raise BriefError(f"{len(taught)} Learn items make {total} cards; standard lessons need {bounds['min']}-{bounds['max']}.")
     instructions = standards["instructions"]
     needs_larger_card = unpostered_action_images()
 
     def option_count(item: dict, image: bool, early: bool) -> int:
+        largest = MAX_IMAGE_OPTIONS if grid_safe(item) else GRID_UNSAFE_IMAGE_OPTIONS
         if not early:
-            return MAX_IMAGE_OPTIONS if image else MAX_TEXT_OPTIONS
+            return largest if image else MAX_TEXT_OPTIONS
         if image and Path(item["image"]).name in needs_larger_card:
-            return MAX_IMAGE_OPTIONS
+            return largest
         return 2
 
     sentences = [item for item in items if 2 <= len(words(item["text"])) <= 8] or items
@@ -239,7 +258,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         return [item for _, _, item in sorted(ranked, key=lambda entry: entry[:2])]
 
     cards, banks = [], []
-    for index, item in enumerate(items):
+    for index, item in enumerate(taught):
         practised(item)
         cards.append({"recipe": "teach", "slide_id": f"L{index + 1}", "stage": "Learn",
                       "options": [_option(item, image=True, suffix="learn")], "spanish_translation": item["es"],
