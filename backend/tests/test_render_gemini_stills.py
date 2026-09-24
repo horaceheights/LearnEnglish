@@ -50,11 +50,15 @@ class GeminiStillsTests(unittest.TestCase):
         return render(self.pack, asset_id, execute=True, ceiling=Decimal(ceiling), key="test-key",
                       transport=provider, root=self.root)
 
-    def test_the_committed_pack_waits_for_the_users_approval(self):
+    def test_a_pack_without_the_users_approval_sends_nothing(self):
         load_pack(PACK)
+        pending = json.loads(self.pack.read_text(encoding="utf-8"))
+        pending["authorization"] = "PENDING USER APPROVAL."
+        self.pack.write_text(json.dumps(pending), encoding="utf-8")
+        provider = FakeProvider()
         with self.assertRaisesRegex(ValueError, "no recorded user approval"):
-            render(PACK, "seven-chairs", execute=True, ceiling=Decimal("1"), key="k", transport=FakeProvider(),
-                   root=self.root)
+            self.run_asset("seven-chairs", provider)
+        self.assertEqual(provider.calls, [])
 
     def test_dry_run_sends_nothing_and_shows_the_complete_prompt(self):
         provider = FakeProvider()
