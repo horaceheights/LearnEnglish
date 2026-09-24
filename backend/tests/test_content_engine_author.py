@@ -110,6 +110,23 @@ class ContentEngineAuthorTests(unittest.TestCase):
                 with self.subTest(slide=card["slide_id"]):
                     self.assertFalse(unsafe & {Path(image).name for image in images} | unsafe & set(images))
 
+    def test_a_reply_item_asks_its_question_over_the_picture(self):
+        brief = json.loads(json.dumps(self.brief))
+        for item in brief["items"]:
+            if item["kind"] == "family-action":
+                item.update(question="Who is it?", question_es="¿Quién es?")
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        replies = [card for card in lesson["cards"] if card["stage"] == "Recognize" and card["prompt_image_url"]]
+        self.assertTrue(replies)
+        for card in replies:
+            with self.subTest(slide=card["slide_id"]):
+                self.assertEqual((card["prompt"], card["audio_text"]), ("Who is it?", "Who is it?"))
+                self.assertEqual(card["spanish_translation"], "¿Quién es?")
+                self.assertIn(card["answer_audio_text"], {option["label"] for option in card["options"]})
+        brief["items"][1].pop("question_es")
+        with self.assertRaisesRegex(BriefError, "Spanish of its question"):
+            propose_lesson(brief, self.standards)
+
     def test_the_proposal_meets_the_lesson_practice_standards(self):
         lesson = CatalogLesson("1.6", 1, lesson_role(self.lesson), self.lesson, BRIEF)
         findings = [finding for finding in audit([lesson], self.standards)
