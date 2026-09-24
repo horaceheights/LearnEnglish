@@ -107,22 +107,26 @@ def distractors(item: dict, candidates: list[dict], count: int, *, need_image: b
     return chosen
 
 
-def _option(item: dict, *, image: bool, suffix: str) -> dict:
+def _option(item: dict, *, image: bool, suffix: str, captions: bool = True) -> dict:
     return {"id": f"{slug(item['text'])}-{suffix}", "image_url": item["image"] if image else "",
-            "label": item["text"]}
+            "label": item["text"] if captions or not image else None}
 
 
 def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *, image: bool,
-            instructions: dict, rejected: frozenset = frozenset()) -> tuple[dict, dict]:
+            instructions: dict, rejected: frozenset = frozenset(), captions: bool = True) -> tuple[dict, dict]:
     wrong = distractors(item, pool, count - 1, need_image=image, rejected=rejected)
     options = rotate([item, *wrong], slide)
     spec = {"recipe": "choice", "slide_id": slide, "stage": stage,
-            "options": [_option(each, image=image, suffix=slide.lower()) for each in options],
+            "options": [_option(each, image=image, suffix=slide.lower(), captions=captions) for each in options],
             "answer": options.index(item)}
     if stage == "Listen":
         spec["spanish_translation"] = instructions["listen"]
+        if image and not captions:
+            spec["audio_text"] = item["text"]  # caption-free pictures: the spoken cue is authored
     elif image:
         spec["spanish_translation"] = item["es"]
+        if not captions:
+            spec["prompt"] = item["text"]
     else:
         spec.update(prompt="", prompt_image_url=item["image"], spanish_translation=instructions["choose_sentence"])
     if spec["answer"] == 0:
@@ -172,6 +176,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     for example because the app's mistake hints cannot explain the contrast.
     """
     rejected = frozenset(rejected_pairs)
+    captions = brief.get("captions", True)  # Units 2-7 show caption-free pictures
     items = [{**item, "_order": index} for index, item in enumerate(brief["items"])]
     pool = items + [{**item, "_order": len(items) + index} for index, item in enumerate(brief.get("pool", []))]
     for item in items:
@@ -246,7 +251,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         image = index % 2 == 0
         count = option_count(item, image, early=index < layout["Recognize"] // 2)
         spec, bank = _choice(f"R{index + 1}", "Recognize", item, pool, count, image=image,
-                             instructions=instructions, rejected=rejected)
+                             instructions=instructions, rejected=rejected, captions=captions)
         cards.append(spec)
         banks.append(bank)
     for index, item in enumerate(pick(items, layout["Listen"])):
@@ -254,7 +259,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         image = index % 3 != 2
         count = option_count(item, image, early=index < layout["Listen"] // 2)
         spec, bank = _choice(f"A{index + 1}", "Listen", item, pool, count, image=image,
-                             instructions=instructions, rejected=rejected)
+                             instructions=instructions, rejected=rejected, captions=captions)
         cards.append(spec)
         banks.append(bank)
     for index, item in enumerate(pick(sentences, layout["Speak"])):
@@ -336,5 +341,126 @@ def propose_explained_lesson(brief: dict, standards: dict, check=unexplained_mis
             if found:
                 raise BriefError(f"Wrong options still lack a specific hint: {sorted(found)}")
             return plan, banks
+        rejected |= found
+    raise BriefError(f"Could not find explainable wrong options after {attempts} attempts: {sorted(rejected)}")
+
+
+# Extra practice appended to an existing lesson: Recognize and Listen alternate
+# picture and sentence choices; Speak repeats a sentence; Use builds one whole.
+EXTENSION = {"Recognize": 2, "Listen": 2, "Speak": 1, "Use": 1}
+
+
+def lesson_items(lesson: dict) -> list[dict]:
+    """The items a lesson teaches, read from its Learn cards."""
+    items = []
+    for card in lesson.get("cards") or []:
+        if card.get("stage") != "Learn" or len(card.get("options") or []) != 1:
+            continue
+        option = card["options"][0]
+        text = option.get("label") or card.get("prompt")
+        if text and option.get("image_url") and text not in {item["text"] for item in items}:
+            items.append({"text": text, "es": card.get("spanish_translation") or "", "image": option["image_url"],
+                          "kind": form({"text": text}), "_order": len(items)})
+    return items
+
+
+def extend_lesson(lesson: dict, standards: dict, additions: dict | None = None, avoid: dict | None = None,
+                  check=unexplained_mistakes, attempts: int = 8) -> tuple[dict, list[dict]]:
+    """Append extra practice to an existing lesson without changing any existing card.
+
+    The new cards reuse the lesson's own items and style (captions, slide-id
+    prefixes, image paths), favour the least-practised new words, and must pass
+    the same answer-bank and mistake-hint checks as a proposed lesson. `avoid`
+    maps an item's text to wrong options that are also true of its picture.
+    """
+    from scripts.content_engine.plan import compose_lesson, import_lesson
+    from scripts.content_engine.practice import card_evidence
+
+    additions = additions or EXTENSION
+    items = lesson_items(lesson)
+    for item in items:
+        item["avoid"] = list((avoid or {}).get(item["text"], []))
+    cards = lesson["cards"]
+    captions = not any(option.get("image_url") and option.get("label") is None
+                       for card in cards if card.get("stage") in ("Recognize", "Listen")
+                       for option in card["options"])
+    vocabulary = [term.lower() for term in lesson.get("vocabulary", [])]
+    pattern = {term: re.compile(r"(?<![a-z])" + re.escape(term.rstrip(".?!").replace("...", " ").strip())
+                                + r"(?![a-z])") for term in vocabulary}
+
+    def exposures(term: str, extra: list[dict]) -> int:
+        return sum(bool(pattern[term].search(card_evidence(card))) for card in [*cards, *extra])
+
+    def prefix(stage: str) -> tuple[str, int]:
+        ids = [card["slide_id"] for card in cards if card.get("stage") == stage]
+        letters = re.match(r"[A-Z]+", ids[-1]).group(0) if ids else stage[0]
+        return letters, max((int(re.sub(r"[^0-9]", "", sid) or 0) for sid in ids), default=0)
+
+    rejected: set[tuple[str, str]] = set()
+    for _ in range(attempts):
+        new_cards: dict[str, list[dict]] = {}
+        banks, composed_extra = [], []
+        used: set[tuple[str, str]] = set()
+        for stage, count in additions.items():
+            letters, last = prefix(stage)
+            if stage in ("Recognize", "Listen"):
+                eligible = items
+            else:
+                eligible = [item for item in items if 3 <= len(words(item["text"])) <= 8] or items
+            for offset in range(count):
+                def need(item):
+                    terms = [term for term in vocabulary if pattern[term].search(item["text"].lower())]
+                    counts = [exposures(term, composed_extra) for term in terms]
+                    return ((stage, item["text"]) in used, min(counts) if counts else 99, item["_order"])
+                slide = f"{letters}{last + offset + 1}"
+                if stage in ("Recognize", "Listen"):
+                    image = offset % 2 == 0
+                    # The least-practised item that has a fair wrong option gets the card.
+                    for item in sorted(eligible, key=need):
+                        try:
+                            spec, bank = _choice(slide, stage, item, items,
+                                                 MAX_IMAGE_OPTIONS if image else MAX_TEXT_OPTIONS, image=image,
+                                                 instructions=standards["instructions"],
+                                                 rejected=frozenset(rejected), captions=captions)
+                            break
+                        except BriefError:
+                            continue
+                    else:
+                        raise BriefError(f"No item in {lesson.get('id')} has a fair wrong option for {slide}.")
+                    used.add((stage, item["text"]))
+                    banks.append(bank)
+                elif stage == "Speak":
+                    item = min(eligible, key=need)
+                    used.add((stage, item["text"]))
+                    spec = {"recipe": "speak", "slide_id": slide, "stage": "Speak",
+                            "options": [_option(item, image=True, suffix="speak")],
+                            "spanish_translation": item["es"]}
+                else:
+                    item = min(eligible, key=need)
+                    used.add((stage, item["text"]))
+                    spec = _construction(slide, item)
+                spec["pedagogy_note"] = f"Extra practice: {item['text']}"
+                new_cards.setdefault(stage, []).append(spec)
+                composed_extra.append(compose_lesson({"plan_version": 1, "lesson": {}, "cards": [spec]})["cards"][0])
+        plan = import_lesson(lesson)
+        merged = []
+        for index, spec in enumerate(plan["cards"]):
+            merged.append(spec)
+            following = plan["cards"][index + 1].get("stage") if index + 1 < len(plan["cards"]) else None
+            if following != spec.get("stage"):
+                merged.extend(new_cards.pop(spec.get("stage"), []))
+        plan["cards"] = merged
+        plan["lesson"]["content_revision"] = int(plan["lesson"].get("content_revision") or 1) + 1
+        if "content_revision" not in lesson:
+            plan.setdefault("field_order", [*lesson.keys()])
+            plan["field_order"] = [key for key in plan["field_order"] if key != "cards"] + ["content_revision", "cards"]
+        extended = compose_lesson(plan)
+        found = check(extended)
+        if found is None:
+            raise BriefError("Mistake hints could not be checked; install the mobile dependencies (npm ci).")
+        new_texts = {text for bank in banks for text in [bank["correct"], *bank["wrong"]]}
+        found = {pair for pair in found if pair[0] in new_texts and pair[1] in new_texts} - rejected
+        if not found:
+            return extended, banks
         rejected |= found
     raise BriefError(f"Could not find explainable wrong options after {attempts} attempts: {sorted(rejected)}")

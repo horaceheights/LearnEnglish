@@ -316,6 +316,7 @@ def validate_use_image_plan(plan: dict, lesson: dict, image_contradicts,
 
 
 MOVED_BY_SPLIT = 'curriculum-split-moves-image'
+RETIRED_BY_REBUILD = 'lesson-rebuild-retires-use'
 
 
 def validate_split_move(plan: dict, current: dict) -> None:
@@ -328,7 +329,9 @@ def validate_split_move(plan: dict, current: dict) -> None:
         raise ValueError("A split move must name the other current lesson that now uses the image.")
     if current[target].get("unit_id") != current[lesson_id].get("unit_id"):
         raise ValueError("A split move stays inside the restructured unit.")
-    if old not in images(current[target]):
+    # A photo already replaced by a reviewed stand-in moves as that stand-in.
+    moved = plan.get("moved_filename") or old
+    if moved not in images(current[target]):
         raise ValueError("The moved image must still be used by the lesson named in moved_to_lesson_id.")
     if plan.get("new_filename") is not None:
         raise ValueError("A split move replaces nothing; new_filename must be null.")
@@ -344,10 +347,15 @@ def validate_plan(plan: dict, baseline: dict, current: dict, root: Path,
     old_hash = record.get("copies", {}).get(IMAGE_ROOTS[0])
     if plan.get("old_sha256") != old_hash or not old_hash:
         raise ValueError("Replacement evidence is not bound to the original pixels.")
-    if plan.get("issue") == MOVED_BY_SPLIT:
+    if plan.get("issue") in (MOVED_BY_SPLIT, RETIRED_BY_REBUILD):
         if len(plan.get("issue_detail", "").strip()) < 35:
             raise ValueError("A concrete issue description is required; style preference is not sufficient.")
-        validate_split_move(plan, current)
+        if plan.get("new_filename") is not None:
+            raise ValueError("Moving or retiring a use replaces nothing; new_filename must be null.")
+        if plan["issue"] == MOVED_BY_SPLIT:
+            validate_split_move(plan, current)
+        elif old in images(current[lesson_id]):
+            raise ValueError("A retired use must no longer appear in its lesson.")
         return
     if not isinstance(new, str) or not new.endswith(".webp") or Path(new).name != new or new == old:
         raise ValueError("Replacement needs a distinct safe versioned runtime filename.")
@@ -402,7 +410,7 @@ def audit(root: Path, baseline: dict, plans: list[dict],
                 raise ValueError("Duplicate replacement scope.")
             allowed.add(key)
             replacement_names={plan['new_filename'],*plan.get('alternative_filenames',[])}-{None}
-            if plan.get("issue") == MOVED_BY_SPLIT:
+            if plan.get("issue") in (MOVED_BY_SPLIT, RETIRED_BY_REBUILD):
                 continue
             if plan["old_filename"] not in images(current[plan["lesson_id"]]) and not replacement_names.intersection(images(current[plan["lesson_id"]])):
                 errors.append(f"Replacement missing from scoped lesson: {key}")

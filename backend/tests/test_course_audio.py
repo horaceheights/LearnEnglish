@@ -51,6 +51,7 @@ from backend.app.course_audio import (
     target_syllables_per_minute,
     voice_for_variant,
 )
+from backend.app.course_audio_registry import load_approved_take_registry, resolve_approved_take
 from backend.app.data import LESSONS
 from scripts import build_frontend_audio_manifest
 from scripts.build_frontend_audio_manifest import expected_audio_items
@@ -330,8 +331,14 @@ class CourseAudioProfileTests(unittest.TestCase):
                 with self.subTest(lesson=lesson_id, text=spoken_text, variant=variant):
                     self.assertNotIn("_", spoken_text)
                     key = "\n".join([spoken_text, "prompt", "en-US", variant])
-                    self.assertIn(key, manifest)
-                    self.assertTrue((static_cache / manifest[key]).is_file())
+                    if key in manifest:
+                        self.assertTrue((static_cache / manifest[key]).is_file())
+                        continue
+                    # Cards added after the static bundle (2026-09-23 rebuild) play their
+                    # persistent approved asset, which the apps request first.
+                    answer = next(asset for asset in card.audio_assets if asset.variant == variant)
+                    self.assertEqual(spoken_text, answer.text)
+                    self.assertIsNotNone(resolve_approved_take(answer, load_approved_take_registry()))
 
     def test_every_current_spoken_word_has_an_audited_syllable_count(self):
         spoken_words: set[str] = set()

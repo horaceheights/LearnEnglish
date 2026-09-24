@@ -86,11 +86,12 @@ Lessons:
 3. 2.3 Common Objects
 4. 2.4 What Is It?
 5. 2.5 This and That
-6. 2.6 Numbers 1-10
-7. 2.7 Basic Colors
-8. 2.8 Count and Describe
-9. 2.9 Unit 2 Review
-10. 2.10 Around Me Mission
+6. 2.6 Numbers 1-5: `one`–`five`; `It is two.` names a number card; `One book.`
+7. 2.7 Numbers 6-10: `six`–`ten`; `It is six.`
+8. 2.8 Basic Colors
+9. 2.9 Count and Describe
+10. 2.10 Unit 2 Review
+11. 2.11 Around Me Mission
 
 Core patterns:
 
@@ -98,6 +99,10 @@ Core patterns:
 - `What is it? It is a book.`
 - `This is a pen. That is a bag.`
 - `Three green books.`
+
+**2026-09-23 rebuild (practice and pacing standards).** Numbers 1-10 introduced ten words with two or three practices each and used colors before 2.8 taught them, so it became two engine-authored lessons (briefs in `docs/product/content-briefs/unit-2/`) with five numbers each, shown on the numeral cards. Every other foundation lesson grew from 34-36 to 40 cards with six extra practice cards on its own words (two Recognize, two Listen, one Speak, one whole-sentence construction), without changing any reviewed card. Lesson IDs are unchanged; the new lesson is `lesson-2-numbers-6-10`. `These/those` and `Which one?` are the next Unit 2 additions and need new photographs. `cars` should return in Unit 6 transport, alongside the Unit 1 family words carried forward.
+
+The paragraph below predates that rebuild: its 2.9 is today's 2.10.
 
 Lesson 2.9's reviewed restructuring contains 48 cards (`8 Learn / 8 Recognize / 18 Listen / 6 Speak / 8 Use`). It revisits surroundings, object identity, same-object near/far contrasts, quantities and colors, with a closing listening number check. Its successful-path inventory covers all 43 vocabulary entries declared by 2.1–2.8. Sixteen fresh review stills replace only repeated review bindings, preserving the original Gemini/unknown-provenance files and their earlier teaching uses. This uses the comprehensive-review length exception below; it is not a new length requirement for every lesson. Human media and device review remain pending.
 

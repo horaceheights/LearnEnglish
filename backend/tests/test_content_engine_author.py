@@ -118,6 +118,21 @@ class ContentEngineAuthorTests(unittest.TestCase):
             if bank["correct"] == target["correct"]:
                 self.assertNotIn(target["wrong"][0], bank["wrong"])
 
+    def test_extending_a_lesson_keeps_every_reviewed_card_and_appends_per_section(self):
+        from scripts.content_engine.author import extend_lesson
+        lesson = json.loads((ROOT / "backend/lessons/unit_2/lesson-2-2-streets-and-transportation.yaml")
+                            .read_text(encoding="utf-8"))
+        original = {card["slide_id"]: card for card in lesson["cards"]}
+        extended, banks = extend_lesson(lesson, self.standards, check=lambda lesson: set())
+        stages = [card["stage"] for card in extended["cards"]]
+        self.assertEqual(stages, sorted(stages, key=["Learn", "Recognize", "Listen", "Speak", "Use"].index))
+        kept = [card for card in extended["cards"] if card["slide_id"] in original]
+        self.assertEqual(kept, [original[card["slide_id"]] for card in kept])
+        added = [card for card in extended["cards"] if card["slide_id"] not in original]
+        self.assertEqual(sorted(card["stage"] for card in added),
+                         ["Listen", "Listen", "Recognize", "Recognize", "Speak", "Use"])
+        self.assertTrue(all(len(bank["wrong"]) >= 1 for bank in banks))
+
     def test_a_brief_that_breaks_the_lesson_length_is_refused(self):
         with self.assertRaisesRegex(BriefError, "standard lessons need 40-42"):
             propose_lesson({**self.brief, "items": self.brief["items"][:6]}, self.standards)

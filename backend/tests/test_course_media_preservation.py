@@ -169,7 +169,7 @@ class MediaPreservationTests(unittest.TestCase):
     def test_installed_review_does_not_reuse_earlier_or_mission_pixels(self):
         current = lessons(ROOT)
         review = current["lesson-2-9-unit-2-review"]
-        comparison = [lesson for lesson in current.values() if lesson["sub_lesson_id"] != "2.9"
+        comparison = [lesson for lesson in current.values() if lesson["id"] != review["id"]
                       and int(lesson["sub_lesson_id"].split(".")[0]) <= 2]
         self.assertEqual(review_reuse(review, comparison, ROOT / IMAGE_ROOTS[0]),
                          {"reused_images": [], "missing_images": []})
@@ -189,6 +189,18 @@ class CurriculumSplitMoveTests(unittest.TestCase):
                        {"old_filename": "gone.webp"}):
             with self.subTest(broken=broken), self.assertRaises(ValueError):
                 validate_split_move({**plan, **broken}, current)
+
+    def test_a_replaced_photo_moves_as_its_reviewed_stand_in(self):
+        from scripts.audit_course_media_preservation import validate_split_move
+        current = {
+            "old": {"unit_id": "unit-2", "cards": []},
+            "new": {"unit_id": "unit-2", "cards": [{"image_url": "card_06_v1.webp"}]},
+        }
+        plan = {"lesson_id": "old", "old_filename": "a1_n6.webp", "moved_to_lesson_id": "new",
+                "moved_filename": "card_06_v1.webp", "new_filename": None}
+        validate_split_move(plan, current)
+        with self.assertRaises(ValueError):
+            validate_split_move({**plan, "moved_filename": "other.webp"}, current)
 
 
 if __name__ == "__main__":
