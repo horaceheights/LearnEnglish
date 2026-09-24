@@ -40,15 +40,15 @@ SOURCE_AUDIO = ROOT / "mobile" / "assets" / "course-audio" / "one-corrected.mp3"
 KNOWN_REJECTED_TAKE_IDS = {
     "0613fa10f4c08d4302b287d726294ef947cac56818a346a685d9adad58d68b42"
 }
-# Since the 2026-09-23 Unit 2 rebuild, "One" is taught on Learn, Recognize and Listen
-# cards; Speak practises the number sentences instead.
+# Since the 2026-09-24 reuse pass, the standalone "One" is on its Learn card and one
+# Recognize card; Listen and Speak practise "It is number one." and "One car." instead.
 EXPECTED_ONE_CONTRACT_COUNTS = Counter(
     {
-        ("teacher", "prompt", "prompt"): 3,
-        ("answer", "prompt", "answer"): 3,
+        ("teacher", "prompt", "prompt"): 2,
+        ("answer", "prompt", "answer"): 2,
     }
 )
-EXPECTED_ONE_STAGE_COUNTS = Counter({"Learn": 2, "Recognize": 2, "Listen": 2})
+EXPECTED_ONE_STAGE_COUNTS = Counter({"Learn": 2, "Recognize": 2})
 
 
 def standalone_one_assets() -> list[tuple[CourseAudioAsset, str, str]]:
@@ -67,13 +67,13 @@ def standalone_one_assets() -> list[tuple[CourseAudioAsset, str, str]]:
     lesson_ids = {lesson_id for _asset, lesson_id, _stage in matches}
     if contract_counts != EXPECTED_ONE_CONTRACT_COUNTS:
         raise ValueError(
-            "The reviewed One override must target exactly its six approved audio contracts."
+            "The reviewed One override must target exactly its four approved audio contracts."
         )
     if stage_counts != EXPECTED_ONE_STAGE_COUNTS or lesson_ids != {
         "lesson-2-6-numbers-1-10"
     }:
         raise ValueError(
-            "The reviewed One override must target only the approved Learn, Recognize, and Listen cards."
+            "The reviewed One override must target only the approved Learn and Recognize cards."
         )
     return matches
 
@@ -106,7 +106,7 @@ def expected_take(
 ) -> dict[str, Any]:
     profile_ids = {asset.profile_id for asset, _lesson_id, _stage in assets}
     if len(profile_ids) != 1:
-        raise ValueError("The six approved One assets must use one persistent-audio profile.")
+        raise ValueError("The four approved One assets must use one persistent-audio profile.")
     return {
         "file": f"takes/{APPROVED_ONE_AUDIO_SHA256}.mp3",
         "audio_sha256": APPROVED_ONE_AUDIO_SHA256,
@@ -204,7 +204,7 @@ def install_physical_take(payload: bytes) -> Path:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Register the already-reviewed standalone One MP3 against exactly six persistent "
+            "Register the already-reviewed standalone One MP3 against exactly four persistent "
             "course-audio assets. Dry-run is the default."
         )
     )
@@ -241,7 +241,7 @@ def main() -> int:
         resolved = resolve_approved_take(asset, stored)
         if resolved is None or resolved.take_id != APPROVED_ONE_AUDIO_SHA256:
             raise ValueError(f"The stored One binding did not verify: {asset.id}")
-    print("Reviewed One registration verified for all six assets.")
+    print("Reviewed One registration verified for all four assets.")
     return 0
 
 

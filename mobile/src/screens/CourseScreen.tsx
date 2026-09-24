@@ -125,7 +125,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#dff4ef',
   },
   'lesson-2-7-basic-colors': {
-    image: 'a1_red.webp',
+    image: 'a1_photo_u2_red_bus_v1.webp',
     description: 'Seis colores básicos.',
     color: '#dff4ef',
   },

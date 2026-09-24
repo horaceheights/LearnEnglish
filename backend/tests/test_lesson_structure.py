@@ -733,25 +733,25 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(question=question):
                 self.assertIn(question, normalized)
 
-    def test_lesson_2_6_object_identity_card_uses_aligned_question_and_answers(self):
-        # 2026-09-23 rebuild: the object phrase card is "One book." against "One bag.".
-        card = next(
+    def test_lesson_2_6_asks_what_number_over_the_numeral_card(self):
+        # 2026-09-24 reuse pass: the numeral card is named with a reply choice, and the
+        # object phrases count nouns the learner already knows.
+        replies = [
             card
             for card in LESSONS["lesson-2-6-numbers-1-10"].cards
-            if card.stage == "Recognize" and card.answer_audio_text == "One book."
-        )
-
-        # The app shows the Spanish instruction for an empty Recognize prompt;
-        # the English "Choose the words." prompt and its audio were retired.
-        self.assertEqual("", card.prompt)
-        self.assertEqual(card.prompt, card.audio_text)
-        self.assertEqual({"One book.", "One bag."}, {option.label for option in card.options})
-        self.assertIn("unit2_l26_one_book.webp", card.prompt_image_url)
-        correct_option = next(
-            option for option in card.options if option.id == card.correct_option_id
-        )
-        self.assertEqual("One book.", correct_option.label)
-        self.assertEqual(correct_option.label, card.answer_audio_text)
+            if card.stage == "Recognize" and card.prompt == "What number is it?"
+        ]
+        self.assertGreaterEqual(len(replies), 2)
+        for card in replies:
+            with self.subTest(slide=card.slide_id):
+                self.assertEqual(card.prompt, card.audio_text)
+                self.assertEqual("¿Qué número es?", card.spanish_translation)
+                self.assertIn("a1_photo_number_card_", card.prompt_image_url)
+                correct = next(option for option in card.options if option.id == card.correct_option_id)
+                self.assertEqual(correct.label, card.answer_audio_text)
+                self.assertTrue(all(option.label.startswith("It is number ") for option in card.options))
+        learn = [card.prompt for card in LESSONS["lesson-2-6-numbers-1-10"].cards if card.stage == "Learn"]
+        self.assertEqual(learn, ["A number", "One", "Two", "Three", "Four", "Five"])
 
     def test_listen_hides_text_and_uses_audio_with_image_choices(self):
         for lesson in LESSONS.values():

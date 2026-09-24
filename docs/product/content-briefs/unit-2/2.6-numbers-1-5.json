@@ -1,7 +1,7 @@
 {
   "brief_version": 1,
   "captions": false,
-  "note": "Unit 2 rebuild (2026-09-23): numbers split into 1-5 and 6-10 so each lesson introduces five; numerals shown on the number cards.",
+  "note": "2026-09-24 reuse pass: Learn holds only number and one-five; practice asks What number is it? on the numeral cards and counts nouns taught in 2.2-2.3 with 2.9's own photos. Five phones stays out of four-picture cards.",
   "target": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
   "lesson": {
     "id": "lesson-2-6-numbers-1-10",
@@ -14,8 +14,9 @@
     "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
     "sub_lesson_id": "2.6",
     "sub_lesson_title": "Numbers 1-5",
-    "goal": "Recognize, hear, and say the number words one through five and name a number card with It is.",
+    "goal": "Recognize, hear and say the number words one to five, ask What number is it? about a number card, and count cars, books, pens and phones.",
     "vocabulary": [
+      "number",
       "one",
       "two",
       "three",
@@ -25,29 +26,37 @@
     "review_vocabulary": [
       "it",
       "is",
+      "what",
+      "a",
+      "car",
       "book",
-      "bag",
+      "pen",
       "phone",
-      "chair"
+      "bag"
     ],
-    "grammar_function": "Number word; It is + number for a number card; one + singular noun.",
-    "prerequisite": "2.1 it and is; 2.3 book.",
-    "speaking_outcome": "Say the numbers one to five and name each number card.",
-    "content_revision": 3
+    "grammar_function": "Number words; What number is it? / It is number + number for a numeral card; number + plural noun to count taught objects.",
+    "prerequisite": "2.1 it and is; 2.2-2.3 car, book, pen, phone; 2.4 What is it?",
+    "speaking_outcome": "Say the numbers one to five, answer What number is it? and count known objects.",
+    "content_revision": 4
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 7,
+    "Use": 7
   },
   "items": [
+    {
+      "text": "A number",
+      "es": "Un número",
+      "image": "a1_photo_u2_number_v1.webp",
+      "kind": "thing"
+    },
     {
       "text": "One",
       "es": "Uno",
       "image": "a1_photo_number_card_01_v1.webp",
       "kind": "number-word"
-    },
-    {
-      "text": "One book.",
-      "es": "Un libro.",
-      "image": "unit2_l26_one_book.webp",
-      "kind": "number-phrase",
-      "builds_on": true
     },
     {
       "text": "Two",
@@ -56,24 +65,10 @@
       "kind": "number-word"
     },
     {
-      "text": "It is two.",
-      "es": "Es el dos.",
-      "image": "a1_photo_number_card_02_v1.webp",
-      "kind": "number-sentence",
-      "builds_on": true
-    },
-    {
       "text": "Three",
       "es": "Tres",
       "image": "a1_photo_number_card_03_v1.webp",
       "kind": "number-word"
-    },
-    {
-      "text": "It is three.",
-      "es": "Es el tres.",
-      "image": "a1_photo_number_card_03_v1.webp",
-      "kind": "number-sentence",
-      "builds_on": true
     },
     {
       "text": "Four",
@@ -82,44 +77,166 @@
       "kind": "number-word"
     },
     {
-      "text": "It is four.",
-      "es": "Es el cuatro.",
-      "image": "a1_photo_number_card_04_v1.webp",
-      "kind": "number-sentence",
-      "builds_on": true
-    },
-    {
       "text": "Five",
       "es": "Cinco",
       "image": "a1_photo_number_card_05_v1.webp",
       "kind": "number-word"
     },
     {
-      "text": "It is five.",
-      "es": "Es el cinco.",
+      "text": "It is number one.",
+      "es": "Es el número uno.",
+      "image": "a1_photo_number_card_01_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number two.",
+      "es": "Es el número dos.",
+      "image": "a1_photo_number_card_02_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number three.",
+      "es": "Es el número tres.",
+      "image": "a1_photo_number_card_03_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number four.",
+      "es": "Es el número cuatro.",
+      "image": "a1_photo_number_card_04_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number five.",
+      "es": "Es el número cinco.",
       "image": "a1_photo_number_card_05_v1.webp",
       "kind": "number-sentence",
-      "builds_on": true
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "One car.",
+      "es": "Un automóvil.",
+      "image": "a1_one-red-car.webp",
+      "kind": "count",
+      "learn": false,
+      "prefer": [
+        "Two cars.",
+        "Three cars."
+      ]
+    },
+    {
+      "text": "Two cars.",
+      "es": "Dos automóviles.",
+      "image": "a1_two-blue-cars.webp",
+      "kind": "count",
+      "learn": false,
+      "prefer": [
+        "One car.",
+        "Three cars."
+      ]
+    },
+    {
+      "text": "Three books.",
+      "es": "Tres libros.",
+      "image": "a1_three-green-books.webp",
+      "kind": "count",
+      "learn": false,
+      "prefer": [
+        "Two books.",
+        "Four books."
+      ]
+    },
+    {
+      "text": "Four pens.",
+      "es": "Cuatro bolígrafos.",
+      "image": "a1_four-yellow-pens.webp",
+      "kind": "count",
+      "learn": false,
+      "prefer": [
+        "Three pens.",
+        "Five pens."
+      ]
+    },
+    {
+      "text": "Five phones.",
+      "es": "Cinco teléfonos.",
+      "image": "a1_scene_five-black-phones_734dda6.webp",
+      "kind": "count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Four phones.",
+        "Three phones."
+      ]
     }
   ],
   "pool": [
     {
-      "text": "One bag.",
-      "es": "Una bolsa.",
-      "image": "unit2_l26_one_bag.webp",
-      "kind": "number-phrase"
+      "text": "A book",
+      "es": "Un libro",
+      "image": "object_book.webp",
+      "kind": "thing"
     },
     {
-      "text": "One phone.",
-      "es": "Un teléfono.",
-      "image": "unit2_l26_one_phone.webp",
-      "kind": "number-phrase"
+      "text": "A phone",
+      "es": "Un teléfono",
+      "image": "a1_phone.webp",
+      "kind": "thing"
     },
     {
-      "text": "One chair.",
-      "es": "Una silla.",
-      "image": "unit2_l26_one_chair.webp",
-      "kind": "number-phrase"
+      "text": "A car",
+      "es": "Un automóvil",
+      "image": "object_car.webp",
+      "kind": "thing"
+    },
+    {
+      "text": "Three cars.",
+      "es": "Tres automóviles.",
+      "kind": "count"
+    },
+    {
+      "text": "Two books.",
+      "es": "Dos libros.",
+      "kind": "count"
+    },
+    {
+      "text": "Four books.",
+      "es": "Cuatro libros.",
+      "kind": "count"
+    },
+    {
+      "text": "Three pens.",
+      "es": "Tres bolígrafos.",
+      "kind": "count"
+    },
+    {
+      "text": "Five pens.",
+      "es": "Cinco bolígrafos.",
+      "kind": "count"
+    },
+    {
+      "text": "Four phones.",
+      "es": "Cuatro teléfonos.",
+      "kind": "count"
+    },
+    {
+      "text": "Three phones.",
+      "es": "Tres teléfonos.",
+      "kind": "count"
     }
   ]
 }
