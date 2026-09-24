@@ -26,7 +26,7 @@ Durable project knowledge is organized by purpose. Application and tool-specific
 
 ## Planning and maintenance
 
-- [Product roadmap](planning/roadmap.md): priorities, dependencies, and current sequence.
+- [Product roadmap](planning/roadmap.md): priorities, dependencies, and current sequence. The source of truth; the Jira `SCRUM` backlog orders its open items and adds "done when" criteria.
 - [Repository hygiene](maintenance/repository-hygiene.md): branch, worktree, and cleanup standard.
 
 The root [README](../README.md) remains the starting point for running the applications. The root [AGENTS.md](../AGENTS.md) contains concise instructions for Codex tasks.
