@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "879c867d-05ea-482e-8abc-70def72328df",
+  "asset_id": "these-phones",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:26:02.604486+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nStrict first-person view from the learner's own eyes: the learner's forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections.\n\nTHESE state. The learner stands at the near end of a long, completely bare light-oak table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Exactly FOUR identical black smartphones lying face up, their screens dark and blank, with no text, icons or reflections of people.\nNEAR PAIR: two phones lie side by side, a finger's width apart, at the near end of the table in the lower-left half of the photo. The LEFT hand rests flat on the table just left of them, its fingertips touching the edge of the left phone. Together the two near phones span about 35 percent of the photo width.\nFAR PAIR: the other two lie side by side, a finger's width apart, about one meter farther along the same table in the upper center, alone on empty wood. Each far phone is at least 10 percent of the photo width, clearly smaller than the near phones, sharp and unmistakably the same phone.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just right of the near pair. Its straight index finger points left and down at the NEAR PAIR, the fingertip stopping about two finger-widths short of them; the other fingers are curled. Nothing points at the far pair.\nNothing else on the table: no papers, books, cups or plates. The picture means: THESE phones, the two right here by my hands.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Omu1ar3FNNTQz7IPnIPwwQ0",
+  "usage": {
+    "promptTokenCount": 514,
+    "candidatesTokenCount": 1345,
+    "totalTokenCount": 2218,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 514
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 359,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.139336",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 514,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 359
+  },
+  "elapsed_seconds": 23.41,
+  "output": "output/imagegen/unit-2-lesson-v5/these-phones.png",
+  "sha256": "7ac14a84254b5f4b16f440e519d049207a86498fa30ce027e84a95ca236de3e3",
+  "byte_count": 5026847,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

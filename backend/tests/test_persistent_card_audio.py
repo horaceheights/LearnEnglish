@@ -338,7 +338,7 @@ class PersistentCardAudioTests(unittest.TestCase):
         self.assertEqual(REVIEWED_HELLO_SHA256, sha256_bytes(learn_take.payload))
         self.assertEqual(learn_take.payload, recognize_take.payload)
 
-    def test_all_six_standalone_one_assets_use_the_exact_reviewed_correction(self):
+    def test_all_four_standalone_one_assets_use_the_exact_reviewed_correction(self):
         assets = [
             asset
             for lesson in LESSONS.values()
@@ -346,7 +346,7 @@ class PersistentCardAudioTests(unittest.TestCase):
             for asset in card.audio_assets
             if asset.text == "One"
         ]
-        self.assertEqual(6, len(assets))
+        self.assertEqual(4, len(assets))  # Learn and Recognize since the 2026-09-24 reuse pass
 
         registry = load_approved_take_registry()
         resolved = [resolve_approved_take(asset, registry) for asset in assets]

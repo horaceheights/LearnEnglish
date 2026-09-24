@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d44cc9d4-cc2d-4670-8984-ff9d8ee81497",
+  "asset_id": "review-parking-number",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:24:28.389831+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nWHAT NUMBER IS IT? Photograph looking down at one empty marked parking space on dark asphalt. Its bay number 7 is painted large in white inside the space, centered, about a third of the photo height. One parked silver car shows only partly at the left edge, in the neighbouring space. No other numbers, letters, signs or license-plate text anywhere; no people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "3Gq1asG7Jqmfz7IP7v-NmQw",
+  "usage": {
+    "promptTokenCount": 208,
+    "candidatesTokenCount": 1249,
+    "totalTokenCount": 1675,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 208
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 218,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137032",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 208,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 218
+  },
+  "elapsed_seconds": 22.77,
+  "output": "output/imagegen/unit-2-lesson-v5/review-parking-number.png",
+  "sha256": "fd3f246237246f6395be29c6713bff1d1dc623c46fba4fdff7de2de33784c4cf",
+  "byte_count": 9899753,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

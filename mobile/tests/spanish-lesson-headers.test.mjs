@@ -26,11 +26,12 @@ test('every card in every unit shows a Spanish section name', () => {
 test('an empty Recognize prompt asks for the word or the phrase in Spanish', () => {
   const lesson = id => course.find(item => item.id === id);
   const card = (id, slide) => lesson(id).cards.find(item => item.slide_id === slide);
-  const colors = card('lesson-2-7-basic-colors', 'R6');
+  // Since the 2026-09-24 reuse pass the word-choice example is 2.6's numeral card (Two or One).
+  const colors = card('lesson-2-6-numbers-1-10', 'R2');
   const park = card('lesson-2-1-places-around-me', 'R7');
   assert.equal(colors.prompt, '');
   assert.equal(park.prompt, '');
-  assert.equal(instructions.lessonHeaderPromptText('lesson-2-7-basic-colors', 'Recognize', '', colors.options),
+  assert.equal(instructions.lessonHeaderPromptText('lesson-2-6-numbers-1-10', 'Recognize', '', colors.options),
     '¡Elige la palabra correcta!');
   assert.equal(instructions.lessonHeaderPromptText('lesson-2-1-places-around-me', 'Recognize', '', park.options),
     '¡Elige la frase correcta!');

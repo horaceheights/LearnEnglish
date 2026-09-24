@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8602d95f-b096-477f-b1b6-695dd3ebe946",
+  "asset_id": "those-phones",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:29:22.288933+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "THOSE state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near pair, and keep everything else identical: camera, light, table, all four phones and the left hand beside the near pair. Now the straight index finger points up along the bare tabletop toward the FAR PAIR of phones, which stays complete, sharp and unmoved. A wide band of bare wood stays between the fingertip and the far phones; the finger never reaches, overlaps or touches them. No extra hands, objects, text or other changes. The picture now means: THOSE phones over there, while my left hand stays by THESE.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-2-lesson-v5/these-phones.png",
+    "sha256": "7ac14a84254b5f4b16f440e519d049207a86498fa30ce027e84a95ca236de3e3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "A2y1atb5Eq7pz7IP44nE2A4",
+  "usage": {
+    "promptTokenCount": 413,
+    "candidatesTokenCount": 1267,
+    "totalTokenCount": 1832,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 155
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 152,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136650",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 413,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 152
+  },
+  "elapsed_seconds": 25.82,
+  "output": "output/imagegen/unit-2-lesson-v5/those-phones.png",
+  "sha256": "60f4e8050a46c50589ac66eabf43134a8349ca15d3781b3b5839eb22c80f8c82",
+  "byte_count": 4799833,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

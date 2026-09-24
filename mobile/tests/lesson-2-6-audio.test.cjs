@@ -20,15 +20,16 @@ const standaloneOneCards = lesson.cards.filter(
 );
 assert.deepEqual(
   standaloneOneCards.map((card) => card.stage),
-  ['Learn', 'Recognize', 'Listen'],
+  ['Learn', 'Recognize'],
   'Every standalone One slide must remain covered by the corrected take.',
 );
 
 const oneAssets = standaloneOneCards.flatMap((card) => card.audio_assets.filter(
   (asset) => asset.text === 'One',
 ));
-assert.equal(oneAssets.length, 6, 'The reviewed One override must bind exactly six immutable assets.');
-assert.equal(new Set(oneAssets.map((asset) => asset.id)).size, 6, 'Every One contract needs its own asset ID.');
+// Since the 2026-09-24 reuse pass the standalone One is on its Learn and one Recognize card.
+assert.equal(oneAssets.length, 4, 'The reviewed One override must bind exactly four immutable assets.');
+assert.equal(new Set(oneAssets.map((asset) => asset.id)).size, 4, 'Every One contract needs its own asset ID.');
 
 const contractCounts = new Map();
 for (const asset of oneAssets) {
@@ -43,10 +44,10 @@ for (const asset of oneAssets) {
 assert.deepEqual(
   Object.fromEntries([...contractCounts.entries()].sort()),
   {
-    'answer|prompt|answer': 3,
-    'teacher|prompt|prompt': 3,
+    'answer|prompt|answer': 2,
+    'teacher|prompt|prompt': 2,
   },
-  'The One override must stay limited to the approved Learn, Recognize, and Listen contracts.',
+  'The One override must stay limited to the approved Learn and Recognize contracts.',
 );
 
 const approvedTake = registry.takes[approvedHash];
@@ -74,4 +75,4 @@ assert.equal(
   'The persistent One take changed without review.',
 );
 
-console.log('Lesson 2.6 persistent One audio checks passed for all six immutable assets.');
+console.log('Lesson 2.6 persistent One audio checks passed for all four immutable assets.');

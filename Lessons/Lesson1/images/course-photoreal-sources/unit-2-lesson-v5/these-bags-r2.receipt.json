@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "81efacae-02a8-41ae-ada8-f44f88052065",
+  "asset_id": "these-bags-r2",
+  "pack_sha256": "17458509b22973506de50a5a52530abcbe3c3b1b678a3ff7de7c64f4dc3289af",
+  "started_at": "2026-09-24T18:32:15.061616+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nStrict first-person view from the learner's own eyes: the learner's forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections.\n\nTHESE state. The learner stands at the near end of a long, completely bare light-oak table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Exactly FOUR identical small plain grey canvas backpacks LYING FLAT on their backs, front pocket facing up, straps underneath, no logos, tags or text.\nNEAR PAIR: two backpacks lie flat side by side, a finger's width apart, at the near end of the table in the lower-left half of the photo. The LEFT hand rests flat on top of the left backpack. Together the two near backpacks span about 40 percent of the photo width.\nFAR PAIR: the other two lie flat side by side, a finger's width apart, about one meter farther along the same table in the upper center, alone on empty wood. Each far backpack is at least 12 percent of the photo width, clearly smaller than the near ones, sharp and unmistakably the same backpack.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just right of the near pair and level with it. Its straight index finger points LEFT and slightly DOWN at the right near backpack, the fingertip stopping about two finger-widths short of it; the other fingers are curled. The finger never points up the table. Nothing points at the far pair.\nNothing else on the table. The picture means: THESE bags, the two right here by my hands.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "r2y1avi5HpjVz7IP8drImAk",
+  "usage": {
+    "promptTokenCount": 514,
+    "candidatesTokenCount": 1366,
+    "totalTokenCount": 2159,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 514
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 279,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138376",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 514,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 279
+  },
+  "elapsed_seconds": 25.67,
+  "output": "output/imagegen/unit-2-lesson-v5/these-bags-r2.png",
+  "sha256": "0261f6d3eec9ab407897f3203d15b7765c995caf88017568214ab896e1739a9e",
+  "byte_count": 5792380,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

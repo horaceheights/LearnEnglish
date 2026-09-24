@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "52a4b465-c33c-480a-b6d9-74a41681c311",
+  "asset_id": "red-bus",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:21:28.570294+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nColor photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.\n\nRED. One bright red city bus, painted solid red, parked alone at an empty curb on a quiet street, seen from the front three-quarter angle and complete from roof to tires. Its destination display is blank and dark: no route number, text, advertising or logos. Soft overcast sky and pale grey buildings behind; no other vehicles and no people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "KGq1av_1PLaeqtsP1OmkmQs",
+  "usage": {
+    "promptTokenCount": 288,
+    "candidatesTokenCount": 1275,
+    "totalTokenCount": 1837,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 288
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 274,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137864",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 288,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 274
+  },
+  "elapsed_seconds": 21.52,
+  "output": "output/imagegen/unit-2-lesson-v5/red-bus.png",
+  "sha256": "fdb3c04abf8bc6258c254e1756252e69e4225724213c9287e665b94bf696f782",
+  "byte_count": 5311885,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

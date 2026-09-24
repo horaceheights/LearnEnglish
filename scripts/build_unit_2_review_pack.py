@@ -19,6 +19,9 @@ from scripts.audit_course_media_preservation import BASELINE, PLANS, IMAGE_ROOTS
 from scripts.render_course_stills import load_pack, pack_output_directory
 
 PACK = ROOT / "docs/product/unit-2-review-pack.json"
+# 2026-09-24 reuse pass: fresh review photos (Gemini, docs/product/unit-2-reuse-photos-v1.json)
+# for "What number is it?", so the review never borrows the teaching lessons' numeral cards.
+FRESH_NUMBERS = {"n7": "a1_u2_review_v2_parking_number_7.webp", "n8": "a1_u2_review_v2_bus_number_8.webp"}
 LESSON = ROOT / "backend/lessons/unit_2/lesson-2-9-unit-2-review.yaml"
 
 
@@ -87,9 +90,23 @@ def compile_lesson(base: dict, pack: dict) -> dict:
     replace_image_options("R5", ["far-chair", "near-chair"], "far-chair")
     replace_image_options("N3", ["far-bag", "near-bag"], "near-bag")
     replace_image_options("N4", ["near-chair", "far-chair"], "far-chair")
+    for identifier, text, translated, correct, choices in (
+        ("N7", "It is number seven.", "Es el número siete.", "n7", ["n7", "n8"]),
+        ("N8", "It is number eight.", "Es el número ocho.", "n8", ["n7", "n8"]),
+    ):
+        cards[identifier] = {"slide_id": identifier, "stage": "Listen", "interaction_type": "a2i2",
+                             "prompt": "Listen and choose.", "audio_text": text, "answer_audio_text": None,
+                             "correct_option_id": correct, "prompt_image_url": "", "spanish_translation": translated,
+                             "pedagogy_note": "Number check in the world: the heard number is painted on a parking space or lit on a bus.",
+                             "options": [{"id": item, "label": None, "image_url": FRESH_NUMBERS[item]} for item in choices]}
+    cards["S6"] = {"slide_id": "S6", "interaction_type": "repeat", "prompt": "What number is it? It is number eight.",
+                   "stage": "Speak", "correct_option_id": "what-number-is-it-it-is-number-eight-1",
+                   "options": [{"id": "what-number-is-it-it-is-number-eight-1", "image_url": FRESH_NUMBERS["n8"],
+                                "label": "What number is it? It is number eight."}],
+                   "audio_text": "What number is it? It is number eight.", "answer_audio_text": None,
+                   "prompt_image_url": "", "spanish_translation": "¿Qué número es? Es el número ocho.",
+                   "pedagogy_note": "question-answer"}
     for identifier, word, translated, options in (
-        ("N7", "Seven", "Siete", ["Nine", "Seven", "Eight"]),
-        ("N8", "Eight", "Ocho", ["Eight", "Ten", "Seven"]),
         ("N9", "Nine", "Nueve", ["Ten", "Eight", "Nine"]),
         ("N10", "Ten", "Diez", ["Nine", "Ten", "Seven"]),
     ):
@@ -147,8 +164,9 @@ def compile_lesson(base: dict, pack: dict) -> dict:
     lesson["cards"] = [cards[key] for key in order]
     lesson["content_revision"] = 1
     lesson["goal"] = "Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities and colors, then recognize the final numbers by ear. No new language."
+    from scripts.course_contract import is_foundation
     lesson["review_vocabulary"] = sorted(set(word for value in lessons(ROOT).values()
-                                               if value["sub_lesson_id"] in [f"2.{n}" for n in range(1, 9)]
+                                               if value.get("unit_id") == "unit-2" and is_foundation(value)
                                                for word in value.get("vocabulary", [])))
     from backend.app.schemas import Lesson
     Lesson.model_validate(lesson)

@@ -156,12 +156,13 @@ class MediaPreservationTests(unittest.TestCase):
         coverage = function_coverage(result, json.loads(CONTRACTS.read_text())["units"]["2"]["functions"])
         self.assertFalse(any(value["missing_patterns"] for value in coverage.values()))
         lines = successful_language(result)
-        for word in ("two blue cars", "seven", "eight", "nine", "ten"):
-            self.assertIn(word, lines)
+        # Since 2026-09-24 seven and eight are heard as "It is number seven/eight."
+        for word in ("two blue cars", "seven", "eight", "nine", "ten", "what number is it"):
+            self.assertTrue(any(re.search(r"\b" + word + r"\b", line) for line in lines), word)
         foundations = [lesson for lesson in lessons(ROOT).values()
                        if lesson["sub_lesson_id"].startswith("2.") and is_foundation(lesson)]
         vocabulary = {normalize(word) for lesson in foundations for word in lesson.get("vocabulary", [])}
-        self.assertEqual(len(vocabulary), 43)
+        self.assertEqual(len(vocabulary), 44)  # 2026-09-24: 2.6 adds "number"
         missing = {word for word in vocabulary if not any(re.search(r"\b" + re.escape(word) + r"\b", line) for line in lines)}
         self.assertEqual(missing, set())
         self.assertEqual(compile_lesson(result, pack), result)

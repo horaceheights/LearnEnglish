@@ -98,10 +98,14 @@ def distractors(item: dict, candidates: list[dict], count: int, *, need_image: b
 
     An item's `avoid` list names options that would also be true of its picture
     (a boy is also a child; a father is also a man), so they are never proposed.
+    Its `prefer` list names wrong options tried first, so a choice can keep one
+    variable (Three books. against Two books., not against Two cars.).
     """
     chosen = []
     avoid = set(item.get("avoid", []))
-    ordered = sorted(candidates, key=lambda other: abs(other["_order"] - item["_order"]))
+    prefer = list(item.get("prefer", []))
+    ordered = sorted(candidates, key=lambda other: (prefer.index(other["text"]) if other["text"] in prefer else len(prefer),
+                                                    abs(other["_order"] - item["_order"])))
     for other in ordered:
         if len(chosen) == count:
             break
@@ -308,8 +312,9 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         card["pedagogy_note"] = f"Story beat {beats[card['stage']]:02d}: {_item_text(card)}"
     lesson = {key: value for key, value in brief["lesson"].items()}
     lesson.setdefault("vocabulary", [])
-    # Items marked `builds_on` grow earlier language; their cards are the purposeful review.
-    growth = {item["text"] for item in items if item.get("builds_on")}
+    # Items marked `builds_on` grow earlier language, and a practice-only item is a known
+    # frame carrying new words; their cards are the purposeful review.
+    growth = {item["text"] for item in items if item.get("builds_on") or item.get("learn", True) is False}
     if growth:
         lesson["purposeful_review_slides"] = [card["slide_id"] for card in cards if _item_text(card) in growth]
     plan = {"plan_version": PLAN_VERSION, "draft": True, "lesson": lesson, "cards": cards,
@@ -321,7 +326,9 @@ def _item_text(spec: dict) -> str | None:
     if spec["recipe"] == "complete":
         return spec.get("answer_audio_text")
     options = spec.get("options") or []
-    return options[spec.get("answer", 0)].get("label") if options else None
+    label = options[spec.get("answer", 0)].get("label") if options else None
+    # Caption-free picture choices carry the answer in their prompt or spoken cue.
+    return label or spec.get("audio_text") or spec.get("prompt") or None
 
 
 def review_sheet(plan: dict, banks: list[dict]) -> str:

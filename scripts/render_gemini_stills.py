@@ -161,11 +161,11 @@ def render(pack_path: Path, asset_id: str, *, execute: bool, ceiling: Decimal | 
                                                            if reference.is_relative_to(root) else str(reference),
                                                            "sha256": digest(reference)},
               "human_approval": "pending"}
-    with receipt.open("x", encoding="utf-8") as stream:
+    with receipt.open("x", encoding="utf-8", newline="\n") as stream:
         json.dump(record, stream, indent=2)
 
     def save():
-        receipt.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        receipt.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     started = time.monotonic()
     try:

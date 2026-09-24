@@ -1,7 +1,7 @@
 {
   "brief_version": 1,
   "captions": false,
-  "note": "Unit 2 rebuild (2026-09-23): new lesson for the numbers six to ten.",
+  "note": "2026-09-24 reuse pass: Learn holds only six-ten; practice asks What number is it? across all ten numeral cards and counts taught nouns.",
   "target": "backend/lessons/unit_2/lesson-2-numbers-6-10.yaml",
   "lesson": {
     "id": "lesson-2-numbers-6-10",
@@ -14,7 +14,7 @@
     "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
     "sub_lesson_id": "2.7",
     "sub_lesson_title": "Numbers 6-10",
-    "goal": "Recognize, hear, and say the number words six through ten and name a number card with It is.",
+    "goal": "Recognize, hear and say the number words six to ten, answer What number is it? for all ten numbers, and count bags, chairs, books, cars and pens.",
     "vocabulary": [
       "six",
       "seven",
@@ -25,16 +25,29 @@
     "review_vocabulary": [
       "it",
       "is",
+      "what",
+      "number",
       "one",
       "two",
       "three",
       "four",
-      "five"
+      "five",
+      "bag",
+      "chair",
+      "book",
+      "car",
+      "pen"
     ],
-    "grammar_function": "Number word; It is + number for a number card.",
-    "prerequisite": "2.6 numbers one to five and It is + number.",
-    "speaking_outcome": "Say the numbers six to ten and name each number card.",
-    "content_revision": 1
+    "grammar_function": "Number words; What number is it? / It is number + number for all ten numeral cards; number + plural noun.",
+    "prerequisite": "2.6 number and one to five; 2.2-2.3 car, book, pen, bag, chair.",
+    "speaking_outcome": "Say the numbers six to ten, answer What number is it? and count known objects.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 7,
+    "Use": 7
   },
   "items": [
     {
@@ -44,24 +57,10 @@
       "kind": "number-word"
     },
     {
-      "text": "It is six.",
-      "es": "Es el seis.",
-      "image": "a1_photo_number_card_06_v1.webp",
-      "kind": "number-sentence",
-      "builds_on": true
-    },
-    {
       "text": "Seven",
       "es": "Siete",
       "image": "a1_photo_number_card_07_v1.webp",
       "kind": "number-word"
-    },
-    {
-      "text": "It is seven.",
-      "es": "Es el siete.",
-      "image": "a1_photo_number_card_07_v1.webp",
-      "kind": "number-sentence",
-      "builds_on": true
     },
     {
       "text": "Eight",
@@ -70,24 +69,10 @@
       "kind": "number-word"
     },
     {
-      "text": "It is eight.",
-      "es": "Es el ocho.",
-      "image": "a1_photo_number_card_08_v1.webp",
-      "kind": "number-sentence",
-      "builds_on": true
-    },
-    {
       "text": "Nine",
       "es": "Nueve",
       "image": "a1_photo_number_card_09_v1.webp",
       "kind": "number-word"
-    },
-    {
-      "text": "It is nine.",
-      "es": "Es el nueve.",
-      "image": "a1_photo_number_card_09_v1.webp",
-      "kind": "number-sentence",
-      "builds_on": true
     },
     {
       "text": "Ten",
@@ -96,12 +81,257 @@
       "kind": "number-word"
     },
     {
-      "text": "It is ten.",
-      "es": "Es el diez.",
+      "text": "It is number four.",
+      "es": "Es el número cuatro.",
+      "image": "a1_photo_number_card_04_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number five.",
+      "es": "Es el número cinco.",
+      "image": "a1_photo_number_card_05_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number six.",
+      "es": "Es el número seis.",
+      "image": "a1_photo_number_card_06_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number seven.",
+      "es": "Es el número siete.",
+      "image": "a1_photo_number_card_07_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number eight.",
+      "es": "Es el número ocho.",
+      "image": "a1_photo_number_card_08_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number nine.",
+      "es": "Es el número nueve.",
+      "image": "a1_photo_number_card_09_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number ten.",
+      "es": "Es el número diez.",
       "image": "a1_photo_number_card_10_v1.webp",
       "kind": "number-sentence",
-      "builds_on": true
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "Six bags.",
+      "es": "Seis bolsas.",
+      "image": "unit2_six_white_bags.webp",
+      "kind": "count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Seven bags.",
+        "Five bags."
+      ]
+    },
+    {
+      "text": "Seven chairs.",
+      "es": "Siete sillas.",
+      "image": "a1_photo_u2_seven_chairs_v1.webp",
+      "kind": "count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Six chairs.",
+        "Eight chairs."
+      ]
+    },
+    {
+      "text": "Eight books.",
+      "es": "Ocho libros.",
+      "image": "a1_photo_u2_eight_books_v1.webp",
+      "kind": "count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Seven books.",
+        "Nine books.",
+        "Three books."
+      ]
+    },
+    {
+      "text": "Nine cars.",
+      "es": "Nueve automóviles.",
+      "image": "a1_photo_u2_nine_cars_v1.webp",
+      "kind": "count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Eight cars.",
+        "Ten cars.",
+        "Two cars."
+      ]
+    },
+    {
+      "text": "Ten pens.",
+      "es": "Diez bolígrafos.",
+      "image": "a1_n10.webp",
+      "kind": "count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Nine pens.",
+        "Eight pens.",
+        "Four pens."
+      ]
     }
   ],
-  "pool": []
+  "pool": [
+    {
+      "text": "One",
+      "es": "Uno",
+      "image": "a1_photo_number_card_01_v1.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Two",
+      "es": "Dos",
+      "image": "a1_photo_number_card_02_v1.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Three",
+      "es": "Tres",
+      "image": "a1_photo_number_card_03_v1.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Four",
+      "es": "Cuatro",
+      "image": "a1_photo_number_card_04_v1.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Five",
+      "es": "Cinco",
+      "image": "a1_photo_number_card_05_v1.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "It is number one.",
+      "es": "Es el número uno.",
+      "image": "a1_photo_number_card_01_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number two.",
+      "es": "Es el número dos.",
+      "image": "a1_photo_number_card_02_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "It is number three.",
+      "es": "Es el número tres.",
+      "image": "a1_photo_number_card_03_v1.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?"
+    },
+    {
+      "text": "Seven bags.",
+      "es": "Siete bolsas.",
+      "kind": "count"
+    },
+    {
+      "text": "Five bags.",
+      "es": "Cinco bolsas.",
+      "kind": "count"
+    },
+    {
+      "text": "Six chairs.",
+      "es": "Seis sillas.",
+      "kind": "count"
+    },
+    {
+      "text": "Eight chairs.",
+      "es": "Ocho sillas.",
+      "kind": "count"
+    },
+    {
+      "text": "Seven books.",
+      "es": "Siete libros.",
+      "kind": "count"
+    },
+    {
+      "text": "Nine books.",
+      "es": "Nueve libros.",
+      "kind": "count"
+    },
+    {
+      "text": "Eight cars.",
+      "es": "Ocho automóviles.",
+      "kind": "count"
+    },
+    {
+      "text": "Ten cars.",
+      "es": "Diez automóviles.",
+      "kind": "count"
+    },
+    {
+      "text": "Nine pens.",
+      "es": "Nueve bolígrafos.",
+      "kind": "count"
+    },
+    {
+      "text": "Eight pens.",
+      "es": "Ocho bolígrafos.",
+      "kind": "count"
+    },
+    {
+      "text": "Two cars.",
+      "es": "Dos automóviles.",
+      "image": "a1_two-blue-cars.webp",
+      "kind": "count"
+    },
+    {
+      "text": "Three books.",
+      "es": "Tres libros.",
+      "image": "a1_three-green-books.webp",
+      "kind": "count"
+    },
+    {
+      "text": "Four pens.",
+      "es": "Cuatro bolígrafos.",
+      "image": "a1_four-yellow-pens.webp",
+      "kind": "count"
+    }
+  ]
 }

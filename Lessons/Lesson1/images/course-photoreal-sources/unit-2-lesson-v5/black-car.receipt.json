@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "698348c1-445e-403b-ab7b-289dd2ff28e4",
+  "asset_id": "black-car",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:22:57.066539+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nColor photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.\n\nBLACK. One shiny solid-black small car parked alone on a pale sunlit concrete driveway in front of a plain light-cream wall, seen from the front three-quarter angle, complete with all visible wheels whole. No license plate or a completely blank one; no logos, badges or text; no other vehicles or people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "gWq1aoDKG_-Hz7IP8dLWoA0",
+  "usage": {
+    "promptTokenCount": 282,
+    "candidatesTokenCount": 1303,
+    "totalTokenCount": 1800,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 282
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 215,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137144",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 282,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 215
+  },
+  "elapsed_seconds": 23.37,
+  "output": "output/imagegen/unit-2-lesson-v5/black-car.png",
+  "sha256": "fb661b9994347f54e0c2e9f9da4bd26165c580200f1872da09fbe9eb4dc50fc4",
+  "byte_count": 5381785,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

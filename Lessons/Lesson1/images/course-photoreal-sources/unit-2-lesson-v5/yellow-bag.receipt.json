@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ebfd7fb4-6497-49ce-8341-b70566d05d68",
+  "asset_id": "yellow-bag",
+  "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+  "started_at": "2026-09-24T18:22:35.469912+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except numerals the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nColor photo: exactly ONE object. The whole object is the named color, apart from natural black tires, glass or metal hardware. It is centered, complete and uncropped, and fills about half of the photo width. The background is calm and a clearly different color, so the object's color is unmistakable; no other red, blue, green, yellow, black or white object is large enough to compete.\n\nYELLOW. One bright yellow backpack, solid yellow fabric with yellow straps and zipper tape, standing upright alone on a plain light-grey floor in front of a plain light-grey wall, front view, complete and centered. No logos, tags, text or patches.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "a2q1atKpLI6UmtkP5ZbF2QU",
+  "usage": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 1257,
+    "totalTokenCount": 1688,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 269
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 162,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136482",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 269,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 162
+  },
+  "elapsed_seconds": 20.8,
+  "output": "output/imagegen/unit-2-lesson-v5/yellow-bag.png",
+  "sha256": "248ce314788eda2b0de8804bb1f563eeb3ba2aa6c5fcb0143d0d5cc8ad82f2a3",
+  "byte_count": 4871018,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

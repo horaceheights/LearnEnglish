@@ -127,6 +127,19 @@ class ContentEngineAuthorTests(unittest.TestCase):
         with self.assertRaisesRegex(BriefError, "Spanish of its question"):
             propose_lesson(brief, self.standards)
 
+    def test_preferred_wrong_options_keep_one_variable(self):
+        brief = json.loads((ROOT / "docs/product/content-briefs/unit-2/2.6-numbers-1-5.json").read_text(encoding="utf-8"))
+        plan, banks = propose_lesson(brief, self.standards)
+        count_banks = [bank for bank in banks if bank["correct"] == "Three books." and not bank["images"]]
+        self.assertTrue(count_banks)
+        for bank in count_banks:
+            self.assertEqual(set(bank["wrong"]), {"Two books.", "Four books."})
+        lesson = compose_lesson(plan)
+        practice_only = {item["text"] for item in brief["items"] if item.get("learn") is False}
+        reviewed = {card["slide_id"] for card in lesson["cards"]
+                    if (card.get("answer_audio_text") or card.get("audio_text")) in practice_only}
+        self.assertTrue(reviewed and reviewed <= set(lesson["purposeful_review_slides"]))
+
     def test_the_proposal_meets_the_lesson_practice_standards(self):
         lesson = CatalogLesson("1.6", 1, lesson_role(self.lesson), self.lesson, BRIEF)
         findings = [finding for finding in audit([lesson], self.standards)
