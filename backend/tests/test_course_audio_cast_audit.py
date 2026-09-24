@@ -106,9 +106,10 @@ EXACT_ROLE_CHANGES = {
 # people and transport riders say (+12 net).
 # The Unit 7 rebuild updates 7.9 explicit speakers (-2 net).
 # The Unit 7 quality fix gives 7.9 U7's "I like music." its pictured man's voice (+2).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 575
+# The Unit 1 rebuild trims five Who questions from Lesson 1.9, two speaker fields each (-10).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 565
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "ac59973612383e2b1bbdda5386cd6a03f1329c72febbcdad7411e73b31662845"
+    "9eeda1a09e0a9dbb29935c7eaa3791110871ce68f9baa1a1b28eca39b510c501"
 )
 
 

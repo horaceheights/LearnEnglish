@@ -1,12 +1,13 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 
 const generatedRoot = path.join(__dirname, '..', 'src', 'generated');
 const lessonFiles = fs.readdirSync(generatedRoot)
   .filter((name) => /^lesson-.*\.json$/.test(name));
 
-assert.equal(lessonFiles.length, 70, 'Expected all 70 embedded A1 lesson snapshots.');
+assert.equal(lessonFiles.length, courseContract.lessonCount, 'Expected every embedded A1 lesson snapshot.');
 
 const units = new Set();
 let textTileCards = 0;

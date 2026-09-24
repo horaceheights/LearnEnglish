@@ -1,6 +1,5 @@
 import json
 import re
-import subprocess
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -70,14 +69,10 @@ class AnswerChoiceFormTests(unittest.TestCase):
             card = next(card for card in lesson.cards if card.slide_id == slide_id)
             self.assertTrue(all(len(option.label.split()) == 1 for option in card.options))
 
-    def test_authoring_and_both_mobile_exports_match_canonical_choices(self):
-        result = subprocess.run(
-            ["node", "--input-type=module", "-e",
-             "import { lesson16 } from './scripts/build_unit_1_lessons.mjs'; console.log(JSON.stringify(lesson16));"],
-            cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=True,
-        )
-        authored = json.loads(result.stdout)
-        canonical = json.loads((ROOT / "backend/lessons/unit_1/1.6_family_actions.yaml").read_text(encoding="utf-8"))
+    def test_both_mobile_exports_match_canonical_choices(self):
+        # The canonical lesson file is the authoring record since the engine replaced
+        # the legacy Unit 1 builder (2026-09-23); both exports must match it exactly.
+        canonical = json.loads((ROOT / "backend/lessons/unit_1/1.7_family_actions.yaml").read_text(encoding="utf-8"))
         generated = ROOT / "mobile/src/generated"
         snapshot = json.loads((generated / "lesson-6-family-actions.json").read_text(encoding="utf-8"))
         course = json.loads((generated / "a1-course.json").read_text(encoding="utf-8"))
@@ -85,29 +80,23 @@ class AnswerChoiceFormTests(unittest.TestCase):
         for card in canonical["cards"]:
             if card["stage"] not in {"Recognize", "Listen"}:
                 continue
-            for source in (authored, snapshot, embedded):
+            for source in (snapshot, embedded):
                 other = next(c for c in source["cards"] if c["slide_id"] == card["slide_id"])
                 self.assertEqual(card["options"], other["options"], card["slide_id"])
 
     def test_review_lesson_varies_ordinary_action_banks_and_matches_exports(self):
-        result = subprocess.run(
-            ["node", "--input-type=module", "-e",
-             "import { lesson19 } from './scripts/build_unit_1_lessons.mjs'; console.log(JSON.stringify(lesson19));"],
-            cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=True,
-        )
-        authored = json.loads(result.stdout)
         generated = ROOT / "mobile/src/generated"
         snapshot = json.loads((generated / "lesson-9-unit-review.json").read_text(encoding="utf-8"))
         course = json.loads((generated / "a1-course.json").read_text(encoding="utf-8"))
-        embedded = next(lesson for lesson in course if lesson["id"] == authored["id"])
-        lesson = LESSONS[authored["id"]]
+        embedded = next(lesson for lesson in course if lesson["id"] == "lesson-9-unit-review")
+        lesson = LESSONS["lesson-9-unit-review"]
         from scripts.answer_choice_guardrail import analyze_bank
         for slide_id in ("R6", "R8", "R12", "A6", "A9"):
             card = next(card for card in lesson.cards if card.slide_id == slide_id)
             _, hard, conflicts = analyze_bank(card)
             self.assertEqual([], hard)
             self.assertEqual({}, conflicts, slide_id)
-            for source in (authored, snapshot, embedded):
+            for source in (snapshot, embedded):
                 other = next(c for c in source["cards"] if c["slide_id"] == slide_id)
                 self.assertEqual([o.model_dump() for o in card.options], other["options"], slide_id)
 

@@ -109,6 +109,8 @@ PLURAL_SEMANTIC_NOUNS = (
 )
 SEMANTIC_ASSET_ACTION_ADDITIONS = {
     "grandparents_talking": {"sitting"},
+    # Inspected 2026-09-23: both babies sit upright on the rug.
+    "family_babies": {"sitting"},
     "mission_game_setup": {"playing"},
     "a1_u1_reunion_10_eat_drink": {"eating", "drinking"},
     "a1_u1_reunion_11_read_write": {"reading", "writing"},
@@ -205,6 +207,7 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
     "lesson-2-pronouns",
     "lesson-3-two-people",
     "lesson-4-children-siblings",
+    "lesson-1-5-brothers-sisters-adults",
     "lesson-5-parents-grandparents",
     "lesson-6-family-actions",
     "lesson-7-is-are-not",
@@ -941,14 +944,14 @@ def validate_mission_contracts(lessons=None) -> list[str]:
         introduced = set(introduced_order)
         if len(introduced_order) != 46 or len(introduced) != 46:
             errors.append(
-                "Unit 1 Lessons 1.1-1.8 must declare exactly 46 unique vocabulary "
+                "Unit 1 foundation Lessons 1.1-1.9 must declare exactly 46 unique vocabulary "
                 "targets before the final mission."
             )
         review_targets = [str(word).strip().lower() for word in lesson.review_vocabulary]
         if len(review_targets) != len(set(review_targets)) or set(review_targets) != introduced:
             errors.append(
                 f"{lesson.id} review_vocabulary must be the exact 46-item union from "
-                "Lessons 1.1-1.8."
+                "foundation Lessons 1.1-1.9."
             )
 
         successful_tokens: set[str] = set()

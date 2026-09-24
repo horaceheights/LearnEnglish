@@ -454,18 +454,21 @@ The A1 course contains seven units. Lessons are numbered consecutively within ea
 6. `Around Town`
 7. `Everyday Needs and A1 Integration`
 
-Unit 1 lessons are:
+Unit 1 lessons are (11 since the 2026-09-23 rebuild split the family words):
 
 1. `1.1 Meet the People`
 2. `1.2 People in Action`
 3. `1.3 Two People: They and Are`
-4. `1.4 Children and Siblings`
-5. `1.5 Parents and Grandparents`
-6. `1.6 Family Actions`
-7. `1.7 What They Are Not Doing`
-8. `1.8 Who Is He? Who Are They?`
-9. `1.9 Unit 1 Story Review`
-10. `1.10 ¡Todos a la celebración!`
+4. `1.4 Children and Babies`
+5. `1.5 Brothers, Sisters, and Adults`
+6. `1.6 Parents and Grandparents`
+7. `1.7 Family Actions`
+8. `1.8 What They Are Not Doing`
+9. `1.9 Who Is He? Who Are They?`
+10. `1.10 Unit 1 Story Review`
+11. `1.11 ¡Todos a la celebración!`
+
+Lesson IDs did not change, so progress is kept: `lesson-4-children-siblings` is now 1.4 Children and Babies, `lesson-5-parents-grandparents` is 1.6, and `lesson-1-5-brothers-sisters-adults` is new. Earlier guardrail text that says "Lesson 1.10" for the celebration mission, "Lesson 1.9" for the Unit 1 review or "Lesson 1.8" for the Who lesson refers to the same lessons, now numbered 1.11, 1.10 and 1.9. The mission's 46-item vocabulary contract is unchanged: the family words were redistributed, not replaced.
 
 Do not reuse old lesson IDs or reintroduce the removed standalone pronunciation lesson. Pronunciation belongs inside each lesson's Speak stage.
 
@@ -507,7 +510,7 @@ For accounts with QA access, the mobile course menu exposes `QA test` directly i
 Primary curriculum sources:
 
 - [`course-design-a1.md`](course-design-a1.md): syllabus, vocabulary progression, and roadmap.
-- `scripts/build_unit_1_lessons.mjs`: reproducible Unit 1 lesson authoring.
+- `docs/product/content-briefs/unit-1/`: engine briefs for the rebuilt Unit 1 family lessons (1.4–1.6); the other Unit 1 lessons are authored in their canonical files. The legacy `scripts/build_unit_1_lessons.mjs` was retired on 2026-09-23 because it no longer reproduced the live lessons.
 - `scripts/build_a1_units_2_7.py`: reproducible Units 2-7 lesson authoring from the approved course canvas.
 - `backend/lessons/unit_1/`: canonical lesson content.
 - `backend/lessons/unit_2/` through `backend/lessons/unit_7/`: canonical Units 2-7 content.
@@ -662,6 +665,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 - 2026-09-07: Mission scenes standardized on one complete measured 3:2 canvas in portrait and landscape, with target coordinates mounted inside that canvas rather than a mismatched `cover` crop. Every visible candidate now receives exactly one cue before the beat can advance; round targets represent individuals and neutral elongated capsules represent pairs or groups. Short landscape viewports place the instructions and cue progress in a side rail so the uncropped scene can use the full available height without scrolling. The placement test also pins the SHA-256 of every visually reviewed mission scene, so a same-filename image replacement cannot silently inherit obsolete target coordinates.
 - 2026-09-23: The user approved measurable practice and pacing standards before any A1+ work: 40–42 cards per standard lesson, at most 8 new items per lesson, and at least 5 exposures across 4 stages (including Listen or Speak) with reuse in 2 later lessons. Language may not be used before it is taught, and a unit's size follows its content, not a fixed ten. A1 will be redone unit by unit through a shared, data-driven content engine, and the ratcheted `audit_content_practice.py` check starts from a baseline of existing findings.
 - 2026-09-23: The fixed "70 lessons in seven units of ten" release rule became a manifest-pinned count. `mobile/release-integrity.json` pins each unit's lesson count, tests and scripts read it through `scripts/course_contract.py` / `mobile/tests/courseContract.cjs`, and review and mission roles come from lesson data instead of lesson numbers 9 and 10. The backend loader reads only this course's `unit_*` folders, so another course kept under `backend/lessons` cannot leak into A1.
+- 2026-09-23: Unit 1 was rebuilt through the content engine to meet the practice standards: the overloaded family lessons (9 and 10 new items) became three lessons of 5–7 items (1.4–1.6), Who Is He? was trimmed from 50 to 42 cards, and the unit grew to 11 lessons. Wrong options avoid any photo that also shows the correct people (a boy is also a child; grandparents are also parents). Photos moved between lessons are recorded as `curriculum-split-moves-image` preservation plans. The reuse of babies, child, adult(s), grandmother and grandchildren in later lessons is carried forward to the Units 2–7 rebuilds.
 
 - 2026-09-03: Full-bleed media now explicitly includes encoded video pixels. The old solid-side-fill and cooking/walking inset exceptions contradicted the image standard and were enforced by a source-regex test. They are superseded by landscape-source generation, rejection of narrow footage, and decoded-frame QA. Seven replacement scenes, five matched posters, and the parents landscape master remove the known encoded bands. Release preflight decodes every mapped video, and generation checks the input pixels before sending a paid request.
 

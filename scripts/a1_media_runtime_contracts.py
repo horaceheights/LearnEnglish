@@ -656,9 +656,11 @@ def course_browser_media_usages(
             viewport_height=102,
         )
 
-    if len(usages) != 147:
+    # Each lesson has a list thumbnail and a continue thumbnail; each unit has one card.
+    expected = 2 * len(lessons_by_id) + len(unit_lessons)
+    if len(usages) != expected:
         raise ValueError(
-            f"A1 course browser must expose exactly 147 reviewed thumbnail usages, "
+            f"A1 course browser must expose exactly {expected} reviewed thumbnail usages, "
             f"got {len(usages)}"
         )
     return usages

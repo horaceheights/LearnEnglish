@@ -45,3 +45,9 @@ These live in `scripts/parity_pack.py`, `scripts/render_course_stills.py` and `s
 | Never crop a generated scene into compliance | `build_unit_2_mission_pack.py`, `build_unit_2_review_pack.py` | Open. Belongs to the engine's media step, still to be built. Until then, the unit's existing media flow applies. |
 
 Unit-specific reviewed data those builders reference stays as data and is not retired: mission head and chest anchors, reviewed photo edits, preservation plans, and answer-choice contracts.
+
+## Retired builders
+
+| Builder | Retired | Replacement |
+|---|---|---|
+| `scripts/build_unit_1_lessons.mjs` | 2026-09-23, Unit 1 rebuild | Engine briefs in `docs/product/content-briefs/unit-1/` for 1.4–1.6; the canonical lesson files for the rest of Unit 1. Its rules were already enforced course-wide (see above); its mission anchors stay as reviewed data in `scripts/mission-head-anchors.json` and `scripts/mission-group-chest-anchors.json`. |

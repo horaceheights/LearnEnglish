@@ -21,6 +21,7 @@ UNIT_1_IDS = [
     "lesson-2-pronouns",
     "lesson-3-two-people",
     "lesson-4-children-siblings",
+    "lesson-1-5-brothers-sisters-adults",
     "lesson-5-parents-grandparents",
     "lesson-6-family-actions",
     "lesson-7-is-are-not",
@@ -32,7 +33,8 @@ EXPECTED_TITLES = [
     "Meet the People",
     "People in Action",
     "Two People: They and Are",
-    "Children and Siblings",
+    "Children and Babies",
+    "Brothers, Sisters, and Adults",
     "Parents and Grandparents",
     "Family Actions",
     "What They Are Not Doing",
@@ -46,13 +48,11 @@ EXPECTED_VOCABULARY = {
     },
     "lesson-2-pronouns": {"the", "eating", "drinking", "reading", "writing"},
     "lesson-3-two-people": {"and", "they", "are", "running", "sitting", "swimming", "sleeping"},
-    "lesson-4-children-siblings": {
-        "family", "baby", "babies", "child", "children",
-        "brother", "brothers", "sister", "sisters",
-    },
+    # 2026-09-23 rebuild: the family words are split so no lesson introduces more than 8.
+    "lesson-4-children-siblings": {"family", "baby", "babies", "child", "children"},
+    "lesson-1-5-brothers-sisters-adults": {"brother", "brothers", "sister", "sisters", "an", "adult", "adults"},
     "lesson-5-parents-grandparents": {
-        "an", "adult", "adults", "father", "mother", "parents",
-        "grandfather", "grandmother", "grandparents", "grandchildren",
+        "father", "mother", "parents", "grandfather", "grandmother", "grandparents", "grandchildren",
     },
     "lesson-6-family-actions": {"playing", "studying", "working", "cooking", "talking"},
     "lesson-7-is-are-not": {"not"},
@@ -65,10 +65,11 @@ EXPECTED_STAGE_COUNTS = {
     "lesson-2-pronouns": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-3-two-people": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-4-children-siblings": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
-    "lesson-5-parents-grandparents": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 8},
+    "lesson-1-5-brothers-sisters-adults": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-5-parents-grandparents": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-6-family-actions": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-7-is-are-not": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
-    "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 10, "Speak": 10, "Use": 10},
+    "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-9-unit-review": {"Learn": 14, "Recognize": 14, "Listen": 10, "Speak": 8, "Use": 8},
 }
 UNIT_ONE_GOLD = [
@@ -165,11 +166,11 @@ class LessonStructureTests(unittest.TestCase):
         lesson = SimpleNamespace(id="synthetic-semantic-card", cards=[card])
         return validate_family_adult_ambiguity({lesson.id: lesson})
 
-    def test_unit_1_follows_the_approved_ten_lesson_roadmap(self):
+    def test_unit_1_follows_the_approved_lesson_roadmap(self):
         unit_1 = [lesson for lesson in LESSONS.values() if lesson.unit_id == "unit-1"]
         self.assertEqual(UNIT_1_IDS, [lesson.id for lesson in unit_1])
         self.assertEqual(
-            [f"1.{index}" for index in range(1, 11)],
+            [f"1.{index}" for index in range(1, len(UNIT_1_IDS) + 1)],
             [lesson.sub_lesson_id for lesson in unit_1],
         )
         self.assertEqual(EXPECTED_TITLES, [lesson.sub_lesson_title for lesson in unit_1])
@@ -268,7 +269,7 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.pedagogy_note for card in lesson.cards))
 
     def test_rebuilt_unit_1_stages_preserve_story_order(self):
-        for lesson_id in UNIT_1_IDS[1:9]:
+        for lesson_id in UNIT_1_IDS[1:-1]:
             lesson = LESSONS[lesson_id]
             for stage in STAGES:
                 beats = []
@@ -282,7 +283,7 @@ class LessonStructureTests(unittest.TestCase):
                     self.assertEqual(list(range(1, len(beats) + 1)), beats)
 
     def test_new_lessons_do_not_replay_the_previous_lesson_cards(self):
-        unit_lessons = [LESSONS[lesson_id] for lesson_id in UNIT_1_IDS[:9]]
+        unit_lessons = [LESSONS[lesson_id] for lesson_id in UNIT_1_IDS[:-1]]
 
         def card_signature(card):
             correct = next(
@@ -314,7 +315,7 @@ class LessonStructureTests(unittest.TestCase):
         }
         earlier_media = {
             urlparse(url).path.rsplit("/", 1)[-1]
-            for lesson_id in UNIT_1_IDS[:8]
+            for lesson_id in UNIT_1_IDS[:-2]
             for card in LESSONS[lesson_id].cards
             for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
             if url
@@ -325,7 +326,7 @@ class LessonStructureTests(unittest.TestCase):
 
         declared = {
             word.lower()
-            for lesson_id in UNIT_1_IDS[:8]
+            for lesson_id in UNIT_1_IDS[:-2]
             for word in LESSONS[lesson_id].vocabulary
         }
         review_text = " ".join(
@@ -409,7 +410,7 @@ class LessonStructureTests(unittest.TestCase):
         }
         earlier_media = {
             urlparse(url).path.rsplit("/", 1)[-1]
-            for lesson_id in UNIT_1_IDS[:9]
+            for lesson_id in UNIT_1_IDS[:-1]
             for card in LESSONS[lesson_id].cards
             for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
             if url
@@ -486,7 +487,7 @@ class LessonStructureTests(unittest.TestCase):
                 )
 
     def test_each_rebuilt_lesson_ends_with_ordered_multi_word_construction(self):
-        for lesson_id in UNIT_1_IDS[1:9]:
+        for lesson_id in UNIT_1_IDS[1:-1]:
             cards = [card for card in LESSONS[lesson_id].cards if card.correct_option_ids]
             with self.subTest(lesson=lesson_id):
                 self.assertTrue(cards)
@@ -669,25 +670,41 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertEqual(correct_option.label, card.answer_audio_text)
 
     def test_lesson_8_has_separate_question_answer_pairs_in_every_stage(self):
-        identities = ['father', 'mother', 'parents', 'children', 'grandparents']
-        questions = ['Who is he?', 'Who is she?', 'Who are they?', 'Who are they?', 'Who are they?']
-        answers = ['He is the father.', 'She is the mother.', 'They are the parents.', 'They are the children.', 'They are the grandparents.']
+        questions = {'father': 'Who is he?', 'mother': 'Who is she?', 'parents': 'Who are they?',
+                     'children': 'Who are they?', 'grandparents': 'Who are they?'}
+        answers = {'father': 'He is the father.', 'mother': 'She is the mother.', 'parents': 'They are the parents.',
+                   'children': 'They are the children.', 'grandparents': 'They are the grandparents.'}
+        # 2026-09-23: trimmed to 42 cards. Learn and Recognize keep all five pairs; Listen drops
+        # the repeated children pair; Speak ends on the grandparents answer; Use keeps its last
+        # seven cards so the final four remain whole-sentence constructions.
+        all_pairs = [(kind, who) for who in questions for kind in ('question', 'answer')]
+        expected = {
+            'Learn': all_pairs, 'Recognize': all_pairs,
+            'Listen': [pair for pair in all_pairs if pair[1] != 'children'],
+            'Speak': all_pairs[:6] + [('answer', 'grandparents')],
+            'Use': all_pairs[3:],
+        }
         for stage in STAGES:
             cards = [card for card in LESSONS['lesson-8-who'].cards if card.stage == stage]
-            self.assertEqual(10, len(cards))
-            for index, identity in enumerate(identities):
-                question, answer = cards[index * 2:index * 2 + 2]
-                def text(card):
-                    return card.answer_audio_text if stage in {'Recognize', 'Use'} and card.answer_audio_text else card.audio_text
-                self.assertEqual(questions[index], text(question))
-                self.assertEqual(answers[index], text(answer))
-                self.assertEqual('male-character', question.audio_speaker)
-                question_image = question.prompt_image_url or next(option.image_url for option in question.options if option.id == question.correct_option_id)
-                self.assertIn(f'a1_who_question_{identity}.webp', question_image)
-                self.assertNotIn('a1_who_question_', answer.prompt_image_url or '')
-                self.assertTrue(all('a1_who_question_' not in (option.image_url or '') for option in answer.options))
-                if stage == 'Listen':
-                    self.assertEqual(1, sum(option.label == questions[index] for option in question.options))
+            self.assertEqual(len(expected[stage]), len(cards), stage)
+
+            def text(card):
+                return card.answer_audio_text if stage in {'Recognize', 'Use'} and card.answer_audio_text else card.audio_text
+
+            for card, (kind, identity) in zip(cards, expected[stage]):
+                with self.subTest(stage=stage, slide=card.slide_id):
+                    if kind == 'question':
+                        self.assertEqual(questions[identity], text(card))
+                        self.assertEqual('male-character', card.audio_speaker)
+                        image = card.prompt_image_url or next(
+                            option.image_url for option in card.options if option.id == card.correct_option_id)
+                        self.assertIn(f'a1_who_question_{identity}.webp', image)
+                        if stage == 'Listen':
+                            self.assertEqual(1, sum(option.label == questions[identity] for option in card.options))
+                    else:
+                        self.assertEqual(answers[identity], text(card))
+                        self.assertNotIn('a1_who_question_', card.prompt_image_url or '')
+                        self.assertTrue(all('a1_who_question_' not in (option.image_url or '') for option in card.options))
 
     def test_lesson_10_assesses_every_unit_1_who_form(self):
         mission = LESSONS["lesson-10-family-mission"]
@@ -756,53 +773,31 @@ class LessonStructureTests(unittest.TestCase):
 
         self.assertEqual([], findings, "\n".join(findings))
 
-    def test_lesson_1_5_grandchildren_scene_has_known_correct_semantics(self):
+    def test_lesson_1_6_grandchildren_scene_has_known_correct_semantics(self):
         lesson = LESSONS["lesson-5-parents-grandparents"]
-        cards = [
-            card
-            for card in lesson.cards
-            if card.slide_id in {"L10", "R10"}
-        ]
+        phrase = "The grandparents and the grandchildren"
+        cards = [card for card in lesson.cards if card.slide_id in {"L10", "R10"}]
         self.assertEqual(2, len(cards))
         for card in cards:
-            self.assertEqual(
-                "The grandparents and the grandchildren are family.",
-                card.audio_text or card.prompt,
+            self.assertEqual(phrase, card.audio_text or card.answer_audio_text)
+            scene = card.prompt_image_url or next(
+                option.image_url for option in card.options if option.id == card.correct_option_id
             )
-            correct_option = next(
-                option for option in card.options if option.id == card.correct_option_id
-            )
-            self.assertEqual(
-                "/lesson-assets/family_grandparents_grandchildren.webp",
-                correct_option.image_url,
-            )
+            self.assertEqual("/lesson-assets/family_grandparents_grandchildren.webp", scene)
         scoped_lesson = SimpleNamespace(id=lesson.id, cards=cards)
+        self.assertEqual([], validate_family_adult_ambiguity({lesson.id: scoped_lesson}))
 
-        self.assertEqual(
-            [],
-            validate_family_adult_ambiguity({lesson.id: scoped_lesson}),
-        )
-
-        recognize_card = next(card for card in cards if card.slide_id == "R10")
+        # The same phrase on a grandparents-only photo must be rejected.
         unsupported_card = self._semantic_card(
-            prompt=recognize_card.prompt,
-            audio_text=recognize_card.audio_text,
-            interaction_type=recognize_card.interaction_type,
+            prompt=phrase,
+            audio_text=phrase,
+            interaction_type="t2i2",
             correct_option_id="correct",
             options=[
-                self._semantic_option(
-                    "correct",
-                    recognize_card.options[0].label,
-                    "/lesson-assets/family_grandparents.webp",
-                ),
-                self._semantic_option(
-                    "wrong-1",
-                    "He is the father.",
-                    "/lesson-assets/family_father.webp",
-                ),
+                self._semantic_option("correct", phrase, "/lesson-assets/family_grandparents.webp"),
+                self._semantic_option("wrong-1", "He is the father.", "/lesson-assets/family_father.webp"),
             ],
         )
-
         findings = self._semantic_findings(unsupported_card)
         self.assertEqual(1, len(findings))
         self.assertIn("declared correct answers", findings[0])
@@ -1558,9 +1553,10 @@ class LessonStructureTests(unittest.TestCase):
     def test_unit_1_construction_rollout_preserves_scaffold_and_bounded_banks(self):
         expected = {
             '1.2': ['U4', 'U5', 'U6', 'U7'], '1.3': ['U4', 'U5', 'U6'],
-            '1.4': ['U4', 'U5', 'U6', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7', 'U8'],
+            '1.4': ['U4', 'U5', 'U6', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7'],
             '1.6': ['U4', 'U5', 'U6', 'U7'], '1.7': ['U4', 'U5', 'U6', 'U7'],
-            '1.8': ['U7', 'U8', 'U9', 'U10'], '1.9': ['U5', 'U6', 'U8'],
+            '1.8': ['U4', 'U5', 'U6', 'U7'], '1.9': ['U7', 'U8', 'U9', 'U10'],
+            '1.10': ['U5', 'U6', 'U8'],
         }
         for lesson in LESSONS.values():
             if lesson.sub_lesson_id not in expected:
@@ -1585,14 +1581,15 @@ class LessonStructureTests(unittest.TestCase):
                 else:
                     self.assertGreaterEqual(card.prompt.count('___'), 2)
                     self.assertGreaterEqual(len(card.correct_option_ids or []), 2)
-                if lesson.sub_lesson_id == '1.8' and card.slide_id in {'U7', 'U9'}:
+                if lesson.sub_lesson_id == '1.9' and card.slide_id in {'U7', 'U9'}:
                     self.assertEqual('male-character', card.audio_speaker)
                     self.assertEqual('male-character', card.answer_audio_speaker)
 
     def test_new_words_continue_into_active_stages(self):
         expected_examples = {
             "lesson-3-two-people": ["They are running.", "He is swimming.", "She is sleeping."],
-            "lesson-4-children-siblings": ["They are children.", "They are brothers.", "They are sisters."],
+            "lesson-4-children-siblings": ["They are children.", "They are babies.", "The baby is sleeping."],
+            "lesson-1-5-brothers-sisters-adults": ["They are brothers.", "They are sisters.", "They are adults."],
             "lesson-5-parents-grandparents": ["They are the parents.", "They are the grandparents."],
             "lesson-6-family-actions": ["The father is working.", "The mother is cooking.", "The parents are talking."],
             "lesson-7-is-are-not": ["He is not cooking.", "They are not sitting."],

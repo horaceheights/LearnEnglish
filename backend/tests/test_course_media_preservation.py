@@ -174,6 +174,22 @@ class MediaPreservationTests(unittest.TestCase):
         self.assertEqual(review_reuse(review, comparison, ROOT / IMAGE_ROOTS[0]),
                          {"reused_images": [], "missing_images": []})
 
+class CurriculumSplitMoveTests(unittest.TestCase):
+    def test_a_split_move_needs_the_image_still_taught_in_the_named_lesson(self):
+        from scripts.audit_course_media_preservation import validate_split_move
+        current = {
+            "old": {"unit_id": "unit-1", "cards": [{"image_url": "a.webp"}]},
+            "new": {"unit_id": "unit-1", "cards": [{"image_url": "/lesson-assets/moved.webp"}]},
+            "other-unit": {"unit_id": "unit-2", "cards": [{"image_url": "moved.webp"}]},
+        }
+        plan = {"lesson_id": "old", "old_filename": "moved.webp", "moved_to_lesson_id": "new", "new_filename": None}
+        validate_split_move(plan, current)
+        for broken in ({"moved_to_lesson_id": "missing"}, {"moved_to_lesson_id": "old"},
+                       {"moved_to_lesson_id": "other-unit"}, {"new_filename": "replacement.webp"},
+                       {"old_filename": "gone.webp"}):
+            with self.subTest(broken=broken), self.assertRaises(ValueError):
+                validate_split_move({**plan, **broken}, current)
+
 
 if __name__ == "__main__":
     unittest.main()

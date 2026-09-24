@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
+const courseContract = require('./courseContract.cjs');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const course = JSON.parse(fs.readFileSync(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'), 'utf8'));
@@ -91,7 +92,8 @@ for (const surface of titleSurfaces) {
 
 const browserContexts = semanticRegistry.approvals.flatMap((row) => row.review_contexts)
   .filter((context) => context.context_type === 'course_browser');
-assert.equal(browserContexts.length, 147, 'Semantic approval must cover all 147 real mobile browser thumbnail framings.');
+const expectedBrowserFramings = 2 * courseContract.lessonCount + courseContract.unitCount;
+assert.equal(browserContexts.length, expectedBrowserFramings, `Semantic approval must cover all ${expectedBrowserFramings} real mobile browser thumbnail framings.`);
 for (const surface of titleSurfaces) {
   const expectedRoles = surface.kind === 'unit'
     ? new Map([['unit_thumbnail', [122, 102]]])

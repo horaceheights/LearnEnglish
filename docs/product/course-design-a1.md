@@ -49,14 +49,15 @@ Lessons:
    - Completa progression: U1-U3 are ordinary completion; U4-U7 construct all words of `He is a man.`, `A man. He is a man.`, `She is a woman.`, and `A woman. She is a woman.`. Construction plays the full English model with replay and provides only the required word occurrences. Keep words on one line by widening tiles and wrapping whole tiles into rows. Preserve the 42-card sequence.
 2. 1.2 People in Action: `the`, `eating`, `drinking`, `reading`, `writing`; reuse `he` and `she` only inside fuller action sentences
 3. 1.3 Two People: They and Are: `and`, `they`, `are`, `running`, `sitting`, `swimming`, `sleeping`
-4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`
-5. 1.5 Parents and Grandparents: `an`, `adult/adults`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`, `grandchildren`
-6. 1.6 Family Actions: `playing`, `studying`, `working`, `cooking`, `talking`
+4. 1.4 Children and Babies: `family`, `baby/babies`, `child/children`; reuse `sleeping`, `sitting` and `running` in `The baby is sleeping.`, `The babies are sitting.` and `The children are running.`
+5. 1.5 Brothers, Sisters, and Adults: `brother/brothers`, `sister/sisters`, `an`, `adult/adults`; `He is a brother.`, `They are sisters.`, `He is an adult.`, `The adults are sitting.`
+6. 1.6 Parents and Grandparents: `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`, `grandchildren`; closes with `The grandparents and the grandchildren`
+7. 1.7 Family Actions: `playing`, `studying`, `working`, `cooking`, `talking`
    - Keep single-word action practice and full subject/action practice in separate answer banks. Sentence alternatives have comparable structure and reading load, with varied learned subjects and actions; never place a lone action word beside a complete sentence. See the choice-coherence guardrail.
-7. 1.7 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
-8. 1.8 Who Is He? Who Are They?: identity questions and short answers
-9. 1.9 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
-10. 1.10 ¡Todos a la celebración!: complete one continuous 22-beat adventure by finding the missing people, connecting their family relationships, following all thirteen action clues, correcting false reports with `not`, answering all three `Who ...?` forms, and bringing everyone to the celebration
+8. 1.8 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
+9. 1.9 Who Is He? Who Are They?: identity questions and short answers (42 cards since 2026-09-23)
+10. 1.10 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
+11. 1.11 ¡Todos a la celebración!: complete one continuous 22-beat adventure by finding the missing people, connecting their family relationships, following all thirteen action clues, correcting false reports with `not`, answering all three `Who ...?` forms, and bringing everyone to the celebration
 
 Core patterns:
 
@@ -67,6 +68,10 @@ Core patterns:
 - `They are running.`
 - `He is not cooking.`
 - `Who are they? They are the parents.`
+
+**2026-09-23 rebuild (practice and pacing standards).** The old 1.4 and 1.5 introduced 9 and 10 new items and under-practised `sister`, `child` and `grandchildren`, so the family words now span three engine-authored lessons (briefs in `docs/product/content-briefs/unit-1/`), each with 5–7 new items, 42 cards, at least five practices per word across four sections, and guided completion before whole-sentence construction. Who Is He? keeps all five question/answer pairs in Learn and Recognize and was trimmed to 42 cards. Lesson numbers after 1.3 moved up by one; lesson IDs, and so learner progress, did not change. Later units must reuse `babies`, `child`, `adult(s)`, `grandmother` and `grandchildren` (for example "The grandmother is in the kitchen." in Unit 4), because the Unit 1 review cannot show them with its existing photos.
+
+The paragraph below describes the unit before that rebuild; its lesson numbers after 1.3 are one lower than today.
 
 Lessons 1.1 through 1.10 follow the approved cumulative restructuring. Lessons 1.2 through 1.7 contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm, except Lesson 1.5, which has 43 cards and eight Use slides. Its three guided completions lead into five full constructions; the closing grandfather, grandmother, and grandparents sentences each have a separate slide, in that order. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with the continuous `¡Todos a la celebración!` adventure rather than another five-section deck. The learner finds people, connects family relationships, follows action clues, repairs false reports, answers `Who ...?` questions, and visibly brings everyone to one final celebration. The successful path retrieves all 46 vocabulary targets introduced in Lessons 1.1-1.8, including all thirteen actions and all three Unit 1 `Who` forms, while adding no assessed English. The rejected family-album and film-studio concepts, their imagery, and their tile-first workflows are not reusable starting points for this mission.
 

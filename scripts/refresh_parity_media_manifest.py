@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / "backend"))
 from backend.app.data import load_all_lessons  # noqa: E402
 from scripts.a1_media_runtime_contracts import card_media_usages, course_browser_media_usages  # noqa: E402
 from scripts.build_a1_units_2_7 import AssetCatalog, MANIFEST  # noqa: E402
+from scripts.course_contract import is_mission  # noqa: E402
 
 
 SIGNATURE = "render_signature_sha256"
@@ -89,14 +90,17 @@ def main() -> int:
                 concept, description = usage_contract(usage)
                 catalog.add_runtime_contract(filename=usage["rendered_filename"], concept=concept,
                                              description=description, context=usage["context"],
-                                             source="unit-mission-runtime" if number.endswith(".10") else "unit-runtime")
+                                             source="unit-mission-runtime" if is_mission(payload) else "unit-runtime")
                 added += 1
     payloads = [lesson.model_dump(mode="json") for lesson in lessons.values()]
     for usage in course_browser_media_usages(payloads):
         context = usage["context"]
-        if str(context.get("sub_lesson_id")) not in rebuild:
+        number = str(context.get("sub_lesson_id"))
+        if number not in rebuild | append:
             continue
         key = identity(usage["rendered_filename"], context)
+        if number in append and key in existing:
+            continue
         if key in committed:
             context[SIGNATURE] = committed[key]
         concept = f"{context['surface_label']}: {context['prompt']}"

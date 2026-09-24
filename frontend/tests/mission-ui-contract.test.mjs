@@ -68,7 +68,7 @@ test("four voice gates stay inside the adventure and use real pronunciation stat
   assert.match(mission, /<VoiceGateConsole/);
   assert.match(mission, /missionVoiceProgress\(lesson, cardIndex\)/);
   assert.match(mission, /<small>\{heading\}<\/small><strong>\{instruction\}/);
-  const unitOne = JSON.parse(fs.readFileSync(path.join(frontendRoot, "../backend/lessons/unit_1/1.10_family_scene_mission.yaml"), "utf8"));
+  const unitOne = JSON.parse(fs.readFileSync(path.join(frontendRoot, "../backend/lessons/unit_1/1.11_family_scene_mission.yaml"), "utf8"));
   const progress = missionVoiceProgress(unitOne, 18);
   assert.equal(progress.heading, "ABRE LA CELEBRACIÓN");
   assert.equal(progress.instruction, "Activa la entrada con tu voz");

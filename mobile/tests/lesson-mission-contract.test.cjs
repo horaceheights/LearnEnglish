@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const course = require(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'));
-const mission = course.find((item) => item.sub_lesson_id === '1.10');
+const mission = course.find((item) => item.id === 'lesson-10-family-mission');
 assert.ok(mission, 'Missing lesson 1.10.');
 
 const goldVocabulary = [
