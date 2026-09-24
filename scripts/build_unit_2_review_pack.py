@@ -21,7 +21,7 @@ from scripts.render_course_stills import load_pack, pack_output_directory
 PACK = ROOT / "docs/product/unit-2-review-pack.json"
 # 2026-09-24 reuse pass: fresh review photos (Gemini, docs/product/unit-2-reuse-photos-v1.json)
 # for "What number is it?", so the review never borrows the teaching lessons' numeral cards.
-FRESH_NUMBERS = {"parking-7": "a1_u2_review_v2_parking_number_7.webp", "bus-8": "a1_u2_review_v2_bus_number_8.webp"}
+FRESH_NUMBERS = {"n7": "a1_u2_review_v2_parking_number_7.webp", "n8": "a1_u2_review_v2_bus_number_8.webp"}
 LESSON = ROOT / "backend/lessons/unit_2/lesson-2-9-unit-2-review.yaml"
 
 
@@ -91,8 +91,8 @@ def compile_lesson(base: dict, pack: dict) -> dict:
     replace_image_options("N3", ["far-bag", "near-bag"], "near-bag")
     replace_image_options("N4", ["near-chair", "far-chair"], "far-chair")
     for identifier, text, translated, correct, choices in (
-        ("N7", "It is number seven.", "Es el número siete.", "parking-7", ["parking-7", "bus-8"]),
-        ("N8", "It is number eight.", "Es el número ocho.", "bus-8", ["parking-7", "bus-8"]),
+        ("N7", "It is number seven.", "Es el número siete.", "n7", ["n7", "n8"]),
+        ("N8", "It is number eight.", "Es el número ocho.", "n8", ["n7", "n8"]),
     ):
         cards[identifier] = {"slide_id": identifier, "stage": "Listen", "interaction_type": "a2i2",
                              "prompt": "Listen and choose.", "audio_text": text, "answer_audio_text": None,
@@ -101,7 +101,7 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                              "options": [{"id": item, "label": None, "image_url": FRESH_NUMBERS[item]} for item in choices]}
     cards["S6"] = {"slide_id": "S6", "interaction_type": "repeat", "prompt": "What number is it? It is number eight.",
                    "stage": "Speak", "correct_option_id": "what-number-is-it-it-is-number-eight-1",
-                   "options": [{"id": "what-number-is-it-it-is-number-eight-1", "image_url": FRESH_NUMBERS["bus-8"],
+                   "options": [{"id": "what-number-is-it-it-is-number-eight-1", "image_url": FRESH_NUMBERS["n8"],
                                 "label": "What number is it? It is number eight."}],
                    "audio_text": "What number is it? It is number eight.", "answer_audio_text": None,
                    "prompt_image_url": "", "spanish_translation": "¿Qué número es? Es el número ocho.",
