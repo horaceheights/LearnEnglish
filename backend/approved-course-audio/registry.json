@@ -122003,6 +122003,72 @@
           "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
         }
       }
+    },
+    "d68b2ec0f29429d0924fb590c9f4e9fd235f1af6ec0bbaca8979e754ad1661e7": {
+      "file": "takes/d68b2ec0f29429d0924fb590c9f4e9fd235f1af6ec0bbaca8979e754ad1661e7.mp3",
+      "audio_sha256": "d68b2ec0f29429d0924fb590c9f4e9fd235f1af6ec0bbaca8979e754ad1661e7",
+      "bytes": 24237,
+      "text": "This is a pen.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-25T00:08:22.048921+00:00",
+        "approved_at": "2026-09-25T00:08:20.414911+00:00",
+        "request_id": "KTrLtq08LW67opvqWdhi",
+        "trace_id": "adf7d7507eb876d6b5923ea0d0e1d296",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "This is a pen.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "KTrLtq08LW67opvqWdhi",
+            "trace_id": "adf7d7507eb876d6b5923ea0d0e1d296"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
     }
   },
   "bindings": {
@@ -125184,6 +125250,11 @@
     "lesson-2-10-around-me-mission-c004-prompt-turn-1-d59326459f3a745af079": {
       "take_id": "3398a4b0b1087f64bf2f4a4212114f8385e2599900e755cc05dbb884a9fcfa9a",
       "approved_at": "2026-09-11T23:47:22.350108+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-10-around-me-mission-c004-prompt-turn-2-02c4d62df762cad45512": {
+      "take_id": "d68b2ec0f29429d0924fb590c9f4e9fd235f1af6ec0bbaca8979e754ad1661e7",
+      "approved_at": "2026-09-25T00:08:20.414911+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-2-10-around-me-mission-c004-prompt-turn-2-6a32b2cc4b39ae36b686": {
