@@ -91,6 +91,11 @@ expansion. It happens in four phases:
 4. A1 rebuilt one unit per PR, Units 1 → 7, retiring each unit's legacy
    builder scripts.
 
+Progress (2026-09-24): phases 1-3 are done. Units 1 and 2 are rebuilt (Unit 1 has
+11 lessons, Unit 2 has 12, the course has 73), including the Unit 2 reuse pass:
+numbers and colors practise known nouns, and 2.10 These and Those is new (#202-#211).
+Unit 3 is next.
+
 A1+ and later levels wait until that path is proven.
 
 ## Status key
