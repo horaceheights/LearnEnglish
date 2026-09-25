@@ -68,7 +68,10 @@ class CourseStillProductionTests(unittest.TestCase):
         cards += [{"mission_game": {"cues": [{"text": gate["question"], "answer_text": gate["answer"]}]}}
                   for gate in pack["voice_gates"]]
         functions = json.loads(CONTRACTS.read_text(encoding="utf-8"))["units"]["2"]["functions"]
-        self.assertFalse(any(value["missing_patterns"] for value in function_coverage({"cards": cards}, functions).values()))
+        # Since the 2026-09-24 reuse pass the installed mission carries clues the original
+        # pack predates (these/those, which one); coverage is checked on the live lesson.
+        mission = json.loads((ROOT / "backend/lessons/unit_2/lesson-2-10-around-me-mission.yaml").read_text(encoding="utf-8"))
+        self.assertFalse(any(value["missing_patterns"] for value in function_coverage(mission, functions).values()))
         assessed = " ".join(cue["text"] for card in cards for cue in card["mission_game"]["cues"])
         for unintroduced in ("waiting", "bench", "there are", "have", "want"):
             self.assertNotIn(unintroduced, assessed.casefold())

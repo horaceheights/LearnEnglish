@@ -489,127 +489,6 @@
       "runtime_sha256": "896f8a9e59eecfaa8d060f6f215d139cfba4e317c5b2b4a5aecd0e072d0b68fc"
     },
     {
-      "asset_id": "near-far-tight",
-      "runtime_filename": "a1_u2_meeting_v4_near_far_tight.webp",
-      "receipt": {
-        "status": "image_saved",
-        "generation_requests_sent": 1,
-        "automatic_retries": 0,
-        "client_request_id": "434717ee-ddf4-4f31-b7d0-423319d86734",
-        "asset_id": "near-far-tight",
-        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
-        "started_at": "2026-09-13T19:12:09.089381+00:00",
-        "request": {
-          "model": "gpt-image-2.5-sunburst-2026-09-08",
-          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nFirst-person photograph looking steeply DOWN at a SMALL shallow picnic table. Exactly FOUR teaching objects, ALL large and sharp. LEFT foreground: learner holds a small red hardback book with visible page block. RIGHT foreground: learner holds a blue smartphone with its black screen visible. Just beyond the hands, on the rear half of this small table, are a second matching red book upper left and a second matching blue phone upper right. Each rear object occupies at least ONE FIFTH of the image width, almost as large as the handheld objects: they are only about 40 centimeters beyond the hands, NOT tiny objects at the end of a long table. The rear phone has its long axis horizontal across the frame and its whole black screen clear. Near/far is shown by holding the foreground objects versus leaving the other two on the table, with shallow honest depth, not extreme shrinking. No horizon or distant table end. Camera points downward; complete four objects, plausible two hands, no hidden fingers or objects, no extra books or phones, no split panels. Distinct open wood between the four targets. The entire frame is this compact tabletop and the two hands.",
-          "n": 1,
-          "size": "1536x1024",
-          "quality": "high",
-          "output_format": "png"
-        },
-        "references": [],
-        "endpoint": "https://api.openai.com/v1/images/generations",
-        "human_approval": "pending",
-        "provider_request_id": "req_653ebce08e164608ae4162a406e17c1a",
-        "usage": {
-          "input_tokens": 423,
-          "input_tokens_details": {
-            "image_tokens": 0,
-            "text_tokens": 423
-          },
-          "output_tokens": 1372,
-          "output_tokens_details": {
-            "image_tokens": 1372,
-            "text_tokens": 0
-          },
-          "total_tokens": 1795
-        },
-        "cost": {
-          "usd": "0.043275",
-          "mxn": "0.7344070425",
-          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
-          "fx_mxn_per_usd": "16.9707",
-          "fx_date": "2026-09-11",
-          "rates_checked_on": "2026-09-13",
-          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
-          "text_input_tokens": 423,
-          "image_input_tokens": 0,
-          "image_output_tokens": 1372
-        },
-        "elapsed_seconds": 28.45,
-        "output": "output/imagegen/unit-2-mission-v4/near-far-tight.png",
-        "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
-        "byte_count": 2471619
-      },
-      "agent_review": {
-        "disposition": "usable",
-        "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
-        "reviewer_type": "agent_visual_inspection",
-        "human_approval": "pending",
-        "notes": "Tighter first-person shot fixes distant target scale: tabletop phone now 22 percent width. Four complete recognizable objects, two naturally held in foreground and two left beyond hands. Clear this/that teaching contrast without labels. Near phone partially gripped at edges but entire screen visible.",
-        "targets": [
-          {
-            "rect": {
-              "x": 0.23,
-              "y": 0.355,
-              "width": 0.23,
-              "height": 0.465
-            },
-            "head_anchors": [
-              {
-                "x": 0.34,
-                "y": 0.36
-              }
-            ]
-          },
-          {
-            "rect": {
-              "x": 0.185,
-              "y": 0.045,
-              "width": 0.21,
-              "height": 0.285
-            },
-            "head_anchors": [
-              {
-                "x": 0.29,
-                "y": 0.05
-              }
-            ]
-          },
-          {
-            "rect": {
-              "x": 0.63,
-              "y": 0.365,
-              "width": 0.155,
-              "height": 0.425
-            },
-            "head_anchors": [
-              {
-                "x": 0.7,
-                "y": 0.37
-              }
-            ]
-          },
-          {
-            "rect": {
-              "x": 0.565,
-              "y": 0.115,
-              "width": 0.225,
-              "height": 0.16
-            },
-            "head_anchors": [
-              {
-                "x": 0.68,
-                "y": 0.12
-              }
-            ]
-          }
-        ]
-      },
-      "human_approval": "pending",
-      "runtime_sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723"
-    },
-    {
       "asset_id": "colors",
       "runtime_filename": "a1_u2_meeting_v4_colors.webp",
       "receipt": {
@@ -1357,144 +1236,6 @@
       },
       "human_approval": "pending",
       "runtime_sha256": "7fecfef4dc8ed0f622adb9d734cd8803468118fb01da49a5cb66c19b82cd4f29"
-    },
-    {
-      "asset_id": "voice-phone-question",
-      "runtime_filename": "a1_u2_meeting_v4_voice_phone_question.webp",
-      "receipt": {
-        "status": "image_saved",
-        "generation_requests_sent": 1,
-        "automatic_retries": 0,
-        "client_request_id": "803f104e-6854-4c7d-9c19-ace86d3384de",
-        "asset_id": "voice-phone-question",
-        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
-        "started_at": "2026-09-13T19:14:52.491449+00:00",
-        "request": {
-          "model": "gpt-image-2.5-sunburst-2026-09-08",
-          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the female helper's exact identity, teal shirt, tied-back curls, and park setting. Take a new natural medium side-angle photograph of this SAME helper at the same meeting. She faces the camera and indicates ONE blue smartphone lying flat on the table, visible black glass screen toward the learner. Remove the book for this new activity. Phone is the only target object; full phone and her natural pointing hand clearly visible, no touching or occlusion. Keep the helper's identity and clothes, but change the camera angle and pose intentionally. Entire target phone and her face in central 60 percent, no labels, questions or answer text.",
-          "n": 1,
-          "size": "1536x1024",
-          "quality": "high",
-          "output_format": "png"
-        },
-        "references": [
-          {
-            "filename": "voice-book-question.png",
-            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
-            "byte_count": 2589645
-          }
-        ],
-        "endpoint": "https://api.openai.com/v1/images/edits",
-        "human_approval": "pending",
-        "provider_request_id": "req_5ad4bb0d40d4422a9bf05b79f0456931",
-        "usage": {
-          "input_tokens": 1875,
-          "input_tokens_details": {
-            "image_tokens": 1536,
-            "text_tokens": 339
-          },
-          "output_tokens": 1372,
-          "output_tokens_details": {
-            "image_tokens": 1372,
-            "text_tokens": 0
-          },
-          "total_tokens": 3247
-        },
-        "cost": {
-          "usd": "0.055143",
-          "mxn": "0.9358153101",
-          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
-          "fx_mxn_per_usd": "16.9707",
-          "fx_date": "2026-09-11",
-          "rates_checked_on": "2026-09-13",
-          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
-          "text_input_tokens": 339,
-          "image_input_tokens": 1536,
-          "image_output_tokens": 1372
-        },
-        "elapsed_seconds": 32.74,
-        "output": "output/imagegen/unit-2-mission-v4/voice-phone-question.png",
-        "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
-        "byte_count": 2693853
-      },
-      "agent_review": {
-        "disposition": "usable",
-        "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
-        "reviewer_type": "agent_visual_inspection",
-        "human_approval": "pending",
-        "notes": "Same helper identity, teal shirt, curls, weathered table and lake. Fresh side pose, finger stops just above a single blue phone. Full phone visible; response shot must enlarge it. No book or conflicting target."
-      },
-      "human_approval": "pending",
-      "runtime_sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f"
-    },
-    {
-      "asset_id": "voice-phone-response",
-      "runtime_filename": "a1_u2_meeting_v4_voice_phone_response.webp",
-      "receipt": {
-        "status": "image_saved",
-        "generation_requests_sent": 1,
-        "automatic_retries": 0,
-        "client_request_id": "764df961-fc0d-4e14-9b30-aa352ad4a9df",
-        "asset_id": "voice-phone-response",
-        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
-        "started_at": "2026-09-13T19:18:25.752408+00:00",
-        "request": {
-          "model": "gpt-image-2.5-sunburst-2026-09-08",
-          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the exact question-view reference. Cut to a closer high three-quarter view of the SAME blue smartphone with black glass screen on the SAME honey-colored picnic table. Preserve its casing, dimensions, orientation, daylight and park context. Remove the helper's pointing hand from view; the phone is completely visible and fills the central 55 percent width without cropping. No book, no extra phone, no text, no labels. This is a distinct closer answer-view photograph, not a duplicate of the question shot.",
-          "n": 1,
-          "size": "1536x1024",
-          "quality": "high",
-          "output_format": "png"
-        },
-        "references": [
-          {
-            "filename": "voice-phone-question.png",
-            "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
-            "byte_count": 2693853
-          }
-        ],
-        "endpoint": "https://api.openai.com/v1/images/edits",
-        "human_approval": "pending",
-        "provider_request_id": "req_2b0f55c0d6534b6ba46a88576dbd5431",
-        "usage": {
-          "input_tokens": 1848,
-          "input_tokens_details": {
-            "image_tokens": 1536,
-            "text_tokens": 312
-          },
-          "output_tokens": 1372,
-          "output_tokens_details": {
-            "image_tokens": 1372,
-            "text_tokens": 0
-          },
-          "total_tokens": 3220
-        },
-        "cost": {
-          "usd": "0.055008",
-          "mxn": "0.9335242656",
-          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
-          "fx_mxn_per_usd": "16.9707",
-          "fx_date": "2026-09-11",
-          "rates_checked_on": "2026-09-13",
-          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
-          "text_input_tokens": 312,
-          "image_input_tokens": 1536,
-          "image_output_tokens": 1372
-        },
-        "elapsed_seconds": 31.8,
-        "output": "output/imagegen/unit-2-mission-v4/voice-phone-response.png",
-        "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
-        "byte_count": 2742592
-      },
-      "agent_review": {
-        "disposition": "usable",
-        "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
-        "reviewer_type": "agent_visual_inspection",
-        "human_approval": "pending",
-        "notes": "Distinct close-up of the same blue phone, dark reflective screen, weathered table and lake setting. Complete phone with ample margin, no helper or pointing hand."
-      },
-      "human_approval": "pending",
-      "runtime_sha256": "de511f384cc4a181a230030e743cebd91fcb61a9bbfe92ae1a9ef33d1f0b3187"
     },
     {
       "asset_id": "voice-bus-question",
@@ -3859,21 +3600,280 @@
       "old_filename": "a1_u2_meeting_v4_near_far_tight.webp",
       "old_sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723",
       "issue": "Lesson 2.10 adds these/those, and the mission must practise them; this scene shows only one book and one phone near and far, so it cannot carry plural clues.",
-      "observation": "First-person view down at a park table: one held red book and one held blue phone near, one red book and one phone left farther on the table."
+      "observation": "First-person view down at a park table: one held red book and one held blue phone near, one red book and one phone left farther on the table.",
+      "former_record": {
+        "asset_id": "near-far-tight",
+        "runtime_filename": "a1_u2_meeting_v4_near_far_tight.webp",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "434717ee-ddf4-4f31-b7d0-423319d86734",
+          "asset_id": "near-far-tight",
+          "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+          "started_at": "2026-09-13T19:12:09.089381+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nFirst-person photograph looking steeply DOWN at a SMALL shallow picnic table. Exactly FOUR teaching objects, ALL large and sharp. LEFT foreground: learner holds a small red hardback book with visible page block. RIGHT foreground: learner holds a blue smartphone with its black screen visible. Just beyond the hands, on the rear half of this small table, are a second matching red book upper left and a second matching blue phone upper right. Each rear object occupies at least ONE FIFTH of the image width, almost as large as the handheld objects: they are only about 40 centimeters beyond the hands, NOT tiny objects at the end of a long table. The rear phone has its long axis horizontal across the frame and its whole black screen clear. Near/far is shown by holding the foreground objects versus leaving the other two on the table, with shallow honest depth, not extreme shrinking. No horizon or distant table end. Camera points downward; complete four objects, plausible two hands, no hidden fingers or objects, no extra books or phones, no split panels. Distinct open wood between the four targets. The entire frame is this compact tabletop and the two hands.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [],
+          "endpoint": "https://api.openai.com/v1/images/generations",
+          "human_approval": "pending",
+          "provider_request_id": "req_653ebce08e164608ae4162a406e17c1a",
+          "usage": {
+            "input_tokens": 423,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 423
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 1795
+          },
+          "cost": {
+            "usd": "0.043275",
+            "mxn": "0.7344070425",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 423,
+            "image_input_tokens": 0,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 28.45,
+          "output": "output/imagegen/unit-2-mission-v4/near-far-tight.png",
+          "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
+          "byte_count": 2471619
+        },
+        "agent_review": {
+          "disposition": "usable",
+          "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
+          "reviewer_type": "agent_visual_inspection",
+          "human_approval": "pending",
+          "notes": "Tighter first-person shot fixes distant target scale: tabletop phone now 22 percent width. Four complete recognizable objects, two naturally held in foreground and two left beyond hands. Clear this/that teaching contrast without labels. Near phone partially gripped at edges but entire screen visible.",
+          "targets": [
+            {
+              "rect": {
+                "x": 0.23,
+                "y": 0.355,
+                "width": 0.23,
+                "height": 0.465
+              },
+              "head_anchors": [
+                {
+                  "x": 0.34,
+                  "y": 0.36
+                }
+              ]
+            },
+            {
+              "rect": {
+                "x": 0.185,
+                "y": 0.045,
+                "width": 0.21,
+                "height": 0.285
+              },
+              "head_anchors": [
+                {
+                  "x": 0.29,
+                  "y": 0.05
+                }
+              ]
+            },
+            {
+              "rect": {
+                "x": 0.63,
+                "y": 0.365,
+                "width": 0.155,
+                "height": 0.425
+              },
+              "head_anchors": [
+                {
+                  "x": 0.7,
+                  "y": 0.37
+                }
+              ]
+            },
+            {
+              "rect": {
+                "x": 0.565,
+                "y": 0.115,
+                "width": 0.225,
+                "height": 0.16
+              },
+              "head_anchors": [
+                {
+                  "x": 0.68,
+                  "y": 0.12
+                }
+              ]
+            }
+          ]
+        },
+        "human_approval": "pending",
+        "runtime_sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723"
+      }
     },
     {
       "lesson_id": "lesson-2-10-around-me-mission",
       "old_filename": "a1_u2_meeting_v4_voice_phone_response.webp",
       "old_sha256": "de511f384cc4a181a230030e743cebd91fcb61a9bbfe92ae1a9ef33d1f0b3187",
       "issue": "The phone gate became the What number is it? gate so the mission practises the number question taught in 2.6-2.7; a phone photo cannot answer it.",
-      "observation": "A blue-cased phone lying on the weathered park table, the answer photo of the former What is it? It is a phone. gate."
+      "observation": "A blue-cased phone lying on the weathered park table, the answer photo of the former What is it? It is a phone. gate.",
+      "former_record": {
+        "asset_id": "voice-phone-response",
+        "runtime_filename": "a1_u2_meeting_v4_voice_phone_response.webp",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "764df961-fc0d-4e14-9b30-aa352ad4a9df",
+          "asset_id": "voice-phone-response",
+          "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+          "started_at": "2026-09-13T19:18:25.752408+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the exact question-view reference. Cut to a closer high three-quarter view of the SAME blue smartphone with black glass screen on the SAME honey-colored picnic table. Preserve its casing, dimensions, orientation, daylight and park context. Remove the helper's pointing hand from view; the phone is completely visible and fills the central 55 percent width without cropping. No book, no extra phone, no text, no labels. This is a distinct closer answer-view photograph, not a duplicate of the question shot.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "voice-phone-question.png",
+              "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+              "byte_count": 2693853
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_2b0f55c0d6534b6ba46a88576dbd5431",
+          "usage": {
+            "input_tokens": 1848,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 312
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3220
+          },
+          "cost": {
+            "usd": "0.055008",
+            "mxn": "0.9335242656",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 312,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 31.8,
+          "output": "output/imagegen/unit-2-mission-v4/voice-phone-response.png",
+          "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
+          "byte_count": 2742592
+        },
+        "agent_review": {
+          "disposition": "usable",
+          "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
+          "reviewer_type": "agent_visual_inspection",
+          "human_approval": "pending",
+          "notes": "Distinct close-up of the same blue phone, dark reflective screen, weathered table and lake setting. Complete phone with ample margin, no helper or pointing hand."
+        },
+        "human_approval": "pending",
+        "runtime_sha256": "de511f384cc4a181a230030e743cebd91fcb61a9bbfe92ae1a9ef33d1f0b3187"
+      }
     },
     {
       "lesson_id": "lesson-2-10-around-me-mission",
       "old_filename": "a1_u2_meeting_v4_voice_phone_question.webp",
       "old_sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f",
       "issue": "The phone gate became the What number is it? gate; its question photo showed the woman pointing at a phone, not at a number.",
-      "observation": "The mission's woman in a teal T-shirt at the park table pointing down at a blue-cased phone."
+      "observation": "The mission's woman in a teal T-shirt at the park table pointing down at a blue-cased phone.",
+      "former_record": {
+        "asset_id": "voice-phone-question",
+        "runtime_filename": "a1_u2_meeting_v4_voice_phone_question.webp",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "803f104e-6854-4c7d-9c19-ace86d3384de",
+          "asset_id": "voice-phone-question",
+          "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+          "started_at": "2026-09-13T19:14:52.491449+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the female helper's exact identity, teal shirt, tied-back curls, and park setting. Take a new natural medium side-angle photograph of this SAME helper at the same meeting. She faces the camera and indicates ONE blue smartphone lying flat on the table, visible black glass screen toward the learner. Remove the book for this new activity. Phone is the only target object; full phone and her natural pointing hand clearly visible, no touching or occlusion. Keep the helper's identity and clothes, but change the camera angle and pose intentionally. Entire target phone and her face in central 60 percent, no labels, questions or answer text.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "voice-book-question.png",
+              "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+              "byte_count": 2589645
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_5ad4bb0d40d4422a9bf05b79f0456931",
+          "usage": {
+            "input_tokens": 1875,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 339
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3247
+          },
+          "cost": {
+            "usd": "0.055143",
+            "mxn": "0.9358153101",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 339,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 32.74,
+          "output": "output/imagegen/unit-2-mission-v4/voice-phone-question.png",
+          "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+          "byte_count": 2693853
+        },
+        "agent_review": {
+          "disposition": "usable",
+          "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+          "reviewer_type": "agent_visual_inspection",
+          "human_approval": "pending",
+          "notes": "Same helper identity, teal shirt, curls, weathered table and lake. Fresh side pose, finger stops just above a single blue phone. Full phone visible; response shot must enlarge it. No book or conflicting target."
+        },
+        "human_approval": "pending",
+        "runtime_sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f"
+      }
     }
   ]
 }

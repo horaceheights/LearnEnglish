@@ -140,6 +140,20 @@ class ContentEngineAuthorTests(unittest.TestCase):
                     if (card.get("answer_audio_text") or card.get("audio_text")) in practice_only}
         self.assertTrue(reviewed and reviewed <= set(lesson["purposeful_review_slides"]))
 
+    def test_colors_show_discs_only_on_learn_and_name_things_by_text(self):
+        brief = json.loads((ROOT / "docs/product/content-briefs/unit-2/2.8-colors.json").read_text(encoding="utf-8"))
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        learn = [card for card in lesson["cards"] if card["stage"] == "Learn"]
+        self.assertEqual([card["prompt"] for card in learn], ["Colors", "Red", "Blue", "Green", "Yellow", "Black", "White"])
+        for card in lesson["cards"]:
+            images = json.dumps(card)
+            if card["stage"] != "Learn":
+                self.assertNotIn("a1_photo_u2_color_", images, card["slide_id"])
+                self.assertNotIn("a1_photo_u2_colors_v1", images, card["slide_id"])
+            answer = card.get("answer_audio_text") or card.get("audio_text") or ""
+            if card["stage"] in ("Recognize", "Listen") and answer.startswith("It is a "):
+                self.assertFalse(any(option.get("image_url") for option in card["options"]), card["slide_id"])
+
     def test_the_proposal_meets_the_lesson_practice_standards(self):
         lesson = CatalogLesson("1.6", 1, lesson_role(self.lesson), self.lesson, BRIEF)
         findings = [finding for finding in audit([lesson], self.standards)
