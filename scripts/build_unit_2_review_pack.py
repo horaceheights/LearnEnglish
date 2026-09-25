@@ -106,6 +106,19 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                    "audio_text": "What number is it? It is number eight.", "answer_audio_text": None,
                    "prompt_image_url": "", "spanish_translation": "¿Qué número es? Es el número ocho.",
                    "pedagogy_note": "question-answer"}
+    # 2026-09-24: colors are asked the way Lesson 2.8 now teaches them.
+    cards["R6"] = {"slide_id": "R6", "interaction_type": "i2t3", "prompt": "What color are they?", "stage": "Recognize",
+                   "correct_option_id": "they-are-green", "audio_text": "What color are they?",
+                   "answer_audio_text": "They are green.", "prompt_image_url": "a1_u2_review_v1_green_books.webp",
+                   "spanish_translation": "¿De qué color son?", "pedagogy_note": "color question",
+                   "options": [{"id": f"they-are-{color}", "label": f"They are {color}.", "image_url": ""}
+                               for color in ("blue", "green", "yellow")]}
+    cards["S5"] = {"slide_id": "S5", "interaction_type": "repeat", "prompt": "What color is it? It is red.", "stage": "Speak",
+                   "correct_option_id": "what-color-is-it-it-is-red-1",
+                   "options": [{"id": "what-color-is-it-it-is-red-1", "image_url": "a1_u2_review_v1_red_car.webp",
+                                "label": "What color is it? It is red."}],
+                   "audio_text": "What color is it? It is red.", "answer_audio_text": None, "prompt_image_url": "",
+                   "spanish_translation": "¿De qué color es? Es rojo.", "pedagogy_note": "question-answer"}
     # 2026-09-24: Lesson 2.10 adds these/those and Which one?; the review hears them too.
     cards["N6"] = {"slide_id": "N6", "stage": "Listen", "interaction_type": "a2i2", "prompt": "Listen and choose.",
                    "audio_text": "These are bags.", "answer_audio_text": None, "correct_option_id": "these-bags",

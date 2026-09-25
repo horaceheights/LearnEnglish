@@ -195,8 +195,9 @@ def validate_mission_rebuild_plan(plan: dict, current: dict, root: Path) -> None
     """
     import re
     lesson = current[plan['lesson_id']]
-    if not lesson['sub_lesson_id'].endswith('.10') or lesson.get('experience_type') != 'mission':
-        raise ValueError('Mission rebuild exceptions apply only to Lesson 10 missions.')
+    # Missions are identified from lesson data since units stopped being ten lessons long.
+    if not is_mission(lesson):
+        raise ValueError('Mission rebuild exceptions apply only to unit missions.')
     evidence = str(plan.get('evidence_file', ''))
     if not re.fullmatch(r'docs/qa/unit-[2-7]-mission-media-v[1-9][0-9]*\.json', evidence) or not (root / evidence).is_file():
         raise ValueError('Mission rebuild needs its versioned installation evidence.')

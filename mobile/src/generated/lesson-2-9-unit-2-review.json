@@ -25,6 +25,7 @@
     "car",
     "cars",
     "chair",
+    "color",
     "eight",
     "five",
     "four",
@@ -726,58 +727,53 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "t2i4",
-      "prompt": "Three green books",
+      "interaction_type": "i2t3",
+      "prompt": "What color are they?",
       "stage": "Recognize",
-      "correct_option_id": "three-green-books-2",
+      "correct_option_id": "they-are-green",
       "options": [
         {
-          "id": "four-yellow-pens-1",
-          "image_url": "/lesson-assets/a1_u2_review_v1_yellow_pens.webp",
-          "label": null
+          "id": "they-are-blue",
+          "image_url": "",
+          "label": "They are blue."
         },
         {
-          "id": "three-green-books-2",
-          "image_url": "/lesson-assets/a1_u2_review_v1_green_books.webp",
-          "label": null
+          "id": "they-are-green",
+          "image_url": "",
+          "label": "They are green."
         },
         {
-          "id": "five-black-phones-3",
-          "image_url": "/lesson-assets/a1_u2_review_v1_black_phones.webp",
-          "label": null
-        },
-        {
-          "id": "six-white-bags-4",
-          "image_url": "/lesson-assets/a1_u2_review_v1_white_bags.webp",
-          "label": null
+          "id": "they-are-yellow",
+          "image_url": "",
+          "label": "They are yellow."
         }
       ],
-      "audio_text": "Three green books",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tres libros verdes",
-      "pedagogy_note": "composed phrase",
+      "audio_text": "What color are they?",
+      "answer_audio_text": "They are green.",
+      "prompt_image_url": "/lesson-assets/a1_u2_review_v1_green_books.webp",
+      "spanish_translation": "\u00bfDe qu\u00e9 color son?",
+      "pedagogy_note": "color question",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c014-prompt-9bcb9142ff292be2a47a",
+          "id": "lesson-2-9-unit-2-review-c014-prompt-e7107bab71767d30279e",
           "purpose": "prompt",
-          "text": "Three green books",
+          "text": "What color are they?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c014-answer-1a0b65f068a06c70763f",
+          "id": "lesson-2-9-unit-2-review-c014-answer-8b7fea6a747dddcbf904",
           "purpose": "answer",
-          "text": "Three green books",
+          "text": "They are green.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
@@ -2113,45 +2109,45 @@
     {
       "slide_id": "S5",
       "interaction_type": "repeat",
-      "prompt": "Three green books",
+      "prompt": "What color is it? It is red.",
       "stage": "Speak",
-      "correct_option_id": "three-green-books-1",
+      "correct_option_id": "what-color-is-it-it-is-red-1",
       "options": [
         {
-          "id": "three-green-books-1",
-          "image_url": "/lesson-assets/a1_u2_review_v1_green_books.webp",
-          "label": "Three green books"
+          "id": "what-color-is-it-it-is-red-1",
+          "image_url": "/lesson-assets/a1_u2_review_v1_red_car.webp",
+          "label": "What color is it? It is red."
         }
       ],
-      "audio_text": "Three green books",
+      "audio_text": "What color is it? It is red.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tres libros verdes",
-      "pedagogy_note": "description",
+      "spanish_translation": "\u00bfDe qu\u00e9 color es? Es rojo.",
+      "pedagogy_note": "question-answer",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c039-prompt-78a65b94b0bd9473271b",
+          "id": "lesson-2-9-unit-2-review-c039-prompt-f143f705a61aec000545",
           "purpose": "prompt",
-          "text": "Three green books",
+          "text": "What color is it? It is red.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
+          "image_ref": "/lesson-assets/a1_u2_review_v1_red_car.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c039-answer-132ba0d3b908cf7ab85f",
+          "id": "lesson-2-9-unit-2-review-c039-answer-1568bddabe88e3a0a964",
           "purpose": "answer",
-          "text": "Three green books",
+          "text": "What color is it? It is red.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
+          "image_ref": "/lesson-assets/a1_u2_review_v1_red_car.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",

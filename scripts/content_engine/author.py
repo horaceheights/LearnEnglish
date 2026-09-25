@@ -281,7 +281,9 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     choosable = [item for item in items if item.get("choices", True) is not False]
     for index, item in enumerate(pick(choosable, layout["Recognize"])):
         practised(item)
-        image = index % 2 == 0
+        # `"image_choices": false`: its pictures differ in more than the tested word
+        # (a red bus against a blue bike), so it is only offered as text choices.
+        image = index % 2 == 0 and item.get("image_choices", True) is not False
         count = option_count(item, image, early=index < layout["Recognize"] // 2)
         spec, bank = _choice(f"R{index + 1}", "Recognize", item, pool, count, image=image,
                              instructions=instructions, rejected=rejected, captions=captions)
@@ -289,7 +291,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         banks.append(bank)
     for index, item in enumerate(pick(choosable, layout["Listen"])):
         practised(item)
-        image = index % 3 != 2
+        image = index % 3 != 2 and item.get("image_choices", True) is not False
         count = option_count(item, image, early=index < layout["Listen"] // 2)
         spec, bank = _choice(f"A{index + 1}", "Listen", item, pool, count, image=image,
                              instructions=instructions, rejected=rejected, captions=captions)

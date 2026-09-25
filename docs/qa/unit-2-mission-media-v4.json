@@ -1771,6 +1771,309 @@
       },
       "human_approval": "pending",
       "runtime_sha256": "4750c17de06722ed2ba75648b04ac660c08f22048cdeca4315d7d48bd94ee3ee"
+    },
+    {
+      "asset_id": "mission-these-those",
+      "runtime_filename": "a1_u2_meeting_v5_these_those.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "8bdccd89-7c7c-4fd3-9602-8b1b190b022b",
+        "asset_id": "mission-these-those",
+        "pack_sha256": "d228ea1ebe75a5492083fed260bdc4b661da7d6866bc60096cbbc5686a54ac49",
+        "started_at": "2026-09-24T23:46:31.796587+00:00",
+        "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+        "request": {
+          "model": "gemini-3-pro-image",
+          "prompt": "Precise edit of Image 1. Turn every object into a matching PAIR of two identical objects and change nothing else. NEAR: keep the red book in the left hand and the phone in the right hand exactly as they are, and add a second identical red book lying flat on the table just left of the held book, and a second identical blue-cased phone lying flat on the table just right of the held phone, each fully visible and touching nothing else. FAR: the far red book becomes two identical red books side by side with a small gap, and the far phone becomes two identical blue-cased phones side by side with a small gap, in the same far places and the same size as before. Exactly four red books and four phones in the whole photo: two of each near, two of each far. Keep the hands, sleeves, table, light, shadows and camera identical. No text, logos, extra hands or other objects.",
+          "image_config": {
+            "aspectRatio": "3:2",
+            "imageSize": "2K"
+          }
+        },
+        "reference": {
+          "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_near_far_tight.webp",
+          "sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723"
+        },
+        "human_approval": "pending",
+        "provider_response_id": "Wra1asm6EfCwqtsPztOP8QE",
+        "usage": {
+          "promptTokenCount": 453,
+          "candidatesTokenCount": 1323,
+          "totalTokenCount": 1915,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 195
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 258
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1120
+            }
+          ],
+          "thoughtsTokenCount": 139,
+          "serviceTier": "standard"
+        },
+        "cost": {
+          "usd": "0.136574",
+          "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+          "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+          "input_tokens": 453,
+          "image_output_tokens": 1120,
+          "text_and_thinking_output_tokens": 139
+        },
+        "elapsed_seconds": 22.92,
+        "output": "output/imagegen/unit-2-lesson-v5/mission-these-those.png",
+        "sha256": "20f2bf9a1c2b1b939eae22c5817d57d31637ecc9d48edaa86cf152e21a46b0cb",
+        "byte_count": 5536765,
+        "pixel_size": [
+          2528,
+          1696
+        ],
+        "returned_mime_type": "image/jpeg"
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "20f2bf9a1c2b1b939eae22c5817d57d31637ecc9d48edaa86cf152e21a46b0cb",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "2026-09-24 Gemini edit of the reviewed near/far scene for Lesson 2.10: two red books and two blue phones near (one of each held, the added ones slightly trimmed at the frame edges), two red books far and one phone far. Clues follow the photo: these/those books, these phones, that phone.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.0,
+              "y": 0.355,
+              "width": 0.46,
+              "height": 0.46
+            },
+            "head_anchors": [
+              {
+                "x": 0.074,
+                "y": 0.385
+              },
+              {
+                "x": 0.344,
+                "y": 0.36
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.08,
+              "y": 0.045,
+              "width": 0.41,
+              "height": 0.285
+            },
+            "head_anchors": [
+              {
+                "x": 0.19,
+                "y": 0.05
+              },
+              {
+                "x": 0.395,
+                "y": 0.05
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.62,
+              "y": 0.36,
+              "width": 0.38,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.7,
+                "y": 0.37
+              },
+              {
+                "x": 0.925,
+                "y": 0.405
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.565,
+              "y": 0.115,
+              "width": 0.225,
+              "height": 0.15
+            },
+            "head_anchors": [
+              {
+                "x": 0.68,
+                "y": 0.12
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "a084f0c80e721d3c176f28b15b50aaaef41e19071c9aa8f2d6a952f2c69370b2"
+    },
+    {
+      "asset_id": "gate-number-8",
+      "runtime_filename": "a1_u2_meeting_v5_voice_number_8.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "58ee81d8-8b76-406b-b077-eed361f01573",
+        "asset_id": "gate-number-8",
+        "pack_sha256": "c03a1953e76ebdfbfe2631feaff1c41532065f703c8802065987ac040618a2d4",
+        "started_at": "2026-09-24T18:24:52.112851+00:00",
+        "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+        "request": {
+          "model": "gemini-3-pro-image",
+          "prompt": "Precise edit of Image 1. Remove the 7, 9 and 10 number cards and their wooden stands completely, leaving bare weathered table wood, with natural light and shadows, where they stood. Keep the 8 card and its stand exactly where and how they are, and keep everything else identical: camera, light, park background and table. No new objects, text or numbers. The picture now shows only the number 8 card on the park table.",
+          "image_config": {
+            "aspectRatio": "3:2",
+            "imageSize": "2K"
+          }
+        },
+        "reference": {
+          "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_station_numbers.webp",
+          "sha256": "ecdbdabe087274c7ad8bb957f924dac3cdfe62f3c1f3ac4cbf1f6f4f8c6222ce"
+        },
+        "human_approval": "pending",
+        "provider_response_id": "9Gq1apHKMu-hz7IP5dad8Qg",
+        "usage": {
+          "promptTokenCount": 355,
+          "candidatesTokenCount": 1254,
+          "totalTokenCount": 1775,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 97
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 258
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1120
+            }
+          ],
+          "thoughtsTokenCount": 166,
+          "serviceTier": "standard"
+        },
+        "cost": {
+          "usd": "0.136702",
+          "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+          "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+          "input_tokens": 355,
+          "image_output_tokens": 1120,
+          "text_and_thinking_output_tokens": 166
+        },
+        "elapsed_seconds": 22.08,
+        "output": "output/imagegen/unit-2-lesson-v5/gate-number-8.png",
+        "sha256": "86fad456204c4884e6f039ab22b7887dc90892d71e786988560d915e8024b0c9",
+        "byte_count": 6141254,
+        "pixel_size": [
+          2528,
+          1696
+        ],
+        "returned_mime_type": "image/jpeg"
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "86fad456204c4884e6f039ab22b7887dc90892d71e786988560d915e8024b0c9",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "The park-table number scene edited to keep only the 8 card on its stand; answer photo for the What number is it? gate.",
+        "targets": []
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "e1ba9e3cc11e2733832fc1a1823bfdb583ca2c72af4c2971d1d160241a59e5f6"
+    },
+    {
+      "asset_id": "gate-number-8-question",
+      "runtime_filename": "a1_u2_meeting_v5_voice_number_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "15d4db77-909b-45c8-b96a-d6e3b7506c96",
+        "asset_id": "gate-number-8-question",
+        "pack_sha256": "d228ea1ebe75a5492083fed260bdc4b661da7d6866bc60096cbbc5686a54ac49",
+        "started_at": "2026-09-24T23:46:55.672220+00:00",
+        "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+        "request": {
+          "model": "gemini-3-pro-image",
+          "prompt": "Precise edit of Image 1. Replace ONLY the phone on the table with one small cream table-number card standing upright on a little wooden stand, printed with one large black numeral 8 facing the camera, standing exactly where the phone lay. Her index finger now points at the card and stops just short of it. Keep the woman, her face, expression, hair, teal T-shirt, pose, the table, the park, the lake and the light identical. The only character anywhere is the single 8; no other text, numbers or objects.",
+          "image_config": {
+            "aspectRatio": "3:2",
+            "imageSize": "2K"
+          }
+        },
+        "reference": {
+          "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_voice_phone_question.webp",
+          "sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f"
+        },
+        "human_approval": "pending",
+        "provider_response_id": "eLa1ate2Mp7oz7IPnNOlOQ",
+        "usage": {
+          "promptTokenCount": 373,
+          "candidatesTokenCount": 1256,
+          "totalTokenCount": 1822,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 115
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 258
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1120
+            }
+          ],
+          "thoughtsTokenCount": 193,
+          "serviceTier": "standard"
+        },
+        "cost": {
+          "usd": "0.137062",
+          "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+          "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+          "input_tokens": 373,
+          "image_output_tokens": 1120,
+          "text_and_thinking_output_tokens": 193
+        },
+        "elapsed_seconds": 30.06,
+        "output": "output/imagegen/unit-2-lesson-v5/gate-number-8-question.png",
+        "sha256": "1bf1a72e86b1dab1741f1a2f68ec01510fea30a3f61c3112c257320d6c386593",
+        "byte_count": 6081433,
+        "pixel_size": [
+          2528,
+          1696
+        ],
+        "returned_mime_type": "image/jpeg"
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "1bf1a72e86b1dab1741f1a2f68ec01510fea30a3f61c3112c257320d6c386593",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "The mission's woman at the lakeside table points at a cream card showing one large 8; question photo for the What number is it? gate.",
+        "targets": []
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "bce4611dd5b8b833dae442e734c03a979cbb675dfde22707d4b68217d33fa717"
     }
   ],
   "paid_attempts": [
@@ -3548,6 +3851,29 @@
         "notes": "Distinct close-up of the same blue phone, dark reflective screen, weathered table and lake setting. Complete phone with ample margin, no helper or pointing hand."
       },
       "installed": true
+    }
+  ],
+  "retired_scenes": [
+    {
+      "lesson_id": "lesson-2-10-around-me-mission",
+      "old_filename": "a1_u2_meeting_v4_near_far_tight.webp",
+      "old_sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723",
+      "issue": "Lesson 2.10 adds these/those, and the mission must practise them; this scene shows only one book and one phone near and far, so it cannot carry plural clues.",
+      "observation": "First-person view down at a park table: one held red book and one held blue phone near, one red book and one phone left farther on the table."
+    },
+    {
+      "lesson_id": "lesson-2-10-around-me-mission",
+      "old_filename": "a1_u2_meeting_v4_voice_phone_response.webp",
+      "old_sha256": "de511f384cc4a181a230030e743cebd91fcb61a9bbfe92ae1a9ef33d1f0b3187",
+      "issue": "The phone gate became the What number is it? gate so the mission practises the number question taught in 2.6-2.7; a phone photo cannot answer it.",
+      "observation": "A blue-cased phone lying on the weathered park table, the answer photo of the former What is it? It is a phone. gate."
+    },
+    {
+      "lesson_id": "lesson-2-10-around-me-mission",
+      "old_filename": "a1_u2_meeting_v4_voice_phone_question.webp",
+      "old_sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f",
+      "issue": "The phone gate became the What number is it? gate; its question photo showed the woman pointing at a phone, not at a number.",
+      "observation": "The mission's woman in a teal T-shirt at the park table pointing down at a blue-cased phone."
     }
   ]
 }

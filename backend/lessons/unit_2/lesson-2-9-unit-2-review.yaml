@@ -25,6 +25,7 @@
     "car",
     "cars",
     "chair",
+    "color",
     "eight",
     "five",
     "four",
@@ -348,37 +349,32 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "t2i4",
-      "prompt": "Three green books",
+      "interaction_type": "i2t3",
+      "prompt": "What color are they?",
       "stage": "Recognize",
-      "correct_option_id": "three-green-books-2",
+      "correct_option_id": "they-are-green",
+      "audio_text": "What color are they?",
+      "answer_audio_text": "They are green.",
+      "prompt_image_url": "a1_u2_review_v1_green_books.webp",
+      "spanish_translation": "¿De qué color son?",
+      "pedagogy_note": "color question",
       "options": [
         {
-          "id": "four-yellow-pens-1",
-          "image_url": "a1_u2_review_v1_yellow_pens.webp",
-          "label": null
+          "id": "they-are-blue",
+          "label": "They are blue.",
+          "image_url": ""
         },
         {
-          "id": "three-green-books-2",
-          "image_url": "a1_u2_review_v1_green_books.webp",
-          "label": null
+          "id": "they-are-green",
+          "label": "They are green.",
+          "image_url": ""
         },
         {
-          "id": "five-black-phones-3",
-          "image_url": "a1_u2_review_v1_black_phones.webp",
-          "label": null
-        },
-        {
-          "id": "six-white-bags-4",
-          "image_url": "a1_u2_review_v1_white_bags.webp",
-          "label": null
+          "id": "they-are-yellow",
+          "label": "They are yellow.",
+          "image_url": ""
         }
-      ],
-      "audio_text": "Three green books",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tres libros verdes",
-      "pedagogy_note": "composed phrase"
+      ]
     },
     {
       "slide_id": "R7",
@@ -1009,21 +1005,21 @@
     {
       "slide_id": "S5",
       "interaction_type": "repeat",
-      "prompt": "Three green books",
+      "prompt": "What color is it? It is red.",
       "stage": "Speak",
-      "correct_option_id": "three-green-books-1",
+      "correct_option_id": "what-color-is-it-it-is-red-1",
       "options": [
         {
-          "id": "three-green-books-1",
-          "image_url": "a1_u2_review_v1_green_books.webp",
-          "label": "Three green books"
+          "id": "what-color-is-it-it-is-red-1",
+          "image_url": "a1_u2_review_v1_red_car.webp",
+          "label": "What color is it? It is red."
         }
       ],
-      "audio_text": "Three green books",
+      "audio_text": "What color is it? It is red.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tres libros verdes",
-      "pedagogy_note": "description"
+      "spanish_translation": "¿De qué color es? Es rojo.",
+      "pedagogy_note": "question-answer"
     },
     {
       "slide_id": "S6",
@@ -1301,5 +1297,5 @@
       ]
     }
   ],
-  "content_revision": 2
+  "content_revision": 3
 }
