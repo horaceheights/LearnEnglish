@@ -54,16 +54,30 @@ def card_language(card: dict, instruction_phrases: tuple[str, ...] = ()) -> str:
     return text
 
 
+POSSESSIVE = "'s"
+
+
 def term_pattern(term: str) -> re.Pattern | None:
     text = term.lower().replace("...", " ").strip().rstrip(".?!").strip()
     if not text:
         return None
-    return re.compile(r"(?<![a-z])" + re.escape(text) + r"(?![a-z])")
+    # A suffix such as the possessive 's attaches to the word before it.
+    before = "" if text.startswith("'") else r"(?<![a-z])"
+    return re.compile(before + re.escape(text) + r"(?![a-z])")
+
+
+def term_words(term: str) -> set[str]:
+    """The words a declared term makes known; the possessive 's is known as a suffix."""
+    found = set(WORD.findall(term.lower()))
+    return found | {POSSESSIVE} if term.strip().lower() == POSSESSIVE else found
 
 
 def is_known(word: str, known: set[str]) -> bool:
     if word in known:
         return True
+    # A possessive (Ana's, the boy's) is known once 's is taught and its owner is known.
+    if word.endswith(POSSESSIVE) and POSSESSIVE in known:
+        return is_known(word[:-2], known)
     # Regular plurals of taught nouns; third-person verb forms stay visible
     # because they are a grammar target, not an inflection allowance.
     if word.endswith("ies") and word[:-3] + "y" in known:
@@ -118,8 +132,9 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
         # Learn holds only this lesson's new vocabulary (approved 2026-09-24): a
         # standard lesson's Learn card never re-teaches a known frame such as "It is".
         if lesson.role == "standard":
-            allowed = {word for item in vocabulary for word in WORD.findall(item.lower())}
-            allowed |= set(standards.get("learn_frame_words", ()))
+            allowed = {word for item in vocabulary for word in term_words(item)}
+            # A person's name is not language being taught: "My name is Ana." re-teaches nothing.
+            allowed |= set(standards.get("learn_frame_words", ())) | set(standards["proper_names"])
             for card in cards:
                 if card.get("stage") != "Learn":
                     continue
@@ -131,7 +146,7 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
                     findings.append(Finding("learn-new-only", lesson.number, str(label),
                                             f"Learn card repeats known words: {' '.join(extra)}"))
         for item in vocabulary + [str(item) for item in lesson.data.get("review_vocabulary") or []]:
-            known.update(WORD.findall(item.lower()))
+            known.update(term_words(item))
         untaught = sorted({word for card in cards for word in WORD.findall(card_language(card, phrases))
                            if not is_known(word, known)})
         findings += [Finding("untaught-word", lesson.number, word, "used before any lesson declares it")

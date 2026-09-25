@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "pack": "unit-3-rebuild-photos",
+  "revision": 1,
+  "output_namespace": "unit-3-lesson-v2",
+  "authorization": "PENDING: the Unit 3 rebuild photo prompts and ceiling await the user's approval. Nothing in this pack may be generated before that approval is recorded here.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image; input images about $0.0011 each; Unit 2 receipts averaged about $0.137 per image)",
+    "planned_images": 26,
+    "expected_cost_usd": "3.60",
+    "requested_ceiling_usd": "5.00",
+    "no_automatic_retries": true,
+    "order": "Generate the hardest state of each group first (a numeral-candle cake, the yes/no edits, Is it yours?), inspect it at 900/360/250/180 px and at the centered 4:5 crop, and only then send the photos that follow it or edit it. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "birthday": "Birthday age photo: ONE person sits at a home dining table directly behind one round cake with smooth white frosting on a plain white plate. Standing on top of the cake are exactly TWO separate large number-shaped wax candles, one digit each, reading the age named below from left to right. Both candles are solid bright blue with a small lit flame, stand upright side by side facing the camera squarely, and are each about 14 percent of the photo height, so the two digits read instantly on a phone. The cake and its candles are centered horizontally in the lower half of the photo; the person's face is directly above the cake, looking at the camera with a happy, natural smile, both hands resting on the table beside the plate. No other candles, numbers, cakes, balloons, banners, text or people. A warm, tidy home dining room softly out of focus behind."
+  },
+  "assets": [
+    {
+      "id": "yes-ana",
+      "group": "yes-no",
+      "lesson": "3.4",
+      "item": "Yes.",
+      "runtime_filename": "a1_photo_u3_yes_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Ana now answers YES: she gives one clear thumbs-up with her right hand, held in front of her chest at shoulder height, four fingers curled and the thumb pointing straight up, and she smiles warmly at Luis with a small nod. Her left arm keeps holding the clipboard exactly as before. Keep Luis, his pose and his gaze toward her identical, and keep the doorway, plants, table, light and camera identical. No new objects, text, arrows or symbols.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_i-ana_8c940c9.webp",
+        "sha256": "683d7f985a9c3f7745d03c1ceded23716740a94519fd85be88a0b62cdeca491e",
+        "observed_description": "Ana (long dark wavy hair, sage overshirt, white top, cream tote, clipboard) smiles at Luis and points to her own chest at the survey station doorway; Luis (navy T-shirt) stands at the right in three-quarter back view, listening."
+      }
+    },
+    {
+      "id": "no-luis",
+      "group": "yes-no",
+      "lesson": "3.4",
+      "item": "No.",
+      "runtime_filename": "a1_photo_u3_no_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Luis now answers NO: his right hand is raised in front of his chest with only the index finger up, tilted sideways in the common friendly 'no' finger-wag gesture, and he gives a small polite head shake with a friendly half-smile, still looking toward the left where Ana stands. His left arm hangs relaxed. Keep his LUIS badge, clothes, the doorway, plants, table, light and camera identical. No new objects, text, arrows or symbols.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_luis-badge_80bb288.webp",
+        "sha256": "b6ba52bc537f55463ab0023064777172fc78313ac2d6849b18397dfd239f05ba",
+        "observed_description": "Luis (short dark curly hair, navy T-shirt with a white LUIS badge) stands at the survey station doorway among potted plants, smiling toward the left and pointing to his badge with his right index finger."
+      }
+    },
+    {
+      "id": "age-11-boy",
+      "group": "age",
+      "lesson": "3.5",
+      "item": "Eleven years old. / He is eleven years old.",
+      "runtime_filename": "a1_photo_u3_age_11_boy_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "ELEVEN: the two candles are the digit 1 and the digit 1, reading 11. The person is an eleven-year-old boy with short straight black hair and light-brown skin, wearing a plain green T-shirt."
+    },
+    {
+      "id": "age-12-girl",
+      "group": "age",
+      "lesson": "3.5",
+      "item": "She is twelve years old. / I am twelve years old.",
+      "runtime_filename": "a1_photo_u3_age_12_girl_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "TWELVE: the two candles are the digit 1 and the digit 2, reading 12. The person is a twelve-year-old girl with long brown hair in a ponytail and medium-brown skin, wearing a plain yellow T-shirt."
+    },
+    {
+      "id": "age-13-boy",
+      "group": "age",
+      "lesson": "3.5",
+      "item": "He is thirteen years old.",
+      "runtime_filename": "a1_photo_u3_age_13_boy_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "THIRTEEN: the two candles are the digit 1 and the digit 3, reading 13. The person is a thirteen-year-old boy with short curly dark hair and dark-brown skin, wearing a plain red hoodie."
+    },
+    {
+      "id": "age-14-girl",
+      "group": "age",
+      "lesson": "3.5",
+      "item": "She is fourteen years old. / I am fourteen years old.",
+      "runtime_filename": "a1_photo_u3_age_14_girl_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "FOURTEEN: the two candles are the digit 1 and the digit 4, reading 14. The person is a fourteen-year-old girl with a short black bob haircut and light skin, wearing a plain light-blue sweater."
+    },
+    {
+      "id": "age-15-boy",
+      "group": "age",
+      "lesson": "3.5",
+      "item": "He is fifteen years old. / I am fifteen years old.",
+      "runtime_filename": "a1_photo_u3_age_15_boy_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "FIFTEEN: the two candles are the digit 1 and the digit 5, reading 15. The person is a fifteen-year-old boy with a very short buzz cut and olive skin, wearing a plain grey T-shirt."
+    },
+    {
+      "id": "age-16-girl",
+      "group": "age",
+      "lesson": "3.6",
+      "item": "She is sixteen years old. / Is she sixteen? Yes, she is.",
+      "runtime_filename": "a1_photo_u3_age_16_girl_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "SIXTEEN: the two candles are the digit 1 and the digit 6, reading 16, with the 6 upright and its round loop at the bottom. The person is a sixteen-year-old girl with shoulder-length curly black hair and dark-brown skin, wearing a plain purple top."
+    },
+    {
+      "id": "age-17-boy",
+      "group": "age",
+      "lesson": "3.6",
+      "item": "He is seventeen years old.",
+      "runtime_filename": "a1_photo_u3_age_17_boy_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "SEVENTEEN: the two candles are the digit 1 and the digit 7, reading 17. The person is a seventeen-year-old boy with straight black hair and light-brown skin, wearing a plain white button-up shirt."
+    },
+    {
+      "id": "age-19-girl",
+      "group": "age",
+      "lesson": "3.6",
+      "item": "She is nineteen years old.",
+      "runtime_filename": "a1_photo_u3_age_19_girl_v1.webp",
+      "shared": ["photo", "safe_center", "birthday"],
+      "four_card": true,
+      "prompt": "NINETEEN: the two candles are the digit 1 and the digit 9, reading 19, with the 9 upright and its round loop at the top. The person is a nineteen-year-old young woman with long dark braids and medium-brown skin, wearing a plain orange blouse."
+    },
+    {
+      "id": "children-american",
+      "group": "countries",
+      "lesson": "3.7",
+      "item": "The children are American.",
+      "runtime_filename": "a1_photo_u3_children_american_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Two children stand side by side on a sunny small-town sidewalk during a community parade: a boy about nine years old and a girl about eight, both smiling at the camera. Each child holds up one small United States flag on a short wooden stick, the flag clearly shown and fully visible beside the child's face. Friendly neighbors and a few more small United States flags appear softly out of focus far behind them. No other countries' flags, no text, signs, logos or banners."
+    },
+    {
+      "id": "grandmother-spain",
+      "group": "countries",
+      "lesson": "3.8",
+      "item": "The grandmother is from Spain.",
+      "runtime_filename": "a1_photo_u3_grandmother_spain_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "At a busy indoor international community fair with colorful booths far behind, a smiling grandmother in her seventies with short silver hair, glasses and a soft green cardigan stands facing the camera. With one hand she holds, at chest height, a small white card showing the flag of Spain with the one printed word SPAIN beneath it in large black capital letters; with the other hand she points to herself. The card is the only readable text in the photo. No other flags, signs or words readable anywhere."
+    },
+    {
+      "id": "our-car",
+      "group": "our-their",
+      "lesson": "3.11",
+      "item": "Our / This is our car.",
+      "runtime_filename": "a1_photo_u3_our_car_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "A married couple in their late thirties stand close together in the driveway of their home, right beside their plain blue hatchback car, both smiling at the camera. The woman, speaking to the camera, holds a car key up in one hand and rests her other hand on the car's roof; her husband stands next to her with his arm around her shoulders and his free hand also resting on the car. The whole car and both people are visible. The license plate is blank. No other cars or people."
+    },
+    {
+      "id": "our-grandchildren",
+      "group": "our-their",
+      "lesson": "3.11",
+      "item": "They are our grandchildren.",
+      "runtime_filename": "a1_photo_u3_our_grandchildren_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "In a bright living room, a grandmother and a grandfather in their late sixties sit side by side on a sofa, both smiling proudly at the camera. Their two grandchildren, a boy about seven and a girl about five, stand in front of them, facing the camera. The grandmother, speaking to the camera, rests one hand on each child's shoulder; the grandfather's arm is around her. All four faces are clearly visible. No other people."
+    },
+    {
+      "id": "their-grandmother",
+      "group": "our-their",
+      "lesson": "3.11",
+      "item": "She is their grandmother.",
+      "runtime_filename": "a1_photo_u3_their_grandmother_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "In a sunny backyard garden, two grandchildren, a girl about nine and a boy about six, hug their grandmother from both sides, one child on her left and one on her right. The grandmother, in her seventies with white hair pulled back and a light-blue blouse, kneels on the grass between them, laughing, with her arms around both children. All three faces are clearly visible. No other people."
+    },
+    {
+      "id": "their-house",
+      "group": "our-their",
+      "lesson": "3.11",
+      "item": "Their / That is their house.",
+      "runtime_filename": "a1_photo_u3_their_house_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Seen from across a quiet residential street, a family of four, a mother, a father, a girl about ten and a boy about six, stand together on the front path of their small single-story house with pale yellow walls and a red front door, all waving at the camera. The whole house is visible behind them and fills about half of the photo width; the family stands in front of its door. No other people, cars or houses in focus. No house numbers or text."
+    },
+    {
+      "id": "is-it-yours",
+      "group": "mine-yours",
+      "lesson": "3.12",
+      "item": "Is it yours?",
+      "runtime_filename": "a1_photo_u3_is_it_yours_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Luis's hands are now empty and relaxed at his sides, with no phone. Ana now holds that same black smartphone up in her right hand at shoulder height, screen dark, showing it to Luis with raised eyebrows and a curious, questioning smile, as if asking whether it is his. Keep their badges, clothes, faces, positions, the fair behind them, the table, light and camera identical. No new objects, text or symbols.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_your-phone-luis_e8f060b.webp",
+        "sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2",
+        "observed_description": "At a busy international fair, Ana (left, ANA badge, sage overshirt, cream tote) smiles and gestures with an open hand toward Luis (right, navy T-shirt, LUIS badge), who holds a black smartphone in his right hand beside a table of brochures."
+      }
+    },
+    {
+      "id": "mine-luis",
+      "group": "mine-yours",
+      "lesson": "3.12",
+      "item": "Mine / It is mine. / Yes, it is mine.",
+      "runtime_filename": "a1_photo_u3_mine_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Luis now holds the black smartphone in his right hand at chest height and presses his left hand flat on his own chest, smiling happily at Ana: the phone is his. Ana's right hand is now open and empty, lowered after handing it over, and she smiles back. Keep their badges, clothes, faces, positions, the fair behind them, the table, light and camera identical. No new objects, text or symbols.",
+      "reference": "is-it-yours"
+    },
+    {
+      "id": "yours-ana",
+      "group": "mine-yours",
+      "lesson": "3.12",
+      "item": "Yours / It is yours.",
+      "runtime_filename": "a1_photo_u3_yours_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Luis's hands are now empty, with no phone; he reaches one open hand forward with a pleased, surprised smile. Ana now holds out one closed blue book toward Luis with both hands, offering it to him, the book fully visible between them. Keep their badges, clothes, faces, positions, the fair behind them, the table, light and camera identical. The book cover is plain blue with no text or picture. No other new objects, text or symbols.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_your-phone-luis_e8f060b.webp",
+        "sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2",
+        "observed_description": "At a busy international fair, Ana (left, ANA badge, sage overshirt, cream tote) smiles and gestures with an open hand toward Luis (right, navy T-shirt, LUIS badge), who holds a black smartphone in his right hand beside a table of brochures."
+      }
+    },
+    {
+      "id": "review-cooking-yes",
+      "group": "review",
+      "lesson": "3.13",
+      "item": "Is she cooking? Yes, she is.",
+      "runtime_filename": "a1_u3_review_v2_she_cooking.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "At a busy outdoor evening street market, a woman in her fifties with grey-streaked hair tied back and a red apron cooks at her food stall: she turns vegetables in a large steaming pan over a gas burner with a wooden spatula, concentrating with a small smile. She is the only person at the stall; shoppers far behind are softly out of focus. No signs, menus, prices, logos or text."
+    },
+    {
+      "id": "review-our-house",
+      "group": "review",
+      "lesson": "3.13",
+      "item": "This is our house.",
+      "runtime_filename": "a1_u3_review_v2_our_house.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "A young couple in their mid-twenties stand together on the front steps of their small brick house with a green front door, smiling at the camera. The young man, speaking to the camera, holds the house key up in one hand and with his other hand points back toward the open green door behind them; the young woman leans on his shoulder, holding a cardboard moving box. The door and the front of the house are clearly visible. No house numbers, text or other people."
+    },
+    {
+      "id": "review-their-car",
+      "group": "review",
+      "lesson": "3.13",
+      "item": "That is their car.",
+      "runtime_filename": "a1_u3_review_v2_their_car.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Seen from across a sunny supermarket parking lot, two older men in their sixties, friends in casual jackets, load full paper grocery bags into the open trunk of their plain green car. The whole car and both men are clearly visible at a distance in the middle of the photo; no other cars are near theirs. The license plate is blank. No store signs, logos or text readable."
+    },
+    {
+      "id": "review-diego-bag",
+      "group": "review",
+      "lesson": "3.13",
+      "item": "It is Diego's bag.",
+      "runtime_filename": "a1_u3_review_v2_diego_bag.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "The man in Image 1 is Diego: keep his face, curly dark hair, short beard and build exactly. Create a new photograph of him standing on a bright modern train station platform, smiling at the camera, wearing a dark casual jacket over a burgundy shirt. He carries one large dark-green travel bag over his shoulder, holding its strap with one hand, and the whole bag is clearly visible at his side. No text, station signs, logos, flags or cards; no other person near him.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_diego-spanish_5d1c02d.webp",
+        "sha256": "fc7d61b3ceb1b68b822491f6b453c8b17a3d9a9e372e5c7e2f2ba6af6f833fc4",
+        "observed_description": "Diego (dark curly hair, short beard, dark blazer over a burgundy shirt) smiles and points to himself while holding a small card with the Spanish flag and the word SPAIN at a busy community fair."
+      }
+    },
+    {
+      "id": "review-sofia-yours",
+      "group": "review",
+      "lesson": "3.13",
+      "item": "It is yours.",
+      "runtime_filename": "a1_u3_review_v2_sofia_yours.webp",
+      "shared": ["photo", "safe_center"],
+      "prompt": "The woman in Image 1 is Sofia: keep her face, long curly dark hair and bright blue blazer exactly. Create a new photograph inside a calm neighborhood café: Sofia stands beside a small table and, smiling, hands a black smartphone to a seated young man in a grey sweater who left it on the table; she holds the phone out toward him and he reaches up to take it, surprised and grateful. Both faces and the phone are clearly visible. No text, logos, menus or cups with writing.",
+      "four_card": true,
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_sofia-canadian_adf798e.webp",
+        "sha256": "2daf8237485192503d10d64046efea7958bdca60e4af4e949b89c5cd62a39099",
+        "observed_description": "Sofia (long curly dark hair, bright blue blazer, white blouse, SOFIA badge) smiles and points to herself while holding a card with the Canadian flag and the word CANADA at a community fair."
+      }
+    },
+    {
+      "id": "gate-yours-question",
+      "group": "mission-gate",
+      "lesson": "3.14",
+      "item": "Is it yours?",
+      "runtime_filename": "a1_u3_dinner_v2_voice_yours_question.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Ana now holds up one black smartphone in her outstretched hand toward Luis (the young man in the navy T-shirt on the right), with raised eyebrows and a curious, questioning smile, as if asking whether it is his. Everyone else keeps the same pose and place. Keep the table, food, candles, lights, courtyard, faces, clothes and camera identical. No new objects, text or symbols.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u3_dinner_v1_job_question.webp",
+        "sha256": "4230b7713934a9ad81e5facac5cc589048399a2cb3bcc0619219c2e6127ace16",
+        "observed_description": "At an evening courtyard dinner table under string lights, Ana (sage overshirt, center-left) leans forward gesturing with an open hand; Sofia (blue blazer) sits at the left and Luis (navy T-shirt) and Diego (dark blazer) sit at the right, with salads and candles on the table."
+      }
+    },
+    {
+      "id": "gate-yours-answer",
+      "group": "mission-gate",
+      "lesson": "3.14",
+      "item": "Yes, it is mine.",
+      "runtime_filename": "a1_u3_dinner_v2_voice_yours_answer.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Luis, the young man in the navy T-shirt in the foreground, now holds one black smartphone in his other hand at chest height, screen dark, while his right hand stays flat on his chest and he keeps smiling: the phone is his. Keep everyone else, the table, food, candles, lights, courtyard, faces, clothes and camera identical. No new objects, text or symbols.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u3_dinner_v1_age_response.webp",
+        "sha256": "439c4b7632f6eb273a71b3378fab4abe29e0a182b96f1d041db19b01e3b53e44",
+        "observed_description": "Luis (navy T-shirt) sits in the foreground at the evening courtyard dinner table, smiling with his right hand flat on his chest; Ana, Sofia and Diego sit behind him with salads, bread and candles on the table."
+      }
+    }
+  ]
+}

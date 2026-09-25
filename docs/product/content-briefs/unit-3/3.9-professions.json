@@ -1,0 +1,213 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "note": "2026-09-25 Unit 3 rebuild: Learn holds the six jobs and What is your job?; practice brings back both job exchanges, He/She is a..., and yes/no questions about jobs. The cook, farmer and nurse are new people despite their file names, so they are described with he or she, never a cast name.",
+  "target": "backend/lessons/unit_3/lesson-3-6-professions.yaml",
+  "lesson": {
+    "id": "lesson-3-6-professions",
+    "title": "3.9 Professions",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.9",
+    "sub_lesson_title": "Professions",
+    "goal": "Recognize six jobs, ask What is your job? and say someone's job.",
+    "vocabulary": [
+      "teacher",
+      "doctor",
+      "cook",
+      "driver",
+      "farmer",
+      "nurse",
+      "job",
+      "What is your job?"
+    ],
+    "review_vocabulary": [
+      "I",
+      "am",
+      "a",
+      "he",
+      "she",
+      "is",
+      "yes",
+      "no",
+      "not"
+    ],
+    "grammar_function": "What is your job? I am a + job. He/She is a + job. Is he a driver? No, he is not.",
+    "prerequisite": "3.3 be forms and 3.4 yes/no questions.",
+    "speaking_outcome": "Answer What is your job? and say what someone's job is.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 9,
+    "Speak": 7,
+    "Use": 6
+  },
+  "items": [
+    {
+      "text": "A teacher",
+      "es": "Una maestra",
+      "image": "a1_scene_teacher-ana_0e983a0.webp",
+      "kind": "job",
+      "text_choices": false
+    },
+    {
+      "text": "A doctor",
+      "es": "Un doctor",
+      "image": "a1_scene_doctor-diego_1c7ef5a.webp",
+      "kind": "job",
+      "text_choices": false
+    },
+    {
+      "text": "A cook",
+      "es": "Un cocinero",
+      "image": "a1_scene_cook-sofia_ecb7eca.webp",
+      "kind": "job",
+      "text_choices": false
+    },
+    {
+      "text": "A driver",
+      "es": "Un conductor",
+      "image": "a1_scene_driver-luis_111aa43.webp",
+      "kind": "job",
+      "text_choices": false
+    },
+    {
+      "text": "A farmer",
+      "es": "Una agricultora",
+      "image": "a1_scene_farmer-ana_f823cb6.webp",
+      "kind": "job",
+      "text_choices": false
+    },
+    {
+      "text": "A nurse",
+      "es": "Una enfermera",
+      "image": "a1_scene_nurse-sofia_63f2a9c.webp",
+      "kind": "job",
+      "text_choices": false
+    },
+    {
+      "text": "What is your job?",
+      "es": "¿Cuál es tu trabajo?",
+      "image": "a1_scene_job-dialogue-teacher_be7d927.webp",
+      "kind": "job-question",
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "What is your job? I am a teacher.",
+      "es": "¿Cuál es tu trabajo? Soy maestra.",
+      "image": "a1_scene_job-dialogue-teacher_be7d927.webp",
+      "kind": "job-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "What is your job?",
+          "speaker": "luis",
+          "image": "a1_scene_job-dialogue-teacher_be7d927.webp"
+        },
+        {
+          "text": "I am a teacher.",
+          "speaker": "ana",
+          "image": "a1_scene_teacher-ana_0e983a0.webp"
+        }
+      ]
+    },
+    {
+      "text": "What is your job? I am a driver.",
+      "es": "¿Cuál es tu trabajo? Soy conductor.",
+      "image": "a1_scene_job-dialogue-driver_acd1aee.webp",
+      "kind": "job-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "What is your job?",
+          "speaker": "ana",
+          "image": "a1_scene_job-dialogue-driver_acd1aee.webp"
+        },
+        {
+          "text": "I am a driver.",
+          "speaker": "luis",
+          "image": "a1_scene_driver-luis_111aa43.webp"
+        }
+      ]
+    },
+    {
+      "text": "He is a doctor.",
+      "es": "Él es doctor.",
+      "image": "a1_scene_doctor-diego_1c7ef5a.webp",
+      "kind": "job-he",
+      "learn": false,
+      "prefer": [
+        "He is a cook."
+      ]
+    },
+    {
+      "text": "He is a cook.",
+      "es": "Él es cocinero.",
+      "image": "a1_scene_cook-sofia_ecb7eca.webp",
+      "kind": "job-he",
+      "learn": false,
+      "prefer": [
+        "He is a doctor."
+      ]
+    },
+    {
+      "text": "She is a farmer.",
+      "es": "Ella es agricultora.",
+      "image": "a1_scene_farmer-ana_f823cb6.webp",
+      "kind": "job-she",
+      "learn": false,
+      "prefer": [
+        "She is a nurse."
+      ]
+    },
+    {
+      "text": "She is a nurse.",
+      "es": "Ella es enfermera.",
+      "image": "a1_scene_nurse-sofia_63f2a9c.webp",
+      "kind": "job-she",
+      "learn": false,
+      "prefer": [
+        "She is a farmer."
+      ]
+    },
+    {
+      "text": "Is she a nurse? Yes, she is.",
+      "es": "¿Ella es enfermera? Sí.",
+      "image": "a1_scene_nurse-sofia_63f2a9c.webp",
+      "kind": "job-yes-no",
+      "learn": false,
+      "prefer": [
+        "Is she a nurse? No, she is not."
+      ]
+    },
+    {
+      "text": "Is he a driver? No, he is not.",
+      "es": "¿Él es conductor? No.",
+      "image": "a1_scene_doctor-diego_1c7ef5a.webp",
+      "kind": "job-yes-no",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "Is he a driver? Yes, he is."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Is she a nurse? No, she is not.",
+      "es": "¿Ella es enfermera? No.",
+      "kind": "job-yes-no"
+    },
+    {
+      "text": "Is he a driver? Yes, he is.",
+      "es": "¿Él es conductor? Sí.",
+      "kind": "job-yes-no"
+    }
+  ]
+}

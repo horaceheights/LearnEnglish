@@ -1,0 +1,268 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "note": "2026-09-25 Unit 3 rebuild: the old 12-item Age lesson is split in two. Learn holds eleven to fifteen on the registration numeral cards, How old are you? and Eleven years old.; practice asks What number is it? on the cards and How old is he/she? on new photos of children, each with one numeral candle on a birthday cake, so a wrong option changes only the number.",
+  "target": "backend/lessons/unit_3/lesson-3-4-age.yaml",
+  "lesson": {
+    "id": "lesson-3-4-age",
+    "title": "3.5 Ages 11-15",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.5",
+    "sub_lesson_title": "Ages 11-15",
+    "goal": "Recognize, hear and say eleven to fifteen, ask How old are you? and say how old a child is.",
+    "vocabulary": [
+      "eleven",
+      "twelve",
+      "thirteen",
+      "fourteen",
+      "fifteen",
+      "How old are you?",
+      "years old"
+    ],
+    "review_vocabulary": [
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "ten",
+      "number",
+      "what",
+      "it",
+      "is",
+      "he",
+      "she",
+      "I",
+      "am",
+      "you",
+      "are",
+      "boy",
+      "girl"
+    ],
+    "grammar_function": "How old are you? / How old is he/she? He/She is + number + years old. What number is it? It is number...",
+    "prerequisite": "2.6-2.7 numbers 1-10 and What number is it?; 3.2-3.3 I am, he/she is.",
+    "speaking_outcome": "Say eleven to fifteen, ask How old are you? and say a child's age.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 7,
+    "Use": 6
+  },
+  "items": [
+    {
+      "text": "Eleven",
+      "es": "Once",
+      "image": "a1_scene_n11_cabe425.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Twelve",
+      "es": "Doce",
+      "image": "a1_scene_n12_179a5ca.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Thirteen",
+      "es": "Trece",
+      "image": "a1_scene_n13_e92ef3e.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Fourteen",
+      "es": "Catorce",
+      "image": "a1_scene_n14_f713285.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "Fifteen",
+      "es": "Quince",
+      "image": "a1_scene_n15_35e4ec4.webp",
+      "kind": "number-word"
+    },
+    {
+      "text": "How old are you?",
+      "es": "¿Cuántos años tienes?",
+      "image": "a1_scene_age-luis-asks-ana_132f348.webp",
+      "kind": "age-question",
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Eleven years old.",
+      "es": "Once años.",
+      "image": "a1_photo_u3_age_11_boy_v1.webp",
+      "kind": "age-phrase",
+      "choices": false
+    },
+    {
+      "text": "It is number twelve.",
+      "es": "Es el número doce.",
+      "image": "a1_scene_n12_179a5ca.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?",
+      "prefer": [
+        "It is number eleven.",
+        "It is number thirteen."
+      ]
+    },
+    {
+      "text": "It is number fourteen.",
+      "es": "Es el número catorce.",
+      "image": "a1_scene_n14_f713285.webp",
+      "kind": "number-sentence",
+      "learn": false,
+      "question": "What number is it?",
+      "question_es": "¿Qué número es?",
+      "prefer": [
+        "It is number thirteen.",
+        "It is number fifteen."
+      ]
+    },
+    {
+      "text": "He is eleven years old.",
+      "es": "Él tiene once años.",
+      "image": "a1_photo_u3_age_11_boy_v1.webp",
+      "kind": "age-he",
+      "learn": false,
+      "question": "How old is he?",
+      "question_es": "¿Cuántos años tiene él?",
+      "prefer": [
+        "He is thirteen years old.",
+        "He is fifteen years old."
+      ]
+    },
+    {
+      "text": "She is twelve years old.",
+      "es": "Ella tiene doce años.",
+      "image": "a1_photo_u3_age_12_girl_v1.webp",
+      "kind": "age-she",
+      "learn": false,
+      "question": "How old is she?",
+      "question_es": "¿Cuántos años tiene ella?",
+      "prefer": [
+        "She is fourteen years old."
+      ]
+    },
+    {
+      "text": "He is thirteen years old.",
+      "es": "Él tiene trece años.",
+      "image": "a1_photo_u3_age_13_boy_v1.webp",
+      "kind": "age-he",
+      "learn": false,
+      "question": "How old is he?",
+      "question_es": "¿Cuántos años tiene él?",
+      "prefer": [
+        "He is eleven years old.",
+        "He is fifteen years old."
+      ]
+    },
+    {
+      "text": "She is fourteen years old.",
+      "es": "Ella tiene catorce años.",
+      "image": "a1_photo_u3_age_14_girl_v1.webp",
+      "kind": "age-she",
+      "learn": false,
+      "question": "How old is she?",
+      "question_es": "¿Cuántos años tiene ella?",
+      "prefer": [
+        "She is twelve years old."
+      ]
+    },
+    {
+      "text": "He is fifteen years old.",
+      "es": "Él tiene quince años.",
+      "image": "a1_photo_u3_age_15_boy_v1.webp",
+      "kind": "age-he",
+      "learn": false,
+      "question": "How old is he?",
+      "question_es": "¿Cuántos años tiene él?",
+      "prefer": [
+        "He is thirteen years old.",
+        "He is eleven years old."
+      ]
+    },
+    {
+      "text": "I am twelve years old.",
+      "es": "Tengo doce años.",
+      "image": "a1_photo_u3_age_12_girl_v1.webp",
+      "kind": "age-i",
+      "speaker": "female-character",
+      "learn": false,
+      "question": "How old are you?",
+      "question_es": "¿Cuántos años tienes?",
+      "prefer": [
+        "I am fourteen years old."
+      ]
+    },
+    {
+      "text": "I am fourteen years old.",
+      "es": "Tengo catorce años.",
+      "image": "a1_photo_u3_age_14_girl_v1.webp",
+      "kind": "age-i",
+      "speaker": "female-character",
+      "learn": false,
+      "question": "How old are you?",
+      "question_es": "¿Cuántos años tienes?",
+      "prefer": [
+        "I am twelve years old."
+      ]
+    },
+    {
+      "text": "I am fifteen years old.",
+      "es": "Tengo quince años.",
+      "image": "a1_photo_u3_age_15_boy_v1.webp",
+      "kind": "age-i",
+      "speaker": "male-character",
+      "learn": false,
+      "question": "How old are you?",
+      "question_es": "¿Cuántos años tienes?",
+      "prefer": [
+        "I am thirteen years old.",
+        "I am eleven years old."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "It is number eleven.",
+      "es": "Es el número once.",
+      "image": "a1_scene_n11_cabe425.webp",
+      "kind": "number-sentence"
+    },
+    {
+      "text": "It is number thirteen.",
+      "es": "Es el número trece.",
+      "image": "a1_scene_n13_e92ef3e.webp",
+      "kind": "number-sentence"
+    },
+    {
+      "text": "It is number fifteen.",
+      "es": "Es el número quince.",
+      "image": "a1_scene_n15_35e4ec4.webp",
+      "kind": "number-sentence"
+    },
+    {
+      "text": "I am eleven years old.",
+      "es": "Tengo once años.",
+      "kind": "age-i"
+    },
+    {
+      "text": "I am thirteen years old.",
+      "es": "Tengo trece años.",
+      "kind": "age-i"
+    }
+  ]
+}

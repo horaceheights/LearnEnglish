@@ -1,0 +1,192 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "note": "2026-09-25 Unit 3 rebuild: the old 10-item Countries lesson is split in two. Learn holds Mexico, Mexican, the United States, American and Where are you from?; I am from... and I am + nationality are practice, and a new photo brings back the children from Unit 1.",
+  "target": "backend/lessons/unit_3/lesson-3-5-countries-and-nationalities.yaml",
+  "lesson": {
+    "id": "lesson-3-5-countries-and-nationalities",
+    "title": "3.7 Where Are You From?",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.7",
+    "sub_lesson_title": "Where Are You From?",
+    "goal": "Recognize Mexico/Mexican and the United States/American and answer Where are you from?.",
+    "vocabulary": [
+      "Mexico",
+      "Mexican",
+      "the United States",
+      "American",
+      "from",
+      "Where are you from?"
+    ],
+    "review_vocabulary": [
+      "I",
+      "am",
+      "you",
+      "are",
+      "he",
+      "she",
+      "is",
+      "they",
+      "the",
+      "children",
+      "yes",
+      "no",
+      "not"
+    ],
+    "grammar_function": "Where are you from? I am from + country. I am + nationality. Where is a fixed origin chunk.",
+    "prerequisite": "3.3 be forms and 3.4 yes/no questions.",
+    "speaking_outcome": "Answer Where are you from? with a country and a nationality.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 7,
+    "Use": 7
+  },
+  "items": [
+    {
+      "text": "Mexico",
+      "es": "México",
+      "image": "a1_scene_mexico-country_c17ee27.webp",
+      "kind": "country",
+      "accepts": {
+        "lexical-phrase": "Country names are one word or several (the United States); the bank tests the country, not the number of words."
+      }
+    },
+    {
+      "text": "Mexican",
+      "es": "Mexicana",
+      "image": "a1_scene_ana-mexican_1fca9cc.webp",
+      "kind": "nationality"
+    },
+    {
+      "text": "The United States",
+      "es": "Estados Unidos",
+      "image": "a1_scene_us-country_69518e5.webp",
+      "kind": "country",
+      "accepts": {
+        "lexical-phrase": "Country names are one word or several (the United States); the bank tests the country, not the number of words."
+      },
+      "form": "word"
+    },
+    {
+      "text": "American",
+      "es": "Estadounidense",
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "kind": "nationality"
+    },
+    {
+      "text": "Where are you from?",
+      "es": "¿De dónde eres?",
+      "image": "a1_scene_ana_mexico.webp",
+      "kind": "origin-question",
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "I am from Mexico.",
+      "es": "Soy de México.",
+      "image": "a1_scene_ana_mexico.webp",
+      "kind": "origin-i",
+      "speaker": "ana",
+      "learn": false,
+      "question": "Where are you from?",
+      "question_es": "¿De dónde eres?",
+      "question_speaker": "luis",
+      "prefer": [
+        "I am from the United States."
+      ]
+    },
+    {
+      "text": "I am from the United States.",
+      "es": "Soy de Estados Unidos.",
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "kind": "origin-i",
+      "speaker": "luis",
+      "learn": false,
+      "question": "Where are you from?",
+      "question_es": "¿De dónde eres?",
+      "question_speaker": "female-character",
+      "prefer": [
+        "I am from Mexico."
+      ]
+    },
+    {
+      "text": "I am Mexican.",
+      "es": "Soy mexicana.",
+      "image": "a1_scene_ana-mexican_1fca9cc.webp",
+      "kind": "nationality-i",
+      "speaker": "ana",
+      "learn": false,
+      "prefer": [
+        "I am American."
+      ]
+    },
+    {
+      "text": "I am American.",
+      "es": "Soy estadounidense.",
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "kind": "nationality-i",
+      "speaker": "luis",
+      "learn": false,
+      "prefer": [
+        "I am Mexican."
+      ]
+    },
+    {
+      "text": "The children are American.",
+      "es": "Los niños son estadounidenses.",
+      "image": "a1_photo_u3_children_american_v1.webp",
+      "kind": "nationality-they",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The children are Mexican."
+      ]
+    },
+    {
+      "text": "Is she Mexican? Yes, she is.",
+      "es": "¿Ella es mexicana? Sí.",
+      "image": "a1_scene_ana-mexican_1fca9cc.webp",
+      "kind": "origin-yes-no",
+      "learn": false,
+      "prefer": [
+        "Is she Mexican? No, she is not."
+      ]
+    },
+    {
+      "text": "Is he Mexican? No, he is not.",
+      "es": "¿Él es mexicano? No.",
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "kind": "origin-yes-no",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "Is he Mexican? Yes, he is."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "The children are Mexican.",
+      "es": "Los niños son mexicanos.",
+      "kind": "nationality-they"
+    },
+    {
+      "text": "Is she Mexican? No, she is not.",
+      "es": "¿Ella es mexicana? No.",
+      "kind": "origin-yes-no"
+    },
+    {
+      "text": "Is he Mexican? Yes, he is.",
+      "es": "¿Él es mexicano? Sí.",
+      "kind": "origin-yes-no"
+    }
+  ]
+}
