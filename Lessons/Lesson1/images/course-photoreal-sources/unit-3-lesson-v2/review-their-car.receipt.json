@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e85963c0-8490-48d1-af86-3616acb3cf29",
+  "asset_id": "review-their-car",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:35:22.154466+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nSeen from across a sunny supermarket parking lot, two older men in their sixties, friends in casual jackets, load full paper grocery bags into the open trunk of their plain green car. The whole car and both men are clearly visible at a distance in the middle of the photo; no other cars are near theirs. The license plate is blank. No store signs, logos or text readable.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Kve2atPWC7bpz7IPyZCCmQ4",
+  "usage": {
+    "promptTokenCount": 268,
+    "candidatesTokenCount": 1240,
+    "totalTokenCount": 1757,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 268
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 249,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137524",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 268,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 249
+  },
+  "elapsed_seconds": 26.82,
+  "output": "output/imagegen/unit-3-lesson-v2/review-their-car.png",
+  "sha256": "bbfe3d8b8277a6549ea78abe23ef450d0352567536b11e864b192e82d49ff3be",
+  "byte_count": 5898960,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

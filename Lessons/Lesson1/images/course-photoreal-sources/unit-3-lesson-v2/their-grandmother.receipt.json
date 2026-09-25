@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "52c14e66-6c8c-4a1e-9d27-953bf42d16cb",
+  "asset_id": "their-grandmother",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:31:27.590925+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIn a sunny backyard garden, two grandchildren, a girl about nine and a boy about six, hug their grandmother from both sides, one child on her left and one on her right. The grandmother, in her seventies with white hair pulled back and a light-blue blouse, kneels on the grass between them, laughing, with her arms around both children. All three faces are clearly visible. No other people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "P_a2atbWMZ7nz7IP8IHl0Aw",
+  "usage": {
+    "promptTokenCount": 274,
+    "candidatesTokenCount": 1277,
+    "totalTokenCount": 1758,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 274
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 207,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137032",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 274,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 207
+  },
+  "elapsed_seconds": 23.81,
+  "output": "output/imagegen/unit-3-lesson-v2/their-grandmother.png",
+  "sha256": "0b244effc28cd0ded52b95a44e58f6a5893678a3baa72133d7e1e30f4601c252",
+  "byte_count": 6518087,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

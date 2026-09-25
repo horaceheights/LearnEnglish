@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "93a316b7-8f92-4021-8fed-38b0ddcba0c8",
+  "asset_id": "age-19-girl",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:24:51.979140+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nBirthday age photo: ONE person sits at a home dining table directly behind one round cake with smooth white frosting on a plain white plate. Standing on top of the cake are exactly TWO separate large number-shaped wax candles, one digit each, reading the age named below from left to right. Both candles are solid bright blue with a small lit flame, stand upright side by side facing the camera squarely, and are each about 14 percent of the photo height, so the two digits read instantly on a phone. The cake and its candles are centered horizontally in the lower half of the photo; the person's face is directly above the cake, looking at the camera with a happy, natural smile, both hands resting on the table beside the plate. No other candles, numbers, cakes, balloons, banners, text or people. A warm, tidy home dining room softly out of focus behind.\n\nNINETEEN: the two candles are the digit 1 and the digit 9, reading 19, with the 9 upright and its round loop at the top. The person is a nineteen-year-old young woman with long dark braids and medium-brown skin, wearing a plain orange blouse.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "tPS2asLMB7rRz7IP3Obl4Ak",
+  "usage": {
+    "promptTokenCount": 435,
+    "candidatesTokenCount": 1311,
+    "totalTokenCount": 2007,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 435
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 261,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138002",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 435,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 261
+  },
+  "elapsed_seconds": 22.12,
+  "output": "output/imagegen/unit-3-lesson-v2/age-19-girl.png",
+  "sha256": "edf70813e472776b81076cd770ee1ea9ad0d623b41f2d1c3c7f9aa4ee072f6fe",
+  "byte_count": 5713600,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

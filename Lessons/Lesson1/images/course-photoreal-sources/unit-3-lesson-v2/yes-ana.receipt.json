@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "92b5d525-7579-4300-8042-8d25ba7c06ad",
+  "asset_id": "yes-ana",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:26:19.822602+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Ana now answers YES: she gives one clear thumbs-up with her right hand, held in front of her chest at shoulder height, four fingers curled and the thumb pointing straight up, and she smiles warmly at Luis with a small nod. Her left arm keeps holding the clipboard exactly as before. Keep Luis, his pose and his gaze toward her identical, and keep the doorway, plants, table, light and camera identical. No new objects, text, arrows or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_i-ana_8c940c9.webp",
+    "sha256": "683d7f985a9c3f7745d03c1ceded23716740a94519fd85be88a0b62cdeca491e"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "DvW2apLDNZ7nz7IP8IHl0Aw",
+  "usage": {
+    "promptTokenCount": 362,
+    "candidatesTokenCount": 1244,
+    "totalTokenCount": 1786,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 104
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 180,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136884",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 362,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 180
+  },
+  "elapsed_seconds": 27.18,
+  "output": "output/imagegen/unit-3-lesson-v2/yes-ana.png",
+  "sha256": "f815ebe78bf761b3ee384ac8bf1cf6d2159707dea62e8871ea9107d2ecbb79a3",
+  "byte_count": 5667321,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -22,6 +22,8 @@ the voice that asks its `question`. An item with `turns` is a spoken exchange:
 each turn names its words, speaker and picture, and every card that plays the
 item plays those turns in order. An exchange has no single voice, so it never
 becomes a Use construction; `"use": false` keeps any other item out of Use too.
+A brief's `narrators` (such as ["teacher", "male-teacher"]) take turns reading
+the neutral narration, card by card.
 
 A proposal is always a draft. A person reviews every proposed answer bank
 (see docs/qa/answer-choice-review.md) and records it before the plan can be
@@ -230,6 +232,32 @@ def _construction(slide: str, item: dict) -> dict:
             "pedagogy_note": note("Use", item), **_use_voice(item)}
 
 
+def narrate(cards: list[dict], narrators: list[str] | None) -> None:
+    """Alternate neutral narration between the brief's narrators, card by card.
+
+    Neutral narration (a line no named speaker says) takes turns among `narrators`
+    in card order (approved 2026-09-25), so a lesson is not read by one voice
+    throughout. The first narrator is the course's default teacher, whose cards
+    carry no role; a card spoken by a named speaker or by exchange turns keeps it.
+    """
+    if not narrators:
+        return
+    from scripts.content_engine.plan import compose_card  # local import avoids a cycle
+
+    turn = 0
+    for spec in cards:
+        card = compose_card(spec)
+        neutral = [field for field, audio, turns in (("audio_speaker", "audio_text", "audio_turns"),
+                                                     ("answer_audio_speaker", "answer_audio_text", "answer_audio_turns"))
+                   if card.get(audio) and not card.get(turns) and not card.get(field)]
+        if not neutral:
+            continue
+        voice = narrators[turn % len(narrators)]
+        turn += 1
+        if voice != "teacher":
+            spec.update({field: voice for field in neutral})
+
+
 def _use_voice(item: dict) -> dict:
     """A Use card plays the finished sentence as its prompt and its answer, in one voice."""
     if not item.get("speaker"):
@@ -365,6 +393,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         build = index >= layout["Use"] - CONSTRUCTIONS or len(words(item["text"])) < 3
         cards.append((_construction if build else _completion)(f"U{index + 1}", item))
 
+    narrate(cards, brief.get("narrators"))
     # Each section follows the story in order; number its beats like every standard lesson.
     beats: dict[str, int] = {}
     for card in cards:

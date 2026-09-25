@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9eb41a15-cb44-466c-a37c-dea057ee9254",
+  "asset_id": "mine-luis",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:28:55.713861+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Luis now holds the black smartphone in his right hand at chest height and presses his left hand flat on his own chest, smiling happily at Ana: the phone is his. Ana's right hand is now open and empty, lowered after handing it over, and she smiles back. Keep their badges, clothes, faces, positions, the fair behind them, the table, light and camera identical. No new objects, text or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-3-lesson-v2/is-it-yours.png",
+    "sha256": "78159f554f4adf4ef0a9bf29ce7989bdd097150fe150280f5a90d2aa5bc4dd2d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "qvW2as64Kszoz7IPv-2foQk",
+  "usage": {
+    "promptTokenCount": 354,
+    "candidatesTokenCount": 1258,
+    "totalTokenCount": 1837,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 96
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 225,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137408",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 354,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 225
+  },
+  "elapsed_seconds": 25.52,
+  "output": "output/imagegen/unit-3-lesson-v2/mine-luis.png",
+  "sha256": "7107e72df4613e98e36f0cefbf99a38b68c085a52027e11707840c470722420f",
+  "byte_count": 5490798,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

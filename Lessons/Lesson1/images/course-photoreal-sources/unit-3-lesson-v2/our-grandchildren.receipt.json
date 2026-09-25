@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "47afa7a7-1029-4389-8bb8-e3e1a9171df4",
+  "asset_id": "our-grandchildren",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:31:05.492810+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIn a bright living room, a grandmother and a grandfather in their late sixties sit side by side on a sofa, both smiling proudly at the camera. Their two grandchildren, a boy about seven and a girl about five, stand in front of them, facing the camera. The grandmother, speaking to the camera, rests one hand on each child's shoulder; the grandfather's arm is around her. All four faces are clearly visible. No other people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Kfa2au-yKfyDmtkPuvWngAY",
+  "usage": {
+    "promptTokenCount": 283,
+    "candidatesTokenCount": 1276,
+    "totalTokenCount": 1755,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 283
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 196,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136918",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 283,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 196
+  },
+  "elapsed_seconds": 20.33,
+  "output": "output/imagegen/unit-3-lesson-v2/our-grandchildren.png",
+  "sha256": "96ce1609ca70d880eb970ecbf7ab263462dd62b8a779273965008a0108147bae",
+  "byte_count": 6575353,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d0802fb3-49c7-4125-b5e8-a342df92e3d2",
+  "asset_id": "gate-yours-question",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:36:44.668399+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Ana now holds up one black smartphone in her outstretched hand toward Luis (the young man in the navy T-shirt on the right), with raised eyebrows and a curious, questioning smile, as if asking whether it is his. Everyone else keeps the same pose and place. Keep the table, food, candles, lights, courtyard, faces, clothes and camera identical. No new objects, text or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u3_dinner_v1_job_question.webp",
+    "sha256": "4230b7713934a9ad81e5facac5cc589048399a2cb3bcc0619219c2e6127ace16"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "fve2asLkJ_yDmtkPuvWngAY",
+  "usage": {
+    "promptTokenCount": 348,
+    "candidatesTokenCount": 1273,
+    "totalTokenCount": 1757,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 90
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 136,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136328",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 348,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 136
+  },
+  "elapsed_seconds": 23.38,
+  "output": "output/imagegen/unit-3-lesson-v2/gate-yours-question.png",
+  "sha256": "d0d4bfa7bc6e6770ee2a2e0e10fd1a46cef8ba2069651269a22caac820a9310c",
+  "byte_count": 5963170,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

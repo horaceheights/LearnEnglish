@@ -18,6 +18,7 @@ NARRATOR_VOICE_IDS = {
     "female-teacher": "XfNU2rGpBa01ckF309OY",  # Nichalia
     "female-warm": "EXAVITQu4vr4xnSDxMaL",  # Sarah
     "male-conversational": "TX3LPaxmHKxFdv7VOQHJ",  # Liam
+    "male-teacher": "cjVigY5qzO86Huf0OWal",  # Eric, the second neutral narrator (2026-09-25)
 }
 
 # Lesson content names the semantic speaker, never a provider voice ID. Named
@@ -33,10 +34,16 @@ SPEAKER_NARRATORS = {
     "luis": "male-conversational",
     "diego": "male-conversational",
     "male-character": "male-conversational",
+    # A second neutral narrator (user direction, 2026-09-25): lessons built from
+    # briefs alternate neutral narration between the teacher and this voice.
+    "male-teacher": "male-teacher",
 }
 
+# Roles that may still fall back to the reviewed legacy (voice-unknown) cache.
 NEUTRAL_SPEAKER_ROLES = frozenset({"teacher", "question", "answer"})
 NAMED_SPEAKER_ROLES = frozenset(set(SPEAKER_NARRATORS) - NEUTRAL_SPEAKER_ROLES)
+# Off-camera narration: a line no pictured person says, in either neutral narrator.
+NARRATION_SPEAKER_ROLES = frozenset(NEUTRAL_SPEAKER_ROLES | {"male-teacher"})
 
 
 @dataclass(frozen=True)

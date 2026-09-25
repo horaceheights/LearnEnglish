@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "69e2669c-017d-438b-97f5-387cd8c9438f",
+  "asset_id": "our-car",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:30:40.230321+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA married couple in their late thirties stand close together in the driveway of their home, right beside their plain blue hatchback car, both smiling at the camera. The woman, speaking to the camera, holds a car key up in one hand and rests her other hand on the car's roof; her husband stands next to her with his arm around her shoulders and his free hand also resting on the car. The whole car and both people are visible. The license plate is blank. No other cars or people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "EPa2aoCJJYuCqtsP8PWJmAY",
+  "usage": {
+    "promptTokenCount": 293,
+    "candidatesTokenCount": 1304,
+    "totalTokenCount": 1879,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 293
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 282,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137970",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 293,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 282
+  },
+  "elapsed_seconds": 23.62,
+  "output": "output/imagegen/unit-3-lesson-v2/our-car.png",
+  "sha256": "b41483933ba0b1ac85057382929e99a46993c7fffe067a7df773810ac27ca843",
+  "byte_count": 6420238,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
