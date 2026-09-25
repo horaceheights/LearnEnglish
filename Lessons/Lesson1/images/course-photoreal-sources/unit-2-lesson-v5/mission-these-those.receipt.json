@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8bdccd89-7c7c-4fd3-9602-8b1b190b022b",
+  "asset_id": "mission-these-those",
+  "pack_sha256": "d228ea1ebe75a5492083fed260bdc4b661da7d6866bc60096cbbc5686a54ac49",
+  "started_at": "2026-09-24T23:46:31.796587+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Turn every object into a matching PAIR of two identical objects and change nothing else. NEAR: keep the red book in the left hand and the phone in the right hand exactly as they are, and add a second identical red book lying flat on the table just left of the held book, and a second identical blue-cased phone lying flat on the table just right of the held phone, each fully visible and touching nothing else. FAR: the far red book becomes two identical red books side by side with a small gap, and the far phone becomes two identical blue-cased phones side by side with a small gap, in the same far places and the same size as before. Exactly four red books and four phones in the whole photo: two of each near, two of each far. Keep the hands, sleeves, table, light, shadows and camera identical. No text, logos, extra hands or other objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_near_far_tight.webp",
+    "sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Wra1asm6EfCwqtsPztOP8QE",
+  "usage": {
+    "promptTokenCount": 453,
+    "candidatesTokenCount": 1323,
+    "totalTokenCount": 1915,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 195
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 139,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136574",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 453,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 139
+  },
+  "elapsed_seconds": 22.92,
+  "output": "output/imagegen/unit-2-lesson-v5/mission-these-those.png",
+  "sha256": "20f2bf9a1c2b1b939eae22c5817d57d31637ecc9d48edaa86cf152e21a46b0cb",
+  "byte_count": 5536765,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

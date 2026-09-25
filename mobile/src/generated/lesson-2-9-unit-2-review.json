@@ -1,13 +1,13 @@
 {
   "id": "lesson-2-9-unit-2-review",
-  "title": "2.10 Unit 2 Review",
+  "title": "2.11 Unit 2 Review",
   "level": "Beginner A1",
   "unit_id": "unit-2",
   "unit_title": "Unit 2: Places, Objects, Numbers, and Colors",
   "unit_outcome": "Recognize common surroundings and identify, count, and describe concrete objects without using untaught location language.",
   "lesson_id": "lesson-2",
   "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
-  "sub_lesson_id": "2.10",
+  "sub_lesson_id": "2.11",
   "sub_lesson_title": "Unit 2 Review",
   "goal": "Review Unit 2 through fresh surroundings, object identification, true near/far contrasts, quantities and colors, then recognize the final numbers by ear. No new language.",
   "vocabulary": [],
@@ -25,6 +25,7 @@
     "car",
     "cars",
     "chair",
+    "color",
     "eight",
     "five",
     "four",
@@ -50,10 +51,13 @@
     "table",
     "ten",
     "that",
+    "these",
     "this",
+    "those",
     "three",
     "two",
     "what",
+    "which one",
     "white",
     "yellow"
   ],
@@ -723,58 +727,53 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "t2i4",
-      "prompt": "Three green books",
+      "interaction_type": "i2t3",
+      "prompt": "What color are they?",
       "stage": "Recognize",
-      "correct_option_id": "three-green-books-2",
+      "correct_option_id": "they-are-green",
       "options": [
         {
-          "id": "four-yellow-pens-1",
-          "image_url": "/lesson-assets/a1_u2_review_v1_yellow_pens.webp",
-          "label": null
+          "id": "they-are-blue",
+          "image_url": "",
+          "label": "They are blue."
         },
         {
-          "id": "three-green-books-2",
-          "image_url": "/lesson-assets/a1_u2_review_v1_green_books.webp",
-          "label": null
+          "id": "they-are-green",
+          "image_url": "",
+          "label": "They are green."
         },
         {
-          "id": "five-black-phones-3",
-          "image_url": "/lesson-assets/a1_u2_review_v1_black_phones.webp",
-          "label": null
-        },
-        {
-          "id": "six-white-bags-4",
-          "image_url": "/lesson-assets/a1_u2_review_v1_white_bags.webp",
-          "label": null
+          "id": "they-are-yellow",
+          "image_url": "",
+          "label": "They are yellow."
         }
       ],
-      "audio_text": "Three green books",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tres libros verdes",
-      "pedagogy_note": "composed phrase",
+      "audio_text": "What color are they?",
+      "answer_audio_text": "They are green.",
+      "prompt_image_url": "/lesson-assets/a1_u2_review_v1_green_books.webp",
+      "spanish_translation": "\u00bfDe qu\u00e9 color son?",
+      "pedagogy_note": "color question",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c014-prompt-9bcb9142ff292be2a47a",
+          "id": "lesson-2-9-unit-2-review-c014-prompt-e7107bab71767d30279e",
           "purpose": "prompt",
-          "text": "Three green books",
+          "text": "What color are they?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c014-answer-1a0b65f068a06c70763f",
+          "id": "lesson-2-9-unit-2-review-c014-answer-8b7fea6a747dddcbf904",
           "purpose": "answer",
-          "text": "Three green books",
+          "text": "They are green.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
@@ -1569,56 +1568,51 @@
     },
     {
       "slide_id": "N6",
-      "interaction_type": "a2t4",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "four-yellow-pens-2",
+      "correct_option_id": "these-bags",
       "options": [
         {
-          "id": "four-green-pens-1",
-          "image_url": "",
-          "label": "Four green pens"
+          "id": "this-bag",
+          "image_url": "/lesson-assets/a1_u2_review_v1_near_bag.webp",
+          "label": null
         },
         {
-          "id": "four-yellow-pens-2",
-          "image_url": "",
-          "label": "Four yellow pens"
-        },
-        {
-          "id": "five-yellow-pens-3",
-          "image_url": "",
-          "label": "Five yellow pens"
+          "id": "these-bags",
+          "image_url": "/lesson-assets/a1_photo_u2_these_bags_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Four yellow pens",
+      "audio_text": "These are bags.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "audio-to-text exact phrase",
+      "spanish_translation": "Estas son bolsas.",
+      "pedagogy_note": "One bag held close against two bags close by: only the number of things changes.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c029-prompt-406d20dd756380bc0577",
+          "id": "lesson-2-9-unit-2-review-c029-prompt-13099570361f4f9594e6",
           "purpose": "prompt",
-          "text": "Four yellow pens",
+          "text": "These are bags.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:82dd8d914902caf9d79c",
+          "image_ref": "/lesson-assets/a1_photo_u2_these_bags_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c029-answer-8ff99422ebb26cf15926",
+          "id": "lesson-2-9-unit-2-review-c029-answer-a1b464fa3648e5b9b75d",
           "purpose": "answer",
-          "text": "Four yellow pens",
+          "text": "These are bags.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:82dd8d914902caf9d79c",
+          "image_ref": "/lesson-assets/a1_photo_u2_these_bags_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1628,61 +1622,56 @@
     },
     {
       "slide_id": "N5",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "five-black-phones-3",
+      "correct_option_id": "the-red-one",
       "options": [
         {
-          "id": "three-green-books-1",
-          "image_url": "/lesson-assets/a1_u2_review_v1_green_books.webp",
-          "label": null
+          "id": "the-blue-one",
+          "image_url": "",
+          "label": "The blue one."
         },
         {
-          "id": "six-white-bags-2",
-          "image_url": "/lesson-assets/a1_u2_review_v1_white_bags.webp",
-          "label": null
+          "id": "the-black-one",
+          "image_url": "",
+          "label": "The black one."
         },
         {
-          "id": "five-black-phones-3",
-          "image_url": "/lesson-assets/a1_u2_review_v1_black_phones.webp",
-          "label": null
-        },
-        {
-          "id": "four-yellow-pens-4",
-          "image_url": "/lesson-assets/a1_u2_review_v1_yellow_pens.webp",
-          "label": null
+          "id": "the-red-one",
+          "image_url": "",
+          "label": "The red one."
         }
       ],
-      "audio_text": "Five black phones",
+      "audio_text": "Which one? The red one.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "spanish_translation": "\u00bfCu\u00e1l? La roja.",
+      "pedagogy_note": "Audio-to-written-English check of Lesson 2.10; all options already taught.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c030-prompt-fc6901012799570f713a",
+          "id": "lesson-2-9-unit-2-review-c030-prompt-cffdc2aa99273ae9ae10",
           "purpose": "prompt",
-          "text": "Five black phones",
+          "text": "Which one? The red one.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u2_review_v1_black_phones.webp",
+          "image_ref": "text-only:e8d00d6030a1406fca6a",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c030-answer-ad2493015f0f016bcee1",
+          "id": "lesson-2-9-unit-2-review-c030-answer-8f11e149fd1ce3e7a68e",
           "purpose": "answer",
-          "text": "Five black phones",
+          "text": "The red one.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u2_review_v1_black_phones.webp",
+          "image_ref": "text-only:e8d00d6030a1406fca6a",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1746,51 +1735,56 @@
     },
     {
       "slide_id": "N8",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "n8",
+      "correct_option_id": "those-are-phones",
       "options": [
         {
-          "id": "n7",
-          "image_url": "/lesson-assets/a1_u2_review_v2_parking_number_7.webp",
-          "label": null
+          "id": "these-are-phones",
+          "image_url": "",
+          "label": "These are phones."
         },
         {
-          "id": "n8",
-          "image_url": "/lesson-assets/a1_u2_review_v2_bus_number_8.webp",
-          "label": null
+          "id": "those-are-phones",
+          "image_url": "",
+          "label": "Those are phones."
+        },
+        {
+          "id": "that-is-a-phone",
+          "image_url": "",
+          "label": "That is a phone."
         }
       ],
-      "audio_text": "It is number eight.",
+      "audio_text": "Those are phones.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es el n\u00famero ocho.",
-      "pedagogy_note": "Number check in the world: the heard number is painted on a parking space or lit on a bus.",
+      "spanish_translation": "Esos son tel\u00e9fonos.",
+      "pedagogy_note": "Audio-to-written-English check of Lesson 2.10; all options already taught.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c032-prompt-1f6cc26d5ab4ad9b86d3",
+          "id": "lesson-2-9-unit-2-review-c032-prompt-6d31107ed11b07a96465",
           "purpose": "prompt",
-          "text": "It is number eight.",
+          "text": "Those are phones.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u2_review_v2_bus_number_8.webp",
+          "image_ref": "text-only:4ed11354fc3974c3651c",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c032-answer-d93066efa89e2d38a627",
+          "id": "lesson-2-9-unit-2-review-c032-answer-8758ec9931f08cf191ef",
           "purpose": "answer",
-          "text": "It is number eight.",
+          "text": "Those are phones.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u2_review_v2_bus_number_8.webp",
+          "image_ref": "text-only:4ed11354fc3974c3651c",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2115,45 +2109,45 @@
     {
       "slide_id": "S5",
       "interaction_type": "repeat",
-      "prompt": "Three green books",
+      "prompt": "What color is it? It is red.",
       "stage": "Speak",
-      "correct_option_id": "three-green-books-1",
+      "correct_option_id": "what-color-is-it-it-is-red-1",
       "options": [
         {
-          "id": "three-green-books-1",
-          "image_url": "/lesson-assets/a1_u2_review_v1_green_books.webp",
-          "label": "Three green books"
+          "id": "what-color-is-it-it-is-red-1",
+          "image_url": "/lesson-assets/a1_u2_review_v1_red_car.webp",
+          "label": "What color is it? It is red."
         }
       ],
-      "audio_text": "Three green books",
+      "audio_text": "What color is it? It is red.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tres libros verdes",
-      "pedagogy_note": "description",
+      "spanish_translation": "\u00bfDe qu\u00e9 color es? Es rojo.",
+      "pedagogy_note": "question-answer",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-9-unit-2-review-c039-prompt-78a65b94b0bd9473271b",
+          "id": "lesson-2-9-unit-2-review-c039-prompt-f143f705a61aec000545",
           "purpose": "prompt",
-          "text": "Three green books",
+          "text": "What color is it? It is red.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
+          "image_ref": "/lesson-assets/a1_u2_review_v1_red_car.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-9-unit-2-review-c039-answer-132ba0d3b908cf7ab85f",
+          "id": "lesson-2-9-unit-2-review-c039-answer-1568bddabe88e3a0a964",
           "purpose": "answer",
-          "text": "Three green books",
+          "text": "What color is it? It is red.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u2_review_v1_green_books.webp",
+          "image_ref": "/lesson-assets/a1_u2_review_v1_red_car.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "15d4db77-909b-45c8-b96a-d6e3b7506c96",
+  "asset_id": "gate-number-8-question",
+  "pack_sha256": "d228ea1ebe75a5492083fed260bdc4b661da7d6866bc60096cbbc5686a54ac49",
+  "started_at": "2026-09-24T23:46:55.672220+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Replace ONLY the phone on the table with one small cream table-number card standing upright on a little wooden stand, printed with one large black numeral 8 facing the camera, standing exactly where the phone lay. Her index finger now points at the card and stops just short of it. Keep the woman, her face, expression, hair, teal T-shirt, pose, the table, the park, the lake and the light identical. The only character anywhere is the single 8; no other text, numbers or objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u2_meeting_v4_voice_phone_question.webp",
+    "sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "eLa1ate2Mp7oz7IPnNOlOQ",
+  "usage": {
+    "promptTokenCount": 373,
+    "candidatesTokenCount": 1256,
+    "totalTokenCount": 1822,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 115
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 193,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137062",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 373,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 193
+  },
+  "elapsed_seconds": 30.06,
+  "output": "output/imagegen/unit-2-lesson-v5/gate-number-8-question.png",
+  "sha256": "1bf1a72e86b1dab1741f1a2f68ec01510fea30a3f61c3112c257320d6c386593",
+  "byte_count": 6081433,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

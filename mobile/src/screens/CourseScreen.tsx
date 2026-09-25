@@ -134,9 +134,14 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Cuenta y describe objetos por color.',
     color: '#dff4ef',
   },
+  'lesson-2-these-those': {
+    image: 'a1_photo_u2_these_books_v1.webp',
+    description: 'Estos y esos: varias cosas cerca y lejos.',
+    color: '#dff4ef',
+  },
   'lesson-2-9-unit-2-review': {
     image: 'a1_scene_five-black-phones_734dda6.webp',
-    description: 'Repaso de lugares, objetos, números y colores.',
+    description: 'Repaso de lugares, objetos, números, colores, estos y esos.',
     color: '#dff4ef',
   },
   'lesson-2-10-around-me-mission': {

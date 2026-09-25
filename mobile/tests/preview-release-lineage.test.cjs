@@ -109,12 +109,12 @@ test('publishing requires the exact main release authority and integrity check',
 test('the versioned manifest locks the complete recovery baseline and release identity', () => {
   assert.equal(integrityManifest.manifestVersion, 1);
   assert.equal(integrityManifest.baselineCommit, '657ab19487e37851de1229c08219d44d59ab199b');
-  // 2026-09-23 Unit 2 rebuild: a deliberate curriculum release to 72 lessons (Units 1 and 2 have 11).
-  // 2026-09-24: the 2.9 grid fix and the Unit 2 reuse pass changed the catalog, not the counts.
-  assert.equal(integrityManifest.catalog.expectedGitBlob, '8f73fcab2c39d88a05c3a37c4fa3f5a6d457576b');
-  assert.equal(integrityManifest.catalog.lessonCount, 72);
+  // 2026-09-24: a deliberate curriculum release to 73 lessons; the new 2.10 These and Those
+  // gives Unit 2 twelve lessons (Unit 1 has 11).
+  assert.equal(integrityManifest.catalog.expectedGitBlob, 'c3995c29be78bfb118cf9d258452c9655376a574');
+  assert.equal(integrityManifest.catalog.lessonCount, 73);
   assert.equal(integrityManifest.catalog.unitCount, 7);
-  assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 11, 10, 10, 10, 10, 10]);
+  assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 12, 10, 10, 10, 10, 10]);
   assert.deepEqual(
     integrityManifest.requiredReleaseIdentityFiles.map((file) => file.path),
     [

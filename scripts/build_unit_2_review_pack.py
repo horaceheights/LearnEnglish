@@ -106,6 +106,38 @@ def compile_lesson(base: dict, pack: dict) -> dict:
                    "audio_text": "What number is it? It is number eight.", "answer_audio_text": None,
                    "prompt_image_url": "", "spanish_translation": "¿Qué número es? Es el número ocho.",
                    "pedagogy_note": "question-answer"}
+    # 2026-09-24: colors are asked the way Lesson 2.8 now teaches them.
+    cards["R6"] = {"slide_id": "R6", "interaction_type": "i2t3", "prompt": "What color are they?", "stage": "Recognize",
+                   "correct_option_id": "they-are-green", "audio_text": "What color are they?",
+                   "answer_audio_text": "They are green.", "prompt_image_url": "a1_u2_review_v1_green_books.webp",
+                   "spanish_translation": "¿De qué color son?", "pedagogy_note": "color question",
+                   "options": [{"id": f"they-are-{color}", "label": f"They are {color}.", "image_url": ""}
+                               for color in ("blue", "green", "yellow")]}
+    cards["S5"] = {"slide_id": "S5", "interaction_type": "repeat", "prompt": "What color is it? It is red.", "stage": "Speak",
+                   "correct_option_id": "what-color-is-it-it-is-red-1",
+                   "options": [{"id": "what-color-is-it-it-is-red-1", "image_url": "a1_u2_review_v1_red_car.webp",
+                                "label": "What color is it? It is red."}],
+                   "audio_text": "What color is it? It is red.", "answer_audio_text": None, "prompt_image_url": "",
+                   "spanish_translation": "¿De qué color es? Es rojo.", "pedagogy_note": "question-answer"}
+    # 2026-09-24: Lesson 2.10 adds these/those and Which one?; the review hears them too.
+    cards["N6"] = {"slide_id": "N6", "stage": "Listen", "interaction_type": "a2i2", "prompt": "Listen and choose.",
+                   "audio_text": "These are bags.", "answer_audio_text": None, "correct_option_id": "these-bags",
+                   "prompt_image_url": "", "spanish_translation": "Estas son bolsas.",
+                   "pedagogy_note": "One bag held close against two bags close by: only the number of things changes.",
+                   "options": [{"id": "this-bag", "label": None, "image_url": by_asset["near-bag"]},
+                               {"id": "these-bags", "label": None, "image_url": "a1_photo_u2_these_bags_v1.webp"}]}
+    for identifier, text, translated, choices in (
+        ("N8", "Those are phones.", "Esos son teléfonos.", ["These are phones.", "Those are phones.", "That is a phone."]),
+        ("N5", "Which one? The red one.", "¿Cuál? La roja.", ["The blue one.", "The black one.", "The red one."]),
+    ):
+        answer = text.split("? ")[-1]
+        cards[identifier] = {"slide_id": identifier, "stage": "Listen", "interaction_type": "a2t3",
+                             "prompt": "Listen and choose.", "audio_text": text, "answer_audio_text": None,
+                             "correct_option_id": answer.lower().rstrip(".").replace(" ", "-"), "prompt_image_url": "",
+                             "spanish_translation": translated,
+                             "pedagogy_note": "Audio-to-written-English check of Lesson 2.10; all options already taught.",
+                             "options": [{"id": item.lower().rstrip(".").replace(" ", "-"), "label": item, "image_url": ""}
+                                         for item in choices]}
     for identifier, word, translated, options in (
         ("N9", "Nine", "Nueve", ["Ten", "Eight", "Nine"]),
         ("N10", "Ten", "Diez", ["Nine", "Ten", "Seven"]),

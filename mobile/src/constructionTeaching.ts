@@ -11,7 +11,7 @@ const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish');
-const PRONOUNS = set('i you he she it we they this that there');
+const PRONOUNS = set('i you he she it we they this that these those there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening');
 const BE = set('am is are');
@@ -36,10 +36,14 @@ function teachClause(text: string): ClausePlan {
     if (DETERMINERS.has(keys[head]) || NUMBERS.has(keys[head]) || keys[head] === 'some') head++;
     if (COLORS.has(keys[head])) head++;
     if (['living', 'dining'].includes(keys[head]) && keys[head + 1] === 'room') head++;
-    if (head !== end - 1 || !NOUNS.has(keys[head])) return false;
+    // "The red one": after a color, "one" stands in for the noun already named.
+    const standIn = keys[head] === 'one' && head > start && COLORS.has(keys[head - 1]);
+    if (head !== end - 1 || !(NOUNS.has(keys[head]) || standIn)) return false;
     if (head > start) {
       const first = keys[start];
-      const why = COLORS.has(first) || COLORS.has(keys[start + 1])
+      const why = standIn
+        ? `En ${quote(phrase(start, end))}, el color va antes de “one”, que reemplaza al nombre para no repetirlo.`
+        : COLORS.has(first) || COLORS.has(keys[start + 1])
         ? `En ${quote(phrase(start, end))}, ${NUMBERS.has(first) ? 'la cantidad va primero, después el color y al final el nombre' : 'el color va antes del nombre que describe'}.`
         : NUMBERS.has(first) || first === 'some'
           ? `En ${quote(phrase(start, end))}, la cantidad va antes del nombre: primero cuánto hay y después qué es.`
@@ -167,6 +171,8 @@ function teachClause(text: string): ClausePlan {
     // Lesson 3.3 teaches this current-action question as a fixed chunk; it does
     // not introduce generative do/does.
     'what are you doing': 'Para preguntar qué está haciendo alguien ahora decimos “What are you doing?”: primero “What”, luego “are”, después “you” y al final “doing”. Es una pregunta fija.',
+    // Lesson 2.10 asks which of two things someone means before "The red one."
+    'which one': 'Para preguntar cuál de varias cosas decimos “Which one?”: primero “Which” y después “one”.',
   };
   if (fixed[joined]) {
     teach(0, keys.length, fixed[joined]);
@@ -196,12 +202,15 @@ function teachClause(text: string): ClausePlan {
     if (keys[4] === 'listen') teach(5, keys.length, '“Listen to music” significa escuchar música; “to” va entre “listen” y lo que escuchamos.');
     return { explanations, relations, supported: true };
   }
-  const question = /^(who|what number|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
+  const question = /^(who|what number|what color|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {
     const verbIndex = words(question[1]).length;
     const subjectEnd = keys[keys.length - 1] === 'from' ? keys.length - 1 : keys.length;
     teach(0, keys.length, `En esta pregunta, primero ${quote(phrase(0, verbIndex))}, luego ${quote(tokens[verbIndex])} y después ${quote(phrase(verbIndex + 1, subjectEnd))}. El verbo va antes de quien preguntamos.`);
-    if (verbIndex === 2 && keys[0] === 'what') teach(0, 2, '“What number” pregunta qué número es: “What” va antes de “number” y las dos palabras abren la pregunta.');
+    if (verbIndex === 2 && keys[0] === 'what') {
+      const asks = keys[1] === 'color' ? 'de qué color es' : 'qué número es';
+      teach(0, 2, `“What ${keys[1]}” pregunta ${asks}: “What” va antes de “${keys[1]}” y las dos palabras abren la pregunta.`);
+    }
     else if (verbIndex === 2) teach(0, 2, `“How ${tokens[1]}” pregunta ${keys[1] === 'old' ? 'la edad' : 'el precio'}: “How” va antes de ${quote(tokens[1])} y las dos palabras abren la pregunta.`);
     const supported = subject(verbIndex + 1, subjectEnd);
     if (subjectEnd < keys.length) teach(subjectEnd, keys.length, 'En “Where are you from?”, “Where” pregunta el lugar y “from” cierra la pregunta para indicar el origen.');

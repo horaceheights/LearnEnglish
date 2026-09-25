@@ -31,7 +31,7 @@ class UnitTwoMissionPackTests(unittest.TestCase):
         result = compile_lesson(self.pack, self.base, self.geometry)
         self.assertEqual(self.base, before)
         self.assertEqual(result["id"], before["id"])
-        self.assertEqual(result["sub_lesson_id"], "2.11")
+        self.assertEqual(result["sub_lesson_id"], "2.12")
         self.assertEqual(result["content_revision"], 4)
         self.assertEqual(len(result["cards"]), 13)
         self.assertNotIn("foto", json.dumps(result, ensure_ascii=False).lower())

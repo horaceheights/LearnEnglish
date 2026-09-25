@@ -1,7 +1,7 @@
 {
   "brief_version": 1,
   "captions": false,
-  "note": "2026-09-24 reuse pass: Learn holds only the six colors, each on a new photo of an object taught in 2.2-2.3 (bus, bike, chair, bag, car, table). Practice names the color with It is, and the counting photos from 2.6 return with They are, before 2.9 joins number, color and noun. The apple, mug, lemon, camera and contrast stills are no longer shown.",
+  "note": "2026-09-24 colors like numbers (user direction): Learn holds Colors and the six colors on the restored plain discs only; every later card asks What color is it? / What color are they? about objects taught in 2.2-2.3 and the counting photos, and names the thing with its color (It is a blue bike.).",
   "target": "backend/lessons/unit_2/lesson-2-7-basic-colors.yaml",
   "lesson": {
     "id": "lesson-2-7-basic-colors",
@@ -14,8 +14,9 @@
     "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
     "sub_lesson_id": "2.8",
     "sub_lesson_title": "Basic Colors",
-    "goal": "Recognize, hear and say six colors on objects the learner already knows, and describe one thing with It is and several with They are.",
+    "goal": "Recognize, hear and say six colors, ask What color is it? / What color are they?, and describe a known thing with its color.",
     "vocabulary": [
+      "color",
       "red",
       "blue",
       "green",
@@ -24,10 +25,12 @@
       "white"
     ],
     "review_vocabulary": [
+      "what",
       "it",
       "is",
       "they",
       "are",
+      "a",
       "bus",
       "bike",
       "chair",
@@ -35,119 +38,155 @@
       "car",
       "table",
       "book",
+      "books",
       "pen",
-      "phone"
+      "pens",
+      "phone",
+      "phones",
+      "bags",
+      "cars"
     ],
-    "grammar_function": "Color adjectives; It is + color for one thing; They are + color for several.",
-    "prerequisite": "1.3 they are; 2.1 it is; 2.2-2.3 bus, bike, car, chair, bag, table; 2.6-2.7 counting photos.",
-    "speaking_outcome": "Name the color of a known object with It is or They are.",
-    "content_revision": 3
+    "grammar_function": "What color is it? / What color are they?; It is + color; They are + color; a + color + noun.",
+    "prerequisite": "1.3 they are; 2.1 it is; 2.2-2.3 bus, bike, car, chair, bag, table; 2.4 What is it?; 2.6-2.7 counting photos.",
+    "speaking_outcome": "Answer What color is it? and name a known thing with its color.",
+    "content_revision": 4
   },
   "layout": {
     "Recognize": 12,
     "Listen": 10,
     "Speak": 7,
-    "Use": 7
+    "Use": 6
   },
   "items": [
     {
+      "text": "Colors",
+      "es": "Los colores",
+      "image": "a1_photo_u2_colors_v1.webp",
+      "kind": "color-word",
+      "choices": false
+    },
+    {
       "text": "Red",
       "es": "Rojo",
-      "image": "a1_photo_u2_red_bus_v1.webp",
-      "kind": "color-word"
+      "image": "a1_photo_u2_color_red_v1.webp",
+      "kind": "color-word",
+      "choices": false
     },
     {
       "text": "Blue",
       "es": "Azul",
-      "image": "a1_photo_u2_blue_bike_v1.webp",
-      "kind": "color-word"
+      "image": "a1_photo_u2_color_blue_v1.webp",
+      "kind": "color-word",
+      "choices": false
     },
     {
       "text": "Green",
       "es": "Verde",
-      "image": "a1_photo_u2_green_chair_v1.webp",
-      "kind": "color-word"
+      "image": "a1_photo_u2_color_green_v1.webp",
+      "kind": "color-word",
+      "choices": false
     },
     {
       "text": "Yellow",
       "es": "Amarillo",
-      "image": "a1_photo_u2_yellow_bag_v1.webp",
-      "kind": "color-word"
+      "image": "a1_photo_u2_color_yellow_v1.webp",
+      "kind": "color-word",
+      "choices": false
     },
     {
       "text": "Black",
       "es": "Negro",
-      "image": "a1_photo_u2_black_car_v1.webp",
-      "kind": "color-word"
+      "image": "a1_photo_u2_color_black_v1.webp",
+      "kind": "color-word",
+      "choices": false
     },
     {
       "text": "White",
       "es": "Blanco",
-      "image": "a1_photo_u2_white_table_v1.webp",
-      "kind": "color-word"
+      "image": "a1_photo_u2_color_white_v1.webp",
+      "kind": "color-word",
+      "choices": false
     },
     {
       "text": "It is red.",
       "es": "Es rojo.",
       "image": "a1_photo_u2_red_bus_v1.webp",
       "kind": "color-it",
-      "learn": false
+      "learn": false,
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
     },
     {
       "text": "It is blue.",
       "es": "Es azul.",
       "image": "a1_photo_u2_blue_bike_v1.webp",
       "kind": "color-it",
-      "learn": false
+      "learn": false,
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
     },
     {
       "text": "It is green.",
       "es": "Es verde.",
       "image": "a1_photo_u2_green_chair_v1.webp",
       "kind": "color-it",
-      "learn": false
+      "learn": false,
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
     },
     {
       "text": "It is yellow.",
       "es": "Es amarilla.",
       "image": "a1_photo_u2_yellow_bag_v1.webp",
       "kind": "color-it",
-      "learn": false
+      "learn": false,
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
     },
     {
       "text": "It is black.",
       "es": "Es negro.",
       "image": "a1_photo_u2_black_car_v1.webp",
       "kind": "color-it",
-      "learn": false
+      "learn": false,
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
     },
     {
       "text": "It is white.",
       "es": "Es blanca.",
       "image": "a1_photo_u2_white_table_v1.webp",
       "kind": "color-it",
-      "learn": false
+      "learn": false,
+      "question": "What color is it?",
+      "question_es": "¿De qué color es?"
     },
     {
       "text": "They are blue.",
       "es": "Son azules.",
       "image": "a1_two-blue-cars.webp",
       "kind": "color-they",
-      "learn": false
+      "learn": false,
+      "question": "What color are they?",
+      "question_es": "¿De qué color son?"
     },
     {
       "text": "They are green.",
       "es": "Son verdes.",
       "image": "a1_three-green-books.webp",
       "kind": "color-they",
-      "learn": false
+      "learn": false,
+      "question": "What color are they?",
+      "question_es": "¿De qué color son?"
     },
     {
       "text": "They are yellow.",
       "es": "Son amarillos.",
       "image": "a1_four-yellow-pens.webp",
       "kind": "color-they",
-      "learn": false
+      "learn": false,
+      "question": "What color are they?",
+      "question_es": "¿De qué color son?"
     },
     {
       "text": "They are black.",
@@ -155,6 +194,8 @@
       "image": "a1_scene_five-black-phones_734dda6.webp",
       "kind": "color-they",
       "learn": false,
+      "question": "What color are they?",
+      "question_es": "¿De qué color son?",
       "four_card": false
     },
     {
@@ -163,8 +204,218 @@
       "image": "unit2_six_white_bags.webp",
       "kind": "color-they",
       "learn": false,
+      "question": "What color are they?",
+      "question_es": "¿De qué color son?",
       "four_card": false
+    },
+    {
+      "text": "What color is it? It is blue.",
+      "es": "¿De qué color es? Es azul.",
+      "image": "a1_photo_u2_blue_bike_v1.webp",
+      "kind": "color-exchange",
+      "learn": false,
+      "prefer": [
+        "What color is it? It is red.",
+        "What color is it? It is green."
+      ]
+    },
+    {
+      "text": "What color is it? It is yellow.",
+      "es": "¿De qué color es? Es amarilla.",
+      "image": "a1_photo_u2_yellow_bag_v1.webp",
+      "kind": "color-exchange",
+      "learn": false,
+      "prefer": [
+        "What color is it? It is green.",
+        "What color is it? It is red."
+      ]
+    },
+    {
+      "text": "What color are they? They are green.",
+      "es": "¿De qué color son? Son verdes.",
+      "image": "a1_three-green-books.webp",
+      "kind": "color-exchange",
+      "learn": false,
+      "prefer": [
+        "What color are they? They are blue.",
+        "What color are they? They are yellow."
+      ]
+    },
+    {
+      "text": "What color are they? They are white.",
+      "es": "¿De qué color son? Son blancas.",
+      "image": "unit2_six_white_bags.webp",
+      "kind": "color-exchange",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "What color are they? They are black.",
+        "What color are they? They are yellow."
+      ]
+    },
+    {
+      "text": "It is a red bus.",
+      "es": "Es un autobús rojo.",
+      "image": "a1_photo_u2_red_bus_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a blue bus.",
+        "It is a green bus."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is a blue bike.",
+      "es": "Es una bicicleta azul.",
+      "image": "a1_photo_u2_blue_bike_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a red bike.",
+        "It is a green bike."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is a green chair.",
+      "es": "Es una silla verde.",
+      "image": "a1_photo_u2_green_chair_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a yellow chair.",
+        "It is a blue chair."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is a yellow bag.",
+      "es": "Es una bolsa amarilla.",
+      "image": "a1_photo_u2_yellow_bag_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a green bag.",
+        "It is a red bag."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is a black car.",
+      "es": "Es un automóvil negro.",
+      "image": "a1_photo_u2_black_car_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a white car.",
+        "It is a red car."
+      ],
+      "image_choices": false
+    },
+    {
+      "text": "It is a white table.",
+      "es": "Es una mesa blanca.",
+      "image": "a1_photo_u2_white_table_v1.webp",
+      "kind": "color-noun",
+      "learn": false,
+      "prefer": [
+        "It is a black table.",
+        "It is a yellow table."
+      ],
+      "image_choices": false
     }
   ],
-  "pool": []
+  "pool": [
+    {
+      "text": "It is a blue bus.",
+      "es": "Es un autobús azul.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a green bus.",
+      "es": "Es un autobús verde.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a red bike.",
+      "es": "Es una bicicleta roja.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a green bike.",
+      "es": "Es una bicicleta verde.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a yellow chair.",
+      "es": "Es una silla amarilla.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a blue chair.",
+      "es": "Es una silla azul.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a green bag.",
+      "es": "Es una bolsa verde.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a red bag.",
+      "es": "Es una bolsa roja.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a white car.",
+      "es": "Es un automóvil blanco.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a red car.",
+      "es": "Es un automóvil rojo.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a black table.",
+      "es": "Es una mesa negra.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "It is a yellow table.",
+      "es": "Es una mesa amarilla.",
+      "kind": "color-noun"
+    },
+    {
+      "text": "What color is it? It is red.",
+      "es": "¿De qué color es? Es rojo.",
+      "kind": "color-exchange"
+    },
+    {
+      "text": "What color is it? It is green.",
+      "es": "¿De qué color es? Es verde.",
+      "kind": "color-exchange"
+    },
+    {
+      "text": "What color is it? It is black.",
+      "es": "¿De qué color es? Es negro.",
+      "kind": "color-exchange"
+    },
+    {
+      "text": "What color are they? They are blue.",
+      "es": "¿De qué color son? Son azules.",
+      "kind": "color-exchange"
+    },
+    {
+      "text": "What color are they? They are yellow.",
+      "es": "¿De qué color son? Son amarillos.",
+      "kind": "color-exchange"
+    },
+    {
+      "text": "What color are they? They are black.",
+      "es": "¿De qué color son? Son negros.",
+      "kind": "color-exchange"
+    }
+  ]
 }

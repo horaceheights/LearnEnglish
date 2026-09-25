@@ -162,7 +162,7 @@ class MediaPreservationTests(unittest.TestCase):
         foundations = [lesson for lesson in lessons(ROOT).values()
                        if lesson["sub_lesson_id"].startswith("2.") and is_foundation(lesson)]
         vocabulary = {normalize(word) for lesson in foundations for word in lesson.get("vocabulary", [])}
-        self.assertEqual(len(vocabulary), 44)  # 2026-09-24: 2.6 adds "number"
+        self.assertEqual(len(vocabulary), 48)  # 2026-09-24: number (2.6), color (2.8), these, those, which one (2.10)
         missing = {word for word in vocabulary if not any(re.search(r"\b" + re.escape(word) + r"\b", line) for line in lines)}
         self.assertEqual(missing, set())
         self.assertEqual(compile_lesson(result, pack), result)

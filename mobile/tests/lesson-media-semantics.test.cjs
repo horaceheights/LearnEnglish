@@ -436,11 +436,11 @@ const requiredUnitTwoReplacementsByLesson = new Map([
     ],
   ],
   [
-    '2.10',
+    '2.11',
     ['a1_u2_review_v1_white_bags.webp'],
   ],
   [
-    '2.11',
+    '2.12',
     [
       'a1_u2_meeting_v4_places.webp',
       'a1_u2_meeting_v4_transport.webp',
@@ -579,7 +579,11 @@ requiredAssets.push(
 // mission scenes the same way.
 for (const filename of ['a1_u2_scene_01_park_path.webp', 'a1_u2_scene_02_bench.webp', 'a1_u2_scene_03_bus_stop.webp',
   'a1_scene_ana_name.webp', 'a1_scene_ana_age_20.webp', 'a1_scene_ana_mexico.webp', 'a1_scene_ana_teacher_book.webp',
-  'a1_u3_scene_01_kitchen.webp', 'a1_u3_scene_02_dining.webp']) {
+  'a1_u3_scene_01_kitchen.webp', 'a1_u3_scene_02_dining.webp',
+  // 2026-09-24: the Unit 2 mission's single near/far scene and phone gate gave way to
+  // the these/those pairs and the What number is it? gate.
+  'a1_u2_meeting_v4_near_far_tight.webp', 'a1_u2_meeting_v4_voice_phone_response.webp',
+  'a1_u2_meeting_v4_voice_phone_question.webp']) {
   const source = fs.readFileSync(path.join(repositoryRoot, 'Lessons/Lesson1/images', filename));
   for (const folder of ['mobile/assets/lesson-assets', 'frontend/public/lesson-assets']) {
     assert.deepEqual(fs.readFileSync(path.join(repositoryRoot, folder, filename)), source);
