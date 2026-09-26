@@ -22,17 +22,20 @@
       ]
     },
     "3": {
-      "outcome": "Meet people, exchange personal information established in dialogue, describe ownership, and ask about the current action.",
+      "outcome": "Meet people, exchange personal information established in dialogue, ask and answer yes/no questions with be, describe ownership, and ask about the current action.",
       "functions": [
         {"id": "greetings-names", "taught_in": "3.1", "patterns": ["\\bhello\\b", "\\bgood morning\\b", "\\bgoodbye\\b", "\\bwhat is your name\\b", "\\bmy name is\\b"]},
         {"id": "speaker-perspective", "taught_in": "3.2", "patterns": ["\\bi am\\b", "\\byou are\\b", "\\bwe are\\b"]},
         {"id": "be-agreement", "taught_in": "3.3", "patterns": ["\\b(?:he|she|it) is\\b", "\\bthey are\\b"]},
-        {"id": "current-action-question", "taught_in": "3.3", "requires_introduction": true, "patterns": ["\\bwhat are you doing\\b", "\\bi am (?:reading|writing|talking|cooking|working|playing)\\b"]},
-        {"id": "age", "taught_in": "3.4", "patterns": ["\\bhow old are you\\b", "\\bi am (?:eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty) years old\\b"]},
-        {"id": "origin", "taught_in": "3.5", "patterns": ["\\bwhere are you from\\b", "\\bi am from (?:mexico|canada|spain|the united states)\\b", "\\bi am (?:mexican|canadian|spanish|american)\\b"]},
-        {"id": "profession", "taught_in": "3.6", "patterns": ["\\bwhat is your job\\b", "\\b(?:i am|he is|she is) a (?:teacher|doctor|cook|driver|farmer|nurse)\\b"]},
-        {"id": "possession", "taught_in": "3.7", "patterns": ["\\bmy (?:book|phone|bag)\\b", "\\byour (?:book|phone|bag)\\b", "\\bhis (?:name|book|phone|bag)\\b", "\\bher (?:name|book|phone|bag|car)\\b"]},
-        {"id": "have-has", "taught_in": "3.8", "patterns": ["\\b(?:i|you|we|they) have\\b", "\\b(?:he|she) has\\b"]}
+        {"id": "current-action-question", "taught_in": "3.3", "requires_introduction": true, "introduction_patterns": ["\\bwhat are you doing\\b"], "patterns": ["\\bwhat are you doing\\b", "\\bi am (?:reading|writing|talking|cooking|working|playing)\\b"]},
+        {"id": "yes-no-questions", "taught_in": "3.4", "patterns": ["^(?:is|are) (?:he|she|it|you|they)\\b", "\\byes (?:i am|he is|she is|it is|they are)\\b"]},
+        {"id": "age", "taught_in": "3.5", "patterns": ["\\bhow old are you\\b", "\\bi am (?:eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty) years old\\b"]},
+        {"id": "origin", "taught_in": "3.7", "patterns": ["\\bwhere are you from\\b", "\\bi am from (?:mexico|canada|spain|the united states)\\b", "\\bi am (?:mexican|canadian|spanish|american)\\b"]},
+        {"id": "profession", "taught_in": "3.9", "patterns": ["\\bwhat is your job\\b", "\\b(?:i am|he is|she is) a (?:teacher|doctor|cook|driver|farmer|nurse)\\b"]},
+        {"id": "possession", "taught_in": "3.10", "patterns": ["\\bmy (?:book|phone|bag)\\b", "\\byour (?:book|phone|bag)\\b", "\\bhis (?:name|book|phone|bag)\\b", "\\bher (?:name|book|phone|bag|car)\\b"]},
+        {"id": "our-their-possessive-s", "taught_in": "3.11", "patterns": ["\\b(?:our|their)\\b", "\\b[a-z]+ s (?:book|phone|bag|car)\\b"]},
+        {"id": "have-has", "taught_in": "3.12", "patterns": ["\\b(?:i|you|we|they) have\\b", "\\b(?:he|she) has\\b"]},
+        {"id": "mine-yours", "taught_in": "3.12", "patterns": ["\\b(?:mine|yours)\\b"]}
       ]
     },
     "4": {
