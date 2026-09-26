@@ -29,6 +29,7 @@ import {
   usesCompactRecognizeInstruction,
 } from "../../mobile/src/lessonInstructions";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
+import { visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
@@ -2316,7 +2317,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   const currentCard = activeLesson.cards[cardIndex];
   const missionOrder = useMemo(() => missionCueOrder(currentCard?.mission_game), [currentCard]);
-  const [activeTurnImageUrl, setActiveTurnImageUrl] = useState(null);
+  const [playingTurnImageUrl, setActiveTurnImageUrl] = useState(null);
+  // A speaker's picture never covers an answer-choice card's options (shared with mobile).
+  const activeTurnImageUrl = visibleTurnImageUrl(currentCard, playingTurnImageUrl);
   const totalCards = activeLesson.cards.length;
   const finalMissionCard = isMissionExperience ? activeLesson.cards[activeLesson.cards.length - 1] : null;
   const finalMissionImageUrl = finalMissionCard?.prompt_image_url

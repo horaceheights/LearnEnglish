@@ -129,6 +129,9 @@ try {
   & node tests/image-choice-feedback-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de espacio para pistas bajo opciones visuales.' }
 
+  & node --test tests/exchange-turn-images.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de diálogos sobre tarjetas con opciones.' }
+
   & node tests/lesson-context-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de contexto de unidad y lección.' }
 
