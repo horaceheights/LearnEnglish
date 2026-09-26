@@ -1,0 +1,333 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild (user decision 2026-09-25: Do you ...? waits for Unit 4): Learn holds Yes, I do. and No, I do not.; every question is practice on Ana's routine photos, asked by Luis at a cafe. A No answer is true of many pictures, so it is only offered as text beside its Yes pair.",
+  "target": "backend/lessons/unit_4/lesson-4-do-you-questions.yaml",
+  "lesson": {
+    "id": "lesson-4-do-you-questions",
+    "title": "4.8 Do You...?",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.8",
+    "sub_lesson_title": "Do You...?",
+    "goal": "Ask Do you ...? about a daily routine and answer Yes, I do. or No, I do not.",
+    "vocabulary": [
+      "Do you...?",
+      "Yes, I do.",
+      "No, I do not."
+    ],
+    "review_vocabulary": [
+      "I",
+      "you",
+      "yes",
+      "no",
+      "not",
+      "wake up",
+      "every day",
+      "eat breakfast",
+      "go to school",
+      "go to work",
+      "study English",
+      "work"
+    ],
+    "grammar_function": "Do + you + base verb? Yes, I do. / No, I do not. With routine verbs only; no does or he/she questions.",
+    "prerequisite": "3.4 yes/no questions with be; 4.5-4.7 routine verbs.",
+    "speaking_outcome": "Ask Do you ...? and give a short yes or no answer.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Yes, I do.",
+      "es": "Sí.",
+      "image": "a1_photo_u4_yes_i_do_v1.webp",
+      "kind": "do-answer",
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "Yes, I do. and No, I do not. are the short answers this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "No, I do not.",
+      "es": "No.",
+      "image": "a1_photo_u4_no_i_do_not_v1.webp",
+      "kind": "do-answer",
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "Yes, I do. and No, I do not. are the short answers this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Do you eat breakfast?",
+      "es": "¿Desayunas?",
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "kind": "do-question",
+      "learn": false,
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Do you go to school?",
+      "es": "¿Vas a la escuela?",
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "kind": "do-question",
+      "learn": false,
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Do you study English?",
+      "es": "¿Estudias inglés?",
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "kind": "do-question",
+      "learn": false,
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Do you work?",
+      "es": "¿Trabajas?",
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "kind": "do-question",
+      "learn": false,
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Do you wake up every day?",
+      "es": "¿Te despiertas todos los días?",
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "kind": "do-question",
+      "learn": false,
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Do you wake up every day? Yes, I do.",
+      "es": "¿Te despiertas todos los días? Sí.",
+      "image": "a1_scene_ana-wake_d91086e.webp",
+      "kind": "do-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you wake up every day?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker": "ana",
+          "image": "a1_scene_ana-wake_d91086e.webp"
+        }
+      ],
+      "prefer": [
+        "Do you wake up every day? No, I do not."
+      ],
+      "avoid": [
+        "Do you eat breakfast? No, I do not.",
+        "Do you go to school? No, I do not.",
+        "Do you go to work? No, I do not.",
+        "Do you study English? No, I do not.",
+        "Do you work? No, I do not."
+      ]
+    },
+    {
+      "text": "Do you eat breakfast? Yes, I do.",
+      "es": "¿Desayunas? Sí.",
+      "image": "a1_scene_ana-breakfast_e7fbea5.webp",
+      "kind": "do-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you eat breakfast?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker": "ana",
+          "image": "a1_scene_ana-breakfast_e7fbea5.webp"
+        }
+      ],
+      "prefer": [
+        "Do you eat breakfast? No, I do not."
+      ],
+      "avoid": [
+        "Do you go to school? No, I do not.",
+        "Do you go to work? No, I do not.",
+        "Do you study English? No, I do not.",
+        "Do you wake up every day? No, I do not.",
+        "Do you work? No, I do not."
+      ]
+    },
+    {
+      "text": "Do you go to school? Yes, I do.",
+      "es": "¿Vas a la escuela? Sí.",
+      "image": "a1_scene_ana-go-school_83ace0e.webp",
+      "kind": "do-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you go to school?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker": "ana",
+          "image": "a1_scene_ana-go-school_83ace0e.webp"
+        }
+      ],
+      "prefer": [
+        "Do you go to school? No, I do not."
+      ],
+      "avoid": [
+        "Do you eat breakfast? No, I do not.",
+        "Do you go to work? No, I do not.",
+        "Do you study English? No, I do not.",
+        "Do you study English? Yes, I do.",
+        "Do you wake up every day? No, I do not.",
+        "Do you work? No, I do not."
+      ]
+    },
+    {
+      "text": "Do you study English? Yes, I do.",
+      "es": "¿Estudias inglés? Sí.",
+      "image": "a1_scene_ana-study-english_a45ba91.webp",
+      "kind": "do-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you study English?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker": "ana",
+          "image": "a1_scene_ana-study-english_a45ba91.webp"
+        }
+      ],
+      "prefer": [
+        "Do you study English? No, I do not."
+      ],
+      "avoid": [
+        "Do you eat breakfast? No, I do not.",
+        "Do you go to school? No, I do not.",
+        "Do you go to school? Yes, I do.",
+        "Do you go to work? No, I do not.",
+        "Do you wake up every day? No, I do not.",
+        "Do you work? No, I do not."
+      ]
+    },
+    {
+      "text": "Do you work? No, I do not.",
+      "es": "¿Trabajas? No.",
+      "image": "a1_scene_you-go-school-daily_bf718d6.webp",
+      "kind": "do-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you work?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "No, I do not.",
+          "speaker": "ana",
+          "image": "a1_photo_u4_no_i_do_not_v1.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Do you work? Yes, I do."
+      ],
+      "avoid": [
+        "Do you eat breakfast? No, I do not.",
+        "Do you go to school? No, I do not.",
+        "Do you go to school? Yes, I do.",
+        "Do you go to work? No, I do not.",
+        "Do you study English? No, I do not.",
+        "Do you study English? Yes, I do.",
+        "Do you wake up every day? No, I do not."
+      ]
+    },
+    {
+      "text": "Do you go to work? No, I do not.",
+      "es": "¿Vas al trabajo? No.",
+      "image": "a1_scene_ana-go-school_83ace0e.webp",
+      "kind": "do-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you go to work?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "No, I do not.",
+          "speaker": "ana",
+          "image": "a1_photo_u4_no_i_do_not_v1.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Do you go to work? Yes, I do."
+      ],
+      "avoid": [
+        "Do you eat breakfast? No, I do not.",
+        "Do you go to school? No, I do not.",
+        "Do you go to school? Yes, I do.",
+        "Do you study English? No, I do not.",
+        "Do you study English? Yes, I do.",
+        "Do you wake up every day? No, I do not.",
+        "Do you work? No, I do not."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Do you wake up every day? No, I do not.",
+      "es": "¿Te despiertas todos los días? No.",
+      "kind": "do-exchange"
+    },
+    {
+      "text": "Do you go to work? Yes, I do.",
+      "es": "¿Vas al trabajo? Sí.",
+      "kind": "do-exchange"
+    },
+    {
+      "text": "Do you eat breakfast? No, I do not.",
+      "es": "¿Desayunas? No.",
+      "kind": "do-exchange"
+    },
+    {
+      "text": "Do you go to school? No, I do not.",
+      "es": "¿Vas a la escuela? No.",
+      "kind": "do-exchange"
+    },
+    {
+      "text": "Do you study English? No, I do not.",
+      "es": "¿Estudias inglés? No.",
+      "kind": "do-exchange"
+    },
+    {
+      "text": "Do you work? Yes, I do.",
+      "es": "¿Trabajas? Sí.",
+      "kind": "do-exchange"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: Learn holds only There is and There are; every sentence is practice on known rooms, objects and the Unit 2 counting photos (seven chairs, eight books, nine cars). A wrong option changes only the number or is/are; counting photos stay out of four-picture cards.",
+  "target": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+  "lesson": {
+    "id": "lesson-4-4-there-is-and-there-are",
+    "title": "4.4 There Is and There Are",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.4",
+    "sub_lesson_title": "There Is and There Are",
+    "goal": "Use there is for one thing and there are for two or more, in rooms and with the Unit 2 counting photos.",
+    "vocabulary": [
+      "there is",
+      "there are"
+    ],
+    "review_vocabulary": [
+      "a",
+      "two",
+      "three",
+      "seven",
+      "eight",
+      "nine",
+      "bed",
+      "lamp",
+      "computer",
+      "chairs",
+      "books",
+      "bags",
+      "cars",
+      "in",
+      "on",
+      "under",
+      "next to",
+      "the",
+      "bedroom",
+      "living room",
+      "dining room",
+      "table",
+      "sofa"
+    ],
+    "grammar_function": "There is + a + singular noun; there are + number + plural noun; a location phrase from 4.3.",
+    "prerequisite": "4.1-4.3 rooms, home objects and place words; 2.6-2.7 numbers and plurals.",
+    "speaking_outcome": "Say what there is in a room and how many things there are.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "There is",
+      "es": "Hay (una cosa)",
+      "image": "a1_photo_u2_green_chair_v1.webp",
+      "kind": "there-word"
+    },
+    {
+      "text": "There are",
+      "es": "Hay (varias cosas)",
+      "image": "a1_photo_u2_seven_chairs_v1.webp",
+      "kind": "there-word",
+      "four_card": false
+    },
+    {
+      "text": "There is a bed in the bedroom.",
+      "es": "Hay una cama en el dormitorio.",
+      "image": "a1_bedroom.webp",
+      "kind": "there-room",
+      "learn": false,
+      "prefer": [
+        "There are two beds in the bedroom."
+      ]
+    },
+    {
+      "text": "There is a lamp next to the sofa.",
+      "es": "Hay una lámpara al lado del sofá.",
+      "image": "a1_photo_u4_lamp_next_to_sofa_v1.webp",
+      "kind": "there-room",
+      "learn": false,
+      "prefer": [
+        "There are two lamps next to the sofa."
+      ]
+    },
+    {
+      "text": "There is a computer in the living room.",
+      "es": "Hay una computadora en la sala.",
+      "image": "a1_photo_u4_computer_in_living_room_v1.webp",
+      "kind": "there-room",
+      "learn": false,
+      "prefer": [
+        "There are two computers in the living room."
+      ]
+    },
+    {
+      "text": "There are two chairs in the dining room.",
+      "es": "Hay dos sillas en el comedor.",
+      "image": "a1_photo_u4_two_chairs_in_dining_room_v2.webp",
+      "kind": "there-room",
+      "learn": false,
+      "prefer": [
+        "There is a chair in the dining room."
+      ]
+    },
+    {
+      "text": "There are three books on the table.",
+      "es": "Hay tres libros sobre la mesa.",
+      "image": "a1_photo_u4_three_books_on_table_v1.webp",
+      "kind": "there-room",
+      "learn": false,
+      "prefer": [
+        "There are two books on the table."
+      ]
+    },
+    {
+      "text": "There are two bags under the table.",
+      "es": "Hay dos bolsas debajo de la mesa.",
+      "image": "a1_photo_u4_two_bags_under_table_v1.webp",
+      "kind": "there-room",
+      "learn": false,
+      "prefer": [
+        "There is a bag under the table."
+      ]
+    },
+    {
+      "text": "There are seven chairs.",
+      "es": "Hay siete sillas.",
+      "image": "a1_photo_u2_seven_chairs_v1.webp",
+      "kind": "there-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are eight chairs."
+      ]
+    },
+    {
+      "text": "There are eight books.",
+      "es": "Hay ocho libros.",
+      "image": "a1_photo_u2_eight_books_v1.webp",
+      "kind": "there-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are seven books."
+      ]
+    },
+    {
+      "text": "There are nine cars.",
+      "es": "Hay nueve automóviles.",
+      "image": "a1_photo_u2_nine_cars_v1.webp",
+      "kind": "there-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are eight cars."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "There are two beds in the bedroom.",
+      "es": "Hay dos camas en el dormitorio.",
+      "kind": "there-room"
+    },
+    {
+      "text": "There are two lamps next to the sofa.",
+      "es": "Hay dos lámparas al lado del sofá.",
+      "kind": "there-room"
+    },
+    {
+      "text": "There are two computers in the living room.",
+      "es": "Hay dos computadoras en la sala.",
+      "kind": "there-room"
+    },
+    {
+      "text": "There is a chair in the dining room.",
+      "es": "Hay una silla en el comedor.",
+      "kind": "there-room"
+    },
+    {
+      "text": "There are two books on the table.",
+      "es": "Hay dos libros sobre la mesa.",
+      "kind": "there-room"
+    },
+    {
+      "text": "There is a bag under the table.",
+      "es": "Hay una bolsa debajo de la mesa.",
+      "kind": "there-room"
+    },
+    {
+      "text": "There are eight chairs.",
+      "es": "Hay ocho sillas.",
+      "kind": "there-count"
+    },
+    {
+      "text": "There are seven books.",
+      "es": "Hay siete libros.",
+      "kind": "there-count"
+    },
+    {
+      "text": "There are eight cars.",
+      "es": "Hay ocho automóviles.",
+      "kind": "there-count"
+    }
+  ]
+}

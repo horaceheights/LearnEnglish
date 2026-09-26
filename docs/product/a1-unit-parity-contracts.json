@@ -41,7 +41,7 @@
       ]
     },
     "4": {
-      "outcome": "Prepare a day at home: locate belongings, check the rooms, follow a routine, and confirm the day and time.",
+      "outcome": "Prepare a day at home: find who is in each room, locate belongings, follow a routine, answer Do you...? questions, and confirm the day and the time.",
       "functions": [
         {"id": "rooms", "taught_in": "4.1", "patterns": ["\\bkitchen\\b", "\\bbedroom\\b", "\\bbathroom\\b", "\\bliving room\\b", "\\bdining room\\b"]},
         {"id": "furniture", "taught_in": "4.2", "patterns": ["\\bbed\\b", "\\bsofa\\b", "\\blamp\\b", "\\bdoor\\b", "\\bwindow\\b", "\\bcomputer\\b"]},
@@ -50,7 +50,9 @@
         {"id": "morning-routine", "taught_in": "4.5", "patterns": ["\\bi wake up\\b", "\\bi brush my teeth\\b", "\\bi eat breakfast\\b"]},
         {"id": "daily-actions", "taught_in": "4.6", "patterns": ["\\b(?:go to school|go to work|study english)\\b", "\\bcome home\\b", "\\bsleep\\b"]},
         {"id": "routine-sequence", "taught_in": "4.7", "patterns": ["\\bevery day\\b", "\\bfirst\\b", "\\bthen\\b"]},
-        {"id": "days-time", "taught_in": "4.8", "patterns": ["\\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\b", "\\bin the morning\\b", "\\b(?:in the afternoon|at night)\\b", "\\bit is (?:one|two|three|four|five|six|seven|eight|nine|ten) o clock\\b"]}
+        {"id": "do-you-questions", "taught_in": "4.8", "patterns": ["^do you\\b", "\\byes i do\\b"]},
+        {"id": "days", "taught_in": "4.9", "patterns": ["\\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\b", "\\btoday is\\b"]},
+        {"id": "time", "taught_in": "4.10", "patterns": ["\\bwhat time is it\\b", "\\bit is (?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) o clock\\b", "\\bin the morning\\b", "\\b(?:in the afternoon|at night)\\b"]}
       ]
     },
     "5": {

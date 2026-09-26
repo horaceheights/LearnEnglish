@@ -1,0 +1,208 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: Learn holds the four place words and Where is it?; every location sentence is practice on known objects. Each choice changes only the place word (the book and bag photos are matched pairs); phone and lamp answers are offered as text.",
+  "target": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+  "lesson": {
+    "id": "lesson-4-3-where-things-are",
+    "title": "4.3 Where Things Are",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.3",
+    "sub_lesson_title": "Where Things Are",
+    "goal": "Understand and use in, on, under and next to, and answer Where is the ...? about known things.",
+    "vocabulary": [
+      "in",
+      "on",
+      "under",
+      "next to",
+      "Where is it?"
+    ],
+    "review_vocabulary": [
+      "where",
+      "is",
+      "it",
+      "the",
+      "book",
+      "bag",
+      "table",
+      "chair",
+      "phone",
+      "bed",
+      "lamp",
+      "sofa"
+    ],
+    "grammar_function": "Where is the + noun? It is in/on/under/next to the + noun. The bag is on the chair.",
+    "prerequisite": "4.1-4.2 rooms and home objects; 2.3 objects; 3.7 where.",
+    "speaking_outcome": "Ask Where is it? and say where a known thing is.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "In",
+      "es": "Dentro de",
+      "image": "a1_photo_u4_book_in_bag_v1.webp",
+      "kind": "place-word-prep"
+    },
+    {
+      "text": "On",
+      "es": "Sobre",
+      "image": "a1_photo_u4_book_on_table_v1.webp",
+      "kind": "place-word-prep"
+    },
+    {
+      "text": "Under",
+      "es": "Debajo de",
+      "image": "a1_photo_u4_book_under_table_v1.webp",
+      "kind": "place-word-prep"
+    },
+    {
+      "text": "Next to",
+      "es": "Al lado de",
+      "image": "a1_photo_u4_book_next_to_phone_v1.webp",
+      "kind": "place-word-prep"
+    },
+    {
+      "text": "Where is it?",
+      "es": "¿Dónde está?",
+      "image": "a1_photo_u4_where_is_it_v1.webp",
+      "kind": "where-question",
+      "speaker": "male-character",
+      "choices": false
+    },
+    {
+      "text": "It is in the bag.",
+      "es": "Está dentro de la bolsa.",
+      "image": "a1_photo_u4_book_in_bag_v1.webp",
+      "kind": "book-where",
+      "learn": false,
+      "prefer": [
+        "It is on the bag."
+      ],
+      "question": "Where is it?",
+      "question_es": "¿Dónde está?"
+    },
+    {
+      "text": "It is on the table.",
+      "es": "Está sobre la mesa.",
+      "image": "a1_photo_u4_book_on_table_v1.webp",
+      "kind": "book-where",
+      "learn": false,
+      "prefer": [
+        "It is under the table."
+      ],
+      "question": "Where is it?",
+      "question_es": "¿Dónde está?"
+    },
+    {
+      "text": "It is under the table.",
+      "es": "Está debajo de la mesa.",
+      "image": "a1_photo_u4_book_under_table_v1.webp",
+      "kind": "book-where",
+      "learn": false,
+      "prefer": [
+        "It is on the table."
+      ],
+      "question": "Where is it?",
+      "question_es": "¿Dónde está?"
+    },
+    {
+      "text": "It is next to the phone.",
+      "es": "Está al lado del teléfono.",
+      "image": "a1_photo_u4_book_next_to_phone_v1.webp",
+      "kind": "book-where",
+      "learn": false,
+      "prefer": [
+        "It is on the phone."
+      ],
+      "question": "Where is it?",
+      "question_es": "¿Dónde está?"
+    },
+    {
+      "text": "The phone is on the bed.",
+      "es": "El teléfono está sobre la cama.",
+      "image": "a1_photo_u4_phone_on_bed_v1.webp",
+      "kind": "phone-where",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The phone is under the bed."
+      ],
+      "question": "Where is the phone?",
+      "question_es": "¿Dónde está el teléfono?"
+    },
+    {
+      "text": "The lamp is next to the sofa.",
+      "es": "La lámpara está al lado del sofá.",
+      "image": "a1_photo_u4_lamp_next_to_sofa_v1.webp",
+      "kind": "lamp-where",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The lamp is on the sofa."
+      ],
+      "question": "Where is the lamp?",
+      "question_es": "¿Dónde está la lámpara?"
+    },
+    {
+      "text": "The bag is on the chair.",
+      "es": "La bolsa está sobre la silla.",
+      "image": "a1_photo_u4_bag_on_chair_v1.webp",
+      "kind": "bag-where",
+      "learn": false,
+      "prefer": [
+        "The bag is under the chair."
+      ],
+      "question": "Where is it?",
+      "question_es": "¿Dónde está?"
+    },
+    {
+      "text": "The bag is under the chair.",
+      "es": "La bolsa está debajo de la silla.",
+      "image": "a1_photo_u4_bag_under_chair_v1.webp",
+      "kind": "bag-where",
+      "learn": false,
+      "prefer": [
+        "The bag is on the chair."
+      ],
+      "question": "Where is it?",
+      "question_es": "¿Dónde está?"
+    }
+  ],
+  "pool": [
+    {
+      "text": "It is on the bag.",
+      "es": "Está sobre la bolsa.",
+      "kind": "book-where"
+    },
+    {
+      "text": "It is on the phone.",
+      "es": "Está sobre el teléfono.",
+      "kind": "book-where"
+    },
+    {
+      "text": "The phone is under the bed.",
+      "es": "El teléfono está debajo de la cama.",
+      "kind": "phone-where"
+    },
+    {
+      "text": "The lamp is on the sofa.",
+      "es": "La lámpara está sobre el sofá.",
+      "kind": "lamp-where"
+    }
+  ]
+}

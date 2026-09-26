@@ -1,0 +1,258 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: new lesson from the old 4.8 split. Learn holds What time is it?, O'clock, Afternoon and Night; at is practised inside at night and at seven o'clock. Clock cards change only the hour (eleven and twelve bring the Unit 3 numbers back); Ana's 7:00 clock does not survive the 4:5 crop, so it stays out of four-picture cards.",
+  "target": "backend/lessons/unit_4/lesson-4-what-time-is-it.yaml",
+  "lesson": {
+    "id": "lesson-4-what-time-is-it",
+    "title": "4.10 What Time Is It?",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.10",
+    "sub_lesson_title": "What Time Is It?",
+    "goal": "Ask What time is it?, say whole-hour times, and say the afternoon and night parts of the day.",
+    "vocabulary": [
+      "What time is it?",
+      "o'clock",
+      "afternoon",
+      "night",
+      "at"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "two",
+      "three",
+      "seven",
+      "eight",
+      "nine",
+      "eleven",
+      "twelve",
+      "morning",
+      "in the morning",
+      "I",
+      "wake up",
+      "sleep"
+    ],
+    "grammar_function": "What time is it? It is + number + o'clock. in the morning / in the afternoon / at night; at + time.",
+    "prerequisite": "2.6-2.7 and 3.5 numbers (eleven, twelve); 4.5 in the morning; 4.5-4.6 wake up and sleep.",
+    "speaking_outcome": "Ask the time and say whole-hour times and parts of the day.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "What time is it?",
+      "es": "¿Qué hora es?",
+      "image": "a1_photo_u4_what_time_luis_v1.webp",
+      "kind": "time-question",
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "O'clock",
+      "es": "En punto",
+      "image": "a1_scene_clock7_598dfdb.webp",
+      "kind": "time-word",
+      "choices": false
+    },
+    {
+      "text": "Afternoon",
+      "es": "La tarde",
+      "image": "a1_scene_afternoon_7a10f39.webp",
+      "kind": "day-part"
+    },
+    {
+      "text": "Night",
+      "es": "La noche",
+      "image": "a1_scene_night_1be2a44.webp",
+      "kind": "day-part"
+    },
+    {
+      "text": "It is three o'clock.",
+      "es": "Son las tres.",
+      "image": "a1_scene_clock3_3cd344f.webp",
+      "kind": "clock-time",
+      "learn": false,
+      "prefer": [
+        "It is eight o'clock."
+      ],
+      "question": "What time is it?",
+      "question_es": "¿Qué hora es?"
+    },
+    {
+      "text": "It is seven o'clock.",
+      "es": "Son las siete.",
+      "image": "a1_scene_clock7_598dfdb.webp",
+      "kind": "clock-time",
+      "learn": false,
+      "prefer": [
+        "It is eleven o'clock."
+      ],
+      "question": "What time is it?",
+      "question_es": "¿Qué hora es?"
+    },
+    {
+      "text": "It is eight o'clock.",
+      "es": "Son las ocho.",
+      "image": "a1_photo_u4_clock_eight_v1.webp",
+      "kind": "clock-time",
+      "learn": false,
+      "prefer": [
+        "It is three o'clock."
+      ],
+      "question": "What time is it?",
+      "question_es": "¿Qué hora es?"
+    },
+    {
+      "text": "It is nine o'clock.",
+      "es": "Son las nueve.",
+      "image": "a1_scene_clock9_fdd3b54.webp",
+      "kind": "clock-time",
+      "learn": false,
+      "prefer": [
+        "It is eleven o'clock."
+      ],
+      "question": "What time is it?",
+      "question_es": "¿Qué hora es?"
+    },
+    {
+      "text": "It is eleven o'clock.",
+      "es": "Son las once.",
+      "image": "a1_photo_u4_clock_eleven_v1.webp",
+      "kind": "clock-time",
+      "learn": false,
+      "prefer": [
+        "It is seven o'clock."
+      ],
+      "question": "What time is it?",
+      "question_es": "¿Qué hora es?"
+    },
+    {
+      "text": "It is twelve o'clock.",
+      "es": "Son las doce.",
+      "image": "a1_photo_u4_clock_twelve_v1.webp",
+      "kind": "clock-time",
+      "learn": false,
+      "prefer": [
+        "It is two o'clock."
+      ],
+      "question": "What time is it?",
+      "question_es": "¿Qué hora es?"
+    },
+    {
+      "text": "It is seven o'clock in the morning.",
+      "es": "Son las siete de la mañana.",
+      "image": "a1_scene_morning_45a21e4.webp",
+      "kind": "time-day-part",
+      "learn": false,
+      "prefer": [
+        "It is seven o'clock at night."
+      ]
+    },
+    {
+      "text": "It is three o'clock in the afternoon.",
+      "es": "Son las tres de la tarde.",
+      "image": "a1_scene_afternoon_7a10f39.webp",
+      "kind": "time-day-part",
+      "learn": false,
+      "prefer": [
+        "It is three o'clock in the morning."
+      ]
+    },
+    {
+      "text": "It is nine o'clock at night.",
+      "es": "Son las nueve de la noche.",
+      "image": "a1_scene_night_1be2a44.webp",
+      "kind": "time-day-part",
+      "learn": false,
+      "prefer": [
+        "It is nine o'clock in the morning."
+      ]
+    },
+    {
+      "text": "I wake up at seven o'clock.",
+      "es": "Me despierto a las siete.",
+      "image": "a1_photo_u4_wake_at_seven_v1.webp",
+      "kind": "wake-at",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "four_card": false,
+      "image_choices": false,
+      "prefer": [
+        "I wake up at nine o'clock."
+      ]
+    },
+    {
+      "text": "I sleep at night.",
+      "es": "Duermo por la noche.",
+      "image": "a1_scene_sleep-night_192fa33.webp",
+      "kind": "sleep-at",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I sleep in the afternoon."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Morning",
+      "es": "La mañana",
+      "kind": "day-part",
+      "image": "a1_scene_morning_45a21e4.webp"
+    },
+    {
+      "text": "It is two o'clock.",
+      "es": "Son las dos.",
+      "kind": "clock-time"
+    },
+    {
+      "text": "It is seven o'clock at night.",
+      "es": "Son las siete de la noche.",
+      "kind": "time-day-part"
+    },
+    {
+      "text": "It is three o'clock in the morning.",
+      "es": "Son las tres de la mañana.",
+      "kind": "time-day-part"
+    },
+    {
+      "text": "It is nine o'clock in the morning.",
+      "es": "Son las nueve de la mañana.",
+      "kind": "time-day-part"
+    },
+    {
+      "text": "I wake up at nine o'clock.",
+      "es": "Me despierto a las nueve.",
+      "kind": "wake-at"
+    },
+    {
+      "text": "I sleep in the afternoon.",
+      "es": "Duermo en la tarde.",
+      "kind": "sleep-at"
+    }
+  ]
+}

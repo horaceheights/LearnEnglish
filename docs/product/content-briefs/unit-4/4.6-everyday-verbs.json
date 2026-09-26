@@ -1,0 +1,210 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: the old lesson also declared English and come separately; Learn now holds the six action chunks. Each I sentence is said by the person in its photo (Ana studies, Luis works), and I sleep in the bedroom. brings the 4.1 rooms back.",
+  "target": "backend/lessons/unit_4/lesson-4-6-everyday-verbs.yaml",
+  "lesson": {
+    "id": "lesson-4-6-everyday-verbs",
+    "title": "4.6 Everyday Verbs",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.6",
+    "sub_lesson_title": "Everyday Verbs",
+    "goal": "Understand and say six everyday actions with I, and add a room or the morning.",
+    "vocabulary": [
+      "go to school",
+      "go to work",
+      "study English",
+      "work",
+      "come home",
+      "sleep"
+    ],
+    "review_vocabulary": [
+      "I",
+      "the",
+      "in",
+      "school",
+      "home",
+      "bedroom",
+      "in the morning"
+    ],
+    "grammar_function": "I + everyday verb chunk as a learned whole; + in the + room; + in the morning.",
+    "prerequisite": "4.5 I routine chunks and in the morning; 4.1 home and rooms; 2.1 school.",
+    "speaking_outcome": "Say six everyday actions with I.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Go to school",
+      "es": "Ir a la escuela",
+      "image": "a1_scene_ana-go-school_83ace0e.webp",
+      "kind": "daily-word",
+      "form": "word",
+      "text_choices": false
+    },
+    {
+      "text": "Go to work",
+      "es": "Ir al trabajo",
+      "image": "a1_scene_luis-go-work_f1ae7c5.webp",
+      "kind": "daily-word",
+      "form": "word",
+      "text_choices": false
+    },
+    {
+      "text": "Study English",
+      "es": "Estudiar inglés",
+      "image": "a1_scene_ana-study-english_a45ba91.webp",
+      "kind": "daily-word",
+      "form": "word",
+      "text_choices": false
+    },
+    {
+      "text": "Work",
+      "es": "Trabajar",
+      "image": "a1_scene_luis-work_b6f1588.webp",
+      "kind": "daily-word",
+      "form": "word",
+      "text_choices": false
+    },
+    {
+      "text": "Come home",
+      "es": "Volver a casa",
+      "image": "a1_scene_ana-come-home_ad0dbb5.webp",
+      "kind": "daily-word",
+      "form": "word",
+      "text_choices": false
+    },
+    {
+      "text": "Sleep",
+      "es": "Dormir",
+      "image": "a1_scene_ana-sleep_7690f07.webp",
+      "kind": "daily-word",
+      "form": "word",
+      "text_choices": false
+    },
+    {
+      "text": "I go to school.",
+      "es": "Voy a la escuela.",
+      "image": "a1_scene_ana-go-school_83ace0e.webp",
+      "kind": "i-daily",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I go to work.",
+      "es": "Voy al trabajo.",
+      "image": "a1_scene_luis-go-work_f1ae7c5.webp",
+      "kind": "i-daily",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I study English.",
+      "es": "Estudio inglés.",
+      "image": "a1_scene_ana-study-english_a45ba91.webp",
+      "kind": "i-daily",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I work.",
+      "es": "Trabajo.",
+      "image": "a1_scene_luis-work_b6f1588.webp",
+      "kind": "i-daily",
+      "learn": false,
+      "speaker": "luis",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I come home.",
+      "es": "Vuelvo a casa.",
+      "image": "a1_scene_ana-come-home_ad0dbb5.webp",
+      "kind": "i-daily",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I sleep.",
+      "es": "Duermo.",
+      "image": "a1_scene_ana-sleep_7690f07.webp",
+      "kind": "i-daily",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I sleep in the bedroom.",
+      "es": "Duermo en el dormitorio.",
+      "image": "a1_scene_ana-sleep_7690f07.webp",
+      "kind": "sleep-room",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I sleep in the living room."
+      ]
+    },
+    {
+      "text": "I go to school in the morning.",
+      "es": "Voy a la escuela en la mañana.",
+      "image": "a1_scene_ana-go-school_83ace0e.webp",
+      "kind": "daily-morning",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I come home in the morning."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "I sleep in the living room.",
+      "es": "Duermo en la sala.",
+      "kind": "sleep-room"
+    },
+    {
+      "text": "I come home in the morning.",
+      "es": "Vuelvo a casa en la mañana.",
+      "kind": "daily-morning"
+    }
+  ]
+}

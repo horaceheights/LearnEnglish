@@ -1,0 +1,215 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: the old 4.8 Days and Time introduced 13 items and no day came back later, so it splits in two. This lesson keeps the old ID and teaches the seven days and today on matching desk-calendar pages; What day is it today? / Today is ... is practice. Parts of the day and o'clock move to the new 4.10.",
+  "target": "backend/lessons/unit_4/lesson-4-8-days-and-time.yaml",
+  "lesson": {
+    "id": "lesson-4-8-days-and-time",
+    "title": "4.9 Days of the Week",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.9",
+    "sub_lesson_title": "Days of the Week",
+    "goal": "Recognize, hear and say the seven days of the week, ask What day is it today? and say Today is ...",
+    "vocabulary": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+      "today"
+    ],
+    "review_vocabulary": [
+      "what",
+      "day",
+      "is",
+      "it",
+      "I",
+      "study English",
+      "on"
+    ],
+    "grammar_function": "What day is it today? Today is + day. I study English on + day.",
+    "prerequisite": "4.3 on; 4.6 study English; 4.7 every day.",
+    "speaking_outcome": "Say all seven days in Today is ... sentences.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 10,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 7
+  },
+  "items": [
+    {
+      "text": "Monday",
+      "es": "Lunes",
+      "image": "a1_photo_u4_day_monday_v1.webp",
+      "kind": "day-word"
+    },
+    {
+      "text": "Tuesday",
+      "es": "Martes",
+      "image": "a1_photo_u4_day_tuesday_v1.webp",
+      "kind": "day-word"
+    },
+    {
+      "text": "Wednesday",
+      "es": "Miércoles",
+      "image": "a1_photo_u4_day_wednesday_v1.webp",
+      "kind": "day-word"
+    },
+    {
+      "text": "Thursday",
+      "es": "Jueves",
+      "image": "a1_photo_u4_day_thursday_v1.webp",
+      "kind": "day-word"
+    },
+    {
+      "text": "Friday",
+      "es": "Viernes",
+      "image": "a1_photo_u4_day_friday_v1.webp",
+      "kind": "day-word"
+    },
+    {
+      "text": "Saturday",
+      "es": "Sábado",
+      "image": "a1_photo_u4_day_saturday_v1.webp",
+      "kind": "day-word"
+    },
+    {
+      "text": "Sunday",
+      "es": "Domingo",
+      "image": "a1_photo_u4_day_sunday_v1.webp",
+      "kind": "day-word"
+    },
+    {
+      "text": "Today",
+      "es": "Hoy",
+      "image": "a1_photo_u4_today_note_v1.webp",
+      "kind": "today-word",
+      "choices": false
+    },
+    {
+      "text": "Today is Monday.",
+      "es": "Hoy es lunes.",
+      "image": "a1_photo_u4_day_monday_v1.webp",
+      "kind": "today-is",
+      "learn": false,
+      "prefer": [
+        "Today is Sunday."
+      ],
+      "question": "What day is it today?",
+      "question_es": "¿Qué día es hoy?"
+    },
+    {
+      "text": "Today is Tuesday.",
+      "es": "Hoy es martes.",
+      "image": "a1_photo_u4_today_note_v1.webp",
+      "kind": "today-is",
+      "learn": false,
+      "prefer": [
+        "Today is Thursday."
+      ],
+      "question": "What day is it today?",
+      "question_es": "¿Qué día es hoy?"
+    },
+    {
+      "text": "Today is Wednesday.",
+      "es": "Hoy es miércoles.",
+      "image": "a1_photo_u4_day_wednesday_v1.webp",
+      "kind": "today-is",
+      "learn": false,
+      "prefer": [
+        "Today is Tuesday."
+      ],
+      "question": "What day is it today?",
+      "question_es": "¿Qué día es hoy?"
+    },
+    {
+      "text": "Today is Thursday.",
+      "es": "Hoy es jueves.",
+      "image": "a1_photo_u4_day_thursday_v1.webp",
+      "kind": "today-is",
+      "learn": false,
+      "prefer": [
+        "Today is Tuesday."
+      ],
+      "question": "What day is it today?",
+      "question_es": "¿Qué día es hoy?"
+    },
+    {
+      "text": "Today is Friday.",
+      "es": "Hoy es viernes.",
+      "image": "a1_photo_u4_day_friday_v1.webp",
+      "kind": "today-is",
+      "learn": false,
+      "prefer": [
+        "Today is Saturday."
+      ],
+      "question": "What day is it today?",
+      "question_es": "¿Qué día es hoy?"
+    },
+    {
+      "text": "Today is Saturday.",
+      "es": "Hoy es sábado.",
+      "image": "a1_photo_u4_day_saturday_v1.webp",
+      "kind": "today-is",
+      "learn": false,
+      "prefer": [
+        "Today is Sunday."
+      ],
+      "question": "What day is it today?",
+      "question_es": "¿Qué día es hoy?"
+    },
+    {
+      "text": "Today is Sunday.",
+      "es": "Hoy es domingo.",
+      "image": "a1_photo_u4_day_sunday_v1.webp",
+      "kind": "today-is",
+      "learn": false,
+      "prefer": [
+        "Today is Saturday."
+      ],
+      "question": "What day is it today?",
+      "question_es": "¿Qué día es hoy?"
+    },
+    {
+      "text": "I study English on Monday.",
+      "es": "Estudio inglés el lunes.",
+      "image": "a1_photo_u4_study_monday_v1.webp",
+      "kind": "study-on-day",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I study English on Sunday."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "I study English on Sunday.",
+      "es": "Estudio inglés el domingo.",
+      "kind": "study-on-day"
+    },
+    {
+      "text": "I study English on Friday.",
+      "es": "Estudio inglés el viernes.",
+      "kind": "study-on-day"
+    }
+  ]
+}
