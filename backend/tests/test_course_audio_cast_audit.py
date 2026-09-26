@@ -20,9 +20,8 @@ SPEAKER_FIELDS = ("audio_speaker", "answer_audio_speaker")
 # rest remain neutral because a woman or an off-camera speaker says them.
 # The 2026-09-25 Unit 3 rebuild re-authored every Unit 3 card from engine briefs, so its
 # 3.3 R7 forced-neutral field and 3.6 R6/U5 recasts are history with nothing left to pin.
+# The 2026-09-26 Unit 4 rebuild did the same for 4.5 L1/L4/L5, 4.6 L3 and the 4.7 recasts.
 FORCED_NEUTRAL_GROUPS = {
-    "lesson-4-5-morning-routine": [("audio_speaker", "L1 L4 L5")],
-    "lesson-4-6-everyday-verbs": [("audio_speaker", "L3")],
     "lesson-6-7-simple-requests": [
         ("audio_speaker", "A2 L1 L2 R3 R7 S1 S2 U2"),
         ("answer_audio_speaker", "R5 U1"),
@@ -66,14 +65,9 @@ EXACT_ROLE_CHANGES = {
         "female-character",
         "male-character",
     ),
-    # 2026-09-18 gender-matched voice review: the recorded picture shows Ana,
-    # a woman, or the asker rather than the voiced man. None means the field is
-    # removed and the answer inherits the card's prompt speaker.
-    ("lesson-4-7-simple-present", "L6", "audio_speaker"): ("male-character", "ana"),
-    ("lesson-4-7-simple-present", "R6", "answer_audio_speaker"): ("male-character", "ana"),
-    ("lesson-4-7-simple-present", "S6", "audio_speaker"): ("male-character", "ana"),
-    ("lesson-4-7-simple-present", "U4", "audio_speaker"): ("luis", "ana"),
-    ("lesson-4-7-simple-present", "U4", "answer_audio_speaker"): ("luis", None),
+    # 2026-09-18 gender-matched voice review: the recorded picture shows a woman or the
+    # asker rather than the voiced man. None means the field is removed and the answer
+    # inherits the card's prompt speaker. (The 4.7 recasts left with the Unit 4 rebuild.)
     # The 2026-09-18 recast of 4.9 U6 to Ana is history: the 2026-09-21 parity rebuild
     # re-authored that card over a fresh photograph of a man walking to work, so the line
     # is spoken by the pictured man again and has no recast left to pin.
@@ -106,9 +100,11 @@ EXACT_ROLE_CHANGES = {
 # The 2026-09-25 Unit 3 rebuild authors every Unit 3 speaker from engine briefs: each line
 # Ana, Luis, Sofia, Diego or a pictured person says keeps that voice, and neutral narration
 # alternates the teacher and the co-teacher (+232 net across 14 lessons).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 797
+# The 2026-09-26 Unit 4 rebuild does the same for its ten teaching lessons, and the review's
+# pictured people and alternating narrators keep their voices (+261 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1058
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "d86c0d5277501f12c179aa8278e11d93748df4fad473fdeb36502766b8cda3f7"
+    "0f7afa90eed9fac1d3eb9ab0619bb28c322080548bb2d1635f6c514c55916449"
 )
 
 
@@ -203,8 +199,8 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         lessons = lesson_assignments()
         neutral = forced_neutral_targets()
 
-        self.assertEqual(40, len(neutral))
-        self.assertEqual(17, len(EXACT_ROLE_CHANGES))
+        self.assertEqual(36, len(neutral))
+        self.assertEqual(12, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
         self.assertEqual(validator, lessons)

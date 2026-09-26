@@ -51,6 +51,8 @@
     "S6",
     "S7",
     "S8",
+    "U1",
+    "U2",
     "U3",
     "U4",
     "U5",
@@ -897,68 +899,6 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "Wash ___ ___",
-      "stage": "Use",
-      "correct_option_id": "my",
-      "options": [
-        {
-          "id": "my",
-          "image_url": "",
-          "label": "my"
-        },
-        {
-          "id": "face",
-          "image_url": "",
-          "label": "face"
-        }
-      ],
-      "audio_text": "Wash my face",
-      "answer_audio_text": "Wash my face",
-      "prompt_image_url": "a1_scene_ana-wash-face_4ea6c79.webp",
-      "spanish_translation": "Lavarme la cara",
-      "translation": "Lavarme la cara",
-      "correct_option_ids": [
-        "my",
-        "face"
-      ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 01: Wash my face",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "In ___ ___",
-      "stage": "Use",
-      "correct_option_id": "the",
-      "options": [
-        {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "morning",
-          "image_url": "",
-          "label": "morning"
-        }
-      ],
-      "audio_text": "In the morning",
-      "answer_audio_text": "In the morning",
-      "prompt_image_url": "a1_scene_morning_45a21e4.webp",
-      "spanish_translation": "En la mañana",
-      "translation": "En la mañana",
-      "correct_option_ids": [
-        "the",
-        "morning"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 02: In the morning",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
       "prompt": "I ___ ___.",
       "stage": "Use",
       "correct_option_id": "wake",
@@ -984,11 +924,11 @@
         "up"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 03: I wake up.",
+      "pedagogy_note": "Story beat 01: I wake up.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U4",
+      "slide_id": "U2",
       "interaction_type": "complete2",
       "prompt": "I wash ___ ___.",
       "stage": "Use",
@@ -1015,35 +955,25 @@
         "face"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 04: I wash my face.",
+      "pedagogy_note": "Story beat 02: I wash my face.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "I brush ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "my",
       "options": [
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "brush"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "teeth"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
+          "id": "my",
           "image_url": "",
           "label": "my"
+        },
+        {
+          "id": "teeth",
+          "image_url": "",
+          "label": "teeth"
         }
       ],
       "audio_text": "I brush my teeth.",
@@ -1052,17 +982,46 @@
       "spanish_translation": "Me cepillo los dientes.",
       "translation": "Me cepillo los dientes.",
       "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
+        "my",
+        "teeth"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 05: I brush my teeth.",
+      "pedagogy_note": "Story beat 03: I brush my teeth.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U6",
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "eat",
+      "options": [
+        {
+          "id": "eat",
+          "image_url": "",
+          "label": "eat"
+        },
+        {
+          "id": "breakfast",
+          "image_url": "",
+          "label": "breakfast"
+        }
+      ],
+      "audio_text": "I eat breakfast.",
+      "answer_audio_text": "I eat breakfast.",
+      "prompt_image_url": "a1_scene_ana-breakfast_e7fbea5.webp",
+      "spanish_translation": "Desayuno.",
+      "translation": "Desayuno.",
+      "correct_option_ids": [
+        "eat",
+        "breakfast"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 04: I eat breakfast.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U5",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___.",
       "stage": "Use",
@@ -1095,11 +1054,11 @@
         "word-3"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 06: I get dressed.",
+      "pedagogy_note": "Story beat 05: I get dressed.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U7",
+      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -1150,7 +1109,68 @@
         "word-6"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 07: I eat breakfast in the morning.",
+      "pedagogy_note": "Story beat 06: I eat breakfast in the morning.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "brush"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "teeth"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "my"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "in"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "bathroom"
+        }
+      ],
+      "audio_text": "I brush my teeth in the bathroom.",
+      "answer_audio_text": "I brush my teeth in the bathroom.",
+      "prompt_image_url": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "spanish_translation": "Me cepillo los dientes en el baño.",
+      "translation": "Me cepillo los dientes en el baño.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 07: I brush my teeth in the bathroom.",
       "audio_speaker": "ana"
     },
     {

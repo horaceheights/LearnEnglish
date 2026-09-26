@@ -65,8 +65,9 @@ class PhotoReuseTests(unittest.TestCase):
                 for record in (near,far):
                     self.assertEqual(record['generation']['agent_review']['disposition'],'usable')
                     self.assertEqual(record['human_approval'],'pending')
-        review=next(c for c in current['lesson-4-1-rooms-at-home']['cards'] if c['slide_id']=='R7')
-        self.assertEqual(review['prompt_image_url'],'a1_photo_u2_this_book_v1.webp')
+        # 4.1 R7 once reused the near book; the 2026-09-26 Unit 4 rebuild dropped that card, and the
+        # retired contract-violating photo must not come back there.
+        self.assertNotIn('a1_near-book.webp',images(current['lesson-4-1-rooms-at-home']))
 
     def test_opening_cast_is_consistent_through_lesson_one(self):
         lesson=lessons(ROOT)['lesson-1-people-actions']

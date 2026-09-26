@@ -50,6 +50,8 @@
     "S6",
     "S7",
     "S8",
+    "U1",
+    "U2",
     "U3",
     "U4",
     "U5",
@@ -903,66 +905,6 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "Go ___ ___",
-      "stage": "Use",
-      "correct_option_id": "to",
-      "options": [
-        {
-          "id": "to",
-          "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "school",
-          "image_url": "",
-          "label": "school"
-        }
-      ],
-      "audio_text": "Go to school",
-      "answer_audio_text": "Go to school",
-      "prompt_image_url": "a1_scene_ana-go-school_83ace0e.webp",
-      "spanish_translation": "Ir a la escuela",
-      "translation": "Ir a la escuela",
-      "correct_option_ids": [
-        "to",
-        "school"
-      ],
-      "pedagogy_note": "Story beat 01: Go to school"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "Go ___ ___",
-      "stage": "Use",
-      "correct_option_id": "to",
-      "options": [
-        {
-          "id": "to",
-          "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "work",
-          "image_url": "",
-          "label": "work"
-        }
-      ],
-      "audio_text": "Go to work",
-      "answer_audio_text": "Go to work",
-      "prompt_image_url": "a1_scene_luis-go-work_f1ae7c5.webp",
-      "spanish_translation": "Ir al trabajo",
-      "translation": "Ir al trabajo",
-      "correct_option_ids": [
-        "to",
-        "work"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 02: Go to work",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
       "prompt": "I go ___ ___.",
       "stage": "Use",
       "correct_option_id": "to",
@@ -988,11 +930,11 @@
         "school"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 03: I go to school.",
+      "pedagogy_note": "Story beat 01: I go to school.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U4",
+      "slide_id": "U2",
       "interaction_type": "complete2",
       "prompt": "I go ___ ___.",
       "stage": "Use",
@@ -1019,28 +961,23 @@
         "work"
       ],
       "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 04: I go to work.",
+      "pedagogy_note": "Story beat 02: I go to work.",
       "audio_speaker": "luis"
     },
     {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "study",
       "options": [
         {
-          "id": "word-2",
+          "id": "study",
           "image_url": "",
           "label": "study"
         },
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
+          "id": "english",
           "image_url": "",
           "label": "English"
         }
@@ -1051,33 +988,27 @@
       "spanish_translation": "Estudio inglés.",
       "translation": "Estudio inglés.",
       "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
+        "study",
+        "english"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 05: I study English.",
+      "pedagogy_note": "Story beat 03: I study English.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "come",
       "options": [
         {
-          "id": "word-2",
+          "id": "come",
           "image_url": "",
           "label": "come"
         },
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
+          "id": "home",
           "image_url": "",
           "label": "home"
         }
@@ -1088,16 +1019,15 @@
       "spanish_translation": "Vuelvo a casa.",
       "translation": "Vuelvo a casa.",
       "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
+        "come",
+        "home"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 06: I come home.",
+      "pedagogy_note": "Story beat 04: I come home.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U7",
+      "slide_id": "U5",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -1142,11 +1072,11 @@
         "word-5"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 07: I sleep in the bedroom.",
+      "pedagogy_note": "Story beat 05: I sleep in the bedroom.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "U8",
+      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -1203,7 +1133,81 @@
         "word-7"
       ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 08: I go to school in the morning.",
+      "pedagogy_note": "Story beat 06: I go to school in the morning.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "study"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "English"
+        }
+      ],
+      "audio_text": "I study English.",
+      "answer_audio_text": "I study English.",
+      "prompt_image_url": "a1_scene_ana-study-english_a45ba91.webp",
+      "spanish_translation": "Estudio inglés.",
+      "translation": "Estudio inglés.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 07: I study English.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "come"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "home"
+        }
+      ],
+      "audio_text": "I come home.",
+      "answer_audio_text": "I come home.",
+      "prompt_image_url": "a1_scene_ana-come-home_ad0dbb5.webp",
+      "spanish_translation": "Vuelvo a casa.",
+      "translation": "Vuelvo a casa.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 08: I come home.",
       "audio_speaker": "ana"
     }
   ]
