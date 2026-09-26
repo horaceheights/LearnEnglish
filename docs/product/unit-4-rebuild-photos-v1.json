@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "pack": "unit-4-rebuild-photos",
+  "revision": 1,
+  "output_namespace": "unit-4-lesson-v2",
+  "authorization": "2026-09-26: the user approved new image spending for the Unit 4 rebuild (\"also approve new image creation spending\") and asked to reuse the Unit 3 lessons learned. Ceiling US$5.00, the Unit 3 cap. Gemini is the approved image tool (2026-09-23; OpenAI credit exhausted). Revision 1 is frozen: a changed prompt is a new revision. The hardest state of each group is inspected at phone sizes and at the centered 4:5 crop before the rest of its group or its edits are sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image; input images about $0.0011 each; Unit 3 receipts averaged about $0.137 per image)",
+    "planned_images": 28,
+    "expected_cost_usd": "3.85",
+    "requested_ceiling_usd": "5.00",
+    "no_automatic_retries": true,
+    "order": "Generate the base of each group first (the Monday calendar page, the Do you? cafe question, the backpack on the chair) and inspect it at 900/360/250/180 px and at the centered 4:5 crop; only then send its edits. The clock edits start from the reviewed 7:00 card. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "room": "Room photo: the room must read instantly as the named room on a phone, from the furniture that defines it, and that defining furniture stands right beside the person inside the central area, not only at the edges. Shot at eye level from about three meters away in bright, soft daylight; the person is fully lit, faces the camera at a three-quarter angle and fills about 45 percent of the photo height. A tidy, lived-in family home; no mirrors, no televisions, no other people."
+  },
+  "assets": [
+    {
+      "id": "grandmother-kitchen",
+      "group": "family-rooms",
+      "lesson": "4.1",
+      "item": "The grandmother is in the kitchen.",
+      "runtime_filename": "a1_photo_u4_grandmother_kitchen_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "room"
+      ],
+      "four_card": true,
+      "prompt": "The KITCHEN. A grandmother in her late sixties with short silver-grey hair and round glasses, wearing a light-blue cardigan and a plain white apron, stands at the stove stirring a steaming pot with a wooden spoon and smiling. Right beside her: the stove with the pot, a sink with a faucet, wooden wall cabinets above the counter and a white refrigerator. She is the only person."
+    },
+    {
+      "id": "child-bedroom",
+      "group": "family-rooms",
+      "lesson": "4.1",
+      "item": "The child is in the bedroom.",
+      "runtime_filename": "a1_photo_u4_child_bedroom_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "room"
+      ],
+      "four_card": true,
+      "prompt": "The BEDROOM. A boy about seven years old with short brown hair, in a red T-shirt, sits cross-legged in the middle of his single bed looking at an open picture book whose pages show only simple colorful shapes, no letters. Right beside him: the bed itself with a pillow and a blue blanket, a small bedside table with a lamp, and a window with curtains behind the bed. He is the only person."
+    },
+    {
+      "id": "adults-living-room",
+      "group": "family-rooms",
+      "lesson": "4.1",
+      "item": "The adults are in the living room.",
+      "runtime_filename": "a1_photo_u4_adults_living_room_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "room"
+      ],
+      "four_card": true,
+      "prompt": "The LIVING ROOM. Two adults in their forties sit side by side on a grey sofa, talking and smiling at each other, each holding a plain white mug: a woman with shoulder-length brown hair in a mustard sweater and a man with a short dark beard in a grey shirt. Right beside them: the sofa with cushions, a low wooden coffee table in front of it, a floor lamp at one end of the sofa and a window behind. Only these two adults; no children."
+    },
+    {
+      "id": "children-dining-room",
+      "group": "family-rooms",
+      "lesson": "4.1",
+      "item": "The children are in the dining room.",
+      "runtime_filename": "a1_photo_u4_children_dining_room_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "room"
+      ],
+      "four_card": true,
+      "prompt": "The DINING ROOM. Two children sit side by side at a rectangular wooden dining table, eating soup with spoons from white bowls and smiling: a girl about nine with two long braids in a yellow sweater and a boy about six with short curly hair in a green T-shirt. Right beside them: the dining table with four matching wooden chairs around it, a pendant lamp hanging above the table and a wooden sideboard against the wall behind. Only these two children; no adults."
+    },
+    {
+      "id": "bag-on-chair",
+      "group": "bag-chair",
+      "lesson": "4.3",
+      "item": "The bag is on the chair.",
+      "runtime_filename": "a1_photo_u4_bag_on_chair_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "One plain light-wood chair with four straight legs stands alone in the middle of a bright, simple room with a light oak floor and a plain white wall, seen from the front at the height of its seat, turned slightly toward the left, so that the top of the seat AND the empty floor under the seat, between the four legs, are both clearly visible. One plain dark-green backpack sits upright on the seat of the chair, fully visible. The floor under the chair is completely empty. The chair fills about 55 percent of the photo height and is centered. Nothing else on, under or near the chair; no people."
+    },
+    {
+      "id": "bag-under-chair",
+      "group": "bag-chair",
+      "lesson": "4.3",
+      "item": "The bag is under the chair.",
+      "runtime_filename": "a1_photo_u4_bag_under_chair_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Move only the dark-green backpack: it now sits upright on the floor directly under the seat of the chair, between the four legs, fully visible and not hidden by the seat or the legs. The seat of the chair is now completely empty. Keep the chair, its position and angle, the floor, the wall, the light and the camera identical. No new objects, text or symbols.",
+      "reference": "bag-on-chair"
+    },
+    {
+      "id": "where-is-it",
+      "group": "where",
+      "lesson": "4.3",
+      "item": "Where is it?",
+      "runtime_filename": "a1_photo_u4_where_is_it_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "In a bright living room, a young man in his late twenties with short dark hair, wearing a grey hoodie, kneels beside a sofa and lifts one sofa cushion up with both hands, looking under it with a puzzled, searching expression, eyebrows raised, clearly looking for something he lost. Nothing is under the cushion. His face is clearly visible in three-quarter view, and he and the lifted cushion fill the center of the photo. He is the only person."
+    },
+    {
+      "id": "do-you-question",
+      "group": "do-you",
+      "lesson": "4.8",
+      "item": "Do you ...? (question view)",
+      "runtime_filename": "a1_photo_u4_do_you_question_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows Ana (left: long dark wavy hair, sage-green overshirt over a white top) and Luis (right: short dark curly hair, navy T-shirt). Keep both of their faces, hair and clothes exactly, but without the name badge, the clipboard or the tote bag. Create a new photograph in the morning: Ana and Luis sit facing each other across a small round table outside a neighborhood cafe, each with one plain white coffee cup. Luis, on the right, leans slightly toward Ana and gestures toward her with one open palm, eyebrows raised, clearly asking her a question. Ana, on the left, listens with a friendly smile, both hands resting around her cup. Both faces are clearly visible in three-quarter view and both people are inside the central area. Soft morning sunlight. No text, signs, menus or logos; no other people near them.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_age-luis-asks-ana_132f348.webp",
+        "sha256": "132f348df57f67d68510934a43da8bf96c0c3617d6ba650c026e52965dd33fef",
+        "observed_description": "At the survey station doorway, Ana (left: long dark wavy hair, sage-green overshirt, white top, cream tote) holds a COMMUNITY SURVEY clipboard showing ANA and 20, while Luis (right: short dark curly hair, navy T-shirt, LUIS badge, khaki trousers) talks to her with both hands open."
+      }
+    },
+    {
+      "id": "do-you-yes",
+      "group": "do-you",
+      "lesson": "4.8",
+      "item": "Yes, I do.",
+      "runtime_filename": "a1_photo_u4_yes_i_do_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Ana now answers YES: she lifts her right hand from the cup and gives one clear thumbs-up toward Luis at shoulder height, four fingers curled and the thumb pointing straight up, nodding with a big warm smile while looking at him. Her left hand stays around her cup. Keep Luis, his pose, face, open-palm gesture and gaze identical, and keep the table, cups, cafe, light and camera identical. No new objects, text, arrows or symbols.",
+      "reference": "do-you-question"
+    },
+    {
+      "id": "do-you-no",
+      "group": "do-you",
+      "lesson": "4.8",
+      "item": "No, I do not.",
+      "runtime_filename": "a1_photo_u4_no_i_do_not_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Ana now answers NO: she lifts her right hand from the cup and holds it in front of her chest with only the index finger up, tilted sideways in the common friendly 'no' finger-wag gesture, and gives a small polite head shake with a friendly half-smile, still looking at Luis. Her left hand stays around her cup. Keep Luis, his pose, face, open-palm gesture and gaze identical, and keep the table, cups, cafe, light and camera identical. No new objects, text, arrows or symbols.",
+      "reference": "do-you-question"
+    },
+    {
+      "id": "day-monday",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Monday / Today is Monday.",
+      "runtime_filename": "a1_photo_u4_day_monday_v1.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "prompt": "A close-up photograph of a simple white tear-off desk calendar pad on a small dark stand, sitting on a light oak desk and facing the camera squarely, perfectly centered. The front page shows exactly one printed word, MONDAY, in large bold black sans-serif capital letters across the middle of the page, perfectly spelled; the word spans about 75 percent of the page width, and the page is about 50 percent of the photo width and about 60 percent of the photo height. The page has no numbers, dates, month names, other words, lines, grids or logos. Soft natural morning daylight from a window on the left; a small green potted plant and a plain white mug stand softly out of focus near the far left and right edges. No hands and no people."
+    },
+    {
+      "id": "day-tuesday",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Tuesday / Today is Tuesday.",
+      "runtime_filename": "a1_photo_u4_day_tuesday_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to TUESDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+      "reference": "day-monday"
+    },
+    {
+      "id": "day-wednesday",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Wednesday / Today is Wednesday.",
+      "runtime_filename": "a1_photo_u4_day_wednesday_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to WEDNESDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled; the longer word may span up to 90 percent of the page width but stays on one line. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+      "reference": "day-monday"
+    },
+    {
+      "id": "day-thursday",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Thursday / Today is Thursday.",
+      "runtime_filename": "a1_photo_u4_day_thursday_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to THURSDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+      "reference": "day-monday"
+    },
+    {
+      "id": "day-friday",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Friday / Today is Friday.",
+      "runtime_filename": "a1_photo_u4_day_friday_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to FRIDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+      "reference": "day-monday"
+    },
+    {
+      "id": "day-saturday",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Saturday / Today is Saturday.",
+      "runtime_filename": "a1_photo_u4_day_saturday_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to SATURDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+      "reference": "day-monday"
+    },
+    {
+      "id": "day-sunday",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Sunday / Today is Sunday.",
+      "runtime_filename": "a1_photo_u4_day_sunday_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to SUNDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+      "reference": "day-monday"
+    },
+    {
+      "id": "day-today",
+      "group": "days",
+      "lesson": "4.9",
+      "item": "Today / Today is Tuesday.",
+      "runtime_filename": "a1_photo_u4_day_today_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Add one small square bright-yellow sticky note stuck at a slight angle on the upper-right corner of the calendar page, with the word TODAY handwritten on it in thick black marker capital letters, perfectly spelled and easy to read. The note must not cover any letter of TUESDAY. Keep TUESDAY and everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+      "reference": "day-tuesday"
+    },
+    {
+      "id": "what-time-luis",
+      "group": "time",
+      "lesson": "4.10",
+      "item": "What time is it?",
+      "runtime_filename": "a1_photo_u4_what_time_luis_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows Luis (right: short dark curly hair). Keep his face and hair exactly; he now wears a dark work jacket over a light-blue shirt. Create a new photograph on a quiet, sunny neighborhood sidewalk: Luis stands at a three-quarter angle, looking toward someone just outside the photo on the left with raised eyebrows and a friendly questioning expression, and taps the top of his bare left wrist with his right index finger, the universal gesture for asking the time. He wears no watch and holds no phone. His face, both hands and his wrist are clearly visible in the center of the photo. No clocks, text, signs or other people.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_age-luis-asks-ana_132f348.webp",
+        "sha256": "132f348df57f67d68510934a43da8bf96c0c3617d6ba650c026e52965dd33fef",
+        "observed_description": "At the survey station doorway, Ana (left: long dark wavy hair, sage-green overshirt, white top, cream tote) holds a COMMUNITY SURVEY clipboard showing ANA and 20, while Luis (right: short dark curly hair, navy T-shirt, LUIS badge, khaki trousers) talks to her with both hands open."
+      }
+    },
+    {
+      "id": "clock-eight",
+      "group": "clocks",
+      "lesson": "4.10",
+      "item": "It is eight o'clock.",
+      "runtime_filename": "a1_photo_u4_clock_eight_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Move only the short teal hour hand so it points exactly at the 8 o'clock tick mark: on the left side of the dial, one tick mark below the horizontal 9 o'clock tick, 30 degrees below horizontal. The long dark-navy minute hand stays pointing straight up at the 12 o'clock tick. Change only the label under the clock from 7:00 to 8:00, in exactly the same font, size, weight and color. Keep the clock face, rim, tick marks, colors, background and framing identical. No numbers on the dial and no other changes.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_clock7_598dfdb.webp",
+        "sha256": "597aef80af279572a1388397f56e6541644b21fb7560fac9b607c361f49dbc0a",
+        "observed_description": "A flat, centered clock card on a soft cream-green blurred background: a white round clock face with a thick dark-navy rim and twelve dark tick marks, a long dark-navy minute hand pointing straight up at 12 and a short teal hour hand pointing down-left at the 7 o'clock position; below it a rounded teal-outlined label reads 7:00."
+      }
+    },
+    {
+      "id": "clock-eleven",
+      "group": "clocks",
+      "lesson": "4.10",
+      "item": "It is eleven o'clock.",
+      "runtime_filename": "a1_photo_u4_clock_eleven_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Move only the short teal hour hand so it points exactly at the 11 o'clock tick mark: in the upper left of the dial, the first tick mark to the left of the 12 o'clock tick, 30 degrees left of straight up. The long dark-navy minute hand stays pointing straight up at the 12 o'clock tick. Change only the label under the clock from 7:00 to 11:00, in exactly the same font, size, weight and color. Keep the clock face, rim, tick marks, colors, background and framing identical. No numbers on the dial and no other changes.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_clock7_598dfdb.webp",
+        "sha256": "597aef80af279572a1388397f56e6541644b21fb7560fac9b607c361f49dbc0a",
+        "observed_description": "A flat, centered clock card on a soft cream-green blurred background: a white round clock face with a thick dark-navy rim and twelve dark tick marks, a long dark-navy minute hand pointing straight up at 12 and a short teal hour hand pointing down-left at the 7 o'clock position; below it a rounded teal-outlined label reads 7:00."
+      }
+    },
+    {
+      "id": "clock-twelve",
+      "group": "clocks",
+      "lesson": "4.10",
+      "item": "It is twelve o'clock.",
+      "runtime_filename": "a1_photo_u4_clock_twelve_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Move only the short teal hour hand so it points straight up at the 12 o'clock tick, lying along the long dark-navy minute hand; the teal hand is shorter and drawn on top, so both hands are visible pointing straight up together. The long dark-navy minute hand stays pointing straight up at the 12 o'clock tick. Change only the label under the clock from 7:00 to 12:00, in exactly the same font, size, weight and color. Keep the clock face, rim, tick marks, colors, background and framing identical. No numbers on the dial and no other changes.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_clock7_598dfdb.webp",
+        "sha256": "597aef80af279572a1388397f56e6541644b21fb7560fac9b607c361f49dbc0a",
+        "observed_description": "A flat, centered clock card on a soft cream-green blurred background: a white round clock face with a thick dark-navy rim and twelve dark tick marks, a long dark-navy minute hand pointing straight up at 12 and a short teal hour hand pointing down-left at the 7 o'clock position; below it a rounded teal-outlined label reads 7:00."
+      }
+    },
+    {
+      "id": "wake-at-seven",
+      "group": "time",
+      "lesson": "4.10",
+      "item": "I wake up at seven o'clock.",
+      "runtime_filename": "a1_photo_u4_wake_at_seven_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "The woman in Image 1 is Ana: keep her face, long dark wavy hair, white tank top and light-grey pajama pants exactly. Create a new photograph in her bedroom at sunrise: Ana sits up in bed under a white duvet, stretching both arms up and smiling as she wakes. In the foreground, on the bedside table right next to the bed, stands one plain black digital alarm clock facing the camera squarely, its large glowing white digits reading 7:00, sharp and big enough to read on a phone (the clock's front is about 18 percent of the photo width). Ana and the clock are both inside the central area. Warm early-morning sunlight through the window. No other clocks, phones, screens or text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_ana-wake_d91086e.webp",
+        "sha256": "287079175c207d13de769583144185a37c44761135f1330c97d67d7456132ca7",
+        "observed_description": "Ana (long dark wavy hair, white tank top, light-grey drawstring pajama pants) sits on the edge of her unmade bed in a sunlit bedroom, stretching both arms over her head and smiling; a small silver alarm clock sits on the bedside table at the lower right edge."
+      }
+    },
+    {
+      "id": "review-grandfather-living-room",
+      "group": "review",
+      "lesson": "4.11",
+      "item": "The grandfather is in the living room.",
+      "runtime_filename": "a1_u4_review_v2_grandfather_living_room.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "room"
+      ],
+      "four_card": true,
+      "prompt": "The LIVING ROOM. A grandfather in his seventies with white hair and a neat white mustache, wearing a green cardigan, sits in a comfortable armchair holding a mug of tea and smiling. Right beside him: a sofa with cushions, a low coffee table, a floor lamp and a large window. He is the only person."
+    },
+    {
+      "id": "review-child-bathroom",
+      "group": "review",
+      "lesson": "4.11",
+      "item": "The child is in the bathroom.",
+      "runtime_filename": "a1_u4_review_v2_child_bathroom.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "room"
+      ],
+      "four_card": true,
+      "prompt": "The BATHROOM. A girl about seven years old with a high ponytail, in pink pajamas, stands on a small step stool at a white bathroom sink brushing her teeth with a green toothbrush. Right beside her: the white sink with a faucet, a towel hanging on a rail, a white toilet and a bathtub with a shower curtain behind. The wall above the sink is plain tile, with no mirror. She is the only person."
+    },
+    {
+      "id": "review-saturday",
+      "group": "review",
+      "lesson": "4.11",
+      "item": "Today is Saturday.",
+      "runtime_filename": "a1_u4_review_v2_saturday.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "prompt": "A large square paper wall calendar hangs on a pale-green kitchen wall, facing the camera squarely and perfectly centered, about 55 percent of the photo height. Its page shows exactly one printed word, SATURDAY, in large bold dark-blue capital letters across the middle, perfectly spelled and spanning about 80 percent of the page width. The page has no numbers, dates, month names, grids, other words or logos. A wooden shelf with a small plant is softly out of focus at the far right edge. Bright weekend morning light. No people."
+    },
+    {
+      "id": "review-clock-twelve",
+      "group": "review",
+      "lesson": "4.11",
+      "item": "It is twelve o'clock.",
+      "runtime_filename": "a1_u4_review_v2_clock_twelve.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "prompt": "A round white wall clock with a black frame and bold black numerals 1 to 12 hangs on a cream kitchen wall, facing the camera squarely and perfectly centered, about 50 percent of the photo height. It is exactly twelve o'clock: the long minute hand and the shorter, thicker hour hand both point straight up at the 12 and overlap; there is no second hand. Bright midday light. Only the clock and the plain wall, with a small plant softly out of focus at the far left edge. No people and no other text."
+    },
+    {
+      "id": "review-two-cars",
+      "group": "review",
+      "lesson": "4.11",
+      "item": "There are two cars.",
+      "runtime_filename": "a1_u4_review_v2_two_cars.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "In front of a single-family house with a garage, exactly two small cars are parked side by side on the driveway, both fully visible from the front at a slight angle: a red hatchback on the left and a white sedan on the right, with a small gap between them. Both license plates are blank. No people and no other vehicles, bikes or buses. Sunny afternoon."
+    }
+  ]
+}

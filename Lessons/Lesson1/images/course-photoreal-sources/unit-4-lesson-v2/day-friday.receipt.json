@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7d2b3a6e-c0a4-41ec-bec6-84bf2cef13d4",
+  "asset_id": "day-friday",
+  "pack_sha256": "d2a7db4c5b614798d0cbe7583ad9d624f57a41e15c63ac5782c98cbe42ab61d7",
+  "started_at": "2026-09-26T18:22:36.283377+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to FRIDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-4-lesson-v2/day-monday.png",
+    "sha256": "9e8c7e069235543b171dc3560fd0422e3445675e7496d0755eed166add6b88c5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "cA24auSsMJigz7IP8LeJgA0",
+  "usage": {
+    "promptTokenCount": 335,
+    "candidatesTokenCount": 1256,
+    "totalTokenCount": 1779,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 77
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 188,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136926",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 335,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 188
+  },
+  "elapsed_seconds": 28.25,
+  "output": "output/imagegen/unit-4-lesson-v2/day-friday.png",
+  "sha256": "c741c10fba8bcfe4b751bb44c2b71f6e1c2e94d7c4b273d7ce92e992ca22ae68",
+  "byte_count": 4776657,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

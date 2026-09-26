@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3661120c-ed5f-48f1-ac07-46967674a0b1",
+  "asset_id": "review-two-cars",
+  "pack_sha256": "e6c0a519d52bc6ef031080157bc74216658af4499a794b1fd90eb25a6eec5a55",
+  "started_at": "2026-09-26T18:30:03.281055+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIn front of a single-family house with a garage, exactly two small cars are parked side by side on the driveway, both fully visible from the front at a slight angle: a red hatchback on the left and a white sedan on the right, with a small gap between them. Both license plates are blank. No people and no other vehicles, bikes or buses. Sunny afternoon.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Kg-4atKjOLG2qtsPpsOgiQo",
+  "usage": {
+    "promptTokenCount": 268,
+    "candidatesTokenCount": 1280,
+    "totalTokenCount": 1734,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 268
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 186,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136768",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 268,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 186
+  },
+  "elapsed_seconds": 22.45,
+  "output": "output/imagegen/unit-4-lesson-v2/review-two-cars.png",
+  "sha256": "1102ff3fdd00e636ac8d11fd4a7fc73c53b35fa973ff97556eb4c4d28e75410f",
+  "byte_count": 6785052,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

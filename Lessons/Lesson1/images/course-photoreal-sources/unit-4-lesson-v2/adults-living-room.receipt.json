@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "026a3fea-5e38-4397-beff-42e1cf51ba9a",
+  "asset_id": "adults-living-room",
+  "pack_sha256": "d2a7db4c5b614798d0cbe7583ad9d624f57a41e15c63ac5782c98cbe42ab61d7",
+  "started_at": "2026-09-26T18:18:51.415126+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nRoom photo: the room must read instantly as the named room on a phone, from the furniture that defines it, and that defining furniture stands right beside the person inside the central area, not only at the edges. Shot at eye level from about three meters away in bright, soft daylight; the person is fully lit, faces the camera at a three-quarter angle and fills about 45 percent of the photo height. A tidy, lived-in family home; no mirrors, no televisions, no other people.\n\nThe LIVING ROOM. Two adults in their forties sit side by side on a grey sofa, talking and smiling at each other, each holding a plain white mug: a woman with shoulder-length brown hair in a mustard sweater and a man with a short dark beard in a grey shirt. Right beside them: the sofa with cushions, a low wooden coffee table in front of it, a floor lamp at one end of the sofa and a window behind. Only these two adults; no children.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "iwy4apf-Cd7xz7IPuY7EuQ0",
+  "usage": {
+    "promptTokenCount": 395,
+    "candidatesTokenCount": 1330,
+    "totalTokenCount": 1990,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 395
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 265,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137970",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 395,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 265
+  },
+  "elapsed_seconds": 25.71,
+  "output": "output/imagegen/unit-4-lesson-v2/adults-living-room.png",
+  "sha256": "b7c3e377fe97107c4e090d4969222a2d0947ecec2076c11bf6ce348d62e9e940",
+  "byte_count": 5727982,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

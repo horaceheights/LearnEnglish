@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ba1c83a0-9b57-4564-8783-2e061b07e802",
+  "asset_id": "review-clock-twelve",
+  "pack_sha256": "e6c0a519d52bc6ef031080157bc74216658af4499a794b1fd90eb25a6eec5a55",
+  "started_at": "2026-09-26T18:29:40.417690+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nA round white wall clock with a black frame and bold black numerals 1 to 12 hangs on a cream kitchen wall, facing the camera squarely and perfectly centered, about 50 percent of the photo height. It is exactly twelve o'clock: the long minute hand and the shorter, thicker hour hand both point straight up at the 12 and overlap; there is no second hand. Bright midday light. Only the clock and the plain wall, with a small plant softly out of focus at the far left edge. No people and no other text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "FA-4ao6WBvij6dkPxeG4wQs",
+  "usage": {
+    "promptTokenCount": 258,
+    "candidatesTokenCount": 1302,
+    "totalTokenCount": 1763,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 203,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136952",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 258,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 203
+  },
+  "elapsed_seconds": 21.97,
+  "output": "output/imagegen/unit-4-lesson-v2/review-clock-twelve.png",
+  "sha256": "727def8297d24b8e9091261fbeae41ab63706a54ee81ceab19fe85618f20caf1",
+  "byte_count": 4873844,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

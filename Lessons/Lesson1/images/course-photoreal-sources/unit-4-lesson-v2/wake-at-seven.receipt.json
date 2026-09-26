@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f9a2ba1f-4e85-42db-9cc1-fd58ee0d98bb",
+  "asset_id": "wake-at-seven",
+  "pack_sha256": "d2a7db4c5b614798d0cbe7583ad9d624f57a41e15c63ac5782c98cbe42ab61d7",
+  "started_at": "2026-09-26T18:25:31.982478+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe woman in Image 1 is Ana: keep her face, long dark wavy hair, white tank top and light-grey pajama pants exactly. Create a new photograph in her bedroom at sunrise: Ana sits up in bed under a white duvet, stretching both arms up and smiling as she wakes. In the foreground, on the bedside table right next to the bed, stands one plain black digital alarm clock facing the camera squarely, its large glowing white digits reading 7:00, sharp and big enough to read on a phone (the clock's front is about 18 percent of the photo width). Ana and the clock are both inside the central area. Warm early-morning sunlight through the window. No other clocks, phones, screens or text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_ana-wake_d91086e.webp",
+    "sha256": "287079175c207d13de769583144185a37c44761135f1330c97d67d7456132ca7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "HQ64auLhCvLyz7IP3OGo8A0",
+  "usage": {
+    "promptTokenCount": 602,
+    "candidatesTokenCount": 1365,
+    "totalTokenCount": 2205,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 344
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 238,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138060",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 602,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 238
+  },
+  "elapsed_seconds": 24.32,
+  "output": "output/imagegen/unit-4-lesson-v2/wake-at-seven.png",
+  "sha256": "271ed29ea400181f58c7e025ed67d37892c62ade330289286751bb1060090649",
+  "byte_count": 4836229,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "adfb0073-a292-4c3d-b5df-34455ca66fef",
+  "asset_id": "review-child-bathroom",
+  "pack_sha256": "e6c0a519d52bc6ef031080157bc74216658af4499a794b1fd90eb25a6eec5a55",
+  "started_at": "2026-09-26T18:28:47.123001+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nRoom photo: the room must read instantly as the named room on a phone, from the furniture that defines it, and that defining furniture stands right beside the person inside the central area, not only at the edges. Shot at eye level from about three meters away in bright, soft daylight; the person is fully lit, faces the camera at a three-quarter angle and fills about 45 percent of the photo height. A tidy, lived-in family home; no mirrors, no televisions, no other people.\n\nThe BATHROOM. A girl about seven years old with a high ponytail, in pink pajamas, stands on a small step stool at a white bathroom sink brushing her teeth with a green toothbrush. Right beside her: the white sink with a faucet, a towel hanging on a rail, a white toilet and a bathtub with a shower curtain behind. The wall above the sink is plain tile, with no mirror. She is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "3g64asjIM5_oqtsPstKQkQs",
+  "usage": {
+    "promptTokenCount": 383,
+    "candidatesTokenCount": 1327,
+    "totalTokenCount": 1929,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 383
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 219,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137394",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 383,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 219
+  },
+  "elapsed_seconds": 26.25,
+  "output": "output/imagegen/unit-4-lesson-v2/review-child-bathroom.png",
+  "sha256": "a41b12206d1f7b6c1fd877a9d18e15b467fea78635a9cd958b611f36138a574f",
+  "byte_count": 4564631,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
