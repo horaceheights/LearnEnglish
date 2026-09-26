@@ -1,0 +1,269 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-25 Unit 3 rebuild: Learn holds only What are you doing?. Practice asks it on the four speaker stills and contrasts is and are on Unit 1 photos with one variable per choice: the same action with one child or two (He is eating. / They are eating.) and The baby is / The babies are.",
+  "target": "backend/lessons/unit_3/lesson-3-3-am-is-and-are.yaml",
+  "lesson": {
+    "id": "lesson-3-3-am-is-and-are",
+    "title": "3.3 Am, Is, and Are",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.3",
+    "sub_lesson_title": "Am, Is, and Are",
+    "goal": "Choose am, is or are for I, he, she and they with known actions, then ask and answer What are you doing? with a known action.",
+    "vocabulary": [
+      "doing",
+      "What are you doing?"
+    ],
+    "review_vocabulary": [
+      "I",
+      "you",
+      "we",
+      "he",
+      "she",
+      "they",
+      "am",
+      "is",
+      "are",
+      "reading",
+      "writing",
+      "eating",
+      "sitting",
+      "baby",
+      "babies",
+      "the"
+    ],
+    "grammar_function": "I am; he/she is; they are, affirmative. What are you doing? / I am + a known -ing action, kept distinct from the occupation question What is your job?; do/does is not generalized.",
+    "prerequisite": "3.2 I/you/we frames plus Unit 1 he/she/they, is/are, actions, baby and babies.",
+    "speaking_outcome": "Say is and are sentences about known people and complete the What are you doing? exchange.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "What are you doing?",
+      "es": "¿Qué estás haciendo?",
+      "image": "a1_u3_l33_v1_reading_question.webp",
+      "kind": "doing-question",
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Doing",
+      "es": "Haciendo",
+      "image": "a1_u3_l33_v1_writing_answer.webp",
+      "kind": "doing-word",
+      "choices": false
+    },
+    {
+      "text": "What are you doing? I am reading.",
+      "es": "¿Qué estás haciendo? Estoy leyendo.",
+      "image": "a1_u3_l33_v1_reading_question.webp",
+      "kind": "doing-exchange",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
+      },
+      "turns": [
+        {
+          "text": "What are you doing?",
+          "speaker": "luis",
+          "image": "a1_u3_l33_v1_reading_question.webp"
+        },
+        {
+          "text": "I am reading.",
+          "speaker": "ana",
+          "image": "a1_u3_l33_v1_reading_answer.webp"
+        }
+      ]
+    },
+    {
+      "text": "What are you doing? I am writing.",
+      "es": "¿Qué estás haciendo? Estoy escribiendo.",
+      "image": "a1_u3_l33_v1_writing_question.webp",
+      "kind": "doing-exchange",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
+      },
+      "turns": [
+        {
+          "text": "What are you doing?",
+          "speaker": "ana",
+          "image": "a1_u3_l33_v1_writing_question.webp"
+        },
+        {
+          "text": "I am writing.",
+          "speaker": "luis",
+          "image": "a1_u3_l33_v1_writing_answer.webp"
+        }
+      ]
+    },
+    {
+      "text": "I am reading.",
+      "es": "Estoy leyendo.",
+      "image": "a1_u3_l33_v1_reading_answer.webp",
+      "kind": "doing-reply",
+      "speaker": "ana",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
+      },
+      "question": "What are you doing?",
+      "question_es": "¿Qué estás haciendo?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "I am writing.",
+      "es": "Estoy escribiendo.",
+      "image": "a1_u3_l33_v1_writing_answer.webp",
+      "kind": "doing-reply",
+      "speaker": "luis",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
+      },
+      "question": "What are you doing?",
+      "question_es": "¿Qué estás haciendo?",
+      "question_speaker": "ana"
+    },
+    {
+      "text": "He is eating.",
+      "es": "Él está comiendo.",
+      "image": "/lesson-assets/boy_is_eating.webp",
+      "kind": "is-are",
+      "learn": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+      },
+      "prefer": [
+        "They are eating."
+      ]
+    },
+    {
+      "text": "They are eating.",
+      "es": "Ellos están comiendo.",
+      "image": "/lesson-assets/they_boy_girl_are_eating.webp",
+      "kind": "is-are",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
+        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
+      },
+      "prefer": [
+        "They are reading.",
+        "They are writing."
+      ],
+      "avoid": [
+        "He is eating."
+      ]
+    },
+    {
+      "text": "She is reading.",
+      "es": "Ella está leyendo.",
+      "image": "/lesson-assets/girl_is_reading.webp",
+      "kind": "is-are",
+      "learn": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+      },
+      "prefer": [
+        "They are reading."
+      ]
+    },
+    {
+      "text": "They are reading.",
+      "es": "Ellos están leyendo.",
+      "image": "/lesson-assets/they_boy_girl_are_reading.webp",
+      "kind": "is-are",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
+        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
+      },
+      "prefer": [
+        "They are writing.",
+        "They are eating."
+      ],
+      "avoid": [
+        "She is reading.",
+        "He is eating."
+      ]
+    },
+    {
+      "text": "She is writing.",
+      "es": "Ella está escribiendo.",
+      "image": "/lesson-assets/girl_is_writing.webp",
+      "kind": "is-are",
+      "learn": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+      },
+      "prefer": [
+        "They are writing."
+      ]
+    },
+    {
+      "text": "They are writing.",
+      "es": "Ellos están escribiendo.",
+      "image": "/lesson-assets/they_boy_girl_are_writing.webp",
+      "kind": "is-are",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
+        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
+      },
+      "prefer": [
+        "They are reading.",
+        "They are eating."
+      ],
+      "avoid": [
+        "She is writing.",
+        "He is eating."
+      ]
+    },
+    {
+      "text": "The baby is sitting.",
+      "es": "El bebé está sentado.",
+      "image": "/lesson-assets/family_baby.webp",
+      "kind": "baby-sitting",
+      "learn": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+      },
+      "prefer": [
+        "The babies are sitting."
+      ]
+    },
+    {
+      "text": "The babies are sitting.",
+      "es": "Los bebés están sentados.",
+      "image": "/lesson-assets/family_babies.webp",
+      "kind": "baby-sitting",
+      "learn": false,
+      "accepts": {
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+      },
+      "prefer": [
+        "The baby is sitting."
+      ]
+    }
+  ],
+  "pool": []
+}

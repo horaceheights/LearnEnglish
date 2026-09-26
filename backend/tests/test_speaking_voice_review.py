@@ -38,6 +38,16 @@ class SpeakingVoiceReviewTests(unittest.TestCase):
         stale = check_rows([row for row in rows if (row.image, row.text) != (train.image, train.text)], review)
         self.assertIn((train.image, train.text), stale.stale)
 
+    def test_narration_may_use_either_neutral_narrator_but_never_a_character(self) -> None:
+        rows = spoken_lines(LESSONS)
+        line = next(row for row in rows if row.image)
+        review = {(line.image, line.text): "narrator"}
+        for role in ("teacher", "co-teacher"):
+            narrated = check_rows([dataclasses.replace(line, speaker_role=role)], review)
+            self.assertEqual([], narrated.mismatched, role)
+        acted = check_rows([dataclasses.replace(line, speaker_role="male-character")], review)
+        self.assertEqual(["narrator"], [expected for _, expected in acted.mismatched])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "50e5ee25-fa43-4469-a484-1bc2176d7ef3",
+  "asset_id": "grandmother-spain",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:30:13.223058+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nAt a busy indoor international community fair with colorful booths far behind, a smiling grandmother in her seventies with short silver hair, glasses and a soft green cardigan stands facing the camera. With one hand she holds, at chest height, a small white card showing the flag of Spain with the one printed word SPAIN beneath it in large black capital letters; with the other hand she points to herself. The card is the only readable text in the photo. No other flags, signs or words readable anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "9fW2as2UGNykmtkPuvi1mAU",
+  "usage": {
+    "promptTokenCount": 290,
+    "candidatesTokenCount": 1316,
+    "totalTokenCount": 1813,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 290
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 207,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137064",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 290,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 207
+  },
+  "elapsed_seconds": 25.2,
+  "output": "output/imagegen/unit-3-lesson-v2/grandmother-spain.png",
+  "sha256": "3e43c1d906b6e7af957e8a741611f829d4617c6373355c67aba8c559205cea8f",
+  "byte_count": 6911468,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

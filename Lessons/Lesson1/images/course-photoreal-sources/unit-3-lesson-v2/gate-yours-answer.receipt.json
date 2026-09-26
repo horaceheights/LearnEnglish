@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e706fc15-651b-4c03-a74c-9c33ec932103",
+  "asset_id": "gate-yours-answer",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:37:10.180337+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Luis, the young man in the navy T-shirt in the foreground, now holds one black smartphone in his other hand at chest height, screen dark, while his right hand stays flat on his chest and he keeps smiling: the phone is his. Keep everyone else, the table, food, candles, lights, courtyard, faces, clothes and camera identical. No new objects, text or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_u3_dinner_v1_age_response.webp",
+    "sha256": "439c4b7632f6eb273a71b3378fab4abe29e0a182b96f1d041db19b01e3b53e44"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "mve2ava6B_SeqtsPzarciAU",
+  "usage": {
+    "promptTokenCount": 347,
+    "candidatesTokenCount": 1236,
+    "totalTokenCount": 1770,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 89
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 187,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136938",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 347,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 187
+  },
+  "elapsed_seconds": 23.63,
+  "output": "output/imagegen/unit-3-lesson-v2/gate-yours-answer.png",
+  "sha256": "86e50843c6e4c075abfdb4f5cf495d0f166a0f736bf677875083095cb22c7482",
+  "byte_count": 5471188,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

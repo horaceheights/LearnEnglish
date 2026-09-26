@@ -1,15 +1,15 @@
 {
   "id": "lesson-3-6-professions",
-  "title": "3.6 Professions",
+  "title": "3.9 Professions",
   "level": "Beginner A1",
   "unit_id": "unit-3",
   "unit_title": "Unit 3: Me and Other People",
-  "unit_outcome": "Use tightly supported exchanges to give a name and limited age/origin/job information and describe simple possession.",
+  "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
   "lesson_id": "lesson-3",
   "lesson_title": "Unit 3: Me and Other People",
-  "sub_lesson_id": "3.6",
+  "sub_lesson_id": "3.9",
   "sub_lesson_title": "Professions",
-  "goal": "Recognize six common professions and use the fixed job question-answer exchange.",
+  "goal": "Recognize six jobs, ask What is your job? and say someone's job.",
   "vocabulary": [
     "teacher",
     "doctor",
@@ -21,22 +21,42 @@
     "What is your job?"
   ],
   "review_vocabulary": [
-    "I am",
+    "I",
+    "am",
+    "a",
     "he",
     "she",
-    "Mexico",
-    "Mexican",
-    "Canada",
-    "Canadian",
-    "Where are you from?"
+    "is",
+    "yes",
+    "no",
+    "not"
   ],
-  "grammar_function": "I am a profession; He/She is a profession; What is your job? remains a fixed question chunk.",
-  "prerequisite": "3.3 be forms and 3.5 supported personal exchanges.",
-  "speaking_outcome": "Repeat four profession statements and two complete job exchanges.",
+  "grammar_function": "What is your job? I am a + job. He/She is a + job. Is he a driver? No, he is not.",
+  "prerequisite": "3.3 be forms and 3.4 yes/no questions.",
+  "speaking_outcome": "Answer What is your job? and say what someone's job is.",
+  "content_revision": 2,
   "purposeful_review_slides": [
+    "R5",
+    "R6",
     "R7",
     "R8",
-    "N6",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S5",
+    "S6",
+    "S7",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
     "U6"
   ],
   "cards": [
@@ -45,10 +65,10 @@
       "interaction_type": "teach",
       "prompt": "A teacher",
       "stage": "Learn",
-      "correct_option_id": "a-teacher-1",
+      "correct_option_id": "a-teacher-learn",
       "options": [
         {
-          "id": "a-teacher-1",
+          "id": "a-teacher-learn",
           "image_url": "a1_scene_teacher-ana_0e983a0.webp",
           "label": "A teacher"
         }
@@ -57,17 +77,17 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una maestra",
-      "pedagogy_note": "introduces teacher"
+      "pedagogy_note": "Story beat 01: A teacher"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "A doctor",
       "stage": "Learn",
-      "correct_option_id": "a-doctor-1",
+      "correct_option_id": "a-doctor-learn",
       "options": [
         {
-          "id": "a-doctor-1",
+          "id": "a-doctor-learn",
           "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
           "label": "A doctor"
         }
@@ -75,18 +95,19 @@
       "audio_text": "A doctor",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un médico",
-      "pedagogy_note": "introduces doctor"
+      "spanish_translation": "Un doctor",
+      "pedagogy_note": "Story beat 02: A doctor",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "L3",
       "interaction_type": "teach",
       "prompt": "A cook",
       "stage": "Learn",
-      "correct_option_id": "a-cook-1",
+      "correct_option_id": "a-cook-learn",
       "options": [
         {
-          "id": "a-cook-1",
+          "id": "a-cook-learn",
           "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
           "label": "A cook"
         }
@@ -94,18 +115,18 @@
       "audio_text": "A cook",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una cocinera",
-      "pedagogy_note": "introduces noun cook, distinct from cooking action"
+      "spanish_translation": "Un cocinero",
+      "pedagogy_note": "Story beat 03: A cook"
     },
     {
       "slide_id": "L4",
       "interaction_type": "teach",
       "prompt": "A driver",
       "stage": "Learn",
-      "correct_option_id": "a-driver-1",
+      "correct_option_id": "a-driver-learn",
       "options": [
         {
-          "id": "a-driver-1",
+          "id": "a-driver-learn",
           "image_url": "a1_scene_driver-luis_111aa43.webp",
           "label": "A driver"
         }
@@ -114,17 +135,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un conductor",
-      "pedagogy_note": "introduces driver"
+      "pedagogy_note": "Story beat 04: A driver",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "L5",
       "interaction_type": "teach",
       "prompt": "A farmer",
       "stage": "Learn",
-      "correct_option_id": "a-farmer-1",
+      "correct_option_id": "a-farmer-learn",
       "options": [
         {
-          "id": "a-farmer-1",
+          "id": "a-farmer-learn",
           "image_url": "a1_scene_farmer-ana_f823cb6.webp",
           "label": "A farmer"
         }
@@ -132,18 +154,18 @@
       "audio_text": "A farmer",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una granjera",
-      "pedagogy_note": "introduces farmer"
+      "spanish_translation": "Una agricultora",
+      "pedagogy_note": "Story beat 05: A farmer"
     },
     {
       "slide_id": "L6",
       "interaction_type": "teach",
       "prompt": "A nurse",
       "stage": "Learn",
-      "correct_option_id": "a-nurse-1",
+      "correct_option_id": "a-nurse-learn",
       "options": [
         {
-          "id": "a-nurse-1",
+          "id": "a-nurse-learn",
           "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
           "label": "A nurse"
         }
@@ -152,17 +174,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una enfermera",
-      "pedagogy_note": "introduces nurse"
+      "pedagogy_note": "Story beat 06: A nurse",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "L7",
       "interaction_type": "teach",
       "prompt": "What is your job?",
       "stage": "Learn",
-      "correct_option_id": "what-is-your-job-1",
+      "correct_option_id": "what-is-your-job-learn",
       "options": [
         {
-          "id": "what-is-your-job-1",
+          "id": "what-is-your-job-learn",
           "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
           "label": "What is your job?"
         }
@@ -171,55 +194,24 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cuál es tu trabajo?",
-      "pedagogy_note": "fixed job question",
+      "pedagogy_note": "Story beat 07: What is your job?",
       "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "What is your job? I am a teacher.",
-      "stage": "Learn",
-      "correct_option_id": "what-is-your-job-i-am-a-teacher-1",
-      "options": [
-        {
-          "id": "what-is-your-job-i-am-a-teacher-1",
-          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
-          "label": "What is your job? I am a teacher."
-        }
-      ],
-      "audio_text": "What is your job? I am a teacher.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "What is your job?",
-          "speaker_role": "luis",
-          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp"
-        },
-        {
-          "text": "I am a teacher.",
-          "speaker_role": "ana",
-          "image_url": "a1_scene_teacher-ana_0e983a0.webp"
-        }
-      ],
-      "prompt_image_url": "",
-      "spanish_translation": "¿Cuál es tu trabajo? Soy maestra.",
-      "pedagogy_note": "complete exchange"
     },
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
       "prompt": "A teacher",
       "stage": "Recognize",
-      "correct_option_id": "teacher-ana-1",
+      "correct_option_id": "a-teacher-r1",
       "options": [
         {
-          "id": "teacher-ana-1",
-          "image_url": "a1_scene_teacher-ana_0e983a0.webp",
+          "id": "a-doctor-r1",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
           "label": null
         },
         {
-          "id": "doctor-diego-2",
-          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+          "id": "a-teacher-r1",
+          "image_url": "a1_scene_teacher-ana_0e983a0.webp",
           "label": null
         }
       ],
@@ -227,22 +219,22 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una maestra",
-      "pedagogy_note": "work action distinguishes"
+      "pedagogy_note": "Story beat 01: A teacher"
     },
     {
       "slide_id": "R2",
       "interaction_type": "t2i2",
       "prompt": "A doctor",
       "stage": "Recognize",
-      "correct_option_id": "doctor-diego-2",
+      "correct_option_id": "a-doctor-r2",
       "options": [
         {
-          "id": "teacher-ana-1",
+          "id": "a-teacher-r2",
           "image_url": "a1_scene_teacher-ana_0e983a0.webp",
           "label": null
         },
         {
-          "id": "doctor-diego-2",
+          "id": "a-doctor-r2",
           "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
           "label": null
         }
@@ -250,419 +242,80 @@
       "audio_text": "A doctor",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un médico",
-      "pedagogy_note": "doctor is contrasted with a clearly non-medical teaching scene; do not use nurse as the first doctor distractor"
+      "spanish_translation": "Un doctor",
+      "pedagogy_note": "Story beat 02: A doctor",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
       "prompt": "A cook",
       "stage": "Recognize",
-      "correct_option_id": "cook-sofia-1",
+      "correct_option_id": "a-cook-r3",
       "options": [
         {
-          "id": "cook-sofia-1",
+          "id": "a-cook-r3",
           "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
           "label": null
         },
         {
-          "id": "farmer-ana-2",
-          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
+          "id": "a-doctor-r3",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
           "label": null
         }
       ],
       "audio_text": "A cook",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una cocinera",
-      "pedagogy_note": "work context"
+      "spanish_translation": "Un cocinero",
+      "pedagogy_note": "Story beat 03: A cook"
     },
     {
       "slide_id": "R4",
       "interaction_type": "t2i2",
-      "prompt": "A driver",
-      "stage": "Recognize",
-      "correct_option_id": "driver-luis-1",
-      "options": [
-        {
-          "id": "driver-luis-1",
-          "image_url": "a1_scene_driver-luis_111aa43.webp",
-          "label": null
-        },
-        {
-          "id": "teacher-ana-2",
-          "image_url": "a1_scene_teacher-ana_0e983a0.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "A driver",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un conductor",
-      "pedagogy_note": "work context"
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "t2i4",
       "prompt": "A farmer",
       "stage": "Recognize",
-      "correct_option_id": "farmer-ana-3",
+      "correct_option_id": "a-farmer-r4",
       "options": [
         {
-          "id": "cook-sofia-1",
-          "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
-          "label": null
-        },
-        {
-          "id": "nurse-sofia-2",
-          "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
-          "label": null
-        },
-        {
-          "id": "farmer-ana-3",
-          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
-          "label": null
-        },
-        {
-          "id": "driver-luis-4",
+          "id": "a-driver-r4",
           "image_url": "a1_scene_driver-luis_111aa43.webp",
+          "label": null
+        },
+        {
+          "id": "a-farmer-r4",
+          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
           "label": null
         }
       ],
       "audio_text": "A farmer",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una granjera",
-      "pedagogy_note": "four distinct work contexts"
+      "spanish_translation": "Una agricultora",
+      "pedagogy_note": "Story beat 04: A farmer",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "R6",
-      "interaction_type": "i2t4",
-      "prompt": "What is your job?",
-      "stage": "Recognize",
-      "correct_option_id": "i-am-a-nurse-3",
-      "options": [
-        {
-          "id": "i-am-a-driver-1",
-          "image_url": "",
-          "label": "I am a driver."
-        },
-        {
-          "id": "i-am-a-teacher-2",
-          "image_url": "",
-          "label": "I am a teacher."
-        },
-        {
-          "id": "i-am-a-nurse-3",
-          "image_url": "",
-          "label": "I am a nurse."
-        }
-      ],
-      "audio_text": "What is your job?",
-      "answer_audio_text": "I am a nurse.",
-      "prompt_image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
-      "spanish_translation": "¿Cuál es tu trabajo?",
-      "pedagogy_note": "question shown/played before choices",
-      "answer_audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "i2t2",
-      "prompt": "Where are you from?",
-      "stage": "Recognize",
-      "correct_option_id": "i-am-from-mexico-2",
-      "options": [
-        {
-          "id": "i-am-from-canada-1",
-          "image_url": "",
-          "label": "I am from Canada."
-        },
-        {
-          "id": "i-am-from-mexico-2",
-          "image_url": "",
-          "label": "I am from Mexico."
-        }
-      ],
-      "audio_text": "Where are you from?",
-      "answer_audio_text": "I am from Mexico.",
-      "prompt_image_url": "a1_scene_ana_mexico.webp",
-      "spanish_translation": "¿De dónde eres?",
-      "pedagogy_note": "3.5 review",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": "ana"
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "How old are you?",
-      "stage": "Recognize",
-      "correct_option_id": "i-am-eighteen-years-old-2",
-      "options": [
-        {
-          "id": "i-am-twelve-years-old-1",
-          "image_url": "",
-          "label": "I am twelve years old."
-        },
-        {
-          "id": "i-am-eighteen-years-old-2",
-          "image_url": "",
-          "label": "I am eighteen years old."
-        }
-      ],
-      "audio_text": "How old are you?",
-      "answer_audio_text": "I am eighteen years old.",
-      "prompt_image_url": "a1_scene_age-luis-18_7f71348.webp",
-      "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "3.4 review",
-      "answer_audio_speaker": "luis"
-    },
-    {
-      "slide_id": "N1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "teacher-ana-2",
-      "options": [
-        {
-          "id": "doctor-diego-1",
-          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
-          "label": null
-        },
-        {
-          "id": "teacher-ana-2",
-          "image_url": "a1_scene_teacher-ana_0e983a0.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I am a teacher.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "N2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "doctor-diego-1",
-      "options": [
-        {
-          "id": "doctor-diego-1",
-          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
-          "label": null
-        },
-        {
-          "id": "driver-luis-2",
-          "image_url": "a1_scene_driver-luis_111aa43.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "He is a doctor.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
-    },
-    {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "cook-sofia-2",
-      "options": [
-        {
-          "id": "nurse-sofia-1",
-          "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
-          "label": null
-        },
-        {
-          "id": "cook-sofia-2",
-          "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "She is a cook.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
-    },
-    {
-      "slide_id": "N4",
-      "interaction_type": "a2i4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "driver-luis-3",
-      "options": [
-        {
-          "id": "teacher-ana-1",
-          "image_url": "a1_scene_teacher-ana_0e983a0.webp",
-          "label": null
-        },
-        {
-          "id": "farmer-ana-2",
-          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
-          "label": null
-        },
-        {
-          "id": "driver-luis-3",
-          "image_url": "a1_scene_driver-luis_111aa43.webp",
-          "label": null
-        },
-        {
-          "id": "doctor-diego-4",
-          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "He is a driver.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
-    },
-    {
-      "slide_id": "N5",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "what-is-your-job-2",
-      "options": [
-        {
-          "id": "what-is-your-name-1",
-          "image_url": "",
-          "label": "What is your name?"
-        },
-        {
-          "id": "what-is-your-job-2",
-          "image_url": "",
-          "label": "What is your job?"
-        }
-      ],
-      "audio_text": "What is your job?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "question listening contrast"
-    },
-    {
-      "slide_id": "N6",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-am-canadian-2",
-      "options": [
-        {
-          "id": "i-am-from-canada-1",
-          "image_url": "",
-          "label": "I am from Canada."
-        },
-        {
-          "id": "i-am-canadian-2",
-          "image_url": "",
-          "label": "I am Canadian."
-        }
-      ],
-      "audio_text": "I am Canadian.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "3.5 review; exact nationality-versus-origin audio contrast"
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "I am a teacher.",
-      "stage": "Speak",
-      "correct_option_id": "i-am-a-teacher-1",
-      "options": [
-        {
-          "id": "i-am-a-teacher-1",
-          "image_url": "a1_scene_teacher-ana_0e983a0.webp",
-          "label": "I am a teacher."
-        }
-      ],
-      "audio_text": "I am a teacher.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Soy maestra.",
-      "pedagogy_note": "profession statement",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "He is a doctor.",
-      "stage": "Speak",
-      "correct_option_id": "he-is-a-doctor-1",
-      "options": [
-        {
-          "id": "he-is-a-doctor-1",
-          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
-          "label": "He is a doctor."
-        }
-      ],
-      "audio_text": "He is a doctor.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Él es médico.",
-      "pedagogy_note": "profession statement"
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "She is a cook.",
-      "stage": "Speak",
-      "correct_option_id": "she-is-a-cook-1",
-      "options": [
-        {
-          "id": "she-is-a-cook-1",
-          "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
-          "label": "She is a cook."
-        }
-      ],
-      "audio_text": "She is a cook.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ella es cocinera.",
-      "pedagogy_note": "profession statement"
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "He is a driver.",
-      "stage": "Speak",
-      "correct_option_id": "he-is-a-driver-1",
-      "options": [
-        {
-          "id": "he-is-a-driver-1",
-          "image_url": "a1_scene_driver-luis_111aa43.webp",
-          "label": "He is a driver."
-        }
-      ],
-      "audio_text": "He is a driver.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Él es conductor.",
-      "pedagogy_note": "profession statement"
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "repeat",
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
       "prompt": "What is your job? I am a teacher.",
-      "stage": "Speak",
-      "correct_option_id": "what-is-your-job-i-am-a-teacher-1",
+      "stage": "Recognize",
+      "correct_option_id": "what-is-your-job-i-am-a-teacher-r5",
       "options": [
         {
-          "id": "what-is-your-job-i-am-a-teacher-1",
+          "id": "what-is-your-job-i-am-a-driver-r5",
+          "image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-your-job-i-am-a-teacher-r5",
           "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
-          "label": "What is your job? I am a teacher."
+          "label": null
         }
       ],
       "audio_text": "What is your job? I am a teacher.",
       "answer_audio_text": null,
+      "prompt_image_url": "",
       "audio_turns": [
         {
           "text": "What is your job?",
@@ -675,25 +328,327 @@
           "image_url": "a1_scene_teacher-ana_0e983a0.webp"
         }
       ],
-      "prompt_image_url": "",
       "spanish_translation": "¿Cuál es tu trabajo? Soy maestra.",
-      "pedagogy_note": "complete exchange"
+      "pedagogy_note": "Story beat 05: What is your job? I am a teacher."
     },
     {
-      "slide_id": "S6",
-      "interaction_type": "repeat",
-      "prompt": "What is your job? I am a driver.",
-      "stage": "Speak",
-      "correct_option_id": "what-is-your-job-i-am-a-driver-1",
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "what-is-your-job-i-am-a-driver-r6",
       "options": [
         {
-          "id": "what-is-your-job-i-am-a-driver-1",
-          "image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
+          "id": "what-is-your-job-i-am-a-driver-r6",
+          "image_url": "",
           "label": "What is your job? I am a driver."
+        },
+        {
+          "id": "what-is-your-job-i-am-a-teacher-r6",
+          "image_url": "",
+          "label": "What is your job? I am a teacher."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "What is your job? I am a driver.",
+      "answer_audio_turns": [
+        {
+          "text": "What is your job?",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_job-dialogue-driver_acd1aee.webp"
+        },
+        {
+          "text": "I am a driver.",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_driver-luis_111aa43.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: What is your job? I am a driver."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i2",
+      "prompt": "He is a doctor.",
+      "stage": "Recognize",
+      "correct_option_id": "he-is-a-doctor-r7",
+      "options": [
+        {
+          "id": "he-is-a-doctor-r7",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-a-cook-r7",
+          "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "He is a doctor.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Él es doctor.",
+      "pedagogy_note": "Story beat 07: He is a doctor."
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "he-is-a-cook-r8",
+      "options": [
+        {
+          "id": "he-is-a-cook-r8",
+          "image_url": "",
+          "label": "He is a cook."
+        },
+        {
+          "id": "he-is-a-doctor-r8",
+          "image_url": "",
+          "label": "He is a doctor."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "He is a cook.",
+      "prompt_image_url": "a1_scene_cook-sofia_ecb7eca.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 08: He is a cook."
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "t2i2",
+      "prompt": "She is a farmer.",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-a-farmer-r9",
+      "options": [
+        {
+          "id": "she-is-a-farmer-r9",
+          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
+          "label": null
+        },
+        {
+          "id": "she-is-a-nurse-r9",
+          "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "She is a farmer.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Ella es agricultora.",
+      "pedagogy_note": "Story beat 09: She is a farmer."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-a-nurse-r10",
+      "options": [
+        {
+          "id": "she-is-a-nurse-r10",
+          "image_url": "",
+          "label": "She is a nurse."
+        },
+        {
+          "id": "she-is-a-farmer-r10",
+          "image_url": "",
+          "label": "She is a farmer."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "She is a nurse.",
+      "prompt_image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: She is a nurse."
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "t2i2",
+      "prompt": "Is she a nurse? Yes, she is.",
+      "stage": "Recognize",
+      "correct_option_id": "is-she-a-nurse-yes-she-is-r11",
+      "options": [
+        {
+          "id": "is-he-a-driver-no-he-is-not-r11",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+          "label": null
+        },
+        {
+          "id": "is-she-a-nurse-yes-she-is-r11",
+          "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Is she a nurse? Yes, she is.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Ella es enfermera? Sí.",
+      "pedagogy_note": "Story beat 11: Is she a nurse? Yes, she is."
+    },
+    {
+      "slide_id": "R12",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "is-he-a-driver-no-he-is-not-r12",
+      "options": [
+        {
+          "id": "is-he-a-driver-no-he-is-not-r12",
+          "image_url": "",
+          "label": "Is he a driver? No, he is not."
+        },
+        {
+          "id": "is-he-a-driver-yes-he-is-r12",
+          "image_url": "",
+          "label": "Is he a driver? Yes, he is."
+        },
+        {
+          "id": "is-she-a-nurse-no-she-is-not-r12",
+          "image_url": "",
+          "label": "Is she a nurse? No, she is not."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Is he a driver? No, he is not.",
+      "prompt_image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 12: Is he a driver? No, he is not."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-teacher-a1",
+      "options": [
+        {
+          "id": "a-teacher-a1",
+          "image_url": "a1_scene_teacher-ana_0e983a0.webp",
+          "label": null
+        },
+        {
+          "id": "a-doctor-a1",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A teacher",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: A teacher"
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-driver-a2",
+      "options": [
+        {
+          "id": "a-driver-a2",
+          "image_url": "a1_scene_driver-luis_111aa43.webp",
+          "label": null
+        },
+        {
+          "id": "a-cook-a2",
+          "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A driver",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: A driver",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-nurse-a3",
+      "options": [
+        {
+          "id": "a-nurse-a3",
+          "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
+          "label": null
+        },
+        {
+          "id": "a-farmer-a3",
+          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A nurse",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: A nurse"
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-is-your-job-i-am-a-teacher-a4",
+      "options": [
+        {
+          "id": "what-is-your-job-i-am-a-driver-a4",
+          "image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-your-job-i-am-a-teacher-a4",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What is your job? I am a teacher.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What is your job?",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp"
+        },
+        {
+          "text": "I am a teacher.",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_teacher-ana_0e983a0.webp"
+        }
+      ],
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: What is your job? I am a teacher."
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-is-your-job-i-am-a-driver-a5",
+      "options": [
+        {
+          "id": "what-is-your-job-i-am-a-driver-a5",
+          "image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-your-job-i-am-a-teacher-a5",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
+          "label": null
         }
       ],
       "audio_text": "What is your job? I am a driver.",
       "answer_audio_text": null,
+      "prompt_image_url": "",
       "audio_turns": [
         {
           "text": "What is your job?",
@@ -706,39 +661,286 @@
           "image_url": "a1_scene_driver-luis_111aa43.webp"
         }
       ],
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: What is your job? I am a driver."
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "he-is-a-doctor-a6",
+      "options": [
+        {
+          "id": "he-is-a-cook-a6",
+          "image_url": "",
+          "label": "He is a cook."
+        },
+        {
+          "id": "he-is-a-doctor-a6",
+          "image_url": "",
+          "label": "He is a doctor."
+        }
+      ],
+      "audio_text": "He is a doctor.",
+      "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Cuál es tu trabajo? Soy conductor.",
-      "pedagogy_note": "complete exchange"
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: He is a doctor.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "he-is-a-cook-a7",
+      "options": [
+        {
+          "id": "he-is-a-doctor-a7",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-a-cook-a7",
+          "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "He is a cook.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: He is a cook."
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "she-is-a-farmer-a8",
+      "options": [
+        {
+          "id": "she-is-a-nurse-a8",
+          "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
+          "label": null
+        },
+        {
+          "id": "she-is-a-farmer-a8",
+          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "She is a farmer.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: She is a farmer.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "she-is-a-nurse-a9",
+      "options": [
+        {
+          "id": "she-is-a-farmer-a9",
+          "image_url": "",
+          "label": "She is a farmer."
+        },
+        {
+          "id": "she-is-a-nurse-a9",
+          "image_url": "",
+          "label": "She is a nurse."
+        }
+      ],
+      "audio_text": "She is a nurse.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: She is a nurse."
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "A doctor",
+      "stage": "Speak",
+      "correct_option_id": "a-doctor-speak",
+      "options": [
+        {
+          "id": "a-doctor-speak",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+          "label": "A doctor"
+        }
+      ],
+      "audio_text": "A doctor",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un doctor",
+      "pedagogy_note": "Story beat 01: A doctor",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "A cook",
+      "stage": "Speak",
+      "correct_option_id": "a-cook-speak",
+      "options": [
+        {
+          "id": "a-cook-speak",
+          "image_url": "a1_scene_cook-sofia_ecb7eca.webp",
+          "label": "A cook"
+        }
+      ],
+      "audio_text": "A cook",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un cocinero",
+      "pedagogy_note": "Story beat 02: A cook"
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "A farmer",
+      "stage": "Speak",
+      "correct_option_id": "a-farmer-speak",
+      "options": [
+        {
+          "id": "a-farmer-speak",
+          "image_url": "a1_scene_farmer-ana_f823cb6.webp",
+          "label": "A farmer"
+        }
+      ],
+      "audio_text": "A farmer",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Una agricultora",
+      "pedagogy_note": "Story beat 03: A farmer",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "What is your job?",
+      "stage": "Speak",
+      "correct_option_id": "what-is-your-job-speak",
+      "options": [
+        {
+          "id": "what-is-your-job-speak",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
+          "label": "What is your job?"
+        }
+      ],
+      "audio_text": "What is your job?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Cuál es tu trabajo?",
+      "pedagogy_note": "Story beat 04: What is your job?",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "What is your job? I am a teacher.",
+      "stage": "Speak",
+      "correct_option_id": "what-is-your-job-i-am-a-teacher-speak",
+      "options": [
+        {
+          "id": "what-is-your-job-i-am-a-teacher-speak",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
+          "label": "What is your job? I am a teacher."
+        }
+      ],
+      "audio_text": "What is your job? I am a teacher.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What is your job?",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp"
+        },
+        {
+          "text": "I am a teacher.",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_teacher-ana_0e983a0.webp"
+        }
+      ],
+      "spanish_translation": "¿Cuál es tu trabajo? Soy maestra.",
+      "pedagogy_note": "Story beat 05: What is your job? I am a teacher."
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "Is she a nurse? Yes, she is.",
+      "stage": "Speak",
+      "correct_option_id": "is-she-a-nurse-yes-she-is-speak",
+      "options": [
+        {
+          "id": "is-she-a-nurse-yes-she-is-speak",
+          "image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
+          "label": "Is she a nurse? Yes, she is."
+        }
+      ],
+      "audio_text": "Is she a nurse? Yes, she is.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Ella es enfermera? Sí.",
+      "pedagogy_note": "Story beat 06: Is she a nurse? Yes, she is."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "Is he a driver? No, he is not.",
+      "stage": "Speak",
+      "correct_option_id": "is-he-a-driver-no-he-is-not-speak",
+      "options": [
+        {
+          "id": "is-he-a-driver-no-he-is-not-speak",
+          "image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+          "label": "Is he a driver? No, he is not."
+        }
+      ],
+      "audio_text": "Is he a driver? No, he is not.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Él es conductor? No.",
+      "pedagogy_note": "Story beat 07: Is he a driver? No, he is not.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I am ___ ___.",
+      "prompt": "What is ___ ___?",
       "stage": "Use",
-      "correct_option_id": "a",
+      "correct_option_id": "your",
       "options": [
         {
-          "id": "a",
+          "id": "your",
           "image_url": "",
-          "label": "a"
+          "label": "your"
         },
         {
-          "id": "teacher",
+          "id": "job",
           "image_url": "",
-          "label": "teacher"
+          "label": "job"
         }
       ],
-      "audio_text": "I am a teacher.",
-      "answer_audio_text": "I am a teacher.",
-      "prompt_image_url": "a1_scene_teacher-ana_0e983a0.webp",
-      "spanish_translation": "Soy maestro.",
-      "pedagogy_note": "profession slot",
-      "audio_speaker": "ana",
-      "translation": "Soy maestro.",
+      "audio_text": "What is your job?",
+      "answer_audio_text": "What is your job?",
+      "prompt_image_url": "a1_scene_job-dialogue-teacher_be7d927.webp",
+      "spanish_translation": "¿Cuál es tu trabajo?",
+      "translation": "¿Cuál es tu trabajo?",
       "correct_option_ids": [
-        "a",
-        "teacher"
-      ]
+        "your",
+        "job"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 01: What is your job?",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "U2",
@@ -761,239 +963,205 @@
       "audio_text": "He is a doctor.",
       "answer_audio_text": "He is a doctor.",
       "prompt_image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
-      "spanish_translation": "Él es médico.",
-      "pedagogy_note": "profession slot",
-      "translation": "Él es médico.",
+      "spanish_translation": "Él es doctor.",
+      "translation": "Él es doctor.",
       "correct_option_ids": [
         "a",
         "doctor"
-      ]
+      ],
+      "pedagogy_note": "Story beat 02: He is a doctor."
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "She is ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "a",
-      "options": [
-        {
-          "id": "a",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "nurse",
-          "image_url": "",
-          "label": "nurse"
-        }
-      ],
-      "audio_text": "She is a nurse.",
-      "answer_audio_text": "She is a nurse.",
-      "prompt_image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
-      "spanish_translation": "Ella es enfermera.",
-      "pedagogy_note": "profession slot",
-      "translation": "Ella es enfermera.",
-      "correct_option_ids": [
-        "a",
-        "nurse"
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "___ ___ your job?",
-      "stage": "Use",
-      "correct_option_id": "what",
-      "options": [
-        {
-          "id": "what",
-          "image_url": "",
-          "label": "What"
-        },
-        {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
-        }
-      ],
-      "audio_text": "What is your job?",
-      "answer_audio_text": "What is your job?",
-      "prompt_image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
-      "spanish_translation": "¿Cuál es tu trabajo?",
-      "pedagogy_note": "question chunk",
-      "audio_speaker": "ana",
-      "translation": "¿Cuál es tu trabajo?",
-      "correct_option_ids": [
-        "what",
-        "is"
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___?",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "What"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "your"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "job"
-        }
-      ],
-      "audio_text": "What is your job?",
-      "answer_audio_text": "What is your job?",
-      "prompt_image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
-      "spanish_translation": "¿Cuál es tu trabajo?",
-      "pedagogy_note": "unambiguous function contrast",
-      "audio_speaker": "ana",
-      "translation": "¿Cuál es tu trabajo?",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ]
-    },
-    {
-      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "am"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "driver"
-        }
-      ],
-      "audio_text": "I am a driver.",
-      "answer_audio_text": "I am a driver.",
-      "prompt_image_url": "a1_scene_driver-luis_111aa43.webp",
-      "spanish_translation": "Soy conductor.",
-      "pedagogy_note": "3.5 review",
-      "audio_speaker": "luis",
-      "translation": "Soy conductor.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "answer_audio_speaker": "luis"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "She"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
         },
         {
           "id": "word-4",
           "image_url": "",
           "label": "cook"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "He"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
         }
       ],
-      "audio_text": "She is a cook.",
-      "answer_audio_text": "She is a cook.",
+      "audio_text": "He is a cook.",
+      "answer_audio_text": "He is a cook.",
       "prompt_image_url": "a1_scene_cook-sofia_ecb7eca.webp",
-      "spanish_translation": "Ella es cocinera.",
-      "pedagogy_note": "3.3 be review",
-      "translation": "Ella es cocinera.",
+      "spanish_translation": "Él es cocinero.",
+      "translation": "Él es cocinero.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
-      ]
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 03: He is a cook.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "U8",
+      "slide_id": "U4",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "She"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
-        },
-        {
           "id": "word-4",
           "image_url": "",
           "label": "farmer"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "She"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
         }
       ],
       "audio_text": "She is a farmer.",
       "answer_audio_text": "She is a farmer.",
       "prompt_image_url": "a1_scene_farmer-ana_f823cb6.webp",
       "spanish_translation": "Ella es agricultora.",
-      "pedagogy_note": "profession application with matching pronoun",
       "translation": "Ella es agricultora.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
-      ]
+      ],
+      "pedagogy_note": "Story beat 04: She is a farmer."
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "nurse"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "She"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "audio_text": "She is a nurse.",
+      "answer_audio_text": "She is a nurse.",
+      "prompt_image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
+      "spanish_translation": "Ella es enfermera.",
+      "translation": "Ella es enfermera.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 05: She is a nurse.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___? ___, ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "he"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "driver"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "he"
+        },
+        {
+          "id": "word-8",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "No"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "Is he a driver? No, he is not.",
+      "answer_audio_text": "Is he a driver? No, he is not.",
+      "prompt_image_url": "a1_scene_doctor-diego_1c7ef5a.webp",
+      "spanish_translation": "¿Él es conductor? No.",
+      "translation": "¿Él es conductor? No.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7",
+        "word-8"
+      ],
+      "pedagogy_note": "Story beat 06: Is he a driver? No, he is not."
     }
   ]
 }

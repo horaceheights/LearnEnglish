@@ -64,7 +64,7 @@ const MEANINGS: Record<string, string> = {
   park: 'parque', school: 'escuela', store: 'tienda', house: 'casa', restaurant: 'restaurante',
   hospital: 'hospital', street: 'calle', bridge: 'puente', bus: 'autobús', car: 'automóvil',
   bike: 'bicicleta', book: 'libro', books: 'libros', pen: 'bolígrafo', pens: 'bolígrafos',
-  phone: 'teléfono', phones: 'teléfonos', bag: 'bolsa', chair: 'silla', table: 'mesa', cars: 'automóviles',
+  phone: 'teléfono', phones: 'teléfonos', bag: 'bolsa', bags: 'bolsas', chair: 'silla', table: 'mesa', cars: 'automóviles',
   bed: 'cama', bedroom: 'dormitorio', kitchen: 'cocina', 'living room': 'sala', 'dining room': 'comedor',
   computer: 'computadora', door: 'puerta', lamp: 'lámpara', doctor: 'médico', nurse: 'enfermero o enfermera',
   teacher: 'profesor o profesora', driver: 'conductor', farmer: 'agricultor', job: 'trabajo', name: 'nombre',
@@ -104,6 +104,8 @@ const MEANINGS: Record<string, string> = {
   'can': 'puede', 'cannot': 'no puede',
   i: 'yo', you: 'tú', we: 'nosotros', they: 'ellos', he: 'él', she: 'ella',
   his: 'de él', her: 'de ella', your: 'tu', my: 'mi', us: 'Estados Unidos',
+  our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', have: 'tener', has: 'tiene',
+  grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', goes: 'va', walks: 'camina', likes: 'le gusta',
   '1': 'uno', '2': 'dos', '3': 'tres', '4': 'cuatro', '5': 'cinco',
@@ -126,6 +128,9 @@ function normalized(value?: string | null) {
 function meaning(text: string) {
   const key = normalized(text);
   if (MEANINGS[key]) return MEANINGS[key];
+  // A possessive names its owner: "Ana's" is “de Ana”.
+  const owner = /^(.+)'s$/.exec(key.replace(/’/g, "'"))?.[1];
+  if (owner && MEANINGS[owner]) return `de ${MEANINGS[owner]}`;
   const translated = spanishTranslationFor(text);
   return translated.includes('Traducción no disponible') ? '' : translated.replace(/[.]+$/, '');
 }
@@ -309,6 +314,14 @@ function sentenceChoiceContrast(card: LessonCard, correct: string, wrong: string
 function grammarChoiceContrast(correct: string, wrong: string): string {
   const expected = normalized(correct);
   const selected = normalized(wrong);
+  // A yes/no question answered both ways: only the short answer changes.
+  const answer = /^(.+\?)\s*(yes|no),/;
+  const [expectedAnswer, selectedAnswer] = [answer.exec(expected), answer.exec(selected)];
+  if (expectedAnswer && selectedAnswer && expectedAnswer[1] === selectedAnswer[1] && expectedAnswer[2] !== selectedAnswer[2]) {
+    return expectedAnswer[2] === 'yes'
+      ? `Tu opción responde “No”; aquí la respuesta es sí, por eso decimos “${correct.split(/\?\s*/)[1]}”.`
+      : `Tu opción responde “Yes”; aquí la respuesta es no, por eso decimos “${correct.split(/\?\s*/)[1]}”.`;
+  }
   if (expected === 'it is a book' && selected === 'he is a book') {
     return '“He” se usa para personas; la imagen muestra un libro, por eso usamos “It”.';
   }
@@ -443,7 +456,8 @@ function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boole
 
 /** Option IDs on caption-free image banks are authored semantic concepts, not media paths. */
 function imageOptionConcept(id: string): string {
-  const semantic = id.replace(/-\d+$/, '');
+  // Engine-authored IDs end in their slide ("mexico-r1"); the concept is the words before it.
+  const semantic = id.replace(/-\d+$/, '').replace(/-[a-z]\d+$/, '');
   const clock = /^clock(\d+)$/.exec(semantic);
   if (clock) return `clock ${clock[1]}`;
   if (/^n\d+$/.test(semantic)) {
@@ -479,6 +493,12 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   const correctMeaning = meaning(correct);
   if (wrongMeaning && correctMeaning && wrongMeaning !== correctMeaning) {
     return `La imagen elegida muestra ${wrongMeaning}; la frase pide ${correctMeaning}.`;
+  }
+  // The pictures differ by a whole phrase, as in "from Mexico" against "from the United States".
+  const [rightPhrase, wrongPhrase] = contrast(correct, wrong);
+  const [rightPhraseMeaning, wrongPhraseMeaning] = [phraseMeaning(rightPhrase), phraseMeaning(wrongPhrase)];
+  if (rightPhrase && wrongPhrase && rightPhraseMeaning && wrongPhraseMeaning && rightPhraseMeaning !== wrongPhraseMeaning) {
+    return `La imagen elegida muestra “${wrongPhrase}” (${wrongPhraseMeaning}); la frase pide “${rightPhrase}” (${rightPhraseMeaning}).`;
   }
   return '';
 }

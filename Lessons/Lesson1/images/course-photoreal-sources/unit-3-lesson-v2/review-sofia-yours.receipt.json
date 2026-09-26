@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3e2cbb6c-2ee8-4e35-9c16-798e0173145d",
+  "asset_id": "review-sofia-yours",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:36:17.923452+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe woman in Image 1 is Sofia: keep her face, long curly dark hair and bright blue blazer exactly. Create a new photograph inside a calm neighborhood café: Sofia stands beside a small table and, smiling, hands a black smartphone to a seated young man in a grey sweater who left it on the table; she holds the phone out toward him and he reaches up to take it, surprised and grateful. Both faces and the phone are clearly visible. No text, logos, menus or cups with writing.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_sofia-canadian_adf798e.webp",
+    "sha256": "2daf8237485192503d10d64046efea7958bdca60e4af4e949b89c5cd62a39099"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Zfe2avWVJ5v-qtsP5ZOaiAk",
+  "usage": {
+    "promptTokenCount": 551,
+    "candidatesTokenCount": 1292,
+    "totalTokenCount": 2026,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 293
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 183,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137298",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 551,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 183
+  },
+  "elapsed_seconds": 24.26,
+  "output": "output/imagegen/unit-3-lesson-v2/review-sofia-yours.png",
+  "sha256": "07b5c262d3095f50f735aca15ef534d2d1256765b485ededcb9801acba952a8a",
+  "byte_count": 5375195,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,164 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-25 Unit 3 rebuild: new lesson for the missing possessives. Learn holds Our, Their and Ana's; practice brings back the Unit 1 family (our grandchildren, their grandmother) and Unit 2 car and house on new photos, and names each cast member's things with 's. Sofia's car and Luis's car are both cars, so that choice changes only the owner.",
+  "target": "backend/lessons/unit_3/lesson-3-our-their.yaml",
+  "lesson": {
+    "id": "lesson-3-our-their",
+    "title": "3.11 Our, Their, and 's",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.11",
+    "sub_lesson_title": "Our, Their, and 's",
+    "goal": "Say whose family member or thing it is with our, their and 's.",
+    "vocabulary": [
+      "our",
+      "their",
+      "'s"
+    ],
+    "review_vocabulary": [
+      "my",
+      "your",
+      "his",
+      "her",
+      "this",
+      "that",
+      "it",
+      "is",
+      "they",
+      "are",
+      "she",
+      "car",
+      "house",
+      "book",
+      "phone",
+      "grandchildren",
+      "grandmother",
+      "Ana",
+      "Luis",
+      "Sofia"
+    ],
+    "grammar_function": "Our/their + noun; name + 's + noun (Ana's book).",
+    "prerequisite": "3.10 my/your/his/her; Unit 1 family words; Unit 2 car, house, book, phone.",
+    "speaking_outcome": "Say This is our..., She is their... and It is Ana's....",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Our",
+      "es": "Nuestro",
+      "image": "a1_photo_u3_our_car_v1.webp",
+      "kind": "possessive",
+      "speaker": "female-character"
+    },
+    {
+      "text": "Their",
+      "es": "Su (de ellos)",
+      "image": "a1_photo_u3_their_house_v1.webp",
+      "kind": "possessive"
+    },
+    {
+      "text": "Ana's",
+      "es": "De Ana",
+      "image": "a1_scene_my-book-ana_7f764c0.webp",
+      "kind": "possessive"
+    },
+    {
+      "text": "This is our car.",
+      "es": "Este es nuestro carro.",
+      "image": "a1_photo_u3_our_car_v1.webp",
+      "kind": "our-their",
+      "speaker": "female-character",
+      "learn": false,
+      "prefer": [
+        "That is their house."
+      ]
+    },
+    {
+      "text": "They are our grandchildren.",
+      "es": "Ellos son nuestros nietos.",
+      "image": "a1_photo_u3_our_grandchildren_v1.webp",
+      "kind": "our-their-family",
+      "speaker": "female-character",
+      "learn": false,
+      "prefer": [
+        "She is their grandmother."
+      ]
+    },
+    {
+      "text": "She is their grandmother.",
+      "es": "Ella es su abuela.",
+      "image": "a1_photo_u3_their_grandmother_v1.webp",
+      "kind": "our-their-family",
+      "learn": false,
+      "prefer": [
+        "They are our grandchildren."
+      ]
+    },
+    {
+      "text": "That is their house.",
+      "es": "Esa es su casa.",
+      "image": "a1_photo_u3_their_house_v1.webp",
+      "kind": "our-their",
+      "learn": false,
+      "prefer": [
+        "This is our car."
+      ]
+    },
+    {
+      "text": "It is Ana's book.",
+      "es": "Es el libro de Ana.",
+      "image": "a1_scene_my-book-ana_7f764c0.webp",
+      "kind": "possessive-s",
+      "learn": false,
+      "prefer": [
+        "It is Luis's phone."
+      ]
+    },
+    {
+      "text": "It is Luis's phone.",
+      "es": "Es el teléfono de Luis.",
+      "image": "a1_scene_your-phone-luis_e8f060b.webp",
+      "kind": "possessive-s",
+      "learn": false,
+      "prefer": [
+        "It is Ana's book."
+      ]
+    },
+    {
+      "text": "It is Sofia's car.",
+      "es": "Es el carro de Sofia.",
+      "image": "a1_scene_her-car-sofia_82b6a76.webp",
+      "kind": "possessive-s",
+      "learn": false,
+      "prefer": [
+        "It is Luis's car."
+      ]
+    },
+    {
+      "text": "It is Luis's car.",
+      "es": "Es el carro de Luis.",
+      "image": "a1_scene_he-has-car_b3fa0ff.webp",
+      "kind": "possessive-s",
+      "learn": false,
+      "prefer": [
+        "It is Sofia's car."
+      ]
+    }
+  ],
+  "pool": []
+}

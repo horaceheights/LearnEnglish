@@ -1,0 +1,172 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-25 Unit 3 rebuild: Learn holds the three greetings, the name question and one answer; the second answer and both two-person exchanges are practice. Hello and Good morning are both true of each greeting photo, so they are never offered against each other.",
+  "target": "backend/lessons/unit_3/lesson-3-1-greetings-and-names.yaml",
+  "lesson": {
+    "id": "lesson-3-1-greetings-and-names",
+    "title": "3.1 Greetings and Names",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.1",
+    "sub_lesson_title": "Greetings and Names",
+    "goal": "Recognize and use three greetings plus the fixed name question and answer.",
+    "vocabulary": [
+      "hello",
+      "good morning",
+      "goodbye",
+      "What is your name?",
+      "My name is..."
+    ],
+    "review_vocabulary": [
+      "boy",
+      "girl",
+      "man",
+      "woman",
+      "Who is he?",
+      "Who is she?"
+    ],
+    "grammar_function": "My and your are learned only inside the fixed name chunks; possessive substitution waits for 3.10.",
+    "prerequisite": "Unit 1 identity questions and Unit 2 text/audio choice routines.",
+    "speaking_outcome": "Repeat a greeting, ask What is your name?, answer with a name, and close with Goodbye.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 7,
+    "Use": 6
+  },
+  "items": [
+    {
+      "text": "Hello.",
+      "es": "Hola.",
+      "image": "a1_scene_hello-ana-speaker_591cb45.webp",
+      "kind": "greeting",
+      "speaker": "ana",
+      "learn_revision": 2,
+      "avoid": [
+        "Good morning."
+      ],
+      "accepts": {
+        "conversational-response": "Greetings are complete conversational responses by nature; the bank asks which greeting fits the arrival or the departure in the picture."
+      }
+    },
+    {
+      "text": "Good morning.",
+      "es": "Buenos días.",
+      "image": "a1_scene_morning-ana-speaker_716da9f.webp",
+      "kind": "greeting",
+      "speaker": "ana",
+      "avoid": [
+        "Hello."
+      ],
+      "text_choices": false
+    },
+    {
+      "text": "Goodbye.",
+      "es": "Adiós.",
+      "image": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
+      "kind": "greeting",
+      "speaker": "luis",
+      "avoid": [
+        "Good morning."
+      ],
+      "accepts": {
+        "conversational-response": "Greetings are complete conversational responses by nature; the bank asks which greeting fits the arrival or the departure in the picture."
+      }
+    },
+    {
+      "text": "Hello, Luis.",
+      "es": "Hola, Luis.",
+      "image": "a1_scene_hello-ana-speaker_591cb45.webp",
+      "kind": "greeting-name",
+      "speaker": "ana",
+      "learn": false,
+      "prefer": [
+        "Goodbye, Ana."
+      ]
+    },
+    {
+      "text": "Goodbye, Ana.",
+      "es": "Adiós, Ana.",
+      "image": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
+      "kind": "greeting-name",
+      "speaker": "luis",
+      "learn": false,
+      "prefer": [
+        "Hello, Luis."
+      ]
+    },
+    {
+      "text": "What is your name?",
+      "es": "¿Cómo te llamas?",
+      "image": "a1_scene_name-dialogue-ana_04d12f0.webp",
+      "kind": "name-question",
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "My name is Ana.",
+      "es": "Me llamo Ana.",
+      "image": "a1_scene_ana-badge_785def3.webp",
+      "kind": "name-answer",
+      "speaker": "ana"
+    },
+    {
+      "text": "My name is Luis.",
+      "es": "Me llamo Luis.",
+      "image": "a1_scene_luis-badge_80bb288.webp",
+      "kind": "name-answer",
+      "speaker": "luis",
+      "learn": false
+    },
+    {
+      "text": "What is your name? My name is Ana.",
+      "es": "¿Cómo te llamas? Me llamo Ana.",
+      "image": "a1_scene_name-dialogue-ana_04d12f0.webp",
+      "kind": "name-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "What is your name?",
+          "speaker": "luis",
+          "image": "a1_scene_name-dialogue-ana_04d12f0.webp"
+        },
+        {
+          "text": "My name is Ana.",
+          "speaker": "ana",
+          "image": "a1_scene_ana-badge_785def3.webp"
+        }
+      ]
+    },
+    {
+      "text": "What is your name? My name is Luis.",
+      "es": "¿Cómo te llamas? Me llamo Luis.",
+      "image": "a1_scene_name-dialogue-luis_8ac00a9.webp",
+      "kind": "name-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "What is your name?",
+          "speaker": "ana",
+          "image": "a1_scene_name-dialogue-luis_8ac00a9.webp"
+        },
+        {
+          "text": "My name is Luis.",
+          "speaker": "luis",
+          "image": "a1_scene_luis-badge_80bb288.webp"
+        }
+      ]
+    }
+  ],
+  "pool": []
+}

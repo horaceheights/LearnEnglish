@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a5da9cce-df7f-4532-a5d9-f6e220e85d16",
+  "asset_id": "yours-ana",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:29:23.773858+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Luis's hands are now empty, with no phone; he reaches one open hand forward with a pleased, surprised smile. Ana now holds out one closed blue book toward Luis with both hands, offering it to him, the book fully visible between them. Keep their badges, clothes, faces, positions, the fair behind them, the table, light and camera identical. The book cover is plain blue with no text or picture. No other new objects, text or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_your-phone-luis_e8f060b.webp",
+    "sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "xfW2ar3bHpOJqtsP_5LH0AY",
+  "usage": {
+    "promptTokenCount": 362,
+    "candidatesTokenCount": 1261,
+    "totalTokenCount": 1779,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 104
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 156,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136596",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 362,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 156
+  },
+  "elapsed_seconds": 23.52,
+  "output": "output/imagegen/unit-3-lesson-v2/yours-ana.png",
+  "sha256": "11ba984f1f57085a42c5edb8aede8e7073e0362eddbbce62c18998e25debf17c",
+  "byte_count": 5370144,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

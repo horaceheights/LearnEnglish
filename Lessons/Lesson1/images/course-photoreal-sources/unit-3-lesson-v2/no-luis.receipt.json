@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7695b4b2-5347-4213-81b6-f4a110fd95bf",
+  "asset_id": "no-luis",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:26:49.450286+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Luis now answers NO: his right hand is raised in front of his chest with only the index finger up, tilted sideways in the common friendly 'no' finger-wag gesture, and he gives a small polite head shake with a friendly half-smile, still looking toward the left where Ana stands. His left arm hangs relaxed. Keep his LUIS badge, clothes, the doorway, plants, table, light and camera identical. No new objects, text, arrows or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_luis-badge_80bb288.webp",
+    "sha256": "b6ba52bc537f55463ab0023064777172fc78313ac2d6849b18397dfd239f05ba"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "MPW2asndBdeDqtsPspybyAk",
+  "usage": {
+    "promptTokenCount": 363,
+    "candidatesTokenCount": 1267,
+    "totalTokenCount": 1816,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 105
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 186,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136958",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 363,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 186
+  },
+  "elapsed_seconds": 32.56,
+  "output": "output/imagegen/unit-3-lesson-v2/no-luis.png",
+  "sha256": "f5d028c23825be0fbb4677ffdc0e0b0e5f1ce6e75c6bb9a0156b0b2c38b5a1c0",
+  "byte_count": 5465055,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

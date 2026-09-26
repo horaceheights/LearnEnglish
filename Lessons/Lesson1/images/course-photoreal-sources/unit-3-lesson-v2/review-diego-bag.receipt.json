@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "124ed243-1d34-4932-9418-19cb3c18c4d4",
+  "asset_id": "review-diego-bag",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:35:51.314619+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe man in Image 1 is Diego: keep his face, curly dark hair, short beard and build exactly. Create a new photograph of him standing on a bright modern train station platform, smiling at the camera, wearing a dark casual jacket over a burgundy shirt. He carries one large dark-green travel bag over his shoulder, holding its strap with one hand, and the whole bag is clearly visible at his side. No text, station signs, logos, flags or cards; no other person near him.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_diego-spanish_5d1c02d.webp",
+    "sha256": "fc7d61b3ceb1b68b822491f6b453c8b17a3d9a9e372e5c7e2f2ba6af6f833fc4"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Sve2aqKhHeesz7IP1f3QyA0",
+  "usage": {
+    "promptTokenCount": 551,
+    "candidatesTokenCount": 1308,
+    "totalTokenCount": 2016,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 293
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 157,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136986",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 551,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 157
+  },
+  "elapsed_seconds": 24.16,
+  "output": "output/imagegen/unit-3-lesson-v2/review-diego-bag.png",
+  "sha256": "dd1a98f92f2eb04f5e28f331ca85339ab26662bdb7bed2ff0533f17975417522",
+  "byte_count": 5054357,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

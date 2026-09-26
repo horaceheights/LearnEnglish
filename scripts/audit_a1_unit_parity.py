@@ -126,7 +126,10 @@ def audit(lessons: list[dict[str, Any]], contracts: dict[str, Any], image_root: 
                 continue
             source = by_number.get(function["taught_in"], {})
             learn = {**source, "cards": [card for card in source.get("cards", []) if card.get("stage") == "Learn"]}
-            if function_coverage(learn, [function])[function["id"]]["missing_patterns"]:
+            # Learn holds only new language (2026-09-24), so a function may name the new
+            # part it must introduce; its answers on known frames are practised elsewhere.
+            introduced = {**function, "patterns": function.get("introduction_patterns", function["patterns"])}
+            if function_coverage(learn, [introduced])[function["id"]]["missing_patterns"]:
                 gaps.append(f"Teach {function['id']} explicitly in {function['taught_in']} before assessing it.")
         review_position = lesson_position(review["sub_lesson_id"]) if review else (int(unit) + 1, 0)
         earlier = [lesson for number, lesson in by_number.items() if lesson_position(number) < review_position]

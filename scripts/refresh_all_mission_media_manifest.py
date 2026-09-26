@@ -15,7 +15,7 @@ from scripts.a1_media_runtime_contracts import (
 )
 from scripts.build_a1_units_2_7 import AssetCatalog, MANIFEST
 
-MISSION_SUB_LESSON_IDS = {"2.12", "3.10", "4.10", "5.10", "6.10", "7.10"}
+MISSION_SUB_LESSON_IDS = {"2.12", "3.14", "4.10", "5.10", "6.10", "7.10"}
 MISSION_LESSON_IDS = {
     "lesson-2-10-around-me-mission",
     "lesson-3-10-introduction-mission",

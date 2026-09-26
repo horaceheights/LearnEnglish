@@ -6,9 +6,11 @@ sweep swapped pictures under existing lines: the old voice stayed and no test fa
 
 Each spoken line is keyed by the exact picture it plays over and its exact words.
 docs/qa/speaking-voice-review-v1.json records, for every such pair, whether a person
-who looked at the picture decided the voice must be male or female (the neutral
-narrator counts as female; off-camera askers and narration are recorded as female
-for that reason). The check fails when:
+who looked at the picture decided the voice must be male or female. Records made
+before 2026-09-25 count the neutral narrator as female, so off-camera askers and
+narration were recorded as female. Since then a line nobody pictured says may be
+recorded as "narrator": either neutral narrator (the teacher or the second, male
+narrator) may read it, but a character voice may not. The check fails when:
 
 - a spoken line (first- or second-person words, a greeting, a request, yes/no) plays
   over a picture that no one has reviewed for that line;
@@ -20,7 +22,7 @@ for that reason). The check fails when:
 Usage (from the repository root):
   python scripts/review_speaking_voices.py                  report; exit 1 on problems
   python scripts/review_speaking_voices.py --sheets DIR     contact sheets of unreviewed pictures
-  python scripts/review_speaking_voices.py --record IMAGE "TEXT" male|female
+  python scripts/review_speaking_voices.py --record IMAGE "TEXT" male|female|narrator
   python scripts/review_speaking_voices.py --prune          drop pairs no card uses
 """
 from __future__ import annotations
@@ -37,11 +39,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from backend.app.course_audio_profile import narrator_for_speaker  # noqa: E402
+from backend.app.course_audio_profile import NARRATION_SPEAKER_ROLES, narrator_for_speaker  # noqa: E402
 
 REVIEW_PATH = ROOT / "docs" / "qa" / "speaking-voice-review-v1.json"
 IMAGE_ROOT = ROOT / "mobile" / "assets" / "lesson-assets"
-MALE_NARRATOR = "male-conversational"
+MALE_NARRATORS = frozenset({"male-conversational", "male-teacher"})
+VOICES = frozenset({"male", "female", "narrator"})
 # The Spanish mission briefing is narration, and a voice gate's mission-cue clip is
 # only a fallback: the gate always plays its asker's own question turn.
 SKIPPED_PURPOSES = frozenset({"mission-intro", "mission-cue"})
@@ -62,7 +65,14 @@ def is_spoken(text: str) -> bool:
 
 
 def voice_gender(speaker_role: str) -> str:
-    return "male" if narrator_for_speaker(speaker_role) == MALE_NARRATOR else "female"
+    return "male" if narrator_for_speaker(speaker_role) in MALE_NARRATORS else "female"
+
+
+def matches(expected: str, row: "SpokenLine") -> bool:
+    """A line nobody pictured says ("narrator") may use either neutral narrator, never a character."""
+    if expected == "narrator":
+        return row.speaker_role in NARRATION_SPEAKER_ROLES
+    return expected == row.voice
 
 
 def image_name(image_ref: str | None) -> str | None:
@@ -108,7 +118,7 @@ def load_review(path: Path = REVIEW_PATH) -> dict[tuple[str, str], str]:
         key = (entry["image"], entry["text"])
         if key in review:
             raise ValueError(f"Duplicate speaking-voice review for {key}")
-        if entry["voice"] not in {"male", "female"}:
+        if entry["voice"] not in VOICES:
             raise ValueError(f"Unknown voice {entry['voice']!r} for {key}")
         review[key] = entry["voice"]
     return review
@@ -140,7 +150,7 @@ def check_rows(rows: list[SpokenLine], review: dict[tuple[str, str], str]) -> Re
         expected = review.get(key)
         if expected is None:
             report.unreviewed.append(row)
-        elif expected != row.voice:
+        elif not matches(expected, row):
             report.mismatched.append((row, expected))
     report.stale = sorted(set(review) - used)
     return report
@@ -217,15 +227,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--sheets", type=Path, help="Write contact sheets of every unreviewed picture here.")
     parser.add_argument("--record", nargs=3, metavar=("IMAGE", "TEXT", "VOICE"),
-                        help="Record the reviewed voice (male or female) for one picture and line.")
+                        help="Record who says the line over the picture: male, female, or narrator "
+                             "(nobody pictured says it; either neutral narrator may read it).")
     parser.add_argument("--prune", action="store_true", help="Drop reviewed pairs that no card uses.")
     args = parser.parse_args()
     data = json.loads(REVIEW_PATH.read_text(encoding="utf-8"))
     entries = data["reviewed"]
     if args.record:
         image, text, voice = args.record
-        if voice not in {"male", "female"}:
-            raise SystemExit("VOICE must be male or female.")
+        if voice not in VOICES:
+            raise SystemExit("VOICE must be male, female or narrator.")
         entries = [entry for entry in entries if (entry["image"], entry["text"]) != (image, text)]
         entries.append({"image": image, "text": text, "voice": voice, "reviewed_on": date.today().isoformat()})
         write_review(entries)

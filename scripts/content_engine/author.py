@@ -16,6 +16,15 @@ card and gets three pictures at most. An item with a `question` (and
 `question_es`) is a reply: when the learner picks its sentence for the picture,
 the question is the card's heard prompt, as in "What number is it?".
 
+Who says a line is content too. An item's `speaker` names the voice of its own
+line (a cast member such as "ana", or "male-character"), and `question_speaker`
+the voice that asks its `question`. An item with `turns` is a spoken exchange:
+each turn names its words, speaker and picture, and every card that plays the
+item plays those turns in order. An exchange has no single voice, so it never
+becomes a Use construction; `"use": false` keeps any other item out of Use too.
+A brief's `narrators` (such as ["teacher", "co-teacher"]) take turns reading
+the neutral narration, card by card.
+
 A proposal is always a draft. A person reviews every proposed answer bank
 (see docs/qa/answer-choice-review.md) and records it before the plan can be
 installed; the engine never approves its own proposals.
@@ -66,7 +75,13 @@ def words(text: str) -> list[str]:
 
 
 def form(item: dict) -> str:
-    """Words and complete sentences never share an answer bank."""
+    """Words and complete sentences never share an answer bank.
+
+    A multiword name such as "The United States" is a word, not a sentence; its
+    item says so with `"form": "word"`.
+    """
+    if item.get("form") in ("word", "sentence"):
+        return item["form"]
     return "sentence" if len(words(item["text"])) > 2 or item["text"].rstrip().endswith((".", "?", "!")) else "word"
 
 
@@ -75,9 +90,14 @@ def slug(text: str) -> str:
 
 
 def coherent(bank: list[dict]) -> bool:
-    """The shared answer-bank check finds no defect or teaching conflict."""
+    """The shared answer-bank check finds no defect, and no teaching conflict the answer does not accept.
+
+    An item's `accepts` maps a teaching conflict the shared check reports (such as
+    "conversational-response" for Hello. against Goodbye.) to the reason it is right
+    here; a reviewer confirms that reason when recording the bank's contract.
+    """
     _, hard, conflicts = analyze_bank({"options": [{"label": item["text"]} for item in bank]})
-    return not hard and not conflicts
+    return not hard and not set(conflicts) - set(bank[0].get("accepts", {}))
 
 
 def rotate(values: list, seed: str) -> list:
@@ -93,7 +113,7 @@ def grid_safe(item: dict) -> bool:
 
 
 def distractors(item: dict, candidates: list[dict], count: int, *, need_image: bool,
-                rejected: frozenset = frozenset()) -> list[dict]:
+                rejected: frozenset = frozenset(), labelled: bool = True) -> list[dict]:
     """Up to `count` wrong options of the item's kind; at least one is required.
 
     An item's `avoid` list names options that would also be true of its picture
@@ -113,7 +133,8 @@ def distractors(item: dict, candidates: list[dict], count: int, *, need_image: b
             continue
         if (item["text"], other["text"]) in rejected:
             continue
-        if form(other) != form(item) or not coherent([item, *chosen, other]):
+        # A caption-free picture bank shows no words, so only a labelled bank is read as text.
+        if form(other) != form(item) or (labelled and not coherent([item, *chosen, other])):
             continue
         if need_image and (not other.get("image") or other["image"] in {item["image"], *(c["image"] for c in chosen)}):
             continue
@@ -128,6 +149,17 @@ def distractors(item: dict, candidates: list[dict], count: int, *, need_image: b
     return chosen
 
 
+def _voice(spec: dict, item: dict, *, answer: bool = False) -> dict:
+    """Give the card the voice of the item's line: its speaker, or each turn of its exchange."""
+    if item.get("turns"):
+        spec["answer_audio_turns" if answer else "audio_turns"] = [
+            {"text": turn["text"], "speaker_role": turn["speaker"], "image_url": turn["image"]}
+            for turn in item["turns"]]
+    elif item.get("speaker"):
+        spec["answer_audio_speaker" if answer else "audio_speaker"] = item["speaker"]
+    return spec
+
+
 def _option(item: dict, *, image: bool, suffix: str, captions: bool = True) -> dict:
     return {"id": f"{slug(item['text'])}-{suffix}", "image_url": item["image"] if image else "",
             "label": item["text"] if captions or not image else None}
@@ -135,7 +167,8 @@ def _option(item: dict, *, image: bool, suffix: str, captions: bool = True) -> d
 
 def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *, image: bool,
             instructions: dict, rejected: frozenset = frozenset(), captions: bool = True) -> tuple[dict, dict]:
-    wrong = distractors(item, pool, count - 1, need_image=image, rejected=rejected)
+    wrong = distractors(item, pool, count - 1, need_image=image, rejected=rejected,
+                        labelled=captions or not image)
     options = rotate([item, *wrong], slide)
     spec = {"recipe": "choice", "slide_id": slide, "stage": stage,
             "options": [_option(each, image=image, suffix=slide.lower(), captions=captions) for each in options],
@@ -144,15 +177,21 @@ def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *,
         spec["spanish_translation"] = instructions["listen"]
         if image and not captions:
             spec["audio_text"] = item["text"]  # caption-free pictures: the spoken cue is authored
+        _voice(spec, item)
     elif image:
         spec["spanish_translation"] = item["es"]
         if not captions:
             spec["prompt"] = item["text"]
+        _voice(spec, item)
     elif item.get("question"):
         # A reply choice: the question plays over the picture and the chosen answer plays after.
         spec.update(prompt=item["question"], prompt_image_url=item["image"], spanish_translation=item["question_es"])
+        if item.get("question_speaker"):
+            spec["audio_speaker"] = item["question_speaker"]
+        _voice(spec, item, answer=True)
     else:
         spec.update(prompt="", prompt_image_url=item["image"], spanish_translation=instructions["choose_sentence"])
+        _voice(spec, item, answer=True)
     if spec["answer"] == 0:
         del spec["answer"]
     spec["pedagogy_note"] = note(stage, item)
@@ -179,7 +218,7 @@ def _completion(slide: str, item: dict) -> dict:
             "prompt": prompt, "stage": "Use", "correct_option_ids": ids,
             "options": [{"id": identifier, "image_url": "", "label": token} for identifier, token in zip(ids, blanks)],
             "answer_audio_text": item["text"], "prompt_image_url": item["image"],
-            "spanish_translation": item["es"], "mirror_translation": True}
+            "spanish_translation": item["es"], "mirror_translation": True, **_use_voice(item)}
 
 
 def _construction(slide: str, item: dict) -> dict:
@@ -190,7 +229,40 @@ def _construction(slide: str, item: dict) -> dict:
             "correct_option_ids": [option["id"] for option in ordered],
             "options": [*ordered[1::2], *ordered[0::2]], "answer_audio_text": item["text"],
             "prompt_image_url": item["image"], "spanish_translation": item["es"], "mirror_translation": True,
-            "pedagogy_note": note("Use", item)}
+            "pedagogy_note": note("Use", item), **_use_voice(item)}
+
+
+def narrate(cards: list[dict], narrators: list[str] | None) -> None:
+    """Alternate neutral narration between the brief's narrators, card by card.
+
+    Neutral narration (a line no named speaker says) takes turns among `narrators`
+    in card order (approved 2026-09-25), so a lesson is not read by one voice
+    throughout. The first narrator is the course's default teacher, whose cards
+    carry no role; a card spoken by a named speaker or by exchange turns keeps it.
+    """
+    if not narrators:
+        return
+    from scripts.content_engine.plan import compose_card  # local import avoids a cycle
+
+    turn = 0
+    for spec in cards:
+        card = compose_card(spec)
+        neutral = [field for field, audio, turns in (("audio_speaker", "audio_text", "audio_turns"),
+                                                     ("answer_audio_speaker", "answer_audio_text", "answer_audio_turns"))
+                   if card.get(audio) and not card.get(turns) and not card.get(field)]
+        if not neutral:
+            continue
+        voice = narrators[turn % len(narrators)]
+        turn += 1
+        if voice != "teacher":
+            spec.update({field: voice for field in neutral})
+
+
+def _use_voice(item: dict) -> dict:
+    """A Use card plays the finished sentence as its prompt and its answer, in one voice."""
+    if not item.get("speaker"):
+        return {}
+    return {"audio_speaker": item["speaker"], "answer_audio_speaker": item["speaker"]}
 
 
 def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> tuple[dict, list[dict]]:
@@ -207,12 +279,20 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         for field in ("text", "es", "image", "kind"):
             if not item.get(field):
                 raise BriefError(f"Item {item.get('text', item['_order'])!r} needs {field!r}.")
+        if item.get("image_choices") is False and item.get("text_choices") is False:
+            raise BriefError(f"Item {item['text']!r} must be offered as pictures or as text.")
         if item.get("question") and not item.get("question_es"):
             raise BriefError(f"Item {item['text']!r} needs the Spanish of its question.")
+        for turn in item.get("turns") or []:
+            if not all(turn.get(field) for field in ("text", "speaker", "image")):
+                raise BriefError(f"Each turn of {item['text']!r} needs its text, speaker and image.")
+        if item.get("turns") and " ".join(turn["text"] for turn in item["turns"]) != item["text"]:
+            raise BriefError(f"The turns of {item['text']!r} must say exactly its text.")
     layout = {**DEFAULT_LAYOUT, **brief.get("layout", {})}
     taught = [item for item in items if item.get("learn", True) is not False]
-    if not taught:
-        raise BriefError("A lesson needs at least one new item to introduce on a Learn card.")
+    if len(taught) < 2:
+        # The app introduces contextual help on the second card when both opening cards are Learn.
+        raise BriefError("A lesson needs at least two new items to introduce on Learn cards.")
     total = len(taught) + sum(layout.values())
     bounds = standards["standard_lesson_cards"]
     if not bounds["min"] <= total <= bounds["max"]:
@@ -271,9 +351,14 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     cards, banks = [], []
     for index, item in enumerate(taught):
         practised(item)
-        cards.append({"recipe": "teach", "slide_id": f"L{index + 1}", "stage": "Learn",
-                      "options": [_option(item, image=True, suffix="learn")], "spanish_translation": item["es"],
-                      "pedagogy_note": note("Learn", item)})
+        learn = _voice({"recipe": "teach", "slide_id": f"L{index + 1}", "stage": "Learn",
+                        "options": [_option(item, image=True, suffix="learn")],
+                        "spanish_translation": item["es"], "pedagogy_note": note("Learn", item)}, item)
+        if int(item.get("learn_revision") or 1) > 1:
+            # A Learn take that was replaced keeps its bumped revision, so the rejected
+            # asset never comes back from a cache (Lesson 3.1 "Hello." is revision 2).
+            learn["audio_revision"] = learn["answer_audio_revision"] = int(item["learn_revision"])
+        cards.append(learn)
     # Each section gives its cards to the least-practised new words, in story order.
     # Recognize alternates picture choices and sentence choices; two options come before four.
     # A `"choices": false` item (a question such as "Which one?") has no wrong option of
@@ -283,7 +368,9 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         practised(item)
         # `"image_choices": false`: its pictures differ in more than the tested word
         # (a red bus against a blue bike), so it is only offered as text choices.
-        image = index % 2 == 0 and item.get("image_choices", True) is not False
+        # `"text_choices": false`: its word reads as another form in text (the noun
+        # "cook" reads as the verb), so it is only offered as pictures.
+        image = (index % 2 == 0 or item.get("text_choices", True) is False) and item.get("image_choices", True) is not False
         count = option_count(item, image, early=index < layout["Recognize"] // 2)
         spec, bank = _choice(f"R{index + 1}", "Recognize", item, pool, count, image=image,
                              instructions=instructions, rejected=rejected, captions=captions)
@@ -291,7 +378,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         banks.append(bank)
     for index, item in enumerate(pick(choosable, layout["Listen"])):
         practised(item)
-        image = index % 3 != 2 and item.get("image_choices", True) is not False
+        image = (index % 3 != 2 or item.get("text_choices", True) is False) and item.get("image_choices", True) is not False
         count = option_count(item, image, early=index < layout["Listen"] // 2)
         spec, bank = _choice(f"A{index + 1}", "Listen", item, pool, count, image=image,
                              instructions=instructions, rejected=rejected, captions=captions)
@@ -299,17 +386,20 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         banks.append(bank)
     for index, item in enumerate(pick(sentences, layout["Speak"])):
         practised(item)
-        cards.append({"recipe": "speak", "slide_id": f"S{index + 1}", "stage": "Speak",
-                      "options": [_option(item, image=True, suffix="speak")], "spanish_translation": item["es"],
-                      "pedagogy_note": note("Speak", item)})
+        cards.append(_voice({"recipe": "speak", "slide_id": f"S{index + 1}", "stage": "Speak",
+                             "options": [_option(item, image=True, suffix="speak")],
+                             "spanish_translation": item["es"], "pedagogy_note": note("Speak", item)}, item))
     # Completa progression: guided completion first, whole-sentence construction in the last four.
     # Use works with whole sentences (three words or more) and keeps story order.
-    use_pool = [item for item in sentences if len(words(item["text"])) >= 3] or sentences
+    # An exchange (`turns`) has no single voice to build, and `"use": false` opts an item out.
+    buildable = [item for item in sentences if not item.get("turns") and item.get("use", True) is not False]
+    use_pool = [item for item in buildable if len(words(item["text"])) >= 3] or buildable
     for index, item in enumerate(pick(use_pool, layout["Use"])):
         practised(item)
         build = index >= layout["Use"] - CONSTRUCTIONS or len(words(item["text"])) < 3
         cards.append((_construction if build else _completion)(f"U{index + 1}", item))
 
+    narrate(cards, brief.get("narrators"))
     # Each section follows the story in order; number its beats like every standard lesson.
     beats: dict[str, int] = {}
     for card in cards:

@@ -420,8 +420,8 @@ assert.equal(
 );
 
 // The Unit 3 parity review shows each of Ana's facts in a fresh scene rather
-// than replaying the teaching photographs from 3.1-3.6.
-const media39 = learnMedia('3.9');
+// than replaying the teaching photographs (3.13 since the 2026-09-25 rebuild).
+const media39 = learnMedia('3.13');
 assert.equal(media39.get('I am twenty years old.'), 'a1_u3_review_v1_ana_age.webp');
 assert.equal(media39.get('I am from Mexico. I am Mexican.'), 'a1_u3_review_v1_ana_mexico.webp');
 assert.equal(media39.get('I am a teacher. I have a book.'), 'a1_u3_review_v1_ana_teacher.webp');

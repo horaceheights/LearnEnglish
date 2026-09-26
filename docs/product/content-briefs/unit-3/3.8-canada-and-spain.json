@@ -1,0 +1,288 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-25 Unit 3 rebuild: new lesson for the second half of the old Countries lesson. Learn holds Canada, Canadian, Spain and Spanish; practice brings back Where are you from? with Sofia and Diego, asks Where is she from?, mixes in Mexico and the United States, and a new photo brings back the grandmother from Unit 1.",
+  "target": "backend/lessons/unit_3/lesson-3-canada-and-spain.yaml",
+  "lesson": {
+    "id": "lesson-3-canada-and-spain",
+    "title": "3.8 Canada and Spain",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.8",
+    "sub_lesson_title": "Canada and Spain",
+    "goal": "Recognize Canada/Canadian and Spain/Spanish, answer Where are you from? and say where someone is from.",
+    "vocabulary": [
+      "Canada",
+      "Canadian",
+      "Spain",
+      "Spanish"
+    ],
+    "review_vocabulary": [
+      "Mexico",
+      "Mexican",
+      "the United States",
+      "American",
+      "from",
+      "Where are you from?",
+      "I",
+      "am",
+      "he",
+      "she",
+      "is",
+      "where",
+      "the",
+      "grandmother",
+      "yes",
+      "no",
+      "not"
+    ],
+    "grammar_function": "Where are you from? / Where is he/she from? He/She is from + country. I am + nationality.",
+    "prerequisite": "3.7 Where are you from? with Mexico and the United States; 3.4 yes/no questions.",
+    "speaking_outcome": "Answer Where are you from? as Sofia and Diego and say where someone is from.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 7
+  },
+  "items": [
+    {
+      "text": "Canada",
+      "es": "Canadá",
+      "image": "a1_scene_canada-country_3aa8b25.webp",
+      "kind": "country",
+      "prefer": [
+        "Spain"
+      ],
+      "accepts": {
+        "lexical-phrase": "Country names are one word or several (the United States); the bank tests the country, not the number of words."
+      }
+    },
+    {
+      "text": "Canadian",
+      "es": "Canadiense",
+      "image": "a1_scene_sofia-canadian_adf798e.webp",
+      "kind": "nationality",
+      "prefer": [
+        "Spanish"
+      ]
+    },
+    {
+      "text": "Spain",
+      "es": "España",
+      "image": "a1_scene_spain-country_b3549fd.webp",
+      "kind": "country",
+      "prefer": [
+        "Canada"
+      ],
+      "accepts": {
+        "lexical-phrase": "Country names are one word or several (the United States); the bank tests the country, not the number of words."
+      }
+    },
+    {
+      "text": "Spanish",
+      "es": "Español",
+      "image": "a1_scene_diego-spanish_5d1c02d.webp",
+      "kind": "nationality",
+      "prefer": [
+        "Canadian"
+      ]
+    },
+    {
+      "text": "Where are you from? I am from Canada.",
+      "es": "¿De dónde eres? Soy de Canadá.",
+      "image": "a1_scene_origin-ana-asks-sofia_1c3c0bc.webp",
+      "kind": "origin-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Where are you from?",
+          "speaker": "ana",
+          "image": "a1_scene_origin-ana-asks-sofia_1c3c0bc.webp"
+        },
+        {
+          "text": "I am from Canada.",
+          "speaker": "sofia",
+          "image": "a1_scene_origin-sofia_83856b9.webp"
+        }
+      ]
+    },
+    {
+      "text": "Where are you from? I am from Spain.",
+      "es": "¿De dónde eres? Soy de España.",
+      "image": "a1_scene_origin-ana-asks-diego_ac9e717.webp",
+      "kind": "origin-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Where are you from?",
+          "speaker": "ana",
+          "image": "a1_scene_origin-ana-asks-diego_ac9e717.webp"
+        },
+        {
+          "text": "I am from Spain.",
+          "speaker": "diego",
+          "image": "a1_scene_diego-spanish_5d1c02d.webp"
+        }
+      ]
+    },
+    {
+      "text": "I am Canadian.",
+      "es": "Soy canadiense.",
+      "image": "a1_scene_sofia-canadian_adf798e.webp",
+      "kind": "nationality-i",
+      "speaker": "sofia",
+      "learn": false,
+      "prefer": [
+        "I am Spanish."
+      ]
+    },
+    {
+      "text": "I am Spanish.",
+      "es": "Soy español.",
+      "image": "a1_scene_diego-spanish_5d1c02d.webp",
+      "kind": "nationality-i",
+      "speaker": "diego",
+      "learn": false,
+      "prefer": [
+        "I am Canadian."
+      ]
+    },
+    {
+      "text": "She is from Canada.",
+      "es": "Ella es de Canadá.",
+      "image": "a1_scene_origin-sofia_83856b9.webp",
+      "kind": "origin-she",
+      "learn": false,
+      "image_choices": false,
+      "question": "Where is she from?",
+      "question_es": "¿De dónde es ella?",
+      "prefer": [
+        "She is from Spain.",
+        "She is from Mexico."
+      ]
+    },
+    {
+      "text": "He is from Spain.",
+      "es": "Él es de España.",
+      "image": "a1_scene_origin-ana-asks-diego_ac9e717.webp",
+      "kind": "origin-he",
+      "learn": false,
+      "image_choices": false,
+      "question": "Where is he from?",
+      "question_es": "¿De dónde es él?",
+      "prefer": [
+        "He is from Canada.",
+        "He is from the United States."
+      ]
+    },
+    {
+      "text": "The grandmother is from Spain.",
+      "es": "La abuela es de España.",
+      "image": "a1_photo_u3_grandmother_spain_v1.webp",
+      "kind": "origin-family",
+      "learn": false,
+      "prefer": [
+        "The grandmother is from Canada."
+      ]
+    },
+    {
+      "text": "Is she Canadian? Yes, she is.",
+      "es": "¿Ella es canadiense? Sí.",
+      "image": "a1_scene_sofia-canadian_adf798e.webp",
+      "kind": "origin-yes-no",
+      "learn": false,
+      "prefer": [
+        "Is she Canadian? No, she is not."
+      ]
+    },
+    {
+      "text": "Is he Canadian? No, he is not.",
+      "es": "¿Él es canadiense? No.",
+      "image": "a1_scene_diego-spanish_5d1c02d.webp",
+      "kind": "origin-yes-no",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "Is he Canadian? Yes, he is."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Mexico",
+      "es": "México",
+      "image": "a1_scene_mexico-country_c17ee27.webp",
+      "kind": "country"
+    },
+    {
+      "text": "The United States",
+      "es": "Estados Unidos",
+      "image": "a1_scene_us-country_69518e5.webp",
+      "kind": "country",
+      "form": "word"
+    },
+    {
+      "text": "Mexican",
+      "es": "Mexicana",
+      "image": "a1_scene_ana-mexican_1fca9cc.webp",
+      "kind": "nationality"
+    },
+    {
+      "text": "American",
+      "es": "Estadounidense",
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "kind": "nationality"
+    },
+    {
+      "text": "I am Mexican.",
+      "es": "Soy mexicana.",
+      "kind": "nationality-i"
+    },
+    {
+      "text": "She is from Spain.",
+      "es": "Ella es de España.",
+      "kind": "origin-she"
+    },
+    {
+      "text": "She is from Mexico.",
+      "es": "Ella es de México.",
+      "kind": "origin-she"
+    },
+    {
+      "text": "He is from Canada.",
+      "es": "Él es de Canadá.",
+      "kind": "origin-he"
+    },
+    {
+      "text": "He is from the United States.",
+      "es": "Él es de Estados Unidos.",
+      "kind": "origin-he"
+    },
+    {
+      "text": "The grandmother is from Canada.",
+      "es": "La abuela es de Canadá.",
+      "kind": "origin-family"
+    },
+    {
+      "text": "Is she Canadian? No, she is not.",
+      "es": "¿Ella es canadiense? No.",
+      "kind": "origin-yes-no"
+    },
+    {
+      "text": "Is he Canadian? Yes, he is.",
+      "es": "¿Él es canadiense? Sí.",
+      "kind": "origin-yes-no"
+    }
+  ]
+}

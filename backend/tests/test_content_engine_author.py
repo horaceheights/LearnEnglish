@@ -88,7 +88,7 @@ class ContentEngineAuthorTests(unittest.TestCase):
         self.assertEqual(len(lesson["cards"]), 42)
         findings = audit([CatalogLesson("1.6", 1, lesson_role(lesson), lesson, BRIEF)], self.standards)
         self.assertEqual([finding for finding in findings if finding.rule == "learn-new-only"], [])
-        with self.assertRaisesRegex(BriefError, "at least one new item"):
+        with self.assertRaisesRegex(BriefError, "at least two new items"):
             propose_lesson({**brief, "items": [{**item, "learn": False} for item in brief["items"]]}, self.standards)
 
     def test_a_learn_card_on_a_known_frame_is_reported(self):
@@ -214,6 +214,59 @@ class ContentEngineAuthorTests(unittest.TestCase):
         self.assertEqual(sorted(card["stage"] for card in added),
                          ["Listen", "Listen", "Recognize", "Recognize", "Speak", "Use"])
         self.assertTrue(all(len(bank["wrong"]) >= 1 for bank in banks))
+
+    def test_named_speakers_and_exchanges_voice_every_card_that_plays_them(self):
+        brief = json.loads((ROOT / "docs/product/content-briefs/unit-3/3.3-am-is-and-are.json").read_text(encoding="utf-8"))
+        items = {item["text"]: item for item in brief["items"]}
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        self.assertEqual(lesson["cards"][0]["audio_speaker"], "luis")
+        for card in lesson["cards"]:
+            answer = card.get("answer_audio_text") or card.get("audio_text")
+            item = items.get(answer)
+            if item is None:
+                continue
+            with self.subTest(slide=card["slide_id"]):
+                if item.get("turns"):
+                    self.assertNotEqual(card["stage"], "Use")
+                    turns = card.get("audio_turns") or card.get("answer_audio_turns")
+                    self.assertEqual([turn["speaker_role"] for turn in turns],
+                                     [turn["speaker"] for turn in item["turns"]])
+                    self.assertEqual(" ".join(turn["text"] for turn in turns), item["text"])
+                elif item.get("question") and card.get("prompt") == item["question"]:
+                    self.assertEqual((card["audio_speaker"], card["answer_audio_speaker"]),
+                                     (item["question_speaker"], item["speaker"]))
+                elif item.get("speaker"):
+                    self.assertEqual(item["speaker"], card.get("audio_speaker") or card.get("answer_audio_speaker"))
+                else:
+                    # Narration takes turns between the brief's narrators; the teacher needs no role.
+                    self.assertIn(card.get("audio_speaker") or card.get("answer_audio_speaker") or "teacher",
+                                  brief["narrators"])
+        broken = {**brief, "items": [{**item, "turns": [{"text": "Hi.", "speaker": "ana", "image": item["image"]}]}
+                                     if item.get("turns") else item for item in brief["items"]]}
+        with self.assertRaisesRegex(BriefError, "must say exactly its text"):
+            propose_lesson(broken, self.standards)
+
+    def test_a_replaced_learn_take_keeps_its_bumped_revision(self):
+        # Lesson 3.1 L1 "Hello." rejected an old take with revision 2; the engine must keep it.
+        brief = json.loads((ROOT / "docs/product/content-briefs/unit-3/3.1-greetings-and-names.json").read_text(encoding="utf-8"))
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        learn = lesson["cards"][0]
+        self.assertEqual((learn["prompt"], learn["audio_revision"], learn["answer_audio_revision"]), ("Hello.", 2, 2))
+        self.assertEqual([card["slide_id"] for card in lesson["cards"] if card.get("audio_revision")], ["L1"])
+
+    def test_accepted_conflicts_picture_only_words_and_multiword_names(self):
+        from scripts.content_engine.author import coherent, form
+        hello, goodbye = {"text": "Hello."}, {"text": "Goodbye."}
+        self.assertFalse(coherent([hello, goodbye]))
+        self.assertTrue(coherent([{**hello, "accepts": {"conversational-response": "Greetings are responses."}},
+                                  goodbye]))
+        self.assertEqual(form({"text": "The United States", "form": "word"}), "word")
+        brief = json.loads((ROOT / "docs/product/content-briefs/unit-3/3.9-professions.json").read_text(encoding="utf-8"))
+        jobs = {item["text"] for item in brief["items"] if item.get("text_choices") is False}
+        self.assertTrue(jobs)
+        for bank in propose_lesson(brief, self.standards)[1]:
+            if bank["correct"] in jobs:
+                self.assertTrue(bank["images"], bank["slide_id"])
 
     def test_a_brief_that_breaks_the_lesson_length_is_refused(self):
         with self.assertRaisesRegex(BriefError, "standard lessons need 40-42"):

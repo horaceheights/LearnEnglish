@@ -1,0 +1,248 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-25 Unit 3 rebuild (user decision: yes/no questions with be only; Do you...? waits for Unit 4). Learn holds Yes and No; every question is practice on photos the learner already knows. A No answer is true of many pictures, so No sentences are only offered as text beside their Yes pair.",
+  "target": "backend/lessons/unit_3/lesson-3-yes-no-questions.yaml",
+  "lesson": {
+    "id": "lesson-3-yes-no-questions",
+    "title": "3.4 Yes and No",
+    "level": "Beginner A1",
+    "unit_id": "unit-3",
+    "unit_title": "Unit 3: Me and Other People",
+    "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
+    "lesson_id": "lesson-3",
+    "lesson_title": "Unit 3: Me and Other People",
+    "sub_lesson_id": "3.4",
+    "sub_lesson_title": "Yes and No",
+    "goal": "Ask and answer yes/no questions with be about known people and actions: Is he...?, Is she...?, Are you...?",
+    "vocabulary": [
+      "yes",
+      "no",
+      "Are you...?",
+      "Is he...?",
+      "Is she...?"
+    ],
+    "review_vocabulary": [
+      "I",
+      "you",
+      "he",
+      "she",
+      "they",
+      "am",
+      "is",
+      "are",
+      "not",
+      "reading",
+      "eating",
+      "swimming",
+      "sleeping",
+      "running",
+      "writing",
+      "talking",
+      "sitting",
+      "babies",
+      "grandparents",
+      "the"
+    ],
+    "grammar_function": "Be before the subject for a yes/no question; short answers Yes, he is. / No, she is not. / Yes, I am.",
+    "prerequisite": "1.8 not; 3.2 I/you; 3.3 am/is/are and What are you doing?.",
+    "speaking_outcome": "Ask Is he...? and Are you...? about known actions and give short yes and no answers.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Yes.",
+      "es": "Sí.",
+      "image": "a1_photo_u3_yes_v1.webp",
+      "kind": "yes-no-word",
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "Yes and No are the short answers this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "No.",
+      "es": "No.",
+      "image": "a1_photo_u3_no_v1.webp",
+      "kind": "yes-no-word",
+      "speaker": "luis",
+      "accepts": {
+        "conversational-response": "Yes and No are the short answers this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Is he eating? Yes, he is.",
+      "es": "¿Él está comiendo? Sí.",
+      "image": "/lesson-assets/boy_is_eating.webp",
+      "kind": "yes-no-he",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "prefer": [
+        "Is he eating? No, he is not."
+      ]
+    },
+    {
+      "text": "Is he eating? No, he is not.",
+      "es": "¿Él está comiendo? No.",
+      "image": "/lesson-assets/boy_is_swimming.webp",
+      "kind": "yes-no-he",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "image_choices": false,
+      "prefer": [
+        "Is he eating? Yes, he is."
+      ]
+    },
+    {
+      "text": "Is she sleeping? Yes, she is.",
+      "es": "¿Ella está durmiendo? Sí.",
+      "image": "/lesson-assets/girl_is_sleeping.webp",
+      "kind": "yes-no-she",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "prefer": [
+        "Is she sleeping? No, she is not."
+      ]
+    },
+    {
+      "text": "Is she sleeping? No, she is not.",
+      "es": "¿Ella está durmiendo? No.",
+      "image": "/lesson-assets/girl_is_reading.webp",
+      "kind": "yes-no-she",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "image_choices": false,
+      "prefer": [
+        "Is she sleeping? Yes, she is."
+      ]
+    },
+    {
+      "text": "Are the grandparents talking? Yes, they are.",
+      "es": "¿Los abuelos están hablando? Sí.",
+      "image": "/lesson-assets/family_grandparents_talking.webp",
+      "kind": "yes-no-they",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "prefer": [
+        "Are the grandparents talking? No, they are not."
+      ]
+    },
+    {
+      "text": "Are the babies sleeping? No, they are not.",
+      "es": "¿Los bebés están durmiendo? No.",
+      "image": "/lesson-assets/family_babies.webp",
+      "kind": "yes-no-they",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "image_choices": false,
+      "prefer": [
+        "Are the babies sleeping? Yes, they are."
+      ]
+    },
+    {
+      "text": "Are you reading?",
+      "es": "¿Estás leyendo?",
+      "image": "a1_u3_l33_v1_reading_question.webp",
+      "kind": "you-question",
+      "speaker": "luis",
+      "learn": false,
+      "choices": false
+    },
+    {
+      "text": "Are you writing?",
+      "es": "¿Estás escribiendo?",
+      "image": "a1_u3_l33_v1_writing_question.webp",
+      "kind": "you-question",
+      "speaker": "ana",
+      "learn": false,
+      "choices": false
+    },
+    {
+      "text": "Are you reading? Yes, I am.",
+      "es": "¿Estás leyendo? Sí.",
+      "image": "a1_u3_l33_v1_reading_question.webp",
+      "kind": "yes-no-you",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "turns": [
+        {
+          "text": "Are you reading?",
+          "speaker": "luis",
+          "image": "a1_u3_l33_v1_reading_question.webp"
+        },
+        {
+          "text": "Yes, I am.",
+          "speaker": "ana",
+          "image": "a1_u3_l33_v1_reading_answer.webp"
+        }
+      ]
+    },
+    {
+      "text": "Are you reading? No, I am not.",
+      "es": "¿Estás leyendo? No.",
+      "image": "a1_u3_l33_v1_writing_question.webp",
+      "kind": "yes-no-you",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "A yes/no bank repeats the same question and changes only the short answer.",
+        "action-variety": "A yes/no bank repeats the same question and changes only the short answer."
+      },
+      "image_choices": false,
+      "turns": [
+        {
+          "text": "Are you reading?",
+          "speaker": "ana",
+          "image": "a1_u3_l33_v1_writing_question.webp"
+        },
+        {
+          "text": "No, I am not.",
+          "speaker": "luis",
+          "image": "a1_u3_l33_v1_writing_answer.webp"
+        }
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Are the grandparents talking? No, they are not.",
+      "es": "¿Los abuelos están hablando? No.",
+      "kind": "yes-no-they"
+    },
+    {
+      "text": "Are the babies sleeping? Yes, they are.",
+      "es": "¿Los bebés están durmiendo? Sí.",
+      "kind": "yes-no-they"
+    }
+  ]
+}

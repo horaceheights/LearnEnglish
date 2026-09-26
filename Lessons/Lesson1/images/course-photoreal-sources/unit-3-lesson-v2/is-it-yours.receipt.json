@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "76d084d7-7646-40ab-a173-1ce9f7460954",
+  "asset_id": "is-it-yours",
+  "pack_sha256": "49d8d0ca4934d21c2ae6860316d164e5e88ba86fe1ef70574c914be5d01999f8",
+  "started_at": "2026-09-25T22:27:25.061891+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Luis's hands are now empty and relaxed at his sides, with no phone. Ana now holds that same black smartphone up in her right hand at shoulder height, screen dark, showing it to Luis with raised eyebrows and a curious, questioning smile, as if asking whether it is his. Keep their badges, clothes, faces, positions, the fair behind them, the table, light and camera identical. No new objects, text or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_your-phone-luis_e8f060b.webp",
+    "sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "UvW2atbNHJjzz7IPkaTxyQU",
+  "usage": {
+    "promptTokenCount": 356,
+    "candidatesTokenCount": 1271,
+    "totalTokenCount": 1801,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 98
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 174,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136800",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 356,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 174
+  },
+  "elapsed_seconds": 26.11,
+  "output": "output/imagegen/unit-3-lesson-v2/is-it-yours.png",
+  "sha256": "78159f554f4adf4ef0a9bf29ce7989bdd097150fe150280f5a90d2aa5bc4dd2d",
+  "byte_count": 5444287,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
