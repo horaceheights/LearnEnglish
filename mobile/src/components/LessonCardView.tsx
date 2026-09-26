@@ -10,7 +10,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 import { COMPLETION_RETRY_HELP, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import { awaitingConstructionRetry } from '../constructionTeaching';
-import { imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
+import { IMAGE_CHOICE_INSET, imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
 import type { ChoiceOption, LessonCard } from '../types';
 import {
@@ -660,6 +660,7 @@ export function LessonCardView({
                         }
                       : null,
                     option.image_url ? styles.imageOptionFrame : null,
+                    option.image_url && boundedImageChoices ? { padding: IMAGE_CHOICE_INSET } : null,
                     useFullWidthSingleActionVideo && !boundedImageChoices ? styles.singleActionVideoOption : null,
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
