@@ -13,6 +13,7 @@ import { awaitingConstructionRetry } from '../constructionTeaching';
 import { IMAGE_CHOICE_INSET, imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
 import type { ChoiceOption, LessonCard } from '../types';
+import { visibleTurnImageUrl } from '../lessonTurnImages';
 import {
   LESSON_MEDIA_FRAME_STYLE,
   LESSON_MEDIA_VIEWPORT_STYLE,
@@ -89,7 +90,7 @@ type Props = {
 export function LessonCardView({
   audioProvider,
   audioVoice,
-  activeTurnImageUrl = null,
+  activeTurnImageUrl: playingTurnImageUrl = null,
   card,
   level,
   lessonId,
@@ -121,6 +122,7 @@ export function LessonCardView({
   const { height: viewportHeight, width: viewportWidth, fontScale } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
+  const activeTurnImageUrl = visibleTurnImageUrl(card, playingTurnImageUrl);
   const isMissionVoiceGate = Boolean(missionVoiceGate);
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
   const isMissionTile = card.interaction_type === 'mission-word-parts'
