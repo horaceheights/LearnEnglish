@@ -4,10 +4,15 @@ import { promptChoiceLineCount } from './promptChoiceLayout';
 // never from the natural height of overflowing lesson content.
 export const isPhoneLandscape = (width: number, height: number) => width > height && height < 600;
 
+// Picture choices keep the shared dark 4dp frame border but a thinner 4dp inset
+// than other lesson media (8dp), so the pictures themselves are slightly larger
+// without changing their aspect ratio (user direction, 2026-09-25).
+export const IMAGE_CHOICE_INSET = 4;
+
 export function imageChoiceLayout(width: number, height: number, count: number, portrait: boolean) {
   const aspect = portrait && count === 4 ? 4 / 5 : 3 / 2;
   const gap = 10;
-  const chrome = 24; // shared 4dp border + 8dp inset on each side
+  const chrome = 2 * (4 + IMAGE_CHOICE_INSET); // shared 4dp border + the choice inset on each side
   const candidates = portrait ? [count === 2 ? 1 : Math.min(2, count)]
     : count === 4 ? [2, 4] : [Math.max(1, count)];
   const layouts = candidates.map(columns => {
