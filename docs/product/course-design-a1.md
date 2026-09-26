@@ -114,16 +114,20 @@ Goal: Exchange basic personal information, ask about a current action, and descr
 
 Lessons:
 
-1. 3.1 Greetings and Names
-2. 3.2 I, You, and We
-3. 3.3 Am, Is, and Are: consolidate `I am`, `he/she/it is`, and `you/we/they are`, then introduce `doing` and the supported current-action exchange `What are you doing? / I am ...` with familiar Unit 1 actions
-4. 3.4 Age
-5. 3.5 Countries and Nationalities
-6. 3.6 Professions
-7. 3.7 My, Your, His, and Her
-8. 3.8 Have and Has
-9. 3.9 Unit 3 Review
-10. 3.10 Cenas cruzadas
+1. 3.1 Greetings and Names: `hello`, `good morning`, `goodbye`, `What is your name?`, `My name is ...`
+2. 3.2 I, You, and We: `I`, `you`, `we`, `I am Ana.`
+3. 3.3 Am, Is, and Are: `doing` and `What are you doing?`; `he/she/it is` and `you/we/they are` are practised on Unit 1 actions
+4. 3.4 Yes and No: `yes`, `no`; `Is he ...? / Are you ...?` and `Yes, he is. / No, she is not.` with *be* only
+5. 3.5 Ages 11-15: `eleven`–`fifteen`, `How old are you?`, `... years old`
+6. 3.6 Ages 16-20: `sixteen`–`twenty`; `How old is she?`
+7. 3.7 Where Are You From?: `Where are you from?`, `Mexico`, `Mexican`, `the United States`, `American`
+8. 3.8 Canada and Spain: `Canada`, `Canadian`, `Spain`, `Spanish`
+9. 3.9 Professions: `a teacher`, `a doctor`, `a cook`, `a driver`, `a farmer`, `a nurse`, `What is your job?`
+10. 3.10 My, Your, His, and Her
+11. 3.11 Our, Their, and 's
+12. 3.12 Have, Has, Mine, and Yours
+13. 3.13 Unit 3 Review
+14. 3.14 Cenas cruzadas
 
 Core patterns:
 
@@ -133,6 +137,12 @@ Core patterns:
 - `Where are you from? I am from Mexico.`
 - `What is your job? I am a teacher.`
 - `She has a phone.`
+- `Is he eating? Yes, he is.`
+- `It is Ana's book. Is it yours? Yes, it is mine.`
+
+**2026-09-25 rebuild (engine briefs, user decisions).** Unit 3 was re-authored through the content engine from the briefs in `docs/product/content-briefs/unit-3/`. Six of eight lessons were short of the 40–42 card standard, 3.4 Age and 3.5 Countries each introduced more than eight new items, fifteen words were under-practised (six never heard or spoken), and 33 Learn cards re-taught known frames. Every teaching lesson now has 40–42 cards, and its Learn cards hold only its new vocabulary (the known frames `I am ...`, `he is ...` are practice). Four lessons are new: **3.4 Yes and No** (yes/no questions with *be* only, practised on Unit 1 action photos; `Do you ...?` waits for Unit 4), **3.6 Ages 16-20** (the age range splits in two, each practised on new kid and teen photos with numeral birthday candles), **3.8 Canada and Spain**, and **3.11 Our, Their, and 's** (Unit 1 family and Unit 2 objects: `their grandmother`, `Ana's book`). 3.12 adds `mine` and `yours` (`Is it yours? Yes, it is mine.`), and professions gain `Is she a nurse? No, she is not.` Lesson IDs are unchanged; the new lessons are `lesson-3-yes-no-questions`, `lesson-3-age-16-20`, `lesson-3-canada-and-spain` and `lesson-3-our-their`, and Unit 3 now has 14 lessons (review 3.13, mission 3.14). Neutral narration alternates the teacher and a second male narrator card by card, and every named or pictured speaker keeps that person's voice. The review (54 cards) adds yes/no, `our`, `their`, `'s` and `mine` cards; the mission re-cues its possession beats to `These are our books.` and `It is the woman's phone.` and adds a fifth voice gate, Ana's `Is it yours?` answered `Yes, it is mine.` (14 beats).
+
+The paragraphs below predate that rebuild: their 3.4-3.10 are today's 3.5, 3.7, 3.9, 3.10, 3.12, 3.13 and 3.14.
 
 `What are you doing?` enters late in Lesson 3.3, after Unit 2.4 has introduced `what` and Lesson 3.2 has established `I`, `you`, and `am`. Lesson 3.3 introduces `doing` through six added cards (40 in total: a Learn question, an answer-view Recognize, a Listen discrimination against the name question, a two-speaker Speak exchange and two Use constructions) on four new speaker-view stills, and reuses already learned Unit 1 actions in the answers. It stays distinct from the Lesson 3.6 occupation question `What is your job?`; `do/does` is not generalized. Lesson 3.9 retrieves the exchange with fresh material and Lesson 3.10 applies it.
 

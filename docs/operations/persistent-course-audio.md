@@ -16,7 +16,7 @@ The reviewed repository source is `backend/approved-course-audio/`:
 
 The approved A1 cast is conservative:
 
-- Nichalia is the neutral teacher voice for teacher, question, and answer narration.
+- Nichalia is the neutral teacher voice for teacher, question, and answer narration. From Unit 3 onward (user direction, 2026-09-25) the engine alternates neutral narration card by card between Nichalia and the `male-teacher` narrator (Eric); lesson content records the semantic role `co-teacher` on the second narrator's cards and nothing on Nichalia's. `scripts/review_speaking_voices.py` accepts either narrator for a line reviewed as narration.
 - Ana always uses Sarah.
 - A pictured or otherwise explicitly known man who speaks the authored line uses Liam. Brian remains only in unbound audit history and is never an active A1 route.
 - A pictured woman who speaks the authored line uses the approved female character voice, or Ana's or Sofia's voice when it is them. Because the neutral narrator is a woman, a line said by a pictured man or boy is never left neutral (user direction, 2026-09-18). A question asked by the one other person in the picture is that person's line, and a mission *who says it* clue uses the voice of the person who says it. `backend/tests/test_speaking_voice_review.py` holds every spoken line over a picture to a reviewed record in `docs/qa/speaking-voice-review-v1.json`.

@@ -22,7 +22,7 @@ the voice that asks its `question`. An item with `turns` is a spoken exchange:
 each turn names its words, speaker and picture, and every card that plays the
 item plays those turns in order. An exchange has no single voice, so it never
 becomes a Use construction; `"use": false` keeps any other item out of Use too.
-A brief's `narrators` (such as ["teacher", "male-teacher"]) take turns reading
+A brief's `narrators` (such as ["teacher", "co-teacher"]) take turns reading
 the neutral narration, card by card.
 
 A proposal is always a draft. A person reviews every proposed answer bank

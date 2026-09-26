@@ -35,15 +35,15 @@ SPEAKER_NARRATORS = {
     "diego": "male-conversational",
     "male-character": "male-conversational",
     # A second neutral narrator (user direction, 2026-09-25): lessons built from
-    # briefs alternate neutral narration between the teacher and this voice.
-    "male-teacher": "male-teacher",
+    # briefs alternate neutral narration between the teacher and this co-teacher.
+    "co-teacher": "male-teacher",
 }
 
 # Roles that may still fall back to the reviewed legacy (voice-unknown) cache.
 NEUTRAL_SPEAKER_ROLES = frozenset({"teacher", "question", "answer"})
 NAMED_SPEAKER_ROLES = frozenset(set(SPEAKER_NARRATORS) - NEUTRAL_SPEAKER_ROLES)
 # Off-camera narration: a line no pictured person says, in either neutral narrator.
-NARRATION_SPEAKER_ROLES = frozenset(NEUTRAL_SPEAKER_ROLES | {"male-teacher"})
+NARRATION_SPEAKER_ROLES = frozenset(NEUTRAL_SPEAKER_ROLES | {"co-teacher"})
 
 
 @dataclass(frozen=True)

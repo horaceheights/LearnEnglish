@@ -88,7 +88,7 @@ class ContentEngineAuthorTests(unittest.TestCase):
         self.assertEqual(len(lesson["cards"]), 42)
         findings = audit([CatalogLesson("1.6", 1, lesson_role(lesson), lesson, BRIEF)], self.standards)
         self.assertEqual([finding for finding in findings if finding.rule == "learn-new-only"], [])
-        with self.assertRaisesRegex(BriefError, "at least one new item"):
+        with self.assertRaisesRegex(BriefError, "at least two new items"):
             propose_lesson({**brief, "items": [{**item, "learn": False} for item in brief["items"]]}, self.standards)
 
     def test_a_learn_card_on_a_known_frame_is_reported(self):

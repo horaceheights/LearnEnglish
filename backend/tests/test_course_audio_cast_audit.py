@@ -105,10 +105,10 @@ EXACT_ROLE_CHANGES = {
 # The Unit 1 rebuild trims five Who questions from Lesson 1.9, two speaker fields each (-10).
 # The 2026-09-25 Unit 3 rebuild authors every Unit 3 speaker from engine briefs: each line
 # Ana, Luis, Sofia, Diego or a pictured person says keeps that voice, and neutral narration
-# alternates the teacher and the male-teacher narrator (+232 net across 14 lessons).
+# alternates the teacher and the co-teacher (+232 net across 14 lessons).
 EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 797
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "f9f863db21601b6f8d399b41bcd36fe55bc82e10615999118f572ba84a7ea417"
+    "d86c0d5277501f12c179aa8278e11d93748df4fad473fdeb36502766b8cda3f7"
 )
 
 

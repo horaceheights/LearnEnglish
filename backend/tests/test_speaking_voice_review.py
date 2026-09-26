@@ -42,7 +42,7 @@ class SpeakingVoiceReviewTests(unittest.TestCase):
         rows = spoken_lines(LESSONS)
         line = next(row for row in rows if row.image)
         review = {(line.image, line.text): "narrator"}
-        for role in ("teacher", "male-teacher"):
+        for role in ("teacher", "co-teacher"):
             narrated = check_rows([dataclasses.replace(line, speaker_role=role)], review)
             self.assertEqual([], narrated.mismatched, role)
         acted = check_rows([dataclasses.replace(line, speaker_role="male-character")], review)
