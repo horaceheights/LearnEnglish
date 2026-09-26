@@ -327,8 +327,7 @@ class PersistentCardAudioTests(unittest.TestCase):
         recognize_take = resolve_approved_take(recognize_asset, registry)
 
         self.assertNotEqual(learn_asset.id, recognize_asset.id)
-        # The engine-built 3.1 (2026-09-25) no longer carries the old Learn-card revision.
-        self.assertEqual(1, learn_asset.revision)
+        self.assertEqual(2, learn_asset.revision)
         self.assertEqual(1, recognize_asset.revision)
         self.assertEqual("ana", learn_asset.speaker_role)
         self.assertEqual("ana", recognize_asset.speaker_role)

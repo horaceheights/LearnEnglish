@@ -351,9 +351,14 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     cards, banks = [], []
     for index, item in enumerate(taught):
         practised(item)
-        cards.append(_voice({"recipe": "teach", "slide_id": f"L{index + 1}", "stage": "Learn",
-                             "options": [_option(item, image=True, suffix="learn")],
-                             "spanish_translation": item["es"], "pedagogy_note": note("Learn", item)}, item))
+        learn = _voice({"recipe": "teach", "slide_id": f"L{index + 1}", "stage": "Learn",
+                        "options": [_option(item, image=True, suffix="learn")],
+                        "spanish_translation": item["es"], "pedagogy_note": note("Learn", item)}, item)
+        if int(item.get("learn_revision") or 1) > 1:
+            # A Learn take that was replaced keeps its bumped revision, so the rejected
+            # asset never comes back from a cache (Lesson 3.1 "Hello." is revision 2).
+            learn["audio_revision"] = learn["answer_audio_revision"] = int(item["learn_revision"])
+        cards.append(learn)
     # Each section gives its cards to the least-practised new words, in story order.
     # Recognize alternates picture choices and sentence choices; two options come before four.
     # A `"choices": false` item (a question such as "Which one?") has no wrong option of

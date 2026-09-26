@@ -246,6 +246,14 @@ class ContentEngineAuthorTests(unittest.TestCase):
         with self.assertRaisesRegex(BriefError, "must say exactly its text"):
             propose_lesson(broken, self.standards)
 
+    def test_a_replaced_learn_take_keeps_its_bumped_revision(self):
+        # Lesson 3.1 L1 "Hello." rejected an old take with revision 2; the engine must keep it.
+        brief = json.loads((ROOT / "docs/product/content-briefs/unit-3/3.1-greetings-and-names.json").read_text(encoding="utf-8"))
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        learn = lesson["cards"][0]
+        self.assertEqual((learn["prompt"], learn["audio_revision"], learn["answer_audio_revision"]), ("Hello.", 2, 2))
+        self.assertEqual([card["slide_id"] for card in lesson["cards"] if card.get("audio_revision")], ["L1"])
+
     def test_accepted_conflicts_picture_only_words_and_multiword_names(self):
         from scripts.content_engine.author import coherent, form
         hello, goodbye = {"text": "Hello."}, {"text": "Goodbye."}

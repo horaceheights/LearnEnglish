@@ -79,6 +79,8 @@ const courseAudioProfileId = 'a1-elevenlabs-character-cast-v1';
 const semanticRoles = new Set(['teacher', 'question', 'answer']);
 const speakerRoles = new Set([
   ...semanticRoles,
+  // The second neutral narrator (2026-09-25), voiced by the `male-teacher` narrator.
+  'co-teacher',
   'ana',
   'sofia',
   'female-character',
@@ -257,9 +259,10 @@ for (const filename of fs.readdirSync(generatedRoot)) {
 
 assert.ok(lessonThreeOne, 'The generated aggregate must contain Lesson 3.1.');
 const lessonThreeOneCards = new Map(lessonThreeOne.cards.map((card) => [card.slide_id, card]));
+// Slide ids follow the engine-built Lesson 3.1 (2026-09-25).
 const lessonThreeOnePromptSpeakers = {
-  ana: ['L1', 'L3', 'L6', 'R1', 'R3', 'N1', 'N2', 'S1', 'S2', 'S5', 'U1', 'U4', 'U5'],
-  luis: ['L2', 'L4', 'L5', 'R2', 'N3', 'N5', 'S3', 'S4', 'U2', 'U3', 'U6'],
+  ana: ['L1', 'L2', 'L5', 'R1', 'R2', 'R10', 'R11', 'A1', 'A2', 'A4', 'A6', 'A10', 'S1', 'S2', 'U2', 'U5'],
+  luis: ['L3', 'L4', 'R3', 'R5', 'R7', 'A3', 'A5', 'A7', 'S3', 'S4', 'S5', 'U1', 'U3', 'U4', 'U6'],
 };
 for (const [speaker, slideIds] of Object.entries(lessonThreeOnePromptSpeakers)) {
   for (const slideId of slideIds) {
@@ -276,8 +279,8 @@ for (const [speaker, slideIds] of Object.entries(lessonThreeOnePromptSpeakers)) 
   }
 }
 const lessonThreeOneAnswerSpeakers = {
-  ana: ['R4', 'U1', 'U4', 'U5'],
-  luis: ['R5', 'U2', 'U3', 'U6'],
+  ana: ['R4', 'R6', 'U2', 'U5'],
+  luis: ['R12', 'U1', 'U3', 'U4', 'U6'],
 };
 for (const [speaker, slideIds] of Object.entries(lessonThreeOneAnswerSpeakers)) {
   for (const slideId of slideIds) {
@@ -293,7 +296,7 @@ for (const [speaker, slideIds] of Object.entries(lessonThreeOneAnswerSpeakers)) 
     assert.equal(answerAsset.speaker_role, speaker, `Lesson 3.1 ${slideId} answer clip has the wrong voice.`);
   }
 }
-for (const slideId of ['L7', 'L8', 'R6', 'S6']) {
+for (const slideId of ['R8', 'R9', 'A8', 'A9', 'S6', 'S7']) {
   const card = lessonThreeOneCards.get(slideId);
   assert.ok(card, `Lesson 3.1 is missing ${slideId}.`);
   assert.equal(card.audio_speaker ?? null, null, `Lesson 3.1 ${slideId} is a mixed exchange, not one character.`);

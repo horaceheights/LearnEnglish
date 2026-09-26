@@ -55,10 +55,12 @@ This file defines the human and narrative continuity for Unit 3 still media. It 
 ## New-context patterns
 
 - `Am/is/are`: use fresh, natural household, workplace, or recreation scenes; one answer concept per image. Never use the old he/she split panel.
-- Numbers 11-20: use a consistent real public registration or community-event pattern with varied participants holding one clear physical numbered card. The person and setting make it a scenario; the large physical numeral remains readable at mobile size.
+- Ages 11-20 (2026-09-25 rebuild): Learn shows the numeral cards; practice uses one birthday pattern, a kid or teen of that age at a home table behind a white cake with two large blue number candles reading the age, so the numeral is readable on a phone and the age belongs to the person. Vary faces, hair and clothes; Ana (20) and Luis (18) keep their own profiles.
+- Yes/no questions: reuse the Unit 1 action photos (the question is about what the pictured person is doing); `Yes.` and `No.` are precise edits of Ana and Luis giving an unmistakable thumbs-up and a finger-wag.
 - Countries and nationalities: use a real international welcome desk, community fair, travel desk, or map interaction with varied people. Flags and maps may support the meaning but cannot replace the person and scenario. Avoid ethnic stereotypes.
 - Professions: use different real adults in unmistakable workplaces with visible work actions and tools. Do not assign unrelated generic jobs to Ana or Sofia merely because an internal filename contains their name.
 - Possession: show a natural ownership or handoff action. The owner, speaker/listener relationship, and object must be clear without floating ownership icons.
+- `Our`/`their` and `'s` reuse Unit 1 family roles (grandparents with grandchildren, a couple with their car or house) so the family words come back; `our` is said by a pictured owner, `their` points at owners in the picture. `Mine`/`yours` are precise edits of the Ana and Luis phone handoff: Ana asks `Is it yours?`, Luis answers with his hand on his chest.
 - Unit review and mission: return to Ana and Luis only for their required personal profiles and exchanges. Integrate profile facts into believable photographs or a coherent sequence rather than synthetic profile-card collages.
 
 ## Visual production pattern

@@ -51,12 +51,13 @@ assert.doesNotMatch(
   'No active course role may route to the retired Brian voice.',
 );
 
+const semanticRoles = new Set(['teacher', 'question', 'answer']);
 // `co-teacher` is the second neutral narrator (2026-09-25): engine-built lessons alternate
 // narration between the teacher and the co-teacher, voiced by the `male-teacher` narrator.
-const semanticRoles = new Set(['teacher', 'question', 'answer', 'co-teacher']);
+const narrationRoles = new Set(['co-teacher']);
 const femaleRoles = new Set(['ana', 'sofia', 'female-character']);
 const maleRoles = new Set(['luis', 'diego', 'male-character']);
-const supportedRoles = new Set([...semanticRoles, ...femaleRoles, ...maleRoles]);
+const supportedRoles = new Set([...semanticRoles, ...narrationRoles, ...femaleRoles, ...maleRoles]);
 const namedCounts = { ana: 0, female: 0, male: 0 };
 let assetCount = 0;
 
