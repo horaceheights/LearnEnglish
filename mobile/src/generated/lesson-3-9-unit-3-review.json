@@ -2453,47 +2453,59 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "It is yours.",
+      "prompt": "Is it yours? Yes, it is mine.",
       "stage": "Speak",
-      "correct_option_id": "it-is-yours-s7",
+      "correct_option_id": "is-it-yours-yes-it-is-mine-s7",
       "options": [
         {
-          "id": "it-is-yours-s7",
+          "id": "is-it-yours-yes-it-is-mine-s7",
           "image_url": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp",
-          "label": "It is yours."
+          "label": "Is it yours? Yes, it is mine."
         }
       ],
-      "audio_text": "It is yours.",
+      "audio_text": "Is it yours? Yes, it is mine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es tuyo.",
-      "pedagogy_note": "Review station 7: Sofia returns a phone: It is yours.",
-      "audio_speaker": "sofia",
+      "spanish_translation": "\u00bfEs tuyo? S\u00ed, es m\u00edo.",
+      "pedagogy_note": "Review station 7: Sofia returns a phone; its owner answers Yes, it is mine.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Is it yours?",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp"
+        },
+        {
+          "text": "Yes, it is mine.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c045-prompt-5ce3a764b64da475b1d2",
-          "purpose": "prompt",
-          "text": "It is yours.",
+          "id": "lesson-3-9-unit-3-review-c045-prompt-turn-1-585159bb5bceb716c906",
+          "purpose": "prompt-turn-1",
+          "text": "Is it yours?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp",
-          "semantic_role": "teacher",
+          "semantic_role": "question",
           "speaker_role": "sofia",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c045-answer-31488e597ef142bece4b",
-          "purpose": "answer",
-          "text": "It is yours.",
-          "mode": "prompt",
-          "variant": "answer",
+          "id": "lesson-3-9-unit-3-review-c045-prompt-turn-2-b7e345147d9bc79c633e",
+          "purpose": "prompt-turn-2",
+          "text": "Yes, it is mine.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp",
-          "semantic_role": "answer",
-          "speaker_role": "sofia",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

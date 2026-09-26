@@ -238,7 +238,9 @@ class ContentEngineAuthorTests(unittest.TestCase):
                 elif item.get("speaker"):
                     self.assertEqual(item["speaker"], card.get("audio_speaker") or card.get("answer_audio_speaker"))
                 else:
-                    self.assertFalse(card.get("audio_speaker") or card.get("answer_audio_speaker"))
+                    # Narration takes turns between the brief's narrators; the teacher needs no role.
+                    self.assertIn(card.get("audio_speaker") or card.get("answer_audio_speaker") or "teacher",
+                                  brief["narrators"])
         broken = {**brief, "items": [{**item, "turns": [{"text": "Hi.", "speaker": "ana", "image": item["image"]}]}
                                      if item.get("turns") else item for item in brief["items"]]}
         with self.assertRaisesRegex(BriefError, "must say exactly its text"):

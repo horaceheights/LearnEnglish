@@ -299,14 +299,16 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-09-22: the Unit 7 parity rebuild adds the male lines of 7.9 and 7.10 (+4 net).
         # 2026-09-23: the Unit 7 quality fix voices the pictured men and boys of 7.10 M03-M06 and 7.9 U7 (+11).
         # 2026-09-23: the Unit 1 rebuild trims five male Who questions (A7, S7, S9, U1, U3) from Lesson 1.9 (-10).
+        # 2026-09-25: the engine-built Unit 3 gives every line Luis, Diego or a pictured boy says his
+        # voice across its 14 lessons, including the new yes/no, age and mine lessons (+72 net).
         self.assertEqual(
-            Counter({"male-character": 374, "luis": 102, "diego": 12}),
+            Counter({"male-character": 382, "luis": 162, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
-        self.assertEqual(488, len(selected))
-        self.assertEqual(111, len(jobs))
-        self.assertEqual(111, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(1740, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(560, len(selected))
+        self.assertEqual(119, len(jobs))
+        self.assertEqual(119, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(1836, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
@@ -325,7 +327,8 @@ class PersistentCardAudioTests(unittest.TestCase):
         recognize_take = resolve_approved_take(recognize_asset, registry)
 
         self.assertNotEqual(learn_asset.id, recognize_asset.id)
-        self.assertEqual(2, learn_asset.revision)
+        # The engine-built 3.1 (2026-09-25) no longer carries the old Learn-card revision.
+        self.assertEqual(1, learn_asset.revision)
         self.assertEqual(1, recognize_asset.revision)
         self.assertEqual("ana", learn_asset.speaker_role)
         self.assertEqual("ana", recognize_asset.speaker_role)

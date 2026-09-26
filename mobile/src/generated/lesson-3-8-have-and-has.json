@@ -42,6 +42,7 @@
   "prerequisite": "3.10-3.11 possessives, 3.4 yes/no questions, Unit 2 objects, plurals and colors.",
   "speaking_outcome": "Say what people have and answer Is it yours? with Yes, it is mine.",
   "purposeful_review_slides": [
+    "R4",
     "R5",
     "R6",
     "R7",
@@ -273,50 +274,50 @@
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "Have",
+      "prompt": "Has",
       "stage": "Recognize",
-      "correct_option_id": "have-r1",
+      "correct_option_id": "has-r1",
       "options": [
-        {
-          "id": "has-r1",
-          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        },
         {
           "id": "have-r1",
           "image_url": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
           "label": null
+        },
+        {
+          "id": "has-r1",
+          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "label": null
         }
       ],
-      "audio_text": "Have",
+      "audio_text": "Has",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tener",
-      "pedagogy_note": "Story beat 01: Have",
+      "spanish_translation": "Tiene",
+      "pedagogy_note": "Story beat 01: Has",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c005-prompt-bd313d3f578b4b0ee41a",
+          "id": "lesson-3-8-have-and-has-c005-prompt-914b556afcf3460efd79",
           "purpose": "prompt",
-          "text": "Have",
+          "text": "Has",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
+          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c005-answer-122cb86c0969a8b436b4",
+          "id": "lesson-3-8-have-and-has-c005-answer-2e32750334f6424521a4",
           "purpose": "answer",
-          "text": "Have",
+          "text": "Has",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
+          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -326,53 +327,41 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "t2i2",
-      "prompt": "Has",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "has-r2",
+      "correct_option_id": "mine-r2",
       "options": [
         {
-          "id": "have-r2",
-          "image_url": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
-          "label": null
+          "id": "yours-r2",
+          "image_url": "",
+          "label": "Yours"
         },
         {
-          "id": "has-r2",
-          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
+          "id": "mine-r2",
+          "image_url": "",
+          "label": "Mine"
         }
       ],
-      "audio_text": "Has",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tiene",
-      "pedagogy_note": "Story beat 02: Has",
-      "audio_speaker": "male-teacher",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "Mine",
+      "prompt_image_url": "/lesson-assets/a1_photo_u3_mine_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: Mine",
+      "audio_speaker": null,
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c006-prompt-b1dd2e745634e086671d",
-          "purpose": "prompt",
-          "text": "Has",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-8-have-and-has-c006-answer-1c7d6fa07f4bcac5fe0f",
+          "id": "lesson-3-8-have-and-has-c006-answer-21211971efd404e368ed",
           "purpose": "answer",
-          "text": "Has",
+          "text": "Mine",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "image_ref": "/lesson-assets/a1_photo_u3_mine_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-teacher",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -381,87 +370,45 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "Mine",
+      "prompt": "Yours",
       "stage": "Recognize",
-      "correct_option_id": "mine-r3",
+      "correct_option_id": "yours-r3",
       "options": [
-        {
-          "id": "mine-r3",
-          "image_url": "/lesson-assets/a1_photo_u3_mine_v1.webp",
-          "label": null
-        },
         {
           "id": "yours-r3",
           "image_url": "/lesson-assets/a1_photo_u3_yours_v1.webp",
           "label": null
+        },
+        {
+          "id": "mine-r3",
+          "image_url": "/lesson-assets/a1_photo_u3_mine_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Mine",
+      "audio_text": "Yours",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "M\u00edo",
-      "pedagogy_note": "Story beat 03: Mine",
-      "audio_speaker": "luis",
+      "spanish_translation": "Tuyo",
+      "pedagogy_note": "Story beat 03: Yours",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c007-prompt-a014d2a7de8550031760",
+          "id": "lesson-3-8-have-and-has-c007-prompt-07ca9ef4b6f0b6e8006d",
           "purpose": "prompt",
-          "text": "Mine",
+          "text": "Yours",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u3_mine_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u3_yours_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "luis",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c007-answer-c51c2c306469feab51a6",
-          "purpose": "answer",
-          "text": "Mine",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u3_mine_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "yours-r4",
-      "options": [
-        {
-          "id": "mine-r4",
-          "image_url": "",
-          "label": "Mine"
-        },
-        {
-          "id": "yours-r4",
-          "image_url": "",
-          "label": "Yours"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Yours",
-      "prompt_image_url": "/lesson-assets/a1_photo_u3_yours_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 04: Yours",
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-8-have-and-has-c008-answer-c521e57539be9403e32b",
+          "id": "lesson-3-8-have-and-has-c007-answer-01315d248d3cfa853343",
           "purpose": "answer",
           "text": "Yours",
           "mode": "prompt",
@@ -475,47 +422,35 @@
       ]
     },
     {
-      "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "I have a book.",
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-have-a-book-r5",
+      "correct_option_id": "i-have-a-book-r4",
       "options": [
         {
-          "id": "you-have-a-phone-r5",
-          "image_url": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
-          "label": null
+          "id": "you-have-a-phone-r4",
+          "image_url": "",
+          "label": "You have a phone."
         },
         {
-          "id": "i-have-a-book-r5",
-          "image_url": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
-          "label": null
+          "id": "i-have-a-book-r4",
+          "image_url": "",
+          "label": "I have a book."
         }
       ],
-      "audio_text": "I have a book.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tengo un libro.",
-      "pedagogy_note": "Story beat 05: I have a book.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "I have a book.",
+      "prompt_image_url": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: I have a book.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c009-prompt-b39f45c078acdd1bc9e4",
-          "purpose": "prompt",
-          "text": "I have a book.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-8-have-and-has-c009-answer-58f5e26359b16081d3de",
+          "id": "lesson-3-8-have-and-has-c008-answer-9c82dcc204f227545ab0",
           "purpose": "answer",
           "text": "I have a book.",
           "mode": "prompt",
@@ -529,35 +464,47 @@
       ]
     },
     {
-      "slide_id": "R6",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
+      "prompt": "You have a phone.",
       "stage": "Recognize",
-      "correct_option_id": "you-have-a-phone-r6",
+      "correct_option_id": "you-have-a-phone-r5",
       "options": [
         {
-          "id": "you-have-a-phone-r6",
-          "image_url": "",
-          "label": "You have a phone."
+          "id": "i-have-a-book-r5",
+          "image_url": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
+          "label": null
         },
         {
-          "id": "i-have-a-book-r6",
-          "image_url": "",
-          "label": "I have a book."
+          "id": "you-have-a-phone-r5",
+          "image_url": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "You have a phone.",
-      "prompt_image_url": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: You have a phone.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
+      "audio_text": "You have a phone.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "T\u00fa tienes un tel\u00e9fono.",
+      "pedagogy_note": "Story beat 05: You have a phone.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c010-answer-c87bacd34d7f3b0c0fde",
+          "id": "lesson-3-8-have-and-has-c009-prompt-e1580b1843ca68faaffa",
+          "purpose": "prompt",
+          "text": "You have a phone.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-8-have-and-has-c009-answer-52dcda0f8191a9907bd5",
           "purpose": "answer",
           "text": "You have a phone.",
           "mode": "prompt",
@@ -571,52 +518,35 @@
       ]
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "t2i3",
-      "prompt": "We have two books.",
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "we-have-two-books-r7",
+      "correct_option_id": "we-have-two-books-r6",
       "options": [
         {
-          "id": "we-have-two-books-r7",
-          "image_url": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
-          "label": null
+          "id": "we-have-two-books-r6",
+          "image_url": "",
+          "label": "We have two books."
         },
         {
-          "id": "i-have-a-book-r7",
-          "image_url": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
-          "label": null
-        },
-        {
-          "id": "you-have-a-phone-r7",
-          "image_url": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
-          "label": null
+          "id": "i-have-a-book-r6",
+          "image_url": "",
+          "label": "I have a book."
         }
       ],
-      "audio_text": "We have two books.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tenemos dos libros.",
-      "pedagogy_note": "Story beat 07: We have two books.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "We have two books.",
+      "prompt_image_url": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: We have two books.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c011-prompt-8e772be02a49a5b2c674",
-          "purpose": "prompt",
-          "text": "We have two books.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-8-have-and-has-c011-answer-4853641fce9e0a7e5342",
+          "id": "lesson-3-8-have-and-has-c010-answer-76b2567e9b9ea7d62f44",
           "purpose": "answer",
           "text": "We have two books.",
           "mode": "prompt",
@@ -624,6 +554,48 @@
           "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "they-have-their-bags-r7",
+      "options": [
+        {
+          "id": "they-have-their-bags-r7",
+          "image_url": "",
+          "label": "They have their bags."
+        },
+        {
+          "id": "they-have-their-books-r7",
+          "image_url": "",
+          "label": "They have their books."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "They have their bags.",
+      "prompt_image_url": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 07: They have their bags.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-8-have-and-has-c011-answer-d6802fb5d9f2e977610b",
+          "purpose": "answer",
+          "text": "They have their bags.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -634,36 +606,36 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "they-have-bags-r8",
+      "correct_option_id": "he-has-a-car-r8",
       "options": [
         {
-          "id": "they-have-bags-r8",
+          "id": "he-has-a-car-r8",
           "image_url": "",
-          "label": "They have bags."
+          "label": "He has a car."
         },
         {
-          "id": "they-have-books-r8",
+          "id": "she-has-a-bike-r8",
           "image_url": "",
-          "label": "They have books."
+          "label": "She has a bike."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "They have bags.",
-      "prompt_image_url": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
+      "answer_audio_text": "He has a car.",
+      "prompt_image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: They have bags.",
+      "pedagogy_note": "Story beat 08: He has a car.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c012-answer-950aa5a03719498baca3",
+          "id": "lesson-3-8-have-and-has-c012-answer-80ec7d971db924899d12",
           "purpose": "answer",
-          "text": "They have bags.",
+          "text": "He has a car.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
+          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -674,50 +646,50 @@
     {
       "slide_id": "R9",
       "interaction_type": "t2i2",
-      "prompt": "He has a car.",
+      "prompt": "She has a bike.",
       "stage": "Recognize",
-      "correct_option_id": "he-has-a-car-r9",
+      "correct_option_id": "she-has-a-bike-r9",
       "options": [
-        {
-          "id": "he-has-a-car-r9",
-          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        },
         {
           "id": "she-has-a-bike-r9",
           "image_url": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "label": null
+        },
+        {
+          "id": "he-has-a-car-r9",
+          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "label": null
         }
       ],
-      "audio_text": "He has a car.",
+      "audio_text": "She has a bike.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00c9l tiene un carro.",
-      "pedagogy_note": "Story beat 09: He has a car.",
+      "spanish_translation": "Ella tiene una bicicleta.",
+      "pedagogy_note": "Story beat 09: She has a bike.",
       "audio_speaker": "male-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c013-prompt-61fc7ef98fb9e180ec95",
+          "id": "lesson-3-8-have-and-has-c013-prompt-7ee7877390907f33f7e4",
           "purpose": "prompt",
-          "text": "He has a car.",
+          "text": "She has a bike.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "image_ref": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "semantic_role": "teacher",
           "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c013-answer-74362be85cd735b67e24",
+          "id": "lesson-3-8-have-and-has-c013-answer-878765c95c767740ebfe",
           "purpose": "answer",
-          "text": "He has a car.",
+          "text": "She has a bike.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "image_ref": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "semantic_role": "answer",
           "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -730,36 +702,36 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "she-has-a-bike-r10",
+      "correct_option_id": "the-teacher-has-a-book-r10",
       "options": [
         {
-          "id": "she-has-a-bike-r10",
+          "id": "the-teacher-has-a-book-r10",
           "image_url": "",
-          "label": "She has a bike."
+          "label": "The teacher has a book."
         },
         {
-          "id": "he-has-a-car-r10",
+          "id": "the-teacher-has-a-phone-r10",
           "image_url": "",
-          "label": "He has a car."
+          "label": "The teacher has a phone."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "She has a bike.",
-      "prompt_image_url": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
+      "answer_audio_text": "The teacher has a book.",
+      "prompt_image_url": "/lesson-assets/a1_scene_teacher-ana_0e983a0.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: She has a bike.",
+      "pedagogy_note": "Story beat 10: The teacher has a book.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c014-answer-5d712dc7b6b852c37b8c",
+          "id": "lesson-3-8-have-and-has-c014-answer-1c15a1cd520e0596c302",
           "purpose": "answer",
-          "text": "She has a bike.",
+          "text": "The teacher has a book.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
+          "image_ref": "/lesson-assets/a1_scene_teacher-ana_0e983a0.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -868,48 +840,48 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "has-a1",
+      "correct_option_id": "have-a1",
       "options": [
-        {
-          "id": "has-a1",
-          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        },
         {
           "id": "have-a1",
           "image_url": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
           "label": null
+        },
+        {
+          "id": "has-a1",
+          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "label": null
         }
       ],
-      "audio_text": "Has",
+      "audio_text": "Have",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Has",
+      "pedagogy_note": "Story beat 01: Have",
       "audio_speaker": "male-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c017-prompt-22ba494e2dc390f6fde1",
+          "id": "lesson-3-8-have-and-has-c017-prompt-444145779dcbbb5c1a58",
           "purpose": "prompt",
-          "text": "Has",
+          "text": "Have",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
           "semantic_role": "teacher",
           "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c017-answer-1b2e0bf6850d4a50ffbb",
+          "id": "lesson-3-8-have-and-has-c017-answer-211c98cc2073c31cfa14",
           "purpose": "answer",
-          "text": "Has",
+          "text": "Have",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
+          "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
           "semantic_role": "answer",
           "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1135,58 +1107,53 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "we-have-two-books-a6",
+      "correct_option_id": "he-has-a-car-a6",
       "options": [
         {
-          "id": "we-have-two-books-a6",
+          "id": "she-has-a-bike-a6",
           "image_url": "",
-          "label": "We have two books."
+          "label": "She has a bike."
         },
         {
-          "id": "i-have-a-book-a6",
+          "id": "he-has-a-car-a6",
           "image_url": "",
-          "label": "I have a book."
-        },
-        {
-          "id": "you-have-a-phone-a6",
-          "image_url": "",
-          "label": "You have a phone."
+          "label": "He has a car."
         }
       ],
-      "audio_text": "We have two books.",
+      "audio_text": "He has a car.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: We have two books.",
-      "audio_speaker": "ana",
+      "pedagogy_note": "Story beat 06: He has a car.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c022-prompt-7d750aed48d9fabc955a",
+          "id": "lesson-3-8-have-and-has-c022-prompt-6c109dc939674ced4844",
           "purpose": "prompt",
-          "text": "We have two books.",
+          "text": "He has a car.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:d066b0f65dcf3943a16d",
+          "image_ref": "text-only:7f4b83b550da5d7dd2f9",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c022-answer-fb3d2defcf3707d2a23a",
+          "id": "lesson-3-8-have-and-has-c022-answer-d121b8c1637ab9a28f42",
           "purpose": "answer",
-          "text": "We have two books.",
+          "text": "He has a car.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:d066b0f65dcf3943a16d",
+          "image_ref": "text-only:7f4b83b550da5d7dd2f9",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1197,69 +1164,15 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "he-has-a-car-a7",
+      "correct_option_id": "she-has-a-bike-a7",
       "options": [
-        {
-          "id": "she-has-a-bike-a7",
-          "image_url": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
-          "label": null
-        },
         {
           "id": "he-has-a-car-a7",
           "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
           "label": null
-        }
-      ],
-      "audio_text": "He has a car.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: He has a car.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-8-have-and-has-c023-prompt-56d8c3479212f36eb3c9",
-          "purpose": "prompt",
-          "text": "He has a car.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c023-answer-a6f7fe0d792d1a113ce5",
-          "purpose": "answer",
-          "text": "He has a car.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "she-has-a-bike-a8",
-      "options": [
-        {
-          "id": "he-has-a-car-a8",
-          "image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        },
-        {
-          "id": "she-has-a-bike-a8",
+          "id": "she-has-a-bike-a7",
           "image_url": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "label": null
         }
@@ -1268,14 +1181,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: She has a bike.",
+      "pedagogy_note": "Story beat 07: She has a bike.",
       "audio_speaker": "male-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c024-prompt-2ec53cb922bb4d4a3452",
+          "id": "lesson-3-8-have-and-has-c023-prompt-018446e81e20939c75ec",
           "purpose": "prompt",
           "text": "She has a bike.",
           "mode": "prompt",
@@ -1287,7 +1200,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c024-answer-fedff17130e94200183f",
+          "id": "lesson-3-8-have-and-has-c023-answer-ce89045bdb76ceade00a",
           "purpose": "answer",
           "text": "She has a bike.",
           "mode": "prompt",
@@ -1295,6 +1208,60 @@
           "image_ref": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "semantic_role": "answer",
           "speaker_role": "male-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-teacher-has-a-book-a8",
+      "options": [
+        {
+          "id": "the-teacher-has-a-phone-a8",
+          "image_url": "",
+          "label": "The teacher has a phone."
+        },
+        {
+          "id": "the-teacher-has-a-book-a8",
+          "image_url": "",
+          "label": "The teacher has a book."
+        }
+      ],
+      "audio_text": "The teacher has a book.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: The teacher has a book.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-8-have-and-has-c024-prompt-1415bf1926ced58c6647",
+          "purpose": "prompt",
+          "text": "The teacher has a book.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:8c8602d60d65f05033df",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-8-have-and-has-c024-answer-a669d8ca75c4ac3f0fa5",
+          "purpose": "answer",
+          "text": "The teacher has a book.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:8c8602d60d65f05033df",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1460,45 +1427,45 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "You have a phone.",
+      "prompt": "We have two books.",
       "stage": "Speak",
-      "correct_option_id": "you-have-a-phone-speak",
+      "correct_option_id": "we-have-two-books-speak",
       "options": [
         {
-          "id": "you-have-a-phone-speak",
-          "image_url": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
-          "label": "You have a phone."
+          "id": "we-have-two-books-speak",
+          "image_url": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
+          "label": "We have two books."
         }
       ],
-      "audio_text": "You have a phone.",
+      "audio_text": "We have two books.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "T\u00fa tienes un tel\u00e9fono.",
-      "pedagogy_note": "Story beat 02: You have a phone.",
+      "spanish_translation": "Tenemos dos libros.",
+      "pedagogy_note": "Story beat 02: We have two books.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c028-prompt-41563a8daca6699b80a0",
+          "id": "lesson-3-8-have-and-has-c028-prompt-c8f7bfbbfef165f93d8a",
           "purpose": "prompt",
-          "text": "You have a phone.",
+          "text": "We have two books.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
+          "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c028-answer-0808ca8251ad1b5758cd",
+          "id": "lesson-3-8-have-and-has-c028-answer-7d04b41a8133d83d6041",
           "purpose": "answer",
-          "text": "You have a phone.",
+          "text": "We have two books.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
+          "image_ref": "/lesson-assets/a1_scene_we-have-books_190a845.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1509,47 +1476,47 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "They have bags.",
+      "prompt": "They have their bags.",
       "stage": "Speak",
-      "correct_option_id": "they-have-bags-speak",
+      "correct_option_id": "they-have-their-bags-speak",
       "options": [
         {
-          "id": "they-have-bags-speak",
+          "id": "they-have-their-bags-speak",
           "image_url": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
-          "label": "They have bags."
+          "label": "They have their bags."
         }
       ],
-      "audio_text": "They have bags.",
+      "audio_text": "They have their bags.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Ellos tienen bolsas.",
-      "pedagogy_note": "Story beat 03: They have bags.",
-      "audio_speaker": null,
+      "spanish_translation": "Ellos tienen sus bolsas.",
+      "pedagogy_note": "Story beat 03: They have their bags.",
+      "audio_speaker": "male-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c029-prompt-3b28451a221afe8d0362",
+          "id": "lesson-3-8-have-and-has-c029-prompt-0631a0b6933d92b06395",
           "purpose": "prompt",
-          "text": "They have bags.",
+          "text": "They have their bags.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c029-answer-862e6ea8336a1a8f5ba5",
+          "id": "lesson-3-8-have-and-has-c029-answer-1e0102925747b316b5cc",
           "purpose": "answer",
-          "text": "They have bags.",
+          "text": "They have their bags.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1573,32 +1540,32 @@
       "prompt_image_url": "",
       "spanish_translation": "\u00c9l tiene un carro.",
       "pedagogy_note": "Story beat 04: He has a car.",
-      "audio_speaker": "male-teacher",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c030-prompt-63680af4eeaf7c2be699",
+          "id": "lesson-3-8-have-and-has-c030-prompt-c86e45799c44b06851a2",
           "purpose": "prompt",
           "text": "He has a car.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c030-answer-9a8fb0e8d58b8abbe42d",
+          "id": "lesson-3-8-have-and-has-c030-answer-f3302329e9dbb29ca43d",
           "purpose": "answer",
           "text": "He has a car.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1622,32 +1589,32 @@
       "prompt_image_url": "",
       "spanish_translation": "Ella tiene una bicicleta.",
       "pedagogy_note": "Story beat 05: She has a bike.",
-      "audio_speaker": null,
+      "audio_speaker": "male-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c031-prompt-c8b85a4bc1b0558b13ef",
+          "id": "lesson-3-8-have-and-has-c031-prompt-726dd617d9017ee8aa71",
           "purpose": "prompt",
           "text": "She has a bike.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c031-answer-bf8e672ca543e8c658dd",
+          "id": "lesson-3-8-have-and-has-c031-answer-426edee9b1f9ba5ec9ad",
           "purpose": "answer",
           "text": "She has a bike.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1815,12 +1782,12 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I have ___ ___.",
+      "prompt": "You have ___ ___.",
       "stage": "Use",
       "correct_option_id": "a",
       "correct_option_ids": [
         "a",
-        "book"
+        "phone"
       ],
       "options": [
         {
@@ -1829,40 +1796,40 @@
           "label": "a"
         },
         {
-          "id": "book",
+          "id": "phone",
           "image_url": "",
-          "label": "book"
+          "label": "phone"
         }
       ],
-      "audio_text": "I have a book.",
-      "answer_audio_text": "I have a book.",
-      "prompt_image_url": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
-      "spanish_translation": "Tengo un libro.",
-      "pedagogy_note": "Story beat 01: I have a book.",
+      "audio_text": "You have a phone.",
+      "answer_audio_text": "You have a phone.",
+      "prompt_image_url": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
+      "spanish_translation": "T\u00fa tienes un tel\u00e9fono.",
+      "pedagogy_note": "Story beat 01: You have a phone.",
       "audio_speaker": "ana",
       "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c035-prompt-55f1ec4fd47e3660286f",
+          "id": "lesson-3-8-have-and-has-c035-prompt-a4d0326852afa518cee3",
           "purpose": "prompt",
-          "text": "I have a book.",
+          "text": "You have a phone.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
+          "image_ref": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c035-answer-cfec0a8c0b67398161dc",
+          "id": "lesson-3-8-have-and-has-c035-answer-f9bd7e662c56fafd661a",
           "purpose": "answer",
-          "text": "I have a book.",
+          "text": "You have a phone.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_my-book-ana_7f764c0.webp",
+          "image_ref": "/lesson-assets/a1_scene_your-phone-luis_e8f060b.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1931,107 +1898,37 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "They ___ ___.",
+      "prompt": "He has ___ ___.",
       "stage": "Use",
-      "correct_option_id": "have",
+      "correct_option_id": "a",
       "correct_option_ids": [
-        "have",
-        "bags"
+        "a",
+        "car"
       ],
       "options": [
         {
-          "id": "have",
-          "image_url": "",
-          "label": "have"
-        },
-        {
-          "id": "bags",
-          "image_url": "",
-          "label": "bags"
-        }
-      ],
-      "audio_text": "They have bags.",
-      "answer_audio_text": "They have bags.",
-      "prompt_image_url": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
-      "spanish_translation": "Ellos tienen bolsas.",
-      "pedagogy_note": "Story beat 03: They have bags.",
-      "audio_speaker": "male-teacher",
-      "answer_audio_speaker": "male-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-8-have-and-has-c037-prompt-bc7c8429a791ea692a33",
-          "purpose": "prompt",
-          "text": "They have bags.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-8-have-and-has-c037-answer-f63fb14be36a7095ceb2",
-          "purpose": "answer",
-          "text": "They have bags.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_they-have-bags_aed386b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "has"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "car"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "He"
-        },
-        {
-          "id": "word-3",
+          "id": "a",
           "image_url": "",
           "label": "a"
+        },
+        {
+          "id": "car",
+          "image_url": "",
+          "label": "car"
         }
       ],
       "audio_text": "He has a car.",
       "answer_audio_text": "He has a car.",
       "prompt_image_url": "/lesson-assets/a1_scene_he-has-car_b3fa0ff.webp",
       "spanish_translation": "\u00c9l tiene un carro.",
-      "pedagogy_note": "Story beat 04: He has a car.",
+      "pedagogy_note": "Story beat 03: He has a car.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c038-prompt-87c02b68b689d21d2817",
+          "id": "lesson-3-8-have-and-has-c037-prompt-618dada359fadbbf2cd3",
           "purpose": "prompt",
           "text": "He has a car.",
           "mode": "prompt",
@@ -2043,7 +1940,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c038-answer-ee42bd05c49f41b14f4c",
+          "id": "lesson-3-8-have-and-has-c037-answer-b970bc62caaf62bf52e6",
           "purpose": "answer",
           "text": "He has a car.",
           "mode": "prompt",
@@ -2057,7 +1954,7 @@
       ]
     },
     {
-      "slide_id": "U5",
+      "slide_id": "U4",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
@@ -2094,14 +1991,14 @@
       "answer_audio_text": "She has a bike.",
       "prompt_image_url": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
       "spanish_translation": "Ella tiene una bicicleta.",
-      "pedagogy_note": "Story beat 05: She has a bike.",
+      "pedagogy_note": "Story beat 04: She has a bike.",
       "audio_speaker": "male-teacher",
       "answer_audio_speaker": "male-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-8-have-and-has-c039-prompt-460e3474ae885c460644",
+          "id": "lesson-3-8-have-and-has-c038-prompt-d869d36972895575aac0",
           "purpose": "prompt",
           "text": "She has a bike.",
           "mode": "prompt",
@@ -2113,7 +2010,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-8-have-and-has-c039-answer-3909abe55fa31fe3d43b",
+          "id": "lesson-3-8-have-and-has-c038-answer-3e7431d4cdc59924c087",
           "purpose": "answer",
           "text": "She has a bike.",
           "mode": "prompt",
@@ -2121,6 +2018,82 @@
           "image_ref": "/lesson-assets/a1_scene_she-has-bike_b6f7660.webp",
           "semantic_role": "answer",
           "speaker_role": "male-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "teacher"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "has"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "book"
+        }
+      ],
+      "audio_text": "The teacher has a book.",
+      "answer_audio_text": "The teacher has a book.",
+      "prompt_image_url": "/lesson-assets/a1_scene_teacher-ana_0e983a0.webp",
+      "spanish_translation": "La maestra tiene un libro.",
+      "pedagogy_note": "Story beat 05: The teacher has a book.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-8-have-and-has-c039-prompt-21a4a8a41eca0a56e477",
+          "purpose": "prompt",
+          "text": "The teacher has a book.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_teacher-ana_0e983a0.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-8-have-and-has-c039-answer-85f445606abbd244763f",
+          "purpose": "answer",
+          "text": "The teacher has a book.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_teacher-ana_0e983a0.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

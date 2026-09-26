@@ -18,7 +18,8 @@ from scripts.render_course_audio_assets import write_registry
 
 BRIAN_COMPLETION_TAKE_ID = "732c691481201c02dc31fb66ffb9a1afd1e2adf724b53cf51fddc4cc70fb40aa"
 VALID_ANA_TAKE_ID = "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165"
-VALID_ANA_ASSET_ID = "lesson-3-1-greetings-and-names-c006-prompt-6587f77088ff445d9c87"
+# Ana's "My name is Ana." Learn card in the 2026-09-25 engine-built Lesson 3.1.
+VALID_ANA_ASSET_ID = "lesson-3-1-greetings-and-names-c005-prompt-4204fedc252011d694fb"
 STALE_ASSET_ID = "retired-brian-course-audio-asset"
 
 

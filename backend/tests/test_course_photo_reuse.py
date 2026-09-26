@@ -6,6 +6,7 @@ import tempfile
 import unittest
 
 from scripts.audit_course_media_preservation import IMAGE_ROOTS, ROOT, images, lessons, read_lesson, validate_photo_reuse_plan, validate_mission_still_plan, validate_exact_diagram_plan, validate_dialogue_poster_plan
+from scripts.course_contract import is_mission, is_review
 from scripts.install_course_photo_reuse import pointer_parent
 from scripts.render_course_stills import pack_output_directory, reviewed_reference_path
 
@@ -83,10 +84,10 @@ class PhotoReuseTests(unittest.TestCase):
         for record in proof['assets']:
             self.assertEqual(record['human_approval'],'pending')
             for scope in record['scopes']:
-                number=int(scope['lesson'].split('.')[1])
-                self.assertLess(number,10)
-                if number==9:self.assertIn('generation',record)
-                parent,key=pointer_parent(current[scope['lesson_id']],scope['pointer'])
+                lesson=current[scope['lesson_id']]
+                self.assertFalse(is_mission(lesson))
+                if is_review(lesson):self.assertIn('generation',record)
+                parent,key=pointer_parent(lesson,scope['pointer'])
                 self.assertEqual(Path(parent[key]).name,record['candidate_filename'])
 
     def test_validation_rejects_stale_pixels_crops_and_scope(self):
