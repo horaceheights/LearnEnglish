@@ -111,7 +111,7 @@ test('the versioned manifest locks the complete recovery baseline and release id
   assert.equal(integrityManifest.baselineCommit, '657ab19487e37851de1229c08219d44d59ab199b');
   // 2026-09-25: a deliberate curriculum release to 77 lessons; the engine-built Unit 3 adds
   // Yes and No, Ages 16-20, Canada and Spain and Our, Their, and 's (14 lessons).
-  assert.equal(integrityManifest.catalog.expectedGitBlob, 'c31453f1be837e6e4ce3d25ccf66753179b360d4');
+  assert.equal(integrityManifest.catalog.expectedGitBlob, 'da2e5dd036eb0626c9cb02a8d0e71496acff4193');
   assert.equal(integrityManifest.catalog.lessonCount, 77);
   assert.equal(integrityManifest.catalog.unitCount, 7);
   assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 12, 14, 10, 10, 10, 10]);
