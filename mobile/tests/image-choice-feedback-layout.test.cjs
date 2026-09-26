@@ -19,6 +19,12 @@ assert.match(
 // lesson-viewport-native.test.mjs. Do not pin column widths to 48%: doing so
 // previously let the 4:5 image height bypass the available-height budget.
 assert.match(source, /imageChoiceLayout\(innerCardWidth/);
+// Picture choices use a thinner 4dp inset inside the shared 4dp border (2026-09-25),
+// counted in the layout's chrome, so pictures grow without changing their aspect.
+const layoutSource = fs.readFileSync(path.join(mobileRoot, 'src/lessonViewportLayout.ts'), 'utf8');
+assert.match(layoutSource, /export const IMAGE_CHOICE_INSET = 4;/);
+assert.match(layoutSource, /const chrome = 2 \* \(4 \+ IMAGE_CHOICE_INSET\)/);
+assert.match(source, /option\.image_url && boundedImageChoices \? \{ padding: IMAGE_CHOICE_INSET \} : null/);
 assert.match(source, /width: boundedImageChoices\?\.optionWidth/);
 assert.match(source, /width: boundedImageChoices\.width/);
 
