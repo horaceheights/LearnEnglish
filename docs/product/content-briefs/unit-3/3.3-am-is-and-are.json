@@ -1,6 +1,10 @@
 {
   "brief_version": 1,
   "captions": false,
+  "narrators": [
+    "teacher",
+    "male-teacher"
+  ],
   "note": "2026-09-25 Unit 3 rebuild: Learn holds only What are you doing?. Practice asks it on the four speaker stills and contrasts is and are on Unit 1 photos with one variable per choice: the same action with one child or two (He is eating. / They are eating.) and The baby is / The babies are.",
   "target": "backend/lessons/unit_3/lesson-3-3-am-is-and-are.yaml",
   "lesson": {
@@ -150,9 +154,14 @@
       "learn": false,
       "four_card": false,
       "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
+        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
       },
       "prefer": [
+        "They are reading.",
+        "They are writing."
+      ],
+      "avoid": [
         "He is eating."
       ]
     },
@@ -177,10 +186,16 @@
       "learn": false,
       "four_card": false,
       "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
+        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
       },
       "prefer": [
-        "She is reading."
+        "They are writing.",
+        "They are eating."
+      ],
+      "avoid": [
+        "She is reading.",
+        "He is eating."
       ]
     },
     {
@@ -204,10 +219,16 @@
       "learn": false,
       "four_card": false,
       "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
+        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
       },
       "prefer": [
-        "She is writing."
+        "They are reading.",
+        "They are eating."
+      ],
+      "avoid": [
+        "She is writing.",
+        "He is eating."
       ]
     },
     {

@@ -1,26 +1,21 @@
 {
   "id": "lesson-3-4-age",
-  "title": "3.4 Age",
+  "title": "3.5 Ages 11-15",
   "level": "Beginner A1",
   "unit_id": "unit-3",
   "unit_title": "Unit 3: Me and Other People",
-  "unit_outcome": "Use tightly supported exchanges to give a name and limited age/origin/job information and describe simple possession.",
+  "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
   "lesson_id": "lesson-3",
   "lesson_title": "Unit 3: Me and Other People",
-  "sub_lesson_id": "3.4",
-  "sub_lesson_title": "Age",
-  "goal": "Recognize numbers 11-20 and use a fixed age question-answer exchange for pictured people aged 6-20.",
+  "sub_lesson_id": "3.5",
+  "sub_lesson_title": "Ages 11-15",
+  "goal": "Recognize, hear and say eleven to fifteen, ask How old are you? and say how old a child is.",
   "vocabulary": [
     "eleven",
     "twelve",
     "thirteen",
     "fourteen",
     "fifteen",
-    "sixteen",
-    "seventeen",
-    "eighteen",
-    "nineteen",
-    "twenty",
     "How old are you?",
     "years old"
   ],
@@ -35,18 +30,49 @@
     "eight",
     "nine",
     "ten",
-    "I am",
-    "you are",
-    "What is your name?"
+    "number",
+    "what",
+    "it",
+    "is",
+    "he",
+    "she",
+    "I",
+    "am",
+    "you",
+    "are",
+    "boy",
+    "girl"
   ],
-  "grammar_function": "How old are you? I am number years old. The age answer remains a fixed first-person chunk; arbitrary adult ages are not yet supported.",
-  "prerequisite": "2.6 numbers 1-10 and 3.2-3.3 I am/you are.",
-  "speaking_outcome": "Repeat sampled teen numbers and two complete model-supported age exchanges.",
+  "grammar_function": "How old are you? / How old is he/she? He/She is + number + years old. What number is it? It is number...",
+  "prerequisite": "2.6-2.7 numbers 1-10 and What number is it?; 3.2-3.3 I am, he/she is.",
+  "speaking_outcome": "Say eleven to fifteen, ask How old are you? and say a child's age.",
+  "content_revision": 2,
   "purposeful_review_slides": [
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
     "R8",
-    "N6",
-    "U1",
-    "U8"
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "U3",
+    "U4",
+    "U5",
+    "U6"
   ],
   "cards": [
     {
@@ -54,10 +80,10 @@
       "interaction_type": "teach",
       "prompt": "Eleven",
       "stage": "Learn",
-      "correct_option_id": "eleven-1",
+      "correct_option_id": "eleven-learn",
       "options": [
         {
-          "id": "eleven-1",
+          "id": "eleven-learn",
           "image_url": "a1_scene_n11_cabe425.webp",
           "label": "Eleven"
         }
@@ -66,17 +92,17 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Once",
-      "pedagogy_note": "introduces eleven"
+      "pedagogy_note": "Story beat 01: Eleven"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "Twelve",
       "stage": "Learn",
-      "correct_option_id": "twelve-1",
+      "correct_option_id": "twelve-learn",
       "options": [
         {
-          "id": "twelve-1",
+          "id": "twelve-learn",
           "image_url": "a1_scene_n12_179a5ca.webp",
           "label": "Twelve"
         }
@@ -85,17 +111,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Doce",
-      "pedagogy_note": "introduces twelve"
+      "pedagogy_note": "Story beat 02: Twelve",
+      "audio_speaker": "male-teacher"
     },
     {
       "slide_id": "L3",
       "interaction_type": "teach",
       "prompt": "Thirteen",
       "stage": "Learn",
-      "correct_option_id": "thirteen-1",
+      "correct_option_id": "thirteen-learn",
       "options": [
         {
-          "id": "thirteen-1",
+          "id": "thirteen-learn",
           "image_url": "a1_scene_n13_e92ef3e.webp",
           "label": "Thirteen"
         }
@@ -104,17 +131,17 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Trece",
-      "pedagogy_note": "introduces thirteen"
+      "pedagogy_note": "Story beat 03: Thirteen"
     },
     {
       "slide_id": "L4",
       "interaction_type": "teach",
       "prompt": "Fourteen",
       "stage": "Learn",
-      "correct_option_id": "fourteen-1",
+      "correct_option_id": "fourteen-learn",
       "options": [
         {
-          "id": "fourteen-1",
+          "id": "fourteen-learn",
           "image_url": "a1_scene_n14_f713285.webp",
           "label": "Fourteen"
         }
@@ -123,17 +150,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Catorce",
-      "pedagogy_note": "introduces fourteen"
+      "pedagogy_note": "Story beat 04: Fourteen",
+      "audio_speaker": "male-teacher"
     },
     {
       "slide_id": "L5",
       "interaction_type": "teach",
       "prompt": "Fifteen",
       "stage": "Learn",
-      "correct_option_id": "fifteen-1",
+      "correct_option_id": "fifteen-learn",
       "options": [
         {
-          "id": "fifteen-1",
+          "id": "fifteen-learn",
           "image_url": "a1_scene_n15_35e4ec4.webp",
           "label": "Fifteen"
         }
@@ -142,113 +170,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Quince",
-      "pedagogy_note": "introduces fifteen"
+      "pedagogy_note": "Story beat 05: Fifteen"
     },
     {
       "slide_id": "L6",
       "interaction_type": "teach",
-      "prompt": "Sixteen",
-      "stage": "Learn",
-      "correct_option_id": "sixteen-1",
-      "options": [
-        {
-          "id": "sixteen-1",
-          "image_url": "a1_scene_n16_e4aa4eb.webp",
-          "label": "Sixteen"
-        }
-      ],
-      "audio_text": "Sixteen",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dieciséis",
-      "pedagogy_note": "introduces sixteen"
-    },
-    {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "Seventeen",
-      "stage": "Learn",
-      "correct_option_id": "seventeen-1",
-      "options": [
-        {
-          "id": "seventeen-1",
-          "image_url": "a1_scene_n17_9b96027.webp",
-          "label": "Seventeen"
-        }
-      ],
-      "audio_text": "Seventeen",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Diecisiete",
-      "pedagogy_note": "introduces seventeen"
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "Eighteen",
-      "stage": "Learn",
-      "correct_option_id": "eighteen-1",
-      "options": [
-        {
-          "id": "eighteen-1",
-          "image_url": "a1_scene_n18_bdd888e.webp",
-          "label": "Eighteen"
-        }
-      ],
-      "audio_text": "Eighteen",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dieciocho",
-      "pedagogy_note": "introduces eighteen"
-    },
-    {
-      "slide_id": "L9",
-      "interaction_type": "teach",
-      "prompt": "Nineteen",
-      "stage": "Learn",
-      "correct_option_id": "nineteen-1",
-      "options": [
-        {
-          "id": "nineteen-1",
-          "image_url": "a1_scene_n19_a7aa80e.webp",
-          "label": "Nineteen"
-        }
-      ],
-      "audio_text": "Nineteen",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Diecinueve",
-      "pedagogy_note": "introduces nineteen"
-    },
-    {
-      "slide_id": "L10",
-      "interaction_type": "teach",
-      "prompt": "Twenty",
-      "stage": "Learn",
-      "correct_option_id": "twenty-1",
-      "options": [
-        {
-          "id": "twenty-1",
-          "image_url": "a1_scene_n20_b3be26c.webp",
-          "label": "Twenty"
-        }
-      ],
-      "audio_text": "Twenty",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Veinte",
-      "pedagogy_note": "introduces twenty"
-    },
-    {
-      "slide_id": "L11",
-      "interaction_type": "teach",
       "prompt": "How old are you?",
       "stage": "Learn",
-      "correct_option_id": "how-old-are-you-1",
+      "correct_option_id": "how-old-are-you-learn",
       "options": [
         {
-          "id": "how-old-are-you-1",
-          "image_url": "a1_scene_age-question-ana_8cb0ea5.webp",
+          "id": "how-old-are-you-learn",
+          "image_url": "a1_scene_age-luis-asks-ana_132f348.webp",
           "label": "How old are you?"
         }
       ],
@@ -256,44 +189,44 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "introduces fixed age question",
+      "pedagogy_note": "Story beat 06: How old are you?",
       "audio_speaker": "luis"
     },
     {
-      "slide_id": "L12",
+      "slide_id": "L7",
       "interaction_type": "teach",
-      "prompt": "I am twenty years old.",
+      "prompt": "Eleven years old.",
       "stage": "Learn",
-      "correct_option_id": "i-am-twenty-years-old-1",
+      "correct_option_id": "eleven-years-old-learn",
       "options": [
         {
-          "id": "i-am-twenty-years-old-1",
-          "image_url": "a1_scene_age-ana-20_7acc289.webp",
-          "label": "I am twenty years old."
+          "id": "eleven-years-old-learn",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": "Eleven years old."
         }
       ],
-      "audio_text": "I am twenty years old.",
+      "audio_text": "Eleven years old.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tengo veinte años.",
-      "pedagogy_note": "introduces age answer frame; exceptional Learn count prevents leakage",
-      "audio_speaker": "ana"
+      "spanish_translation": "Once años.",
+      "pedagogy_note": "Story beat 07: Eleven years old.",
+      "audio_speaker": "male-teacher"
     },
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
       "prompt": "Eleven",
       "stage": "Recognize",
-      "correct_option_id": "n11-1",
+      "correct_option_id": "eleven-r1",
       "options": [
         {
-          "id": "n11-1",
-          "image_url": "a1_scene_n11_cabe425.webp",
+          "id": "twelve-r1",
+          "image_url": "a1_scene_n12_179a5ca.webp",
           "label": null
         },
         {
-          "id": "n12-2",
-          "image_url": "a1_scene_n12_179a5ca.webp",
+          "id": "eleven-r1",
+          "image_url": "a1_scene_n11_cabe425.webp",
           "label": null
         }
       ],
@@ -301,643 +234,922 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Once",
-      "pedagogy_note": "adjacent-number contrast"
+      "pedagogy_note": "Story beat 01: Eleven"
     },
     {
       "slide_id": "R2",
-      "interaction_type": "t2i2",
-      "prompt": "Twelve",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "n12-2",
+      "correct_option_id": "thirteen-r2",
       "options": [
         {
-          "id": "n11-1",
-          "image_url": "a1_scene_n11_cabe425.webp",
+          "id": "twelve-r2",
+          "image_url": "",
+          "label": "Twelve"
+        },
+        {
+          "id": "thirteen-r2",
+          "image_url": "",
+          "label": "Thirteen"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Thirteen",
+      "prompt_image_url": "a1_scene_n13_e92ef3e.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-teacher",
+      "pedagogy_note": "Story beat 02: Thirteen"
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "t2i2",
+      "prompt": "It is number twelve.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-number-twelve-r3",
+      "options": [
+        {
+          "id": "it-is-number-twelve-r3",
+          "image_url": "a1_scene_n12_179a5ca.webp",
           "label": null
         },
         {
-          "id": "n12-2",
+          "id": "it-is-number-eleven-r3",
+          "image_url": "a1_scene_n11_cabe425.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is number twelve.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es el número doce.",
+      "pedagogy_note": "Story beat 03: It is number twelve."
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "What number is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-number-fourteen-r4",
+      "options": [
+        {
+          "id": "it-is-number-thirteen-r4",
+          "image_url": "",
+          "label": "It is number thirteen."
+        },
+        {
+          "id": "it-is-number-fourteen-r4",
+          "image_url": "",
+          "label": "It is number fourteen."
+        }
+      ],
+      "audio_text": "What number is it?",
+      "answer_audio_text": "It is number fourteen.",
+      "prompt_image_url": "a1_scene_n14_f713285.webp",
+      "spanish_translation": "¿Qué número es?",
+      "answer_audio_speaker": "male-teacher",
+      "pedagogy_note": "Story beat 04: It is number fourteen.",
+      "audio_speaker": "male-teacher"
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
+      "prompt": "He is eleven years old.",
+      "stage": "Recognize",
+      "correct_option_id": "he-is-eleven-years-old-r5",
+      "options": [
+        {
+          "id": "he-is-thirteen-years-old-r5",
+          "image_url": "a1_photo_u3_age_13_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-eleven-years-old-r5",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "He is eleven years old.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Él tiene once años.",
+      "pedagogy_note": "Story beat 05: He is eleven years old."
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "How old is she?",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-twelve-years-old-r6",
+      "options": [
+        {
+          "id": "she-is-twelve-years-old-r6",
+          "image_url": "",
+          "label": "She is twelve years old."
+        },
+        {
+          "id": "she-is-fourteen-years-old-r6",
+          "image_url": "",
+          "label": "She is fourteen years old."
+        }
+      ],
+      "audio_text": "How old is she?",
+      "answer_audio_text": "She is twelve years old.",
+      "prompt_image_url": "a1_photo_u3_age_12_girl_v1.webp",
+      "spanish_translation": "¿Cuántos años tiene ella?",
+      "answer_audio_speaker": "male-teacher",
+      "pedagogy_note": "Story beat 06: She is twelve years old.",
+      "audio_speaker": "male-teacher"
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i3",
+      "prompt": "He is thirteen years old.",
+      "stage": "Recognize",
+      "correct_option_id": "he-is-thirteen-years-old-r7",
+      "options": [
+        {
+          "id": "he-is-thirteen-years-old-r7",
+          "image_url": "a1_photo_u3_age_13_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-eleven-years-old-r7",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-fifteen-years-old-r7",
+          "image_url": "a1_photo_u3_age_15_boy_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "He is thirteen years old.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Él tiene trece años.",
+      "pedagogy_note": "Story beat 07: He is thirteen years old."
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "How old is she?",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-fourteen-years-old-r8",
+      "options": [
+        {
+          "id": "she-is-fourteen-years-old-r8",
+          "image_url": "",
+          "label": "She is fourteen years old."
+        },
+        {
+          "id": "she-is-twelve-years-old-r8",
+          "image_url": "",
+          "label": "She is twelve years old."
+        }
+      ],
+      "audio_text": "How old is she?",
+      "answer_audio_text": "She is fourteen years old.",
+      "prompt_image_url": "a1_photo_u3_age_14_girl_v1.webp",
+      "spanish_translation": "¿Cuántos años tiene ella?",
+      "answer_audio_speaker": "male-teacher",
+      "pedagogy_note": "Story beat 08: She is fourteen years old.",
+      "audio_speaker": "male-teacher"
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "t2i3",
+      "prompt": "He is fifteen years old.",
+      "stage": "Recognize",
+      "correct_option_id": "he-is-fifteen-years-old-r9",
+      "options": [
+        {
+          "id": "he-is-eleven-years-old-r9",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-fifteen-years-old-r9",
+          "image_url": "a1_photo_u3_age_15_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-thirteen-years-old-r9",
+          "image_url": "a1_photo_u3_age_13_boy_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "He is fifteen years old.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Él tiene quince años.",
+      "pedagogy_note": "Story beat 09: He is fifteen years old."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "How old are you?",
+      "stage": "Recognize",
+      "correct_option_id": "i-am-twelve-years-old-r10",
+      "options": [
+        {
+          "id": "i-am-twelve-years-old-r10",
+          "image_url": "",
+          "label": "I am twelve years old."
+        },
+        {
+          "id": "i-am-fourteen-years-old-r10",
+          "image_url": "",
+          "label": "I am fourteen years old."
+        },
+        {
+          "id": "i-am-fifteen-years-old-r10",
+          "image_url": "",
+          "label": "I am fifteen years old."
+        }
+      ],
+      "audio_text": "How old are you?",
+      "answer_audio_text": "I am twelve years old.",
+      "prompt_image_url": "a1_photo_u3_age_12_girl_v1.webp",
+      "spanish_translation": "¿Cuántos años tienes?",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 10: I am twelve years old.",
+      "audio_speaker": "male-teacher"
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "t2i3",
+      "prompt": "I am fourteen years old.",
+      "stage": "Recognize",
+      "correct_option_id": "i-am-fourteen-years-old-r11",
+      "options": [
+        {
+          "id": "i-am-twelve-years-old-r11",
+          "image_url": "a1_photo_u3_age_12_girl_v1.webp",
+          "label": null
+        },
+        {
+          "id": "i-am-fifteen-years-old-r11",
+          "image_url": "a1_photo_u3_age_15_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "i-am-fourteen-years-old-r11",
+          "image_url": "a1_photo_u3_age_14_girl_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I am fourteen years old.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Tengo catorce años.",
+      "pedagogy_note": "Story beat 11: I am fourteen years old.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "R12",
+      "interaction_type": "i2t3",
+      "prompt": "How old are you?",
+      "stage": "Recognize",
+      "correct_option_id": "i-am-fifteen-years-old-r12",
+      "options": [
+        {
+          "id": "i-am-fifteen-years-old-r12",
+          "image_url": "",
+          "label": "I am fifteen years old."
+        },
+        {
+          "id": "i-am-thirteen-years-old-r12",
+          "image_url": "",
+          "label": "I am thirteen years old."
+        },
+        {
+          "id": "i-am-eleven-years-old-r12",
+          "image_url": "",
+          "label": "I am eleven years old."
+        }
+      ],
+      "audio_text": "How old are you?",
+      "answer_audio_text": "I am fifteen years old.",
+      "prompt_image_url": "a1_photo_u3_age_15_boy_v1.webp",
+      "spanish_translation": "¿Cuántos años tienes?",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 12: I am fifteen years old."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "twelve-a1",
+      "options": [
+        {
+          "id": "twelve-a1",
           "image_url": "a1_scene_n12_179a5ca.webp",
+          "label": null
+        },
+        {
+          "id": "eleven-a1",
+          "image_url": "a1_scene_n11_cabe425.webp",
           "label": null
         }
       ],
       "audio_text": "Twelve",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Doce",
-      "pedagogy_note": "answer position alternates"
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: Twelve",
+      "audio_speaker": "male-teacher"
     },
     {
-      "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "Thirteen",
-      "stage": "Recognize",
-      "correct_option_id": "n13-2",
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "thirteen-a2",
       "options": [
         {
-          "id": "n14-1",
-          "image_url": "a1_scene_n14_f713285.webp",
+          "id": "thirteen-a2",
+          "image_url": "a1_scene_n13_e92ef3e.webp",
           "label": null
         },
         {
-          "id": "n13-2",
-          "image_url": "a1_scene_n13_e92ef3e.webp",
+          "id": "twelve-a2",
+          "image_url": "a1_scene_n12_179a5ca.webp",
           "label": null
         }
       ],
       "audio_text": "Thirteen",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Trece",
-      "pedagogy_note": "adjacent-number contrast"
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: Thirteen"
     },
     {
-      "slide_id": "R4",
-      "interaction_type": "t2i2",
-      "prompt": "Fourteen",
-      "stage": "Recognize",
-      "correct_option_id": "n14-1",
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "fourteen-a3",
       "options": [
         {
-          "id": "n14-1",
-          "image_url": "a1_scene_n14_f713285.webp",
-          "label": null
+          "id": "fourteen-a3",
+          "image_url": "",
+          "label": "Fourteen"
         },
         {
-          "id": "n15-2",
-          "image_url": "a1_scene_n15_35e4ec4.webp",
-          "label": null
+          "id": "thirteen-a3",
+          "image_url": "",
+          "label": "Thirteen"
         }
       ],
       "audio_text": "Fourteen",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Catorce",
-      "pedagogy_note": "adjacent-number contrast"
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: Fourteen",
+      "audio_speaker": "male-teacher"
     },
     {
-      "slide_id": "R5",
-      "interaction_type": "t2i4",
-      "prompt": "Fifteen",
-      "stage": "Recognize",
-      "correct_option_id": "n15-3",
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "fifteen-a4",
       "options": [
         {
-          "id": "n13-1",
-          "image_url": "a1_scene_n13_e92ef3e_four-card.webp",
+          "id": "fourteen-a4",
+          "image_url": "a1_scene_n14_f713285.webp",
           "label": null
         },
         {
-          "id": "n16-2",
-          "image_url": "a1_scene_n16_e4aa4eb_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "n15-3",
-          "image_url": "a1_scene_n15_35e4ec4_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "n14-4",
-          "image_url": "a1_scene_n14_f713285_four-card.webp",
+          "id": "fifteen-a4",
+          "image_url": "a1_scene_n15_35e4ec4.webp",
           "label": null
         }
       ],
       "audio_text": "Fifteen",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Quince",
-      "pedagogy_note": "four teen numbers"
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: Fifteen"
     },
     {
-      "slide_id": "R6",
-      "interaction_type": "t2i4",
-      "prompt": "Sixteen",
-      "stage": "Recognize",
-      "correct_option_id": "n16-4",
+      "slide_id": "A5",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-number-twelve-a5",
       "options": [
         {
-          "id": "n18-1",
-          "image_url": "a1_scene_n18_bdd888e_four-card.webp",
+          "id": "it-is-number-twelve-a5",
+          "image_url": "a1_scene_n12_179a5ca.webp",
           "label": null
         },
         {
-          "id": "n15-2",
-          "image_url": "a1_scene_n15_35e4ec4_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "n17-3",
-          "image_url": "a1_scene_n17_9b96027_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "n16-4",
-          "image_url": "a1_scene_n16_e4aa4eb_four-card.webp",
+          "id": "it-is-number-eleven-a5",
+          "image_url": "a1_scene_n11_cabe425.webp",
           "label": null
         }
       ],
-      "audio_text": "Sixteen",
+      "audio_text": "It is number twelve.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Dieciséis",
-      "pedagogy_note": "four teen numbers"
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: It is number twelve.",
+      "audio_speaker": "male-teacher"
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "i2t2",
-      "prompt": "How old are you?",
-      "stage": "Recognize",
-      "correct_option_id": "i-am-twenty-years-old-2",
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-number-fourteen-a6",
       "options": [
         {
-          "id": "i-am-eighteen-years-old-1",
+          "id": "it-is-number-fourteen-a6",
           "image_url": "",
-          "label": "I am eighteen years old."
+          "label": "It is number fourteen."
         },
         {
-          "id": "i-am-twenty-years-old-2",
+          "id": "it-is-number-thirteen-a6",
           "image_url": "",
-          "label": "I am twenty years old."
-        }
-      ],
-      "audio_text": "How old are you?",
-      "answer_audio_text": "I am twenty years old.",
-      "prompt_image_url": "a1_scene_age-ana-20_7acc289.webp",
-      "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "question shown/played before choices",
-      "answer_audio_speaker": "ana",
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "eight-1",
-      "options": [
+          "label": "It is number thirteen."
+        },
         {
-          "id": "eight-1",
+          "id": "it-is-number-fifteen-a6",
           "image_url": "",
-          "label": "eight"
+          "label": "It is number fifteen."
+        }
+      ],
+      "audio_text": "It is number fourteen.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: It is number fourteen."
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "he-is-eleven-years-old-a7",
+      "options": [
+        {
+          "id": "he-is-eleven-years-old-a7",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": null
         },
         {
-          "id": "ten-2",
+          "id": "he-is-thirteen-years-old-a7",
+          "image_url": "a1_photo_u3_age_13_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-fifteen-years-old-a7",
+          "image_url": "a1_photo_u3_age_15_boy_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "He is eleven years old.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: He is eleven years old.",
+      "audio_speaker": "male-teacher"
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "he-is-thirteen-years-old-a8",
+      "options": [
+        {
+          "id": "he-is-thirteen-years-old-a8",
+          "image_url": "a1_photo_u3_age_13_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-eleven-years-old-a8",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": null
+        },
+        {
+          "id": "he-is-fifteen-years-old-a8",
+          "image_url": "a1_photo_u3_age_15_boy_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "He is thirteen years old.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: He is thirteen years old."
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "he-is-fifteen-years-old-a9",
+      "options": [
+        {
+          "id": "he-is-thirteen-years-old-a9",
           "image_url": "",
-          "label": "ten"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "eight",
-      "prompt_image_url": "a1_photo_number_card_08_v1.webp",
-      "spanish_translation": "Elige el número.",
-      "pedagogy_note": "2.6 review"
-    },
-    {
-      "slide_id": "N1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "n17-1",
-      "options": [
-        {
-          "id": "n17-1",
-          "image_url": "a1_scene_n17_9b96027.webp",
-          "label": null
+          "label": "He is thirteen years old."
         },
         {
-          "id": "n18-2",
-          "image_url": "a1_scene_n18_bdd888e.webp",
-          "label": null
+          "id": "he-is-eleven-years-old-a9",
+          "image_url": "",
+          "label": "He is eleven years old."
+        },
+        {
+          "id": "he-is-fifteen-years-old-a9",
+          "image_url": "",
+          "label": "He is fifteen years old."
         }
       ],
-      "audio_text": "Seventeen",
+      "audio_text": "He is fifteen years old.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
+      "pedagogy_note": "Story beat 09: He is fifteen years old.",
+      "audio_speaker": "male-teacher"
     },
     {
-      "slide_id": "N2",
-      "interaction_type": "a2i2",
+      "slide_id": "A10",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "n18-2",
+      "correct_option_id": "i-am-fifteen-years-old-a10",
       "options": [
         {
-          "id": "n19-1",
-          "image_url": "a1_scene_n19_a7aa80e.webp",
+          "id": "i-am-fourteen-years-old-a10",
+          "image_url": "a1_photo_u3_age_14_girl_v1.webp",
           "label": null
         },
         {
-          "id": "n18-2",
-          "image_url": "a1_scene_n18_bdd888e.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Eighteen",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
-    },
-    {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "n19-1",
-      "options": [
-        {
-          "id": "n19-1",
-          "image_url": "a1_scene_n19_a7aa80e.webp",
+          "id": "i-am-twelve-years-old-a10",
+          "image_url": "a1_photo_u3_age_12_girl_v1.webp",
           "label": null
         },
         {
-          "id": "n20-2",
-          "image_url": "a1_scene_n20_b3be26c.webp",
+          "id": "i-am-fifteen-years-old-a10",
+          "image_url": "a1_photo_u3_age_15_boy_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "Nineteen",
+      "audio_text": "I am fifteen years old.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
-    },
-    {
-      "slide_id": "N4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "n20-2",
-      "options": [
-        {
-          "id": "n18-1",
-          "image_url": "a1_scene_n18_bdd888e.webp",
-          "label": null
-        },
-        {
-          "id": "n20-2",
-          "image_url": "a1_scene_n20_b3be26c.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Twenty",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
-    },
-    {
-      "slide_id": "N5",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "age-ana-20-2",
-      "options": [
-        {
-          "id": "age-luis-18-1",
-          "image_url": "a1_scene_age-luis-18_7f71348.webp",
-          "label": null
-        },
-        {
-          "id": "age-ana-20-2",
-          "image_url": "a1_scene_age-ana-20_7acc289.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I am twenty years old.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden; the handwritten numeral on Ana's physical survey form provides age evidence",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "N6",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "n6-2",
-      "options": [
-        {
-          "id": "n8-1",
-          "image_url": "a1_photo_number_card_08_v1.webp",
-          "label": null
-        },
-        {
-          "id": "n6-2",
-          "image_url": "a1_photo_number_card_06_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Six",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Unit 2 delayed number review"
+      "pedagogy_note": "Story beat 10: I am fifteen years old.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "Eleven",
+      "interaction_type": "speak",
+      "prompt": "How old are you?",
       "stage": "Speak",
-      "correct_option_id": "eleven-1",
+      "correct_option_id": "how-old-are-you-speak",
       "options": [
         {
-          "id": "eleven-1",
-          "image_url": "a1_scene_n11_cabe425.webp",
-          "label": "Eleven"
+          "id": "how-old-are-you-speak",
+          "image_url": "a1_scene_age-luis-asks-ana_132f348.webp",
+          "label": "How old are you?"
         }
       ],
-      "audio_text": "Eleven",
+      "audio_text": "How old are you?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Once",
-      "pedagogy_note": "number target"
+      "spanish_translation": "¿Cuántos años tienes?",
+      "pedagogy_note": "Story beat 01: How old are you?",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "Fifteen",
+      "interaction_type": "speak",
+      "prompt": "Eleven years old.",
       "stage": "Speak",
-      "correct_option_id": "fifteen-1",
+      "correct_option_id": "eleven-years-old-speak",
       "options": [
         {
-          "id": "fifteen-1",
-          "image_url": "a1_scene_n15_35e4ec4.webp",
-          "label": "Fifteen"
+          "id": "eleven-years-old-speak",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": "Eleven years old."
         }
       ],
-      "audio_text": "Fifteen",
+      "audio_text": "Eleven years old.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Quince",
-      "pedagogy_note": "number target"
+      "spanish_translation": "Once años.",
+      "pedagogy_note": "Story beat 02: Eleven years old."
     },
     {
       "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "Eighteen",
+      "interaction_type": "speak",
+      "prompt": "He is eleven years old.",
       "stage": "Speak",
-      "correct_option_id": "eighteen-1",
+      "correct_option_id": "he-is-eleven-years-old-speak",
       "options": [
         {
-          "id": "eighteen-1",
-          "image_url": "a1_scene_n18_bdd888e.webp",
-          "label": "Eighteen"
+          "id": "he-is-eleven-years-old-speak",
+          "image_url": "a1_photo_u3_age_11_boy_v1.webp",
+          "label": "He is eleven years old."
         }
       ],
-      "audio_text": "Eighteen",
+      "audio_text": "He is eleven years old.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Dieciocho",
-      "pedagogy_note": "number target"
+      "spanish_translation": "Él tiene once años.",
+      "pedagogy_note": "Story beat 03: He is eleven years old.",
+      "audio_speaker": "male-teacher"
     },
     {
       "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "Twenty",
+      "interaction_type": "speak",
+      "prompt": "She is twelve years old.",
       "stage": "Speak",
-      "correct_option_id": "twenty-1",
+      "correct_option_id": "she-is-twelve-years-old-speak",
       "options": [
         {
-          "id": "twenty-1",
-          "image_url": "a1_scene_n20_b3be26c.webp",
-          "label": "Twenty"
+          "id": "she-is-twelve-years-old-speak",
+          "image_url": "a1_photo_u3_age_12_girl_v1.webp",
+          "label": "She is twelve years old."
         }
       ],
-      "audio_text": "Twenty",
+      "audio_text": "She is twelve years old.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Veinte",
-      "pedagogy_note": "number target"
+      "spanish_translation": "Ella tiene doce años.",
+      "pedagogy_note": "Story beat 04: She is twelve years old."
     },
     {
       "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "How old are you? I am twenty years old.",
+      "interaction_type": "speak",
+      "prompt": "He is thirteen years old.",
       "stage": "Speak",
-      "correct_option_id": "how-old-are-you-i-am-twenty-years-old-1",
+      "correct_option_id": "he-is-thirteen-years-old-speak",
       "options": [
         {
-          "id": "how-old-are-you-i-am-twenty-years-old-1",
-          "image_url": "a1_scene_age-question-ana_8cb0ea5.webp",
-          "label": "How old are you? I am twenty years old."
+          "id": "he-is-thirteen-years-old-speak",
+          "image_url": "a1_photo_u3_age_13_boy_v1.webp",
+          "label": "He is thirteen years old."
         }
       ],
-      "audio_text": "How old are you? I am twenty years old.",
+      "audio_text": "He is thirteen years old.",
       "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "How old are you?",
-          "speaker_role": "luis",
-          "image_url": "a1_scene_age-luis-asks-ana_132f348.webp"
-        },
-        {
-          "text": "I am twenty years old.",
-          "speaker_role": "ana",
-          "image_url": "a1_scene_age-ana-answers-20_a9aeaf1.webp"
-        }
-      ],
       "prompt_image_url": "",
-      "spanish_translation": "¿Cuántos años tienes? Tengo veinte años.",
-      "pedagogy_note": "complete exchange"
+      "spanish_translation": "Él tiene trece años.",
+      "pedagogy_note": "Story beat 05: He is thirteen years old.",
+      "audio_speaker": "male-teacher"
     },
     {
       "slide_id": "S6",
-      "interaction_type": "repeat",
-      "prompt": "How old are you? I am eighteen years old.",
+      "interaction_type": "speak",
+      "prompt": "She is fourteen years old.",
       "stage": "Speak",
-      "correct_option_id": "how-old-are-you-i-am-eighteen-years-old-1",
+      "correct_option_id": "she-is-fourteen-years-old-speak",
       "options": [
         {
-          "id": "how-old-are-you-i-am-eighteen-years-old-1",
-          "image_url": "a1_scene_age-question-luis_c9558de.webp",
-          "label": "How old are you? I am eighteen years old."
+          "id": "she-is-fourteen-years-old-speak",
+          "image_url": "a1_photo_u3_age_14_girl_v1.webp",
+          "label": "She is fourteen years old."
         }
       ],
-      "audio_text": "How old are you? I am eighteen years old.",
+      "audio_text": "She is fourteen years old.",
       "answer_audio_text": null,
-      "audio_turns": [
+      "prompt_image_url": "",
+      "spanish_translation": "Ella tiene catorce años.",
+      "pedagogy_note": "Story beat 06: She is fourteen years old."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "He is fifteen years old.",
+      "stage": "Speak",
+      "correct_option_id": "he-is-fifteen-years-old-speak",
+      "options": [
         {
-          "text": "How old are you?",
-          "speaker_role": "ana",
-          "image_url": "a1_scene_age-ana-asks-luis_4f56eef.webp"
-        },
-        {
-          "text": "I am eighteen years old.",
-          "speaker_role": "luis",
-          "image_url": "a1_scene_age-luis-answers-18_27d08d5.webp"
+          "id": "he-is-fifteen-years-old-speak",
+          "image_url": "a1_photo_u3_age_15_boy_v1.webp",
+          "label": "He is fifteen years old."
         }
       ],
+      "audio_text": "He is fifteen years old.",
+      "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Cuántos años tienes? Tengo dieciocho años.",
-      "pedagogy_note": "complete exchange; answer phrase was introduced structurally in L12"
+      "spanish_translation": "Él tiene quince años.",
+      "pedagogy_note": "Story beat 07: He is fifteen years old.",
+      "audio_speaker": "male-teacher"
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "___ ___ are you?",
+      "prompt": "How old ___ ___?",
       "stage": "Use",
-      "correct_option_id": "how",
+      "correct_option_id": "are",
       "options": [
         {
-          "id": "how",
-          "image_url": "",
-          "label": "How"
-        },
-        {
-          "id": "old",
-          "image_url": "",
-          "label": "old"
-        }
-      ],
-      "audio_text": "How old are you?",
-      "answer_audio_text": "How old are you?",
-      "prompt_image_url": "a1_scene_age-question-ana_8cb0ea5.webp",
-      "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "Unit 2 review",
-      "translation": "¿Cuántos años tienes?",
-      "correct_option_ids": [
-        "how",
-        "old"
-      ],
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "I am ___ ___ old.",
-      "stage": "Use",
-      "correct_option_id": "twenty",
-      "options": [
-        {
-          "id": "twenty",
-          "image_url": "",
-          "label": "twenty"
-        },
-        {
-          "id": "years",
-          "image_url": "",
-          "label": "years"
-        }
-      ],
-      "audio_text": "I am twenty years old.",
-      "answer_audio_text": "I am twenty years old.",
-      "prompt_image_url": "a1_scene_age-ana-20_7acc289.webp",
-      "spanish_translation": "Tengo veinte años.",
-      "pedagogy_note": "teen-number application",
-      "translation": "Tengo veinte años.",
-      "correct_option_ids": [
-        "twenty",
-        "years"
-      ],
-      "audio_speaker": "ana",
-      "answer_audio_speaker": "ana"
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "___ ___ are you?",
-      "stage": "Use",
-      "correct_option_id": "how",
-      "options": [
-        {
-          "id": "how",
-          "image_url": "",
-          "label": "How"
-        },
-        {
-          "id": "old",
-          "image_url": "",
-          "label": "old"
-        }
-      ],
-      "audio_text": "How old are you?",
-      "answer_audio_text": "How old are you?",
-      "prompt_image_url": "a1_scene_age-question-ana_8cb0ea5.webp",
-      "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "teen-number application",
-      "translation": "¿Cuántos años tienes?",
-      "correct_option_ids": [
-        "how",
-        "old"
-      ],
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "I am ___ ___ old.",
-      "stage": "Use",
-      "correct_option_id": "eighteen",
-      "options": [
-        {
-          "id": "eighteen",
-          "image_url": "",
-          "label": "eighteen"
-        },
-        {
-          "id": "years",
-          "image_url": "",
-          "label": "years"
-        }
-      ],
-      "audio_text": "I am eighteen years old.",
-      "answer_audio_text": "I am eighteen years old.",
-      "prompt_image_url": "a1_scene_age-question-ana_8cb0ea5.webp",
-      "spanish_translation": "Tengo dieciocho años.",
-      "pedagogy_note": "fixed question completion",
-      "audio_speaker": "luis",
-      "translation": "Tengo dieciocho años.",
-      "correct_option_ids": [
-        "eighteen",
-        "years"
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___?",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "How"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "old"
-        },
-        {
-          "id": "word-3",
+          "id": "are",
           "image_url": "",
           "label": "are"
         },
         {
-          "id": "word-4",
+          "id": "you",
           "image_url": "",
           "label": "you"
         }
       ],
       "audio_text": "How old are you?",
       "answer_audio_text": "How old are you?",
-      "prompt_image_url": "a1_scene_age-question-luis_c9558de.webp",
+      "prompt_image_url": "a1_scene_age-luis-asks-ana_132f348.webp",
       "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "be agreement",
-      "audio_speaker": "ana",
       "translation": "¿Cuántos años tienes?",
+      "correct_option_ids": [
+        "are",
+        "you"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 01: How old are you?",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "Eleven ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "years",
+      "options": [
+        {
+          "id": "years",
+          "image_url": "",
+          "label": "years"
+        },
+        {
+          "id": "old",
+          "image_url": "",
+          "label": "old"
+        }
+      ],
+      "audio_text": "Eleven years old.",
+      "answer_audio_text": "Eleven years old.",
+      "prompt_image_url": "a1_photo_u3_age_11_boy_v1.webp",
+      "spanish_translation": "Once años.",
+      "translation": "Once años.",
+      "correct_option_ids": [
+        "years",
+        "old"
+      ],
+      "pedagogy_note": "Story beat 02: Eleven years old."
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "years"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "He"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "thirteen"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "old"
+        }
+      ],
+      "audio_text": "He is thirteen years old.",
+      "answer_audio_text": "He is thirteen years old.",
+      "prompt_image_url": "a1_photo_u3_age_13_boy_v1.webp",
+      "spanish_translation": "Él tiene trece años.",
+      "translation": "Él tiene trece años.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
-      ]
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "male-teacher",
+      "pedagogy_note": "Story beat 03: He is thirteen years old.",
+      "audio_speaker": "male-teacher"
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "years"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "twelve"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "old"
+        }
+      ],
+      "audio_text": "I am twelve years old.",
+      "answer_audio_text": "I am twelve years old.",
+      "prompt_image_url": "a1_photo_u3_age_12_girl_v1.webp",
+      "spanish_translation": "Tengo doce años.",
+      "translation": "Tengo doce años.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 04: I am twelve years old.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "years"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "fourteen"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "old"
+        }
+      ],
+      "audio_text": "I am fourteen years old.",
+      "answer_audio_text": "I am fourteen years old.",
+      "prompt_image_url": "a1_photo_u3_age_14_girl_v1.webp",
+      "spanish_translation": "Tengo catorce años.",
+      "translation": "Tengo catorce años.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 05: I am fourteen years old.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U6",
@@ -947,19 +1159,9 @@
       "correct_option_id": "word-1",
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "am"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "twenty"
         },
         {
           "id": "word-4",
@@ -967,52 +1169,14 @@
           "label": "years"
         },
         {
-          "id": "word-5",
-          "image_url": "",
-          "label": "old"
-        }
-      ],
-      "audio_text": "I am twenty years old.",
-      "answer_audio_text": "I am twenty years old.",
-      "prompt_image_url": "a1_scene_age-ana-20_7acc289.webp",
-      "spanish_translation": "Tengo veinte años.",
-      "pedagogy_note": "age answer",
-      "audio_speaker": "ana",
-      "translation": "Tengo veinte años.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ]
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
           "id": "word-1",
           "image_url": "",
           "label": "I"
         },
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "am"
-        },
-        {
           "id": "word-3",
           "image_url": "",
-          "label": "eighteen"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "years"
+          "label": "fifteen"
         },
         {
           "id": "word-5",
@@ -1020,68 +1184,21 @@
           "label": "old"
         }
       ],
-      "audio_text": "I am eighteen years old.",
-      "answer_audio_text": "I am eighteen years old.",
-      "prompt_image_url": "a1_scene_age-luis-18_7f71348.webp",
-      "spanish_translation": "Tengo dieciocho años.",
-      "pedagogy_note": "age answer",
-      "audio_speaker": "luis",
-      "translation": "Tengo dieciocho años.",
+      "audio_text": "I am fifteen years old.",
+      "answer_audio_text": "I am fifteen years old.",
+      "prompt_image_url": "a1_photo_u3_age_15_boy_v1.webp",
+      "spanish_translation": "Tengo quince años.",
+      "translation": "Tengo quince años.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4",
         "word-5"
-      ]
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "am"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "twenty"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "years"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "old"
-        }
       ],
-      "audio_text": "I am twenty years old.",
-      "answer_audio_text": "I am twenty years old.",
-      "prompt_image_url": "a1_scene_age-ana-20_7acc289.webp",
-      "spanish_translation": "Tengo veinte años.",
-      "pedagogy_note": "3.3 review",
-      "audio_speaker": "ana",
-      "translation": "Tengo veinte años.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ]
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 06: I am fifteen years old.",
+      "audio_speaker": "male-character"
     }
   ]
 }

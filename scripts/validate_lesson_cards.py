@@ -121,6 +121,9 @@ SEMANTIC_ASSET_ACTION_ADDITIONS = {
     "a1_u1_reunion_16_not_eating": {"drinking"},
     "a1_u1_reunion_17_not_reading": {"writing"},
     "a1_u1_reunion_18_not_running": {"sitting"},
+    # Inspected 2026-09-25: the single baby sits on the rug. A trailing "$" matches
+    # the whole filename stem, so family_baby_sleeping is not affected.
+    "family_baby$": {"sitting"},
 }
 # These are explicit facts of the authored Unit 1 scenes, not conclusions drawn
 # from the absence of a word in a filename. Talking and sitting can coexist.
@@ -133,7 +136,13 @@ SEMANTIC_ASSET_NEGATIVE_ACTIONS = {
     "a1_u1_reunion_16_not_eating": {"eating"},
     "a1_u1_reunion_17_not_reading": {"reading"},
     "a1_u1_reunion_18_not_running": {"running"},
+    # Inspected 2026-09-25 for the Unit 3 yes/no answers: the boy swims, the girl
+    # reads awake on the sofa, and both babies sit upright awake.
+    "boy_is_swimming": {"eating"},
+    "girl_is_reading": {"sleeping"},
+    "family_babies": {"sleeping"},
 }
+OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country"})
 SEMANTIC_RELATED_GROUP_MARKERS = (
     "family_adults",
     "family_babies",
@@ -215,7 +224,7 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
 )
 MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
-    "lesson-3-10-introduction-mission": 13,
+    "lesson-3-10-introduction-mission": 14,
     "lesson-4-10-my-day-mission": 13,
     "lesson-5-10-cafe-mission": 13,
     "lesson-6-10-town-mission": 13,
@@ -249,7 +258,8 @@ MISSION_REQUIRED_INTERACTIONS = {
 }
 MISSION_HERO_PREFIXES = {
     "lesson-10-family-mission": "a1_u1_reunion_",
-    "lesson-3-10-introduction-mission": "a1_u3_dinner_v1_",
+    # The 2026-09-25 rebuild added the Is it yours? gate on two a1_u3_dinner_v2_ edits.
+    "lesson-3-10-introduction-mission": ("a1_u3_dinner_v1_", "a1_u3_dinner_v2_"),
     # Every rebuilt beat uses the a1_u4_home_v1_ namespace; the six-o'clock answer view is the
     # mission-only still this gate already owned.
     "lesson-4-10-my-day-mission": ("a1_u4_home_v1_", "a1_u4_mission_clock_six_v3.webp"),
@@ -307,7 +317,7 @@ MISSION_KIND_SEQUENCE = {
     "lesson-3-10-introduction-mission": [
         "guided-search", "crowd-search", "crowd-search", "crowd-search",
         "action-hunt", "crowd-search", "crowd-search", "crowd-search", "contrast-hunt",
-        "voice-gate", "voice-gate", "voice-gate", "voice-gate",
+        "voice-gate", "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-4-10-my-day-mission": [
         "guided-search", "crowd-search", "crowd-search",
@@ -337,7 +347,7 @@ MISSION_CHAPTER_SEQUENCE = {
         + ["welcome-everyone"] * 4
     ),
     "lesson-3-10-introduction-mission": (
-        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["table-talk"] * 4
+        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["table-talk"] * 5
     ),
     "lesson-4-10-my-day-mission": (
         ["cuartos"] * 3 + ["objetos"] + ["rutina"] * 3 + ["casa"] * 2 + ["confirma"] * 4
@@ -1038,6 +1048,31 @@ def _semantic_details(text: str) -> frozenset[str]:
         for word in ('red', 'green', 'yellow', 'blue'):
             if word in tokens:
                 details.add('color:' + word)
+    # Ages and origins (Unit 3). A picture states them in its filename
+    # (a1_photo_u3_age_16_girl, children_american); a sentence states them in
+    # words, and "is not sixteen" denies one.
+    number_words = ('eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen',
+                    'eighteen', 'nineteen', 'twenty')
+    lowered = text.lower().replace('_', ' ')
+    numbers = '|'.join(number_words)
+    if 'age' in tokens:
+        for number in re.findall(r'(?<![0-9])(1[1-9]|20)(?![0-9])', lowered):
+            details.add('age:' + number_words[int(number) - 11])
+    for negated, word in re.findall(rf"\b(?:is|am|are)\s+(not\s+)?({numbers})\b", lowered):
+        details.add(('not:' if negated else '') + 'age:' + word)
+    for word in re.findall(rf"\b({numbers})\s+years\s+old\b", lowered):
+        details.add('age:' + word)
+    nationalities = 'mexican|american|canadian|spanish'
+    for negated, word in re.findall(rf"\b(?:is|am|are)\s+(not\s+)?({nationalities})\b", lowered):
+        details.add(('not:' if negated else '') + 'nationality:' + word)
+    if not re.search(r"\b(?:is|am|are)\b", lowered):
+        for word in re.findall(rf"\b({nationalities})\b", lowered):
+            details.add('nationality:' + word)
+    for country in ('mexico', 'canada', 'spain', 'the united states'):
+        for negated in re.findall(rf"\b(?:(not)\s+)?from\s+{country}\b", lowered):
+            details.add(('not:' if negated else '') + 'country:' + country.replace(' ', '-'))
+        if not re.search(r"\bfrom\b", lowered) and re.search(rf"\b{country}\b", lowered):
+            details.add('country:' + country.replace(' ', '-'))
     if tokens & {'want', 'wants'}:
         details.add('predicate:want')
     if tokens & {'need', 'needs'}:
@@ -1080,12 +1115,15 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
     tokens = set(re.split(r"[^a-z]+", stem))
     details = _semantic_details(stem)
     actions = {action for action in SEMANTIC_ACTIONS if action in tokens}
+    def marks(marker: str) -> bool:
+        return stem == marker[:-1] if marker.endswith("$") else marker in stem
+
     for marker, additional_actions in SEMANTIC_ASSET_ACTION_ADDITIONS.items():
-        if marker in stem:
+        if marks(marker):
             actions.update(additional_actions)
     negative_actions: set[str] = set()
     for marker, excluded_actions in SEMANTIC_ASSET_NEGATIVE_ACTIONS.items():
-        if marker in stem:
+        if marks(marker):
             negative_actions.update(excluded_actions)
     related_group_concepts = (
         {"family"}
@@ -1425,9 +1463,23 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
     return None
 
 
+YES_NO_EXCHANGE = re.compile(
+    r"^\s*(is|are|am)\s+(he|she|it|they|you|i|the\s+[a-z]+)\s+([^?]+?)\s*\?\s*(yes|no)\s*,\s*"
+    r"(?:he|she|it|they|i|we)\s+(?:is|are|am)(\s+not)?\s*[.!]?\s*$", re.I)
+
+
+def _answered_question(text: str) -> str:
+    """A yes/no exchange asserts its answer: "Is he eating? No, he is not." -> "he is not eating"."""
+    found = YES_NO_EXCHANGE.match(text)
+    if not found:
+        return text
+    verb, subject, predicate, answer, _denied = found.groups()
+    return f"{subject} {verb} {'not ' if answer.lower() == 'no' else ''}{predicate}."
+
+
 def _semantic_clauses(text: str | None) -> tuple[SemanticClause, ...]:
     clauses: list[SemanticClause] = []
-    for raw_clause in re.split(r"[.!?/]+", str(text or "")):
+    for raw_clause in re.split(r"[.!?/]+", _answered_question(str(text or ""))):
         clause = re.sub(r"\s+", " ", raw_clause.strip().lower())
         if not clause or clause.startswith("who "):
             continue
@@ -1560,7 +1612,19 @@ def _clause_matches_referent(clause: SemanticClause, referent: VisualReferent) -
         return False
     if not clause.negative_actions.issubset(referent.negative_actions):
         return False
-    if not clause.details.issubset(referent.details):
+    for detail in clause.details - referent.details:
+        denied = detail.startswith('not:')
+        if denied:
+            # A denial fails only against a picture that states the denied fact.
+            continue
+        category = detail.split(':', 1)[0]
+        # Missing metadata is not evidence: an age or origin only counts against a
+        # picture that states one of its own.
+        if category in OPTIONAL_DETAIL_CATEGORIES and not any(
+                known.startswith(category + ':') for known in referent.details):
+            continue
+        return False
+    if any(detail.startswith('not:') and detail[4:] in referent.details for detail in clause.details):
         return False
     return True
 
@@ -2198,6 +2262,8 @@ USE_IMAGE_WORD_SUPPORT = {
     "dollar": {"cost", "money", "price"},
     "drink": {"coffee", "juice", "milk", "tea", "water"},
     "food": {"bread", "chicken", "egg", "fish", "rice"},
+    # Registration number cards are described by the numeral they show.
+    "number": {"numeral"},
     "fruit": {"apple", "banana", "grape", "orange", "strawberry"},
     "old": {"age"},
     "people": {"boy", "family", "girl", "man", "person", "woman"},
@@ -2346,6 +2412,11 @@ def find_use_prompt_image_mismatches(
             sentence = str(
                 getattr(card, "answer_audio_text", None) or getattr(card, "audio_text", None) or ""
             ).strip()
+            # A "No" answer names what the picture deliberately does not show
+            # ("Is he eating? No, he is not." over a swimming boy); like any
+            # polarity, it is left to human semantic review.
+            if _answered_question(sentence) != sentence and re.search(r"\?\s*no\b", sentence, re.I):
+                continue
             content = _use_image_tokens(sentence) - USE_SENTENCE_FUNCTION_WORDS
             if not content:
                 continue

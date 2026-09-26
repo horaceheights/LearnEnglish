@@ -164,14 +164,29 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Am, is y are en frases conocidas.',
     color: '#e5eefb',
   },
+  'lesson-3-yes-no-questions': {
+    image: 'a1_photo_u3_yes_v1.webp',
+    description: 'Preguntas de sí o no con am, is y are.',
+    color: '#e5eefb',
+  },
   'lesson-3-4-age': {
-    image: 'a1_scene_n20_b3be26c.webp',
-    description: 'Pregunta y responde la edad.',
+    image: 'a1_photo_u3_age_12_girl_v1.webp',
+    description: 'Edades de 11 a 15.',
+    color: '#e5eefb',
+  },
+  'lesson-3-age-16-20': {
+    image: 'a1_photo_u3_age_16_girl_v1.webp',
+    description: 'Edades de 16 a 20.',
     color: '#e5eefb',
   },
   'lesson-3-5-countries-and-nationalities': {
     image: 'a1_scene_mexico-country_c17ee27.webp',
-    description: 'Países, nacionalidades y origen.',
+    description: 'México y Estados Unidos: ¿de dónde eres?',
+    color: '#e5eefb',
+  },
+  'lesson-3-canada-and-spain': {
+    image: 'a1_scene_canada-country_3aa8b25.webp',
+    description: 'Canadá y España: país y nacionalidad.',
     color: '#e5eefb',
   },
   'lesson-3-6-professions': {
@@ -184,9 +199,14 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Expresa a quién pertenece algo.',
     color: '#e5eefb',
   },
+  'lesson-3-our-their': {
+    image: 'a1_photo_u3_their_house_v1.webp',
+    description: 'Our, their y el posesivo ’s.',
+    color: '#e5eefb',
+  },
   'lesson-3-8-have-and-has': {
     image: 'a1_scene_you-have-phone_6017478.webp',
-    description: 'Posesión sencilla con have y has.',
+    description: 'Have, has, mine y yours.',
     color: '#e5eefb',
   },
   'lesson-3-9-unit-3-review': {

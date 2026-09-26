@@ -1,7 +1,11 @@
 {
   "brief_version": 1,
   "captions": false,
-  "note": "2026-09-25 Unit 3 rebuild: Learn holds have, has, mine and yours; possession sentences are practice, bringing back the Unit 1 children, the Unit 2 colors and the yes/no question Is it yours?. Mine and yours are shown in one story: Ana finds a phone, asks Luis, and hands a book to him.",
+  "narrators": [
+    "teacher",
+    "male-teacher"
+  ],
+  "note": "2026-09-25 Unit 3 rebuild: Learn holds have, has, mine and yours; possession sentences are practice, bringing back Unit 2 objects, numbers and the yes/no question Is it yours?. Mine and yours are shown in one story: Ana finds a phone, asks Luis, and hands a book to him.",
   "target": "backend/lessons/unit_3/lesson-3-8-have-and-has.yaml",
   "lesson": {
     "id": "lesson-3-8-have-and-has",
@@ -123,19 +127,9 @@
       "kind": "have-they",
       "learn": false,
       "four_card": false,
+      "image_choices": false,
       "prefer": [
         "They have books."
-      ]
-    },
-    {
-      "text": "They have books.",
-      "es": "Ellos tienen libros.",
-      "image": "/lesson-assets/they_boy_girl_are_reading.webp",
-      "kind": "have-they",
-      "learn": false,
-      "four_card": false,
-      "prefer": [
-        "They have bags."
       ]
     },
     {
@@ -201,5 +195,11 @@
       ]
     }
   ],
-  "pool": []
+  "pool": [
+    {
+      "text": "They have books.",
+      "es": "Ellos tienen libros.",
+      "kind": "have-they"
+    }
+  ]
 }

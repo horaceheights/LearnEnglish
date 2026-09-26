@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-3",
   "unit_title": "Unit 3: Me and Other People",
-  "unit_outcome": "Use tightly supported exchanges to give a name and limited age/origin/job information and describe simple possession.",
+  "unit_outcome": "Use tightly supported exchanges to greet people and give a name, age, origin and job, ask and answer yes/no questions with be, and describe who owns things.",
   "lesson_id": "lesson-3",
   "lesson_title": "Unit 3: Me and Other People",
   "sub_lesson_id": "3.1",
   "sub_lesson_title": "Greetings and Names",
-  "goal": "Recognize and use three greetings/closings plus the fixed name question and answer chunks.",
+  "goal": "Recognize and use three greetings plus the fixed name question and answer.",
   "vocabulary": [
     "hello",
     "good morning",
@@ -23,17 +23,30 @@
     "man",
     "woman",
     "Who is he?",
-    "Who is she?",
-    "book",
-    "phone"
+    "Who is she?"
   ],
-  "grammar_function": "My and your are learned only inside fixed name chunks; possessive substitution is not tested until 3.7.",
+  "grammar_function": "My and your are learned only inside the fixed name chunks; possessive substitution waits for 3.10.",
   "prerequisite": "Unit 1 identity questions and Unit 2 text/audio choice routines.",
-  "speaking_outcome": "Repeat a greeting, ask What is your name?, answer with a scenario name, and close with Goodbye.",
+  "speaking_outcome": "Repeat a greeting, ask What is your name?, answer with a name, and close with Goodbye.",
   "purposeful_review_slides": [
+    "R4",
+    "R5",
     "R7",
     "R8",
-    "N6",
+    "R9",
+    "R11",
+    "R12",
+    "A4",
+    "A5",
+    "A7",
+    "A8",
+    "A9",
+    "S2",
+    "S3",
+    "S5",
+    "S6",
+    "S7",
+    "U3",
     "U6"
   ],
   "cards": [
@@ -42,10 +55,10 @@
       "interaction_type": "teach",
       "prompt": "Hello.",
       "stage": "Learn",
-      "correct_option_id": "hello-1",
+      "correct_option_id": "hello-learn",
       "options": [
         {
-          "id": "hello-1",
+          "id": "hello-learn",
           "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
           "label": "Hello."
         }
@@ -54,14 +67,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
-      "pedagogy_note": "introduces hello",
+      "pedagogy_note": "Story beat 01: Hello.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
-      "audio_revision": 2,
-      "answer_audio_revision": 2,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c001-prompt-ac3a343d313d0ea983c8",
+          "id": "lesson-3-1-greetings-and-names-c001-prompt-acbc3eb5984a05447003",
           "purpose": "prompt",
           "text": "Hello.",
           "mode": "prompt",
@@ -70,10 +83,10 @@
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 2
+          "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c001-answer-07dc5ae035689d3e1570",
+          "id": "lesson-3-1-greetings-and-names-c001-answer-db9e6da8bacc2d73c797",
           "purpose": "answer",
           "text": "Hello.",
           "mode": "prompt",
@@ -82,68 +95,19 @@
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 2
+          "revision": 1
         }
       ]
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Hello.",
-      "stage": "Learn",
-      "correct_option_id": "hello-1",
-      "options": [
-        {
-          "id": "hello-1",
-          "image_url": "/lesson-assets/a1_scene_hello-luis-speaker_3e5e175.webp",
-          "label": "Hello."
-        }
-      ],
-      "audio_text": "Hello.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hola.",
-      "pedagogy_note": "second speaker/context",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c002-prompt-6c83003e874cdf2052a9",
-          "purpose": "prompt",
-          "text": "Hello.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_hello-luis-speaker_3e5e175.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c002-answer-55ab6d09b80872db2974",
-          "purpose": "answer",
-          "text": "Hello.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_hello-luis-speaker_3e5e175.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
       "prompt": "Good morning.",
       "stage": "Learn",
-      "correct_option_id": "good-morning-1",
+      "correct_option_id": "good-morning-learn",
       "options": [
         {
-          "id": "good-morning-1",
+          "id": "good-morning-learn",
           "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
           "label": "Good morning."
         }
@@ -152,14 +116,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Buenos d\u00edas.",
-      "pedagogy_note": "introduces morning greeting with time cue",
+      "pedagogy_note": "Story beat 02: Good morning.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c003-prompt-5d24b84fab71b03173a6",
+          "id": "lesson-3-1-greetings-and-names-c002-prompt-3f3a804d25ccb1237032",
           "purpose": "prompt",
           "text": "Good morning.",
           "mode": "prompt",
@@ -171,7 +135,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c003-answer-37bf530b861ba785efc0",
+          "id": "lesson-3-1-greetings-and-names-c002-answer-c19085ee8abe345998e7",
           "purpose": "answer",
           "text": "Good morning.",
           "mode": "prompt",
@@ -185,14 +149,14 @@
       ]
     },
     {
-      "slide_id": "L4",
+      "slide_id": "L3",
       "interaction_type": "teach",
       "prompt": "Goodbye.",
       "stage": "Learn",
-      "correct_option_id": "goodbye-1",
+      "correct_option_id": "goodbye-learn",
       "options": [
         {
-          "id": "goodbye-1",
+          "id": "goodbye-learn",
           "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": "Goodbye."
         }
@@ -201,14 +165,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Adi\u00f3s.",
-      "pedagogy_note": "introduces closing with departure cue",
+      "pedagogy_note": "Story beat 03: Goodbye.",
       "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c004-prompt-8741812cecbabf1f645c",
+          "id": "lesson-3-1-greetings-and-names-c003-prompt-82902259168c1a17b97e",
           "purpose": "prompt",
           "text": "Goodbye.",
           "mode": "prompt",
@@ -220,12 +184,61 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c004-answer-b658f7fdde919f2c0e01",
+          "id": "lesson-3-1-greetings-and-names-c003-answer-d2e04ff463cc52f1d0c6",
           "purpose": "answer",
           "text": "Goodbye.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "What is your name?",
+      "stage": "Learn",
+      "correct_option_id": "what-is-your-name-learn",
+      "options": [
+        {
+          "id": "what-is-your-name-learn",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "label": "What is your name?"
+        }
+      ],
+      "audio_text": "What is your name?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
+      "pedagogy_note": "Story beat 04: What is your name?",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c004-prompt-2d453d72acc3eb6c1bc5",
+          "purpose": "prompt",
+          "text": "What is your name?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c004-answer-193e3293f3c1cfd5ec57",
+          "purpose": "answer",
+          "text": "What is your name?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
           "semantic_role": "answer",
           "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -236,61 +249,12 @@
     {
       "slide_id": "L5",
       "interaction_type": "teach",
-      "prompt": "What is your name?",
-      "stage": "Learn",
-      "correct_option_id": "what-is-your-name-1",
-      "options": [
-        {
-          "id": "what-is-your-name-1",
-          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "label": "What is your name?"
-        }
-      ],
-      "audio_text": "What is your name?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
-      "pedagogy_note": "fixed chunk; no possessive analysis",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c005-prompt-3a0cd6000edc4608eee9",
-          "purpose": "prompt",
-          "text": "What is your name?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c005-answer-d21ddd4b976c610b889d",
-          "purpose": "answer",
-          "text": "What is your name?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L6",
-      "interaction_type": "teach",
       "prompt": "My name is Ana.",
       "stage": "Learn",
-      "correct_option_id": "my-name-is-ana-1",
+      "correct_option_id": "my-name-is-ana-learn",
       "options": [
         {
-          "id": "my-name-is-ana-1",
+          "id": "my-name-is-ana-learn",
           "image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
           "label": "My name is Ana."
         }
@@ -299,14 +263,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Me llamo Ana.",
-      "pedagogy_note": "fixed answer chunk",
+      "pedagogy_note": "Story beat 05: My name is Ana.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c006-prompt-6587f77088ff445d9c87",
+          "id": "lesson-3-1-greetings-and-names-c005-prompt-4204fedc252011d694fb",
           "purpose": "prompt",
           "text": "My name is Ana.",
           "mode": "prompt",
@@ -318,7 +282,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c006-answer-64da16090accb2df2211",
+          "id": "lesson-3-1-greetings-and-names-c005-answer-20972b52495a2883cc19",
           "purpose": "answer",
           "text": "My name is Ana.",
           "mode": "prompt",
@@ -326,128 +290,6 @@
           "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "What is your name? My name is Ana.",
-      "stage": "Learn",
-      "correct_option_id": "what-is-your-name-my-name-is-ana-1",
-      "options": [
-        {
-          "id": "what-is-your-name-my-name-is-ana-1",
-          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "label": "What is your name? My name is Ana."
-        }
-      ],
-      "audio_text": "What is your name? My name is Ana.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfC\u00f3mo te llamas? Me llamo Ana.",
-      "pedagogy_note": "complete exchange",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "What is your name?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp"
-        },
-        {
-          "text": "My name is Ana.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp"
-        }
-      ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c007-prompt-turn-1-f1d4d46e7cedf1763ef2",
-          "purpose": "prompt-turn-1",
-          "text": "What is your name?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c007-prompt-turn-2-0ce551737d5d97462907",
-          "purpose": "prompt-turn-2",
-          "text": "My name is Ana.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "What is your name? My name is Luis.",
-      "stage": "Learn",
-      "correct_option_id": "what-is-your-name-my-name-is-luis-1",
-      "options": [
-        {
-          "id": "what-is-your-name-my-name-is-luis-1",
-          "image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
-          "label": "What is your name? My name is Luis."
-        }
-      ],
-      "audio_text": "What is your name? My name is Luis.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfC\u00f3mo te llamas? Me llamo Luis.",
-      "pedagogy_note": "complete exchange with second name",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "What is your name?",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp"
-        },
-        {
-          "text": "My name is Luis.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp"
-        }
-      ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c008-prompt-turn-1-e91e4a18eb4b4a7c9358",
-          "purpose": "prompt-turn-1",
-          "text": "What is your name?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
-          "semantic_role": "question",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c008-prompt-turn-2-0d88c5bb99ce18082781",
-          "purpose": "prompt-turn-2",
-          "text": "My name is Luis.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -458,16 +300,16 @@
       "interaction_type": "t2i2",
       "prompt": "Hello.",
       "stage": "Recognize",
-      "correct_option_id": "hello-ana-1",
+      "correct_option_id": "hello-r1",
       "options": [
         {
-          "id": "hello-ana-1",
-          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "id": "goodbye-r1",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         },
         {
-          "id": "goodbye-luis-2",
-          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "id": "hello-r1",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
           "label": null
         }
       ],
@@ -475,14 +317,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
-      "pedagogy_note": "arrival vs departure; do not pair hello with good morning because both can be true",
+      "pedagogy_note": "Story beat 01: Hello.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c009-prompt-cbd63edb0982adb944fc",
+          "id": "lesson-3-1-greetings-and-names-c006-prompt-9c3acf595268cd71ca4d",
           "purpose": "prompt",
           "text": "Hello.",
           "mode": "prompt",
@@ -494,7 +336,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c009-answer-a6fc12c0a6f9af8b934c",
+          "id": "lesson-3-1-greetings-and-names-c006-answer-5db1fce5dc684625758f",
           "purpose": "answer",
           "text": "Hello.",
           "mode": "prompt",
@@ -510,71 +352,17 @@
     {
       "slide_id": "R2",
       "interaction_type": "t2i2",
-      "prompt": "Goodbye.",
-      "stage": "Recognize",
-      "correct_option_id": "goodbye-luis-1",
-      "options": [
-        {
-          "id": "goodbye-luis-1",
-          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "label": null
-        },
-        {
-          "id": "hello-luis-2",
-          "image_url": "/lesson-assets/a1_scene_hello-luis-speaker_3e5e175.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Goodbye.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Adi\u00f3s.",
-      "pedagogy_note": "departure cue",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c010-prompt-4f8c86a5d1bff1fa52a0",
-          "purpose": "prompt",
-          "text": "Goodbye.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c010-answer-5a7320531f590c351f0d",
-          "purpose": "answer",
-          "text": "Goodbye.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "t2i2",
       "prompt": "Good morning.",
       "stage": "Recognize",
-      "correct_option_id": "morning-ana-2",
+      "correct_option_id": "good-morning-r2",
       "options": [
         {
-          "id": "goodbye-luis-1",
+          "id": "goodbye-r2",
           "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         },
         {
-          "id": "morning-ana-2",
+          "id": "good-morning-r2",
           "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
           "label": null
         }
@@ -583,14 +371,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Buenos d\u00edas.",
-      "pedagogy_note": "morning time cue plus greeting posture",
+      "pedagogy_note": "Story beat 02: Good morning.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c011-prompt-0f4332759d46b3b3e5f9",
+          "id": "lesson-3-1-greetings-and-names-c007-prompt-9165fcde12e6fd0d4132",
           "purpose": "prompt",
           "text": "Good morning.",
           "mode": "prompt",
@@ -602,7 +390,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c011-answer-06c156d5dfc48e85bb6b",
+          "id": "lesson-3-1-greetings-and-names-c007-answer-0c4c52b0ab39095a7f33",
           "purpose": "answer",
           "text": "Good morning.",
           "mode": "prompt",
@@ -616,47 +404,185 @@
       ]
     },
     {
-      "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "What is your name?",
+      "slide_id": "R3",
+      "interaction_type": "t2i2",
+      "prompt": "Goodbye.",
       "stage": "Recognize",
-      "correct_option_id": "my-name-is-ana-2",
+      "correct_option_id": "goodbye-r3",
       "options": [
         {
-          "id": "my-name-is-luis-1",
-          "image_url": "",
-          "label": "My name is Luis."
+          "id": "goodbye-r3",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
         },
         {
-          "id": "my-name-is-ana-2",
-          "image_url": "",
-          "label": "My name is Ana."
+          "id": "hello-r3",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "label": null
         }
       ],
-      "audio_text": "What is your name?",
-      "answer_audio_text": "My name is Ana.",
-      "prompt_image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
-      "pedagogy_note": "question shown/played before choices; play chosen answer only after correct selection",
+      "audio_text": "Goodbye.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Adi\u00f3s.",
+      "pedagogy_note": "Story beat 03: Goodbye.",
       "audio_speaker": "luis",
-      "answer_audio_speaker": "ana",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c012-prompt-162fd2bb1da0e572e663",
+          "id": "lesson-3-1-greetings-and-names-c008-prompt-12d15b2e0dacc32b42b9",
           "purpose": "prompt",
-          "text": "What is your name?",
+          "text": "Goodbye.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-          "semantic_role": "question",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "teacher",
           "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c012-answer-28cc34713522425e2a9a",
+          "id": "lesson-3-1-greetings-and-names-c008-answer-7c3c534aae528a20f935",
+          "purpose": "answer",
+          "text": "Goodbye.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "hello-luis-r4",
+      "options": [
+        {
+          "id": "goodbye-ana-r4",
+          "image_url": "",
+          "label": "Goodbye, Ana."
+        },
+        {
+          "id": "hello-luis-r4",
+          "image_url": "",
+          "label": "Hello, Luis."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Hello, Luis.",
+      "prompt_image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: Hello, Luis.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c009-answer-c038d19ef4a3f701d4ff",
+          "purpose": "answer",
+          "text": "Hello, Luis.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
+      "prompt": "Goodbye, Ana.",
+      "stage": "Recognize",
+      "correct_option_id": "goodbye-ana-r5",
+      "options": [
+        {
+          "id": "hello-luis-r5",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "label": null
+        },
+        {
+          "id": "goodbye-ana-r5",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Goodbye, Ana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Adi\u00f3s, Ana.",
+      "pedagogy_note": "Story beat 05: Goodbye, Ana.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c010-prompt-cf89d4850eb8fb06f94d",
+          "purpose": "prompt",
+          "text": "Goodbye, Ana.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c010-answer-1f98d7056c04d6bfc5dd",
+          "purpose": "answer",
+          "text": "Goodbye, Ana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "my-name-is-ana-r6",
+      "options": [
+        {
+          "id": "my-name-is-ana-r6",
+          "image_url": "",
+          "label": "My name is Ana."
+        },
+        {
+          "id": "my-name-is-luis-r6",
+          "image_url": "",
+          "label": "My name is Luis."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "My name is Ana.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: My name is Ana.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c011-answer-a58cd8a0df904b50d886",
           "purpose": "answer",
           "text": "My name is Ana.",
           "mode": "prompt",
@@ -670,47 +596,47 @@
       ]
     },
     {
-      "slide_id": "R5",
-      "interaction_type": "i2t2",
-      "prompt": "What is your name?",
+      "slide_id": "R7",
+      "interaction_type": "t2i2",
+      "prompt": "My name is Luis.",
       "stage": "Recognize",
-      "correct_option_id": "my-name-is-luis-1",
+      "correct_option_id": "my-name-is-luis-r7",
       "options": [
         {
-          "id": "my-name-is-luis-1",
-          "image_url": "",
-          "label": "My name is Luis."
+          "id": "my-name-is-luis-r7",
+          "image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "label": null
         },
         {
-          "id": "my-name-is-ana-2",
-          "image_url": "",
-          "label": "My name is Ana."
+          "id": "my-name-is-ana-r7",
+          "image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+          "label": null
         }
       ],
-      "audio_text": "What is your name?",
-      "answer_audio_text": "My name is Luis.",
-      "prompt_image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
-      "pedagogy_note": "name badge makes referent explicit",
-      "audio_speaker": null,
-      "answer_audio_speaker": "luis",
+      "audio_text": "My name is Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me llamo Luis.",
+      "pedagogy_note": "Story beat 07: My name is Luis.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c013-prompt-6f2cf4dc38423123287b",
+          "id": "lesson-3-1-greetings-and-names-c012-prompt-33c09f29b43db86f4af3",
           "purpose": "prompt",
-          "text": "What is your name?",
+          "text": "My name is Luis.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c013-answer-f173d7cac77c0e5650e1",
+          "id": "lesson-3-1-greetings-and-names-c012-answer-3ed58d7cc846ac866eec",
           "purpose": "answer",
           "text": "My name is Luis.",
           "mode": "prompt",
@@ -724,33 +650,28 @@
       ]
     },
     {
-      "slide_id": "R6",
-      "interaction_type": "i2t4",
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "what-is-your-name-my-name-is-ana-3",
+      "correct_option_id": "what-is-your-name-my-name-is-ana-r8",
       "options": [
         {
-          "id": "what-is-your-name-my-name-is-luis-1",
-          "image_url": "",
-          "label": "What is your name? My name is Luis."
-        },
-        {
-          "id": "goodbye-my-name-is-ana-2",
-          "image_url": "",
-          "label": "Goodbye. My name is Ana."
-        },
-        {
-          "id": "what-is-your-name-my-name-is-ana-3",
+          "id": "what-is-your-name-my-name-is-ana-r8",
           "image_url": "",
           "label": "What is your name? My name is Ana."
+        },
+        {
+          "id": "what-is-your-name-my-name-is-luis-r8",
+          "image_url": "",
+          "label": "What is your name? My name is Luis."
         }
       ],
       "audio_text": "",
       "answer_audio_text": "What is your name? My name is Ana.",
       "prompt_image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-      "spanish_translation": "Elige las palabras.",
-      "pedagogy_note": "only fixed chunks tested; last option uses known Who but is not the pictured exchange",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: What is your name? My name is Ana.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "answer_audio_turns": [
@@ -769,7 +690,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c014-answer-turn-1-9ee013eeb48efbd6323b",
+          "id": "lesson-3-1-greetings-and-names-c013-answer-turn-1-a491ea9c40ec62bdfcbd",
           "purpose": "answer-turn-1",
           "text": "What is your name?",
           "mode": "prompt",
@@ -781,7 +702,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c014-answer-turn-2-6d5bdebc033ecffdac8f",
+          "id": "lesson-3-1-greetings-and-names-c013-answer-turn-2-822667ceb4c007bd539f",
           "purpose": "answer-turn-2",
           "text": "My name is Ana.",
           "mode": "prompt",
@@ -795,700 +716,28 @@
       ]
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "i2t2",
-      "prompt": "Who is he?",
-      "stage": "Recognize",
-      "correct_option_id": "he-is-luis-1",
-      "options": [
-        {
-          "id": "he-is-luis-1",
-          "image_url": "",
-          "label": "He is Luis."
-        },
-        {
-          "id": "she-is-ana-2",
-          "image_url": "",
-          "label": "She is Ana."
-        }
-      ],
-      "audio_text": "Who is he?",
-      "answer_audio_text": "He is Luis.",
-      "prompt_image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-      "spanish_translation": "\u00bfQui\u00e9n es \u00e9l?",
-      "pedagogy_note": "Unit 1 identity review with established scenario names",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c015-prompt-913b383c340e45c92982",
-          "purpose": "prompt",
-          "text": "Who is he?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c015-answer-11d0c8cb9d50a358d9f2",
-          "purpose": "answer",
-          "text": "He is Luis.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "What is it?",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-a-book-2",
-      "options": [
-        {
-          "id": "it-is-a-phone-1",
-          "image_url": "",
-          "label": "It is a phone."
-        },
-        {
-          "id": "it-is-a-book-2",
-          "image_url": "",
-          "label": "It is a book."
-        }
-      ],
-      "audio_text": "What is it?",
-      "answer_audio_text": "It is a book.",
-      "prompt_image_url": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
-      "spanish_translation": "\u00bfQu\u00e9 es?",
-      "pedagogy_note": "Unit 2 delayed review",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c016-prompt-8d42c8552703bc7d5781",
-          "purpose": "prompt",
-          "text": "What is it?",
-          "mode": "prompt",
-          "variant": "question",
-          "image_ref": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c016-answer-d796068ed62c4d2de74e",
-          "purpose": "answer",
-          "text": "It is a book.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "hello-ana-2",
-      "options": [
-        {
-          "id": "goodbye-luis-1",
-          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "label": null
-        },
-        {
-          "id": "hello-ana-2",
-          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Hello.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden; arrival/departure contrast",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c017-prompt-2ba10564800d92787a3d",
-          "purpose": "prompt",
-          "text": "Hello.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c017-answer-31bc4d9f2c84a5c84a37",
-          "purpose": "answer",
-          "text": "Hello.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "morning-ana-1",
-      "options": [
-        {
-          "id": "morning-ana-1",
-          "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
-          "label": null
-        },
-        {
-          "id": "goodbye-luis-2",
-          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Good morning.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c018-prompt-b1ad021b3f470c9bcb7d",
-          "purpose": "prompt",
-          "text": "Good morning.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c018-answer-f0a8b8125479bd1de92a",
-          "purpose": "answer",
-          "text": "Good morning.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "goodbye-luis-2",
-      "options": [
-        {
-          "id": "hello-luis-1",
-          "image_url": "/lesson-assets/a1_scene_hello-luis-speaker_3e5e175.webp",
-          "label": null
-        },
-        {
-          "id": "goodbye-luis-2",
-          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Goodbye.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c019-prompt-fc021f51866dbd7628bf",
-          "purpose": "prompt",
-          "text": "Goodbye.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c019-answer-81c60d5937b15b974fe6",
-          "purpose": "answer",
-          "text": "Goodbye.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N4",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "what-is-your-name-2",
-      "options": [
-        {
-          "id": "my-name-is-ana-1",
-          "image_url": "",
-          "label": "My name is Ana."
-        },
-        {
-          "id": "what-is-your-name-2",
-          "image_url": "",
-          "label": "What is your name?"
-        }
-      ],
-      "audio_text": "What is your name?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "question vs answer audio",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c020-prompt-eb98e84aaa63828b3661",
-          "purpose": "prompt",
-          "text": "What is your name?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:f24c8872f2f43e610ade",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c020-answer-9b90547cd2036178cd39",
-          "purpose": "answer",
-          "text": "What is your name?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:f24c8872f2f43e610ade",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N5",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "my-name-is-luis-1",
-      "options": [
-        {
-          "id": "my-name-is-luis-1",
-          "image_url": "",
-          "label": "My name is Luis."
-        },
-        {
-          "id": "what-is-your-name-2",
-          "image_url": "",
-          "label": "What is your name?"
-        }
-      ],
-      "audio_text": "My name is Luis.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "answer recognition",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c021-prompt-90031de3d5ca28178d53",
-          "purpose": "prompt",
-          "text": "My name is Luis.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:2500c50bc4dc66dedd36",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c021-answer-6399a47021aeae011e71",
-          "purpose": "answer",
-          "text": "My name is Luis.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:2500c50bc4dc66dedd36",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N6",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "phone-2",
-      "options": [
-        {
-          "id": "book-1",
-          "image_url": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
-          "label": null
-        },
-        {
-          "id": "phone-2",
-          "image_url": "/lesson-assets/a1_phone.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a phone.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Unit 2 delayed listening review",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c022-prompt-8223adf754fca4a7608c",
-          "purpose": "prompt",
-          "text": "It is a phone.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_phone.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c022-answer-6fd9eee5aec8ae86d451",
-          "purpose": "answer",
-          "text": "It is a phone.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_phone.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "Hello.",
-      "stage": "Speak",
-      "correct_option_id": "hello-1",
-      "options": [
-        {
-          "id": "hello-1",
-          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
-          "label": "Hello."
-        }
-      ],
-      "audio_text": "Hello.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hola.",
-      "pedagogy_note": "greeting",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c023-prompt-8e49ef8ae188b368d915",
-          "purpose": "prompt",
-          "text": "Hello.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c023-answer-27feb15b6795c933958a",
-          "purpose": "answer",
-          "text": "Hello.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "Good morning.",
-      "stage": "Speak",
-      "correct_option_id": "good-morning-1",
-      "options": [
-        {
-          "id": "good-morning-1",
-          "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
-          "label": "Good morning."
-        }
-      ],
-      "audio_text": "Good morning.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Buenos d\u00edas.",
-      "pedagogy_note": "greeting",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c024-prompt-61077519668e3d6f82f1",
-          "purpose": "prompt",
-          "text": "Good morning.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c024-answer-f37bd4ec9ee2c1927a20",
-          "purpose": "answer",
-          "text": "Good morning.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "Goodbye.",
-      "stage": "Speak",
-      "correct_option_id": "goodbye-1",
-      "options": [
-        {
-          "id": "goodbye-1",
-          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "label": "Goodbye."
-        }
-      ],
-      "audio_text": "Goodbye.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Adi\u00f3s.",
-      "pedagogy_note": "closing",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c025-prompt-38bb0adc7c2e99b110df",
-          "purpose": "prompt",
-          "text": "Goodbye.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c025-answer-7b477bd4dba422d9ba18",
-          "purpose": "answer",
-          "text": "Goodbye.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "What is your name?",
-      "stage": "Speak",
-      "correct_option_id": "what-is-your-name-1",
-      "options": [
-        {
-          "id": "what-is-your-name-1",
-          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "label": "What is your name?"
-        }
-      ],
-      "audio_text": "What is your name?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
-      "pedagogy_note": "fixed question",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c026-prompt-7781fc731b054ad205d5",
-          "purpose": "prompt",
-          "text": "What is your name?",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c026-answer-2a17cc233dfd0f4f87e5",
-          "purpose": "answer",
-          "text": "What is your name?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "My name is Ana.",
-      "stage": "Speak",
-      "correct_option_id": "my-name-is-ana-1",
-      "options": [
-        {
-          "id": "my-name-is-ana-1",
-          "image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-          "label": "My name is Ana."
-        }
-      ],
-      "audio_text": "My name is Ana.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Me llamo Ana.",
-      "pedagogy_note": "scenario answer, not a claim about learner",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c027-prompt-211928a0809d2ea61fac",
-          "purpose": "prompt",
-          "text": "My name is Ana.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c027-answer-91896845b3aec6b6c5e6",
-          "purpose": "answer",
-          "text": "My name is Ana.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "repeat",
+      "slide_id": "R9",
+      "interaction_type": "t2i2",
       "prompt": "What is your name? My name is Luis.",
-      "stage": "Speak",
-      "correct_option_id": "what-is-your-name-my-name-is-luis-1",
+      "stage": "Recognize",
+      "correct_option_id": "what-is-your-name-my-name-is-luis-r9",
       "options": [
         {
-          "id": "what-is-your-name-my-name-is-luis-1",
+          "id": "what-is-your-name-my-name-is-luis-r9",
           "image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
-          "label": "What is your name? My name is Luis."
+          "label": null
+        },
+        {
+          "id": "what-is-your-name-my-name-is-ana-r9",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "label": null
         }
       ],
       "audio_text": "What is your name? My name is Luis.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfC\u00f3mo te llamas? Me llamo Luis.",
-      "pedagogy_note": "complete exchange",
+      "pedagogy_note": "Story beat 09: What is your name? My name is Luis.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
@@ -1507,7 +756,1088 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c028-prompt-turn-1-cd4919e7178c48677005",
+          "id": "lesson-3-1-greetings-and-names-c014-prompt-turn-1-4ac2f5cae3cc0dfbac5f",
+          "purpose": "prompt-turn-1",
+          "text": "What is your name?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c014-prompt-turn-2-86f7a96c6863a16ffe08",
+          "purpose": "prompt-turn-2",
+          "text": "My name is Luis.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "t2i2",
+      "prompt": "Good morning.",
+      "stage": "Recognize",
+      "correct_option_id": "good-morning-r10",
+      "options": [
+        {
+          "id": "good-morning-r10",
+          "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "label": null
+        },
+        {
+          "id": "goodbye-r10",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Good morning.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Buenos d\u00edas.",
+      "pedagogy_note": "Story beat 10: Good morning.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c015-prompt-4557fbd55dbc9545e726",
+          "purpose": "prompt",
+          "text": "Good morning.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c015-answer-0bbf50dc273794fae622",
+          "purpose": "answer",
+          "text": "Good morning.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "t2i2",
+      "prompt": "Hello, Luis.",
+      "stage": "Recognize",
+      "correct_option_id": "hello-luis-r11",
+      "options": [
+        {
+          "id": "goodbye-ana-r11",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        },
+        {
+          "id": "hello-luis-r11",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Hello, Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hola, Luis.",
+      "pedagogy_note": "Story beat 11: Hello, Luis.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c016-prompt-19928237f1a6a3a4e834",
+          "purpose": "prompt",
+          "text": "Hello, Luis.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c016-answer-94058c80f3bd76f249e9",
+          "purpose": "answer",
+          "text": "Hello, Luis.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R12",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "goodbye-ana-r12",
+      "options": [
+        {
+          "id": "goodbye-ana-r12",
+          "image_url": "",
+          "label": "Goodbye, Ana."
+        },
+        {
+          "id": "hello-luis-r12",
+          "image_url": "",
+          "label": "Hello, Luis."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Goodbye, Ana.",
+      "prompt_image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 12: Goodbye, Ana.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "luis",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c017-answer-7a8453790e42a05e3cb0",
+          "purpose": "answer",
+          "text": "Goodbye, Ana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "hello-a1",
+      "options": [
+        {
+          "id": "hello-a1",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "label": null
+        },
+        {
+          "id": "goodbye-a1",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Hello.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: Hello.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c018-prompt-61962b8298f9e2369fe6",
+          "purpose": "prompt",
+          "text": "Hello.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c018-answer-7f865a130b2895bf4cb6",
+          "purpose": "answer",
+          "text": "Hello.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "good-morning-a2",
+      "options": [
+        {
+          "id": "good-morning-a2",
+          "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "label": null
+        },
+        {
+          "id": "goodbye-a2",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Good morning.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: Good morning.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c019-prompt-d4946ac3d946730c0919",
+          "purpose": "prompt",
+          "text": "Good morning.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c019-answer-5c67d50b6f7a91671113",
+          "purpose": "answer",
+          "text": "Good morning.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "goodbye-a3",
+      "options": [
+        {
+          "id": "goodbye-a3",
+          "image_url": "",
+          "label": "Goodbye."
+        },
+        {
+          "id": "hello-a3",
+          "image_url": "",
+          "label": "Hello."
+        }
+      ],
+      "audio_text": "Goodbye.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: Goodbye.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c020-prompt-1fe240cd01cbf3247d3b",
+          "purpose": "prompt",
+          "text": "Goodbye.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:cf09f1acfa3cadaae9b1",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c020-answer-f9c6b36d9f6b78eb07d6",
+          "purpose": "answer",
+          "text": "Goodbye.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:cf09f1acfa3cadaae9b1",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "hello-luis-a4",
+      "options": [
+        {
+          "id": "goodbye-ana-a4",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        },
+        {
+          "id": "hello-luis-a4",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Hello, Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: Hello, Luis.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c021-prompt-a8ebcee8607991022271",
+          "purpose": "prompt",
+          "text": "Hello, Luis.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c021-answer-5256b4b7ee3fcfd86e44",
+          "purpose": "answer",
+          "text": "Hello, Luis.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "goodbye-ana-a5",
+      "options": [
+        {
+          "id": "goodbye-ana-a5",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        },
+        {
+          "id": "hello-luis-a5",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Goodbye, Ana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: Goodbye, Ana.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c022-prompt-fc870f88c2ee58f8053e",
+          "purpose": "prompt",
+          "text": "Goodbye, Ana.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c022-answer-875f6199a93cd223dc1e",
+          "purpose": "answer",
+          "text": "Goodbye, Ana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "my-name-is-ana-a6",
+      "options": [
+        {
+          "id": "my-name-is-luis-a6",
+          "image_url": "",
+          "label": "My name is Luis."
+        },
+        {
+          "id": "my-name-is-ana-a6",
+          "image_url": "",
+          "label": "My name is Ana."
+        }
+      ],
+      "audio_text": "My name is Ana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: My name is Ana.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c023-prompt-6fae9a0ca083edd119e1",
+          "purpose": "prompt",
+          "text": "My name is Ana.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:e231735c0ef3dd248671",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c023-answer-b4ef6a5da1884a58ef77",
+          "purpose": "answer",
+          "text": "My name is Ana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:e231735c0ef3dd248671",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "my-name-is-luis-a7",
+      "options": [
+        {
+          "id": "my-name-is-ana-a7",
+          "image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+          "label": null
+        },
+        {
+          "id": "my-name-is-luis-a7",
+          "image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "My name is Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: My name is Luis.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c024-prompt-aa7c6108fe403040dbf9",
+          "purpose": "prompt",
+          "text": "My name is Luis.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c024-answer-ab32c6bf7c00f365c66a",
+          "purpose": "answer",
+          "text": "My name is Luis.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-is-your-name-my-name-is-ana-a8",
+      "options": [
+        {
+          "id": "what-is-your-name-my-name-is-luis-a8",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
+          "label": null
+        },
+        {
+          "id": "what-is-your-name-my-name-is-ana-a8",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What is your name? My name is Ana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: What is your name? My name is Ana.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp"
+        },
+        {
+          "text": "My name is Ana.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c025-prompt-turn-1-f60dc85f88c9cc57bafc",
+          "purpose": "prompt-turn-1",
+          "text": "What is your name?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c025-prompt-turn-2-1155c436e725e74d09f8",
+          "purpose": "prompt-turn-2",
+          "text": "My name is Ana.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-is-your-name-my-name-is-luis-a9",
+      "options": [
+        {
+          "id": "what-is-your-name-my-name-is-ana-a9",
+          "image_url": "",
+          "label": "What is your name? My name is Ana."
+        },
+        {
+          "id": "what-is-your-name-my-name-is-luis-a9",
+          "image_url": "",
+          "label": "What is your name? My name is Luis."
+        }
+      ],
+      "audio_text": "What is your name? My name is Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: What is your name? My name is Luis.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp"
+        },
+        {
+          "text": "My name is Luis.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c026-prompt-turn-1-9bd07b2b23a6266386c1",
+          "purpose": "prompt-turn-1",
+          "text": "What is your name?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c026-prompt-turn-2-d2f9748cbae952090bed",
+          "purpose": "prompt-turn-2",
+          "text": "My name is Luis.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A10",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "good-morning-a10",
+      "options": [
+        {
+          "id": "goodbye-a10",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": null
+        },
+        {
+          "id": "good-morning-a10",
+          "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Good morning.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 10: Good morning.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c027-prompt-a2709d1fd6275749ea63",
+          "purpose": "prompt",
+          "text": "Good morning.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c027-answer-adb1a311b2ffc9fee107",
+          "purpose": "answer",
+          "text": "Good morning.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "Good morning.",
+      "stage": "Speak",
+      "correct_option_id": "good-morning-speak",
+      "options": [
+        {
+          "id": "good-morning-speak",
+          "image_url": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "label": "Good morning."
+        }
+      ],
+      "audio_text": "Good morning.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Buenos d\u00edas.",
+      "pedagogy_note": "Story beat 01: Good morning.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c028-prompt-3ab8a9c291b2a1bfb037",
+          "purpose": "prompt",
+          "text": "Good morning.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c028-answer-a75aba6dceef18e90536",
+          "purpose": "answer",
+          "text": "Good morning.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_morning-ana-speaker_716da9f.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "Hello, Luis.",
+      "stage": "Speak",
+      "correct_option_id": "hello-luis-speak",
+      "options": [
+        {
+          "id": "hello-luis-speak",
+          "image_url": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "label": "Hello, Luis."
+        }
+      ],
+      "audio_text": "Hello, Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hola, Luis.",
+      "pedagogy_note": "Story beat 02: Hello, Luis.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c029-prompt-192fc075205167f8c6f8",
+          "purpose": "prompt",
+          "text": "Hello, Luis.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c029-answer-65b9d4724d71d3ec495a",
+          "purpose": "answer",
+          "text": "Hello, Luis.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "Goodbye, Ana.",
+      "stage": "Speak",
+      "correct_option_id": "goodbye-ana-speak",
+      "options": [
+        {
+          "id": "goodbye-ana-speak",
+          "image_url": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "label": "Goodbye, Ana."
+        }
+      ],
+      "audio_text": "Goodbye, Ana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Adi\u00f3s, Ana.",
+      "pedagogy_note": "Story beat 03: Goodbye, Ana.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c030-prompt-fde22405e467193b2fc2",
+          "purpose": "prompt",
+          "text": "Goodbye, Ana.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c030-answer-0b351ad8715f1aafa156",
+          "purpose": "answer",
+          "text": "Goodbye, Ana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_goodbye-luis-speaker_b18c04c.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "What is your name?",
+      "stage": "Speak",
+      "correct_option_id": "what-is-your-name-speak",
+      "options": [
+        {
+          "id": "what-is-your-name-speak",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "label": "What is your name?"
+        }
+      ],
+      "audio_text": "What is your name?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
+      "pedagogy_note": "Story beat 04: What is your name?",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c031-prompt-773ccaf15a1167f2112b",
+          "purpose": "prompt",
+          "text": "What is your name?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c031-answer-d2537149c46e00b3eac0",
+          "purpose": "answer",
+          "text": "What is your name?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "My name is Luis.",
+      "stage": "Speak",
+      "correct_option_id": "my-name-is-luis-speak",
+      "options": [
+        {
+          "id": "my-name-is-luis-speak",
+          "image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "label": "My name is Luis."
+        }
+      ],
+      "audio_text": "My name is Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me llamo Luis.",
+      "pedagogy_note": "Story beat 05: My name is Luis.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c032-prompt-ef40a15c62abed252f78",
+          "purpose": "prompt",
+          "text": "My name is Luis.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c032-answer-3d5d87a88d2d5312f731",
+          "purpose": "answer",
+          "text": "My name is Luis.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "What is your name? My name is Ana.",
+      "stage": "Speak",
+      "correct_option_id": "what-is-your-name-my-name-is-ana-speak",
+      "options": [
+        {
+          "id": "what-is-your-name-my-name-is-ana-speak",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "label": "What is your name? My name is Ana."
+        }
+      ],
+      "audio_text": "What is your name? My name is Ana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfC\u00f3mo te llamas? Me llamo Ana.",
+      "pedagogy_note": "Story beat 06: What is your name? My name is Ana.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp"
+        },
+        {
+          "text": "My name is Ana.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c033-prompt-turn-1-402e871a8545a496c5bf",
+          "purpose": "prompt-turn-1",
+          "text": "What is your name?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c033-prompt-turn-2-367619d4c987136092af",
+          "purpose": "prompt-turn-2",
+          "text": "My name is Ana.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "What is your name? My name is Luis.",
+      "stage": "Speak",
+      "correct_option_id": "what-is-your-name-my-name-is-luis-speak",
+      "options": [
+        {
+          "id": "what-is-your-name-my-name-is-luis-speak",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
+          "label": "What is your name? My name is Luis."
+        }
+      ],
+      "audio_text": "What is your name? My name is Luis.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfC\u00f3mo te llamas? Me llamo Luis.",
+      "pedagogy_note": "Story beat 07: What is your name? My name is Luis.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp"
+        },
+        {
+          "text": "My name is Luis.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c034-prompt-turn-1-4a434f72591b6e762fc9",
           "purpose": "prompt-turn-1",
           "text": "What is your name?",
           "mode": "pronunciation_slow",
@@ -1519,7 +1849,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c028-prompt-turn-2-be21db102bcc9bb621a1",
+          "id": "lesson-3-1-greetings-and-names-c034-prompt-turn-2-29ba3be2ae2ee9404317",
           "purpose": "prompt-turn-2",
           "text": "My name is Luis.",
           "mode": "pronunciation_slow",
@@ -1534,122 +1864,6 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "My name ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "is",
-      "correct_option_ids": [
-        "is",
-        "ana"
-      ],
-      "options": [
-        {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "ana",
-          "image_url": "",
-          "label": "Ana"
-        }
-      ],
-      "audio_text": "My name is Ana.",
-      "answer_audio_text": "My name is Ana.",
-      "prompt_image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-      "spanish_translation": "Mi nombre es Ana.",
-      "pedagogy_note": "Story beat 01: 3.1 story; this use card advances the same ordered arc.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": "ana",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c029-prompt-8146e1cce621ff2b4f55",
-          "purpose": "prompt",
-          "text": "My name is Ana.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c029-answer-bc29c18e21acf482d2cf",
-          "purpose": "answer",
-          "text": "My name is Ana.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "My name ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "is",
-      "correct_option_ids": [
-        "is",
-        "luis"
-      ],
-      "options": [
-        {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "luis",
-          "image_url": "",
-          "label": "Luis"
-        }
-      ],
-      "audio_text": "My name is Luis.",
-      "answer_audio_text": "My name is Luis.",
-      "prompt_image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-      "spanish_translation": "Mi nombre es Luis.",
-      "pedagogy_note": "Story beat 02: 3.1 story; this use card advances the same ordered arc.",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": "luis",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-3-1-greetings-and-names-c030-prompt-55f371ec7781fd4ca4cc",
-          "purpose": "prompt",
-          "text": "My name is Luis.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-3-1-greetings-and-names-c030-answer-73d4226f10689a9a2198",
-          "purpose": "answer",
-          "text": "My name is Luis.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "What is ___ ___?",
       "stage": "Use",
@@ -1673,15 +1887,15 @@
       "audio_text": "What is your name?",
       "answer_audio_text": "What is your name?",
       "prompt_image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
-      "spanish_translation": "\u00bfCu\u00e1l es tu nombre?",
-      "pedagogy_note": "Story beat 03: 3.1 story; this use card advances the same ordered arc.",
+      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
+      "pedagogy_note": "Story beat 01: What is your name?",
       "audio_speaker": "luis",
       "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c031-prompt-104f57e4ba70f526bfff",
+          "id": "lesson-3-1-greetings-and-names-c035-prompt-6712f5784d5323206f81",
           "purpose": "prompt",
           "text": "What is your name?",
           "mode": "prompt",
@@ -1693,12 +1907,140 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c031-answer-d2537149c46e00b3eac0",
+          "id": "lesson-3-1-greetings-and-names-c035-answer-38b5245287a5c17de212",
           "purpose": "answer",
           "text": "What is your name?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "My name ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "is",
+      "correct_option_ids": [
+        "is",
+        "ana"
+      ],
+      "options": [
+        {
+          "id": "is",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "ana",
+          "image_url": "",
+          "label": "Ana"
+        }
+      ],
+      "audio_text": "My name is Ana.",
+      "answer_audio_text": "My name is Ana.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+      "spanish_translation": "Me llamo Ana.",
+      "pedagogy_note": "Story beat 02: My name is Ana.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c036-prompt-ae54bf4a51d983f9fb20",
+          "purpose": "prompt",
+          "text": "My name is Ana.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c036-answer-c0bbc7af84349cfaf25d",
+          "purpose": "answer",
+          "text": "My name is Ana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "name"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "Luis"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "My"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "My name is Luis.",
+      "answer_audio_text": "My name is Luis.",
+      "prompt_image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+      "spanish_translation": "Me llamo Luis.",
+      "pedagogy_note": "Story beat 03: My name is Luis.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-3-1-greetings-and-names-c037-prompt-03ed7fb641aba2096621",
+          "purpose": "prompt",
+          "text": "My name is Luis.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-3-1-greetings-and-names-c037-answer-fd14cedffbe4a7074d2b",
+          "purpose": "answer",
+          "text": "My name is Luis.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
           "semantic_role": "answer",
           "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1720,57 +2062,57 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "What"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "your"
-        },
-        {
           "id": "word-4",
           "image_url": "",
           "label": "name"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "What"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "your"
         }
       ],
       "audio_text": "What is your name?",
       "answer_audio_text": "What is your name?",
-      "prompt_image_url": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
-      "spanish_translation": "\u00bfCu\u00e1l es tu nombre?",
-      "pedagogy_note": "Story beat 04: 3.1 story; this use card advances the same ordered arc.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": "ana",
+      "prompt_image_url": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
+      "spanish_translation": "\u00bfC\u00f3mo te llamas?",
+      "pedagogy_note": "Story beat 04: What is your name?",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c032-prompt-dbdf4f788213564453d8",
+          "id": "lesson-3-1-greetings-and-names-c038-prompt-4cb6efdb41140765ccef",
           "purpose": "prompt",
           "text": "What is your name?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
           "semantic_role": "question",
-          "speaker_role": "ana",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c032-answer-2e41eecaeae2d55cf9e0",
+          "id": "lesson-3-1-greetings-and-names-c038-answer-536e47aade2bab1413b8",
           "purpose": "answer",
           "text": "What is your name?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_name-dialogue-luis_8ac00a9.webp",
+          "image_ref": "/lesson-assets/a1_scene_name-dialogue-ana_04d12f0.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1790,38 +2132,38 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "My"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "name"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "is"
-        },
-        {
           "id": "word-4",
           "image_url": "",
           "label": "Ana"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "My"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
         }
       ],
       "audio_text": "My name is Ana.",
       "answer_audio_text": "My name is Ana.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-badge_785def3.webp",
-      "spanish_translation": "Mi nombre es Ana.",
-      "pedagogy_note": "Story beat 05: 3.1 story; this use card advances the same ordered arc.",
+      "spanish_translation": "Me llamo Ana.",
+      "pedagogy_note": "Story beat 05: My name is Ana.",
       "audio_speaker": "ana",
       "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c033-prompt-88915e2b8b8b4d835dc7",
+          "id": "lesson-3-1-greetings-and-names-c039-prompt-abd9daa42f239c01e833",
           "purpose": "prompt",
           "text": "My name is Ana.",
           "mode": "prompt",
@@ -1833,7 +2175,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c033-answer-ef86ba69ecb8abd90e8d",
+          "id": "lesson-3-1-greetings-and-names-c039-answer-1429c0b6c3dbab624c60",
           "purpose": "answer",
           "text": "My name is Ana.",
           "mode": "prompt",
@@ -1860,38 +2202,38 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "My"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "name"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "is"
-        },
-        {
           "id": "word-4",
           "image_url": "",
           "label": "Luis"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "My"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
         }
       ],
       "audio_text": "My name is Luis.",
       "answer_audio_text": "My name is Luis.",
       "prompt_image_url": "/lesson-assets/a1_scene_luis-badge_80bb288.webp",
-      "spanish_translation": "Mi nombre es Luis.",
-      "pedagogy_note": "Story beat 06: 3.1 story; this use card advances the same ordered arc.",
+      "spanish_translation": "Me llamo Luis.",
+      "pedagogy_note": "Story beat 06: My name is Luis.",
       "audio_speaker": "luis",
       "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-1-greetings-and-names-c034-prompt-5cf73404aee6b2ed9660",
+          "id": "lesson-3-1-greetings-and-names-c040-prompt-debf80aff25828ab124e",
           "purpose": "prompt",
           "text": "My name is Luis.",
           "mode": "prompt",
@@ -1903,7 +2245,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-1-greetings-and-names-c034-answer-1c40a6c8a3061956a587",
+          "id": "lesson-3-1-greetings-and-names-c040-answer-ee790f65815304240ac2",
           "purpose": "answer",
           "text": "My name is Luis.",
           "mode": "prompt",
