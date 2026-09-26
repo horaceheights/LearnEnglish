@@ -46,11 +46,12 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
         self.assertEqual(catalog["asset_count"], len(asset_index()))
 
         hello = asset_index()[
-            "lesson-3-1-greetings-and-names-c001-prompt-ac3a343d313d0ea983c8"
+            # The engine-built Lesson 3.1 (2026-09-25) opens with Ana's Hello.
+            "lesson-3-1-greetings-and-names-c001-prompt-acbc3eb5984a05447003"
         ]
         self.assertEqual("Hello.", hello.text)
         self.assertEqual("ana", hello.speaker_role)
-        self.assertEqual(2, hello.revision)
+        self.assertEqual(1, hello.revision)
         self.assertEqual(
             "/lesson-assets/a1_scene_hello-ana-speaker_591cb45.webp",
             hello.image_ref,

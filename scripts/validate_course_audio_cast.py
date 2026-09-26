@@ -26,6 +26,9 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     # Unit 3 was rebuilt through the content engine on 2026-09-25: each brief names who says
     # every line, neutral narration alternates the teacher and the male-teacher narrator,
     # and these pins are regenerated from the installed lessons.
+    # Unit 3 was rebuilt through the content engine on 2026-09-25: each brief names who says
+    # every line, neutral narration alternates the teacher and the male-teacher narrator,
+    # and these pins are regenerated from the installed lessons.
     "lesson-3-1-greetings-and-names": [
         ("audio_speaker", "ana", "L1 L2 L5 R1 R2 R10 R11 A1 A2 A4 A6 A10 S1 S2 U2 U5"),
         ("audio_speaker", "luis", "L3 L4 R3 R5 R7 A3 A5 A7 S3 S4 S5 U1 U3 U4 U6"),
@@ -39,10 +42,10 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     "lesson-3-3-am-is-and-are": [
         ("audio_speaker", "ana", "R3 R4 A3 S4 U2"),
         ("audio_speaker", "luis", "L1 A4 S1 S5 U1 U3"),
-        ("audio_speaker", "male-teacher", "A6 A8 A10 S7 S9 U5 U7 U9"),
+        ("audio_speaker", "male-teacher", "R5 R7 R9 R11 A5 A7 A9 S6 S8 U4 U6 U8"),
         ("answer_audio_speaker", "ana", "U2"),
         ("answer_audio_speaker", "luis", "R4 U1 U3"),
-        ("answer_audio_speaker", "male-teacher", "R6 R8 R10 R12 U5 U7 U9"),
+        ("answer_audio_speaker", "male-teacher", "U4 U6 U8"),
     ],
     "lesson-3-yes-no-questions": [
         ("audio_speaker", "ana", "L1 R1 A1 U8"),

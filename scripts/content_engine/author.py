@@ -290,8 +290,9 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
             raise BriefError(f"The turns of {item['text']!r} must say exactly its text.")
     layout = {**DEFAULT_LAYOUT, **brief.get("layout", {})}
     taught = [item for item in items if item.get("learn", True) is not False]
-    if not taught:
-        raise BriefError("A lesson needs at least one new item to introduce on a Learn card.")
+    if len(taught) < 2:
+        # The app introduces contextual help on the second card when both opening cards are Learn.
+        raise BriefError("A lesson needs at least two new items to introduce on Learn cards.")
     total = len(taught) + sum(layout.values())
     bounds = standards["standard_lesson_cards"]
     if not bounds["min"] <= total <= bounds["max"]:

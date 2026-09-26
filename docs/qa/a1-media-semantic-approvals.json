@@ -9975,7 +9975,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "c3f43926a2fd57b23ba1874346c3cc64bba47f0ef75e13c0c711242f7232749b",
+      "contract_sha256": "09f4b2d6881e9e25f60945e2f3778dc6a108dabb9bca5195bc3b6c2a4f8187db",
       "filename": "a1_scene_your-phone-luis_e8f060b.webp",
       "concept": "you-have-a-phone-r5",
       "description": "Unit 3 learner-facing still for you-have-a-phone-r5; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -9995,27 +9995,27 @@
           "surface_label": null,
           "option_id": "you-have-a-phone-r5",
           "option_label": null,
-          "is_correct": false,
+          "is_correct": true,
           "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
           "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-          "prompt": "I have a book.",
-          "audio_text": "I have a book.",
+          "prompt": "You have a phone.",
+          "audio_text": "You have a phone.",
           "answer_audio_text": null,
-          "spanish_translation": "Tengo un libro.",
-          "correct_option_id": "i-have-a-book-r5",
+          "spanish_translation": "Tú tienes un teléfono.",
+          "correct_option_id": "you-have-a-phone-r5",
           "options": [
-            {
-              "id": "you-have-a-phone-r5",
-              "label": null,
-              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "is_correct": false
-            },
             {
               "id": "i-have-a-book-r5",
               "label": null,
               "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
               "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
+              "is_correct": false
+            },
+            {
+              "id": "you-have-a-phone-r5",
+              "label": null,
+              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
+              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
               "is_correct": true
             }
           ],
@@ -15705,65 +15705,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "b722fad3f81a23ab42d840841004fba498210d021f0cd4b89698a5520651d110",
-      "filename": "a1_scene_she-has-bike_b6f7660.webp",
-      "concept": "she-has-a-bike-r10",
-      "description": "Unit 3 learner-facing still for she-has-a-bike-r10; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R10"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R10",
-          "interaction_type": "i2t2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
-          "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
-          "prompt": "",
-          "audio_text": "",
-          "answer_audio_text": "She has a bike.",
-          "spanish_translation": "Elige la frase correcta.",
-          "correct_option_id": "she-has-a-bike-r10",
-          "options": [
-            {
-              "id": "she-has-a-bike-r10",
-              "label": "She has a bike.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "he-has-a-car-r10",
-              "label": "He has a car.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "2ffc8de438e0d4db5c6a372d484d30c25251ababb1874c714b4a4f5dac115c12",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "cbf90d9ff2f56cf88eab9d85a4fd7ded3da5fe6521c4ee6cc637f93d1df2eaf4",
       "filename": "a1_four-yellow-pens.webp",
       "concept": "Four pens.",
@@ -16199,13 +16140,12 @@
       "notes": ""
     },
     {
-      "contract_sha256": "387922591ee1b9e0d13360238b9399ccb7b73ce3dc9257859dcd3a6312579247",
+      "contract_sha256": "0f010dd36a076c593599f5113da0448f34d332b7d2127ca6a99b795720e5994b",
       "filename": "a1_scene_ana_mexico.webp",
       "concept": "Where are you from?",
       "description": "Unit 3 learner-facing still for Where are you from?; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
       "card_refs": [
         "3.7|Learn|L5",
-        "3.7|Recognize|R12",
         "3.7|Speak|S2"
       ],
       "review_contexts": [
@@ -16240,49 +16180,6 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-5-countries-and-nationalities",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.7",
-          "stage": "Recognize",
-          "slide_id": "R12",
-          "interaction_type": "i2t2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_ana_mexico.webp",
-          "rendered_filename": "a1_scene_ana_mexico.webp",
-          "prompt": "Where are you from?",
-          "audio_text": "Where are you from?",
-          "answer_audio_text": "I am from Mexico.",
-          "spanish_translation": "¿De dónde eres?",
-          "correct_option_id": "i-am-from-mexico-r12",
-          "options": [
-            {
-              "id": "i-am-from-mexico-r12",
-              "label": "I am from Mexico.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "i-am-from-the-united-states-r12",
-              "label": "I am from the United States.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -17794,65 +17691,6 @@
         }
       ],
       "asset_sha256": "dbd823dcfb7fda2f0ee1b0aaf9b0925b1da2dd57585ec16e4e794a7cd37d1111",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
-      "contract_sha256": "f7f127e3e37ac763a8bd26f7b1bdbaac86ad6390b76a963454f6a32fc67d11bb",
-      "filename": "a1_scene_my-book-ana_7f764c0.webp",
-      "concept": "I have ___ ___.",
-      "description": "Unit 3 learner-facing still for I have ___ ___.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Use|U1"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Use",
-          "slide_id": "U1",
-          "interaction_type": "complete2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
-          "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
-          "prompt": "I have ___ ___.",
-          "audio_text": "I have a book.",
-          "answer_audio_text": "I have a book.",
-          "spanish_translation": "Tengo un libro.",
-          "correct_option_id": "a",
-          "options": [
-            {
-              "id": "a",
-              "label": "a",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "book",
-              "label": "book",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "768d91ac04821da4ac6e84386b2e54fc9365fc877f552ae3334ddde7ff2f3ba9",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -23136,7 +22974,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "c64e478f444851cd0b58b6783cc54ceab304e9e712874d8fd8e21aa94c180160",
+      "contract_sha256": "73c04f799848856378b0ddd88d7dd5ceba3cefdba7214554dfd6c0f1c33e3882",
       "filename": "a1_scene_we-have-books_190a845.webp",
       "concept": "have-r1",
       "description": "Unit 3 learner-facing still for have-r1; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -23156,27 +22994,27 @@
           "surface_label": null,
           "option_id": "have-r1",
           "option_label": null,
-          "is_correct": true,
+          "is_correct": false,
           "source_filename": "a1_scene_we-have-books_190a845.webp",
           "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-          "prompt": "Have",
-          "audio_text": "Have",
+          "prompt": "Has",
+          "audio_text": "Has",
           "answer_audio_text": null,
-          "spanish_translation": "Tener",
-          "correct_option_id": "have-r1",
+          "spanish_translation": "Tiene",
+          "correct_option_id": "has-r1",
           "options": [
-            {
-              "id": "has-r1",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": false
-            },
             {
               "id": "have-r1",
               "label": null,
               "source_filename": "a1_scene_we-have-books_190a845.webp",
               "rendered_filename": "a1_scene_we-have-books_190a845.webp",
+              "is_correct": false
+            },
+            {
+              "id": "has-r1",
+              "label": null,
+              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "is_correct": true
             }
           ],
@@ -34919,65 +34757,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "911d41634c53d6f507fa66cc257771ce3cec08c0702d20c9a2f06dccd3ec1e62",
-      "filename": "a1_scene_he-has-car_b3fa0ff.webp",
-      "concept": "has-r2",
-      "description": "Unit 3 learner-facing still for has-r2; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R2"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R2",
-          "interaction_type": "t2i2",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "has-r2",
-          "option_label": null,
-          "is_correct": true,
-          "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "prompt": "Has",
-          "audio_text": "Has",
-          "answer_audio_text": null,
-          "spanish_translation": "Tiene",
-          "correct_option_id": "has-r2",
-          "options": [
-            {
-              "id": "have-r2",
-              "label": null,
-              "source_filename": "a1_scene_we-have-books_190a845.webp",
-              "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-              "is_correct": false
-            },
-            {
-              "id": "has-r2",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "25a8addb02595b06e08dab3458ab42b0000cb3a081327d7a20c9adea72ce43f8",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "5a3a233fc27583ef0765e41f02bce23924ae462aaf602f33903d746ccfc41594",
       "filename": "a1_photo_u4_review_two_chairs_in_dining_room_v2.webp",
       "concept": "there-are-two-chairs-in-the-dining-room-2",
@@ -36373,6 +36152,58 @@
         }
       ],
       "asset_sha256": "36daeef79413f04d19239d52489617bdd0f088bd977035733178143169a4ca97",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "6f1431910e399e4e2e5da03a958126903820b9cfdcd40b3a1b540f7ba3108dd5",
+      "filename": "a1_scene_we-have-books_190a845.webp",
+      "concept": "We have two books.",
+      "description": "Unit 3 learner-facing still for We have two books.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Speak|S2"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Speak",
+          "slide_id": "S2",
+          "interaction_type": "speak",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "we-have-two-books-speak",
+          "option_label": "We have two books.",
+          "is_correct": true,
+          "source_filename": "a1_scene_we-have-books_190a845.webp",
+          "rendered_filename": "a1_scene_we-have-books_190a845.webp",
+          "prompt": "We have two books.",
+          "audio_text": "We have two books.",
+          "answer_audio_text": null,
+          "spanish_translation": "Tenemos dos libros.",
+          "correct_option_id": "we-have-two-books-speak",
+          "options": [
+            {
+              "id": "we-have-two-books-speak",
+              "label": "We have two books.",
+              "source_filename": "a1_scene_we-have-books_190a845.webp",
+              "rendered_filename": "a1_scene_we-have-books_190a845.webp",
+              "is_correct": true
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "b440e358bda816db2bee33bd1db1a12701dd6c89cd6f89e204db3f43a24e1197",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -38132,12 +37963,13 @@
       "notes": ""
     },
     {
-      "contract_sha256": "9f6a3f96f82ab5a71d8d0ea29e43ffec7b3a9787cde39d074a029d9e1fb681cc",
+      "contract_sha256": "ead2a4d46c4a89dcf68d5394f4f3cdf0acc5eb70fe1380080c63f79dac7f0e40",
       "filename": "a1_scene_luis-american_5a29f49.webp",
       "concept": "Where are you from?",
       "description": "Unit 3 learner-facing still for Where are you from?; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
       "card_refs": [
-        "3.7|Recognize|R6"
+        "3.7|Recognize|R6",
+        "3.7|Recognize|R8"
       ],
       "review_contexts": [
         {
@@ -38171,6 +38003,49 @@
             {
               "id": "i-am-from-mexico-r6",
               "label": "I am from Mexico.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-5-countries-and-nationalities",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.7",
+          "stage": "Recognize",
+          "slide_id": "R8",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_luis-american_5a29f49.webp",
+          "rendered_filename": "a1_scene_luis-american_5a29f49.webp",
+          "prompt": "Where are you from?",
+          "audio_text": "Where are you from?",
+          "answer_audio_text": "I am American.",
+          "spanish_translation": "¿De dónde eres?",
+          "correct_option_id": "i-am-american-r8",
+          "options": [
+            {
+              "id": "i-am-american-r8",
+              "label": "I am American.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "i-am-mexican-r8",
+              "label": "I am Mexican.",
               "source_filename": null,
               "rendered_filename": null,
               "is_correct": false
@@ -44153,65 +44028,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "d8e4be4a8bd86a2995ab08ac882dc4408ca25c6e0e8a1aa89cdb9b2e8781dccd",
-      "filename": "a1_photo_u3_yours_v1.webp",
-      "concept": "yours-r4",
-      "description": "Unit 3 learner-facing still for yours-r4; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R4"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R4",
-          "interaction_type": "i2t2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_photo_u3_yours_v1.webp",
-          "rendered_filename": "a1_photo_u3_yours_v1.webp",
-          "prompt": "",
-          "audio_text": "",
-          "answer_audio_text": "Yours",
-          "spanish_translation": "Elige la frase correcta.",
-          "correct_option_id": "yours-r4",
-          "options": [
-            {
-              "id": "mine-r4",
-              "label": "Mine",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            },
-            {
-              "id": "yours-r4",
-              "label": "Yours",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "0582e6c4f09299e28d73dd96939110d14192e05d4bc8a8e01f1277bd5f9794a4",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "2479e614da59e2b6df576f4f5fc98ad1a9b1c6d8cf2b459f0d6a17bd934b2f43",
       "filename": "a1_scene_go-straight-turn-right-stop-at-the-bank_e9e4bfe.webp",
       "concept": "Go straight. Turn right. Stop at the bank.",
@@ -47512,7 +47328,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "6401a6dd5e1ef4e1deef90ea2ba88e7aebf4a8c78bdf860c3801ef558ecb19a3",
+      "contract_sha256": "4ad8b3e423baa8787313a822c0462b2b2bad2e25004ada4b09362560a583eb3a",
       "filename": "a1_scene_he-has-car_b3fa0ff.webp",
       "concept": "he-has-a-car-r9",
       "description": "Unit 3 learner-facing still for he-has-a-car-r9; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -47532,27 +47348,27 @@
           "surface_label": null,
           "option_id": "he-has-a-car-r9",
           "option_label": null,
-          "is_correct": true,
+          "is_correct": false,
           "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
           "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "prompt": "He has a car.",
-          "audio_text": "He has a car.",
+          "prompt": "She has a bike.",
+          "audio_text": "She has a bike.",
           "answer_audio_text": null,
-          "spanish_translation": "Él tiene un carro.",
-          "correct_option_id": "he-has-a-car-r9",
+          "spanish_translation": "Ella tiene una bicicleta.",
+          "correct_option_id": "she-has-a-bike-r9",
           "options": [
-            {
-              "id": "he-has-a-car-r9",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": true
-            },
             {
               "id": "she-has-a-bike-r9",
               "label": null,
               "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
               "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
+              "is_correct": true
+            },
+            {
+              "id": "he-has-a-car-r9",
+              "label": null,
+              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "is_correct": false
             }
           ],
@@ -47785,7 +47601,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "21d8e30ad5c26ca1dec44986666e90ec59513c9fae38df914bf0294b5337692d",
+      "contract_sha256": "9664bd5233d07bfdea74c087ecaaed3d409bd064ce0b85211c1f69be5d8fd7bf",
       "filename": "a1_photo_u3_yours_v1.webp",
       "concept": "yours-r3",
       "description": "Unit 3 learner-facing still for yours-r3; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -47805,27 +47621,27 @@
           "surface_label": null,
           "option_id": "yours-r3",
           "option_label": null,
-          "is_correct": false,
+          "is_correct": true,
           "source_filename": "a1_photo_u3_yours_v1.webp",
           "rendered_filename": "a1_photo_u3_yours_v1.webp",
-          "prompt": "Mine",
-          "audio_text": "Mine",
+          "prompt": "Yours",
+          "audio_text": "Yours",
           "answer_audio_text": null,
-          "spanish_translation": "Mío",
-          "correct_option_id": "mine-r3",
+          "spanish_translation": "Tuyo",
+          "correct_option_id": "yours-r3",
           "options": [
-            {
-              "id": "mine-r3",
-              "label": null,
-              "source_filename": "a1_photo_u3_mine_v1.webp",
-              "rendered_filename": "a1_photo_u3_mine_v1.webp",
-              "is_correct": true
-            },
             {
               "id": "yours-r3",
               "label": null,
               "source_filename": "a1_photo_u3_yours_v1.webp",
               "rendered_filename": "a1_photo_u3_yours_v1.webp",
+              "is_correct": true
+            },
+            {
+              "id": "mine-r3",
+              "label": null,
+              "source_filename": "a1_photo_u3_mine_v1.webp",
+              "rendered_filename": "a1_photo_u3_mine_v1.webp",
               "is_correct": false
             }
           ],
@@ -55016,65 +54832,6 @@
         }
       ],
       "asset_sha256": "7e7e5ec4dd4bba2abe09344f9c9fe98440d7d0a5469bfa6162bc57f330d4e49d",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
-      "contract_sha256": "995b8d8c0f438677a0292aef0a0233499a0085739435235382fdfa656ce61c27",
-      "filename": "a1_scene_they-have-bags_aed386b.webp",
-      "concept": "They ___ ___.",
-      "description": "Unit 3 learner-facing still for They ___ ___.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Use|U3"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Use",
-          "slide_id": "U3",
-          "interaction_type": "complete2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_they-have-bags_aed386b.webp",
-          "rendered_filename": "a1_scene_they-have-bags_aed386b.webp",
-          "prompt": "They ___ ___.",
-          "audio_text": "They have bags.",
-          "answer_audio_text": "They have bags.",
-          "spanish_translation": "Ellos tienen bolsas.",
-          "correct_option_id": "have",
-          "options": [
-            {
-              "id": "have",
-              "label": "have",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "bags",
-              "label": "bags",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "468f61ace785e727612be80f97c320f5ca57b9b72df2d5d778a734573127cb22",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -63434,58 +63191,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "990e3b57fd3093e60c58d03d1c16740e1df181ddbbf57956b58ba0d87e9aded3",
-      "filename": "a1_scene_your-phone-luis_e8f060b.webp",
-      "concept": "You have a phone.",
-      "description": "Unit 3 learner-facing still for You have a phone.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Speak|S2"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Speak",
-          "slide_id": "S2",
-          "interaction_type": "speak",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "you-have-a-phone-speak",
-          "option_label": "You have a phone.",
-          "is_correct": true,
-          "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-          "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-          "prompt": "You have a phone.",
-          "audio_text": "You have a phone.",
-          "answer_audio_text": null,
-          "spanish_translation": "Tú tienes un teléfono.",
-          "correct_option_id": "you-have-a-phone-speak",
-          "options": [
-            {
-              "id": "you-have-a-phone-speak",
-              "label": "You have a phone.",
-              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "93a61d7752fed18d34bac680ed3ab4d0e3fee9ca8f7c4c0aa391ef73bf93cbde",
       "filename": "a1_scene_his-bag-luis_752dda2.webp",
       "concept": "that-is-his-bag-a10",
@@ -63657,6 +63362,86 @@
         }
       ],
       "asset_sha256": "7fecfef4dc8ed0f622adb9d734cd8803468118fb01da49a5cb66c19b82cd4f29",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "67936f89fb04a678767e375403dea5548faf3e292dda0f6aec78c5c3ae08db21",
+      "filename": "a1_scene_teacher-ana_0e983a0.webp",
+      "concept": "___ ___ ___ ___ ___.",
+      "description": "Unit 3 learner-facing still for ___ ___ ___ ___ ___.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Use|U5"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Use",
+          "slide_id": "U5",
+          "interaction_type": "complete-sentence",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_teacher-ana_0e983a0.webp",
+          "rendered_filename": "a1_scene_teacher-ana_0e983a0.webp",
+          "prompt": "___ ___ ___ ___ ___.",
+          "audio_text": "The teacher has a book.",
+          "answer_audio_text": "The teacher has a book.",
+          "spanish_translation": "La maestra tiene un libro.",
+          "correct_option_id": "word-1",
+          "options": [
+            {
+              "id": "word-2",
+              "label": "teacher",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "word-4",
+              "label": "a",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "word-1",
+              "label": "The",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "word-3",
+              "label": "has",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "word-5",
+              "label": "book",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "d1367727da0c8098582c8236fe3bcae47615b261c4b16209f3791cbf239829af",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -67216,6 +67001,65 @@
       "notes": ""
     },
     {
+      "contract_sha256": "f905bec98e8ef80870192719abc4acfffd5ca94de2e7e66abf78545bf118ae93",
+      "filename": "a1_scene_we-have-books_190a845.webp",
+      "concept": "we-have-two-books-r6",
+      "description": "Unit 3 learner-facing still for we-have-two-books-r6; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Recognize|R6"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Recognize",
+          "slide_id": "R6",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_we-have-books_190a845.webp",
+          "rendered_filename": "a1_scene_we-have-books_190a845.webp",
+          "prompt": "",
+          "audio_text": "",
+          "answer_audio_text": "We have two books.",
+          "spanish_translation": "Elige la frase correcta.",
+          "correct_option_id": "we-have-two-books-r6",
+          "options": [
+            {
+              "id": "we-have-two-books-r6",
+              "label": "We have two books.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "i-have-a-book-r6",
+              "label": "I have a book.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "b440e358bda816db2bee33bd1db1a12701dd6c89cd6f89e204db3f43a24e1197",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
       "contract_sha256": "090ab8b0ec8d221b41d304ae0bd2639d27d5b423a2748f630615a67624555b2c",
       "filename": "a1_scene_the-hospital-is-on-the-right_d55f74c.webp",
       "concept": "The hospital is on ___ ___.",
@@ -67768,12 +67612,12 @@
       "notes": ""
     },
     {
-      "contract_sha256": "f58c570c3b41bc6f8b749f9d17ad6950a0695288b07414bc55f9a27a4a56f20b",
+      "contract_sha256": "e339e9b4892bceb16c7c3813971944c7a3d6ce750e84415c2001f7ed1e4a80c4",
       "filename": "a1_scene_she-has-bike_b6f7660.webp",
       "concept": "___ ___ ___ ___.",
       "description": "Unit 3 learner-facing still for ___ ___ ___ ___.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
       "card_refs": [
-        "3.12|Use|U5"
+        "3.12|Use|U4"
       ],
       "review_contexts": [
         {
@@ -67782,7 +67626,7 @@
           "unit_id": "unit-3",
           "sub_lesson_id": "3.12",
           "stage": "Use",
-          "slide_id": "U5",
+          "slide_id": "U4",
           "interaction_type": "complete-sentence",
           "media_role": "prompt",
           "surface_label": null,
@@ -69728,13 +69572,12 @@
       "notes": ""
     },
     {
-      "contract_sha256": "089d569115e3c60e24b7436aaf46c343c80c8eb68ac5145cc858f9223cd711bb",
+      "contract_sha256": "4e36dfcc627c53d4776f820bb706d6b45b0c397060530023f6ae837b676c54d1",
       "filename": "a1_scene_he-has-car_b3fa0ff.webp",
       "concept": "___ ___ ___ ___.",
       "description": "Unit 3 learner-facing still for ___ ___ ___ ___.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
       "card_refs": [
-        "3.11|Use|U8",
-        "3.12|Use|U4"
+        "3.11|Use|U8"
       ],
       "review_contexts": [
         {
@@ -69782,63 +69625,6 @@
             {
               "id": "word-3",
               "label": "Luis's",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Use",
-          "slide_id": "U4",
-          "interaction_type": "complete-sentence",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "prompt": "___ ___ ___ ___.",
-          "audio_text": "He has a car.",
-          "answer_audio_text": "He has a car.",
-          "spanish_translation": "Él tiene un carro.",
-          "correct_option_id": "word-1",
-          "options": [
-            {
-              "id": "word-2",
-              "label": "has",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            },
-            {
-              "id": "word-4",
-              "label": "car",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            },
-            {
-              "id": "word-1",
-              "label": "He",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "word-3",
-              "label": "a",
               "source_filename": null,
               "rendered_filename": null,
               "is_correct": false
@@ -75324,6 +75110,65 @@
       "notes": ""
     },
     {
+      "contract_sha256": "27915c0cf9f224a15e715bff76ddcad558e70cce81daa8a200e01903d7b91b33",
+      "filename": "a1_scene_teacher-ana_0e983a0.webp",
+      "concept": "the-teacher-has-a-book-r10",
+      "description": "Unit 3 learner-facing still for the-teacher-has-a-book-r10; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Recognize|R10"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Recognize",
+          "slide_id": "R10",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_teacher-ana_0e983a0.webp",
+          "rendered_filename": "a1_scene_teacher-ana_0e983a0.webp",
+          "prompt": "",
+          "audio_text": "",
+          "answer_audio_text": "The teacher has a book.",
+          "spanish_translation": "Elige la frase correcta.",
+          "correct_option_id": "the-teacher-has-a-book-r10",
+          "options": [
+            {
+              "id": "the-teacher-has-a-book-r10",
+              "label": "The teacher has a book.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "the-teacher-has-a-phone-r10",
+              "label": "The teacher has a phone.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "d1367727da0c8098582c8236fe3bcae47615b261c4b16209f3791cbf239829af",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
       "contract_sha256": "4ed3aae9011a048c434bc6da6a90f18cdeccd8fe6e7785b0dbd362094215f2ea",
       "filename": "a1_hospital.webp",
       "concept": "hospital-2",
@@ -76940,6 +76785,65 @@
       "notes": ""
     },
     {
+      "contract_sha256": "52294a75bbe592db544ae27a96bfb1ee30a3b011a8b16b7766b639332bf62f8d",
+      "filename": "a1_scene_he-has-car_b3fa0ff.webp",
+      "concept": "he-has-a-car-r8",
+      "description": "Unit 3 learner-facing still for he-has-a-car-r8; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Recognize|R8"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Recognize",
+          "slide_id": "R8",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+          "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+          "prompt": "",
+          "audio_text": "",
+          "answer_audio_text": "He has a car.",
+          "spanish_translation": "Elige la frase correcta.",
+          "correct_option_id": "he-has-a-car-r8",
+          "options": [
+            {
+              "id": "he-has-a-car-r8",
+              "label": "He has a car.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "she-has-a-bike-r8",
+              "label": "She has a bike.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "25a8addb02595b06e08dab3458ab42b0000cb3a081327d7a20c9adea72ce43f8",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
       "contract_sha256": "5613230c9553e62ff7eef182df37d3992fef7299f64bdecf1cb04de65dc86fdd",
       "filename": "a1_scene_the-train-arrives-at-ten_6fc48b2.webp",
       "concept": "The train arrives at ten.",
@@ -78180,6 +78084,65 @@
         }
       ],
       "asset_sha256": "2670b510fed2555c4149ec4eef3a1129d6b80a01b782b55b83af4320c328c5fb",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "37ba99744e6ea6b438031d9edcf63339236a8b19399360cbeceb97fd76c49709",
+      "filename": "a1_scene_your-phone-luis_e8f060b.webp",
+      "concept": "You have ___ ___.",
+      "description": "Unit 3 learner-facing still for You have ___ ___.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Use|U1"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Use",
+          "slide_id": "U1",
+          "interaction_type": "complete2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
+          "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
+          "prompt": "You have ___ ___.",
+          "audio_text": "You have a phone.",
+          "answer_audio_text": "You have a phone.",
+          "spanish_translation": "Tú tienes un teléfono.",
+          "correct_option_id": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "a",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "phone",
+              "label": "phone",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -81112,58 +81075,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "42328d23f0c3ac8bb184a4175d1ff741d346772be9e04fb64caf27424eb40e63",
-      "filename": "a1_u3_review_v2_sofia_yours.webp",
-      "concept": "It is yours.",
-      "description": "Unit 3 learner-facing still for It is yours.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.13|Speak|S7"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-9-unit-3-review",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.13",
-          "stage": "Speak",
-          "slide_id": "S7",
-          "interaction_type": "speak",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "it-is-yours-s7",
-          "option_label": "It is yours.",
-          "is_correct": true,
-          "source_filename": "a1_u3_review_v2_sofia_yours.webp",
-          "rendered_filename": "a1_u3_review_v2_sofia_yours.webp",
-          "prompt": "It is yours.",
-          "audio_text": "It is yours.",
-          "answer_audio_text": null,
-          "spanish_translation": "Es tuyo.",
-          "correct_option_id": "it-is-yours-s7",
-          "options": [
-            {
-              "id": "it-is-yours-s7",
-              "label": "It is yours.",
-              "source_filename": "a1_u3_review_v2_sofia_yours.webp",
-              "rendered_filename": "a1_u3_review_v2_sofia_yours.webp",
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "c9d17c518ccb9726392c1c6ab41ba1458d5078e39d11e02daddf9a6f7e8e0e16",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "1191052eaec918e09aef7ad4a2a6f7efdb9eaa0495fd619ccbb92570a29aa6fb",
       "filename": "a1_photo_u3_mine_v1.webp",
       "concept": "it-is-mine-a10",
@@ -82756,58 +82667,6 @@
         }
       ],
       "asset_sha256": "3b5dfe615dd284be5d1b01404ef4c63804ac81ce42c2ad2bc4109a795da70a23",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
-      "contract_sha256": "5ad3db79c590deca5b31237c49a0325924f3935d313e2eb51ab0e8fa9ac16eb5",
-      "filename": "a1_scene_they-have-bags_aed386b.webp",
-      "concept": "They have bags.",
-      "description": "Unit 3 learner-facing still for They have bags.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Speak|S3"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Speak",
-          "slide_id": "S3",
-          "interaction_type": "speak",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "they-have-bags-speak",
-          "option_label": "They have bags.",
-          "is_correct": true,
-          "source_filename": "a1_scene_they-have-bags_aed386b.webp",
-          "rendered_filename": "a1_scene_they-have-bags_aed386b.webp",
-          "prompt": "They have bags.",
-          "audio_text": "They have bags.",
-          "answer_audio_text": null,
-          "spanish_translation": "Ellos tienen bolsas.",
-          "correct_option_id": "they-have-bags-speak",
-          "options": [
-            {
-              "id": "they-have-bags-speak",
-              "label": "They have bags.",
-              "source_filename": "a1_scene_they-have-bags_aed386b.webp",
-              "rendered_filename": "a1_scene_they-have-bags_aed386b.webp",
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "468f61ace785e727612be80f97c320f5ca57b9b72df2d5d778a734573127cb22",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -91885,7 +91744,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "6076c51bec90ac1c95a05598e8ffbc8055af26183fa437f875e7b45bda918eda",
+      "contract_sha256": "9024cc528d03c0f181cf6f2ab9571807a71225a5673e64fa7c9b545754922fc0",
       "filename": "a1_photo_u3_mine_v1.webp",
       "concept": "mine-r3",
       "description": "Unit 3 learner-facing still for mine-r3; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -91905,27 +91764,27 @@
           "surface_label": null,
           "option_id": "mine-r3",
           "option_label": null,
-          "is_correct": true,
+          "is_correct": false,
           "source_filename": "a1_photo_u3_mine_v1.webp",
           "rendered_filename": "a1_photo_u3_mine_v1.webp",
-          "prompt": "Mine",
-          "audio_text": "Mine",
+          "prompt": "Yours",
+          "audio_text": "Yours",
           "answer_audio_text": null,
-          "spanish_translation": "Mío",
-          "correct_option_id": "mine-r3",
+          "spanish_translation": "Tuyo",
+          "correct_option_id": "yours-r3",
           "options": [
-            {
-              "id": "mine-r3",
-              "label": null,
-              "source_filename": "a1_photo_u3_mine_v1.webp",
-              "rendered_filename": "a1_photo_u3_mine_v1.webp",
-              "is_correct": true
-            },
             {
               "id": "yours-r3",
               "label": null,
               "source_filename": "a1_photo_u3_yours_v1.webp",
               "rendered_filename": "a1_photo_u3_yours_v1.webp",
+              "is_correct": true
+            },
+            {
+              "id": "mine-r3",
+              "label": null,
+              "source_filename": "a1_photo_u3_mine_v1.webp",
+              "rendered_filename": "a1_photo_u3_mine_v1.webp",
               "is_correct": false
             }
           ],
@@ -92878,7 +92737,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "c4ae681a8961afddc98fce893cd55bb68e45ff6aa0bb899c4c0af3b4d2a83b73",
+      "contract_sha256": "ab1b5c9507d2d8eb4264110a25158ec6bde95f275094ffb7e013a31804d4bf03",
       "filename": "a1_scene_she-has-bike_b6f7660.webp",
       "concept": "she-has-a-bike-r9",
       "description": "Unit 3 learner-facing still for she-has-a-bike-r9; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -92898,27 +92757,27 @@
           "surface_label": null,
           "option_id": "she-has-a-bike-r9",
           "option_label": null,
-          "is_correct": false,
+          "is_correct": true,
           "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
           "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
-          "prompt": "He has a car.",
-          "audio_text": "He has a car.",
+          "prompt": "She has a bike.",
+          "audio_text": "She has a bike.",
           "answer_audio_text": null,
-          "spanish_translation": "Él tiene un carro.",
-          "correct_option_id": "he-has-a-car-r9",
+          "spanish_translation": "Ella tiene una bicicleta.",
+          "correct_option_id": "she-has-a-bike-r9",
           "options": [
-            {
-              "id": "he-has-a-car-r9",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": true
-            },
             {
               "id": "she-has-a-bike-r9",
               "label": null,
               "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
               "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
+              "is_correct": true
+            },
+            {
+              "id": "he-has-a-car-r9",
+              "label": null,
+              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "is_correct": false
             }
           ],
@@ -94127,65 +93986,6 @@
         }
       ],
       "asset_sha256": "4480aaff539138a0483429af1edd998077f66f38f4cee5e07ad952c0cb7d3dc3",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
-      "contract_sha256": "b77f679486c9a0aa7985f8006738e457734ead6d02780702cae8a4edfa855393",
-      "filename": "a1_scene_they-have-bags_aed386b.webp",
-      "concept": "they-have-bags-r8",
-      "description": "Unit 3 learner-facing still for they-have-bags-r8; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R8"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R8",
-          "interaction_type": "i2t2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_they-have-bags_aed386b.webp",
-          "rendered_filename": "a1_scene_they-have-bags_aed386b.webp",
-          "prompt": "",
-          "audio_text": "",
-          "answer_audio_text": "They have bags.",
-          "spanish_translation": "Elige la frase correcta.",
-          "correct_option_id": "they-have-bags-r8",
-          "options": [
-            {
-              "id": "they-have-bags-r8",
-              "label": "They have bags.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "they-have-books-r8",
-              "label": "They have books.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "468f61ace785e727612be80f97c320f5ca57b9b72df2d5d778a734573127cb22",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -99525,72 +99325,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "6b981d8283aef070a0a5664c02bfe4d1ebb498b521bbc867abf3536549a1252f",
-      "filename": "a1_scene_your-phone-luis_e8f060b.webp",
-      "concept": "you-have-a-phone-r7",
-      "description": "Unit 3 learner-facing still for you-have-a-phone-r7; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R7"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R7",
-          "interaction_type": "t2i3",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "you-have-a-phone-r7",
-          "option_label": null,
-          "is_correct": false,
-          "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-          "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-          "prompt": "We have two books.",
-          "audio_text": "We have two books.",
-          "answer_audio_text": null,
-          "spanish_translation": "Tenemos dos libros.",
-          "correct_option_id": "we-have-two-books-r7",
-          "options": [
-            {
-              "id": "we-have-two-books-r7",
-              "label": null,
-              "source_filename": "a1_scene_we-have-books_190a845.webp",
-              "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-              "is_correct": true
-            },
-            {
-              "id": "i-have-a-book-r7",
-              "label": null,
-              "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
-              "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
-              "is_correct": false
-            },
-            {
-              "id": "you-have-a-phone-r7",
-              "label": null,
-              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "67d844deb5c86c16e08f7823414161a9094b69270246178cb1103fe36ca978b3",
       "filename": "a1_scene_doctor-diego_1c7ef5a.webp",
       "concept": "he-is-a-doctor-r7",
@@ -99696,65 +99430,6 @@
         }
       ],
       "asset_sha256": "d177340fc60d5b7c35ec0f7023e9f1e0b9e8e7524f2f5aea50e3996d54e63960",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
-      "contract_sha256": "f449bd07753600c6e942a73aa1aa3b6303657b384ae051527a3343260ca9b3cd",
-      "filename": "a1_scene_your-phone-luis_e8f060b.webp",
-      "concept": "you-have-a-phone-r6",
-      "description": "Unit 3 learner-facing still for you-have-a-phone-r6; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R6"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R6",
-          "interaction_type": "i2t2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-          "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-          "prompt": "",
-          "audio_text": "",
-          "answer_audio_text": "You have a phone.",
-          "spanish_translation": "Elige la frase correcta.",
-          "correct_option_id": "you-have-a-phone-r6",
-          "options": [
-            {
-              "id": "you-have-a-phone-r6",
-              "label": "You have a phone.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "i-have-a-book-r6",
-              "label": "I have a book.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -110727,7 +110402,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "6718f8f64841b198b873011c22131f4b6b068333b6e80c4d97dd94aed6b1cca5",
+      "contract_sha256": "4a1ca3b37d5baa6cac595852feabdaa4eae620cfe46fe9cf2833c24e5b3157d1",
       "filename": "a1_scene_we-have-books_190a845.webp",
       "concept": "have-a1",
       "description": "Unit 3 learner-facing still for have-a1; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -110747,27 +110422,27 @@
           "surface_label": null,
           "option_id": "have-a1",
           "option_label": null,
-          "is_correct": false,
+          "is_correct": true,
           "source_filename": "a1_scene_we-have-books_190a845.webp",
           "rendered_filename": "a1_scene_we-have-books_190a845.webp",
           "prompt": "Listen and choose.",
-          "audio_text": "Has",
+          "audio_text": "Have",
           "answer_audio_text": null,
           "spanish_translation": "Escucha y elige.",
-          "correct_option_id": "has-a1",
+          "correct_option_id": "have-a1",
           "options": [
-            {
-              "id": "has-a1",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": true
-            },
             {
               "id": "have-a1",
               "label": null,
               "source_filename": "a1_scene_we-have-books_190a845.webp",
               "rendered_filename": "a1_scene_we-have-books_190a845.webp",
+              "is_correct": true
+            },
+            {
+              "id": "has-a1",
+              "label": null,
+              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "is_correct": false
             }
           ],
@@ -123003,65 +122678,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "1e6cea04ac7659eeb2afbab375575e16deb2414797f76e9f02178a176fe3eb69",
-      "filename": "a1_scene_he-has-car_b3fa0ff.webp",
-      "concept": "he-has-a-car-a8",
-      "description": "Unit 3 learner-facing still for he-has-a-car-a8; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Listen|A8"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Listen",
-          "slide_id": "A8",
-          "interaction_type": "a2i2",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "he-has-a-car-a8",
-          "option_label": null,
-          "is_correct": false,
-          "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "She has a bike.",
-          "answer_audio_text": null,
-          "spanish_translation": "Escucha y elige.",
-          "correct_option_id": "she-has-a-bike-a8",
-          "options": [
-            {
-              "id": "he-has-a-car-a8",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": false
-            },
-            {
-              "id": "she-has-a-bike-a8",
-              "label": null,
-              "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "25a8addb02595b06e08dab3458ab42b0000cb3a081327d7a20c9adea72ce43f8",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "0a020b0390fb9e57466228440e425c3fba7f9b8bf71c535cdbe03a5b8f9c220a",
       "filename": "a1_who_question_mother.webp",
       "concept": "correct",
@@ -127896,6 +127512,58 @@
         }
       ],
       "asset_sha256": "b5017e777caac0492fe9baca649e9c4d7f8d611d17ecf4adbd178cfe612eeafe",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "7933f4f60047a539163c6d47b04629ddf106d03fb234dbaa83cfe63456b865c6",
+      "filename": "a1_scene_they-have-bags_aed386b.webp",
+      "concept": "They have their bags.",
+      "description": "Unit 3 learner-facing still for They have their bags.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Speak|S3"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Speak",
+          "slide_id": "S3",
+          "interaction_type": "speak",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "they-have-their-bags-speak",
+          "option_label": "They have their bags.",
+          "is_correct": true,
+          "source_filename": "a1_scene_they-have-bags_aed386b.webp",
+          "rendered_filename": "a1_scene_they-have-bags_aed386b.webp",
+          "prompt": "They have their bags.",
+          "audio_text": "They have their bags.",
+          "answer_audio_text": null,
+          "spanish_translation": "Ellos tienen sus bolsas.",
+          "correct_option_id": "they-have-their-bags-speak",
+          "options": [
+            {
+              "id": "they-have-their-bags-speak",
+              "label": "They have their bags.",
+              "source_filename": "a1_scene_they-have-bags_aed386b.webp",
+              "rendered_filename": "a1_scene_they-have-bags_aed386b.webp",
+              "is_correct": true
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "468f61ace785e727612be80f97c320f5ca57b9b72df2d5d778a734573127cb22",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -137080,6 +136748,65 @@
       "notes": ""
     },
     {
+      "contract_sha256": "83ce0403b87af681f662084e58c990875da15c03702008a8b774f509fe258c20",
+      "filename": "a1_scene_they-have-bags_aed386b.webp",
+      "concept": "they-have-their-bags-r7",
+      "description": "Unit 3 learner-facing still for they-have-their-bags-r7; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Recognize|R7"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Recognize",
+          "slide_id": "R7",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_they-have-bags_aed386b.webp",
+          "rendered_filename": "a1_scene_they-have-bags_aed386b.webp",
+          "prompt": "",
+          "audio_text": "",
+          "answer_audio_text": "They have their bags.",
+          "spanish_translation": "Elige la frase correcta.",
+          "correct_option_id": "they-have-their-bags-r7",
+          "options": [
+            {
+              "id": "they-have-their-bags-r7",
+              "label": "They have their bags.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "they-have-their-books-r7",
+              "label": "They have their books.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "468f61ace785e727612be80f97c320f5ca57b9b72df2d5d778a734573127cb22",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
       "contract_sha256": "0877839fd1e304dde40e6587d57b92933b4e18ba135a797654153e60f1498903",
       "filename": "a1_photo_u5_two_eggs_lunch_v1.webp",
       "concept": "two eggs for lunch",
@@ -137780,65 +137507,6 @@
         }
       ],
       "asset_sha256": "bc3732df846ddb10425d569e7e9856dd1d268a044d08023b72d1c440fb355248",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
-      "contract_sha256": "cd579e1256fdec7af7e33ef268fa38c83f1e991382e233117f21eeac3148260c",
-      "filename": "a1_scene_she-has-bike_b6f7660.webp",
-      "concept": "she-has-a-bike-a8",
-      "description": "Unit 3 learner-facing still for she-has-a-bike-a8; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Listen|A8"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Listen",
-          "slide_id": "A8",
-          "interaction_type": "a2i2",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "she-has-a-bike-a8",
-          "option_label": null,
-          "is_correct": true,
-          "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
-          "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "She has a bike.",
-          "answer_audio_text": null,
-          "spanish_translation": "Escucha y elige.",
-          "correct_option_id": "she-has-a-bike-a8",
-          "options": [
-            {
-              "id": "he-has-a-car-a8",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": false
-            },
-            {
-              "id": "she-has-a-bike-a8",
-              "label": null,
-              "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "2ffc8de438e0d4db5c6a372d484d30c25251ababb1874c714b4a4f5dac115c12",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -148853,72 +148521,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "39927098e52aa1cfc6db7eb0adc905978a03071992adacedc91f6b7d29f47b96",
-      "filename": "a1_scene_my-book-ana_7f764c0.webp",
-      "concept": "i-have-a-book-r7",
-      "description": "Unit 3 learner-facing still for i-have-a-book-r7; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R7"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R7",
-          "interaction_type": "t2i3",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "i-have-a-book-r7",
-          "option_label": null,
-          "is_correct": false,
-          "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
-          "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
-          "prompt": "We have two books.",
-          "audio_text": "We have two books.",
-          "answer_audio_text": null,
-          "spanish_translation": "Tenemos dos libros.",
-          "correct_option_id": "we-have-two-books-r7",
-          "options": [
-            {
-              "id": "we-have-two-books-r7",
-              "label": null,
-              "source_filename": "a1_scene_we-have-books_190a845.webp",
-              "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-              "is_correct": true
-            },
-            {
-              "id": "i-have-a-book-r7",
-              "label": null,
-              "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
-              "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
-              "is_correct": false
-            },
-            {
-              "id": "you-have-a-phone-r7",
-              "label": null,
-              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "768d91ac04821da4ac6e84386b2e54fc9365fc877f552ae3334ddde7ff2f3ba9",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "7c88f7b0cc4ee3f38c66734f6cf633f26e9126050b4b72371d7b1b90ad2a057f",
       "filename": "unit2_six_white_bags.webp",
       "concept": "Choose the phrase.",
@@ -157908,65 +157510,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "8f4ef63528a195387fb1fc2212610545265ef6369874e330ca5bfa38226a678a",
-      "filename": "a1_scene_we-have-books_190a845.webp",
-      "concept": "have-r2",
-      "description": "Unit 3 learner-facing still for have-r2; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R2"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R2",
-          "interaction_type": "t2i2",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "have-r2",
-          "option_label": null,
-          "is_correct": false,
-          "source_filename": "a1_scene_we-have-books_190a845.webp",
-          "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-          "prompt": "Has",
-          "audio_text": "Has",
-          "answer_audio_text": null,
-          "spanish_translation": "Tiene",
-          "correct_option_id": "has-r2",
-          "options": [
-            {
-              "id": "have-r2",
-              "label": null,
-              "source_filename": "a1_scene_we-have-books_190a845.webp",
-              "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-              "is_correct": false
-            },
-            {
-              "id": "has-r2",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": true
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "b440e358bda816db2bee33bd1db1a12701dd6c89cd6f89e204db3f43a24e1197",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "34c107d9e6bd9cbfe5868b653338dc1416e9aeb5266d1ecedeb36cde0d0aa6f2",
       "filename": "a1_photo_u3_age_11_boy_v1.webp",
       "concept": "Eleven years old.",
@@ -163258,6 +162801,65 @@
       "notes": ""
     },
     {
+      "contract_sha256": "a13903ac11ff5db5d8bc390ee2e0a91243bf6dc84613f9f0b01981a3dcbd15a8",
+      "filename": "a1_scene_he-has-car_b3fa0ff.webp",
+      "concept": "He has ___ ___.",
+      "description": "Unit 3 learner-facing still for He has ___ ___.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Use|U3"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Use",
+          "slide_id": "U3",
+          "interaction_type": "complete2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+          "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+          "prompt": "He has ___ ___.",
+          "audio_text": "He has a car.",
+          "answer_audio_text": "He has a car.",
+          "spanish_translation": "Él tiene un carro.",
+          "correct_option_id": "a",
+          "options": [
+            {
+              "id": "a",
+              "label": "a",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "car",
+              "label": "car",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "25a8addb02595b06e08dab3458ab42b0000cb3a081327d7a20c9adea72ce43f8",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
       "contract_sha256": "e86de0ee58eb926a7dc11812bc3a4514c05d839497ec87854b39d7940d841a18",
       "filename": "a1_pen.webp",
       "concept": "pen-2",
@@ -164309,6 +163911,58 @@
         }
       ],
       "asset_sha256": "00f4b2577697339761e63bc9bf0a01f61ea8d7911d731e034728d16026e49c65",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "0c1ef57191819235ea4e540b819c22d9929027590aa976e8ff184d0ef52a62d7",
+      "filename": "a1_u3_l33_v1_writing_answer.webp",
+      "concept": "Doing",
+      "description": "Unit 3 learner-facing still for Doing; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.3|Learn|L2"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-3-am-is-and-are",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.3",
+          "stage": "Learn",
+          "slide_id": "L2",
+          "interaction_type": "teach",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "doing-learn",
+          "option_label": "Doing",
+          "is_correct": true,
+          "source_filename": "a1_u3_l33_v1_writing_answer.webp",
+          "rendered_filename": "a1_u3_l33_v1_writing_answer.webp",
+          "prompt": "Doing",
+          "audio_text": "Doing",
+          "answer_audio_text": null,
+          "spanish_translation": "Haciendo",
+          "correct_option_id": "doing-learn",
+          "options": [
+            {
+              "id": "doing-learn",
+              "label": "Doing",
+              "source_filename": "a1_u3_l33_v1_writing_answer.webp",
+              "rendered_filename": "a1_u3_l33_v1_writing_answer.webp",
+              "is_correct": true
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "37d81262a19e9bc4b0685c3c91e7e60901f84585ec6173a747af6c08c5295f5c",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -173990,7 +173644,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "e0cbf8dfcc3057ab47ff60b7d3ddc2a9e5de2a8405739603996a4c6c3177fa46",
+      "contract_sha256": "5a24e936f2e07d7a64b382e2adb6036fbc4ebd0bfe71044f75153709dd7a6d11",
       "filename": "a1_scene_my-book-ana_7f764c0.webp",
       "concept": "i-have-a-book-r5",
       "description": "Unit 3 learner-facing still for i-have-a-book-r5; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -174010,27 +173664,27 @@
           "surface_label": null,
           "option_id": "i-have-a-book-r5",
           "option_label": null,
-          "is_correct": true,
+          "is_correct": false,
           "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
           "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
-          "prompt": "I have a book.",
-          "audio_text": "I have a book.",
+          "prompt": "You have a phone.",
+          "audio_text": "You have a phone.",
           "answer_audio_text": null,
-          "spanish_translation": "Tengo un libro.",
-          "correct_option_id": "i-have-a-book-r5",
+          "spanish_translation": "Tú tienes un teléfono.",
+          "correct_option_id": "you-have-a-phone-r5",
           "options": [
-            {
-              "id": "you-have-a-phone-r5",
-              "label": null,
-              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "is_correct": false
-            },
             {
               "id": "i-have-a-book-r5",
               "label": null,
               "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
               "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
+              "is_correct": false
+            },
+            {
+              "id": "you-have-a-phone-r5",
+              "label": null,
+              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
+              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
               "is_correct": true
             }
           ],
@@ -179742,7 +179396,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "85b8fc8d4d2c995fd7cab363437cb4d7697c170f2f5674ab3626a00ec153c2ae",
+      "contract_sha256": "2df7f157410b0dcc814e3b879112eb5d90886d670325e349dc5ab0f456ce5fc3",
       "filename": "a1_scene_he-has-car_b3fa0ff.webp",
       "concept": "has-r1",
       "description": "Unit 3 learner-facing still for has-r1; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -179762,27 +179416,27 @@
           "surface_label": null,
           "option_id": "has-r1",
           "option_label": null,
-          "is_correct": false,
+          "is_correct": true,
           "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
           "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-          "prompt": "Have",
-          "audio_text": "Have",
+          "prompt": "Has",
+          "audio_text": "Has",
           "answer_audio_text": null,
-          "spanish_translation": "Tener",
-          "correct_option_id": "have-r1",
+          "spanish_translation": "Tiene",
+          "correct_option_id": "has-r1",
           "options": [
-            {
-              "id": "has-r1",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": false
-            },
             {
               "id": "have-r1",
               "label": null,
               "source_filename": "a1_scene_we-have-books_190a845.webp",
               "rendered_filename": "a1_scene_we-have-books_190a845.webp",
+              "is_correct": false
+            },
+            {
+              "id": "has-r1",
+              "label": null,
+              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "is_correct": true
             }
           ],
@@ -185870,72 +185524,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "998ba22231914d9669815ad450e9e9489995fe87bc774d515d495f72d81a881b",
-      "filename": "a1_scene_we-have-books_190a845.webp",
-      "concept": "we-have-two-books-r7",
-      "description": "Unit 3 learner-facing still for we-have-two-books-r7; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.12|Recognize|R7"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-8-have-and-has",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.12",
-          "stage": "Recognize",
-          "slide_id": "R7",
-          "interaction_type": "t2i3",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "we-have-two-books-r7",
-          "option_label": null,
-          "is_correct": true,
-          "source_filename": "a1_scene_we-have-books_190a845.webp",
-          "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-          "prompt": "We have two books.",
-          "audio_text": "We have two books.",
-          "answer_audio_text": null,
-          "spanish_translation": "Tenemos dos libros.",
-          "correct_option_id": "we-have-two-books-r7",
-          "options": [
-            {
-              "id": "we-have-two-books-r7",
-              "label": null,
-              "source_filename": "a1_scene_we-have-books_190a845.webp",
-              "rendered_filename": "a1_scene_we-have-books_190a845.webp",
-              "is_correct": true
-            },
-            {
-              "id": "i-have-a-book-r7",
-              "label": null,
-              "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
-              "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
-              "is_correct": false
-            },
-            {
-              "id": "you-have-a-phone-r7",
-              "label": null,
-              "source_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "rendered_filename": "a1_scene_your-phone-luis_e8f060b.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-1to3-3x2-v1",
-          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "b440e358bda816db2bee33bd1db1a12701dd6c89cd6f89e204db3f43a24e1197",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "a5cdb5735cb55e7a2488b6d21be601bed93a3634eebde577f916af4e40b8af55",
       "filename": "a1_u3_dinner_v1_job_question.webp",
       "concept": "What is your job?",
@@ -187844,6 +187432,65 @@
         }
       ],
       "asset_sha256": "3bf29f947d4f9a2ffd7d4478654bd55c62b9bed4a311486945edb1c146c9b7aa",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "1049bade711e57ba6fe49431bdd5df379a543cc729bf6dbd55eb50451d1fe8a9",
+      "filename": "a1_photo_u3_mine_v1.webp",
+      "concept": "mine-r2",
+      "description": "Unit 3 learner-facing still for mine-r2; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Recognize|R2"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Recognize",
+          "slide_id": "R2",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_photo_u3_mine_v1.webp",
+          "rendered_filename": "a1_photo_u3_mine_v1.webp",
+          "prompt": "",
+          "audio_text": "",
+          "answer_audio_text": "Mine",
+          "spanish_translation": "Elige la frase correcta.",
+          "correct_option_id": "mine-r2",
+          "options": [
+            {
+              "id": "yours-r2",
+              "label": "Yours",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "mine-r2",
+              "label": "Mine",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "f30ba39f1ea097262e80d39bd76052f1c5ff4e784ed293e575a7ba0f9960ba79",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -190280,7 +189927,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "422f31872f985ea5d33d68f5da406bb47263541299c22caddf6f2542e9177d51",
+      "contract_sha256": "b68fb422bb4bbfdd3751ab9c12c8214c8c1102ac199d225cc68ba65c7e967127",
       "filename": "a1_scene_he-has-car_b3fa0ff.webp",
       "concept": "has-a1",
       "description": "Unit 3 learner-facing still for has-a1; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -190300,27 +189947,27 @@
           "surface_label": null,
           "option_id": "has-a1",
           "option_label": null,
-          "is_correct": true,
+          "is_correct": false,
           "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
           "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
           "prompt": "Listen and choose.",
-          "audio_text": "Has",
+          "audio_text": "Have",
           "answer_audio_text": null,
           "spanish_translation": "Escucha y elige.",
-          "correct_option_id": "has-a1",
+          "correct_option_id": "have-a1",
           "options": [
-            {
-              "id": "has-a1",
-              "label": null,
-              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
-              "is_correct": true
-            },
             {
               "id": "have-a1",
               "label": null,
               "source_filename": "a1_scene_we-have-books_190a845.webp",
               "rendered_filename": "a1_scene_we-have-books_190a845.webp",
+              "is_correct": true
+            },
+            {
+              "id": "has-a1",
+              "label": null,
+              "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "is_correct": false
             }
           ],
@@ -193561,7 +193208,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "96f2c1520271bea7ec50935c38187b588565db4de38df79bc4afd4ae7994fa84",
+      "contract_sha256": "bf625f520d23e96e019531dc9630d34356c026ad53c6f9a17029b0d50e1be14a",
       "filename": "a1_scene_she-has-bike_b6f7660.webp",
       "concept": "she-has-a-bike-a7",
       "description": "Unit 3 learner-facing still for she-has-a-bike-a7; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -193581,27 +193228,27 @@
           "surface_label": null,
           "option_id": "she-has-a-bike-a7",
           "option_label": null,
-          "is_correct": false,
+          "is_correct": true,
           "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
           "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
           "prompt": "Listen and choose.",
-          "audio_text": "He has a car.",
+          "audio_text": "She has a bike.",
           "answer_audio_text": null,
           "spanish_translation": "Escucha y elige.",
-          "correct_option_id": "he-has-a-car-a7",
+          "correct_option_id": "she-has-a-bike-a7",
           "options": [
-            {
-              "id": "she-has-a-bike-a7",
-              "label": null,
-              "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "is_correct": false
-            },
             {
               "id": "he-has-a-car-a7",
               "label": null,
               "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "is_correct": false
+            },
+            {
+              "id": "she-has-a-bike-a7",
+              "label": null,
+              "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
+              "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
               "is_correct": true
             }
           ],
@@ -195954,65 +195601,6 @@
       "notes": ""
     },
     {
-      "contract_sha256": "4f0ae4fe0a2fcb47a93ab7458989da9af34fa2f5386bd4deac1ebe3054603bc7",
-      "filename": "a1_scene_luis-american_5a29f49.webp",
-      "concept": "i-am-american-r8",
-      "description": "Unit 3 learner-facing still for i-am-american-r8; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
-      "card_refs": [
-        "3.7|Recognize|R8"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-3-5-countries-and-nationalities",
-          "unit_id": "unit-3",
-          "sub_lesson_id": "3.7",
-          "stage": "Recognize",
-          "slide_id": "R8",
-          "interaction_type": "i2t2",
-          "media_role": "prompt",
-          "surface_label": null,
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_scene_luis-american_5a29f49.webp",
-          "rendered_filename": "a1_scene_luis-american_5a29f49.webp",
-          "prompt": "",
-          "audio_text": "",
-          "answer_audio_text": "I am American.",
-          "spanish_translation": "Elige la frase correcta.",
-          "correct_option_id": "i-am-american-r8",
-          "options": [
-            {
-              "id": "i-am-american-r8",
-              "label": "I am American.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            },
-            {
-              "id": "i-am-mexican-r8",
-              "label": "I am Mexican.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ],
-      "asset_sha256": "1a10713f2978b757e58d516082edde0df804c9859e73fa577e26ca8879575d7f",
-      "decision": "pending",
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": ""
-    },
-    {
       "contract_sha256": "9e7281ff0957029f94f2fc77729bf2a222b88449853e475e274292a346405a37",
       "filename": "a1_photo_u3_our_grandchildren_v1.webp",
       "concept": "they-are-our-grandchildren-r5",
@@ -196469,6 +196057,65 @@
         }
       ],
       "asset_sha256": "c3098dd263fb7cd45a60f9348e2052c1f0fef22e1f62ba97233b704385ed313f",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "731eb0e98324245c30d2a2f6a09160a409eacd2c364fb308bae0deb34883a312",
+      "filename": "a1_scene_my-book-ana_7f764c0.webp",
+      "concept": "i-have-a-book-r4",
+      "description": "Unit 3 learner-facing still for i-have-a-book-r4; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.12|Recognize|R4"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-8-have-and-has",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.12",
+          "stage": "Recognize",
+          "slide_id": "R4",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_my-book-ana_7f764c0.webp",
+          "rendered_filename": "a1_scene_my-book-ana_7f764c0.webp",
+          "prompt": "",
+          "audio_text": "",
+          "answer_audio_text": "I have a book.",
+          "spanish_translation": "Elige la frase correcta.",
+          "correct_option_id": "i-have-a-book-r4",
+          "options": [
+            {
+              "id": "you-have-a-phone-r4",
+              "label": "You have a phone.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "i-have-a-book-r4",
+              "label": "I have a book.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "768d91ac04821da4ac6e84386b2e54fc9365fc877f552ae3334ddde7ff2f3ba9",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -200438,7 +200085,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "5afbc5d82839ed7df27d5e3868475a3b2bfa1f7927708f03c0384d09711a7db9",
+      "contract_sha256": "27aecfbf298e946e47970d0dbf7801b8f06197a6690b84a1c299525b25aa663c",
       "filename": "a1_scene_he-has-car_b3fa0ff.webp",
       "concept": "he-has-a-car-a7",
       "description": "Unit 3 learner-facing still for he-has-a-car-a7; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
@@ -200458,27 +200105,27 @@
           "surface_label": null,
           "option_id": "he-has-a-car-a7",
           "option_label": null,
-          "is_correct": true,
+          "is_correct": false,
           "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
           "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
           "prompt": "Listen and choose.",
-          "audio_text": "He has a car.",
+          "audio_text": "She has a bike.",
           "answer_audio_text": null,
           "spanish_translation": "Escucha y elige.",
-          "correct_option_id": "he-has-a-car-a7",
+          "correct_option_id": "she-has-a-bike-a7",
           "options": [
-            {
-              "id": "she-has-a-bike-a7",
-              "label": null,
-              "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
-              "is_correct": false
-            },
             {
               "id": "he-has-a-car-a7",
               "label": null,
               "source_filename": "a1_scene_he-has-car_b3fa0ff.webp",
               "rendered_filename": "a1_scene_he-has-car_b3fa0ff.webp",
+              "is_correct": false
+            },
+            {
+              "id": "she-has-a-bike-a7",
+              "label": null,
+              "source_filename": "a1_scene_she-has-bike_b6f7660.webp",
+              "rendered_filename": "a1_scene_she-has-bike_b6f7660.webp",
               "is_correct": true
             }
           ],
@@ -213660,6 +213307,58 @@
       "notes": ""
     },
     {
+      "contract_sha256": "ea264b8aebcf054b4bdfb15f06c9703cecd814009574ea4acf06d1b81a37610e",
+      "filename": "a1_u3_review_v2_sofia_yours.webp",
+      "concept": "Is it yours? Yes, it is mine.",
+      "description": "Unit 3 learner-facing still for Is it yours? Yes, it is mine.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "3.13|Speak|S7"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-9-unit-3-review",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.13",
+          "stage": "Speak",
+          "slide_id": "S7",
+          "interaction_type": "speak",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "is-it-yours-yes-it-is-mine-s7",
+          "option_label": "Is it yours? Yes, it is mine.",
+          "is_correct": true,
+          "source_filename": "a1_u3_review_v2_sofia_yours.webp",
+          "rendered_filename": "a1_u3_review_v2_sofia_yours.webp",
+          "prompt": "Is it yours? Yes, it is mine.",
+          "audio_text": "Is it yours? Yes, it is mine.",
+          "answer_audio_text": null,
+          "spanish_translation": "¿Es tuyo? Sí, es mío.",
+          "correct_option_id": "is-it-yours-yes-it-is-mine-s7",
+          "options": [
+            {
+              "id": "is-it-yours-yes-it-is-mine-s7",
+              "label": "Is it yours? Yes, it is mine.",
+              "source_filename": "a1_u3_review_v2_sofia_yours.webp",
+              "rendered_filename": "a1_u3_review_v2_sofia_yours.webp",
+              "is_correct": true
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "c69eed59103c5b0d3e4e9c4351fd393e67bf036ad08dd04adbd9bc673d401ad3",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "c9d17c518ccb9726392c1c6ab41ba1458d5078e39d11e02daddf9a6f7e8e0e16",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
       "contract_sha256": "a5b04e5e42f62a8869f9619e1dbe97c5c73d0efd724464155ce129e7c085dde5",
       "filename": "a1_u1_review_brothers_studying.webp",
       "concept": "The brothers ___ ___.",
@@ -216349,12 +216048,13 @@
       "notes": ""
     },
     {
-      "contract_sha256": "de1e784ed81ab1dd747aaa66158cad8984d5a848cfdc45567fa9dfe0167fe38f",
+      "contract_sha256": "710425ae6a8cd973bcff019396666f614cc22bb540c3af081f283b82d7ed4449",
       "filename": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
       "concept": "How old are you?",
       "description": "Unit 3 learner-facing still for How old are you?; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
       "card_refs": [
-        "3.6|Recognize|R10"
+        "3.6|Recognize|R10",
+        "3.7|Recognize|R12"
       ],
       "review_contexts": [
         {
@@ -216387,6 +216087,49 @@
             },
             {
               "id": "i-am-eighteen-years-old-r10",
+              "label": "I am eighteen years old.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "1b7b256048c6c1b132ed57d4c5d3faeff516e2a049474875953c4de95481d94a",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-3-5-countries-and-nationalities",
+          "unit_id": "unit-3",
+          "sub_lesson_id": "3.7",
+          "stage": "Recognize",
+          "slide_id": "R12",
+          "interaction_type": "i2t2",
+          "media_role": "prompt",
+          "surface_label": null,
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
+          "rendered_filename": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
+          "prompt": "How old are you?",
+          "audio_text": "How old are you?",
+          "answer_audio_text": "I am twenty years old.",
+          "spanish_translation": "¿Cuántos años tienes?",
+          "correct_option_id": "i-am-twenty-years-old-r12",
+          "options": [
+            {
+              "id": "i-am-twenty-years-old-r12",
+              "label": "I am twenty years old.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            },
+            {
+              "id": "i-am-eighteen-years-old-r12",
               "label": "I am eighteen years old.",
               "source_filename": null,
               "rendered_filename": null,
