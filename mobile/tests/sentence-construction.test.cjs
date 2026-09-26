@@ -37,7 +37,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // 230 since the Unit 1 rebuild: lessons 1.4-1.6 end with four constructions each (was 4 + 5).
   // 242 since the Unit 2 rebuild: the new 2.7 lesson and the 40-card extensions add 12 constructions.
   // 246 since 2026-09-24: the new 2.10 These and Those and the colors rebuild add four.
-  assert.equal(rollout.length, 246);
+  // 263 since 2026-09-25: the engine-built Unit 3 (14 lessons, four new) adds 17.
+  assert.equal(rollout.length, 263);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

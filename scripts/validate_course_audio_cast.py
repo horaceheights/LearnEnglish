@@ -29,6 +29,9 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     # Unit 3 was rebuilt through the content engine on 2026-09-25: each brief names who says
     # every line, neutral narration alternates the teacher and the male-teacher narrator,
     # and these pins are regenerated from the installed lessons.
+    # Unit 3 was rebuilt through the content engine on 2026-09-25: each brief names who says
+    # every line, neutral narration alternates the teacher and the male-teacher narrator,
+    # and these pins are regenerated from the installed lessons.
     "lesson-3-1-greetings-and-names": [
         ("audio_speaker", "ana", "L1 L2 L5 R1 R2 R10 R11 A1 A2 A4 A6 A10 S1 S2 U2 U5"),
         ("audio_speaker", "luis", "L3 L4 R3 R5 R7 A3 A5 A7 S3 S4 S5 U1 U3 U4 U6"),

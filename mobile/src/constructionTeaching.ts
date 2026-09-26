@@ -5,12 +5,14 @@ import type { LessonCard } from './types';
 // The course-wide hint gate rejects new patterns until their explanation is added.
 const words = (value: string) => value.toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g) || [];
 const set = (value: string) => new Set(value.split(' '));
-const DETERMINERS = set('a an the my your his her');
+const DETERMINERS = set('a an the my your his her our their');
 const NUMBERS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty');
 const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
-const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish');
+for (const noun of words('spain diego states')) NOUNS.add(noun);
+const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
+const OWNERS = set('mine yours');
 const PRONOUNS = set('i you he she it we they this that these those there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening');
@@ -34,11 +36,18 @@ function teachClause(text: string): ClausePlan {
     if (start >= end) return false;
     let head = start;
     if (DETERMINERS.has(keys[head]) || NUMBERS.has(keys[head]) || keys[head] === 'some') head++;
+    const owner = keys[head]?.endsWith("'s") && NOUNS.has(keys[head].slice(0, -2)) ? head : -1;
+    if (owner >= 0) head++;
+    if (keys[head] === 'united' && keys[head + 1] === 'states') head++;
     if (COLORS.has(keys[head])) head++;
     if (['living', 'dining'].includes(keys[head]) && keys[head + 1] === 'room') head++;
     // "The red one": after a color, "one" stands in for the noun already named.
     const standIn = keys[head] === 'one' && head > start && COLORS.has(keys[head - 1]);
     if (head !== end - 1 || !(NOUNS.has(keys[head]) || standIn)) return false;
+    if (owner >= 0) {
+      teach(start, end, `En ${quote(phrase(start, end))}, ${quote(tokens[owner])} indica de quién es: el dueño con 's va antes del nombre ${quote(phrase(owner + 1, end))}.`);
+      return true;
+    }
     if (head > start) {
       const first = keys[start];
       const why = standIn
@@ -47,7 +56,7 @@ function teachClause(text: string): ClausePlan {
         ? `En ${quote(phrase(start, end))}, ${NUMBERS.has(first) ? 'la cantidad va primero, después el color y al final el nombre' : 'el color va antes del nombre que describe'}.`
         : NUMBERS.has(first) || first === 'some'
           ? `En ${quote(phrase(start, end))}, la cantidad va antes del nombre: primero cuánto hay y después qué es.`
-          : ['my', 'your', 'his', 'her'].includes(first)
+          : ['my', 'your', 'his', 'her', 'our', 'their'].includes(first)
             ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} indica de quién es y va antes del nombre ${quote(phrase(start + 1, end))}.`
             : DETERMINERS.has(first)
               ? `En ${quote(phrase(start, end))}, ${quote(tokens[start])} acompaña al nombre ${quote(phrase(start + 1, end))} y va delante de él.`
@@ -132,6 +141,10 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, '“Every day” significa todos los días: “every” va antes de “day”, y el grupo indica cuándo ocurre la acción.');
       return true;
     }
+    if (end - start === 1 && OWNERS.has(keys[start])) {
+      teach(start, end, `${quote(original)} significa ${keys[start] === 'mine' ? '“mío”' : '“tuyo”'}: reemplaza al dueño y a la cosa, y va después de ${quote(anchor)}.`);
+      return true;
+    }
     if (end - start === 1 && STATES.has(keys[start])) {
       teach(start, end, `${quote(original)} describe cómo es o cómo está el sujeto; en esta afirmación va después de ${quote(anchor)}.`);
       return true;
@@ -173,6 +186,9 @@ function teachClause(text: string): ClausePlan {
     'what are you doing': 'Para preguntar qué está haciendo alguien ahora decimos “What are you doing?”: primero “What”, luego “are”, después “you” y al final “doing”. Es una pregunta fija.',
     // Lesson 2.10 asks which of two things someone means before "The red one."
     'which one': 'Para preguntar cuál de varias cosas decimos “Which one?”: primero “Which” y después “one”.',
+    // Unit 3 short answers: "Yes." or "No." comes first, then the subject and its be.
+    yes: 'En la respuesta corta, “Yes” va primero para decir que sí; después repetimos el sujeto y el verbo.',
+    no: 'En la respuesta corta, “No” va primero para decir que no; después repetimos el sujeto, el verbo y “not”.',
   };
   if (fixed[joined]) {
     teach(0, keys.length, fixed[joined]);
@@ -216,6 +232,17 @@ function teachClause(text: string): ClausePlan {
     if (subjectEnd < keys.length) teach(subjectEnd, keys.length, 'En “Where are you from?”, “Where” pregunta el lugar y “from” cierra la pregunta para indicar el origen.');
     return { explanations, relations, supported };
   }
+  const yesNo = /^(am|is|are) /.exec(joined);
+  if (yesNo && text.trim().endsWith('?') && keys.length >= 3) {
+    teach(0, keys.length, `En una pregunta de sí o no, el verbo ${quote(tokens[0])} va primero, antes de quien preguntamos.`);
+    // The subject is a pronoun ("Is he …?") or a determiner and its noun ("Are the babies …?").
+    const subjectEnd = DETERMINERS.has(keys[1]) ? 3 : 2;
+    if (!subject(1, subjectEnd)) return { explanations, relations, supported: false };
+    teach(0, subjectEnd, `En esta pregunta, ${quote(tokens[0])} va antes del sujeto ${quote(phrase(1, subjectEnd))}.`);
+    relations.push({ start: 1, end: keys.length, explanation: `Después de ${quote(tokens[0])} va el sujeto ${quote(phrase(1, subjectEnd))} y luego ${quote(phrase(subjectEnd, keys.length))}.` });
+    const supported = complement(subjectEnd, keys.length, tokens[0]);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
   let start = 0;
   if (['first', 'then'].includes(keys[0])) {
     teach(0, 1, `${quote(tokens[0])} indica ${keys[0] === 'first' ? 'qué ocurre primero' : 'qué ocurre después'} y abre esta frase, antes de quien realiza la acción.`);
@@ -241,7 +268,9 @@ function teachClause(text: string): ClausePlan {
   if (!subject(start, verbIndex)) return { explanations, relations, supported: false };
   let rest = verbIndex + 1;
   if (keys[rest] === 'not') {
-    teach(rest, rest + 1, `“Not” niega lo que sigue; aquí va después de ${quote(tokens[verbIndex])} y antes de ${quote(tokens[rest + 1] || '')}.`);
+    teach(rest, rest + 1, rest + 1 === keys.length
+      ? `En la respuesta corta, “not” va al final, después de ${quote(tokens[verbIndex])}, para decir que no.`
+      : `“Not” niega lo que sigue; aquí va después de ${quote(tokens[verbIndex])} y antes de ${quote(tokens[rest + 1] || '')}.`);
     relations.push({ start: verbIndex, end: rest + 2, explanation: explanations[rest] });
     rest++;
   }

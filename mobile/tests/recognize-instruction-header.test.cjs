@@ -37,12 +37,13 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  198, // 2026-09-24: the new 2.10 and the colors rebuild
+  243, // 2026-09-25: the engine-built Unit 3 gives its 12 teaching lessons sentence-choice cards
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
   affectedLessons.size,
-  64, // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10
+  69, // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;
+  // the Unit 3 rebuild adds its four new lessons and 3.2
   'The shared rule must cover every standard lesson that contains this interaction.',
 );
 // Section instructions are Spanish in every unit (2026-09-19): no Recognize card may
@@ -70,8 +71,8 @@ assert.deepEqual(
 );
 assert.deepEqual(
   emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-3-9-unit-3-review').map(({ card }) => card.slide_id),
-  ['R7', 'R8'],
-  'The Unit 3 parity review uses the shared instruction for its two scene-to-phrase choices.',
+  ['R7', 'R8', 'R9'],
+  'The Unit 3 review uses the shared instruction for its three scene-to-phrase choices (R9 added 2026-09-25).',
 );
 assert.ok(
   emptyRecognizeCards.every(({ card }) => (

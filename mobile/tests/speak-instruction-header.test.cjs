@@ -36,14 +36,17 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // 424 since the Unit 1 rebuild: three family lessons of seven Speak cards replace two, and Who Is He? keeps seven.
 // 439 since the Unit 2 rebuild: the 40-card extensions and the new 2.7 Numbers 6-10 add 15 Speak cards.
 // 447 since 2026-09-24: the new 2.10 These and Those adds eight Speak cards.
-assert.equal(speakCards.length, 447, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4, Unit 5, Unit 6 and Unit 7 mission gates each, plus the 3.3 current-action exchange and the rebuilt Unit 1 family lessons.');
+// 492 since 2026-09-25: the engine-built Unit 3 (four new lessons, 40-42 cards each) and its
+// fifth mission gate add 45 Speak cards.
+assert.equal(speakCards.length, 492, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4, Unit 5, Unit 6 and Unit 7 mission gates each, plus the 3.3 current-action exchange and the rebuilt Unit 1 family lessons.');
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
-assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 4);
+// The Unit 3 mission gained a fifth gate, Is it yours?, on 2026-09-25.
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 5);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-10-my-day-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-5-10-cafe-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-6-10-town-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-7-10-a1-final-mission').length, 4);
-assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-3-am-is-and-are').length, 7);
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-3-am-is-and-are').length, 9);
 assert.equal(affectedLessons.size, courseContract.lessonCount, 'The shared Speak instruction must cover every A1 lesson.');
 assert.ok(
   speakCards.every(({ card }) => card.prompt.trim()),
