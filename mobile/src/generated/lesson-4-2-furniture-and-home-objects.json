@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-4",
   "unit_title": "Unit 4: Home and Daily Life",
-  "unit_outcome": "Locate familiar things and describe a short supported routine using known subjects, simple present chunks, days, and clock times.",
+  "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
   "lesson_id": "lesson-4",
   "lesson_title": "Unit 4: Home and Daily Life",
   "sub_lesson_id": "4.2",
   "sub_lesson_title": "Furniture and Home Objects",
-  "goal": "Recognize and name six common home objects while recycling Unit 2 chair, table, book, phone, and bag.",
+  "goal": "Recognize and name six home objects, say which room they are in, and answer Is it a ...? about them.",
   "vocabulary": [
     "bed",
     "sofa",
@@ -19,25 +19,53 @@
     "computer"
   ],
   "review_vocabulary": [
+    "it",
+    "is",
+    "a",
+    "the",
+    "in",
     "chair",
-    "table",
-    "book",
-    "phone",
-    "bag",
     "bedroom",
     "living room",
     "kitchen",
-    "This is...",
-    "It is..."
+    "yes",
+    "no",
+    "not"
   ],
-  "grammar_function": "It is a noun; This is a noun. No location relation is tested yet.",
-  "prerequisite": "4.1 rooms and Unit 2 objects.",
-  "speaking_outcome": "Produce six short object identity sentences after a model.",
+  "grammar_function": "It is a + noun. The bed is in the bedroom. Is it a door? Yes, it is. / No, it is not.",
+  "prerequisite": "4.1 rooms; 2.4 It is a ...; 3.4 yes/no questions with be.",
+  "speaking_outcome": "Name six home objects and say which room they are in.",
   "purposeful_review_slides": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
     "R7",
     "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A7",
+    "A8",
+    "A9",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "U1",
+    "U2",
+    "U3",
+    "U4",
     "U5",
-    "U6"
+    "U6",
+    "U7",
+    "U8"
   ],
   "cards": [
     {
@@ -45,10 +73,10 @@
       "interaction_type": "teach",
       "prompt": "A bed",
       "stage": "Learn",
-      "correct_option_id": "a-bed-1",
+      "correct_option_id": "a-bed-learn",
       "options": [
         {
-          "id": "a-bed-1",
+          "id": "a-bed-learn",
           "image_url": "/lesson-assets/a1_bed.webp",
           "label": "A bed"
         }
@@ -57,7 +85,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una cama",
-      "pedagogy_note": "introduces bed",
+      "pedagogy_note": "Story beat 01: A bed",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -94,10 +122,10 @@
       "interaction_type": "teach",
       "prompt": "A sofa",
       "stage": "Learn",
-      "correct_option_id": "a-sofa-1",
+      "correct_option_id": "a-sofa-learn",
       "options": [
         {
-          "id": "a-sofa-1",
+          "id": "a-sofa-learn",
           "image_url": "/lesson-assets/a1_sofa.webp",
           "label": "A sofa"
         }
@@ -106,33 +134,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un sof\u00e1",
-      "pedagogy_note": "introduces sofa",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: A sofa",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c002-prompt-161bc0fab26021695391",
+          "id": "lesson-4-2-furniture-and-home-objects-c002-prompt-a62a777d7dce3be5e7b9",
           "purpose": "prompt",
           "text": "A sofa",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_sofa.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c002-answer-3c4ba48c7d96b2b740e5",
+          "id": "lesson-4-2-furniture-and-home-objects-c002-answer-0102babfbcce72c96b78",
           "purpose": "answer",
           "text": "A sofa",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_sofa.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -143,10 +171,10 @@
       "interaction_type": "teach",
       "prompt": "A lamp",
       "stage": "Learn",
-      "correct_option_id": "a-lamp-1",
+      "correct_option_id": "a-lamp-learn",
       "options": [
         {
-          "id": "a-lamp-1",
+          "id": "a-lamp-learn",
           "image_url": "/lesson-assets/a1_lamp.webp",
           "label": "A lamp"
         }
@@ -155,7 +183,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una l\u00e1mpara",
-      "pedagogy_note": "introduces lamp",
+      "pedagogy_note": "Story beat 03: A lamp",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -192,10 +220,10 @@
       "interaction_type": "teach",
       "prompt": "A door",
       "stage": "Learn",
-      "correct_option_id": "a-door-1",
+      "correct_option_id": "a-door-learn",
       "options": [
         {
-          "id": "a-door-1",
+          "id": "a-door-learn",
           "image_url": "/lesson-assets/a1_door.webp",
           "label": "A door"
         }
@@ -204,33 +232,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una puerta",
-      "pedagogy_note": "introduces door",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: A door",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c004-prompt-68898f2f16a85500653b",
+          "id": "lesson-4-2-furniture-and-home-objects-c004-prompt-daaadc054056c62d4001",
           "purpose": "prompt",
           "text": "A door",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_door.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c004-answer-711f70b44103f7a226da",
+          "id": "lesson-4-2-furniture-and-home-objects-c004-answer-9216f48d513b36c386d1",
           "purpose": "answer",
           "text": "A door",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_door.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -241,10 +269,10 @@
       "interaction_type": "teach",
       "prompt": "A window",
       "stage": "Learn",
-      "correct_option_id": "a-window-1",
+      "correct_option_id": "a-window-learn",
       "options": [
         {
-          "id": "a-window-1",
+          "id": "a-window-learn",
           "image_url": "/lesson-assets/a1_window.webp",
           "label": "A window"
         }
@@ -253,7 +281,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una ventana",
-      "pedagogy_note": "introduces window",
+      "pedagogy_note": "Story beat 05: A window",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -290,10 +318,10 @@
       "interaction_type": "teach",
       "prompt": "A computer",
       "stage": "Learn",
-      "correct_option_id": "a-computer-1",
+      "correct_option_id": "a-computer-learn",
       "options": [
         {
-          "id": "a-computer-1",
+          "id": "a-computer-learn",
           "image_url": "/lesson-assets/a1_computer.webp",
           "label": "A computer"
         }
@@ -302,56 +330,61 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una computadora",
-      "pedagogy_note": "introduces computer",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 06: A computer",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c006-prompt-ce64975095a618dc0e29",
+          "id": "lesson-4-2-furniture-and-home-objects-c006-prompt-76e501e4a72a7679d2ad",
           "purpose": "prompt",
           "text": "A computer",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_computer.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c006-answer-9f267d1dcf9839dcba0a",
+          "id": "lesson-4-2-furniture-and-home-objects-c006-answer-cf66ba3ad0354ebba258",
           "purpose": "answer",
           "text": "A computer",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_computer.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "L7",
-      "interaction_type": "teach",
+      "slide_id": "R1",
+      "interaction_type": "t2i2",
       "prompt": "It is a bed.",
-      "stage": "Learn",
-      "correct_option_id": "it-is-a-bed-1",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-a-bed-r1",
       "options": [
         {
-          "id": "it-is-a-bed-1",
+          "id": "it-is-a-sofa-r1",
+          "image_url": "/lesson-assets/a1_sofa.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-bed-r1",
           "image_url": "/lesson-assets/a1_bed.webp",
-          "label": "It is a bed."
+          "label": null
         }
       ],
       "audio_text": "It is a bed.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Es una cama.",
-      "pedagogy_note": "pattern anchor",
+      "pedagogy_note": "Story beat 01: It is a bed.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -384,157 +417,42 @@
       ]
     },
     {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "It is a computer.",
-      "stage": "Learn",
-      "correct_option_id": "it-is-a-computer-1",
-      "options": [
-        {
-          "id": "it-is-a-computer-1",
-          "image_url": "/lesson-assets/a1_computer.webp",
-          "label": "It is a computer."
-        }
-      ],
-      "audio_text": "It is a computer.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es una computadora.",
-      "pedagogy_note": "pattern anchor",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c008-prompt-27d613c044eac3c1a0d9",
-          "purpose": "prompt",
-          "text": "It is a computer.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_computer.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c008-answer-1384e94eb59522589844",
-          "purpose": "answer",
-          "text": "It is a computer.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_computer.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "A bed",
-      "stage": "Recognize",
-      "correct_option_id": "bed-2",
-      "options": [
-        {
-          "id": "sofa-1",
-          "image_url": "/lesson-assets/a1_sofa.webp",
-          "label": null
-        },
-        {
-          "id": "bed-2",
-          "image_url": "/lesson-assets/a1_bed.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "A bed",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una cama",
-      "pedagogy_note": "full silhouettes",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c009-prompt-ffd23816a5da66cba42b",
-          "purpose": "prompt",
-          "text": "A bed",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_bed.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c009-answer-6974526ea8fa4d3639a8",
-          "purpose": "answer",
-          "text": "A bed",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bed.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "R2",
-      "interaction_type": "t2i2",
-      "prompt": "A sofa",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "sofa-1",
+      "correct_option_id": "it-is-a-sofa-r2",
       "options": [
         {
-          "id": "sofa-1",
-          "image_url": "/lesson-assets/a1_sofa.webp",
-          "label": null
+          "id": "it-is-a-bed-r2",
+          "image_url": "",
+          "label": "It is a bed."
         },
         {
-          "id": "chair-2",
-          "image_url": "/lesson-assets/a1_chair.webp",
-          "label": null
+          "id": "it-is-a-sofa-r2",
+          "image_url": "",
+          "label": "It is a sofa."
         }
       ],
-      "audio_text": "A sofa",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un sof\u00e1",
-      "pedagogy_note": "one-seat vs multi-seat form visible",
+      "audio_text": "",
+      "answer_audio_text": "It is a sofa.",
+      "prompt_image_url": "/lesson-assets/a1_sofa.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: It is a sofa.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c010-prompt-5b2e97a1977c68f174cf",
-          "purpose": "prompt",
-          "text": "A sofa",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_sofa.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c010-answer-4da29495e1b7961aa0b5",
+          "id": "lesson-4-2-furniture-and-home-objects-c008-answer-e0e8a6854c6521adda92",
           "purpose": "answer",
-          "text": "A sofa",
+          "text": "It is a sofa.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_sofa.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -543,35 +461,35 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "A lamp",
+      "prompt": "It is a lamp.",
       "stage": "Recognize",
-      "correct_option_id": "lamp-2",
+      "correct_option_id": "it-is-a-lamp-r3",
       "options": [
         {
-          "id": "computer-1",
-          "image_url": "/lesson-assets/a1_computer.webp",
+          "id": "it-is-a-lamp-r3",
+          "image_url": "/lesson-assets/a1_lamp.webp",
           "label": null
         },
         {
-          "id": "lamp-2",
-          "image_url": "/lesson-assets/a1_lamp.webp",
+          "id": "it-is-a-computer-r3",
+          "image_url": "/lesson-assets/a1_computer.webp",
           "label": null
         }
       ],
-      "audio_text": "A lamp",
+      "audio_text": "It is a lamp.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una l\u00e1mpara",
-      "pedagogy_note": "distinct objects",
+      "spanish_translation": "Es una l\u00e1mpara.",
+      "pedagogy_note": "Story beat 03: It is a lamp.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c011-prompt-7f85ecf63a3ac077ca95",
+          "id": "lesson-4-2-furniture-and-home-objects-c009-prompt-6d60f6683027ab9f6b99",
           "purpose": "prompt",
-          "text": "A lamp",
+          "text": "It is a lamp.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_lamp.webp",
@@ -581,9 +499,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c011-answer-f3561b7b1b8f5e342631",
+          "id": "lesson-4-2-furniture-and-home-objects-c009-answer-02018fd95d12c5ba3aaf",
           "purpose": "answer",
-          "text": "A lamp",
+          "text": "It is a lamp.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_lamp.webp",
@@ -596,53 +514,41 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "t2i2",
-      "prompt": "A door",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "door-1",
+      "correct_option_id": "it-is-a-door-r4",
       "options": [
         {
-          "id": "door-1",
-          "image_url": "/lesson-assets/a1_door.webp",
-          "label": null
+          "id": "it-is-a-window-r4",
+          "image_url": "",
+          "label": "It is a window."
         },
         {
-          "id": "window-2",
-          "image_url": "/lesson-assets/a1_window.webp",
-          "label": null
+          "id": "it-is-a-door-r4",
+          "image_url": "",
+          "label": "It is a door."
         }
       ],
-      "audio_text": "A door",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una puerta",
-      "pedagogy_note": "wall opening contrast",
+      "audio_text": "",
+      "answer_audio_text": "It is a door.",
+      "prompt_image_url": "/lesson-assets/a1_door.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: It is a door.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c012-prompt-507c37462426ab5f6a23",
-          "purpose": "prompt",
-          "text": "A door",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_door.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c012-answer-f395a3509858a39696b6",
+          "id": "lesson-4-2-furniture-and-home-objects-c010-answer-4d10a6b53a77dd852b16",
           "purpose": "answer",
-          "text": "A door",
+          "text": "It is a door.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_door.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -650,46 +556,36 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i4",
-      "prompt": "A window",
+      "interaction_type": "t2i2",
+      "prompt": "It is a window.",
       "stage": "Recognize",
-      "correct_option_id": "window-3",
+      "correct_option_id": "it-is-a-window-r5",
       "options": [
         {
-          "id": "door-1",
+          "id": "it-is-a-door-r5",
           "image_url": "/lesson-assets/a1_door.webp",
           "label": null
         },
         {
-          "id": "lamp-2",
-          "image_url": "/lesson-assets/a1_lamp.webp",
-          "label": null
-        },
-        {
-          "id": "window-3",
+          "id": "it-is-a-window-r5",
           "image_url": "/lesson-assets/a1_window.webp",
-          "label": null
-        },
-        {
-          "id": "computer-4",
-          "image_url": "/lesson-assets/a1_computer.webp",
           "label": null
         }
       ],
-      "audio_text": "A window",
+      "audio_text": "It is a window.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una ventana",
-      "pedagogy_note": "four objects",
+      "spanish_translation": "Es una ventana.",
+      "pedagogy_note": "Story beat 05: It is a window.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c013-prompt-4c32412c6dbfb426c79d",
+          "id": "lesson-4-2-furniture-and-home-objects-c011-prompt-b20dbd48c26812dfa846",
           "purpose": "prompt",
-          "text": "A window",
+          "text": "It is a window.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_window.webp",
@@ -699,9 +595,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c013-answer-e2dd7d439a55a2ebe817",
+          "id": "lesson-4-2-furniture-and-home-objects-c011-answer-eeb096f7bdb80b85171f",
           "purpose": "answer",
-          "text": "A window",
+          "text": "It is a window.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_window.webp",
@@ -714,46 +610,46 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "i2t4",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-computer-3",
+      "correct_option_id": "it-is-a-computer-r6",
       "options": [
         {
-          "id": "it-is-a-phone-1",
-          "image_url": "",
-          "label": "It is a phone."
-        },
-        {
-          "id": "it-is-a-window-2",
+          "id": "it-is-a-window-r6",
           "image_url": "",
           "label": "It is a window."
         },
         {
-          "id": "it-is-a-computer-3",
+          "id": "it-is-a-computer-r6",
           "image_url": "",
           "label": "It is a computer."
+        },
+        {
+          "id": "it-is-a-lamp-r6",
+          "image_url": "",
+          "label": "It is a lamp."
         }
       ],
       "audio_text": "",
       "answer_audio_text": "It is a computer.",
       "prompt_image_url": "/lesson-assets/a1_computer.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "image-to-text",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: It is a computer.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c014-answer-f25c2996d7cd16c2a145",
+          "id": "lesson-4-2-furniture-and-home-objects-c012-answer-2cb843a100b8a0e17095",
           "purpose": "answer",
           "text": "It is a computer.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_computer.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -764,33 +660,33 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "this-is-the-bedroom-2",
+      "correct_option_id": "the-bed-is-in-the-bedroom-r7",
       "options": [
         {
-          "id": "this-is-the-living-room-1",
+          "id": "the-bed-is-in-the-bedroom-r7",
           "image_url": "",
-          "label": "This is the living room."
+          "label": "The bed is in the bedroom."
         },
         {
-          "id": "this-is-the-bedroom-2",
+          "id": "the-bed-is-in-the-living-room-r7",
           "image_url": "",
-          "label": "This is the bedroom."
+          "label": "The bed is in the living room."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "This is the bedroom.",
+      "answer_audio_text": "The bed is in the bedroom.",
       "prompt_image_url": "/lesson-assets/a1_bedroom.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "4.1 review",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 07: The bed is in the bedroom.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c015-answer-e702e0e1552eb0825c79",
+          "id": "lesson-4-2-furniture-and-home-objects-c013-answer-f84be6c486a074f44adf",
           "purpose": "answer",
-          "text": "This is the bedroom.",
+          "text": "The bed is in the bedroom.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_bedroom.webp",
@@ -806,36 +702,78 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "this-is-the-living-room-1",
+      "correct_option_id": "the-sofa-is-in-the-living-room-r8",
       "options": [
         {
-          "id": "this-is-the-living-room-1",
+          "id": "the-sofa-is-in-the-living-room-r8",
           "image_url": "",
-          "label": "This is the living room."
+          "label": "The sofa is in the living room."
         },
         {
-          "id": "this-is-the-kitchen-2",
+          "id": "the-sofa-is-in-the-bedroom-r8",
           "image_url": "",
-          "label": "This is the kitchen."
+          "label": "The sofa is in the bedroom."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "This is the living room.",
+      "answer_audio_text": "The sofa is in the living room.",
       "prompt_image_url": "/lesson-assets/a1_living_room.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "4.1 review",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: The sofa is in the living room.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c014-answer-6ccc73aa506b1dc3039d",
+          "purpose": "answer",
+          "text": "The sofa is in the living room.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-computer-is-in-the-living-room-r9",
+      "options": [
+        {
+          "id": "the-computer-is-in-the-living-room-r9",
+          "image_url": "",
+          "label": "The computer is in the living room."
+        },
+        {
+          "id": "the-computer-is-in-the-kitchen-r9",
+          "image_url": "",
+          "label": "The computer is in the kitchen."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The computer is in the living room.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_computer_in_living_room_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: The computer is in the living room.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c016-answer-2985d6f7426910a8026d",
+          "id": "lesson-4-2-furniture-and-home-objects-c015-answer-b7674bcffced22f2b176",
           "purpose": "answer",
-          "text": "This is the living room.",
+          "text": "The computer is in the living room.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_computer_in_living_room_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -844,20 +782,470 @@
       ]
     },
     {
-      "slide_id": "N1",
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "is-it-a-door-yes-it-is-r10",
+      "options": [
+        {
+          "id": "is-it-a-door-yes-it-is-r10",
+          "image_url": "",
+          "label": "Is it a door? Yes, it is."
+        },
+        {
+          "id": "is-it-a-door-no-it-is-not-r10",
+          "image_url": "",
+          "label": "Is it a door? No, it is not."
+        },
+        {
+          "id": "is-it-a-lamp-yes-it-is-r10",
+          "image_url": "",
+          "label": "Is it a lamp? Yes, it is."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Is it a door? Yes, it is.",
+      "prompt_image_url": "/lesson-assets/a1_door.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: Is it a door? Yes, it is.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c016-answer-b69e967bf26530590929",
+          "purpose": "answer",
+          "text": "Is it a door? Yes, it is.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_door.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "t2i2",
+      "prompt": "Is it a lamp? Yes, it is.",
+      "stage": "Recognize",
+      "correct_option_id": "is-it-a-lamp-yes-it-is-r11",
+      "options": [
+        {
+          "id": "is-it-a-door-yes-it-is-r11",
+          "image_url": "/lesson-assets/a1_door.webp",
+          "label": null
+        },
+        {
+          "id": "is-it-a-lamp-yes-it-is-r11",
+          "image_url": "/lesson-assets/a1_lamp.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Is it a lamp? Yes, it is.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfEs una l\u00e1mpara? S\u00ed.",
+      "pedagogy_note": "Story beat 11: Is it a lamp? Yes, it is.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c017-prompt-39728457925f98a63c39",
+          "purpose": "prompt",
+          "text": "Is it a lamp? Yes, it is.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_lamp.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c017-answer-506096a277cef3dd7c28",
+          "purpose": "answer",
+          "text": "Is it a lamp? Yes, it is.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_lamp.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "bed-2",
+      "correct_option_id": "a-bed-a1",
       "options": [
         {
-          "id": "sofa-1",
+          "id": "a-bed-a1",
+          "image_url": "/lesson-assets/a1_bed.webp",
+          "label": null
+        },
+        {
+          "id": "a-sofa-a1",
+          "image_url": "/lesson-assets/a1_sofa.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A bed",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: A bed",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c018-prompt-a25a1441fecf058070ce",
+          "purpose": "prompt",
+          "text": "A bed",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_bed.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c018-answer-291802ff2f49f6121732",
+          "purpose": "answer",
+          "text": "A bed",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_bed.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-sofa-a2",
+      "options": [
+        {
+          "id": "a-sofa-a2",
           "image_url": "/lesson-assets/a1_sofa.webp",
           "label": null
         },
         {
-          "id": "bed-2",
+          "id": "a-bed-a2",
           "image_url": "/lesson-assets/a1_bed.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A sofa",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: A sofa",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c019-prompt-87129363379de29cf135",
+          "purpose": "prompt",
+          "text": "A sofa",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_sofa.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c019-answer-dcdffd58fe1665bcf525",
+          "purpose": "answer",
+          "text": "A sofa",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_sofa.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-lamp-a3",
+      "options": [
+        {
+          "id": "a-lamp-a3",
+          "image_url": "",
+          "label": "A lamp"
+        },
+        {
+          "id": "a-sofa-a3",
+          "image_url": "",
+          "label": "A sofa"
+        }
+      ],
+      "audio_text": "A lamp",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: A lamp",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c020-prompt-6148f394d3a86ff0f495",
+          "purpose": "prompt",
+          "text": "A lamp",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:c8dc0c1339cd62a6be9f",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c020-answer-389b76827b0335c88c3f",
+          "purpose": "answer",
+          "text": "A lamp",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:c8dc0c1339cd62a6be9f",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-door-a4",
+      "options": [
+        {
+          "id": "a-lamp-a4",
+          "image_url": "/lesson-assets/a1_lamp.webp",
+          "label": null
+        },
+        {
+          "id": "a-door-a4",
+          "image_url": "/lesson-assets/a1_door.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A door",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: A door",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c021-prompt-05ee7f5a501f3de9e102",
+          "purpose": "prompt",
+          "text": "A door",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_door.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c021-answer-32cc91f48a44b1a6c519",
+          "purpose": "answer",
+          "text": "A door",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_door.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-window-a5",
+      "options": [
+        {
+          "id": "a-computer-a5",
+          "image_url": "/lesson-assets/a1_computer.webp",
+          "label": null
+        },
+        {
+          "id": "a-lamp-a5",
+          "image_url": "/lesson-assets/a1_lamp.webp",
+          "label": null
+        },
+        {
+          "id": "a-window-a5",
+          "image_url": "/lesson-assets/a1_window.webp",
+          "label": null
+        },
+        {
+          "id": "a-door-a5",
+          "image_url": "/lesson-assets/a1_door.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A window",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: A window",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c022-prompt-09a3328dca64baa29f30",
+          "purpose": "prompt",
+          "text": "A window",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_window.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c022-answer-c74276b08fd3b1113931",
+          "purpose": "answer",
+          "text": "A window",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_window.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-computer-a6",
+      "options": [
+        {
+          "id": "a-computer-a6",
+          "image_url": "",
+          "label": "A computer"
+        },
+        {
+          "id": "a-window-a6",
+          "image_url": "",
+          "label": "A window"
+        },
+        {
+          "id": "a-door-a6",
+          "image_url": "",
+          "label": "A door"
+        }
+      ],
+      "audio_text": "A computer",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: A computer",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c023-prompt-e43ec61017db5dd41dd6",
+          "purpose": "prompt",
+          "text": "A computer",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:9f4b350d573cd408bd54",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c023-answer-83f0a1ddf653bcfcbe86",
+          "purpose": "answer",
+          "text": "A computer",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:9f4b350d573cd408bd54",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-a-bed-a7",
+      "options": [
+        {
+          "id": "it-is-a-door-a7",
+          "image_url": "/lesson-assets/a1_door.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-bed-a7",
+          "image_url": "/lesson-assets/a1_bed.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-sofa-a7",
+          "image_url": "/lesson-assets/a1_sofa.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-lamp-a7",
+          "image_url": "/lesson-assets/a1_lamp.webp",
           "label": null
         }
       ],
@@ -865,53 +1253,63 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 07: It is a bed.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c017-prompt-67b31e01d29377a59dfe",
+          "id": "lesson-4-2-furniture-and-home-objects-c024-prompt-1ff1edfdb9dcd54c0049",
           "purpose": "prompt",
           "text": "It is a bed.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_bed.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c017-answer-9dac062f92236a7a886a",
+          "id": "lesson-4-2-furniture-and-home-objects-c024-answer-ec8bd27d5df5a71f53e3",
           "purpose": "answer",
           "text": "It is a bed.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_bed.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "N2",
-      "interaction_type": "a2i2",
+      "slide_id": "A8",
+      "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "sofa-1",
+      "correct_option_id": "it-is-a-sofa-a8",
       "options": [
         {
-          "id": "sofa-1",
+          "id": "it-is-a-door-a8",
+          "image_url": "/lesson-assets/a1_door.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-sofa-a8",
           "image_url": "/lesson-assets/a1_sofa.webp",
           "label": null
         },
         {
-          "id": "chair-2",
-          "image_url": "/lesson-assets/a1_chair.webp",
+          "id": "it-is-a-bed-a8",
+          "image_url": "/lesson-assets/a1_bed.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-lamp-a8",
+          "image_url": "/lesson-assets/a1_lamp.webp",
           "label": null
         }
       ],
@@ -919,14 +1317,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "pedagogy_note": "Story beat 08: It is a sofa.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c018-prompt-e2b6fa1ba2aab5450f3b",
+          "id": "lesson-4-2-furniture-and-home-objects-c025-prompt-9edba20b4859d4573a62",
           "purpose": "prompt",
           "text": "It is a sofa.",
           "mode": "prompt",
@@ -938,7 +1336,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c018-answer-39fd98ec0be9e78c67bc",
+          "id": "lesson-4-2-furniture-and-home-objects-c025-answer-e0bba8e7b1d7e5637e1e",
           "purpose": "answer",
           "text": "It is a sofa.",
           "mode": "prompt",
@@ -952,236 +1350,59 @@
       ]
     },
     {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
+      "slide_id": "A9",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "lamp-2",
+      "correct_option_id": "is-it-a-window-no-it-is-not-a9",
       "options": [
         {
-          "id": "computer-1",
-          "image_url": "/lesson-assets/a1_computer.webp",
-          "label": null
+          "id": "is-it-a-window-yes-it-is-a9",
+          "image_url": "",
+          "label": "Is it a window? Yes, it is."
         },
         {
-          "id": "lamp-2",
-          "image_url": "/lesson-assets/a1_lamp.webp",
-          "label": null
+          "id": "is-it-a-door-no-it-is-not-a9",
+          "image_url": "",
+          "label": "Is it a door? No, it is not."
+        },
+        {
+          "id": "is-it-a-window-no-it-is-not-a9",
+          "image_url": "",
+          "label": "Is it a window? No, it is not."
         }
       ],
-      "audio_text": "It is a lamp.",
+      "audio_text": "Is it a window? No, it is not.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 09: Is it a window? No, it is not.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c019-prompt-10884b6e1f8e49f42928",
+          "id": "lesson-4-2-furniture-and-home-objects-c026-prompt-d9a050c6d47fef412b48",
           "purpose": "prompt",
-          "text": "It is a lamp.",
+          "text": "Is it a window? No, it is not.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_lamp.webp",
+          "image_ref": "text-only:f8e5d76dd59f5dfe2677",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c019-answer-343a2ea10fe1d480fb1f",
+          "id": "lesson-4-2-furniture-and-home-objects-c026-answer-1cc86b17cf074d6a9e2e",
           "purpose": "answer",
-          "text": "It is a lamp.",
+          "text": "Is it a window? No, it is not.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_lamp.webp",
+          "image_ref": "text-only:f8e5d76dd59f5dfe2677",
           "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "door-1",
-      "options": [
-        {
-          "id": "door-1",
-          "image_url": "/lesson-assets/a1_door.webp",
-          "label": null
-        },
-        {
-          "id": "window-2",
-          "image_url": "/lesson-assets/a1_window.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a door.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c020-prompt-c1d29495d0a2c6037354",
-          "purpose": "prompt",
-          "text": "It is a door.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_door.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c020-answer-6151cbe4430499e8e0da",
-          "purpose": "answer",
-          "text": "It is a door.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_door.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N5",
-      "interaction_type": "a2i4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "window-3",
-      "options": [
-        {
-          "id": "door-1",
-          "image_url": "/lesson-assets/a1_door.webp",
-          "label": null
-        },
-        {
-          "id": "lamp-2",
-          "image_url": "/lesson-assets/a1_lamp.webp",
-          "label": null
-        },
-        {
-          "id": "window-3",
-          "image_url": "/lesson-assets/a1_window.webp",
-          "label": null
-        },
-        {
-          "id": "computer-4",
-          "image_url": "/lesson-assets/a1_computer.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a window.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c021-prompt-62323a54ca9e23aa593f",
-          "purpose": "prompt",
-          "text": "It is a window.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_window.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c021-answer-a500b1c7a116c1579e37",
-          "purpose": "answer",
-          "text": "It is a window.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_window.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N6",
-      "interaction_type": "a2i4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "computer-2",
-      "options": [
-        {
-          "id": "book-1",
-          "image_url": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
-          "label": null
-        },
-        {
-          "id": "computer-2",
-          "image_url": "/lesson-assets/a1_computer.webp",
-          "label": null
-        },
-        {
-          "id": "phone-3",
-          "image_url": "/lesson-assets/a1_phone.webp",
-          "label": null
-        },
-        {
-          "id": "lamp-4",
-          "image_url": "/lesson-assets/a1_lamp.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a computer.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c022-prompt-fb51495f1d717a563f81",
-          "purpose": "prompt",
-          "text": "It is a computer.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_computer.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c022-answer-e321a287bf26d5d00ff1",
-          "purpose": "answer",
-          "text": "It is a computer.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_computer.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1189,46 +1410,46 @@
     },
     {
       "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "It is a bed.",
+      "interaction_type": "speak",
+      "prompt": "It is a lamp.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-bed-1",
+      "correct_option_id": "it-is-a-lamp-speak",
       "options": [
         {
-          "id": "it-is-a-bed-1",
-          "image_url": "/lesson-assets/a1_bed.webp",
-          "label": "It is a bed."
+          "id": "it-is-a-lamp-speak",
+          "image_url": "/lesson-assets/a1_lamp.webp",
+          "label": "It is a lamp."
         }
       ],
-      "audio_text": "It is a bed.",
+      "audio_text": "It is a lamp.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es una cama.",
-      "pedagogy_note": "object identity",
+      "spanish_translation": "Es una l\u00e1mpara.",
+      "pedagogy_note": "Story beat 01: It is a lamp.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c023-prompt-781d4908c62cae7e387b",
+          "id": "lesson-4-2-furniture-and-home-objects-c027-prompt-4150c4c50b70a4628418",
           "purpose": "prompt",
-          "text": "It is a bed.",
+          "text": "It is a lamp.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_bed.webp",
+          "image_ref": "/lesson-assets/a1_lamp.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c023-answer-aa65d86eb17ca78845aa",
+          "id": "lesson-4-2-furniture-and-home-objects-c027-answer-ffdaf2b4719be8b72b2c",
           "purpose": "answer",
-          "text": "It is a bed.",
+          "text": "It is a lamp.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bed.webp",
+          "image_ref": "/lesson-assets/a1_lamp.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1238,48 +1459,48 @@
     },
     {
       "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "It is a sofa.",
+      "interaction_type": "speak",
+      "prompt": "It is a door.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-sofa-1",
+      "correct_option_id": "it-is-a-door-speak",
       "options": [
         {
-          "id": "it-is-a-sofa-1",
-          "image_url": "/lesson-assets/a1_sofa.webp",
-          "label": "It is a sofa."
+          "id": "it-is-a-door-speak",
+          "image_url": "/lesson-assets/a1_door.webp",
+          "label": "It is a door."
         }
       ],
-      "audio_text": "It is a sofa.",
+      "audio_text": "It is a door.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es un sof\u00e1.",
-      "pedagogy_note": "object identity",
-      "audio_speaker": null,
+      "spanish_translation": "Es una puerta.",
+      "pedagogy_note": "Story beat 02: It is a door.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c024-prompt-1946f3089deb6ee78851",
+          "id": "lesson-4-2-furniture-and-home-objects-c028-prompt-427808b150dd374a06dc",
           "purpose": "prompt",
-          "text": "It is a sofa.",
+          "text": "It is a door.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_sofa.webp",
+          "image_ref": "/lesson-assets/a1_door.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c024-answer-097e46c5202679d1d105",
+          "id": "lesson-4-2-furniture-and-home-objects-c028-answer-7014237e90b5989e4ddd",
           "purpose": "answer",
-          "text": "It is a sofa.",
+          "text": "It is a door.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_sofa.webp",
+          "image_ref": "/lesson-assets/a1_door.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1287,46 +1508,46 @@
     },
     {
       "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "It is a lamp.",
+      "interaction_type": "speak",
+      "prompt": "It is a window.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-lamp-1",
+      "correct_option_id": "it-is-a-window-speak",
       "options": [
         {
-          "id": "it-is-a-lamp-1",
-          "image_url": "/lesson-assets/a1_lamp.webp",
-          "label": "It is a lamp."
+          "id": "it-is-a-window-speak",
+          "image_url": "/lesson-assets/a1_window.webp",
+          "label": "It is a window."
         }
       ],
-      "audio_text": "It is a lamp.",
+      "audio_text": "It is a window.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es una l\u00e1mpara.",
-      "pedagogy_note": "object identity",
+      "spanish_translation": "Es una ventana.",
+      "pedagogy_note": "Story beat 03: It is a window.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c025-prompt-6cde7ab7cdaeb4242286",
+          "id": "lesson-4-2-furniture-and-home-objects-c029-prompt-3fbbe0294e99ce081c20",
           "purpose": "prompt",
-          "text": "It is a lamp.",
+          "text": "It is a window.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_lamp.webp",
+          "image_ref": "/lesson-assets/a1_window.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c025-answer-87190e2655c7cc3c0470",
+          "id": "lesson-4-2-furniture-and-home-objects-c029-answer-3f15356b8a5162a8cc3d",
           "purpose": "answer",
-          "text": "It is a lamp.",
+          "text": "It is a window.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_lamp.webp",
+          "image_ref": "/lesson-assets/a1_window.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1336,48 +1557,48 @@
     },
     {
       "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "It is a door.",
+      "interaction_type": "speak",
+      "prompt": "It is a computer.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-door-1",
+      "correct_option_id": "it-is-a-computer-speak",
       "options": [
         {
-          "id": "it-is-a-door-1",
-          "image_url": "/lesson-assets/a1_door.webp",
-          "label": "It is a door."
+          "id": "it-is-a-computer-speak",
+          "image_url": "/lesson-assets/a1_computer.webp",
+          "label": "It is a computer."
         }
       ],
-      "audio_text": "It is a door.",
+      "audio_text": "It is a computer.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es una puerta.",
-      "pedagogy_note": "object identity",
-      "audio_speaker": null,
+      "spanish_translation": "Es una computadora.",
+      "pedagogy_note": "Story beat 04: It is a computer.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c026-prompt-bdc8fcb9cb9f3604dd99",
+          "id": "lesson-4-2-furniture-and-home-objects-c030-prompt-ddb6c67c3b81a38325a0",
           "purpose": "prompt",
-          "text": "It is a door.",
+          "text": "It is a computer.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_door.webp",
+          "image_ref": "/lesson-assets/a1_computer.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c026-answer-f61562284c1ea51629eb",
+          "id": "lesson-4-2-furniture-and-home-objects-c030-answer-7ca86cf08ef5c6cb5f60",
           "purpose": "answer",
-          "text": "It is a door.",
+          "text": "It is a computer.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_door.webp",
+          "image_ref": "/lesson-assets/a1_computer.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1385,46 +1606,46 @@
     },
     {
       "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "It is a window.",
+      "interaction_type": "speak",
+      "prompt": "The bed is in the bedroom.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-window-1",
+      "correct_option_id": "the-bed-is-in-the-bedroom-speak",
       "options": [
         {
-          "id": "it-is-a-window-1",
-          "image_url": "/lesson-assets/a1_window.webp",
-          "label": "It is a window."
+          "id": "the-bed-is-in-the-bedroom-speak",
+          "image_url": "/lesson-assets/a1_bedroom.webp",
+          "label": "The bed is in the bedroom."
         }
       ],
-      "audio_text": "It is a window.",
+      "audio_text": "The bed is in the bedroom.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es una ventana.",
-      "pedagogy_note": "object identity",
+      "spanish_translation": "La cama est\u00e1 en el dormitorio.",
+      "pedagogy_note": "Story beat 05: The bed is in the bedroom.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c027-prompt-41a940a42b67e4964ee6",
+          "id": "lesson-4-2-furniture-and-home-objects-c031-prompt-cc537eee695009ce74db",
           "purpose": "prompt",
-          "text": "It is a window.",
+          "text": "The bed is in the bedroom.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_window.webp",
+          "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c027-answer-48f02d36ac0cbb102b4b",
+          "id": "lesson-4-2-furniture-and-home-objects-c031-answer-b468ed0e65e0a21e2eb0",
           "purpose": "answer",
-          "text": "It is a window.",
+          "text": "The bed is in the bedroom.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_window.webp",
+          "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1434,48 +1655,146 @@
     },
     {
       "slide_id": "S6",
-      "interaction_type": "repeat",
-      "prompt": "It is a computer.",
+      "interaction_type": "speak",
+      "prompt": "The sofa is in the living room.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-computer-1",
+      "correct_option_id": "the-sofa-is-in-the-living-room-speak",
       "options": [
         {
-          "id": "it-is-a-computer-1",
-          "image_url": "/lesson-assets/a1_computer.webp",
-          "label": "It is a computer."
+          "id": "the-sofa-is-in-the-living-room-speak",
+          "image_url": "/lesson-assets/a1_living_room.webp",
+          "label": "The sofa is in the living room."
         }
       ],
-      "audio_text": "It is a computer.",
+      "audio_text": "The sofa is in the living room.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es una computadora.",
-      "pedagogy_note": "object identity",
+      "spanish_translation": "El sof\u00e1 est\u00e1 en la sala.",
+      "pedagogy_note": "Story beat 06: The sofa is in the living room.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c032-prompt-0da8681be27d0092cb7a",
+          "purpose": "prompt",
+          "text": "The sofa is in the living room.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c032-answer-a45743351d6129e0ac1c",
+          "purpose": "answer",
+          "text": "The sofa is in the living room.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "The computer is in the living room.",
+      "stage": "Speak",
+      "correct_option_id": "the-computer-is-in-the-living-room-speak",
+      "options": [
+        {
+          "id": "the-computer-is-in-the-living-room-speak",
+          "image_url": "/lesson-assets/a1_photo_u4_computer_in_living_room_v1.webp",
+          "label": "The computer is in the living room."
+        }
+      ],
+      "audio_text": "The computer is in the living room.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La computadora est\u00e1 en la sala.",
+      "pedagogy_note": "Story beat 07: The computer is in the living room.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c028-prompt-20ffc80ea23062ceadae",
+          "id": "lesson-4-2-furniture-and-home-objects-c033-prompt-973b6edb5deb331362df",
           "purpose": "prompt",
-          "text": "It is a computer.",
+          "text": "The computer is in the living room.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_computer.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_computer_in_living_room_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c028-answer-65549b48652493d50e7b",
+          "id": "lesson-4-2-furniture-and-home-objects-c033-answer-400ee032dfe3dd785584",
           "purpose": "answer",
-          "text": "It is a computer.",
+          "text": "The computer is in the living room.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_computer.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_computer_in_living_room_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "Is it a door? Yes, it is.",
+      "stage": "Speak",
+      "correct_option_id": "is-it-a-door-yes-it-is-speak",
+      "options": [
+        {
+          "id": "is-it-a-door-yes-it-is-speak",
+          "image_url": "/lesson-assets/a1_door.webp",
+          "label": "Is it a door? Yes, it is."
+        }
+      ],
+      "audio_text": "Is it a door? Yes, it is.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfEs una puerta? S\u00ed.",
+      "pedagogy_note": "Story beat 08: Is it a door? Yes, it is.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c034-prompt-a0ecd5a25b8bea2e13fc",
+          "purpose": "prompt",
+          "text": "Is it a door? Yes, it is.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_door.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c034-answer-9e8be37f1d5c006c10fc",
+          "purpose": "answer",
+          "text": "Is it a door? Yes, it is.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_door.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1507,14 +1826,14 @@
       "answer_audio_text": "It is a bed.",
       "prompt_image_url": "/lesson-assets/a1_bed.webp",
       "spanish_translation": "Es una cama.",
-      "pedagogy_note": "object slot",
+      "pedagogy_note": "Story beat 01: It is a bed.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c029-prompt-afdfaf8a5447b22087b8",
+          "id": "lesson-4-2-furniture-and-home-objects-c035-prompt-b468b5451755b80fcd55",
           "purpose": "prompt",
           "text": "It is a bed.",
           "mode": "prompt",
@@ -1526,7 +1845,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c029-answer-2b92e39177f816562b04",
+          "id": "lesson-4-2-furniture-and-home-objects-c035-answer-ca76ba3ad8abc6121a7d",
           "purpose": "answer",
           "text": "It is a bed.",
           "mode": "prompt",
@@ -1541,6 +1860,64 @@
     },
     {
       "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "sofa"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "sofa",
+          "image_url": "",
+          "label": "sofa"
+        }
+      ],
+      "audio_text": "It is a sofa.",
+      "answer_audio_text": "It is a sofa.",
+      "prompt_image_url": "/lesson-assets/a1_sofa.webp",
+      "spanish_translation": "Es un sof\u00e1.",
+      "pedagogy_note": "Story beat 02: It is a sofa.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c036-prompt-8a641ab116f6213bd82e",
+          "purpose": "prompt",
+          "text": "It is a sofa.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_sofa.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c036-answer-a080ebcb975c6dffe8cb",
+          "purpose": "answer",
+          "text": "It is a sofa.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_sofa.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "It is ___ ___.",
       "stage": "Use",
@@ -1565,14 +1942,14 @@
       "answer_audio_text": "It is a lamp.",
       "prompt_image_url": "/lesson-assets/a1_lamp.webp",
       "spanish_translation": "Es una l\u00e1mpara.",
-      "pedagogy_note": "object slot",
+      "pedagogy_note": "Story beat 03: It is a lamp.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c030-prompt-800a3c84d5ff5beeb380",
+          "id": "lesson-4-2-furniture-and-home-objects-c037-prompt-4a76b615a29d84a2e540",
           "purpose": "prompt",
           "text": "It is a lamp.",
           "mode": "prompt",
@@ -1584,7 +1961,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c030-answer-0b15d4971abee5bb6035",
+          "id": "lesson-4-2-furniture-and-home-objects-c037-answer-e225931aabb8e2a8cd9c",
           "purpose": "answer",
           "text": "It is a lamp.",
           "mode": "prompt",
@@ -1598,7 +1975,7 @@
       ]
     },
     {
-      "slide_id": "U3",
+      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "It is ___ ___.",
       "stage": "Use",
@@ -1623,103 +2000,33 @@
       "answer_audio_text": "It is a door.",
       "prompt_image_url": "/lesson-assets/a1_door.webp",
       "spanish_translation": "Es una puerta.",
-      "pedagogy_note": "object slot",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "pedagogy_note": "Story beat 04: It is a door.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c031-prompt-84763028f629650f51b7",
+          "id": "lesson-4-2-furniture-and-home-objects-c038-prompt-76cfa36c70a21be803dd",
           "purpose": "prompt",
           "text": "It is a door.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_door.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c031-answer-b6e6b494d037e4d54493",
+          "id": "lesson-4-2-furniture-and-home-objects-c038-answer-7d555614cadf0d52fb10",
           "purpose": "answer",
           "text": "It is a door.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_door.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "computer"
-        }
-      ],
-      "audio_text": "It is a computer.",
-      "answer_audio_text": "It is a computer.",
-      "prompt_image_url": "/lesson-assets/a1_computer.webp",
-      "spanish_translation": "Es una computadora.",
-      "pedagogy_note": "object slot",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c032-prompt-02c9228dcd18181e2765",
-          "purpose": "prompt",
-          "text": "It is a computer.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_computer.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-2-furniture-and-home-objects-c032-answer-ac3cf2f5730dfb0d98fe",
-          "purpose": "answer",
-          "text": "It is a computer.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_computer.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1739,55 +2046,55 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "This"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "the"
-        },
-        {
           "id": "word-4",
           "image_url": "",
-          "label": "bedroom"
+          "label": "window"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
         }
       ],
-      "audio_text": "This is the bedroom.",
-      "answer_audio_text": "This is the bedroom.",
-      "prompt_image_url": "/lesson-assets/a1_bedroom.webp",
-      "spanish_translation": "Este es el dormitorio.",
-      "pedagogy_note": "4.1 review",
+      "audio_text": "It is a window.",
+      "answer_audio_text": "It is a window.",
+      "prompt_image_url": "/lesson-assets/a1_window.webp",
+      "spanish_translation": "Es una ventana.",
+      "pedagogy_note": "Story beat 05: It is a window.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c033-prompt-4672005e25744fce345a",
+          "id": "lesson-4-2-furniture-and-home-objects-c039-prompt-979cc58eccc5da9be85e",
           "purpose": "prompt",
-          "text": "This is the bedroom.",
+          "text": "It is a window.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
+          "image_ref": "/lesson-assets/a1_window.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c033-answer-020b3d93f46bb3f747e4",
+          "id": "lesson-4-2-furniture-and-home-objects-c039-answer-f65f0f654039e1afa7d5",
           "purpose": "answer",
-          "text": "This is the bedroom.",
+          "text": "It is a window.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
+          "image_ref": "/lesson-assets/a1_window.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1798,7 +2105,77 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "computer"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "audio_text": "It is a computer.",
+      "answer_audio_text": "It is a computer.",
+      "prompt_image_url": "/lesson-assets/a1_computer.webp",
+      "spanish_translation": "Es una computadora.",
+      "pedagogy_note": "Story beat 06: It is a computer.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c040-prompt-782dcf22263fac9b6a4d",
+          "purpose": "prompt",
+          "text": "It is a computer.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_computer.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c040-answer-bd343aed4c73dd53f579",
+          "purpose": "answer",
+          "text": "It is a computer.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_computer.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___? ___, ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -1806,66 +2183,172 @@
         "word-2",
         "word-3",
         "word-4",
-        "word-5"
+        "word-5",
+        "word-6",
+        "word-7"
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "This"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "the"
+          "label": "it"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "living"
+          "label": "lamp"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "it"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "room"
+          "label": "Yes"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "is"
         }
       ],
-      "audio_text": "This is the living room.",
-      "answer_audio_text": "This is the living room.",
-      "prompt_image_url": "/lesson-assets/a1_living_room.webp",
-      "spanish_translation": "Esta es la sala.",
-      "pedagogy_note": "4.1 review",
+      "audio_text": "Is it a lamp? Yes, it is.",
+      "answer_audio_text": "Is it a lamp? Yes, it is.",
+      "prompt_image_url": "/lesson-assets/a1_lamp.webp",
+      "spanish_translation": "\u00bfEs una l\u00e1mpara? S\u00ed.",
+      "pedagogy_note": "Story beat 07: Is it a lamp? Yes, it is.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c034-prompt-60995e5790cf776fb814",
+          "id": "lesson-4-2-furniture-and-home-objects-c041-prompt-11a84ce6900452a9a1a1",
           "purpose": "prompt",
-          "text": "This is the living room.",
+          "text": "Is it a lamp? Yes, it is.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "image_ref": "/lesson-assets/a1_lamp.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-2-furniture-and-home-objects-c034-answer-c0a463765ca434612c1e",
+          "id": "lesson-4-2-furniture-and-home-objects-c041-answer-f9416c3407ae33062b13",
           "purpose": "answer",
-          "text": "This is the living room.",
+          "text": "Is it a lamp? Yes, it is.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "image_ref": "/lesson-assets/a1_lamp.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___? ___, ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7",
+        "word-8"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "it"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "window"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "it"
+        },
+        {
+          "id": "word-8",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "No"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "Is it a window? No, it is not.",
+      "answer_audio_text": "Is it a window? No, it is not.",
+      "prompt_image_url": "/lesson-assets/a1_door.webp",
+      "spanish_translation": "\u00bfEs una ventana? No.",
+      "pedagogy_note": "Story beat 08: Is it a window? No, it is not.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c042-prompt-3013b9054ff1dd91d7db",
+          "purpose": "prompt",
+          "text": "Is it a window? No, it is not.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_door.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-2-furniture-and-home-objects-c042-answer-3acd39356a19f87f562f",
+          "purpose": "answer",
+          "text": "Is it a window? No, it is not.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_door.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

@@ -220,7 +220,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#e5eefb',
   },
   'lesson-4-1-rooms-at-home': {
-    image: 'a1_scene_home-cutaway_acf377a.webp',
+    image: 'a1_photo_u4_adults_living_room_v1.webp',
     description: 'La casa y sus habitaciones.',
     color: '#f1e4fa',
   },
@@ -235,7 +235,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-4-4-there-is-and-there-are': {
-    image: 'a1_scene_one-bed-bedroom_fd49452.webp',
+    image: 'a1_photo_u4_three_books_on_table_v1.webp',
     description: 'Describe lo que hay en una habitación.',
     color: '#f1e4fa',
   },
@@ -251,12 +251,22 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   },
   'lesson-4-7-simple-present': {
     image: 'a1_scene_he-working_060cda8.webp',
-    description: 'Rutinas habituales en presente simple.',
+    description: 'Rutinas de todos los días: primero y luego.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-do-you-questions': {
+    image: 'a1_photo_u4_yes_i_do_v1.webp',
+    description: 'Preguntas con Do you...? y respuestas cortas.',
     color: '#f1e4fa',
   },
   'lesson-4-8-days-and-time': {
+    image: 'a1_photo_u4_day_monday_v1.webp',
+    description: 'Los días de la semana y hoy.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-what-time-is-it': {
     image: 'a1_scene_clock7_598dfdb.webp',
-    description: 'Días de la semana y horas completas.',
+    description: 'La hora en punto, la tarde y la noche.',
     color: '#f1e4fa',
   },
   'lesson-4-9-unit-4-review': {
