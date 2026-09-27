@@ -392,32 +392,37 @@ for (const ambiguousFamilyDistractor of ['family_babies.webp', 'family_children.
   );
 }
 
-const boyCannotCross = cardBySlide('6.6', 'Recognize', 'R8');
-assert.equal(boyCannotCross.prompt, 'The boy cannot cross the street.');
-assert.equal(boyCannotCross.audio_text, 'The boy cannot cross the street.');
-assert.equal(boyCannotCross.correct_option_id, 'boy-waits-at-red-signal-3');
-assert.equal(
-  boyCannotCross.options.find((option) => option.id === 'pair-waits-at-red-signal-4')?.image_url,
-  '/lesson-assets/a1_photo_u6_pair_waits_red_v1.webp',
-  'the adult-pair distractor is valid only while the prompt explicitly requires the boy',
+// Since the 2026-09-27 Unit 6 rebuild, 6.6 shows the same boy at a green and at a red
+// signal, so only "can" or "cannot" separates the two pictures.
+const boyCanCross = cardBySlide('6.6', 'Recognize', 'R5');
+assert.equal(boyCanCross.audio_text, 'The boy can cross the street.');
+assert.deepEqual(
+  boyCanCross.options.map((option) => path.basename(option.image_url)).sort(),
+  ['a1_photo_u6_boy_crosses_green_v1.webp', 'a1_photo_u6_boy_waits_red_v1.webp'],
 );
+assert.equal(
+  path.basename(boyCanCross.options.find((option) => option.id === boyCanCross.correct_option_id).image_url),
+  'a1_photo_u6_boy_crosses_green_v1.webp',
+);
+// The earlier adult-pair distractor keeps its inspected pixels, preserved byte for byte.
 const redSignalPhoto = require(path.join(repositoryRoot, 'docs/qa/course-photo-reuse-v1.json')).assets
   .find((asset) => asset.candidate_filename === 'a1_photo_u6_pair_waits_red_v1.webp');
 assert.ok(redSignalPhoto, 'the replacement adult pair needs its inspected pixel evidence');
 assert.equal(
   crypto.createHash('sha256').update(fs.readFileSync(path.join(mobileRoot, 'assets/lesson-assets', redSignalPhoto.candidate_filename))).digest('hex'),
   redSignalPhoto.new_sha256,
-  'the exclusive adult-pair contrast must retain the exact inspected photograph',
+  'the adult-pair photograph must retain the exact inspected pixels',
 );
 
-const pharmacyOnRight = cardBySlide('6.7', 'Listen', 'A5');
+// 6.4 swaps the same bank and pharmacy across one street, so the audio must name the place:
+// both pictures show a pharmacy, once on each side.
+const pharmacyOnRight = cardBySlide('6.4', 'Listen', 'A5');
 assert.equal(pharmacyOnRight.audio_text, 'The pharmacy is on the right.');
-assert.equal(pharmacyOnRight.correct_option_id, 'pharmacy-right-4');
-assert.equal(
-  pharmacyOnRight.options.filter((option) => option.id.includes('-right-')).length,
-  3,
-  'the audio must name the place because three authored options are on the right',
+assert.deepEqual(
+  pharmacyOnRight.options.map((option) => path.basename(option.image_url)),
+  ['a1_photo_u6_bank_left_pharmacy_right_v1.webp', 'a1_photo_u6_pharmacy_left_bank_right_v1.webp'],
 );
+assert.equal(pharmacyOnRight.correct_option_id, pharmacyOnRight.options[0].id);
 
 // The Unit 3 parity review shows each of Ana's facts in a fresh scene rather
 // than replaying the teaching photographs (3.13 since the 2026-09-25 rebuild).

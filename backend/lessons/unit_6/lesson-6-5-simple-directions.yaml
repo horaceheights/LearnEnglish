@@ -4,74 +4,64 @@
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Ask where a familiar place is, understand simple directions, and use familiar transportation and schedule language.",
+  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.5",
   "sub_lesson_title": "Simple Directions",
-  "goal": "Understand and say five short route commands using a clear overhead path.",
+  "goal": "Understand and give five short directions: go straight, turn left, turn right, cross the street and stop.",
   "vocabulary": [
-    "straight",
-    "turn",
-    "cross",
-    "stop",
-    "go straight",
-    "turn left",
-    "turn right",
-    "cross the street"
+    "Go straight.",
+    "Turn left.",
+    "Turn right.",
+    "Cross the street.",
+    "Stop."
   ],
   "review_vocabulary": [
     "go",
     "left",
     "right",
     "street",
-    "store",
+    "the",
+    "at",
     "hospital",
-    "station",
-    "bank",
-    "park"
+    "bank"
   ],
-  "grammar_function": "Short positive imperative chunks for navigation.",
-  "prerequisite": "2.2 street; 4.6 go; 6.4 left/right.",
-  "speaking_outcome": "Say go straight, turn left, turn right, cross the street, and stop.",
+  "grammar_function": "Imperatives: Go straight. Turn right. Cross the street. Stop at the bank.",
+  "prerequisite": "6.4 left and right; 2.2 street; 4.6 go.",
+  "speaking_outcome": "Give a short direction.",
+  "content_revision": 2,
   "purposeful_review_slides": [
-    "Learn:L3",
-    "Learn:L4",
-    "Learn:L8",
-    "Recognize:R8",
-    "Listen:A6",
-    "Use:U8"
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U7",
+    "U8"
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Straight",
-      "stage": "Learn",
-      "correct_option_id": "straight-1",
-      "options": [
-        {
-          "id": "straight-1",
-          "image_url": "a1_scene_straight_6ec09fe.webp",
-          "label": "Straight"
-        }
-      ],
-      "audio_text": "Straight",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Derecho",
-      "pedagogy_note": "New direction concept."
-    },
-    {
-      "slide_id": "L2",
-      "interaction_type": "teach",
       "prompt": "Go straight.",
       "stage": "Learn",
-      "correct_option_id": "go-straight-1",
+      "correct_option_id": "go-straight-learn",
       "options": [
         {
-          "id": "go-straight-1",
-          "image_url": "a1_scene_go-straight_5199aa5.webp",
+          "id": "go-straight-learn",
+          "image_url": "a1_scene_straight-route_3aaa15e.webp",
           "label": "Go straight."
         }
       ],
@@ -79,18 +69,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Sigue derecho.",
-      "pedagogy_note": "New command chunk."
+      "pedagogy_note": "Story beat 01: Go straight."
     },
     {
-      "slide_id": "L3",
+      "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "Turn left.",
       "stage": "Learn",
-      "correct_option_id": "turn-left-1",
+      "correct_option_id": "turn-left-learn",
       "options": [
         {
-          "id": "turn-left-1",
-          "image_url": "a1_scene_turn-left_c0779b7.webp",
+          "id": "turn-left-learn",
+          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
           "label": "Turn left."
         }
       ],
@@ -98,18 +88,19 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Gira a la izquierda.",
-      "pedagogy_note": "New turn chunk."
+      "pedagogy_note": "Story beat 02: Turn left.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "L4",
+      "slide_id": "L3",
       "interaction_type": "teach",
       "prompt": "Turn right.",
       "stage": "Learn",
-      "correct_option_id": "turn-right-1",
+      "correct_option_id": "turn-right-learn",
       "options": [
         {
-          "id": "turn-right-1",
-          "image_url": "a1_scene_turn-right_e21c99d.webp",
+          "id": "turn-right-learn",
+          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
           "label": "Turn right."
         }
       ],
@@ -117,37 +108,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Gira a la derecha.",
-      "pedagogy_note": "Exact contrast with L3."
+      "pedagogy_note": "Story beat 03: Turn right."
     },
     {
-      "slide_id": "L5",
-      "interaction_type": "teach",
-      "prompt": "Cross",
-      "stage": "Learn",
-      "correct_option_id": "cross-1",
-      "options": [
-        {
-          "id": "cross-1",
-          "image_url": "a1_scene_cross_ac4280b.webp",
-          "label": "Cross"
-        }
-      ],
-      "audio_text": "Cross",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Cruza",
-      "pedagogy_note": "New action."
-    },
-    {
-      "slide_id": "L6",
+      "slide_id": "L4",
       "interaction_type": "teach",
       "prompt": "Cross the street.",
       "stage": "Learn",
-      "correct_option_id": "cross-the-street-1",
+      "correct_option_id": "cross-the-street-learn",
       "options": [
         {
-          "id": "cross-the-street-1",
-          "image_url": "a1_scene_cross-the-street_3534a85.webp",
+          "id": "cross-the-street-learn",
+          "image_url": "a1_photo_u6_cross_street_v1.webp",
           "label": "Cross the street."
         }
       ],
@@ -155,17 +127,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cruza la calle.",
-      "pedagogy_note": "New command chunk."
+      "pedagogy_note": "Story beat 04: Cross the street.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "L7",
+      "slide_id": "L5",
       "interaction_type": "teach",
       "prompt": "Stop.",
       "stage": "Learn",
-      "correct_option_id": "stop-1",
+      "correct_option_id": "stop-learn",
       "options": [
         {
-          "id": "stop-1",
+          "id": "stop-learn",
           "image_url": "a1_scene_stop_81436d8.webp",
           "label": "Stop."
         }
@@ -174,42 +147,23 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Alto.",
-      "pedagogy_note": "New command; not a road sign reading task."
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "Go straight. Turn right. Stop at the bank.",
-      "stage": "Learn",
-      "correct_option_id": "go-straight-turn-right-stop-at-the-bank-1",
-      "options": [
-        {
-          "id": "go-straight-turn-right-stop-at-the-bank-1",
-          "image_url": "a1_scene_go-straight-turn-right-stop-at-the-bank_e9e4bfe.webp",
-          "label": "Go straight. Turn right. Stop at the bank."
-        }
-      ],
-      "audio_text": "Go straight. Turn right. Stop at the bank.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sigue derecho. Gira a la derecha. Detente en el banco.",
-      "pedagogy_note": "Integrated known sequence; at used receptively as familiar location/time function, not assessed separately."
+      "pedagogy_note": "Story beat 05: Stop."
     },
     {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "Go straight.",
       "stage": "Recognize",
-      "correct_option_id": "straight-route-1",
+      "correct_option_id": "go-straight-r1",
       "options": [
         {
-          "id": "straight-route-1",
-          "image_url": "a1_scene_straight-route_3aaa15e.webp",
+          "id": "turn-left-r1",
+          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
           "label": null
         },
         {
-          "id": "left-turn-route-2",
-          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
+          "id": "go-straight-r1",
+          "image_url": "a1_scene_straight-route_3aaa15e.webp",
           "label": null
         }
       ],
@@ -217,47 +171,48 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Sigue derecho.",
-      "pedagogy_note": "First two-choice."
+      "pedagogy_note": "Story beat 01: Go straight.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "Turn left.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "left-turn-route-2",
+      "correct_option_id": "turn-left-r2",
       "options": [
         {
-          "id": "right-turn-route-1",
-          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
-          "label": null
+          "id": "go-straight-r2",
+          "image_url": "",
+          "label": "Go straight."
         },
         {
-          "id": "left-turn-route-2",
-          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
-          "label": null
+          "id": "turn-left-r2",
+          "image_url": "",
+          "label": "Turn left."
         }
       ],
-      "audio_text": "Turn left.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Gira a la izquierda.",
-      "pedagogy_note": "Arrow legend fixed."
+      "audio_text": "",
+      "answer_audio_text": "Turn left.",
+      "prompt_image_url": "a1_scene_left-turn-route_ab3e191.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: Turn left."
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "Turn right.",
       "stage": "Recognize",
-      "correct_option_id": "right-turn-route-2",
+      "correct_option_id": "turn-right-r3",
       "options": [
         {
-          "id": "left-turn-route-1",
-          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
+          "id": "turn-right-r3",
+          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
           "label": null
         },
         {
-          "id": "right-turn-route-2",
-          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
+          "id": "turn-left-r3",
+          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
           "label": null
         }
       ],
@@ -265,163 +220,235 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Gira a la derecha.",
-      "pedagogy_note": "Exact contrast."
+      "pedagogy_note": "Story beat 03: Turn right.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "Cross the street.",
-      "stage": "Recognize",
-      "correct_option_id": "crosses-street-1",
-      "options": [
-        {
-          "id": "crosses-street-1",
-          "image_url": "a1_scene_crosses-street_bd655a1.webp",
-          "label": null
-        },
-        {
-          "id": "stops-at-curb-2",
-          "image_url": "a1_scene_stops-at-curb_b2b6148.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Cross the street.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Cruza la calle.",
-      "pedagogy_note": "Action distinction clear."
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "turn-left-1",
+      "correct_option_id": "cross-the-street-r4",
       "options": [
         {
-          "id": "turn-left-1",
-          "image_url": "",
-          "label": "Turn left."
-        },
-        {
-          "id": "turn-right-2",
+          "id": "turn-right-r4",
           "image_url": "",
           "label": "Turn right."
+        },
+        {
+          "id": "cross-the-street-r4",
+          "image_url": "",
+          "label": "Cross the street."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Turn left.",
-      "prompt_image_url": "a1_scene_turn-left_c0779b7.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Image-to-text."
+      "answer_audio_text": "Cross the street.",
+      "prompt_image_url": "a1_photo_u6_cross_street_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: Cross the street."
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
+      "prompt": "Stop.",
+      "stage": "Recognize",
+      "correct_option_id": "stop-r5",
+      "options": [
+        {
+          "id": "cross-the-street-r5",
+          "image_url": "a1_photo_u6_cross_street_v1.webp",
+          "label": null
+        },
+        {
+          "id": "stop-r5",
+          "image_url": "a1_scene_stop_81436d8.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Stop.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Alto.",
+      "pedagogy_note": "Story beat 05: Stop.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "R6",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "stop-2",
+      "correct_option_id": "go-straight-turn-right-r6",
       "options": [
         {
-          "id": "cross-the-street-1",
+          "id": "go-straight-turn-right-r6",
+          "image_url": "",
+          "label": "Go straight. Turn right."
+        },
+        {
+          "id": "go-straight-turn-left-r6",
+          "image_url": "",
+          "label": "Go straight. Turn left."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Go straight. Turn right.",
+      "prompt_image_url": "a1_scene_straight-then-right_df64e4f.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: Go straight. Turn right."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i2",
+      "prompt": "Go straight. Turn left.",
+      "stage": "Recognize",
+      "correct_option_id": "go-straight-turn-left-r7",
+      "options": [
+        {
+          "id": "go-straight-turn-left-r7",
+          "image_url": "a1_scene_straight-then-left_428d77e.webp",
+          "label": null
+        },
+        {
+          "id": "go-straight-turn-right-r7",
+          "image_url": "a1_scene_straight-then-right_df64e4f.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Go straight. Turn left.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Sigue derecho. Gira a la izquierda.",
+      "pedagogy_note": "Story beat 07: Go straight. Turn left.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "stop-at-the-hospital-r8",
+      "options": [
+        {
+          "id": "stop-at-the-hospital-r8",
+          "image_url": "",
+          "label": "Stop at the hospital."
+        },
+        {
+          "id": "stop-at-the-bank-r8",
+          "image_url": "",
+          "label": "Stop at the bank."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Stop at the hospital.",
+      "prompt_image_url": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: Stop at the hospital."
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "t2i2",
+      "prompt": "Stop at the bank.",
+      "stage": "Recognize",
+      "correct_option_id": "stop-at-the-bank-r9",
+      "options": [
+        {
+          "id": "stop-at-the-bank-r9",
+          "image_url": "a1_scene_crosses-and-stops-at-bank_8fedf42.webp",
+          "label": null
+        },
+        {
+          "id": "stop-at-the-hospital-r9",
+          "image_url": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Stop at the bank.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Detente en el banco.",
+      "pedagogy_note": "Story beat 09: Stop at the bank.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "cross-the-street-r10",
+      "options": [
+        {
+          "id": "cross-the-street-r10",
           "image_url": "",
           "label": "Cross the street."
         },
         {
-          "id": "stop-2",
+          "id": "turn-right-r10",
+          "image_url": "",
+          "label": "Turn right."
+        },
+        {
+          "id": "stop-r10",
           "image_url": "",
           "label": "Stop."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Stop.",
-      "prompt_image_url": "a1_scene_stop_81436d8.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Image-to-text."
+      "answer_audio_text": "Cross the street.",
+      "prompt_image_url": "a1_photo_u6_cross_street_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: Cross the street."
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "recognize-image",
-      "prompt": "Go straight. Turn right.",
+      "slide_id": "R11",
+      "interaction_type": "t2i4",
+      "prompt": "Stop.",
       "stage": "Recognize",
-      "correct_option_id": "straight-then-right-3",
+      "correct_option_id": "stop-r11",
       "options": [
         {
-          "id": "straight-then-left-1",
-          "image_url": "a1_scene_straight-then-left_428d77e.webp",
+          "id": "cross-the-street-r11",
+          "image_url": "a1_photo_u6_cross_street_v1.webp",
           "label": null
         },
         {
-          "id": "right-only-2",
-          "image_url": "a1_scene_right-only_1fb8406.webp",
+          "id": "turn-right-r11",
+          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
           "label": null
         },
         {
-          "id": "straight-then-right-3",
-          "image_url": "a1_scene_straight-then-right_df64e4f.webp",
-          "label": null
-        },
-        {
-          "id": "straight-only-4",
-          "image_url": "a1_scene_straight-only_3a85e6b.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Go straight. Turn right.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sigue derecho. Gira a la derecha.",
-      "pedagogy_note": "Both steps must match."
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "recognize-image",
-      "prompt": "Cross the street. Stop at the hospital.",
-      "stage": "Recognize",
-      "correct_option_id": "crosses-and-stops-at-hospital-3",
-      "options": [
-        {
-          "id": "crosses-and-stops-at-bank-1",
-          "image_url": "a1_scene_crosses-and-stops-at-bank_8fedf42.webp",
-          "label": null
-        },
-        {
-          "id": "does-not-cross-and-stops-at-hospital-2",
-          "image_url": "a1_scene_does-not-cross-and-stops-at-hospital_0622378.webp",
-          "label": null
-        },
-        {
-          "id": "crosses-and-stops-at-hospital-3",
-          "image_url": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
-          "label": null
-        },
-        {
-          "id": "crosses-and-passes-hospital-4",
-          "image_url": "a1_scene_crosses-and-passes-hospital_99da7c2.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Cross the street. Stop at the hospital.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Cruza la calle. Detente en el hospital.",
-      "pedagogy_note": "Full sequence and destination decisive."
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "straight-route-2",
-      "options": [
-        {
-          "id": "left-turn-route-1",
+          "id": "turn-left-r11",
           "image_url": "a1_scene_left-turn-route_ab3e191.webp",
           "label": null
         },
         {
-          "id": "straight-route-2",
+          "id": "stop-r11",
+          "image_url": "a1_scene_stop_81436d8.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Stop.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Alto.",
+      "pedagogy_note": "Story beat 11: Stop.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "go-straight-a1",
+      "options": [
+        {
+          "id": "go-straight-a1",
           "image_url": "a1_scene_straight-route_3aaa15e.webp",
+          "label": null
+        },
+        {
+          "id": "turn-left-a1",
+          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
           "label": null
         }
       ],
@@ -429,23 +456,23 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only."
+      "pedagogy_note": "Story beat 01: Go straight."
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "left-turn-route-1",
+      "correct_option_id": "turn-left-a2",
       "options": [
         {
-          "id": "left-turn-route-1",
+          "id": "turn-left-a2",
           "image_url": "a1_scene_left-turn-route_ab3e191.webp",
           "label": null
         },
         {
-          "id": "right-turn-route-2",
-          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
+          "id": "go-straight-a2",
+          "image_url": "a1_scene_straight-route_3aaa15e.webp",
           "label": null
         }
       ],
@@ -453,47 +480,83 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only direction."
+      "pedagogy_note": "Story beat 02: Turn left.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "right-turn-route-2",
+      "correct_option_id": "turn-right-a3",
       "options": [
         {
-          "id": "left-turn-route-1",
-          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
-          "label": null
+          "id": "turn-right-a3",
+          "image_url": "",
+          "label": "Turn right."
         },
         {
-          "id": "right-turn-route-2",
-          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
-          "label": null
+          "id": "turn-left-a3",
+          "image_url": "",
+          "label": "Turn left."
         }
       ],
       "audio_text": "Turn right.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only."
+      "pedagogy_note": "Story beat 03: Turn right."
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "stops-2",
+      "correct_option_id": "cross-the-street-a4",
       "options": [
         {
-          "id": "crosses-1",
-          "image_url": "a1_scene_crosses_f5c2887.webp",
+          "id": "turn-right-a4",
+          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
           "label": null
         },
         {
-          "id": "stops-2",
-          "image_url": "a1_scene_stops_2a45249.webp",
+          "id": "cross-the-street-a4",
+          "image_url": "a1_photo_u6_cross_street_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Cross the street.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: Cross the street.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "stop-a5",
+      "options": [
+        {
+          "id": "turn-right-a5",
+          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
+          "label": null
+        },
+        {
+          "id": "turn-left-a5",
+          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
+          "label": null
+        },
+        {
+          "id": "stop-a5",
+          "image_url": "a1_scene_stop_81436d8.webp",
+          "label": null
+        },
+        {
+          "id": "cross-the-street-a5",
+          "image_url": "a1_photo_u6_cross_street_v1.webp",
           "label": null
         }
       ],
@@ -501,33 +564,48 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only action."
+      "pedagogy_note": "Story beat 05: Stop."
     },
     {
-      "slide_id": "A5",
-      "interaction_type": "listen-image",
+      "slide_id": "A6",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "straight-then-left-3",
+      "correct_option_id": "go-straight-turn-right-a6",
       "options": [
         {
-          "id": "straight-then-right-1",
+          "id": "go-straight-turn-left-a6",
+          "image_url": "",
+          "label": "Go straight. Turn left."
+        },
+        {
+          "id": "go-straight-turn-right-a6",
+          "image_url": "",
+          "label": "Go straight. Turn right."
+        }
+      ],
+      "audio_text": "Go straight. Turn right.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: Go straight. Turn right.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "go-straight-turn-left-a7",
+      "options": [
+        {
+          "id": "go-straight-turn-right-a7",
           "image_url": "a1_scene_straight-then-right_df64e4f.webp",
           "label": null
         },
         {
-          "id": "left-only-2",
-          "image_url": "a1_scene_left-only_a39c611.webp",
-          "label": null
-        },
-        {
-          "id": "straight-then-left-3",
+          "id": "go-straight-turn-left-a7",
           "image_url": "a1_scene_straight-then-left_428d77e.webp",
-          "label": null
-        },
-        {
-          "id": "straight-only-4",
-          "image_url": "a1_scene_straight-only_3a85e6b.webp",
           "label": null
         }
       ],
@@ -535,52 +613,67 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Two-command listening."
+      "pedagogy_note": "Story beat 07: Go straight. Turn left."
     },
     {
-      "slide_id": "A6",
-      "interaction_type": "listen-image",
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "straight-cross-station-3",
+      "correct_option_id": "stop-at-the-hospital-a8",
       "options": [
         {
-          "id": "straight-cross-bank-1",
-          "image_url": "a1_scene_straight-cross-bank_aa58b87.webp",
+          "id": "stop-at-the-bank-a8",
+          "image_url": "a1_scene_crosses-and-stops-at-bank_8fedf42.webp",
           "label": null
         },
         {
-          "id": "straight-no-cross-station-2",
-          "image_url": "a1_scene_straight-no-cross-station_351bf7a.webp",
-          "label": null
-        },
-        {
-          "id": "straight-cross-station-3",
-          "image_url": "a1_scene_straight-cross-station_10c8af0.webp",
-          "label": null
-        },
-        {
-          "id": "turn-right-cross-station-4",
-          "image_url": "a1_scene_turn-right-cross-station_338607c_four-card.webp",
+          "id": "stop-at-the-hospital-a8",
+          "image_url": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
           "label": null
         }
       ],
-      "audio_text": "Go straight. Cross the street. Stop at the station.",
+      "audio_text": "Stop at the hospital.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Integrated review of station."
+      "pedagogy_note": "Story beat 08: Stop at the hospital.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "stop-at-the-bank-a9",
+      "options": [
+        {
+          "id": "stop-at-the-hospital-a9",
+          "image_url": "",
+          "label": "Stop at the hospital."
+        },
+        {
+          "id": "stop-at-the-bank-a9",
+          "image_url": "",
+          "label": "Stop at the bank."
+        }
+      ],
+      "audio_text": "Stop at the bank.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: Stop at the bank."
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
       "prompt": "Go straight.",
       "stage": "Speak",
-      "correct_option_id": "go-straight-1",
+      "correct_option_id": "go-straight-speak",
       "options": [
         {
-          "id": "go-straight-1",
-          "image_url": "a1_scene_go-straight_5199aa5.webp",
+          "id": "go-straight-speak",
+          "image_url": "a1_scene_straight-route_3aaa15e.webp",
           "label": "Go straight."
         }
       ],
@@ -588,18 +681,19 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Sigue derecho.",
-      "pedagogy_note": "Command target."
+      "pedagogy_note": "Story beat 01: Go straight.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
       "prompt": "Turn left.",
       "stage": "Speak",
-      "correct_option_id": "turn-left-1",
+      "correct_option_id": "turn-left-speak",
       "options": [
         {
-          "id": "turn-left-1",
-          "image_url": "a1_scene_turn-left_c0779b7.webp",
+          "id": "turn-left-speak",
+          "image_url": "a1_scene_left-turn-route_ab3e191.webp",
           "label": "Turn left."
         }
       ],
@@ -607,18 +701,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Gira a la izquierda.",
-      "pedagogy_note": "Command target."
+      "pedagogy_note": "Story beat 02: Turn left."
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
       "prompt": "Turn right.",
       "stage": "Speak",
-      "correct_option_id": "turn-right-1",
+      "correct_option_id": "turn-right-speak",
       "options": [
         {
-          "id": "turn-right-1",
-          "image_url": "a1_scene_turn-right_e21c99d.webp",
+          "id": "turn-right-speak",
+          "image_url": "a1_scene_right-turn-route_00fd21b.webp",
           "label": "Turn right."
         }
       ],
@@ -626,18 +720,19 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Gira a la derecha.",
-      "pedagogy_note": "Command target."
+      "pedagogy_note": "Story beat 03: Turn right.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
       "prompt": "Cross the street.",
       "stage": "Speak",
-      "correct_option_id": "cross-the-street-1",
+      "correct_option_id": "cross-the-street-speak",
       "options": [
         {
-          "id": "cross-the-street-1",
-          "image_url": "a1_scene_cross-the-street_3534a85.webp",
+          "id": "cross-the-street-speak",
+          "image_url": "a1_photo_u6_cross_street_v1.webp",
           "label": "Cross the street."
         }
       ],
@@ -645,37 +740,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cruza la calle.",
-      "pedagogy_note": "Command target."
+      "pedagogy_note": "Story beat 04: Cross the street."
     },
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "Stop.",
-      "stage": "Speak",
-      "correct_option_id": "stop-1",
-      "options": [
-        {
-          "id": "stop-1",
-          "image_url": "a1_scene_stop_81436d8.webp",
-          "label": "Stop."
-        }
-      ],
-      "audio_text": "Stop.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Alto.",
-      "pedagogy_note": "Command target."
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
       "prompt": "Go straight. Turn right.",
       "stage": "Speak",
-      "correct_option_id": "go-straight-turn-right-1",
+      "correct_option_id": "go-straight-turn-right-speak",
       "options": [
         {
-          "id": "go-straight-turn-right-1",
-          "image_url": "a1_scene_go-straight-turn-right_7db0dd5.webp",
+          "id": "go-straight-turn-right-speak",
+          "image_url": "a1_scene_straight-then-right_df64e4f.webp",
           "label": "Go straight. Turn right."
         }
       ],
@@ -683,39 +759,89 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Sigue derecho. Gira a la derecha.",
-      "pedagogy_note": "Two commands with pause."
+      "pedagogy_note": "Story beat 05: Go straight. Turn right.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "Stop at ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "the",
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "Go straight. Turn left.",
+      "stage": "Speak",
+      "correct_option_id": "go-straight-turn-left-speak",
       "options": [
         {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        },
+          "id": "go-straight-turn-left-speak",
+          "image_url": "a1_scene_straight-then-left_428d77e.webp",
+          "label": "Go straight. Turn left."
+        }
+      ],
+      "audio_text": "Go straight. Turn left.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Sigue derecho. Gira a la izquierda.",
+      "pedagogy_note": "Story beat 06: Go straight. Turn left."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "Stop at the hospital.",
+      "stage": "Speak",
+      "correct_option_id": "stop-at-the-hospital-speak",
+      "options": [
         {
-          "id": "hospital",
-          "image_url": "",
-          "label": "hospital"
+          "id": "stop-at-the-hospital-speak",
+          "image_url": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
+          "label": "Stop at the hospital."
         }
       ],
       "audio_text": "Stop at the hospital.",
-      "answer_audio_text": "Stop at the hospital.",
-      "prompt_image_url": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
       "spanish_translation": "Detente en el hospital.",
-      "pedagogy_note": "Fixed command.",
-      "translation": "Detente en el hospital.",
-      "correct_option_ids": [
-        "the",
-        "hospital"
-      ]
+      "pedagogy_note": "Story beat 07: Stop at the hospital.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "U2",
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "Stop at the bank.",
+      "stage": "Speak",
+      "correct_option_id": "stop-at-the-bank-speak",
+      "options": [
+        {
+          "id": "stop-at-the-bank-speak",
+          "image_url": "a1_scene_crosses-and-stops-at-bank_8fedf42.webp",
+          "label": "Stop at the bank."
+        }
+      ],
+      "audio_text": "Stop at the bank.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Detente en el banco.",
+      "pedagogy_note": "Story beat 08: Stop at the bank."
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "Cross the street.",
+      "stage": "Speak",
+      "correct_option_id": "cross-the-street-speak",
+      "options": [
+        {
+          "id": "cross-the-street-speak",
+          "image_url": "a1_photo_u6_cross_street_v1.webp",
+          "label": "Cross the street."
+        }
+      ],
+      "audio_text": "Cross the street.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Cruza la calle.",
+      "pedagogy_note": "Story beat 09: Cross the street.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U1",
       "interaction_type": "complete2",
       "prompt": "Cross ___ ___.",
       "stage": "Use",
@@ -736,12 +862,43 @@
       "answer_audio_text": "Cross the street.",
       "prompt_image_url": "a1_photo_u6_cross_street_v1.webp",
       "spanish_translation": "Cruza la calle.",
-      "pedagogy_note": "Direction cue.",
       "translation": "Cruza la calle.",
       "correct_option_ids": [
         "the",
         "street"
-      ]
+      ],
+      "pedagogy_note": "Story beat 01: Cross the street."
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "Go straight. ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "turn",
+      "options": [
+        {
+          "id": "turn",
+          "image_url": "",
+          "label": "Turn"
+        },
+        {
+          "id": "right",
+          "image_url": "",
+          "label": "right"
+        }
+      ],
+      "audio_text": "Go straight. Turn right.",
+      "answer_audio_text": "Go straight. Turn right.",
+      "prompt_image_url": "a1_scene_straight-then-right_df64e4f.webp",
+      "spanish_translation": "Sigue derecho. Gira a la derecha.",
+      "translation": "Sigue derecho. Gira a la derecha.",
+      "correct_option_ids": [
+        "turn",
+        "right"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: Go straight. Turn right.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "U3",
@@ -763,171 +920,207 @@
       ],
       "audio_text": "Go straight. Turn left.",
       "answer_audio_text": "Go straight. Turn left.",
-      "prompt_image_url": "a1_scene_left_12c0f1f.webp",
-      "spanish_translation": "Sigue recto. Gira a la izquierda.",
-      "pedagogy_note": "Direction cue.",
-      "translation": "Sigue recto. Gira a la izquierda.",
+      "prompt_image_url": "a1_scene_straight-then-left_428d77e.webp",
+      "spanish_translation": "Sigue derecho. Gira a la izquierda.",
+      "translation": "Sigue derecho. Gira a la izquierda.",
       "correct_option_ids": [
         "turn",
         "left"
-      ]
+      ],
+      "pedagogy_note": "Story beat 03: Go straight. Turn left."
     },
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "Go straight. ___ ___.",
+      "prompt": "Stop at ___ ___.",
       "stage": "Use",
-      "correct_option_id": "turn",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "turn",
-          "image_url": "",
-          "label": "Turn"
-        },
-        {
-          "id": "right",
-          "image_url": "",
-          "label": "right"
-        }
-      ],
-      "audio_text": "Go straight. Turn right.",
-      "answer_audio_text": "Go straight. Turn right.",
-      "prompt_image_url": "a1_scene_right_d27a1f1.webp",
-      "spanish_translation": "Sigue recto. Gira a la derecha.",
-      "pedagogy_note": "Command chunk.",
-      "translation": "Sigue recto. Gira a la derecha.",
-      "correct_option_ids": [
-        "turn",
-        "right"
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Go"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "straight"
-        }
-      ],
-      "audio_text": "Go straight.",
-      "answer_audio_text": "Go straight.",
-      "prompt_image_url": "a1_scene_go-straight_5199aa5.webp",
-      "spanish_translation": "Sigue recto.",
-      "pedagogy_note": "Visual end marker.",
-      "translation": "Sigue recto.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Turn"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "left"
-        }
-      ],
-      "audio_text": "Turn left.",
-      "answer_audio_text": "Turn left.",
-      "prompt_image_url": "a1_scene_turn-left_c0779b7.webp",
-      "spanish_translation": "Gira a la izquierda.",
-      "pedagogy_note": "Selects first, not orders tiles.",
-      "translation": "Gira a la izquierda.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Turn"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "right"
-        }
-      ],
-      "audio_text": "Turn right.",
-      "answer_audio_text": "Turn right.",
-      "prompt_image_url": "a1_scene_turn-right_e21c99d.webp",
-      "spanish_translation": "Gira a la derecha.",
-      "pedagogy_note": "Second controlled step; no drag/reorder.",
-      "translation": "Gira a la derecha.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Stop"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "word-3",
+          "id": "the",
           "image_url": "",
           "label": "the"
         },
         {
-          "id": "word-4",
+          "id": "hospital",
           "image_url": "",
           "label": "hospital"
         }
       ],
       "audio_text": "Stop at the hospital.",
       "answer_audio_text": "Stop at the hospital.",
-      "prompt_image_url": "a1_photo_u6_hospital_central_v1.webp",
+      "prompt_image_url": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
       "spanish_translation": "Detente en el hospital.",
-      "pedagogy_note": "Known landmarks only.",
       "translation": "Detente en el hospital.",
+      "correct_option_ids": [
+        "the",
+        "hospital"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: Stop at the hospital.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "at"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "bank"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Stop"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "Stop at the bank.",
+      "answer_audio_text": "Stop at the bank.",
+      "prompt_image_url": "a1_scene_crosses-and-stops-at-bank_8fedf42.webp",
+      "spanish_translation": "Detente en el banco.",
+      "translation": "Detente en el banco.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
-      ]
+      ],
+      "pedagogy_note": "Story beat 05: Stop at the bank."
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Cross"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "street"
+        }
+      ],
+      "audio_text": "Cross the street.",
+      "answer_audio_text": "Cross the street.",
+      "prompt_image_url": "a1_photo_u6_cross_street_v1.webp",
+      "spanish_translation": "Cruza la calle.",
+      "translation": "Cruza la calle.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 06: Cross the street.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___. ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "straight"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "right"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Go"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "Turn"
+        }
+      ],
+      "audio_text": "Go straight. Turn right.",
+      "answer_audio_text": "Go straight. Turn right.",
+      "prompt_image_url": "a1_scene_straight-then-right_df64e4f.webp",
+      "spanish_translation": "Sigue derecho. Gira a la derecha.",
+      "translation": "Sigue derecho. Gira a la derecha.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "pedagogy_note": "Story beat 07: Go straight. Turn right."
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___. ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "straight"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "left"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Go"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "Turn"
+        }
+      ],
+      "audio_text": "Go straight. Turn left.",
+      "answer_audio_text": "Go straight. Turn left.",
+      "prompt_image_url": "a1_scene_straight-then-left_428d77e.webp",
+      "spanish_translation": "Sigue derecho. Gira a la izquierda.",
+      "translation": "Sigue derecho. Gira a la izquierda.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 08: Go straight. Turn left.",
+      "audio_speaker": "co-teacher"
     }
   ]
 }

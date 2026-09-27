@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "14c89c2e-1147-4199-9205-f4989923c4af",
+  "asset_id": "review-wait-red-light",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:45:00.316599+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nAt a zebra crossing on a sunny city street, a young man with a backpack stands waiting at the edge of the sidewalk, one foot back, beside a pedestrian traffic light that clearly shows a large red standing-person light; cars pass in front of him on the street. He is clearly not crossing. No other pedestrians, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "e8m4av-qOPDwqtsP152_-A8",
+  "usage": {
+    "promptTokenCount": 255,
+    "candidatesTokenCount": 1292,
+    "totalTokenCount": 1858,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 255
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 311,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138242",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 255,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 311
+  },
+  "elapsed_seconds": 21.74,
+  "output": "output/imagegen/unit-6-lesson-v2/review-wait-red-light.png",
+  "sha256": "2df77ae04f94503df3535a1289263d9615d2fde388ebfead00f04acf7023a940",
+  "byte_count": 6773082,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e9e60f85-c2f2-4575-b1f5-f23a03b7d86b",
+  "asset_id": "boy-far-from-station",
+  "pack_sha256": "bca2718a7706d4bf0f2d6bc4f28c96545b0b45cf7062567649bae102a27c1619",
+  "started_at": "2026-09-27T07:50:07.687889+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nImage 1 shows a boy in a blue polo shirt beside a small train station. Keep the same boy, his face, hair and clothes, and the same station building and train. Create a new photograph from a different spot: the boy stands in the foreground, large and close to the camera, on a hill of green grass, and the same small station with its train is very small and far away in the valley below, near the horizon. The long distance between the boy and the tiny station is obvious. He is the only person; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-6-lesson-v2/boy-near-station.png",
+    "sha256": "6a4b3ee783f56494558081587782c54d4285491a424041793789bb292163fe3b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "s8q4apPfG-2hz7IPtYvswAE",
+  "usage": {
+    "promptTokenCount": 510,
+    "candidatesTokenCount": 1289,
+    "totalTokenCount": 1981,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 252
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 182,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137204",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 510,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 182
+  },
+  "elapsed_seconds": 27.9,
+  "output": "output/imagegen/unit-6-lesson-v2/boy-far-from-station.png",
+  "sha256": "cc6ad4395d873874ac67c8b229f3db65f4c9701c38bb76cf2dd97bb5e1d8c739",
+  "byte_count": 5367731,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

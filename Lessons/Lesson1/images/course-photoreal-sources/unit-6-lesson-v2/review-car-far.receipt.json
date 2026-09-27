@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d60dcede-7781-49c0-8048-27e75b2c3dd5",
+  "asset_id": "review-car-far",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:44:15.507986+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nSeen from a small green park with a bench and trees in the foreground, a large white hospital building with a big red cross on its front stands very small and far away across a wide open valley of fields, near the horizon. The long empty distance between the park in front and the tiny hospital is obvious. No people, no cars, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "T8m4apCOAcqh6dkP0YDrcQ",
+  "usage": {
+    "promptTokenCount": 211,
+    "candidatesTokenCount": 1237,
+    "totalTokenCount": 1639,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 211
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 191,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136714",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 211,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 191
+  },
+  "elapsed_seconds": 20.42,
+  "output": "output/imagegen/unit-6-lesson-v2/review-car-far.png",
+  "sha256": "dc7501d6267adc10090f7c0997d900fb6f724f9c02ba0f51a67975a75497eef2",
+  "byte_count": 8234473,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

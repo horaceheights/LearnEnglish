@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "49ce62c9-be22-429b-8f23-2ad91361402e",
+  "asset_id": "children-school-bus",
+  "pack_sha256": "bca2718a7706d4bf0f2d6bc4f28c96545b0b45cf7062567649bae102a27c1619",
+  "started_at": "2026-09-27T07:49:04.476959+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. The school building and the sidewalk stay, but now a yellow school bus stands at the curb right beside the children with its door open, and the two children are climbing its first step, one behind the other, looking back at the camera with smiles. Keep both children, their faces, hair, clothes and backpacks. No text, numbers or logos on the bus; no adults visible.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-6-lesson-v2/children-walk-school.png",
+    "sha256": "bc03d3507379947f209af52152e10f98b0e94c836647f1b73b2e53178d60c589"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "dsq4avvuMs3pz7IPgprCgQY",
+  "usage": {
+    "promptTokenCount": 344,
+    "candidatesTokenCount": 1273,
+    "totalTokenCount": 1821,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 86
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 204,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137136",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 344,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 204
+  },
+  "elapsed_seconds": 30.16,
+  "output": "output/imagegen/unit-6-lesson-v2/children-school-bus.png",
+  "sha256": "2ad2b57adabf59fc8d9348cc82a1b057331d7c8bb2a490ffa7afe69ba62b0ab0",
+  "byte_count": 5502908,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

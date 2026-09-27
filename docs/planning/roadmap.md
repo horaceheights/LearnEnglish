@@ -100,7 +100,8 @@ two narrators (#214). Unit 4 is rebuilt with 12 lessons (the course has 79): 4.8
 You...? is new, and the overloaded Days and Time splits into 4.9 Days of the Week and
 4.10 What Time Is It?. Unit 5 is rebuilt with 12 lessons (the course has 81): 5.3 Drinks
 splits from food, 5.4 adds How many?, 5.5 adds Me too, and 5.10 Can I Have...? is new.
-Unit 6 is next.
+Unit 6 is rebuilt with 10 lessons: 6.3 Near and Far and 6.4 Left and Right each teach one
+contrast on photo pairs, and 6.2 adds walk. Unit 7 is next.
 
 A1+ and later levels wait until that path is proven.
 

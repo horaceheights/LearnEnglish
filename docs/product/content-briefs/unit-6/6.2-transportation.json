@@ -1,0 +1,242 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 6 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds train, taxi and walk; by is practised in I go by .... Bus, car and bike from 2.2 are wrong options and come back in I go by ...; first-person lines use the pictured traveller's voice.",
+  "target": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+  "lesson": {
+    "id": "lesson-6-2-transportation",
+    "title": "6.2 Transportation",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.2",
+    "sub_lesson_title": "Transportation",
+    "goal": "Recognize a train and a taxi, say how I go with by, and say that I walk.",
+    "vocabulary": [
+      "train",
+      "taxi",
+      "walk",
+      "by"
+    ],
+    "review_vocabulary": [
+      "I",
+      "they",
+      "the",
+      "go",
+      "go to work",
+      "go to school",
+      "bus",
+      "car",
+      "bike",
+      "children"
+    ],
+    "grammar_function": "I go by bus. I go to work by train. The children walk to school.",
+    "prerequisite": "2.2 bus, car and bike; 4.6 go to school and go to work; 1.4 children.",
+    "speaking_outcome": "Say how I go to work or school.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "A train",
+      "es": "Un tren",
+      "image": "a1_train.webp",
+      "kind": "transport-word",
+      "accepts": {
+        "lexical-phrase": "Countable things take a or an and a bare activity word does not (A train, Walk); the bank tests only which one it is."
+      }
+    },
+    {
+      "text": "A taxi",
+      "es": "Un taxi",
+      "image": "a1_taxi.webp",
+      "kind": "transport-word",
+      "accepts": {
+        "lexical-phrase": "Countable things take a or an and a bare activity word does not (A train, Walk); the bank tests only which one it is."
+      }
+    },
+    {
+      "text": "Walk",
+      "es": "Caminar",
+      "image": "a1_scene_i-walk_b4cf763.webp",
+      "kind": "walk-word",
+      "choices": false
+    },
+    {
+      "text": "I go by bus.",
+      "es": "Voy en autobús.",
+      "image": "a1_scene_i-go-by-bus_a31fe3d.webp",
+      "kind": "i-go-by",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I go by train."
+      ]
+    },
+    {
+      "text": "I go by train.",
+      "es": "Voy en tren.",
+      "image": "a1_photo_u6_man_boards_train_v1.webp",
+      "kind": "i-go-by",
+      "learn": false,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I go by bus."
+      ]
+    },
+    {
+      "text": "I go by car.",
+      "es": "Voy en carro.",
+      "image": "a1_scene_i-go-by-car_6e60b4d.webp",
+      "kind": "i-go-by",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I go by taxi."
+      ]
+    },
+    {
+      "text": "I go by bike.",
+      "es": "Voy en bicicleta.",
+      "image": "a1_scene_i-go-by-bike_fb5d9bc.webp",
+      "kind": "i-go-by",
+      "learn": false,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I go by car."
+      ]
+    },
+    {
+      "text": "I go by taxi.",
+      "es": "Voy en taxi.",
+      "image": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
+      "kind": "i-go-by",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I go by car."
+      ]
+    },
+    {
+      "text": "I walk.",
+      "es": "Camino.",
+      "image": "a1_scene_i-walk_b4cf763.webp",
+      "kind": "i-walk",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "use": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I go by bike."
+      ]
+    },
+    {
+      "text": "I go to work by train.",
+      "es": "Voy al trabajo en tren.",
+      "image": "a1_photo_u6_man_boards_train_v1.webp",
+      "kind": "work-by",
+      "learn": false,
+      "speaker": "male-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I go to work by bus.",
+        "I go to work by taxi."
+      ]
+    },
+    {
+      "text": "They go to school by bus.",
+      "es": "Van a la escuela en autobús.",
+      "image": "a1_photo_u6_children_school_bus_v1.webp",
+      "kind": "children-go",
+      "learn": false,
+      "prefer": [
+        "The children walk to school."
+      ]
+    },
+    {
+      "text": "The children walk to school.",
+      "es": "Los niños caminan a la escuela.",
+      "image": "a1_photo_u6_children_walk_to_school_v1.webp",
+      "kind": "children-go",
+      "learn": false,
+      "prefer": [
+        "They go to school by bus."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "A bus",
+      "es": "Un autobús",
+      "kind": "transport-word",
+      "image": "place_bus.webp"
+    },
+    {
+      "text": "A car",
+      "es": "Un carro",
+      "kind": "transport-word",
+      "image": "object_car.webp"
+    },
+    {
+      "text": "A bike",
+      "es": "Una bicicleta",
+      "kind": "transport-word",
+      "image": "object_bike.webp"
+    },
+    {
+      "text": "I go by bike.",
+      "es": "Voy en bicicleta.",
+      "kind": "i-walk"
+    },
+    {
+      "text": "I go to work by bus.",
+      "es": "Voy al trabajo en autobús.",
+      "kind": "work-by"
+    },
+    {
+      "text": "I go to work by taxi.",
+      "es": "Voy al trabajo en taxi.",
+      "kind": "work-by"
+    }
+  ]
+}

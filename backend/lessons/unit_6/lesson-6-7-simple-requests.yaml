@@ -1,43 +1,63 @@
 {
   "id": "lesson-6-7-simple-requests",
-  "title": "6.7 Simple Requests",
+  "title": "6.7 Asking for Help",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Ask where a familiar place is, understand simple directions, and use familiar transportation and schedule language.",
+  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.7",
-  "sub_lesson_title": "Simple Requests",
-  "goal": "Ask politely for basic help and respond with a short known location answer.",
+  "sub_lesson_title": "Asking for Help",
+  "goal": "Ask for help politely with Excuse me. and Can you help me?, and understand Yes. or Sorry, no. and a short answer.",
   "vocabulary": [
     "Excuse me.",
-    "help",
     "Can you help me?",
-    "Yes.",
     "Sorry, no."
   ],
   "review_vocabulary": [
-    "please",
-    "thank you",
-    "Where is...?",
+    "yes",
+    "where",
+    "is",
+    "the",
     "station",
-    "hospital",
     "bank",
-    "left",
-    "right",
-    "next to"
+    "it",
+    "on the left",
+    "next to",
+    "Thank you."
   ],
-  "grammar_function": "Memorized request-response sequence: Excuse me. Can you help me? Yes. Where is...? It is... Thank you.",
-  "prerequisite": "5.8 polite chunks; 6.3 where questions; 6.4 location words; 6.6 can.",
-  "speaking_outcome": "Say excuse me, ask for help, ask where the station is, give one location answer, and close politely.",
+  "grammar_function": "Excuse me. Can you help me? Yes. / Sorry, no. Where is the station? It is on the left.",
+  "prerequisite": "5.9 please and thank you; 3.4 yes; 4.3 Where is it?; 6.4 on the left; 6.6 can.",
+  "speaking_outcome": "Ask a stranger for help and ask where a place is.",
+  "content_revision": 2,
   "purposeful_review_slides": [
-    "Learn:L5",
-    "Learn:L6",
-    "Recognize:R6",
-    "Listen:A4",
-    "Listen:A5",
-    "Use:U8"
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "U2",
+    "U3",
+    "U4",
+    "U6",
+    "U7",
+    "U8",
+    "U9"
   ],
   "cards": [
     {
@@ -45,10 +65,10 @@
       "interaction_type": "teach",
       "prompt": "Excuse me.",
       "stage": "Learn",
-      "correct_option_id": "excuse-me-1",
+      "correct_option_id": "excuse-me-learn",
       "options": [
         {
-          "id": "excuse-me-1",
+          "id": "excuse-me-learn",
           "image_url": "a1_scene_excuse-me_91c6a04.webp",
           "label": "Excuse me."
         }
@@ -57,17 +77,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Disculpe.",
-      "pedagogy_note": "New attention-getter."
+      "pedagogy_note": "Story beat 01: Excuse me.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "Can you help me?",
       "stage": "Learn",
-      "correct_option_id": "can-you-help-me-1",
+      "correct_option_id": "can-you-help-me-learn",
       "options": [
         {
-          "id": "can-you-help-me-1",
+          "id": "can-you-help-me-learn",
           "image_url": "a1_scene_can-you-help-me_eb476e5.webp",
           "label": "Can you help me?"
         }
@@ -76,37 +97,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Puede ayudarme?",
-      "pedagogy_note": "New memorized request using known can."
+      "pedagogy_note": "Story beat 02: Can you help me?",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "L3",
       "interaction_type": "teach",
-      "prompt": "Yes.",
-      "stage": "Learn",
-      "correct_option_id": "yes-1",
-      "options": [
-        {
-          "id": "yes-1",
-          "image_url": "a1_scene_yes_62e7d96.webp",
-          "label": "Yes."
-        }
-      ],
-      "audio_text": "Yes.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sí.",
-      "pedagogy_note": "New standalone response; yes please is known but role differs.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "L4",
-      "interaction_type": "teach",
       "prompt": "Sorry, no.",
       "stage": "Learn",
-      "correct_option_id": "sorry-no-1",
+      "correct_option_id": "sorry-no-learn",
       "options": [
         {
-          "id": "sorry-no-1",
+          "id": "sorry-no-learn",
           "image_url": "a1_scene_sorry-no_0ecf515.webp",
           "label": "Sorry, no."
         }
@@ -115,74 +117,24 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Lo siento, no.",
-      "pedagogy_note": "New short refusal.",
+      "pedagogy_note": "Story beat 03: Sorry, no.",
       "audio_speaker": "female-character"
     },
     {
-      "slide_id": "L5",
-      "interaction_type": "teach",
-      "prompt": "Where is the station?",
-      "stage": "Learn",
-      "correct_option_id": "where-is-the-station-1",
-      "options": [
-        {
-          "id": "where-is-the-station-1",
-          "image_url": "a1_station.webp",
-          "label": "Where is the station?"
-        }
-      ],
-      "audio_text": "Where is the station?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Dónde está la estación?",
-      "pedagogy_note": "Purposeful review."
-    },
-    {
-      "slide_id": "L6",
-      "interaction_type": "teach",
-      "prompt": "It is on the left. Thank you.",
-      "stage": "Learn",
-      "correct_option_id": "it-is-on-the-left-thank-you-1",
-      "options": [
-        {
-          "id": "it-is-on-the-left-thank-you-1",
-          "image_url": "a1_scene_town-male-left-answer_a00c3ac.webp",
-          "label": "It is on the left. Thank you."
-        }
-      ],
-      "audio_text": "It is on the left. Thank you.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "It is on the left.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_town-male-left-answer_a00c3ac.webp"
-        },
-        {
-          "text": "Thank you.",
-          "speaker_role": "female-character",
-          "image_url": "a1_scene_town-female-thank-you_0a597e3.webp"
-        }
-      ],
-      "prompt_image_url": "",
-      "spanish_translation": "Está a la izquierda. Gracias.",
-      "pedagogy_note": "Integrated known answer and close."
-    },
-    {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "Excuse me.",
       "stage": "Recognize",
-      "correct_option_id": "gets-attention-1",
+      "correct_option_id": "excuse-me-r1",
       "options": [
         {
-          "id": "gets-attention-1",
-          "image_url": "a1_scene_gets-attention_4f7bd0d.webp",
+          "id": "can-you-help-me-r1",
+          "image_url": "a1_scene_can-you-help-me_eb476e5.webp",
           "label": null
         },
         {
-          "id": "says-goodbye-2",
-          "image_url": "a1_scene_says-goodbye_f796b48.webp",
+          "id": "excuse-me-r1",
+          "image_url": "a1_scene_excuse-me_91c6a04.webp",
           "label": null
         }
       ],
@@ -190,72 +142,49 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Disculpe.",
-      "pedagogy_note": "Social function clear.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Story beat 01: Excuse me.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "Can you help me?",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "asks-for-town-help-1",
+      "correct_option_id": "can-you-help-me-r2",
       "options": [
         {
-          "id": "asks-for-town-help-1",
-          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
-          "label": null
+          "id": "excuse-me-r2",
+          "image_url": "",
+          "label": "Excuse me."
         },
         {
-          "id": "orders-water-2",
-          "image_url": "a1_scene_orders-water_37bb622.webp",
-          "label": null
+          "id": "can-you-help-me-r2",
+          "image_url": "",
+          "label": "Can you help me?"
         }
       ],
-      "audio_text": "Can you help me?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Puede ayudarme?",
-      "pedagogy_note": "Context distinguishes request."
+      "audio_text": "",
+      "answer_audio_text": "Can you help me?",
+      "prompt_image_url": "a1_scene_can-you-help-me_eb476e5.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 02: Can you help me?"
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "Yes.",
-      "stage": "Recognize",
-      "correct_option_id": "yes-response-1",
-      "options": [
-        {
-          "id": "yes-response-1",
-          "image_url": "a1_scene_yes-response_d4eb35a.webp",
-          "label": null
-        },
-        {
-          "id": "sorry-no-response-2",
-          "image_url": "a1_scene_sorry-no-response_6649851.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Yes.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sí.",
-      "pedagogy_note": "Exact polarity."
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "Sorry, no.",
       "stage": "Recognize",
-      "correct_option_id": "sorry-no-response-2",
+      "correct_option_id": "sorry-no-r3",
       "options": [
         {
-          "id": "yes-response-1",
-          "image_url": "a1_scene_yes-response_d4eb35a.webp",
+          "id": "sorry-no-r3",
+          "image_url": "a1_scene_sorry-no_0ecf515.webp",
           "label": null
         },
         {
-          "id": "sorry-no-response-2",
-          "image_url": "a1_scene_sorry-no-response_6649851.webp",
+          "id": "can-you-help-me-r3",
+          "image_url": "a1_scene_can-you-help-me_eb476e5.webp",
           "label": null
         }
       ],
@@ -263,126 +192,268 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Lo siento, no.",
-      "pedagogy_note": "Exact contrast.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Story beat 03: Sorry, no.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "R5",
-      "interaction_type": "recognize-text",
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "can-you-help-me-1",
+      "correct_option_id": "excuse-me-can-you-help-me-r4",
       "options": [
         {
-          "id": "can-you-help-me-1",
+          "id": "excuse-me-thank-you-r4",
           "image_url": "",
-          "label": "Can you help me?"
+          "label": "Excuse me. Thank you."
         },
         {
-          "id": "here-you-are-2",
+          "id": "excuse-me-can-you-help-me-r4",
           "image_url": "",
-          "label": "Here you are."
+          "label": "Excuse me. Can you help me?"
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Can you help me?",
-      "prompt_image_url": "a1_scene_can-you-help-me_eb476e5.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Image-to-text."
+      "answer_audio_text": "Excuse me. Can you help me?",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 04: Excuse me. Can you help me?"
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "can-you-help-me-yes-r5",
+      "options": [
+        {
+          "id": "can-you-help-me-sorry-no-r5",
+          "image_url": "",
+          "label": "Can you help me? Sorry, no."
+        },
+        {
+          "id": "can-you-help-me-yes-r5",
+          "image_url": "",
+          "label": "Can you help me? Yes."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Can you help me? Yes.",
+      "answer_audio_turns": [
+        {
+          "text": "Can you help me?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        },
+        {
+          "text": "Yes.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 05: Can you help me? Yes."
     },
     {
       "slide_id": "R6",
-      "interaction_type": "recognize-text",
-      "prompt": "Where is the station?",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-on-the-left-1",
+      "correct_option_id": "can-you-help-me-sorry-no-r6",
       "options": [
         {
-          "id": "it-is-on-the-left-1",
+          "id": "can-you-help-me-sorry-no-r6",
+          "image_url": "",
+          "label": "Can you help me? Sorry, no."
+        },
+        {
+          "id": "can-you-help-me-yes-r6",
+          "image_url": "",
+          "label": "Can you help me? Yes."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Can you help me? Sorry, no.",
+      "answer_audio_turns": [
+        {
+          "text": "Can you help me?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_sorry-no-response_6649851.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: Can you help me? Sorry, no."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "where-is-the-station-r7",
+      "options": [
+        {
+          "id": "where-is-the-station-r7",
+          "image_url": "",
+          "label": "Where is the station?"
+        },
+        {
+          "id": "where-is-the-bank-r7",
+          "image_url": "",
+          "label": "Where is the bank?"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Where is the station?",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 07: Where is the station?"
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-on-the-left-r8",
+      "options": [
+        {
+          "id": "it-is-on-the-left-r8",
           "image_url": "",
           "label": "It is on the left."
         },
         {
-          "id": "it-is-on-the-right-2",
+          "id": "it-is-on-the-right-r8",
           "image_url": "",
           "label": "It is on the right."
         }
       ],
-      "audio_text": "Where is the station?",
+      "audio_text": "",
       "answer_audio_text": "It is on the left.",
-      "prompt_image_url": "a1_scene_it-is-on-the-left_f11a126.webp",
-      "spanish_translation": "¿Dónde está la estación?",
-      "pedagogy_note": "Question plays before answer choices."
+      "prompt_image_url": "a1_scene_town-male-left-answer_a00c3ac.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 08: It is on the left."
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "recognize-text",
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "can-you-help-me-1",
+      "correct_option_id": "where-is-the-station-it-is-on-the-left-r9",
       "options": [
         {
-          "id": "can-you-help-me-1",
+          "id": "where-is-the-station-it-is-on-the-left-r9",
           "image_url": "",
-          "label": "Can you help me?"
+          "label": "Where is the station? It is on the left."
         },
         {
-          "id": "no-thank-you-2",
+          "id": "where-is-the-station-it-is-on-the-right-r9",
           "image_url": "",
-          "label": "No, thank you."
-        },
-        {
-          "id": "here-you-are-3",
-          "image_url": "",
-          "label": "Here you are."
+          "label": "Where is the station? It is on the right."
         }
       ],
-      "audio_text": "Excuse me.",
-      "answer_audio_text": "Can you help me?",
-      "prompt_image_url": "a1_scene_can-you-help-me_eb476e5.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Conversation sequencing with only known chunks."
+      "audio_text": "",
+      "answer_audio_text": "Where is the station? It is on the left.",
+      "answer_audio_turns": [
+        {
+          "text": "Where is the station?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        },
+        {
+          "text": "It is on the left.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_town-male-left-answer_a00c3ac.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_town-male-left-answer_a00c3ac.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: Where is the station? It is on the left."
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "yes-1",
+      "correct_option_id": "excuse-me-can-you-help-me-r10",
       "options": [
         {
-          "id": "yes-1",
+          "id": "excuse-me-can-you-help-me-r10",
           "image_url": "",
-          "label": "Yes."
+          "label": "Excuse me. Can you help me?"
         },
         {
-          "id": "sorry-no-2",
+          "id": "excuse-me-thank-you-r10",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "Excuse me. Thank you."
         }
       ],
-      "audio_text": "Can you help me?",
-      "answer_audio_text": "Yes.",
-      "prompt_image_url": "a1_scene_yes_62e7d96.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Audio turn before choices; visual establishes response.",
-      "answer_audio_speaker": "male-character"
+      "audio_text": "",
+      "answer_audio_text": "Excuse me. Can you help me?",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 10: Excuse me. Can you help me?"
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "can-you-help-me-sorry-no-r11",
+      "options": [
+        {
+          "id": "can-you-help-me-yes-r11",
+          "image_url": "",
+          "label": "Can you help me? Yes."
+        },
+        {
+          "id": "can-you-help-me-sorry-no-r11",
+          "image_url": "",
+          "label": "Can you help me? Sorry, no."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Can you help me? Sorry, no.",
+      "answer_audio_turns": [
+        {
+          "text": "Can you help me?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_sorry-no-response_6649851.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 11: Can you help me? Sorry, no."
     },
     {
       "slide_id": "A1",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "gets-attention-1",
+      "correct_option_id": "excuse-me-a1",
       "options": [
         {
-          "id": "gets-attention-1",
-          "image_url": "a1_scene_gets-attention_4f7bd0d.webp",
+          "id": "excuse-me-a1",
+          "image_url": "a1_scene_excuse-me_91c6a04.webp",
           "label": null
         },
         {
-          "id": "says-goodbye-2",
-          "image_url": "a1_scene_says-goodbye_f796b48.webp",
+          "id": "can-you-help-me-a1",
+          "image_url": "a1_scene_can-you-help-me_eb476e5.webp",
           "label": null
         }
       ],
@@ -390,24 +461,24 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Story beat 01: Excuse me.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "asks-for-help-1",
+      "correct_option_id": "can-you-help-me-a2",
       "options": [
         {
-          "id": "asks-for-help-1",
-          "image_url": "a1_scene_asks-for-help_bdae1c7.webp",
+          "id": "can-you-help-me-a2",
+          "image_url": "a1_scene_can-you-help-me_eb476e5.webp",
           "label": null
         },
         {
-          "id": "orders-drink-2",
-          "image_url": "a1_scene_orders-drink_859f5cb.webp",
+          "id": "excuse-me-a2",
+          "image_url": "a1_scene_excuse-me_91c6a04.webp",
           "label": null
         }
       ],
@@ -415,52 +486,145 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only chunk."
+      "pedagogy_note": "Story beat 02: Can you help me?",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "sorry-no-response-2",
+      "correct_option_id": "sorry-no-a3",
       "options": [
         {
-          "id": "yes-response-1",
-          "image_url": "a1_scene_yes-response_d4eb35a.webp",
-          "label": null
+          "id": "sorry-no-a3",
+          "image_url": "",
+          "label": "Sorry, no."
         },
         {
-          "id": "sorry-no-response-2",
-          "image_url": "a1_scene_sorry-no-response_6649851.webp",
-          "label": null
+          "id": "can-you-help-me-a3",
+          "image_url": "",
+          "label": "Can you help me?"
         }
       ],
       "audio_text": "Sorry, no.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only polarity.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Story beat 03: Sorry, no.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "where-is-the-station-3",
+      "correct_option_id": "excuse-me-can-you-help-me-a4",
       "options": [
         {
-          "id": "where-is-the-bank-1",
+          "id": "excuse-me-thank-you-a4",
+          "image_url": "",
+          "label": "Excuse me. Thank you."
+        },
+        {
+          "id": "excuse-me-can-you-help-me-a4",
+          "image_url": "",
+          "label": "Excuse me. Can you help me?"
+        }
+      ],
+      "audio_text": "Excuse me. Can you help me?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: Excuse me. Can you help me?",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "can-you-help-me-yes-a5",
+      "options": [
+        {
+          "id": "can-you-help-me-yes-a5",
+          "image_url": "",
+          "label": "Can you help me? Yes."
+        },
+        {
+          "id": "can-you-help-me-sorry-no-a5",
+          "image_url": "",
+          "label": "Can you help me? Sorry, no."
+        }
+      ],
+      "audio_text": "Can you help me? Yes.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Can you help me?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        },
+        {
+          "text": "Yes.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        }
+      ],
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: Can you help me? Yes."
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "can-you-help-me-sorry-no-a6",
+      "options": [
+        {
+          "id": "can-you-help-me-yes-a6",
+          "image_url": "",
+          "label": "Can you help me? Yes."
+        },
+        {
+          "id": "can-you-help-me-sorry-no-a6",
+          "image_url": "",
+          "label": "Can you help me? Sorry, no."
+        }
+      ],
+      "audio_text": "Can you help me? Sorry, no.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Can you help me?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        }
+      ],
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: Can you help me? Sorry, no."
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "where-is-the-station-a7",
+      "options": [
+        {
+          "id": "where-is-the-bank-a7",
           "image_url": "",
           "label": "Where is the bank?"
         },
         {
-          "id": "what-is-the-station-2",
-          "image_url": "",
-          "label": "What is the station?"
-        },
-        {
-          "id": "where-is-the-station-3",
+          "id": "where-is-the-station-a7",
           "image_url": "",
           "label": "Where is the station?"
         }
@@ -469,80 +633,109 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Question listening."
+      "pedagogy_note": "Story beat 07: Where is the station?",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "A5",
-      "interaction_type": "listen-image",
+      "slide_id": "A8",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "pharmacy-right-4",
+      "correct_option_id": "it-is-on-the-left-a8",
       "options": [
         {
-          "id": "pharmacy-left-1",
-          "image_url": "a1_scene_pharmacy-left_1fc90a7_four-card.webp",
-          "label": null
+          "id": "it-is-on-the-right-a8",
+          "image_url": "",
+          "label": "It is on the right."
         },
         {
-          "id": "bank-right-2",
-          "image_url": "a1_scene_bank-right_cad19dd_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "library-right-3",
-          "image_url": "a1_scene_library-right_6b435ec_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "pharmacy-right-4",
-          "image_url": "a1_scene_pharmacy-right_99d73fd_four-card.webp",
-          "label": null
+          "id": "it-is-on-the-left-a8",
+          "image_url": "",
+          "label": "It is on the left."
         }
       ],
-      "audio_text": "The pharmacy is on the right.",
+      "audio_text": "It is on the left.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "The spoken place identity and side must both match; exactly one option is a pharmacy on the right."
+      "pedagogy_note": "Story beat 08: It is on the left.",
+      "audio_speaker": "male-character"
     },
     {
-      "slide_id": "A6",
-      "interaction_type": "listen-text",
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "excuse-me-can-you-help-me-2",
+      "correct_option_id": "where-is-the-station-it-is-on-the-left-a9",
       "options": [
         {
-          "id": "hello-water-please-1",
+          "id": "where-is-the-station-it-is-on-the-right-a9",
           "image_url": "",
-          "label": "Hello. Water, please."
+          "label": "Where is the station? It is on the right."
         },
         {
-          "id": "excuse-me-can-you-help-me-2",
+          "id": "where-is-the-station-it-is-on-the-left-a9",
           "image_url": "",
-          "label": "Excuse me. Can you help me?"
-        },
-        {
-          "id": "thank-you-here-you-are-3",
-          "image_url": "",
-          "label": "Thank you. Here you are."
+          "label": "Where is the station? It is on the left."
         }
       ],
-      "audio_text": "Excuse me. Can you help me?",
+      "audio_text": "Where is the station? It is on the left.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Where is the station?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        },
+        {
+          "text": "It is on the left.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_town-male-left-answer_a00c3ac.webp"
+        }
+      ],
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: Where is the station? It is on the left."
+    },
+    {
+      "slide_id": "A10",
+      "interaction_type": "a2i3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "excuse-me-a10",
+      "options": [
+        {
+          "id": "can-you-help-me-a10",
+          "image_url": "a1_scene_can-you-help-me_eb476e5.webp",
+          "label": null
+        },
+        {
+          "id": "sorry-no-a10",
+          "image_url": "a1_scene_sorry-no_0ecf515.webp",
+          "label": null
+        },
+        {
+          "id": "excuse-me-a10",
+          "image_url": "a1_scene_excuse-me_91c6a04.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Excuse me.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Integrated request; no image."
+      "pedagogy_note": "Story beat 10: Excuse me.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
       "prompt": "Excuse me.",
       "stage": "Speak",
-      "correct_option_id": "excuse-me-1",
+      "correct_option_id": "excuse-me-speak",
       "options": [
         {
-          "id": "excuse-me-1",
+          "id": "excuse-me-speak",
           "image_url": "a1_scene_excuse-me_91c6a04.webp",
           "label": "Excuse me."
         }
@@ -551,17 +744,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Disculpe.",
-      "pedagogy_note": "Complete chunk."
+      "pedagogy_note": "Story beat 01: Excuse me.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
       "prompt": "Can you help me?",
       "stage": "Speak",
-      "correct_option_id": "can-you-help-me-1",
+      "correct_option_id": "can-you-help-me-speak",
       "options": [
         {
-          "id": "can-you-help-me-1",
+          "id": "can-you-help-me-speak",
           "image_url": "a1_scene_can-you-help-me_eb476e5.webp",
           "label": "Can you help me?"
         }
@@ -570,37 +764,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Puede ayudarme?",
-      "pedagogy_note": "Complete question."
+      "pedagogy_note": "Story beat 02: Can you help me?",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "Yes.",
-      "stage": "Speak",
-      "correct_option_id": "yes-1",
-      "options": [
-        {
-          "id": "yes-1",
-          "image_url": "a1_scene_yes_62e7d96.webp",
-          "label": "Yes."
-        }
-      ],
-      "audio_text": "Yes.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sí.",
-      "pedagogy_note": "Short response.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
       "prompt": "Sorry, no.",
       "stage": "Speak",
-      "correct_option_id": "sorry-no-1",
+      "correct_option_id": "sorry-no-speak",
       "options": [
         {
-          "id": "sorry-no-1",
+          "id": "sorry-no-speak",
           "image_url": "a1_scene_sorry-no_0ecf515.webp",
           "label": "Sorry, no."
         }
@@ -609,19 +784,101 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Lo siento, no.",
-      "pedagogy_note": "Short response.",
+      "pedagogy_note": "Story beat 03: Sorry, no.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "Excuse me. Can you help me?",
+      "stage": "Speak",
+      "correct_option_id": "excuse-me-can-you-help-me-speak",
+      "options": [
+        {
+          "id": "excuse-me-can-you-help-me-speak",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+          "label": "Excuse me. Can you help me?"
+        }
+      ],
+      "audio_text": "Excuse me. Can you help me?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Disculpe. ¿Puede ayudarme?",
+      "pedagogy_note": "Story beat 04: Excuse me. Can you help me?",
       "audio_speaker": "female-character"
     },
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "Where is the station?",
+      "prompt": "Can you help me? Yes.",
       "stage": "Speak",
-      "correct_option_id": "where-is-the-station-1",
+      "correct_option_id": "can-you-help-me-yes-speak",
       "options": [
         {
-          "id": "where-is-the-station-1",
-          "image_url": "a1_station.webp",
+          "id": "can-you-help-me-yes-speak",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+          "label": "Can you help me? Yes."
+        }
+      ],
+      "audio_text": "Can you help me? Yes.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Can you help me?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        },
+        {
+          "text": "Yes.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        }
+      ],
+      "spanish_translation": "¿Puede ayudarme? Sí.",
+      "pedagogy_note": "Story beat 05: Can you help me? Yes."
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "Can you help me? Sorry, no.",
+      "stage": "Speak",
+      "correct_option_id": "can-you-help-me-sorry-no-speak",
+      "options": [
+        {
+          "id": "can-you-help-me-sorry-no-speak",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp",
+          "label": "Can you help me? Sorry, no."
+        }
+      ],
+      "audio_text": "Can you help me? Sorry, no.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Can you help me?",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_sorry-no-response_6649851.webp"
+        }
+      ],
+      "spanish_translation": "¿Puede ayudarme? Lo siento, no.",
+      "pedagogy_note": "Story beat 06: Can you help me? Sorry, no."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "Where is the station?",
+      "stage": "Speak",
+      "correct_option_id": "where-is-the-station-speak",
+      "options": [
+        {
+          "id": "where-is-the-station-speak",
+          "image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
           "label": "Where is the station?"
         }
       ],
@@ -629,38 +886,48 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Dónde está la estación?",
-      "pedagogy_note": "Location question."
+      "pedagogy_note": "Story beat 07: Where is the station?",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "S6",
+      "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "It is on the left. Thank you.",
+      "prompt": "It is on the left.",
       "stage": "Speak",
-      "correct_option_id": "it-is-on-the-left-thank-you-1",
+      "correct_option_id": "it-is-on-the-left-speak",
       "options": [
         {
-          "id": "it-is-on-the-left-thank-you-1",
+          "id": "it-is-on-the-left-speak",
           "image_url": "a1_scene_town-male-left-answer_a00c3ac.webp",
-          "label": "It is on the left. Thank you."
+          "label": "It is on the left."
         }
       ],
-      "audio_text": "It is on the left. Thank you.",
+      "audio_text": "It is on the left.",
       "answer_audio_text": null,
-      "audio_turns": [
+      "prompt_image_url": "",
+      "spanish_translation": "Está a la izquierda.",
+      "pedagogy_note": "Story beat 08: It is on the left.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "Sorry, no.",
+      "stage": "Speak",
+      "correct_option_id": "sorry-no-speak",
+      "options": [
         {
-          "text": "It is on the left.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_town-male-left-answer_a00c3ac.webp"
-        },
-        {
-          "text": "Thank you.",
-          "speaker_role": "female-character",
-          "image_url": "a1_scene_town-female-thank-you_0a597e3.webp"
+          "id": "sorry-no-speak",
+          "image_url": "a1_scene_sorry-no_0ecf515.webp",
+          "label": "Sorry, no."
         }
       ],
+      "audio_text": "Sorry, no.",
+      "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Está a la izquierda. Gracias.",
-      "pedagogy_note": "Two turns separated naturally."
+      "spanish_translation": "Lo siento, no.",
+      "pedagogy_note": "Story beat 09: Sorry, no.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U1",
@@ -684,15 +951,48 @@
       "answer_audio_text": "Can you help me?",
       "prompt_image_url": "a1_scene_can-you-help-me_eb476e5.webp",
       "spanish_translation": "¿Puede ayudarme?",
-      "pedagogy_note": "Guided sequence.",
       "translation": "¿Puede ayudarme?",
       "correct_option_ids": [
         "help",
         "me"
-      ]
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 01: Can you help me?",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "Excuse me. Can you ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "help",
+      "options": [
+        {
+          "id": "help",
+          "image_url": "",
+          "label": "help"
+        },
+        {
+          "id": "me",
+          "image_url": "",
+          "label": "me"
+        }
+      ],
+      "audio_text": "Excuse me. Can you help me?",
+      "answer_audio_text": "Excuse me. Can you help me?",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "Disculpe. ¿Puede ayudarme?",
+      "translation": "Disculpe. ¿Puede ayudarme?",
+      "correct_option_ids": [
+        "help",
+        "me"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 02: Excuse me. Can you help me?",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "Where is ___ ___?",
       "stage": "Use",
@@ -711,43 +1011,16 @@
       ],
       "audio_text": "Where is the station?",
       "answer_audio_text": "Where is the station?",
-      "prompt_image_url": "a1_station.webp",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
       "spanish_translation": "¿Dónde está la estación?",
-      "pedagogy_note": "Fixed request.",
       "translation": "¿Dónde está la estación?",
       "correct_option_ids": [
         "the",
         "station"
-      ]
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "Where is ___ ___?",
-      "stage": "Use",
-      "correct_option_id": "the",
-      "options": [
-        {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "hospital",
-          "image_url": "",
-          "label": "hospital"
-        }
       ],
-      "audio_text": "Where is the hospital?",
-      "answer_audio_text": "Where is the hospital?",
-      "prompt_image_url": "a1_photo_u6_hospital_central_v1.webp",
-      "spanish_translation": "¿Dónde está el hospital?",
-      "pedagogy_note": "Response selection.",
-      "translation": "¿Dónde está el hospital?",
-      "correct_option_ids": [
-        "the",
-        "hospital"
-      ]
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 03: Where is the station?",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U4",
@@ -769,143 +1042,249 @@
       ],
       "audio_text": "It is on the left.",
       "answer_audio_text": "It is on the left.",
-      "prompt_image_url": "a1_scene_it-is-on-the-left_f11a126.webp",
+      "prompt_image_url": "a1_scene_town-male-left-answer_a00c3ac.webp",
       "spanish_translation": "Está a la izquierda.",
-      "pedagogy_note": "Appropriate next request.",
       "translation": "Está a la izquierda.",
       "correct_option_ids": [
         "the",
         "left"
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Excuse"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "me"
-        }
       ],
-      "audio_text": "Excuse me.",
-      "answer_audio_text": "Excuse me.",
-      "prompt_image_url": "a1_scene_excuse-me_91c6a04.webp",
-      "spanish_translation": "Disculpe.",
-      "pedagogy_note": "Location answer.",
-      "translation": "Disculpe.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___, ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Sorry"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "no"
-        }
-      ],
-      "audio_text": "Sorry, no.",
-      "answer_audio_text": "Sorry, no.",
-      "prompt_image_url": "a1_scene_sorry-no_0ecf515.webp",
-      "spanish_translation": "Lo siento, no.",
-      "pedagogy_note": "Closes exchange.",
-      "translation": "Lo siento, no.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Thank"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "you"
-        }
-      ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Gracias.",
-      "pedagogy_note": "Negative response path.",
-      "translation": "Gracias.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 04: It is on the left.",
       "audio_speaker": "male-character"
     },
     {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___?",
+      "slide_id": "U5",
+      "interaction_type": "complete2",
+      "prompt": "Can you ___ ___?",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "help",
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Can"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "you"
-        },
-        {
-          "id": "word-3",
+          "id": "help",
           "image_url": "",
           "label": "help"
         },
         {
-          "id": "word-4",
+          "id": "me",
           "image_url": "",
           "label": "me"
         }
       ],
       "audio_text": "Can you help me?",
       "answer_audio_text": "Can you help me?",
-      "prompt_image_url": "a1_scene_help_92005ec.webp",
+      "prompt_image_url": "a1_scene_can-you-help-me_eb476e5.webp",
       "spanish_translation": "¿Puede ayudarme?",
-      "pedagogy_note": "Transfers request to another known place.",
       "translation": "¿Puede ayudarme?",
+      "correct_option_ids": [
+        "help",
+        "me"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 05: Can you help me?",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___. ___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "me"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "me"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Excuse"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "Can"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "help"
+        }
+      ],
+      "audio_text": "Excuse me. Can you help me?",
+      "answer_audio_text": "Excuse me. Can you help me?",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "Disculpe. ¿Puede ayudarme?",
+      "translation": "Disculpe. ¿Puede ayudarme?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 06: Excuse me. Can you help me?",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "station"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Where"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "Where is the station?",
+      "answer_audio_text": "Where is the station?",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "¿Dónde está la estación?",
+      "translation": "¿Dónde está la estación?",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
-      ]
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 07: Where is the station?",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "on"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "left"
+        }
+      ],
+      "audio_text": "It is on the left.",
+      "answer_audio_text": "It is on the left.",
+      "prompt_image_url": "a1_scene_town-male-left-answer_a00c3ac.webp",
+      "spanish_translation": "Está a la izquierda.",
+      "translation": "Está a la izquierda.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 08: It is on the left.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___. ___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "me"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "me"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Excuse"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "Can"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "help"
+        }
+      ],
+      "audio_text": "Excuse me. Can you help me?",
+      "answer_audio_text": "Excuse me. Can you help me?",
+      "prompt_image_url": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "spanish_translation": "Disculpe. ¿Puede ayudarme?",
+      "translation": "Disculpe. ¿Puede ayudarme?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 09: Excuse me. Can you help me?",
+      "audio_speaker": "female-character"
     }
   ]
 }

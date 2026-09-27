@@ -20,12 +20,10 @@ SPEAKER_FIELDS = ("audio_speaker", "answer_audio_speaker")
 # rest remain neutral because a woman or an off-camera speaker says them.
 # The 2026-09-25 Unit 3 rebuild re-authored every Unit 3 card from engine briefs, so its
 # 3.3 R7 forced-neutral field and 3.6 R6/U5 recasts are history with nothing left to pin.
-# The 2026-09-26 Unit 4 rebuild did the same for 4.5 L1/L4/L5, 4.6 L3 and the 4.7 recasts.
+# The 2026-09-26 Unit 4 rebuild did the same for 4.5 L1/L4/L5, 4.6 L3 and the 4.7 recasts,
+# and the 2026-09-27 Unit 6 rebuild for the ten 6.7 fields: its briefs voice the woman asking
+# for help and the man she asks.
 FORCED_NEUTRAL_GROUPS = {
-    "lesson-6-7-simple-requests": [
-        ("audio_speaker", "A2 L1 L2 R3 R7 S1 S2 U2"),
-        ("answer_audio_speaker", "R5 U1"),
-    ],
     "lesson-7-6-hobbies-and-free-time": [
         ("audio_speaker", "U6"),
         ("answer_audio_speaker", "U8"),
@@ -70,8 +68,8 @@ EXACT_ROLE_CHANGES = {
     # inherits the card's prompt speaker. (The 4.7 recasts left with the Unit 4 rebuild.)
     # The 2026-09-18 recast of 4.9 U6 to Ana is history: the 2026-09-21 parity rebuild
     # re-authored that card over a fresh photograph of a man walking to work, so the line
-    # is spoken by the pictured man again and has no recast left to pin.
-    ("lesson-6-7-simple-requests", "U7", "answer_audio_speaker"): ("female-character", None),
+    # is spoken by the pictured man again and has no recast left to pin. The 6.7 U7 removal left
+    # with the 2026-09-27 Unit 6 rebuild, whose briefs name every speaker.
     ("lesson-7-6-hobbies-and-free-time", "A3", "audio_speaker"): ("male-character", "female-character"),
     ("lesson-7-6-hobbies-and-free-time", "L5", "audio_speaker"): ("male-character", "female-character"),
     ("lesson-7-6-hobbies-and-free-time", "R6", "answer_audio_speaker"): ("male-character", "female-character"),
@@ -104,9 +102,9 @@ EXACT_ROLE_CHANGES = {
 # pictured people and alternating narrators keep their voices (+261 net).
 # The 2026-09-26 Unit 5 rebuild does the same for its ten teaching lessons (Ana, Luis, the
 # servers and every pictured customer keep their voices) and the six new review cards (+321 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1379
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1607
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "74255d7aedc2780d49ef790017f072ceb87a5c292db6ea2efe3425f883828887"
+    "f6f0f724140693a8fe109f8afdce1da0be8031e03d370440d0202aea934266d1"
 )
 
 
@@ -201,8 +199,8 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         lessons = lesson_assignments()
         neutral = forced_neutral_targets()
 
-        self.assertEqual(36, len(neutral))
-        self.assertEqual(12, len(EXACT_ROLE_CHANGES))
+        self.assertEqual(26, len(neutral))
+        self.assertEqual(11, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
         self.assertEqual(validator, lessons)

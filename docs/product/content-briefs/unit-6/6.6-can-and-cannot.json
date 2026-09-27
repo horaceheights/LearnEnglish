@@ -1,0 +1,185 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 6 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds can and cannot; there is practised in I can walk there. Each picture pair changes only whether the person can go: the boy at a green or a red light, the couple at an open or a closed train gate.",
+  "target": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+  "lesson": {
+    "id": "lesson-6-6-can-and-cannot",
+    "title": "6.6 Can and Cannot",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.6",
+    "sub_lesson_title": "Can and Cannot",
+    "goal": "Say what someone can or cannot do on the way: walk there, cross the street or go by train.",
+    "vocabulary": [
+      "can",
+      "cannot",
+      "there"
+    ],
+    "review_vocabulary": [
+      "I",
+      "you",
+      "they",
+      "the",
+      "boy",
+      "walk",
+      "cross the street",
+      "go",
+      "by",
+      "train"
+    ],
+    "grammar_function": "Subject + can / cannot + base verb: I can walk there. The boy cannot cross the street.",
+    "prerequisite": "6.2 walk, by and train; 6.5 cross the street; 5.10 Can I have...?",
+    "speaking_outcome": "Say that I can or cannot do something.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Can",
+      "es": "Poder",
+      "image": "a1_photo_u6_boy_crosses_green_v1.webp",
+      "kind": "can-word"
+    },
+    {
+      "text": "Cannot",
+      "es": "No poder",
+      "image": "a1_photo_u6_boy_waits_red_v1.webp",
+      "kind": "can-word"
+    },
+    {
+      "text": "I can walk there.",
+      "es": "Puedo caminar hasta allá.",
+      "image": "a1_scene_i-can-walk-there_716a3c1.webp",
+      "kind": "walk-there",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I cannot walk there."
+      ]
+    },
+    {
+      "text": "I cannot walk there.",
+      "es": "No puedo caminar hasta allá.",
+      "image": "a1_scene_i-cannot-walk-there_4e028b8.webp",
+      "kind": "walk-there",
+      "learn": false,
+      "speaker": "male-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I can walk there."
+      ]
+    },
+    {
+      "text": "The boy can cross the street.",
+      "es": "El niño puede cruzar la calle.",
+      "image": "a1_photo_u6_boy_crosses_green_v1.webp",
+      "kind": "boy-cross",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The boy cannot cross the street."
+      ]
+    },
+    {
+      "text": "The boy cannot cross the street.",
+      "es": "El niño no puede cruzar la calle.",
+      "image": "a1_photo_u6_boy_waits_red_v1.webp",
+      "kind": "boy-cross",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The boy can cross the street."
+      ]
+    },
+    {
+      "text": "They can go by train.",
+      "es": "Pueden ir en tren.",
+      "image": "a1_photo_u6_pair_boards_train_v1.webp",
+      "kind": "pair-train",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "They cannot go by train."
+      ]
+    },
+    {
+      "text": "They cannot go by train.",
+      "es": "No pueden ir en tren.",
+      "image": "a1_photo_u6_pair_cannot_board_train_v1.webp",
+      "kind": "pair-train",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "They can go by train."
+      ]
+    },
+    {
+      "text": "You can cross the street.",
+      "es": "Puedes cruzar la calle.",
+      "image": "a1_scene_you-can-cross-the-street_15d25f7.webp",
+      "kind": "you-cross",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "You cannot cross the street."
+      ]
+    },
+    {
+      "text": "You cannot cross the street.",
+      "es": "No puedes cruzar la calle.",
+      "image": "a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
+      "kind": "you-cross",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "You can cross the street."
+      ]
+    }
+  ],
+  "pool": []
+}

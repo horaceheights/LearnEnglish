@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b920dba3-ebb4-462a-a19f-e31f6684ccbf",
+  "asset_id": "bank-right",
+  "pack_sha256": "bca2718a7706d4bf0f2d6bc4f28c96545b0b45cf7062567649bae102a27c1619",
+  "started_at": "2026-09-27T07:50:38.365939+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nA calm, clean neighborhood in a mid-sized town on a sunny morning, eye-level photograph. Buildings are recognizable by their shape and one clear symbol only: a pharmacy by a large plain green cross above its door; a bank by a stone front with columns and an ATM beside the door; a school by a low brick building with a playground fence and children's backpacks; a train station by its platform, tracks and a waiting train. No readable signs, no other shop fronts competing for attention, no traffic.\n\nPrecise edit of Image 1: mirror the scene left to right. The pharmacy with the large plain green cross is now on the LEFT side of the photo and the stone bank with columns and the ATM is now on the RIGHT side, both the same size and style as before, with the same empty street between them. No people, no cars, no readable signs or text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-6-lesson-v2/bank-left.png",
+    "sha256": "b09fa1c66223c679b1c55024c9de6f534fc651cb21056fda0d1f1d609568620d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "0cq4aqy0Ou2hz7IPtYvswAE",
+  "usage": {
+    "promptTokenCount": 581,
+    "candidatesTokenCount": 1291,
+    "totalTokenCount": 2041,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 323
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 169,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137190",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 581,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 169
+  },
+  "elapsed_seconds": 27.07,
+  "output": "output/imagegen/unit-6-lesson-v2/bank-right.png",
+  "sha256": "31ccdb73b93922ad9fc7fa6230e003c0d1da7df4cdc4030d9b6bf6fb1a1f6b60",
+  "byte_count": 6549039,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

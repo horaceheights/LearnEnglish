@@ -4,51 +4,43 @@
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Ask where a familiar place is, understand simple directions, and use familiar transportation and schedule language.",
+  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.9",
   "sub_lesson_title": "Unit 6 Review",
-  "goal": "Retrieve Unit 6 places, transport, location, direction, permission, help and schedule language from fresh review scenes, with no new vocabulary.",
+  "goal": "Retrieve Unit 6 places, transport, near and far, left and right, directions, can and cannot, requests for help and schedules from fresh review scenes, with no new vocabulary.",
   "vocabulary": [],
   "review_vocabulary": [
-    "store",
-    "hospital",
     "station",
     "bank",
     "pharmacy",
     "library",
     "train",
     "taxi",
+    "walk",
     "by",
-    "Where is the...?",
     "near",
     "far from",
     "left",
     "right",
     "on the left",
     "on the right",
-    "straight",
-    "turn",
-    "cross",
-    "stop",
-    "go straight",
-    "turn left",
-    "turn right",
-    "cross the street",
+    "Go straight.",
+    "Turn left.",
+    "Turn right.",
+    "Cross the street.",
+    "Stop.",
     "can",
     "cannot",
     "there",
     "Excuse me.",
-    "help",
     "Can you help me?",
-    "Yes.",
     "Sorry, no.",
-    "at",
     "leaves",
     "arrives"
   ],
-  "grammar_function": "Spiral review of where is the, next to, near and far from, on the left and right, imperatives for directions, can and cannot, polite requests, and leaves and arrives at.",
+  "grammar_function": "Spiral review of It is a ..., at and in with places, go by and walk, near and far from, on the left and on the right, imperatives for directions, can and cannot, polite requests for help, and leaves and arrives at.",
   "prerequisite": "Lessons 6.1 to 6.8.",
   "speaking_outcome": "Ask where a place is, say where it is, give simple directions, ask for help politely and say when a bus or train leaves or arrives.",
   "purposeful_review_slides": [
@@ -59,7 +51,13 @@
     "N12",
     "N14",
     "S5",
-    "U8"
+    "U8",
+    "R9",
+    "R10",
+    "R11",
+    "N19",
+    "N20",
+    "S7"
   ],
   "cards": [
     {
@@ -424,6 +422,79 @@
       "prompt_image_url": "a1_u6_review_v1_train_nine.webp",
       "spanish_translation": "Elige la frase correcta.",
       "pedagogy_note": "empty-prompt recognition"
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-at-the-library-1",
+      "options": [
+        {
+          "id": "she-is-at-the-library-1",
+          "image_url": "",
+          "label": "She is at the library."
+        },
+        {
+          "id": "she-is-at-the-bank-2",
+          "image_url": "",
+          "label": "She is at the bank."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "She is at the library.",
+      "prompt_image_url": "a1_u6_review_v2_woman_at_library.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "fresh scene, a 6.1 place with at"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-walk-to-work-2",
+      "options": [
+        {
+          "id": "i-go-to-work-by-bus-1",
+          "image_url": "",
+          "label": "I go to work by bus."
+        },
+        {
+          "id": "i-walk-to-work-2",
+          "image_url": "",
+          "label": "I walk to work."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I walk to work.",
+      "prompt_image_url": "a1_u6_review_v2_walk_to_work.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "fresh scene, walk against by bus",
+      "answer_audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-hospital-is-far-from-the-park-2",
+      "options": [
+        {
+          "id": "the-hospital-is-near-the-park-1",
+          "image_url": "",
+          "label": "The hospital is near the park."
+        },
+        {
+          "id": "the-hospital-is-far-from-the-park-2",
+          "image_url": "",
+          "label": "The hospital is far from the park."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The hospital is far from the park.",
+      "prompt_image_url": "a1_u6_review_v2_hospital_far_from_park.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "fresh scene, near against far from"
     },
     {
       "slide_id": "N1",
@@ -924,6 +995,54 @@
       "pedagogy_note": "audio-to-English retrieval without a picture"
     },
     {
+      "slide_id": "N19",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "they-go-by-taxi-1",
+      "options": [
+        {
+          "id": "they-go-by-taxi-1",
+          "image_url": "a1_u6_review_v2_they_go_by_taxi.webp",
+          "label": null
+        },
+        {
+          "id": "man-boards-train-2",
+          "image_url": "a1_photo_u6_review_man_boards_train_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "They go by taxi.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Van en taxi.",
+      "pedagogy_note": "text hidden; fresh scene, a couple by taxi against a man by train"
+    },
+    {
+      "slide_id": "N20",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "cannot-cross-1",
+      "options": [
+        {
+          "id": "can-cross-2",
+          "image_url": "a1_u6_review_v1_can_cross.webp",
+          "label": null
+        },
+        {
+          "id": "cannot-cross-1",
+          "image_url": "a1_u6_review_v2_cannot_cross.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "You cannot cross the street.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "No puedes cruzar la calle.",
+      "pedagogy_note": "text hidden; fresh scene, can against cannot"
+    },
+    {
       "slide_id": "S1",
       "interaction_type": "repeat",
       "prompt": "Where is the station?",
@@ -1039,6 +1158,25 @@
       "prompt_image_url": "",
       "spanish_translation": "El tren llega a las diez.",
       "pedagogy_note": "single-image speaking"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "repeat",
+      "prompt": "The hospital is on the right.",
+      "stage": "Speak",
+      "correct_option_id": "the-hospital-is-on-the-right-1",
+      "options": [
+        {
+          "id": "the-hospital-is-on-the-right-1",
+          "image_url": "a1_u6_review_v2_hospital_on_the_right.webp",
+          "label": "The hospital is on the right."
+        }
+      ],
+      "audio_text": "The hospital is on the right.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El hospital está a la derecha.",
+      "pedagogy_note": "single-image speaking, fresh scene"
     },
     {
       "slide_id": "U1",
@@ -1318,5 +1456,6 @@
       "translation": "El tren sale a las nueve.",
       "pedagogy_note": "full construction over a fresh scene"
     }
-  ]
+  ],
+  "content_revision": 2
 }

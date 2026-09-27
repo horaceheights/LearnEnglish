@@ -20,8 +20,9 @@ class SpeakingVoiceReviewTests(unittest.TestCase):
     def test_the_check_catches_a_replaced_picture_a_wrong_voice_and_a_stale_record(self) -> None:
         rows = spoken_lines(LESSONS)
         review = load_review()
+        # The man boarding the train says "I go by train." (Speak since the 2026-09-27 Unit 6 rebuild).
         train = next(row for row in rows if row.lesson == "lesson-6-2-transportation"
-                     and row.slide == "L4" and row.purpose == "prompt")
+                     and row.slide == "S4" and row.purpose == "prompt")
         self.assertEqual("male", review[(train.image, train.text)])
         others = [row for row in rows if row is not train]
 

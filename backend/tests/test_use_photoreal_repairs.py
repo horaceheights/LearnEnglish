@@ -24,9 +24,10 @@ class UsePhotorealRepairsTest(unittest.TestCase):
         self.assertEqual({('lesson-5-4-likes-and-dislikes', 'U7'), ('lesson-5-5-wants-and-needs', 'U7'),
                           ('lesson-6-8-schedules', 'U6'), ('lesson-7-9-complete-a1-review', 'U3')},
                          {(a['lesson_id'], a['slide_id']) for a in self.pack['assets']})
-        # The 2026-09-26 Unit 5 rebuild re-authored 5.4 and 5.5 from engine briefs, so their
-        # repaired Use cards are history; the originals stay preserved byte for byte.
-        rebuilt = {'lesson-5-4-likes-and-dislikes', 'lesson-5-5-wants-and-needs'}
+        # The 2026-09-26 Unit 5 rebuild re-authored 5.4 and 5.5 from engine briefs, and the
+        # 2026-09-27 Unit 6 rebuild 6.8, so their repaired Use cards are history; the originals
+        # stay preserved byte for byte.
+        rebuilt = {'lesson-5-4-likes-and-dislikes', 'lesson-5-5-wants-and-needs', 'lesson-6-8-schedules'}
         for asset in self.pack['assets']:
             for folder in FOLDERS:
                 self.assertEqual(asset['old_sha256'], sha(ROOT / folder / asset['old_filename']))

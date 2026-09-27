@@ -14,7 +14,14 @@ from scripts.render_course_stills import pack_output_directory, reviewed_referen
 class PhotoReuseTests(unittest.TestCase):
     def test_dialogue_reuse_is_bound_to_unchanged_first_turn(self):
         current=lessons(ROOT)
+        # A unit rebuild may retire the dialogue; its plan then records the retirement and the
+        # evidence row is history (the 2026-09-27 Unit 6 rebuild re-authored 6.7 Asking for Help).
+        changes=json.loads((ROOT/'docs/product/course-media-change-plans.json').read_text(encoding='utf-8'))['changes']
+        retired={(c['lesson_id'],c['old_filename']) for c in changes if c.get('issue')=='lesson-rebuild-retires-use'}
         for row in json.loads((ROOT/'docs/qa/course-dialogue-poster-reuse-v1.json').read_text())['assets']:
+            if (row['lesson_id'],row['old_filename']) in retired:
+                self.assertNotIn(row['old_filename'],images(current[row['lesson_id']]))
+                continue
             plan={'lesson_id':row['lesson_id'],'old_filename':row['old_filename'],'new_filename':row['candidate_filename'],
                   'old_sha256':row['old_sha256'],'evidence_file':'docs/qa/course-dialogue-poster-reuse-v1.json'}
             validate_dialogue_poster_plan(plan,current,ROOT)

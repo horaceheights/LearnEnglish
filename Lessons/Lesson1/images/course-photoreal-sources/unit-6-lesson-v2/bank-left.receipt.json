@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "96509eef-07c4-421e-a4ad-d4727ab6a939",
+  "asset_id": "bank-left",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:42:36.249898+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nA calm, clean neighborhood in a mid-sized town on a sunny morning, eye-level photograph. Buildings are recognizable by their shape and one clear symbol only: a pharmacy by a large plain green cross above its door; a bank by a stone front with columns and an ATM beside the door; a school by a low brick building with a playground fence and children's backpacks; a train station by its platform, tracks and a waiting train. No readable signs, no other shop fronts competing for attention, no traffic.\n\nLooking straight down the middle of a quiet, empty pedestrian street at eye level. Exactly two buildings face each other across the street, both close to the camera and clearly visible: on the LEFT side of the photo, a bank with a pale stone front, two columns and an ATM beside its glass door; on the RIGHT side of the photo, a pharmacy with a large plain green cross above its glass door and white shelves visible inside. Each building fills about 40 percent of the photo width, one on each side, with the street between them. No people, no cars, no readable signs or text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "68i4arakMN3pz7IPj4akuA4",
+  "usage": {
+    "promptTokenCount": 369,
+    "candidatesTokenCount": 1312,
+    "totalTokenCount": 1979,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 369
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 298,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138314",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 369,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 298
+  },
+  "elapsed_seconds": 22.81,
+  "output": "output/imagegen/unit-6-lesson-v2/bank-left.png",
+  "sha256": "b09fa1c66223c679b1c55024c9de6f534fc651cb21056fda0d1f1d609568620d",
+  "byte_count": 6809112,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

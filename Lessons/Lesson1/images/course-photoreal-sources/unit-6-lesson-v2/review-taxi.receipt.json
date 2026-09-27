@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4a56cea1-ae89-475d-b5e9-05552ccd3a54",
+  "asset_id": "review-taxi",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:45:23.154461+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nAn older couple, a man with white hair in a navy coat and a woman with a grey bob in a red coat, climb into the back seat of a yellow taxi at the curb of a sunny city street; the rear door is open and the man holds it for the woman. The taxi is clearly a taxi by its yellow color and plain roof light with no text. No other people, no readable text or logos.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "ksm4asHqJ5Xlz7IP15OhwA0",
+  "usage": {
+    "promptTokenCount": 272,
+    "candidatesTokenCount": 1302,
+    "totalTokenCount": 1756,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 272
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 182,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136728",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 272,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 182
+  },
+  "elapsed_seconds": 20.54,
+  "output": "output/imagegen/unit-6-lesson-v2/review-taxi.png",
+  "sha256": "3e7465e157782c3113592afeab16a29583b4ebaed4fc803992c6c9a82a459d64",
+  "byte_count": 5369889,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
