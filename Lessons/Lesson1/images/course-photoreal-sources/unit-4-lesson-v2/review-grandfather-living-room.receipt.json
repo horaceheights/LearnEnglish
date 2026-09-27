@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "dac24aff-080a-499a-899c-a45ddfca0ff0",
+  "asset_id": "review-grandfather-living-room",
+  "pack_sha256": "e6c0a519d52bc6ef031080157bc74216658af4499a794b1fd90eb25a6eec5a55",
+  "started_at": "2026-09-26T18:28:24.994480+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nRoom photo: the room must read instantly as the named room on a phone, from the furniture that defines it, and that defining furniture stands right beside the person inside the central area, not only at the edges. Shot at eye level from about three meters away in bright, soft daylight; the person is fully lit, faces the camera at a three-quarter angle and fills about 45 percent of the photo height. A tidy, lived-in family home; no mirrors, no televisions, no other people.\n\nThe LIVING ROOM. A grandfather in his seventies with white hair and a neat white mustache, wearing a green cardigan, sits in a comfortable armchair holding a mug of tea and smiling. Right beside him: a sofa with cushions, a low coffee table, a floor lamp and a large window. He is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "yA64auTzJ9KV6dkPhoGIiAk",
+  "usage": {
+    "promptTokenCount": 360,
+    "candidatesTokenCount": 1275,
+    "totalTokenCount": 1832,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 360
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 197,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137084",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 360,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 197
+  },
+  "elapsed_seconds": 21.28,
+  "output": "output/imagegen/unit-4-lesson-v2/review-grandfather-living-room.png",
+  "sha256": "e78a5dd357141e52733c45afcecd98f352a5e9eb17709853d9dfba24077883ca",
+  "byte_count": 6062730,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

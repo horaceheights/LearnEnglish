@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d6326648-7373-4c05-adf9-4a1e4ad77de3",
+  "asset_id": "day-today-top",
+  "pack_sha256": "e6c0a519d52bc6ef031080157bc74216658af4499a794b1fd90eb25a6eec5a55",
+  "started_at": "2026-09-26T18:27:08.623817+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Add one small square bright-yellow sticky note stuck straight on the calendar page in the blank white space ABOVE the word TUESDAY, centered horizontally, with a clear gap between the bottom of the note and the tops of the letters. The note has the word TODAY handwritten on it in thick black marker capital letters, perfectly spelled and easy to read. Every letter of TUESDAY stays fully visible and unchanged. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-4-lesson-v2/day-tuesday.png",
+    "sha256": "1cd59be205d3152767e1d6c55b5a4c8c57c31b60c07040272868cc2c0ef71ce3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "gw64atKZCPug6dkP7ZW9KQ",
+  "usage": {
+    "promptTokenCount": 381,
+    "candidatesTokenCount": 1280,
+    "totalTokenCount": 1864,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 123
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 203,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137198",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 381,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 203
+  },
+  "elapsed_seconds": 29.49,
+  "output": "output/imagegen/unit-4-lesson-v2/day-today-top.png",
+  "sha256": "347d59f78e5b1fe263d935d75957b30b5e5a88c087335cdb86629aafd2b60c13",
+  "byte_count": 4582035,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

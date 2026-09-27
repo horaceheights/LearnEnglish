@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bd0a30c9-f939-400a-bbce-1cd720f03faa",
+  "asset_id": "review-saturday",
+  "pack_sha256": "e6c0a519d52bc6ef031080157bc74216658af4499a794b1fd90eb25a6eec5a55",
+  "started_at": "2026-09-26T18:29:14.502710+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nA large square paper wall calendar hangs on a pale-green kitchen wall, facing the camera squarely and perfectly centered, about 55 percent of the photo height. Its page shows exactly one printed word, SATURDAY, in large bold dark-blue capital letters across the middle, perfectly spelled and spanning about 80 percent of the page width. The page has no numbers, dates, month names, grids, other words or logos. A wooden shelf with a small plant is softly out of focus at the far right edge. Bright weekend morning light. No people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "-g64arOuEN6CmtkP4YO7sAk",
+  "usage": {
+    "promptTokenCount": 258,
+    "candidatesTokenCount": 1296,
+    "totalTokenCount": 1755,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 201,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136928",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 258,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 201
+  },
+  "elapsed_seconds": 24.97,
+  "output": "output/imagegen/unit-4-lesson-v2/review-saturday.png",
+  "sha256": "b142fae6209c279ce1ff81155366b271d9da3ed8a9f8412bd5c560a97ced0f18",
+  "byte_count": 4876344,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

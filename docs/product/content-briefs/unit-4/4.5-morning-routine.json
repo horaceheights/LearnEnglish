@@ -1,0 +1,253 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: the old lesson declared ten items (face, teeth, breakfast and dressed separately); Learn now holds the five routine chunks and In the morning. I + routine and the 4.1 rooms (I brush my teeth in the bathroom.) are practice, said by Ana, who is in every photo.",
+  "target": "backend/lessons/unit_4/lesson-4-5-morning-routine.yaml",
+  "lesson": {
+    "id": "lesson-4-5-morning-routine",
+    "title": "4.5 Morning Routine",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.5",
+    "sub_lesson_title": "Morning Routine",
+    "goal": "Understand and say five morning routine actions with I, and say which room and part of the day they happen in.",
+    "vocabulary": [
+      "wake up",
+      "wash my face",
+      "brush my teeth",
+      "eat breakfast",
+      "get dressed",
+      "in the morning"
+    ],
+    "review_vocabulary": [
+      "I",
+      "my",
+      "the",
+      "in",
+      "kitchen",
+      "bathroom",
+      "bedroom"
+    ],
+    "grammar_function": "I + routine chunk as a learned whole; + in the + room; + in the morning.",
+    "prerequisite": "4.1 rooms; 3.2 I; 3.10 my.",
+    "speaking_outcome": "Say five I routine sentences and where they happen.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Wake up",
+      "es": "Despertarse",
+      "image": "a1_scene_ana-wake_d91086e.webp",
+      "kind": "routine-word",
+      "form": "word",
+      "text_choices": false,
+      "use": false
+    },
+    {
+      "text": "Wash my face",
+      "es": "Lavarme la cara",
+      "image": "a1_scene_ana-wash-face_4ea6c79.webp",
+      "kind": "routine-word",
+      "form": "word",
+      "text_choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "text": "Brush my teeth",
+      "es": "Cepillarme los dientes",
+      "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "kind": "routine-word",
+      "form": "word",
+      "text_choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "text": "Eat breakfast",
+      "es": "Desayunar",
+      "image": "a1_scene_ana-breakfast_e7fbea5.webp",
+      "kind": "routine-word",
+      "form": "word",
+      "text_choices": false,
+      "use": false
+    },
+    {
+      "text": "Get dressed",
+      "es": "Vestirme",
+      "image": "a1_scene_ana-dressed_5135d82.webp",
+      "kind": "routine-word",
+      "form": "word",
+      "text_choices": false,
+      "use": false
+    },
+    {
+      "text": "In the morning",
+      "es": "En la mañana",
+      "image": "a1_scene_morning_45a21e4.webp",
+      "kind": "time-phrase",
+      "choices": false,
+      "use": false
+    },
+    {
+      "text": "I wake up.",
+      "es": "Me despierto.",
+      "image": "a1_scene_ana-wake_d91086e.webp",
+      "kind": "i-routine",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I wash my face.",
+      "es": "Me lavo la cara.",
+      "image": "a1_scene_ana-wash-face_4ea6c79.webp",
+      "kind": "i-routine",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I brush my teeth.",
+      "es": "Me cepillo los dientes.",
+      "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "kind": "i-routine",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I eat breakfast.",
+      "es": "Desayuno.",
+      "image": "a1_scene_ana-breakfast_e7fbea5.webp",
+      "kind": "i-routine",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I get dressed.",
+      "es": "Me visto.",
+      "image": "a1_scene_ana-dressed_5135d82.webp",
+      "kind": "i-routine",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The pictured person tells their own routine, so every choice starts with I and only the action changes."
+      }
+    },
+    {
+      "text": "I eat breakfast in the morning.",
+      "es": "Desayuno en la mañana.",
+      "image": "a1_scene_breakfast-morning_e501f0d.webp",
+      "kind": "routine-morning",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I get dressed in the morning."
+      ]
+    },
+    {
+      "text": "I brush my teeth in the bathroom.",
+      "es": "Me cepillo los dientes en el baño.",
+      "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "kind": "teeth-room",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I brush my teeth in the kitchen."
+      ]
+    },
+    {
+      "text": "I eat breakfast in the kitchen.",
+      "es": "Desayuno en la cocina.",
+      "image": "a1_scene_ana-breakfast_e7fbea5.webp",
+      "kind": "breakfast-room",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I eat breakfast in the bedroom."
+      ]
+    },
+    {
+      "text": "I get dressed in the bedroom.",
+      "es": "Me visto en el dormitorio.",
+      "image": "a1_scene_ana-dressed_5135d82.webp",
+      "kind": "dressed-room",
+      "learn": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day).",
+        "action-variety": "The choices keep the speaker and the action and change only one word (the room, day, hour or part of the day)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "I get dressed in the bathroom."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "I get dressed in the morning.",
+      "es": "Me visto en la mañana.",
+      "kind": "routine-morning"
+    },
+    {
+      "text": "I wash my face in the morning.",
+      "es": "Me lavo la cara en la mañana.",
+      "kind": "routine-morning"
+    },
+    {
+      "text": "I brush my teeth in the kitchen.",
+      "es": "Me cepillo los dientes en la cocina.",
+      "kind": "teeth-room"
+    },
+    {
+      "text": "I eat breakfast in the bedroom.",
+      "es": "Desayuno en el dormitorio.",
+      "kind": "breakfast-room"
+    },
+    {
+      "text": "I get dressed in the bathroom.",
+      "es": "Me visto en el baño.",
+      "kind": "dressed-room"
+    }
+  ]
+}

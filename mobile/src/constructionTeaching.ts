@@ -11,6 +11,7 @@ const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
 for (const noun of words('spain diego states')) NOUNS.add(noun);
+for (const noun of words('home window')) NOUNS.add(noun);
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 const OWNERS = set('mine yours');
 const PRONOUNS = set('i you he she it we they this that these those there');
@@ -108,9 +109,10 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `Para decir la edad, después de ${quote(anchor)} va el número y luego “years old”: ${quote(original)}.`);
       return true;
     }
-    if (end - start === 2 && NUMBERS.has(keys[start]) && keys[start + 1] === "o'clock") {
-      teach(start, end, `Para decir la hora, el número va antes de “o'clock”: ${quote(original)}.`);
-      return true;
+    if (end - start >= 2 && NUMBERS.has(keys[start]) && keys[start + 1] === "o'clock") {
+      teach(start, start + 2, `Para decir la hora, el número va antes de “o'clock”: ${quote(phrase(start, start + 2))}.`);
+      // A part of the day may follow the time: "seven o'clock in the morning", "nine o'clock at night".
+      return end - start === 2 || complement(start + 2, end, phrase(start, start + 2));
     }
     if (end - start === 2 && keys[start] === 'number' && NUMBERS.has(keys[start + 1]) && BE.has(anchor.toLowerCase())) {
       teach(start, end, `Para decir qué número es, después de ${quote(anchor)} va “number” y luego el número: ${quote(original)}.`);
@@ -134,7 +136,8 @@ function teachClause(text: string): ClausePlan {
               : NUMBERS.has(keys[nounStart]) || /night|morning|afternoon|evening|day$/.test(keys[nounEnd - 1]) ? 'cuándo ocurre'
                 : 'el lugar o la dirección';
       teach(start, nounEnd, `${quote(phrase(start, nounStart))} va antes de ${quote(location)}: introduce ${relation}. Juntos completan ${quote(anchor)}.`);
-      const valid = (nounEnd === nounStart + 1 && (NUMBERS.has(keys[nounStart]) || ['left', 'right', 'there'].includes(keys[nounStart]))) || nominal(nounStart, nounEnd);
+      const clockTime = nounEnd === nounStart + 2 && NUMBERS.has(keys[nounStart]) && keys[nounStart + 1] === "o'clock";
+      const valid = clockTime || (nounEnd === nounStart + 1 && (NUMBERS.has(keys[nounStart]) || ['left', 'right', 'there'].includes(keys[nounStart]))) || nominal(nounStart, nounEnd);
       return valid && (nextPrep < 0 || complement(nextPrep, end, phrase(start, nounEnd)));
     }
     if (tail === 'every day') {
@@ -218,19 +221,38 @@ function teachClause(text: string): ClausePlan {
     if (keys[4] === 'listen') teach(5, keys.length, '“Listen to music” significa escuchar música; “to” va entre “listen” y lo que escuchamos.');
     return { explanations, relations, supported: true };
   }
-  const question = /^(who|what number|what color|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
+  const question = /^(who|what number|what color|what time|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {
     const verbIndex = words(question[1]).length;
     const subjectEnd = keys[keys.length - 1] === 'from' ? keys.length - 1 : keys.length;
     teach(0, keys.length, `En esta pregunta, primero ${quote(phrase(0, verbIndex))}, luego ${quote(tokens[verbIndex])} y después ${quote(phrase(verbIndex + 1, subjectEnd))}. El verbo va antes de quien preguntamos.`);
     if (verbIndex === 2 && keys[0] === 'what') {
-      const asks = keys[1] === 'color' ? 'de qué color es' : 'qué número es';
+      const asks = keys[1] === 'color' ? 'de qué color es' : keys[1] === 'time' ? 'qué hora es' : 'qué número es';
       teach(0, 2, `“What ${keys[1]}” pregunta ${asks}: “What” va antes de “${keys[1]}” y las dos palabras abren la pregunta.`);
     }
     else if (verbIndex === 2) teach(0, 2, `“How ${tokens[1]}” pregunta ${keys[1] === 'old' ? 'la edad' : 'el precio'}: “How” va antes de ${quote(tokens[1])} y las dos palabras abren la pregunta.`);
     const supported = subject(verbIndex + 1, subjectEnd);
     if (subjectEnd < keys.length) teach(subjectEnd, keys.length, 'En “Where are you from?”, “Where” pregunta el lugar y “from” cierra la pregunta para indicar el origen.');
     return { explanations, relations, supported };
+  }
+  // Lesson 4.8 asks about a routine with "Do you ...?": "Do" opens the question and the
+  // rest is the ordinary statement "you + action" that it asks about.
+  if (/^do you /.test(joined) && text.trim().endsWith('?')) {
+    const inner = teachClause(tokens.slice(1).join(' '));
+    const opening = 'En una pregunta de sí o no sobre una rutina, “Do” va primero, antes de “you” y de la acción: “Do you …?”.';
+    relations.push({ start: 0, end: keys.length, explanation: opening },
+      ...inner.relations.map(relation => ({ ...relation, start: relation.start + 1, end: relation.end + 1 })));
+    explanations[0] = opening;
+    inner.explanations.forEach((why, index) => { explanations[index + 1] = why; });
+    teach(0, 2, opening);
+    return { explanations, relations, supported: inner.supported && explanations.every(Boolean) };
+  }
+  const shortDo = /^(yes|no) i do( not)?$/.exec(joined);
+  if (shortDo && (shortDo[1] === 'yes') === !shortDo[2]) {
+    teach(0, keys.length, `En la respuesta corta a “Do you …?”, ${quote(tokens[0])} va primero y después ${quote(phrase(1, keys.length))}, sin repetir la acción.`);
+    teach(1, 3, '“I” va antes de “do”: repetimos quién responde y el verbo de la pregunta.');
+    if (shortDo[2]) teach(3, 4, 'En la respuesta corta, “not” va al final, después de “do”, para decir que no.');
+    return { explanations, relations, supported: true };
   }
   const yesNo = /^(am|is|are) /.exec(joined);
   if (yesNo && text.trim().endsWith('?') && keys.length >= 3) {

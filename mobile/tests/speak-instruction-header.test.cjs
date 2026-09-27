@@ -38,7 +38,9 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // 447 since 2026-09-24: the new 2.10 These and Those adds eight Speak cards.
 // 492 since 2026-09-25: the engine-built Unit 3 (four new lessons, 40-42 cards each) and its
 // fifth mission gate add 45 Speak cards.
-assert.equal(speakCards.length, 492, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4, Unit 5, Unit 6 and Unit 7 mission gates each, plus the 3.3 current-action exchange and the rebuilt Unit 1 family lessons.');
+// 530 since 2026-09-26: the engine-built Unit 4 (ten 42-card teaching lessons, two of them new) and
+// its 54-card review add 38 Speak cards (58 -> 96 in the unit).
+assert.equal(speakCards.length, 530, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4, Unit 5, Unit 6 and Unit 7 mission gates each, plus the 3.3 current-action exchange and the rebuilt Unit 1 family lessons.');
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
 // The Unit 3 mission gained a fifth gate, Is it yours?, on 2026-09-25.
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 5);

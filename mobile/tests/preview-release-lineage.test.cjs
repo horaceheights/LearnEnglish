@@ -109,12 +109,12 @@ test('publishing requires the exact main release authority and integrity check',
 test('the versioned manifest locks the complete recovery baseline and release identity', () => {
   assert.equal(integrityManifest.manifestVersion, 1);
   assert.equal(integrityManifest.baselineCommit, '657ab19487e37851de1229c08219d44d59ab199b');
-  // 2026-09-25: a deliberate curriculum release to 77 lessons; the engine-built Unit 3 adds
-  // Yes and No, Ages 16-20, Canada and Spain and Our, Their, and 's (14 lessons).
-  assert.equal(integrityManifest.catalog.expectedGitBlob, '360d08b824cc46954ee546c5ae160fd495074cc3');
-  assert.equal(integrityManifest.catalog.lessonCount, 77);
+  // 2026-09-26: a deliberate curriculum release to 79 lessons; the engine-built Unit 4 adds
+  // Do You...? and splits Days and Time into Days of the Week and What Time Is It? (12 lessons).
+  assert.equal(integrityManifest.catalog.expectedGitBlob, 'f59e242163cbc2a81a1cb253da19f9615e63d065');
+  assert.equal(integrityManifest.catalog.lessonCount, 79);
   assert.equal(integrityManifest.catalog.unitCount, 7);
-  assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 12, 14, 10, 10, 10, 10]);
+  assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 12, 14, 12, 10, 10, 10]);
   assert.deepEqual(
     integrityManifest.requiredReleaseIdentityFiles.map((file) => file.path),
     [

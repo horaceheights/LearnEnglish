@@ -1,16 +1,16 @@
 {
   "id": "lesson-4-10-my-day-mission",
-  "title": "4.10 Un día en casa",
+  "title": "4.12 Un día en casa",
   "level": "Beginner A1",
   "unit_id": "unit-4",
   "unit_title": "Unit 4: Home and Daily Life",
-  "unit_outcome": "Prepare a day at home: find the family in each room, locate belongings, follow the routine, and confirm the time and the day.",
+  "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
   "lesson_id": "lesson-4",
   "lesson_title": "Unit 4: Home and Daily Life",
-  "sub_lesson_id": "4.10",
+  "sub_lesson_id": "4.12",
   "sub_lesson_title": "Un día en casa",
   "experience_type": "mission",
-  "content_revision": 3,
+  "content_revision": 4,
   "mission": {
     "label": "MISIÓN FINAL · UNIDAD 4",
     "title": "Un día en casa",
@@ -69,37 +69,31 @@
     "door",
     "window",
     "computer",
-    "where",
-    "Where is...?",
     "in",
     "on",
     "under",
     "next to",
-    "there",
+    "Where is it?",
     "there is",
     "there are",
-    "chairs",
     "wake up",
     "wash my face",
     "brush my teeth",
     "eat breakfast",
     "get dressed",
     "in the morning",
-    "face",
-    "teeth",
-    "breakfast",
-    "dressed",
     "go to school",
     "go to work",
     "study English",
     "work",
     "come home",
     "sleep",
-    "English",
-    "come",
     "every day",
     "first",
     "then",
+    "Do you...?",
+    "Yes, I do.",
+    "No, I do not.",
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -107,14 +101,16 @@
     "Friday",
     "Saturday",
     "Sunday",
+    "today",
+    "What time is it?",
+    "o'clock",
     "afternoon",
     "night",
-    "o'clock",
     "at"
   ],
-  "grammar_function": "This/That is the + room; subject + be + in/on the + room; there is / there are; in, on, under, next to; I + daily action; first, then, every day; in the morning / afternoon, at night; on + day; It is ... o'clock.",
-  "prerequisite": "Lessons 4.1-4.9 completed.",
-  "speaking_outcome": "Answer four questions aloud: the time, where a book is, a morning routine, and the day you study English.",
+  "grammar_function": "This/That is the + room; subject + be + in/on the + room; there is / there are; in, on, under, next to; I + daily action; first, then, every day; in the morning, at night; Do you ...? Yes, I do.; What day is it today? Today is ...; What time is it? It is ... o'clock.",
+  "prerequisite": "Lessons 4.1-4.11 completed.",
+  "speaking_outcome": "Answer four questions aloud: the time, where a book is, Do you wake up in the morning?, and what day it is today.",
   "purposeful_review_slides": [
     "M01",
     "M02",
@@ -1859,36 +1855,36 @@
       "mission_chapter_id": "confirma",
       "interaction_type": "mission-speak",
       "stage": "Speak",
-      "prompt": "I wake up in the morning.",
+      "prompt": "Yes, I do.",
       "prompt_image_url": "",
       "options": [
         {
           "id": "morning-response",
-          "label": "I wake up in the morning.",
+          "label": "Yes, I do.",
           "image_url": "/lesson-assets/a1_u4_home_v1_morning_response.webp"
         }
       ],
       "correct_option_id": "morning-response",
-      "audio_text": "I wake up in the morning.",
+      "audio_text": "Yes, I do.",
       "answer_audio_text": null,
       "audio_turns": [
         {
-          "text": "What do you do in the morning?",
+          "text": "Do you wake up in the morning?",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u4_home_v1_morning_question.webp"
         }
       ],
-      "spanish_translation": "Me despierto en la mañana.",
-      "pedagogy_note": "Mission beat 12/13: La abuela pregunta por tu mañana; responde por ti.",
+      "spanish_translation": "Sí.",
+      "pedagogy_note": "Mission beat 12/13: La abuela pregunta si te despiertas en la mañana; responde con Yes, I do.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
         "validation": "single",
-        "cue_audio_text": "What do you do in the morning?",
+        "cue_audio_text": "Do you wake up in the morning?",
         "targets": [
           {
             "id": "morning-response",
-            "label_es": "Me despierto en la mañana.",
+            "label_es": "Sí.",
             "accepted_option_ids": [
               "morning-response"
             ],
@@ -1903,8 +1899,8 @@
         "cues": [
           {
             "id": "cue-morning-response",
-            "text": "What do you do in the morning?",
-            "answer_text": "I wake up in the morning.",
+            "text": "Do you wake up in the morning?",
+            "answer_text": "Yes, I do.",
             "target_id": "morning-response",
             "option_id": "morning-response"
           }
@@ -1916,36 +1912,36 @@
       "mission_chapter_id": "confirma",
       "interaction_type": "mission-finale",
       "stage": "Speak",
-      "prompt": "I study English on Monday.",
+      "prompt": "Today is Monday.",
       "prompt_image_url": "",
       "options": [
         {
           "id": "english-response",
-          "label": "I study English on Monday.",
+          "label": "Today is Monday.",
           "image_url": "/lesson-assets/a1_u4_home_v1_english_response.webp"
         }
       ],
       "correct_option_id": "english-response",
-      "audio_text": "I study English on Monday.",
+      "audio_text": "Today is Monday.",
       "answer_audio_text": null,
       "audio_turns": [
         {
-          "text": "When do you study English?",
+          "text": "What day is it today?",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u4_home_v1_english_question.webp"
         }
       ],
-      "spanish_translation": "Estudio inglés el lunes.",
-      "pedagogy_note": "Mission beat 13/13: El abuelo pregunta cuándo estudias inglés; responde y el día queda listo.",
+      "spanish_translation": "Hoy es lunes.",
+      "pedagogy_note": "Mission beat 13/13: El abuelo pregunta qué día es hoy; el lunes está marcado en el calendario. Responde y el día queda listo.",
       "mission_game": {
         "kind": "voice-gate",
         "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
         "validation": "single",
-        "cue_audio_text": "When do you study English?",
+        "cue_audio_text": "What day is it today?",
         "targets": [
           {
             "id": "english-response",
-            "label_es": "Estudio inglés el lunes.",
+            "label_es": "Hoy es lunes.",
             "accepted_option_ids": [
               "english-response"
             ],
@@ -1960,8 +1956,8 @@
         "cues": [
           {
             "id": "cue-english-response",
-            "text": "When do you study English?",
-            "answer_text": "I study English on Monday.",
+            "text": "What day is it today?",
+            "answer_text": "Today is Monday.",
             "target_id": "english-response",
             "option_id": "english-response"
           }

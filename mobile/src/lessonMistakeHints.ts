@@ -322,6 +322,29 @@ function grammarChoiceContrast(correct: string, wrong: string): string {
       ? `Tu opción responde “No”; aquí la respuesta es sí, por eso decimos “${correct.split(/\?\s*/)[1]}”.`
       : `Tu opción responde “Yes”; aquí la respuesta es no, por eso decimos “${correct.split(/\?\s*/)[1]}”.`;
   }
+  // Two different Do you ...? exchanges ("Do you work? No, I do not." against "Do you eat breakfast? Yes, I do.").
+  // A No answer is true of many pictures, so name the question that was asked; a Yes answer names both actions.
+  const doExchange = /^do you .+\?\s*(?:yes, i do|no, i do not)$/;
+  if (expectedAnswer && selectedAnswer && expectedAnswer[1] !== selectedAnswer[1]
+      && doExchange.test(expected) && doExchange.test(selected)) {
+    const [rightQuestion, wrongQuestion] = [`${correct.split('?')[0]}?`, `${wrong.split('?')[0]}?`];
+    if (expectedAnswer[2] === 'no') {
+      return `Aquí la pregunta es “${rightQuestion}” y la respuesta es no; tu opción responde otra pregunta: “${wrongQuestion}”.`;
+    }
+    const [rightPart, wrongPart] = contrast(rightQuestion, wrongQuestion).map(part => part.replace(/[?.!,]/g, '').split(' ').filter(Boolean));
+    const [rightPhrase, wrongPhrase] = [firstTaughtPhrase(rightPart), firstTaughtPhrase(wrongPart)];
+    if (rightPhrase && wrongPhrase && phraseMeaning(rightPhrase) !== phraseMeaning(wrongPhrase)) {
+      return `Tu opción pregunta por “${wrongPhrase}” (${phraseMeaning(wrongPhrase)}); aquí la pregunta es por “${rightPhrase}” (${phraseMeaning(rightPhrase)}).`;
+    }
+  }
+  // A short answer on its own (Yes, I do. / No, I do not.): only yes or no changes.
+  const shortAnswer = /^(yes|no),\s(?:i|you|he|she|it|we|they)\s(?:do|am|is|are)(?:\snot)?$/;
+  const [expectedShort, selectedShort] = [shortAnswer.exec(expected), shortAnswer.exec(selected)];
+  if (expectedShort && selectedShort && expectedShort[1] !== selectedShort[1]) {
+    return expectedShort[1] === 'yes'
+      ? `Tu opción responde “No”; aquí la respuesta es sí, por eso decimos “${correct}”.`
+      : `Tu opción responde “Yes”; aquí la respuesta es no, por eso decimos “${correct}”.`;
+  }
   if (expected === 'it is a book' && selected === 'he is a book') {
     return '“He” se usa para personas; la imagen muestra un libro, por eso usamos “It”.';
   }
@@ -429,8 +452,9 @@ function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boole
   while (correctWords.length && wrongWords.length && correctWords[0] === wrongWords[0]) {
     correctWords.shift(); wrongWords.shift();
   }
+  const sharedEnding: string[] = [];
   while (correctWords.length && wrongWords.length && correctWords[correctWords.length - 1] === wrongWords[wrongWords.length - 1]) {
-    correctWords.pop(); wrongWords.pop();
+    sharedEnding.unshift(correctWords.pop() as string); wrongWords.pop();
   }
   if (!correctWords.length || !wrongWords.length) return '';
   if (correctWords.length !== wrongWords.length) {
@@ -446,7 +470,12 @@ function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boole
   const changes = correctWords.flatMap((word, index) => word === wrongWords[index] ? [] : [[word, wrongWords[index]]]);
   if (!changes.length) return '';
   const grammatical = new Set(['am', 'is', 'are', 'a', 'an', 'the', 'he', 'she', 'they', 'it', 'i', 'you', 'we', 'not']);
-  const [expected, selected] = changes.find(([right, mistake]) => !grammatical.has(right) && !grammatical.has(mistake) && meaning(right) && meaning(mistake)) || changes[0];
+  let [expected, selected] = changes.find(([right, mistake]) => !grammatical.has(right) && !grammatical.has(mistake) && meaning(right) && meaning(mistake)) || changes[0];
+  // A two-word name such as "living room" against "dining room" differs only in its first word; name the whole room.
+  if (changes.length === 1 && sharedEnding.length && (!meaning(expected) || !meaning(selected))
+      && meaning(`${expected} ${sharedEnding[0]}`) && meaning(`${selected} ${sharedEnding[0]}`)) {
+    [expected, selected] = [`${expected} ${sharedEnding[0]}`, `${selected} ${sharedEnding[0]}`];
+  }
   const expectedMeaning = meaning(expected);
   const selectedMeaning = meaning(selected);
   if (!expectedMeaning || !selectedMeaning || expectedMeaning === selectedMeaning) return '';
@@ -469,9 +498,49 @@ function imageOptionConcept(id: string): string {
   return semantic.replace(/-/g, ' ');
 }
 
+/** The first taught phrase in a run of words, preferring the longest phrase at each start.
+ * Content words come first: a phrase that starts with a pronoun, article or be-form is only
+ * used when the run has no other taught phrase. */
+function firstTaughtPhrase(words: string[]): string {
+  const functionWords = new Set(['a', 'an', 'the', 'is', 'am', 'are', 'do', 'yes', 'no', 'this', 'that', 'these', 'those',
+    'it', 'i', 'you', 'we', 'they', 'he', 'she']);
+  for (const contentFirst of [true, false]) {
+    for (let start = 0; start < words.length; start += 1) {
+      if (contentFirst && functionWords.has(words[start])) continue;
+      for (let end = words.length; end > start; end -= 1) {
+        const phrase = words.slice(start, end).join(' ');
+        if (phrase && phraseMeaning(phrase)) return phrase;
+      }
+    }
+  }
+  return '';
+}
+
+/** Last resort for two sentences that differ by more than a word ("Do you wake up every day?"
+ * against "Do you eat breakfast?", or "Do you go to work?" against "Do you work?"). It runs only
+ * where every other explanation would fall back to a generic answer, so it never replaces one. */
+function phraseChoiceContrast(correct: string, wrong: string, isAudioChoice: boolean): string {
+  const [right, mistake] = contrast(correct, wrong).map(part => part.replace(/[?.!,]/g, '').split(' ').filter(Boolean));
+  const ending = normalized(correct).replace(/[?.!,]/g, '').split(/\s+/).slice(-1);
+  // One option only adds words to a taught phrase: compare the whole phrases.
+  const [rightPhrase, wrongPhrase] = !right.length || !mistake.length
+    ? [[...right, ...ending].join(' '), [...mistake, ...ending].join(' ')]
+    : [firstTaughtPhrase(right), firstTaughtPhrase(mistake)];
+  if (!rightPhrase || !wrongPhrase || !phraseMeaning(rightPhrase) || !phraseMeaning(wrongPhrase)
+      || phraseMeaning(rightPhrase) === phraseMeaning(wrongPhrase)) return '';
+  const source = isAudioChoice ? 'la frase escuchada' : 'la imagen';
+  return `“${wrongPhrase}” significa ${phraseMeaning(wrongPhrase)}; ${source} corresponde a “${rightPhrase}” (${phraseMeaning(rightPhrase)}).`;
+}
+
 function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: string): string {
-  const correct = imageOptionConcept(correctId);
-  const wrong = imageOptionConcept(wrongId);
+  let correct = imageOptionConcept(correctId);
+  let wrong = imageOptionConcept(wrongId);
+  // A yes/no exchange ("do you work no i do not") is told apart by its question: the short answer is not in the picture.
+  const exchange = /^(.+?) (?:yes|no) (?:i|he|she|it|we|they|you) (?:am|is|are|do)(?: not)?$/;
+  const [correctExchange, wrongExchange] = [exchange.exec(correct), exchange.exec(wrong)];
+  if (correctExchange && wrongExchange && correctExchange[1] !== wrongExchange[1]) {
+    [correct, wrong] = [correctExchange[1], wrongExchange[1]];
+  }
   if (!correct || !wrong || correct === wrong) return '';
   if (IMAGE_CHOICE_MEANINGS[correct] && IMAGE_CHOICE_MEANINGS[wrong]) {
     const cue = /listen/i.test(card.stage) ? 'la frase escuchada' : 'la frase';
@@ -488,6 +557,15 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   if (evidenceWord && mistakenWord && meaning(mistakenWord)) {
     const answer = /listen/i.test(card.stage) ? 'La frase escuchada' : 'La frase';
     return `La imagen elegida muestra “${mistakenWord}” (${meaning(mistakenWord)}); ${answer.toLowerCase()} pide “${evidenceWord}” (${meaning(evidenceWord)}).`;
+  }
+  // A two-word place such as "living room" against "dining room" differs only in its first word.
+  const split = expected.findIndex((word, index) => word !== selected[index]);
+  if (split >= 0 && expected[split + 1] && expected[split + 1] === selected[split + 1]) {
+    const [rightName, wrongName] = [`${expected[split]} ${expected[split + 1]}`, `${selected[split]} ${selected[split + 1]}`];
+    if (meaning(rightName) && meaning(wrongName) && meaning(rightName) !== meaning(wrongName)) {
+      const answer = /listen/i.test(card.stage) ? 'la frase escuchada' : 'la frase';
+      return `La imagen elegida muestra “${wrongName}” (${meaning(wrongName)}); ${answer} pide “${rightName}” (${meaning(rightName)}).`;
+    }
   }
   const wrongMeaning = meaning(wrong);
   const correctMeaning = meaning(correct);
@@ -654,11 +732,12 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   }
   const correctMeaning = meaning(focus);
   const wrongMeaning = meaning(wrongDifference);
-  if (correctMeaning) {
-    return wrongMeaning && wrongMeaning !== correctMeaning
-      ? `“${wrongDifference}” significa ${wrongMeaning}; aquí corresponde “${focus}” (${correctMeaning}).`
-      : `Aquí corresponde “${focus}”, que significa ${correctMeaning}.`;
+  if (correctMeaning && wrongMeaning && wrongMeaning !== correctMeaning) {
+    return `“${wrongDifference}” significa ${wrongMeaning}; aquí corresponde “${focus}” (${correctMeaning}).`;
   }
+  const phraseContrast = !isCompletion && wrong ? phraseChoiceContrast(correct, wrong, /listen/i.test(card.stage)) : '';
+  if (phraseContrast) return phraseContrast;
+  if (correctMeaning) return `Aquí corresponde “${focus}”, que significa ${correctMeaning}.`;
   // Authored Spanish is the meaning of the target, not an invented visual cue.
   const translation = !/_{2,}|\[(blank|pausa)\]/i.test(card.spanish_translation || '') ? card.spanish_translation : meaning(target);
   return `La respuesta es “${target}”: ${(translation || meaning(correct)).replace(/[.]+$/, '')}.`;

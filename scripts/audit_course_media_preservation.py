@@ -160,7 +160,7 @@ def validate_mission_still_plan(plan: dict, current: dict, root: Path) -> None:
              (plan['lesson_id'],plan['old_filename'],plan['new_filename'],plan['old_sha256'])]
     if len(matches)!=1:raise ValueError('Missing exact mission still pixel pair.')
     record=matches[0];lesson=current[plan['lesson_id']]
-    if not lesson['sub_lesson_id'].endswith('.10') or record.get('crop_review')!='inspected-complete-3x2-voice-scene':
+    if not is_mission(lesson) or record.get('crop_review')!='inspected-complete-3x2-voice-scene':
         raise ValueError('Mission voice still scope or framing is invalid.')
     card=next((c for c in lesson['cards'] if c['slide_id']==record['slide_id']),None)
     if not card or card.get('stage')!='Speak' or card.get('mission_game',{}).get('kind')!='voice-gate' or len(card.get('options',[]))!=1:

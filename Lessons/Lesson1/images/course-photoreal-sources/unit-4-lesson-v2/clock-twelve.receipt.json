@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "5c92003f-fe47-433c-a58c-b546f2eeb453",
+  "asset_id": "clock-twelve",
+  "pack_sha256": "e6c0a519d52bc6ef031080157bc74216658af4499a794b1fd90eb25a6eec5a55",
+  "started_at": "2026-09-26T18:28:01.928494+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Move only the short teal hour hand so it points straight up at the 12 o'clock tick, lying along the long dark-navy minute hand; the teal hand is shorter and drawn on top, so both hands are visible pointing straight up together. The long dark-navy minute hand stays pointing straight up at the 12 o'clock tick. Change only the label under the clock from 7:00 to 12:00, in exactly the same font, size, weight and color. Keep the clock face, rim, tick marks, colors, background and framing identical. No numbers on the dial and no other changes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_clock7_598dfdb.webp",
+    "sha256": "597aef80af279572a1388397f56e6541644b21fb7560fac9b607c361f49dbc0a"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "sQ64atG2J9qAqtsPn6GIoQs",
+  "usage": {
+    "promptTokenCount": 400,
+    "candidatesTokenCount": 1287,
+    "totalTokenCount": 1895,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 142
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 208,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137296",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 400,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 208
+  },
+  "elapsed_seconds": 22.32,
+  "output": "output/imagegen/unit-4-lesson-v2/clock-twelve.png",
+  "sha256": "867aee0cdfa375a5a87e17e336755265f89a17c81afce3eba0fc6804fb482986",
+  "byte_count": 2832752,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

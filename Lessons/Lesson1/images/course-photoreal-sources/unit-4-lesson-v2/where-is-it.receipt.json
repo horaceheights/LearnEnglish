@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bb728afc-7cc0-412a-9665-04659c8d11b4",
+  "asset_id": "where-is-it",
+  "pack_sha256": "d2a7db4c5b614798d0cbe7583ad9d624f57a41e15c63ac5782c98cbe42ab61d7",
+  "started_at": "2026-09-26T18:19:49.295367+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nIn a bright living room, a young man in his late twenties with short dark hair, wearing a grey hoodie, kneels beside a sofa and lifts one sofa cushion up with both hands, looking under it with a puzzled, searching expression, eyebrows raised, clearly looking for something he lost. Nothing is under the cushion. His face is clearly visible in three-quarter view, and he and the lifted cushion fill the center of the photo. He is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "xAy4avDHO-boz7IPhJvuuAk",
+  "usage": {
+    "promptTokenCount": 285,
+    "candidatesTokenCount": 1261,
+    "totalTokenCount": 1755,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 285
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 209,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137078",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 285,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 209
+  },
+  "elapsed_seconds": 21.83,
+  "output": "output/imagegen/unit-4-lesson-v2/where-is-it.png",
+  "sha256": "e5146a0d1835e18394aba9b283f76d3a3f1c6db14903837b1f1a08a51e9806f2",
+  "byte_count": 6403281,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

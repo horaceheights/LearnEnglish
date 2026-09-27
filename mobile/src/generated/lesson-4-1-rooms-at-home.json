@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-4",
   "unit_title": "Unit 4: Home and Daily Life",
-  "unit_outcome": "Locate familiar things and describe a short supported routine using known subjects, simple present chunks, days, and clock times.",
+  "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
   "lesson_id": "lesson-4",
   "lesson_title": "Unit 4: Home and Daily Life",
   "sub_lesson_id": "4.1",
   "sub_lesson_title": "Rooms at Home",
-  "goal": "Recognize and name a home plus five familiar rooms using known identity frames.",
+  "goal": "Recognize and name a home and five rooms, and say which room a family member is in.",
   "vocabulary": [
     "home",
     "kitchen",
@@ -19,22 +19,47 @@
     "dining room"
   ],
   "review_vocabulary": [
-    "house",
     "this",
-    "that",
-    "book",
-    "phone",
-    "I have...",
-    "What is it?"
+    "is",
+    "are",
+    "the",
+    "in",
+    "school",
+    "grandmother",
+    "child",
+    "adults",
+    "children"
   ],
-  "grammar_function": "This is the room; It is a home. No location prepositions yet.",
-  "prerequisite": "Unit 2 place/object identities and demonstratives; Unit 3 supported self statements.",
-  "speaking_outcome": "Repeat six room/home identity sentences.",
+  "grammar_function": "This is the + room. The grandmother is in the kitchen. The adults are in the living room.",
+  "prerequisite": "2.1 places and in the park; 2.5 this; 1.4-1.6 family words.",
+  "speaking_outcome": "Say This is the kitchen. and say which room a family member is in.",
   "purposeful_review_slides": [
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
     "R7",
     "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "U3",
+    "U4",
     "U5",
-    "U6"
+    "U6",
+    "U7",
+    "U8"
   ],
   "cards": [
     {
@@ -42,10 +67,10 @@
       "interaction_type": "teach",
       "prompt": "A home",
       "stage": "Learn",
-      "correct_option_id": "a-home-1",
+      "correct_option_id": "a-home-learn",
       "options": [
         {
-          "id": "a-home-1",
+          "id": "a-home-learn",
           "image_url": "/lesson-assets/a1_home.webp",
           "label": "A home"
         }
@@ -54,7 +79,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un hogar",
-      "pedagogy_note": "introduces home; contrast with previously learned house as building",
+      "pedagogy_note": "Story beat 01: A home",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -91,10 +116,10 @@
       "interaction_type": "teach",
       "prompt": "The kitchen",
       "stage": "Learn",
-      "correct_option_id": "the-kitchen-1",
+      "correct_option_id": "the-kitchen-learn",
       "options": [
         {
-          "id": "the-kitchen-1",
+          "id": "the-kitchen-learn",
           "image_url": "/lesson-assets/a1_kitchen.webp",
           "label": "The kitchen"
         }
@@ -103,33 +128,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "La cocina",
-      "pedagogy_note": "introduces kitchen",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: The kitchen",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c002-prompt-b81c95b90eb60faf8432",
+          "id": "lesson-4-1-rooms-at-home-c002-prompt-decf25f48a8e71ee768f",
           "purpose": "prompt",
           "text": "The kitchen",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_kitchen.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c002-answer-8f7a9e734353fae919eb",
+          "id": "lesson-4-1-rooms-at-home-c002-answer-7ac0583c15bd70821453",
           "purpose": "answer",
           "text": "The kitchen",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_kitchen.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -140,10 +165,10 @@
       "interaction_type": "teach",
       "prompt": "The bedroom",
       "stage": "Learn",
-      "correct_option_id": "the-bedroom-1",
+      "correct_option_id": "the-bedroom-learn",
       "options": [
         {
-          "id": "the-bedroom-1",
+          "id": "the-bedroom-learn",
           "image_url": "/lesson-assets/a1_bedroom.webp",
           "label": "The bedroom"
         }
@@ -152,7 +177,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "El dormitorio",
-      "pedagogy_note": "introduces bedroom",
+      "pedagogy_note": "Story beat 03: The bedroom",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -189,10 +214,10 @@
       "interaction_type": "teach",
       "prompt": "The bathroom",
       "stage": "Learn",
-      "correct_option_id": "the-bathroom-1",
+      "correct_option_id": "the-bathroom-learn",
       "options": [
         {
-          "id": "the-bathroom-1",
+          "id": "the-bathroom-learn",
           "image_url": "/lesson-assets/a1_bathroom.webp",
           "label": "The bathroom"
         }
@@ -201,33 +226,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "El ba\u00f1o",
-      "pedagogy_note": "introduces bathroom",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: The bathroom",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c004-prompt-5659e2cce69ed2f49670",
+          "id": "lesson-4-1-rooms-at-home-c004-prompt-8b1fe8942810792d84af",
           "purpose": "prompt",
           "text": "The bathroom",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_bathroom.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c004-answer-3f04ff08df17f515c173",
+          "id": "lesson-4-1-rooms-at-home-c004-answer-0029ec1e9ee6d6cd6e35",
           "purpose": "answer",
           "text": "The bathroom",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_bathroom.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -238,10 +263,10 @@
       "interaction_type": "teach",
       "prompt": "The living room",
       "stage": "Learn",
-      "correct_option_id": "the-living-room-1",
+      "correct_option_id": "the-living-room-learn",
       "options": [
         {
-          "id": "the-living-room-1",
+          "id": "the-living-room-learn",
           "image_url": "/lesson-assets/a1_living_room.webp",
           "label": "The living room"
         }
@@ -250,7 +275,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "La sala",
-      "pedagogy_note": "introduces living room",
+      "pedagogy_note": "Story beat 05: The living room",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -287,10 +312,10 @@
       "interaction_type": "teach",
       "prompt": "The dining room",
       "stage": "Learn",
-      "correct_option_id": "the-dining-room-1",
+      "correct_option_id": "the-dining-room-learn",
       "options": [
         {
-          "id": "the-dining-room-1",
+          "id": "the-dining-room-learn",
           "image_url": "/lesson-assets/a1_dining_room.webp",
           "label": "The dining room"
         }
@@ -299,131 +324,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "El comedor",
-      "pedagogy_note": "introduces dining room",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 06: The dining room",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c006-prompt-8171ac6c5456f453df61",
+          "id": "lesson-4-1-rooms-at-home-c006-prompt-24df60f97a22e84fb9fa",
           "purpose": "prompt",
           "text": "The dining room",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_dining_room.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c006-answer-935e45d3fc162261507b",
+          "id": "lesson-4-1-rooms-at-home-c006-answer-1b5761d091bb9501c4c4",
           "purpose": "answer",
           "text": "The dining room",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_dining_room.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "This is the kitchen.",
-      "stage": "Learn",
-      "correct_option_id": "this-is-the-kitchen-1",
-      "options": [
-        {
-          "id": "this-is-the-kitchen-1",
-          "image_url": "/lesson-assets/a1_kitchen.webp",
-          "label": "This is the kitchen."
-        }
-      ],
-      "audio_text": "This is the kitchen.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Esta es la cocina.",
-      "pedagogy_note": "pattern anchor",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-1-rooms-at-home-c007-prompt-21c01860067871a6f084",
-          "purpose": "prompt",
-          "text": "This is the kitchen.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_kitchen.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c007-answer-0824721df054ab436153",
-          "purpose": "answer",
-          "text": "This is the kitchen.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_kitchen.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "This is the bedroom.",
-      "stage": "Learn",
-      "correct_option_id": "this-is-the-bedroom-1",
-      "options": [
-        {
-          "id": "this-is-the-bedroom-1",
-          "image_url": "/lesson-assets/a1_bedroom.webp",
-          "label": "This is the bedroom."
-        }
-      ],
-      "audio_text": "This is the bedroom.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Este es el dormitorio.",
-      "pedagogy_note": "pattern anchor",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-1-rooms-at-home-c008-prompt-75c6472fc9c9f64038a0",
-          "purpose": "prompt",
-          "text": "This is the bedroom.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c008-answer-7e64ffb9fa996ea8d145",
-          "purpose": "answer",
-          "text": "This is the bedroom.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -434,15 +361,15 @@
       "interaction_type": "t2i2",
       "prompt": "A home",
       "stage": "Recognize",
-      "correct_option_id": "home-cutaway-2",
+      "correct_option_id": "a-home-r1",
       "options": [
         {
-          "id": "school-1",
+          "id": "a-school-r1",
           "image_url": "/lesson-assets/a1_school.webp",
           "label": null
         },
         {
-          "id": "home-cutaway-2",
+          "id": "a-home-r1",
           "image_url": "/lesson-assets/a1_home.webp",
           "label": null
         }
@@ -451,14 +378,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un hogar",
-      "pedagogy_note": "whole-home interior vs school; do not use house as a distractor because a house can also be a home",
+      "pedagogy_note": "Story beat 01: A home",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c009-prompt-0caa59af2002e516b101",
+          "id": "lesson-4-1-rooms-at-home-c007-prompt-b84eb2d496ce9910fe57",
           "purpose": "prompt",
           "text": "A home",
           "mode": "prompt",
@@ -470,7 +397,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c009-answer-e1599ed0dc351446180b",
+          "id": "lesson-4-1-rooms-at-home-c007-answer-fd594e64b1da7abfd396",
           "purpose": "answer",
           "text": "A home",
           "mode": "prompt",
@@ -485,53 +412,41 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "t2i2",
-      "prompt": "The kitchen",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "kitchen-1",
+      "correct_option_id": "this-is-the-kitchen-r2",
       "options": [
         {
-          "id": "kitchen-1",
-          "image_url": "/lesson-assets/a1_kitchen.webp",
-          "label": null
+          "id": "this-is-the-bathroom-r2",
+          "image_url": "",
+          "label": "This is the bathroom."
         },
         {
-          "id": "bathroom-2",
-          "image_url": "/lesson-assets/a1_bathroom.webp",
-          "label": null
+          "id": "this-is-the-kitchen-r2",
+          "image_url": "",
+          "label": "This is the kitchen."
         }
       ],
-      "audio_text": "The kitchen",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La cocina",
-      "pedagogy_note": "fixtures distinguish",
+      "audio_text": "",
+      "answer_audio_text": "This is the kitchen.",
+      "prompt_image_url": "/lesson-assets/a1_kitchen.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: This is the kitchen.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c010-prompt-90b2208552f730406618",
-          "purpose": "prompt",
-          "text": "The kitchen",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_kitchen.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c010-answer-7cdd3202fe0106ae2912",
+          "id": "lesson-4-1-rooms-at-home-c008-answer-50a4cc743b6dca7ae83c",
           "purpose": "answer",
-          "text": "The kitchen",
+          "text": "This is the kitchen.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_kitchen.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -540,35 +455,35 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "The bedroom",
+      "prompt": "This is the bedroom.",
       "stage": "Recognize",
-      "correct_option_id": "bedroom-2",
+      "correct_option_id": "this-is-the-bedroom-r3",
       "options": [
         {
-          "id": "living-room-1",
-          "image_url": "/lesson-assets/a1_living_room.webp",
+          "id": "this-is-the-bedroom-r3",
+          "image_url": "/lesson-assets/a1_bedroom.webp",
           "label": null
         },
         {
-          "id": "bedroom-2",
-          "image_url": "/lesson-assets/a1_bedroom.webp",
+          "id": "this-is-the-living-room-r3",
+          "image_url": "/lesson-assets/a1_living_room.webp",
           "label": null
         }
       ],
-      "audio_text": "The bedroom",
+      "audio_text": "This is the bedroom.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El dormitorio",
-      "pedagogy_note": "bed vs sofa",
+      "spanish_translation": "Este es el dormitorio.",
+      "pedagogy_note": "Story beat 03: This is the bedroom.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c011-prompt-4a8e3a176f2c5f68999b",
+          "id": "lesson-4-1-rooms-at-home-c009-prompt-cbb6274cb67959167ea2",
           "purpose": "prompt",
-          "text": "The bedroom",
+          "text": "This is the bedroom.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_bedroom.webp",
@@ -578,9 +493,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c011-answer-2c7b657d03d78d524935",
+          "id": "lesson-4-1-rooms-at-home-c009-answer-54962a157bb9b56e35fc",
           "purpose": "answer",
-          "text": "The bedroom",
+          "text": "This is the bedroom.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_bedroom.webp",
@@ -593,53 +508,41 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "t2i2",
-      "prompt": "The bathroom",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "bathroom-1",
+      "correct_option_id": "this-is-the-bathroom-r4",
       "options": [
         {
-          "id": "bathroom-1",
-          "image_url": "/lesson-assets/a1_bathroom.webp",
-          "label": null
+          "id": "this-is-the-kitchen-r4",
+          "image_url": "",
+          "label": "This is the kitchen."
         },
         {
-          "id": "kitchen-2",
-          "image_url": "/lesson-assets/a1_kitchen.webp",
-          "label": null
+          "id": "this-is-the-bathroom-r4",
+          "image_url": "",
+          "label": "This is the bathroom."
         }
       ],
-      "audio_text": "The bathroom",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El ba\u00f1o",
-      "pedagogy_note": "fixtures distinguish",
+      "audio_text": "",
+      "answer_audio_text": "This is the bathroom.",
+      "prompt_image_url": "/lesson-assets/a1_bathroom.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: This is the bathroom.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c012-prompt-07520f9d0283389ad5bf",
-          "purpose": "prompt",
-          "text": "The bathroom",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_bathroom.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c012-answer-219119363b5fa41c0f8d",
+          "id": "lesson-4-1-rooms-at-home-c010-answer-8d523f7ebaa51a91f993",
           "purpose": "answer",
-          "text": "The bathroom",
+          "text": "This is the bathroom.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_bathroom.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -647,46 +550,36 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i4",
-      "prompt": "The living room",
+      "interaction_type": "t2i2",
+      "prompt": "This is the living room.",
       "stage": "Recognize",
-      "correct_option_id": "living-room-3",
+      "correct_option_id": "this-is-the-living-room-r5",
       "options": [
         {
-          "id": "dining-room-1",
+          "id": "this-is-the-dining-room-r5",
           "image_url": "/lesson-assets/a1_dining_room.webp",
           "label": null
         },
         {
-          "id": "bedroom-2",
-          "image_url": "/lesson-assets/a1_bedroom.webp",
-          "label": null
-        },
-        {
-          "id": "living-room-3",
+          "id": "this-is-the-living-room-r5",
           "image_url": "/lesson-assets/a1_living_room.webp",
-          "label": null
-        },
-        {
-          "id": "kitchen-4",
-          "image_url": "/lesson-assets/a1_kitchen.webp",
           "label": null
         }
       ],
-      "audio_text": "The living room",
+      "audio_text": "This is the living room.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "La sala",
-      "pedagogy_note": "room focal furniture distinct",
+      "spanish_translation": "Esta es la sala.",
+      "pedagogy_note": "Story beat 05: This is the living room.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c013-prompt-c5397e2c0c3c509bd7f1",
+          "id": "lesson-4-1-rooms-at-home-c011-prompt-7fc24e29677b71517292",
           "purpose": "prompt",
-          "text": "The living room",
+          "text": "This is the living room.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_living_room.webp",
@@ -696,9 +589,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c013-answer-f04cdb86aabf08765bcb",
+          "id": "lesson-4-1-rooms-at-home-c011-answer-8bdc241f7f420cded304",
           "purpose": "answer",
-          "text": "The living room",
+          "text": "This is the living room.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_living_room.webp",
@@ -711,46 +604,46 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "i2t4",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "this-is-the-dining-room-3",
+      "correct_option_id": "this-is-the-dining-room-r6",
       "options": [
         {
-          "id": "this-is-the-kitchen-1",
+          "id": "this-is-the-bathroom-r6",
           "image_url": "",
-          "label": "This is the kitchen."
+          "label": "This is the bathroom."
         },
         {
-          "id": "this-is-the-living-room-2",
-          "image_url": "",
-          "label": "This is the living room."
-        },
-        {
-          "id": "this-is-the-dining-room-3",
+          "id": "this-is-the-dining-room-r6",
           "image_url": "",
           "label": "This is the dining room."
+        },
+        {
+          "id": "this-is-the-living-room-r6",
+          "image_url": "",
+          "label": "This is the living room."
         }
       ],
       "audio_text": "",
       "answer_audio_text": "This is the dining room.",
       "prompt_image_url": "/lesson-assets/a1_dining_room.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "image-to-text",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: This is the dining room.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c014-answer-017a77c925dcb7384698",
+          "id": "lesson-4-1-rooms-at-home-c012-answer-6b8730e48de7f7155824",
           "purpose": "answer",
           "text": "This is the dining room.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_dining_room.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -758,39 +651,51 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "It is a home.",
       "stage": "Recognize",
-      "correct_option_id": "this-is-a-book-2",
+      "correct_option_id": "it-is-a-home-r7",
       "options": [
         {
-          "id": "that-is-a-book-1",
-          "image_url": "",
-          "label": "That is a book."
+          "id": "it-is-a-home-r7",
+          "image_url": "/lesson-assets/a1_home.webp",
+          "label": null
         },
         {
-          "id": "this-is-a-book-2",
-          "image_url": "",
-          "label": "This is a book."
+          "id": "it-is-a-school-r7",
+          "image_url": "/lesson-assets/a1_school.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "This is a book.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u2_this_book_v1.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Unit 2 demonstrative review",
+      "audio_text": "It is a home.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un hogar.",
+      "pedagogy_note": "Story beat 07: It is a home.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c015-answer-64a8b14910955956e307",
+          "id": "lesson-4-1-rooms-at-home-c013-prompt-7cdf0630ac577386d670",
+          "purpose": "prompt",
+          "text": "It is a home.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_home.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c013-answer-cde9a7dcc69b4d284ad6",
           "purpose": "answer",
-          "text": "This is a book.",
+          "text": "It is a home.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u2_this_book_v1.webp",
+          "image_ref": "/lesson-assets/a1_home.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -800,51 +705,91 @@
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "What is it?",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-phone-1",
+      "correct_option_id": "the-grandmother-is-in-the-kitchen-r8",
       "options": [
         {
-          "id": "it-is-a-phone-1",
+          "id": "the-grandmother-is-in-the-bedroom-r8",
           "image_url": "",
-          "label": "It is a phone."
+          "label": "The grandmother is in the bedroom."
         },
         {
-          "id": "it-is-a-book-2",
+          "id": "the-grandmother-is-in-the-kitchen-r8",
           "image_url": "",
-          "label": "It is a book."
+          "label": "The grandmother is in the kitchen."
+        },
+        {
+          "id": "the-grandmother-is-in-the-bathroom-r8",
+          "image_url": "",
+          "label": "The grandmother is in the bathroom."
         }
       ],
-      "audio_text": "What is it?",
-      "answer_audio_text": "It is a phone.",
-      "prompt_image_url": "/lesson-assets/a1_phone.webp",
-      "spanish_translation": "\u00bfQu\u00e9 es?",
-      "pedagogy_note": "Unit 2 object-question review",
+      "audio_text": "",
+      "answer_audio_text": "The grandmother is in the kitchen.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_grandmother_kitchen_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: The grandmother is in the kitchen.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c014-answer-41142d4c27d3bf9da503",
+          "purpose": "answer",
+          "text": "The grandmother is in the kitchen.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u4_grandmother_kitchen_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-child-is-in-the-bedroom-r9",
+      "options": [
+        {
+          "id": "the-child-is-in-the-living-room-r9",
+          "image_url": "",
+          "label": "The child is in the living room."
+        },
+        {
+          "id": "the-child-is-in-the-bedroom-r9",
+          "image_url": "",
+          "label": "The child is in the bedroom."
+        },
+        {
+          "id": "the-child-is-in-the-kitchen-r9",
+          "image_url": "",
+          "label": "The child is in the kitchen."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The child is in the bedroom.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_child_bedroom_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: The child is in the bedroom.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c016-prompt-05b4bfd968d1755cba65",
-          "purpose": "prompt",
-          "text": "What is it?",
-          "mode": "prompt",
-          "variant": "question",
-          "image_ref": "/lesson-assets/a1_phone.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c016-answer-0be8ae2205fdee10a28e",
+          "id": "lesson-4-1-rooms-at-home-c015-answer-34430e6c74571d329c6f",
           "purpose": "answer",
-          "text": "It is a phone.",
+          "text": "The child is in the bedroom.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_phone.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_child_bedroom_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -853,52 +798,200 @@
       ]
     },
     {
-      "slide_id": "N1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "home-cutaway-2",
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-adults-are-in-the-living-room-r10",
       "options": [
         {
-          "id": "school-1",
-          "image_url": "/lesson-assets/a1_school.webp",
-          "label": null
+          "id": "the-adults-are-in-the-living-room-r10",
+          "image_url": "",
+          "label": "The adults are in the living room."
         },
         {
-          "id": "home-cutaway-2",
-          "image_url": "/lesson-assets/a1_home.webp",
-          "label": null
+          "id": "the-adults-are-in-the-dining-room-r10",
+          "image_url": "",
+          "label": "The adults are in the dining room."
+        },
+        {
+          "id": "the-adults-are-in-the-kitchen-r10",
+          "image_url": "",
+          "label": "The adults are in the kitchen."
         }
       ],
-      "audio_text": "It is a home.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden; conceptual distinction supported by whole interior",
+      "audio_text": "",
+      "answer_audio_text": "The adults are in the living room.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_adults_living_room_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: The adults are in the living room.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c016-answer-cac6bab9505e757b066b",
+          "purpose": "answer",
+          "text": "The adults are in the living room.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u4_adults_living_room_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-children-are-in-the-dining-room-r11",
+      "options": [
+        {
+          "id": "the-children-are-in-the-living-room-r11",
+          "image_url": "",
+          "label": "The children are in the living room."
+        },
+        {
+          "id": "the-children-are-in-the-bedroom-r11",
+          "image_url": "",
+          "label": "The children are in the bedroom."
+        },
+        {
+          "id": "the-children-are-in-the-dining-room-r11",
+          "image_url": "",
+          "label": "The children are in the dining room."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The children are in the dining room.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_children_dining_room_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 11: The children are in the dining room.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c017-prompt-f16d3c1f03a9a2bb75ea",
+          "id": "lesson-4-1-rooms-at-home-c017-answer-6f81181f6080d34dc326",
+          "purpose": "answer",
+          "text": "The children are in the dining room.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u4_children_dining_room_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-kitchen-a1",
+      "options": [
+        {
+          "id": "the-kitchen-a1",
+          "image_url": "/lesson-assets/a1_kitchen.webp",
+          "label": null
+        },
+        {
+          "id": "the-bedroom-a1",
+          "image_url": "/lesson-assets/a1_bedroom.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The kitchen",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: The kitchen",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c018-prompt-e53d5a08db88e0fba613",
           "purpose": "prompt",
-          "text": "It is a home.",
+          "text": "The kitchen",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_home.webp",
+          "image_ref": "/lesson-assets/a1_kitchen.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c018-answer-21d13af4b1159568c3eb",
+          "purpose": "answer",
+          "text": "The kitchen",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_kitchen.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-bedroom-a2",
+      "options": [
+        {
+          "id": "the-bedroom-a2",
+          "image_url": "/lesson-assets/a1_bedroom.webp",
+          "label": null
+        },
+        {
+          "id": "the-kitchen-a2",
+          "image_url": "/lesson-assets/a1_kitchen.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The bedroom",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: The bedroom",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c019-prompt-10c65c8eedc54dd8f055",
+          "purpose": "prompt",
+          "text": "The bedroom",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c017-answer-5e1455f9ae57df6b0977",
+          "id": "lesson-4-1-rooms-at-home-c019-answer-028edbd4ea7d1a333306",
           "purpose": "answer",
-          "text": "It is a home.",
+          "text": "The bedroom",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_home.webp",
+          "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -907,52 +1000,219 @@
       ]
     },
     {
-      "slide_id": "N2",
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-bathroom-a3",
+      "options": [
+        {
+          "id": "the-bathroom-a3",
+          "image_url": "",
+          "label": "The bathroom"
+        },
+        {
+          "id": "the-bedroom-a3",
+          "image_url": "",
+          "label": "The bedroom"
+        }
+      ],
+      "audio_text": "The bathroom",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: The bathroom",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c020-prompt-8559d2a9fa781908e736",
+          "purpose": "prompt",
+          "text": "The bathroom",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:cb5a2e7ef8abea07e185",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c020-answer-af57697fa174878671fb",
+          "purpose": "answer",
+          "text": "The bathroom",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:cb5a2e7ef8abea07e185",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A4",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "kitchen-2",
+      "correct_option_id": "the-living-room-a4",
       "options": [
         {
-          "id": "bathroom-1",
-          "image_url": "/lesson-assets/a1_bathroom.webp",
+          "id": "the-dining-room-a4",
+          "image_url": "/lesson-assets/a1_dining_room.webp",
           "label": null
         },
         {
-          "id": "kitchen-2",
-          "image_url": "/lesson-assets/a1_kitchen.webp",
+          "id": "the-living-room-a4",
+          "image_url": "/lesson-assets/a1_living_room.webp",
           "label": null
+        }
+      ],
+      "audio_text": "The living room",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: The living room",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c021-prompt-87bc1ac42c290a94cee9",
+          "purpose": "prompt",
+          "text": "The living room",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c021-answer-161d9e9dcb70586ce092",
+          "purpose": "answer",
+          "text": "The living room",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-dining-room-a5",
+      "options": [
+        {
+          "id": "the-dining-room-a5",
+          "image_url": "/lesson-assets/a1_dining_room.webp",
+          "label": null
+        },
+        {
+          "id": "the-living-room-a5",
+          "image_url": "/lesson-assets/a1_living_room.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The dining room",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: The dining room",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c022-prompt-ac1622643c8d3473c81b",
+          "purpose": "prompt",
+          "text": "The dining room",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c022-answer-631bf665bba06f86b80c",
+          "purpose": "answer",
+          "text": "The dining room",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "this-is-the-kitchen-a6",
+      "options": [
+        {
+          "id": "this-is-the-kitchen-a6",
+          "image_url": "",
+          "label": "This is the kitchen."
+        },
+        {
+          "id": "this-is-the-bathroom-a6",
+          "image_url": "",
+          "label": "This is the bathroom."
+        },
+        {
+          "id": "this-is-the-bedroom-a6",
+          "image_url": "",
+          "label": "This is the bedroom."
         }
       ],
       "audio_text": "This is the kitchen.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "pedagogy_note": "Story beat 06: This is the kitchen.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c018-prompt-af6cefa24285bcd7efc6",
+          "id": "lesson-4-1-rooms-at-home-c023-prompt-e5b7636883872d5ec5d2",
           "purpose": "prompt",
           "text": "This is the kitchen.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_kitchen.webp",
+          "image_ref": "text-only:1a4743dea2ae2aa576ce",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c018-answer-71525c4ea57e57d5aa8c",
+          "id": "lesson-4-1-rooms-at-home-c023-answer-6d9e6740ece5e7562a13",
           "purpose": "answer",
           "text": "This is the kitchen.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_kitchen.webp",
+          "image_ref": "text-only:1a4743dea2ae2aa576ce",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -961,20 +1221,30 @@
       ]
     },
     {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "bedroom-1",
+      "correct_option_id": "this-is-the-bedroom-a7",
       "options": [
         {
-          "id": "bedroom-1",
+          "id": "this-is-the-bathroom-a7",
+          "image_url": "/lesson-assets/a1_bathroom.webp",
+          "label": null
+        },
+        {
+          "id": "this-is-the-bedroom-a7",
           "image_url": "/lesson-assets/a1_bedroom.webp",
           "label": null
         },
         {
-          "id": "living-room-2",
+          "id": "this-is-the-living-room-a7",
           "image_url": "/lesson-assets/a1_living_room.webp",
+          "label": null
+        },
+        {
+          "id": "this-is-the-kitchen-a7",
+          "image_url": "/lesson-assets/a1_kitchen.webp",
           "label": null
         }
       ],
@@ -982,53 +1252,63 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 07: This is the bedroom.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c019-prompt-d975b9dd3ffa08d95b05",
+          "id": "lesson-4-1-rooms-at-home-c024-prompt-bca08f6d6606e37e9ad3",
           "purpose": "prompt",
           "text": "This is the bedroom.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c019-answer-6efe9af92e1f8ad91f0c",
+          "id": "lesson-4-1-rooms-at-home-c024-answer-56d1d78f81206acf56d1",
           "purpose": "answer",
           "text": "This is the bedroom.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "N4",
-      "interaction_type": "a2i2",
+      "slide_id": "A8",
+      "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "bathroom-2",
+      "correct_option_id": "this-is-the-bathroom-a8",
       "options": [
         {
-          "id": "kitchen-1",
+          "id": "this-is-the-living-room-a8",
+          "image_url": "/lesson-assets/a1_living_room.webp",
+          "label": null
+        },
+        {
+          "id": "this-is-the-bathroom-a8",
+          "image_url": "/lesson-assets/a1_bathroom.webp",
+          "label": null
+        },
+        {
+          "id": "this-is-the-kitchen-a8",
           "image_url": "/lesson-assets/a1_kitchen.webp",
           "label": null
         },
         {
-          "id": "bathroom-2",
-          "image_url": "/lesson-assets/a1_bathroom.webp",
+          "id": "this-is-the-bedroom-a8",
+          "image_url": "/lesson-assets/a1_bedroom.webp",
           "label": null
         }
       ],
@@ -1036,14 +1316,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "pedagogy_note": "Story beat 08: This is the bathroom.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c020-prompt-3ae5461889796a11079e",
+          "id": "lesson-4-1-rooms-at-home-c025-prompt-4d3795abc0636d105c0b",
           "purpose": "prompt",
           "text": "This is the bathroom.",
           "mode": "prompt",
@@ -1055,7 +1335,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c020-answer-03250f4743e4b2cc2500",
+          "id": "lesson-4-1-rooms-at-home-c025-answer-6bb9200a6b9a92aaf22a",
           "purpose": "answer",
           "text": "This is the bathroom.",
           "mode": "prompt",
@@ -1069,128 +1349,54 @@
       ]
     },
     {
-      "slide_id": "N5",
-      "interaction_type": "a2i4",
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "living-room-4",
+      "correct_option_id": "it-is-a-home-a9",
       "options": [
         {
-          "id": "bedroom-1",
-          "image_url": "/lesson-assets/a1_bedroom.webp",
-          "label": null
+          "id": "it-is-a-school-a9",
+          "image_url": "",
+          "label": "It is a school."
         },
         {
-          "id": "dining-room-2",
-          "image_url": "/lesson-assets/a1_dining_room.webp",
-          "label": null
-        },
-        {
-          "id": "kitchen-3",
-          "image_url": "/lesson-assets/a1_kitchen.webp",
-          "label": null
-        },
-        {
-          "id": "living-room-4",
-          "image_url": "/lesson-assets/a1_living_room.webp",
-          "label": null
+          "id": "it-is-a-home-a9",
+          "image_url": "",
+          "label": "It is a home."
         }
       ],
-      "audio_text": "This is the living room.",
+      "audio_text": "It is a home.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 09: It is a home.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c021-prompt-e793ec54d7b5547eaed8",
+          "id": "lesson-4-1-rooms-at-home-c026-prompt-57ee8dce1384c4cb1a05",
           "purpose": "prompt",
-          "text": "This is the living room.",
+          "text": "It is a home.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "image_ref": "text-only:b33d4d7fc9e340e50929",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c021-answer-fe7713a9b41bea4234f2",
+          "id": "lesson-4-1-rooms-at-home-c026-answer-fb578982895f03b69cd8",
           "purpose": "answer",
-          "text": "This is the living room.",
+          "text": "It is a home.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "image_ref": "text-only:b33d4d7fc9e340e50929",
           "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N6",
-      "interaction_type": "a2i4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "dining-room-1",
-      "options": [
-        {
-          "id": "dining-room-1",
-          "image_url": "/lesson-assets/a1_dining_room.webp",
-          "label": null
-        },
-        {
-          "id": "bathroom-2",
-          "image_url": "/lesson-assets/a1_bathroom.webp",
-          "label": null
-        },
-        {
-          "id": "living-room-3",
-          "image_url": "/lesson-assets/a1_living_room.webp",
-          "label": null
-        },
-        {
-          "id": "bedroom-4",
-          "image_url": "/lesson-assets/a1_bedroom.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "This is the dining room.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-1-rooms-at-home-c022-prompt-caac96439522150c8c73",
-          "purpose": "prompt",
-          "text": "This is the dining room.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_dining_room.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c022-answer-29d0898f337076248605",
-          "purpose": "answer",
-          "text": "This is the dining room.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_dining_room.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1198,31 +1404,31 @@
     },
     {
       "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "It is a home.",
+      "interaction_type": "speak",
+      "prompt": "A home",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-home-1",
+      "correct_option_id": "a-home-speak",
       "options": [
         {
-          "id": "it-is-a-home-1",
+          "id": "a-home-speak",
           "image_url": "/lesson-assets/a1_home.webp",
-          "label": "It is a home."
+          "label": "A home"
         }
       ],
-      "audio_text": "It is a home.",
+      "audio_text": "A home",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es un hogar.",
-      "pedagogy_note": "home identity",
+      "spanish_translation": "Un hogar",
+      "pedagogy_note": "Story beat 01: A home",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c023-prompt-8722a540ebf0cb383d4f",
+          "id": "lesson-4-1-rooms-at-home-c027-prompt-7e867c05cdc376870abf",
           "purpose": "prompt",
-          "text": "It is a home.",
+          "text": "A home",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_home.webp",
@@ -1232,9 +1438,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c023-answer-da8d3efb1cf9a3fe707d",
+          "id": "lesson-4-1-rooms-at-home-c027-answer-f8ff2089e139aeabf7d0",
           "purpose": "answer",
-          "text": "It is a home.",
+          "text": "A home",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_home.webp",
@@ -1247,48 +1453,48 @@
     },
     {
       "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "This is the kitchen.",
+      "interaction_type": "speak",
+      "prompt": "The bathroom",
       "stage": "Speak",
-      "correct_option_id": "this-is-the-kitchen-1",
+      "correct_option_id": "the-bathroom-speak",
       "options": [
         {
-          "id": "this-is-the-kitchen-1",
-          "image_url": "/lesson-assets/a1_kitchen.webp",
-          "label": "This is the kitchen."
+          "id": "the-bathroom-speak",
+          "image_url": "/lesson-assets/a1_bathroom.webp",
+          "label": "The bathroom"
         }
       ],
-      "audio_text": "This is the kitchen.",
+      "audio_text": "The bathroom",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Esta es la cocina.",
-      "pedagogy_note": "room identity",
-      "audio_speaker": null,
+      "spanish_translation": "El ba\u00f1o",
+      "pedagogy_note": "Story beat 02: The bathroom",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c024-prompt-f97b30928f04321c2c98",
+          "id": "lesson-4-1-rooms-at-home-c028-prompt-e2204ba2cc07ee563e29",
           "purpose": "prompt",
-          "text": "This is the kitchen.",
+          "text": "The bathroom",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_kitchen.webp",
+          "image_ref": "/lesson-assets/a1_bathroom.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c024-answer-cfa3ed6a48b38a772b1f",
+          "id": "lesson-4-1-rooms-at-home-c028-answer-a1b7c93a92800b51c07b",
           "purpose": "answer",
-          "text": "This is the kitchen.",
+          "text": "The bathroom",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_kitchen.webp",
+          "image_ref": "/lesson-assets/a1_bathroom.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1296,46 +1502,46 @@
     },
     {
       "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "This is the bedroom.",
+      "interaction_type": "speak",
+      "prompt": "This is the living room.",
       "stage": "Speak",
-      "correct_option_id": "this-is-the-bedroom-1",
+      "correct_option_id": "this-is-the-living-room-speak",
       "options": [
         {
-          "id": "this-is-the-bedroom-1",
-          "image_url": "/lesson-assets/a1_bedroom.webp",
-          "label": "This is the bedroom."
+          "id": "this-is-the-living-room-speak",
+          "image_url": "/lesson-assets/a1_living_room.webp",
+          "label": "This is the living room."
         }
       ],
-      "audio_text": "This is the bedroom.",
+      "audio_text": "This is the living room.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Este es el dormitorio.",
-      "pedagogy_note": "room identity",
+      "spanish_translation": "Esta es la sala.",
+      "pedagogy_note": "Story beat 03: This is the living room.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c025-prompt-b81377e6cf31c00baa8d",
+          "id": "lesson-4-1-rooms-at-home-c029-prompt-07ad64d46e80fb9fd867",
           "purpose": "prompt",
-          "text": "This is the bedroom.",
+          "text": "This is the living room.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c025-answer-413d833b140d1d0a0255",
+          "id": "lesson-4-1-rooms-at-home-c029-answer-e3cd0c24cd6e043c3777",
           "purpose": "answer",
-          "text": "This is the bedroom.",
+          "text": "This is the living room.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1345,48 +1551,48 @@
     },
     {
       "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "This is the bathroom.",
+      "interaction_type": "speak",
+      "prompt": "This is the dining room.",
       "stage": "Speak",
-      "correct_option_id": "this-is-the-bathroom-1",
+      "correct_option_id": "this-is-the-dining-room-speak",
       "options": [
         {
-          "id": "this-is-the-bathroom-1",
-          "image_url": "/lesson-assets/a1_bathroom.webp",
-          "label": "This is the bathroom."
+          "id": "this-is-the-dining-room-speak",
+          "image_url": "/lesson-assets/a1_dining_room.webp",
+          "label": "This is the dining room."
         }
       ],
-      "audio_text": "This is the bathroom.",
+      "audio_text": "This is the dining room.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Este es el ba\u00f1o.",
-      "pedagogy_note": "room identity",
-      "audio_speaker": null,
+      "spanish_translation": "Este es el comedor.",
+      "pedagogy_note": "Story beat 04: This is the dining room.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c026-prompt-a4b432571373cf6198ce",
+          "id": "lesson-4-1-rooms-at-home-c030-prompt-27f3baac163f6b848afb",
           "purpose": "prompt",
-          "text": "This is the bathroom.",
+          "text": "This is the dining room.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_bathroom.webp",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c026-answer-d2be5d282452ac9e3c63",
+          "id": "lesson-4-1-rooms-at-home-c030-answer-8019bb9ed86e22b53266",
           "purpose": "answer",
-          "text": "This is the bathroom.",
+          "text": "This is the dining room.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bathroom.webp",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1394,46 +1600,46 @@
     },
     {
       "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "This is the living room.",
+      "interaction_type": "speak",
+      "prompt": "The grandmother is in the kitchen.",
       "stage": "Speak",
-      "correct_option_id": "this-is-the-living-room-1",
+      "correct_option_id": "the-grandmother-is-in-the-kitchen-speak",
       "options": [
         {
-          "id": "this-is-the-living-room-1",
-          "image_url": "/lesson-assets/a1_living_room.webp",
-          "label": "This is the living room."
+          "id": "the-grandmother-is-in-the-kitchen-speak",
+          "image_url": "/lesson-assets/a1_photo_u4_grandmother_kitchen_v1.webp",
+          "label": "The grandmother is in the kitchen."
         }
       ],
-      "audio_text": "This is the living room.",
+      "audio_text": "The grandmother is in the kitchen.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Esta es la sala.",
-      "pedagogy_note": "room identity",
+      "spanish_translation": "La abuela est\u00e1 en la cocina.",
+      "pedagogy_note": "Story beat 05: The grandmother is in the kitchen.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c027-prompt-4cf1dd88282597d0d023",
+          "id": "lesson-4-1-rooms-at-home-c031-prompt-6da65cb6a5c047a20c0d",
           "purpose": "prompt",
-          "text": "This is the living room.",
+          "text": "The grandmother is in the kitchen.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_grandmother_kitchen_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c027-answer-45e8063a4182675560f3",
+          "id": "lesson-4-1-rooms-at-home-c031-answer-bb38a7324a527b6a6d31",
           "purpose": "answer",
-          "text": "This is the living room.",
+          "text": "The grandmother is in the kitchen.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_grandmother_kitchen_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1443,46 +1649,95 @@
     },
     {
       "slide_id": "S6",
-      "interaction_type": "repeat",
-      "prompt": "This is the dining room.",
+      "interaction_type": "speak",
+      "prompt": "The child is in the bedroom.",
       "stage": "Speak",
-      "correct_option_id": "this-is-the-dining-room-1",
+      "correct_option_id": "the-child-is-in-the-bedroom-speak",
       "options": [
         {
-          "id": "this-is-the-dining-room-1",
-          "image_url": "/lesson-assets/a1_dining_room.webp",
-          "label": "This is the dining room."
+          "id": "the-child-is-in-the-bedroom-speak",
+          "image_url": "/lesson-assets/a1_photo_u4_child_bedroom_v1.webp",
+          "label": "The child is in the bedroom."
         }
       ],
-      "audio_text": "This is the dining room.",
+      "audio_text": "The child is in the bedroom.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Este es el comedor.",
-      "pedagogy_note": "room identity",
+      "spanish_translation": "El ni\u00f1o est\u00e1 en el dormitorio.",
+      "pedagogy_note": "Story beat 06: The child is in the bedroom.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c032-prompt-39852ef42988fa2cae1c",
+          "purpose": "prompt",
+          "text": "The child is in the bedroom.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u4_child_bedroom_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c032-answer-facfe21b017dec105590",
+          "purpose": "answer",
+          "text": "The child is in the bedroom.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u4_child_bedroom_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "The adults are in the living room.",
+      "stage": "Speak",
+      "correct_option_id": "the-adults-are-in-the-living-room-speak",
+      "options": [
+        {
+          "id": "the-adults-are-in-the-living-room-speak",
+          "image_url": "/lesson-assets/a1_photo_u4_adults_living_room_v1.webp",
+          "label": "The adults are in the living room."
+        }
+      ],
+      "audio_text": "The adults are in the living room.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los adultos est\u00e1n en la sala.",
+      "pedagogy_note": "Story beat 07: The adults are in the living room.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c028-prompt-9fcb45635854737e7a6d",
+          "id": "lesson-4-1-rooms-at-home-c033-prompt-07db7a09cd23ac3e0995",
           "purpose": "prompt",
-          "text": "This is the dining room.",
+          "text": "The adults are in the living room.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_adults_living_room_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c028-answer-86b4d8cc58290933a56e",
+          "id": "lesson-4-1-rooms-at-home-c033-answer-2def928a970a730dd23c",
           "purpose": "answer",
-          "text": "This is the dining room.",
+          "text": "The adults are in the living room.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_adults_living_room_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1491,7 +1746,172 @@
       ]
     },
     {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "The children are in the dining room.",
+      "stage": "Speak",
+      "correct_option_id": "the-children-are-in-the-dining-room-speak",
+      "options": [
+        {
+          "id": "the-children-are-in-the-dining-room-speak",
+          "image_url": "/lesson-assets/a1_photo_u4_children_dining_room_v1.webp",
+          "label": "The children are in the dining room."
+        }
+      ],
+      "audio_text": "The children are in the dining room.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n en el comedor.",
+      "pedagogy_note": "Story beat 08: The children are in the dining room.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c034-prompt-96944d4b047195fe84ca",
+          "purpose": "prompt",
+          "text": "The children are in the dining room.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u4_children_dining_room_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c034-answer-0504572603cba10e0a1e",
+          "purpose": "answer",
+          "text": "The children are in the dining room.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u4_children_dining_room_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
       "slide_id": "U1",
+      "interaction_type": "complete2",
+      "prompt": "The ___ ___",
+      "stage": "Use",
+      "correct_option_id": "living",
+      "correct_option_ids": [
+        "living",
+        "room"
+      ],
+      "options": [
+        {
+          "id": "living",
+          "image_url": "",
+          "label": "living"
+        },
+        {
+          "id": "room",
+          "image_url": "",
+          "label": "room"
+        }
+      ],
+      "audio_text": "The living room",
+      "answer_audio_text": "The living room",
+      "prompt_image_url": "/lesson-assets/a1_living_room.webp",
+      "spanish_translation": "La sala",
+      "pedagogy_note": "Story beat 01: The living room",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c035-prompt-caa10abb531bc405cc53",
+          "purpose": "prompt",
+          "text": "The living room",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c035-answer-18a8a083806bc2db4f7c",
+          "purpose": "answer",
+          "text": "The living room",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "The ___ ___",
+      "stage": "Use",
+      "correct_option_id": "dining",
+      "correct_option_ids": [
+        "dining",
+        "room"
+      ],
+      "options": [
+        {
+          "id": "dining",
+          "image_url": "",
+          "label": "dining"
+        },
+        {
+          "id": "room",
+          "image_url": "",
+          "label": "room"
+        }
+      ],
+      "audio_text": "The dining room",
+      "answer_audio_text": "The dining room",
+      "prompt_image_url": "/lesson-assets/a1_dining_room.webp",
+      "spanish_translation": "El comedor",
+      "pedagogy_note": "Story beat 02: The dining room",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c036-prompt-443b35f8cef17afa8ef2",
+          "purpose": "prompt",
+          "text": "The dining room",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c036-answer-2e767e4e145bb2827eb1",
+          "purpose": "answer",
+          "text": "The dining room",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "This is ___ ___.",
       "stage": "Use",
@@ -1516,14 +1936,14 @@
       "answer_audio_text": "This is the kitchen.",
       "prompt_image_url": "/lesson-assets/a1_kitchen.webp",
       "spanish_translation": "Esta es la cocina.",
-      "pedagogy_note": "room slot",
+      "pedagogy_note": "Story beat 03: This is the kitchen.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c029-prompt-bff8ea81519cc4faac13",
+          "id": "lesson-4-1-rooms-at-home-c037-prompt-eb7d4ea0f6ee7e3a0680",
           "purpose": "prompt",
           "text": "This is the kitchen.",
           "mode": "prompt",
@@ -1535,7 +1955,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c029-answer-7d660267e547b66338f3",
+          "id": "lesson-4-1-rooms-at-home-c037-answer-77b3880aecc713542209",
           "purpose": "answer",
           "text": "This is the kitchen.",
           "mode": "prompt",
@@ -1549,7 +1969,7 @@
       ]
     },
     {
-      "slide_id": "U2",
+      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "This is ___ ___.",
       "stage": "Use",
@@ -1574,167 +1994,33 @@
       "answer_audio_text": "This is the bedroom.",
       "prompt_image_url": "/lesson-assets/a1_bedroom.webp",
       "spanish_translation": "Este es el dormitorio.",
-      "pedagogy_note": "room slot",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "pedagogy_note": "Story beat 04: This is the bedroom.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c030-prompt-cff45e136e9ff5e23f75",
+          "id": "lesson-4-1-rooms-at-home-c038-prompt-ce274aa95ad6c27db8bd",
           "purpose": "prompt",
           "text": "This is the bedroom.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c030-answer-de4d4ca686f31b838078",
+          "id": "lesson-4-1-rooms-at-home-c038-answer-f959e61dbd690cd745d5",
           "purpose": "answer",
           "text": "This is the bedroom.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_bedroom.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "This is the ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "living",
-      "correct_option_ids": [
-        "living",
-        "room"
-      ],
-      "options": [
-        {
-          "id": "living",
-          "image_url": "",
-          "label": "living"
-        },
-        {
-          "id": "room",
-          "image_url": "",
-          "label": "room"
-        }
-      ],
-      "audio_text": "This is the living room.",
-      "answer_audio_text": "This is the living room.",
-      "prompt_image_url": "/lesson-assets/a1_living_room.webp",
-      "spanish_translation": "Esta es la sala.",
-      "pedagogy_note": "room slot",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-1-rooms-at-home-c031-prompt-bade9b852d4ae65541d8",
-          "purpose": "prompt",
-          "text": "This is the living room.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c031-answer-fe7eadd1d3a7743ec8bc",
-          "purpose": "answer",
-          "text": "This is the living room.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_living_room.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "This"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "dining"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "room"
-        }
-      ],
-      "audio_text": "This is the dining room.",
-      "answer_audio_text": "This is the dining room.",
-      "prompt_image_url": "/lesson-assets/a1_dining_room.webp",
-      "spanish_translation": "Este es el comedor.",
-      "pedagogy_note": "room slot",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-1-rooms-at-home-c032-prompt-40f876225a860f0ea979",
-          "purpose": "prompt",
-          "text": "This is the dining room.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_dining_room.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-1-rooms-at-home-c032-answer-5a3b7433b73e75b16f19",
-          "purpose": "answer",
-          "text": "This is the dining room.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_dining_room.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1754,57 +2040,57 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "have"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
+          "label": "is"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "book"
+          "label": "bathroom"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
         }
       ],
-      "audio_text": "I have a book.",
-      "answer_audio_text": "I have a book.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-have-book_25eacad.webp",
-      "spanish_translation": "Yo tengo un libro.",
-      "pedagogy_note": "Unit 3 possession review",
-      "audio_speaker": "ana",
+      "audio_text": "This is the bathroom.",
+      "answer_audio_text": "This is the bathroom.",
+      "prompt_image_url": "/lesson-assets/a1_bathroom.webp",
+      "spanish_translation": "Este es el ba\u00f1o.",
+      "pedagogy_note": "Story beat 05: This is the bathroom.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c033-prompt-2c630b98762b411b6440",
+          "id": "lesson-4-1-rooms-at-home-c039-prompt-ceb45fecfabca1e41b2c",
           "purpose": "prompt",
-          "text": "I have a book.",
+          "text": "This is the bathroom.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-have-book_25eacad.webp",
+          "image_ref": "/lesson-assets/a1_bathroom.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c033-answer-cbe02cd5343425997ac0",
+          "id": "lesson-4-1-rooms-at-home-c039-answer-052f845af16943dd1ea6",
           "purpose": "answer",
-          "text": "I have a book.",
+          "text": "This is the bathroom.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-have-book_25eacad.webp",
+          "image_ref": "/lesson-assets/a1_bathroom.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1812,6 +2098,158 @@
     },
     {
       "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "living"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "room"
+        }
+      ],
+      "audio_text": "This is the living room.",
+      "answer_audio_text": "This is the living room.",
+      "prompt_image_url": "/lesson-assets/a1_living_room.webp",
+      "spanish_translation": "Esta es la sala.",
+      "pedagogy_note": "Story beat 06: This is the living room.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c040-prompt-489785d3402e5bb2968a",
+          "purpose": "prompt",
+          "text": "This is the living room.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c040-answer-e481ee96185020d13f1f",
+          "purpose": "answer",
+          "text": "This is the living room.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_living_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dining"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "room"
+        }
+      ],
+      "audio_text": "This is the dining room.",
+      "answer_audio_text": "This is the dining room.",
+      "prompt_image_url": "/lesson-assets/a1_dining_room.webp",
+      "spanish_translation": "Este es el comedor.",
+      "pedagogy_note": "Story beat 07: This is the dining room.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-1-rooms-at-home-c041-prompt-256f23ee49f855564f26",
+          "purpose": "prompt",
+          "text": "This is the dining room.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-1-rooms-at-home-c041-answer-bca9969205c30bcef5c5",
+          "purpose": "answer",
+          "text": "This is the dining room.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_dining_room.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
@@ -1824,57 +2262,57 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
+          "id": "word-4",
+          "image_url": "",
+          "label": "home"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
           "id": "word-3",
           "image_url": "",
           "label": "a"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "phone"
         }
       ],
-      "audio_text": "It is a phone.",
-      "answer_audio_text": "It is a phone.",
-      "prompt_image_url": "/lesson-assets/a1_phone.webp",
-      "spanish_translation": "Es un tel\u00e9fono.",
-      "pedagogy_note": "Unit 2 review",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "It is a home.",
+      "answer_audio_text": "It is a home.",
+      "prompt_image_url": "/lesson-assets/a1_home.webp",
+      "spanish_translation": "Es un hogar.",
+      "pedagogy_note": "Story beat 08: It is a home.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-1-rooms-at-home-c034-prompt-2f06e650c4a940ee1616",
+          "id": "lesson-4-1-rooms-at-home-c042-prompt-59a86b4389d2fea19552",
           "purpose": "prompt",
-          "text": "It is a phone.",
+          "text": "It is a home.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_phone.webp",
+          "image_ref": "/lesson-assets/a1_home.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-1-rooms-at-home-c034-answer-00346f7869da8b780b7e",
+          "id": "lesson-4-1-rooms-at-home-c042-answer-3f89d1d503fba7a10c6f",
           "purpose": "answer",
-          "text": "It is a phone.",
+          "text": "It is a home.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_phone.webp",
+          "image_ref": "/lesson-assets/a1_home.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

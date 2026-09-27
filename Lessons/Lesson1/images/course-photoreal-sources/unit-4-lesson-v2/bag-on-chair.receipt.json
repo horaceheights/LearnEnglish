@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a168491d-6409-4ca5-aff6-de5cbc44aa74",
+  "asset_id": "bag-on-chair",
+  "pack_sha256": "d2a7db4c5b614798d0cbe7583ad9d624f57a41e15c63ac5782c98cbe42ab61d7",
+  "started_at": "2026-09-26T18:14:19.903118+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and license plates, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOne plain light-wood chair with four straight legs stands alone in the middle of a bright, simple room with a light oak floor and a plain white wall, seen from the front at the height of its seat, turned slightly toward the left, so that the top of the seat AND the empty floor under the seat, between the four legs, are both clearly visible. One plain dark-green backpack sits upright on the seat of the chair, fully visible. The floor under the chair is completely empty. The chair fills about 55 percent of the photo height and is centered. Nothing else on, under or near the chair; no people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "ewu4aoq5JO2HqtsP_umekQk",
+  "usage": {
+    "promptTokenCount": 321,
+    "candidatesTokenCount": 1260,
+    "totalTokenCount": 1852,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 321
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 271,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137894",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 321,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 271
+  },
+  "elapsed_seconds": 22.29,
+  "output": "output/imagegen/unit-4-lesson-v2/bag-on-chair.png",
+  "sha256": "57d66e0716745442a819060ad51f0b67988bc03eb344038dbc5c7a608dc32dec",
+  "byte_count": 4460385,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

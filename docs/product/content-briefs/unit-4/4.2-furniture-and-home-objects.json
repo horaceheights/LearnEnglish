@@ -1,0 +1,255 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: Learn holds only the six objects; It is a ..., room sentences and the 3.4 yes/no question Is it a ...? are practice. A No answer is true of many pictures, so it is only offered as text beside its Yes pair.",
+  "target": "backend/lessons/unit_4/lesson-4-2-furniture-and-home-objects.yaml",
+  "lesson": {
+    "id": "lesson-4-2-furniture-and-home-objects",
+    "title": "4.2 Furniture and Home Objects",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.2",
+    "sub_lesson_title": "Furniture and Home Objects",
+    "goal": "Recognize and name six home objects, say which room they are in, and answer Is it a ...? about them.",
+    "vocabulary": [
+      "bed",
+      "sofa",
+      "lamp",
+      "door",
+      "window",
+      "computer"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "a",
+      "the",
+      "in",
+      "chair",
+      "bedroom",
+      "living room",
+      "kitchen",
+      "yes",
+      "no",
+      "not"
+    ],
+    "grammar_function": "It is a + noun. The bed is in the bedroom. Is it a door? Yes, it is. / No, it is not.",
+    "prerequisite": "4.1 rooms; 2.4 It is a ...; 3.4 yes/no questions with be.",
+    "speaking_outcome": "Name six home objects and say which room they are in.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "A bed",
+      "es": "Una cama",
+      "image": "a1_bed.webp",
+      "kind": "furniture-word"
+    },
+    {
+      "text": "A sofa",
+      "es": "Un sofá",
+      "image": "a1_sofa.webp",
+      "kind": "furniture-word"
+    },
+    {
+      "text": "A lamp",
+      "es": "Una lámpara",
+      "image": "a1_lamp.webp",
+      "kind": "furniture-word"
+    },
+    {
+      "text": "A door",
+      "es": "Una puerta",
+      "image": "a1_door.webp",
+      "kind": "furniture-word"
+    },
+    {
+      "text": "A window",
+      "es": "Una ventana",
+      "image": "a1_window.webp",
+      "kind": "furniture-word"
+    },
+    {
+      "text": "A computer",
+      "es": "Una computadora",
+      "image": "a1_computer.webp",
+      "kind": "furniture-word"
+    },
+    {
+      "text": "It is a bed.",
+      "es": "Es una cama.",
+      "image": "a1_bed.webp",
+      "kind": "it-is-thing",
+      "learn": false,
+      "prefer": [
+        "It is a sofa."
+      ]
+    },
+    {
+      "text": "It is a sofa.",
+      "es": "Es un sofá.",
+      "image": "a1_sofa.webp",
+      "kind": "it-is-thing",
+      "learn": false,
+      "prefer": [
+        "It is a bed."
+      ]
+    },
+    {
+      "text": "It is a lamp.",
+      "es": "Es una lámpara.",
+      "image": "a1_lamp.webp",
+      "kind": "it-is-thing",
+      "learn": false,
+      "prefer": [
+        "It is a computer."
+      ]
+    },
+    {
+      "text": "It is a door.",
+      "es": "Es una puerta.",
+      "image": "a1_door.webp",
+      "kind": "it-is-thing",
+      "learn": false,
+      "prefer": [
+        "It is a window."
+      ]
+    },
+    {
+      "text": "It is a window.",
+      "es": "Es una ventana.",
+      "image": "a1_window.webp",
+      "kind": "it-is-thing",
+      "learn": false,
+      "prefer": [
+        "It is a door."
+      ]
+    },
+    {
+      "text": "It is a computer.",
+      "es": "Es una computadora.",
+      "image": "a1_computer.webp",
+      "kind": "it-is-thing",
+      "learn": false,
+      "prefer": [
+        "It is a lamp."
+      ]
+    },
+    {
+      "text": "The bed is in the bedroom.",
+      "es": "La cama está en el dormitorio.",
+      "image": "a1_bedroom.webp",
+      "kind": "bed-room",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The bed is in the living room."
+      ]
+    },
+    {
+      "text": "The sofa is in the living room.",
+      "es": "El sofá está en la sala.",
+      "image": "a1_living_room.webp",
+      "kind": "sofa-room",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The sofa is in the bedroom."
+      ]
+    },
+    {
+      "text": "The computer is in the living room.",
+      "es": "La computadora está en la sala.",
+      "image": "a1_photo_u4_computer_in_living_room_v1.webp",
+      "kind": "computer-room",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The computer is in the kitchen."
+      ]
+    },
+    {
+      "text": "Is it a door? Yes, it is.",
+      "es": "¿Es una puerta? Sí.",
+      "image": "a1_door.webp",
+      "kind": "yes-no-it",
+      "learn": false,
+      "prefer": [
+        "Is it a door? No, it is not."
+      ]
+    },
+    {
+      "text": "Is it a lamp? Yes, it is.",
+      "es": "¿Es una lámpara? Sí.",
+      "image": "a1_lamp.webp",
+      "kind": "yes-no-it",
+      "learn": false,
+      "prefer": [
+        "Is it a lamp? No, it is not."
+      ]
+    },
+    {
+      "text": "Is it a window? No, it is not.",
+      "es": "¿Es una ventana? No.",
+      "image": "a1_door.webp",
+      "kind": "yes-no-it",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "Is it a window? Yes, it is."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "A chair",
+      "es": "Una silla",
+      "kind": "furniture-word",
+      "image": "a1_chair.webp"
+    },
+    {
+      "text": "The bed is in the living room.",
+      "es": "La cama está en la sala.",
+      "kind": "bed-room"
+    },
+    {
+      "text": "The sofa is in the bedroom.",
+      "es": "El sofá está en el dormitorio.",
+      "kind": "sofa-room"
+    },
+    {
+      "text": "The computer is in the kitchen.",
+      "es": "La computadora está en la cocina.",
+      "kind": "computer-room"
+    },
+    {
+      "text": "Is it a door? No, it is not.",
+      "es": "¿Es una puerta? No.",
+      "kind": "yes-no-it"
+    },
+    {
+      "text": "Is it a lamp? No, it is not.",
+      "es": "¿Es una lámpara? No.",
+      "kind": "yes-no-it"
+    },
+    {
+      "text": "Is it a window? Yes, it is.",
+      "es": "¿Es una ventana? Sí.",
+      "kind": "yes-no-it"
+    }
+  ]
+}

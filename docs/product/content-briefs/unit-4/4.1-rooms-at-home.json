@@ -1,0 +1,253 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 4 rebuild: Learn holds only home and the five rooms; This is the ... and family members in rooms are practice on known words (Unit 1 grandmother, child, adults, children; 2.1 in). A family photo's wrong options change only the room, so they are offered as text.",
+  "target": "backend/lessons/unit_4/lesson-4-1-rooms-at-home.yaml",
+  "lesson": {
+    "id": "lesson-4-1-rooms-at-home",
+    "title": "4.1 Rooms at Home",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.1",
+    "sub_lesson_title": "Rooms at Home",
+    "goal": "Recognize and name a home and five rooms, and say which room a family member is in.",
+    "vocabulary": [
+      "home",
+      "kitchen",
+      "bedroom",
+      "bathroom",
+      "living room",
+      "dining room"
+    ],
+    "review_vocabulary": [
+      "this",
+      "is",
+      "are",
+      "the",
+      "in",
+      "school",
+      "grandmother",
+      "child",
+      "adults",
+      "children"
+    ],
+    "grammar_function": "This is the + room. The grandmother is in the kitchen. The adults are in the living room.",
+    "prerequisite": "2.1 places and in the park; 2.5 this; 1.4-1.6 family words.",
+    "speaking_outcome": "Say This is the kitchen. and say which room a family member is in.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "A home",
+      "es": "Un hogar",
+      "image": "a1_home.webp",
+      "kind": "place-word"
+    },
+    {
+      "text": "The kitchen",
+      "es": "La cocina",
+      "image": "a1_kitchen.webp",
+      "kind": "room-word"
+    },
+    {
+      "text": "The bedroom",
+      "es": "El dormitorio",
+      "image": "a1_bedroom.webp",
+      "kind": "room-word"
+    },
+    {
+      "text": "The bathroom",
+      "es": "El baño",
+      "image": "a1_bathroom.webp",
+      "kind": "room-word"
+    },
+    {
+      "text": "The living room",
+      "es": "La sala",
+      "image": "a1_living_room.webp",
+      "kind": "room-word"
+    },
+    {
+      "text": "The dining room",
+      "es": "El comedor",
+      "image": "a1_dining_room.webp",
+      "kind": "room-word"
+    },
+    {
+      "text": "This is the kitchen.",
+      "es": "Esta es la cocina.",
+      "image": "a1_kitchen.webp",
+      "kind": "this-room",
+      "learn": false,
+      "prefer": [
+        "This is the bathroom."
+      ]
+    },
+    {
+      "text": "This is the bedroom.",
+      "es": "Este es el dormitorio.",
+      "image": "a1_bedroom.webp",
+      "kind": "this-room",
+      "learn": false,
+      "prefer": [
+        "This is the living room."
+      ]
+    },
+    {
+      "text": "This is the bathroom.",
+      "es": "Este es el baño.",
+      "image": "a1_bathroom.webp",
+      "kind": "this-room",
+      "learn": false,
+      "prefer": [
+        "This is the kitchen."
+      ]
+    },
+    {
+      "text": "This is the living room.",
+      "es": "Esta es la sala.",
+      "image": "a1_living_room.webp",
+      "kind": "this-room",
+      "learn": false,
+      "prefer": [
+        "This is the dining room."
+      ]
+    },
+    {
+      "text": "This is the dining room.",
+      "es": "Este es el comedor.",
+      "image": "a1_dining_room.webp",
+      "kind": "this-room",
+      "learn": false,
+      "prefer": [
+        "This is the living room."
+      ]
+    },
+    {
+      "text": "It is a home.",
+      "es": "Es un hogar.",
+      "image": "a1_home.webp",
+      "kind": "it-is-place",
+      "learn": false,
+      "prefer": [
+        "It is a school."
+      ]
+    },
+    {
+      "text": "The grandmother is in the kitchen.",
+      "es": "La abuela está en la cocina.",
+      "image": "a1_photo_u4_grandmother_kitchen_v1.webp",
+      "kind": "grandmother-room",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The grandmother is in the bathroom.",
+        "The grandmother is in the bedroom."
+      ]
+    },
+    {
+      "text": "The child is in the bedroom.",
+      "es": "El niño está en el dormitorio.",
+      "image": "a1_photo_u4_child_bedroom_v1.webp",
+      "kind": "child-room",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The child is in the kitchen.",
+        "The child is in the living room."
+      ]
+    },
+    {
+      "text": "The adults are in the living room.",
+      "es": "Los adultos están en la sala.",
+      "image": "a1_photo_u4_adults_living_room_v1.webp",
+      "kind": "adults-room",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The adults are in the dining room.",
+        "The adults are in the kitchen."
+      ]
+    },
+    {
+      "text": "The children are in the dining room.",
+      "es": "Los niños están en el comedor.",
+      "image": "a1_photo_u4_children_dining_room_v1.webp",
+      "kind": "children-room",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The children are in the living room.",
+        "The children are in the bedroom."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "A school",
+      "es": "Una escuela",
+      "kind": "place-word",
+      "image": "a1_school.webp"
+    },
+    {
+      "text": "It is a school.",
+      "es": "Es una escuela.",
+      "kind": "it-is-place",
+      "image": "a1_school.webp"
+    },
+    {
+      "text": "The grandmother is in the bathroom.",
+      "es": "La abuela está en el baño.",
+      "kind": "grandmother-room"
+    },
+    {
+      "text": "The grandmother is in the bedroom.",
+      "es": "La abuela está en el dormitorio.",
+      "kind": "grandmother-room"
+    },
+    {
+      "text": "The child is in the kitchen.",
+      "es": "El niño está en la cocina.",
+      "kind": "child-room"
+    },
+    {
+      "text": "The child is in the living room.",
+      "es": "El niño está en la sala.",
+      "kind": "child-room"
+    },
+    {
+      "text": "The adults are in the dining room.",
+      "es": "Los adultos están en el comedor.",
+      "kind": "adults-room"
+    },
+    {
+      "text": "The adults are in the kitchen.",
+      "es": "Los adultos están en la cocina.",
+      "kind": "adults-room"
+    },
+    {
+      "text": "The children are in the living room.",
+      "es": "Los niños están en la sala.",
+      "kind": "children-room"
+    },
+    {
+      "text": "The children are in the bedroom.",
+      "es": "Los niños están en el dormitorio.",
+      "kind": "children-room"
+    }
+  ]
+}

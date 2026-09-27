@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "24c1b804-6625-4e51-940d-09cbd6585cbb",
+  "asset_id": "day-wednesday",
+  "pack_sha256": "d2a7db4c5b614798d0cbe7583ad9d624f57a41e15c63ac5782c98cbe42ab61d7",
+  "started_at": "2026-09-26T18:21:22.213191+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Change only the printed word on the calendar page from MONDAY to WEDNESDAY, in exactly the same font, weight, color, letter height and centered position, perfectly spelled; the longer word may span up to 90 percent of the page width but stays on one line. Keep everything else identical: the calendar, its stand, the desk, the plant, the mug, the light and the camera. No other text or objects.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-4-lesson-v2/day-monday.png",
+    "sha256": "9e8c7e069235543b171dc3560fd0422e3445675e7496d0755eed166add6b88c5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Lw24auC0CveCmtkP-O3P2A0",
+  "usage": {
+    "promptTokenCount": 356,
+    "candidatesTokenCount": 1266,
+    "totalTokenCount": 1811,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 98
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 189,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136980",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 356,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 189
+  },
+  "elapsed_seconds": 44.6,
+  "output": "output/imagegen/unit-4-lesson-v2/day-wednesday.png",
+  "sha256": "7f3a7ce46b386f3f9e24a3637e106786f81836790b4c6c12e33aad726ec1eb6d",
+  "byte_count": 4627847,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

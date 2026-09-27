@@ -4,42 +4,60 @@
   "level": "Beginner A1",
   "unit_id": "unit-4",
   "unit_title": "Unit 4: Home and Daily Life",
-  "unit_outcome": "Locate familiar things and describe a short supported routine using known subjects, simple present chunks, days, and clock times.",
+  "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
   "lesson_id": "lesson-4",
   "lesson_title": "Unit 4: Home and Daily Life",
   "sub_lesson_id": "4.5",
   "sub_lesson_title": "Morning Routine",
-  "goal": "Understand and say five visible morning-routine chunks with I and the time anchor in the morning.",
+  "goal": "Understand and say five morning routine actions with I, and say which room and part of the day they happen in.",
   "vocabulary": [
     "wake up",
     "wash my face",
     "brush my teeth",
     "eat breakfast",
     "get dressed",
-    "in the morning",
-    "face",
-    "teeth",
-    "breakfast",
-    "dressed"
+    "in the morning"
   ],
   "review_vocabulary": [
     "I",
     "my",
-    "bed",
-    "bathroom",
+    "the",
+    "in",
     "kitchen",
-    "eating",
-    "washing/cooking concepts only as visual support",
-    "there is"
+    "bathroom",
+    "bedroom"
   ],
-  "grammar_function": "I + base routine chunk as a learned whole. Systematic simple-present generalization waits until 4.7.",
-  "prerequisite": "4.1 rooms, 4.2 bed/home objects, and Unit 3 I/my.",
-  "speaking_outcome": "Repeat all five I routine sentences and one in the morning sentence.",
+  "grammar_function": "I + routine chunk as a learned whole; + in the + room; + in the morning.",
+  "prerequisite": "4.1 rooms; 3.2 I; 3.10 my.",
+  "speaking_outcome": "Say five I routine sentences and where they happen.",
   "purposeful_review_slides": [
+    "R3",
+    "R4",
+    "R5",
+    "R6",
     "R7",
     "R8",
-    "N6",
-    "U6"
+    "R9",
+    "R10",
+    "R11",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U8"
   ],
   "cards": [
     {
@@ -47,10 +65,10 @@
       "interaction_type": "teach",
       "prompt": "Wake up",
       "stage": "Learn",
-      "correct_option_id": "wake-up-1",
+      "correct_option_id": "wake-up-learn",
       "options": [
         {
-          "id": "wake-up-1",
+          "id": "wake-up-learn",
           "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
           "label": "Wake up"
         }
@@ -59,7 +77,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Despertarse",
-      "pedagogy_note": "introduces chunk",
+      "pedagogy_note": "Story beat 01: Wake up",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -96,10 +114,10 @@
       "interaction_type": "teach",
       "prompt": "Wash my face",
       "stage": "Learn",
-      "correct_option_id": "wash-my-face-1",
+      "correct_option_id": "wash-my-face-learn",
       "options": [
         {
-          "id": "wash-my-face-1",
+          "id": "wash-my-face-learn",
           "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "label": "Wash my face"
         }
@@ -108,7 +126,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Lavarme la cara",
-      "pedagogy_note": "introduces chunk and body word within chunk",
+      "pedagogy_note": "Story beat 02: Wash my face",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -145,10 +163,10 @@
       "interaction_type": "teach",
       "prompt": "Brush my teeth",
       "stage": "Learn",
-      "correct_option_id": "brush-my-teeth-1",
+      "correct_option_id": "brush-my-teeth-learn",
       "options": [
         {
-          "id": "brush-my-teeth-1",
+          "id": "brush-my-teeth-learn",
           "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "label": "Brush my teeth"
         }
@@ -157,7 +175,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cepillarme los dientes",
-      "pedagogy_note": "introduces chunk",
+      "pedagogy_note": "Story beat 03: Brush my teeth",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -194,10 +212,10 @@
       "interaction_type": "teach",
       "prompt": "Eat breakfast",
       "stage": "Learn",
-      "correct_option_id": "eat-breakfast-1",
+      "correct_option_id": "eat-breakfast-learn",
       "options": [
         {
-          "id": "eat-breakfast-1",
+          "id": "eat-breakfast-learn",
           "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "label": "Eat breakfast"
         }
@@ -206,33 +224,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Desayunar",
-      "pedagogy_note": "introduces chunk",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: Eat breakfast",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c004-prompt-6d1421203e28a8b45cab",
+          "id": "lesson-4-5-morning-routine-c004-prompt-28fafd63c01e8f33cd9e",
           "purpose": "prompt",
           "text": "Eat breakfast",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c004-answer-840118c9e69e7497a2dd",
+          "id": "lesson-4-5-morning-routine-c004-answer-636a7515e481162a90cb",
           "purpose": "answer",
           "text": "Eat breakfast",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -243,10 +261,10 @@
       "interaction_type": "teach",
       "prompt": "Get dressed",
       "stage": "Learn",
-      "correct_option_id": "get-dressed-1",
+      "correct_option_id": "get-dressed-learn",
       "options": [
         {
-          "id": "get-dressed-1",
+          "id": "get-dressed-learn",
           "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
           "label": "Get dressed"
         }
@@ -255,7 +273,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Vestirme",
-      "pedagogy_note": "introduces chunk",
+      "pedagogy_note": "Story beat 05: Get dressed",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -290,145 +308,47 @@
     {
       "slide_id": "L6",
       "interaction_type": "teach",
-      "prompt": "I wake up.",
+      "prompt": "In the morning",
       "stage": "Learn",
-      "correct_option_id": "i-wake-up-1",
+      "correct_option_id": "in-the-morning-learn",
       "options": [
         {
-          "id": "i-wake-up-1",
-          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
-          "label": "I wake up."
+          "id": "in-the-morning-learn",
+          "image_url": "/lesson-assets/a1_scene_morning_45a21e4.webp",
+          "label": "In the morning"
         }
       ],
-      "audio_text": "I wake up.",
+      "audio_text": "In the morning",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me despierto.",
-      "pedagogy_note": "routine sentence anchor",
-      "audio_speaker": "ana",
+      "spanish_translation": "En la ma\u00f1ana",
+      "pedagogy_note": "Story beat 06: In the morning",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c006-prompt-4cfe4ac249c237ba975b",
+          "id": "lesson-4-5-morning-routine-c006-prompt-26c2e2c59912c0b81ba1",
           "purpose": "prompt",
-          "text": "I wake up.",
+          "text": "In the morning",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "image_ref": "/lesson-assets/a1_scene_morning_45a21e4.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c006-answer-3d472c0b7a98691feca0",
+          "id": "lesson-4-5-morning-routine-c006-answer-ff953ca79591bbf604e6",
           "purpose": "answer",
-          "text": "I wake up.",
+          "text": "In the morning",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "image_ref": "/lesson-assets/a1_scene_morning_45a21e4.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "I brush my teeth.",
-      "stage": "Learn",
-      "correct_option_id": "i-brush-my-teeth-1",
-      "options": [
-        {
-          "id": "i-brush-my-teeth-1",
-          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
-          "label": "I brush my teeth."
-        }
-      ],
-      "audio_text": "I brush my teeth.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Me cepillo los dientes.",
-      "pedagogy_note": "routine sentence anchor",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-5-morning-routine-c007-prompt-ac9f46b471f4ccf8d20f",
-          "purpose": "prompt",
-          "text": "I brush my teeth.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-5-morning-routine-c007-answer-2a4800765a736edaeb76",
-          "purpose": "answer",
-          "text": "I brush my teeth.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "I eat breakfast in the morning.",
-      "stage": "Learn",
-      "correct_option_id": "i-eat-breakfast-in-the-morning-1",
-      "options": [
-        {
-          "id": "i-eat-breakfast-in-the-morning-1",
-          "image_url": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
-          "label": "I eat breakfast in the morning."
-        }
-      ],
-      "audio_text": "I eat breakfast in the morning.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Desayuno en la ma\u00f1ana.",
-      "pedagogy_note": "introduces time anchor",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-5-morning-routine-c008-prompt-048b4270c0a3ab0f9d1c",
-          "purpose": "prompt",
-          "text": "I eat breakfast in the morning.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-5-morning-routine-c008-answer-2dd9fb78028f9fac75ba",
-          "purpose": "answer",
-          "text": "I eat breakfast in the morning.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -437,18 +357,126 @@
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "I wake up.",
+      "prompt": "Wake up",
       "stage": "Recognize",
-      "correct_option_id": "ana-wake-2",
+      "correct_option_id": "wake-up-r1",
       "options": [
         {
-          "id": "ana-breakfast-1",
-          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+          "id": "wash-my-face-r1",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "label": null
         },
         {
-          "id": "ana-wake-2",
+          "id": "wake-up-r1",
           "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Wake up",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Despertarse",
+      "pedagogy_note": "Story beat 01: Wake up",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c007-prompt-e1c2afba42ec07ad1209",
+          "purpose": "prompt",
+          "text": "Wake up",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c007-answer-bd09b8433bba458302d4",
+          "purpose": "answer",
+          "text": "Wake up",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "t2i2",
+      "prompt": "Wash my face",
+      "stage": "Recognize",
+      "correct_option_id": "wash-my-face-r2",
+      "options": [
+        {
+          "id": "wake-up-r2",
+          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": null
+        },
+        {
+          "id": "wash-my-face-r2",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Wash my face",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Lavarme la cara",
+      "pedagogy_note": "Story beat 02: Wash my face",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c008-prompt-3070596988460b14d1b6",
+          "purpose": "prompt",
+          "text": "Wash my face",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c008-answer-932bbc2a71315a50e49f",
+          "purpose": "answer",
+          "text": "Wash my face",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "t2i2",
+      "prompt": "I wake up.",
+      "stage": "Recognize",
+      "correct_option_id": "i-wake-up-r3",
+      "options": [
+        {
+          "id": "i-wake-up-r3",
+          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": null
+        },
+        {
+          "id": "i-wash-my-face-r3",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "label": null
         }
       ],
@@ -456,7 +484,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Me despierto.",
-      "pedagogy_note": "actions clearly distinct",
+      "pedagogy_note": "Story beat 03: I wake up.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -489,45 +517,33 @@
       ]
     },
     {
-      "slide_id": "R2",
-      "interaction_type": "t2i2",
-      "prompt": "I wash my face.",
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "ana-wash-face-1",
+      "correct_option_id": "i-wash-my-face-r4",
       "options": [
         {
-          "id": "ana-wash-face-1",
-          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
-          "label": null
+          "id": "i-wake-up-r4",
+          "image_url": "",
+          "label": "I wake up."
         },
         {
-          "id": "ana-brush-teeth-2",
-          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
-          "label": null
+          "id": "i-wash-my-face-r4",
+          "image_url": "",
+          "label": "I wash my face."
         }
       ],
-      "audio_text": "I wash my face.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Me lavo la cara.",
-      "pedagogy_note": "same setting; action tool/gesture distinguishes",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "I wash my face.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: I wash my face.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
-        {
-          "id": "lesson-4-5-morning-routine-c010-prompt-c884d0b5902453971a8c",
-          "purpose": "prompt",
-          "text": "I wash my face.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
         {
           "id": "lesson-4-5-morning-routine-c010-answer-46f3a3f52b35ce598676",
           "purpose": "answer",
@@ -543,19 +559,19 @@
       ]
     },
     {
-      "slide_id": "R3",
+      "slide_id": "R5",
       "interaction_type": "t2i2",
       "prompt": "I brush my teeth.",
       "stage": "Recognize",
-      "correct_option_id": "ana-brush-teeth-2",
+      "correct_option_id": "i-brush-my-teeth-r5",
       "options": [
         {
-          "id": "ana-wash-face-1",
+          "id": "i-wash-my-face-r5",
           "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "label": null
         },
         {
-          "id": "ana-brush-teeth-2",
+          "id": "i-brush-my-teeth-r5",
           "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "label": null
         }
@@ -564,7 +580,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Me cepillo los dientes.",
-      "pedagogy_note": "exact contrast",
+      "pedagogy_note": "Story beat 05: I brush my teeth.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -597,45 +613,38 @@
       ]
     },
     {
-      "slide_id": "R4",
-      "interaction_type": "t2i2",
-      "prompt": "I eat breakfast.",
+      "slide_id": "R6",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "ana-breakfast-2",
+      "correct_option_id": "i-eat-breakfast-r6",
       "options": [
         {
-          "id": "ana-dressed-1",
-          "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
-          "label": null
+          "id": "i-get-dressed-r6",
+          "image_url": "",
+          "label": "I get dressed."
         },
         {
-          "id": "ana-breakfast-2",
-          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "label": null
+          "id": "i-eat-breakfast-r6",
+          "image_url": "",
+          "label": "I eat breakfast."
+        },
+        {
+          "id": "i-brush-my-teeth-r6",
+          "image_url": "",
+          "label": "I brush my teeth."
         }
       ],
-      "audio_text": "I eat breakfast.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Desayuno.",
-      "pedagogy_note": "actions distinct",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "I eat breakfast.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: I eat breakfast.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
-        {
-          "id": "lesson-4-5-morning-routine-c012-prompt-4ca4dc5b1ceb279b9ca0",
-          "purpose": "prompt",
-          "text": "I eat breakfast.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
         {
           "id": "lesson-4-5-morning-routine-c012-answer-34bc98db1135ef521ff6",
           "purpose": "answer",
@@ -651,30 +660,30 @@
       ]
     },
     {
-      "slide_id": "R5",
+      "slide_id": "R7",
       "interaction_type": "t2i4",
       "prompt": "I get dressed.",
       "stage": "Recognize",
-      "correct_option_id": "ana-dressed-3",
+      "correct_option_id": "i-get-dressed-r7",
       "options": [
         {
-          "id": "ana-wake-1",
-          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "id": "i-brush-my-teeth-r7",
+          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "label": null
         },
         {
-          "id": "ana-breakfast-2",
-          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+          "id": "i-wash-my-face-r7",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "label": null
         },
         {
-          "id": "ana-dressed-3",
+          "id": "i-get-dressed-r7",
           "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
           "label": null
         },
         {
-          "id": "ana-wash-face-4",
-          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "id": "i-eat-breakfast-r7",
+          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "label": null
         }
       ],
@@ -682,7 +691,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Me visto.",
-      "pedagogy_note": "four action scenes",
+      "pedagogy_note": "Story beat 07: I get dressed.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -715,33 +724,33 @@
       ]
     },
     {
-      "slide_id": "R6",
-      "interaction_type": "i2t4",
+      "slide_id": "R8",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-eat-breakfast-in-the-morning-2",
+      "correct_option_id": "i-eat-breakfast-in-the-morning-r8",
       "options": [
         {
-          "id": "i-get-dressed-in-the-morning-1",
+          "id": "i-wash-my-face-in-the-morning-r8",
           "image_url": "",
-          "label": "I get dressed in the morning."
+          "label": "I wash my face in the morning."
         },
         {
-          "id": "i-eat-breakfast-in-the-morning-2",
+          "id": "i-eat-breakfast-in-the-morning-r8",
           "image_url": "",
           "label": "I eat breakfast in the morning."
         },
         {
-          "id": "i-wash-my-face-in-the-morning-3",
+          "id": "i-get-dressed-in-the-morning-r8",
           "image_url": "",
-          "label": "I wash my face in the morning."
+          "label": "I get dressed in the morning."
         }
       ],
       "audio_text": "",
       "answer_audio_text": "I eat breakfast in the morning.",
       "prompt_image_url": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "single breakfast action plus morning cue makes every other routine choice false",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: I eat breakfast in the morning.",
       "audio_speaker": null,
       "answer_audio_speaker": "ana",
       "audio_revision": 1,
@@ -762,116 +771,372 @@
       ]
     },
     {
-      "slide_id": "R7",
+      "slide_id": "R9",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "there-is-a-bed-in-the-bedroom-2",
+      "correct_option_id": "i-brush-my-teeth-in-the-bathroom-r9",
       "options": [
         {
-          "id": "there-are-two-chairs-in-the-dining-room-1",
+          "id": "i-brush-my-teeth-in-the-bathroom-r9",
           "image_url": "",
-          "label": "There are two chairs in the dining room."
+          "label": "I brush my teeth in the bathroom."
         },
         {
-          "id": "there-is-a-bed-in-the-bedroom-2",
+          "id": "i-brush-my-teeth-in-the-kitchen-r9",
           "image_url": "",
-          "label": "There is a bed in the bedroom."
+          "label": "I brush my teeth in the kitchen."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "There is a bed in the bedroom.",
-      "prompt_image_url": "/lesson-assets/a1_bedroom.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "4.4 review",
+      "answer_audio_text": "I brush my teeth in the bathroom.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: I brush my teeth in the bathroom.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c015-answer-ddfaa4bc166f83c2cda2",
+          "id": "lesson-4-5-morning-routine-c015-answer-ab4b8b10d273024ef8bb",
           "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
+          "text": "I brush my teeth in the bathroom.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "R8",
+      "slide_id": "R10",
       "interaction_type": "i2t2",
-      "prompt": "Where is the book?",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-book-is-in-the-bag-2",
+      "correct_option_id": "i-eat-breakfast-in-the-kitchen-r10",
       "options": [
         {
-          "id": "the-book-is-on-the-bag-1",
+          "id": "i-eat-breakfast-in-the-kitchen-r10",
           "image_url": "",
-          "label": "The book is on the bag."
+          "label": "I eat breakfast in the kitchen."
         },
         {
-          "id": "the-book-is-in-the-bag-2",
+          "id": "i-eat-breakfast-in-the-bedroom-r10",
           "image_url": "",
-          "label": "The book is in the bag."
+          "label": "I eat breakfast in the bedroom."
         }
       ],
-      "audio_text": "Where is the book?",
-      "answer_audio_text": "The book is in the bag.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_book_in_bag_v1.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el libro?",
-      "pedagogy_note": "4.3 review",
+      "audio_text": "",
+      "answer_audio_text": "I eat breakfast in the kitchen.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: I eat breakfast in the kitchen.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c016-prompt-c9d26e3189153ebd3d65",
-          "purpose": "prompt",
-          "text": "Where is the book?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_book_in_bag_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-5-morning-routine-c016-answer-1d0e13e90bb63195352a",
+          "id": "lesson-4-5-morning-routine-c016-answer-159ff2fcf795efcb9d45",
           "purpose": "answer",
-          "text": "The book is in the bag.",
+          "text": "I eat breakfast in the kitchen.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_book_in_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "N1",
+      "slide_id": "R11",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-get-dressed-in-the-bedroom-r11",
+      "options": [
+        {
+          "id": "i-get-dressed-in-the-bathroom-r11",
+          "image_url": "",
+          "label": "I get dressed in the bathroom."
+        },
+        {
+          "id": "i-get-dressed-in-the-bedroom-r11",
+          "image_url": "",
+          "label": "I get dressed in the bedroom."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I get dressed in the bedroom.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 11: I get dressed in the bedroom.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c017-answer-f19bbf59246505ce73f1",
+          "purpose": "answer",
+          "text": "I get dressed in the bedroom.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "ana-wake-2",
+      "correct_option_id": "wake-up-a1",
       "options": [
         {
-          "id": "ana-breakfast-1",
+          "id": "wake-up-a1",
+          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": null
+        },
+        {
+          "id": "wash-my-face-a1",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Wake up",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: Wake up",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c018-prompt-3e8ccab469af82ff6c34",
+          "purpose": "prompt",
+          "text": "Wake up",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c018-answer-c3685d35461c0ff3a6a3",
+          "purpose": "answer",
+          "text": "Wake up",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "wash-my-face-a2",
+      "options": [
+        {
+          "id": "wash-my-face-a2",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "label": null
+        },
+        {
+          "id": "wake-up-a2",
+          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Wash my face",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: Wash my face",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c019-prompt-845158d90f3d4f8dda5a",
+          "purpose": "prompt",
+          "text": "Wash my face",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c019-answer-9076cc35f56520e3cdc7",
+          "purpose": "answer",
+          "text": "Wash my face",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "brush-my-teeth-a3",
+      "options": [
+        {
+          "id": "brush-my-teeth-a3",
+          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "label": null
+        },
+        {
+          "id": "wash-my-face-a3",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Brush my teeth",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: Brush my teeth",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c020-prompt-5ac6cca72e848927614d",
+          "purpose": "prompt",
+          "text": "Brush my teeth",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c020-answer-57dc313fabf5f9e72a3a",
+          "purpose": "answer",
+          "text": "Brush my teeth",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "get-dressed-a4",
+      "options": [
+        {
+          "id": "eat-breakfast-a4",
           "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "label": null
         },
         {
-          "id": "ana-wake-2",
+          "id": "get-dressed-a4",
+          "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Get dressed",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: Get dressed",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c021-prompt-2636d10eccf43bf0f225",
+          "purpose": "prompt",
+          "text": "Get dressed",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c021-answer-ed4e2f96e622247c85f8",
+          "purpose": "answer",
+          "text": "Get dressed",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-wake-up-a5",
+      "options": [
+        {
+          "id": "i-brush-my-teeth-a5",
+          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "label": null
+        },
+        {
+          "id": "i-eat-breakfast-a5",
+          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+          "label": null
+        },
+        {
+          "id": "i-wake-up-a5",
           "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": null
+        },
+        {
+          "id": "i-wash-my-face-a5",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "label": null
         }
       ],
@@ -879,14 +1144,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "pedagogy_note": "Story beat 05: I wake up.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c017-prompt-a10d1dca78518b847e15",
+          "id": "lesson-4-5-morning-routine-c022-prompt-567202e1131b5eae62b5",
           "purpose": "prompt",
           "text": "I wake up.",
           "mode": "prompt",
@@ -898,7 +1163,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c017-answer-1c1b59a0daf144989ab4",
+          "id": "lesson-4-5-morning-routine-c022-answer-dbb9b57db8abd2ad39eb",
           "purpose": "answer",
           "text": "I wake up.",
           "mode": "prompt",
@@ -912,52 +1177,57 @@
       ]
     },
     {
-      "slide_id": "N2",
-      "interaction_type": "a2i2",
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "ana-wash-face-2",
+      "correct_option_id": "i-wash-my-face-a6",
       "options": [
         {
-          "id": "ana-brush-teeth-1",
-          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
-          "label": null
+          "id": "i-wash-my-face-a6",
+          "image_url": "",
+          "label": "I wash my face."
         },
         {
-          "id": "ana-wash-face-2",
-          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
-          "label": null
+          "id": "i-wake-up-a6",
+          "image_url": "",
+          "label": "I wake up."
+        },
+        {
+          "id": "i-brush-my-teeth-a6",
+          "image_url": "",
+          "label": "I brush my teeth."
         }
       ],
       "audio_text": "I wash my face.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "pedagogy_note": "Story beat 06: I wash my face.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c018-prompt-3d9690c2bcf91dd8b883",
+          "id": "lesson-4-5-morning-routine-c023-prompt-d000eb842062cc17789b",
           "purpose": "prompt",
           "text": "I wash my face.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "image_ref": "text-only:855a25c7d1466ee8220d",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c018-answer-d089d3a3a0f637d370c2",
+          "id": "lesson-4-5-morning-routine-c023-answer-dd111225325d6d6c94e1",
           "purpose": "answer",
           "text": "I wash my face.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "image_ref": "text-only:855a25c7d1466ee8220d",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -966,20 +1236,30 @@
       ]
     },
     {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "ana-brush-teeth-1",
+      "correct_option_id": "i-brush-my-teeth-a7",
       "options": [
         {
-          "id": "ana-brush-teeth-1",
+          "id": "i-wake-up-a7",
+          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": null
+        },
+        {
+          "id": "i-brush-my-teeth-a7",
           "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "label": null
         },
         {
-          "id": "ana-wash-face-2",
+          "id": "i-wash-my-face-a7",
           "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "label": null
+        },
+        {
+          "id": "i-eat-breakfast-a7",
+          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "label": null
         }
       ],
@@ -987,14 +1267,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "pedagogy_note": "Story beat 07: I brush my teeth.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c019-prompt-2ffdaa1c67cb96fa1c4e",
+          "id": "lesson-4-5-morning-routine-c024-prompt-407b2ade629c43181a40",
           "purpose": "prompt",
           "text": "I brush my teeth.",
           "mode": "prompt",
@@ -1006,7 +1286,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c019-answer-21f1d81a4c00db84c9bc",
+          "id": "lesson-4-5-morning-routine-c024-answer-f7b4976c6ecfabb76fb1",
           "purpose": "answer",
           "text": "I brush my teeth.",
           "mode": "prompt",
@@ -1020,84 +1300,30 @@
       ]
     },
     {
-      "slide_id": "N4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "ana-breakfast-2",
-      "options": [
-        {
-          "id": "ana-dressed-1",
-          "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
-          "label": null
-        },
-        {
-          "id": "ana-breakfast-2",
-          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I eat breakfast.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-5-morning-routine-c020-prompt-102307e25e6e5817db45",
-          "purpose": "prompt",
-          "text": "I eat breakfast.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-5-morning-routine-c020-answer-57628f5d0c93acb3a212",
-          "purpose": "answer",
-          "text": "I eat breakfast.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N5",
+      "slide_id": "A8",
       "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "ana-dressed-3",
+      "correct_option_id": "i-get-dressed-a8",
       "options": [
         {
-          "id": "ana-breakfast-1",
-          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "label": null
-        },
-        {
-          "id": "ana-wash-face-2",
+          "id": "i-wash-my-face-a8",
           "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "label": null
         },
         {
-          "id": "ana-dressed-3",
+          "id": "i-get-dressed-a8",
           "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
           "label": null
         },
         {
-          "id": "ana-wake-4",
-          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "id": "i-eat-breakfast-a8",
+          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+          "label": null
+        },
+        {
+          "id": "i-brush-my-teeth-a8",
+          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "label": null
         }
       ],
@@ -1105,14 +1331,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
+      "pedagogy_note": "Story beat 08: I get dressed.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c021-prompt-b8c1f421f2c8e097f950",
+          "id": "lesson-4-5-morning-routine-c025-prompt-4391a988f1c0c34b8385",
           "purpose": "prompt",
           "text": "I get dressed.",
           "mode": "prompt",
@@ -1124,7 +1350,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c021-answer-95f4a3a9d477df64575d",
+          "id": "lesson-4-5-morning-routine-c025-answer-2c84c685a461142df53a",
           "purpose": "answer",
           "text": "I get dressed.",
           "mode": "prompt",
@@ -1138,54 +1364,59 @@
       ]
     },
     {
-      "slide_id": "N6",
-      "interaction_type": "a2t2",
+      "slide_id": "A9",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-is-a-bed-in-the-bedroom-2",
+      "correct_option_id": "i-eat-breakfast-in-the-morning-a9",
       "options": [
         {
-          "id": "there-are-two-chairs-in-the-dining-room-1",
+          "id": "i-get-dressed-in-the-morning-a9",
           "image_url": "",
-          "label": "There are two chairs in the dining room."
+          "label": "I get dressed in the morning."
         },
         {
-          "id": "there-is-a-bed-in-the-bedroom-2",
+          "id": "i-wash-my-face-in-the-morning-a9",
           "image_url": "",
-          "label": "There is a bed in the bedroom."
+          "label": "I wash my face in the morning."
+        },
+        {
+          "id": "i-eat-breakfast-in-the-morning-a9",
+          "image_url": "",
+          "label": "I eat breakfast in the morning."
         }
       ],
-      "audio_text": "There is a bed in the bedroom.",
+      "audio_text": "I eat breakfast in the morning.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "4.4 review",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 09: I eat breakfast in the morning.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c022-prompt-17c5d176604a78f29bbe",
+          "id": "lesson-4-5-morning-routine-c026-prompt-0890b3eca51b3e8324ed",
           "purpose": "prompt",
-          "text": "There is a bed in the bedroom.",
+          "text": "I eat breakfast in the morning.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:08435c5f93b838f23893",
+          "image_ref": "text-only:97809d9dbde4968d6aa9",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c022-answer-489164250b97093a5565",
+          "id": "lesson-4-5-morning-routine-c026-answer-927fa8d9bdd2efd897b5",
           "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
+          "text": "I eat breakfast in the morning.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:08435c5f93b838f23893",
+          "image_ref": "text-only:97809d9dbde4968d6aa9",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1193,46 +1424,46 @@
     },
     {
       "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "I wake up.",
+      "interaction_type": "speak",
+      "prompt": "Brush my teeth",
       "stage": "Speak",
-      "correct_option_id": "i-wake-up-1",
+      "correct_option_id": "brush-my-teeth-speak",
       "options": [
         {
-          "id": "i-wake-up-1",
-          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
-          "label": "I wake up."
+          "id": "brush-my-teeth-speak",
+          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "label": "Brush my teeth"
         }
       ],
-      "audio_text": "I wake up.",
+      "audio_text": "Brush my teeth",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me despierto.",
-      "pedagogy_note": "routine chunk",
+      "spanish_translation": "Cepillarme los dientes",
+      "pedagogy_note": "Story beat 01: Brush my teeth",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c023-prompt-f06420afb79dd0a8634d",
+          "id": "lesson-4-5-morning-routine-c027-prompt-48ad50275662cee00c79",
           "purpose": "prompt",
-          "text": "I wake up.",
+          "text": "Brush my teeth",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c023-answer-7d3afb1094b81e69f812",
+          "id": "lesson-4-5-morning-routine-c027-answer-14966e75e50ab412fcbd",
           "purpose": "answer",
-          "text": "I wake up.",
+          "text": "Brush my teeth",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1242,48 +1473,48 @@
     },
     {
       "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "I wash my face.",
+      "interaction_type": "speak",
+      "prompt": "Eat breakfast",
       "stage": "Speak",
-      "correct_option_id": "i-wash-my-face-1",
+      "correct_option_id": "eat-breakfast-speak",
       "options": [
         {
-          "id": "i-wash-my-face-1",
-          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
-          "label": "I wash my face."
+          "id": "eat-breakfast-speak",
+          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+          "label": "Eat breakfast"
         }
       ],
-      "audio_text": "I wash my face.",
+      "audio_text": "Eat breakfast",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me lavo la cara.",
-      "pedagogy_note": "routine chunk",
-      "audio_speaker": "ana",
+      "spanish_translation": "Desayunar",
+      "pedagogy_note": "Story beat 02: Eat breakfast",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c024-prompt-074319cea2ffc1d778a3",
+          "id": "lesson-4-5-morning-routine-c028-prompt-7e768c4b859e6d7b421b",
           "purpose": "prompt",
-          "text": "I wash my face.",
+          "text": "Eat breakfast",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c024-answer-ae1e44b35fc462f13f3c",
+          "id": "lesson-4-5-morning-routine-c028-answer-1450e5ac8d40bbc53f15",
           "purpose": "answer",
-          "text": "I wash my face.",
+          "text": "Eat breakfast",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1291,48 +1522,48 @@
     },
     {
       "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "I brush my teeth.",
+      "interaction_type": "speak",
+      "prompt": "In the morning",
       "stage": "Speak",
-      "correct_option_id": "i-brush-my-teeth-1",
+      "correct_option_id": "in-the-morning-speak",
       "options": [
         {
-          "id": "i-brush-my-teeth-1",
-          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
-          "label": "I brush my teeth."
+          "id": "in-the-morning-speak",
+          "image_url": "/lesson-assets/a1_scene_morning_45a21e4.webp",
+          "label": "In the morning"
         }
       ],
-      "audio_text": "I brush my teeth.",
+      "audio_text": "In the morning",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me cepillo los dientes.",
-      "pedagogy_note": "routine chunk",
-      "audio_speaker": "ana",
+      "spanish_translation": "En la ma\u00f1ana",
+      "pedagogy_note": "Story beat 03: In the morning",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c025-prompt-b3f24f16a354b77f8a0c",
+          "id": "lesson-4-5-morning-routine-c029-prompt-227b66563786e5876c77",
           "purpose": "prompt",
-          "text": "I brush my teeth.",
+          "text": "In the morning",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "image_ref": "/lesson-assets/a1_scene_morning_45a21e4.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c025-answer-9e190b674858019da717",
+          "id": "lesson-4-5-morning-routine-c029-answer-4c2ddaaa34857c8cfa43",
           "purpose": "answer",
-          "text": "I brush my teeth.",
+          "text": "In the morning",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "image_ref": "/lesson-assets/a1_scene_morning_45a21e4.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1340,46 +1571,46 @@
     },
     {
       "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "I eat breakfast.",
+      "interaction_type": "speak",
+      "prompt": "I wake up.",
       "stage": "Speak",
-      "correct_option_id": "i-eat-breakfast-1",
+      "correct_option_id": "i-wake-up-speak",
       "options": [
         {
-          "id": "i-eat-breakfast-1",
-          "image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "label": "I eat breakfast."
+          "id": "i-wake-up-speak",
+          "image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
+          "label": "I wake up."
         }
       ],
-      "audio_text": "I eat breakfast.",
+      "audio_text": "I wake up.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Desayuno.",
-      "pedagogy_note": "routine chunk",
+      "spanish_translation": "Me despierto.",
+      "pedagogy_note": "Story beat 04: I wake up.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c026-prompt-aa8ad2d45c14f3f72003",
+          "id": "lesson-4-5-morning-routine-c030-prompt-cdfe0e73a6d261c55d2b",
           "purpose": "prompt",
-          "text": "I eat breakfast.",
+          "text": "I wake up.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c026-answer-5a29ea159af615839c7f",
+          "id": "lesson-4-5-morning-routine-c030-answer-b5050a30af062bbfc350",
           "purpose": "answer",
-          "text": "I eat breakfast.",
+          "text": "I wake up.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1389,46 +1620,46 @@
     },
     {
       "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "I get dressed.",
+      "interaction_type": "speak",
+      "prompt": "I wash my face.",
       "stage": "Speak",
-      "correct_option_id": "i-get-dressed-1",
+      "correct_option_id": "i-wash-my-face-speak",
       "options": [
         {
-          "id": "i-get-dressed-1",
-          "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
-          "label": "I get dressed."
+          "id": "i-wash-my-face-speak",
+          "image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+          "label": "I wash my face."
         }
       ],
-      "audio_text": "I get dressed.",
+      "audio_text": "I wash my face.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me visto.",
-      "pedagogy_note": "routine chunk",
+      "spanish_translation": "Me lavo la cara.",
+      "pedagogy_note": "Story beat 05: I wash my face.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c027-prompt-5c1b7d77f6bd87eabd28",
+          "id": "lesson-4-5-morning-routine-c031-prompt-2734cdb013bab9f92849",
           "purpose": "prompt",
-          "text": "I get dressed.",
+          "text": "I wash my face.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c027-answer-2f288bf7ae2482ae59d2",
+          "id": "lesson-4-5-morning-routine-c031-answer-c3e3b1754232e0dc9904",
           "purpose": "answer",
-          "text": "I get dressed.",
+          "text": "I wash my face.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1438,13 +1669,13 @@
     },
     {
       "slide_id": "S6",
-      "interaction_type": "repeat",
+      "interaction_type": "speak",
       "prompt": "I eat breakfast in the morning.",
       "stage": "Speak",
-      "correct_option_id": "i-eat-breakfast-in-the-morning-1",
+      "correct_option_id": "i-eat-breakfast-in-the-morning-speak",
       "options": [
         {
-          "id": "i-eat-breakfast-in-the-morning-1",
+          "id": "i-eat-breakfast-in-the-morning-speak",
           "image_url": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
           "label": "I eat breakfast in the morning."
         }
@@ -1453,14 +1684,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Desayuno en la ma\u00f1ana.",
-      "pedagogy_note": "time anchor",
+      "pedagogy_note": "Story beat 06: I eat breakfast in the morning.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c028-prompt-eccfa6b738210f7dcb30",
+          "id": "lesson-4-5-morning-routine-c032-prompt-d5bd59b8613bd6d256e0",
           "purpose": "prompt",
           "text": "I eat breakfast in the morning.",
           "mode": "pronunciation_slow",
@@ -1472,12 +1703,110 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c028-answer-6b8c5823418b8999656b",
+          "id": "lesson-4-5-morning-routine-c032-answer-d40097e8a8fc4c99bdb5",
           "purpose": "answer",
           "text": "I eat breakfast in the morning.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "I brush my teeth in the bathroom.",
+      "stage": "Speak",
+      "correct_option_id": "i-brush-my-teeth-in-the-bathroom-speak",
+      "options": [
+        {
+          "id": "i-brush-my-teeth-in-the-bathroom-speak",
+          "image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "label": "I brush my teeth in the bathroom."
+        }
+      ],
+      "audio_text": "I brush my teeth in the bathroom.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me cepillo los dientes en el ba\u00f1o.",
+      "pedagogy_note": "Story beat 07: I brush my teeth in the bathroom.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c033-prompt-b63764c467a87e3fae42",
+          "purpose": "prompt",
+          "text": "I brush my teeth in the bathroom.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c033-answer-6514e400a7e452c0e1ce",
+          "purpose": "answer",
+          "text": "I brush my teeth in the bathroom.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "I get dressed in the bedroom.",
+      "stage": "Speak",
+      "correct_option_id": "i-get-dressed-in-the-bedroom-speak",
+      "options": [
+        {
+          "id": "i-get-dressed-in-the-bedroom-speak",
+          "image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "label": "I get dressed in the bedroom."
+        }
+      ],
+      "audio_text": "I get dressed in the bedroom.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me visto en el dormitorio.",
+      "pedagogy_note": "Story beat 08: I get dressed in the bedroom.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c034-prompt-bcd7b70d1435f6d30afa",
+          "purpose": "prompt",
+          "text": "I get dressed in the bedroom.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c034-answer-376279d90b117cec93da",
+          "purpose": "answer",
+          "text": "I get dressed in the bedroom.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1510,15 +1839,15 @@
       "audio_text": "I wake up.",
       "answer_audio_text": "I wake up.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-wake_d91086e.webp",
-      "spanish_translation": "Yo me despierto.",
-      "pedagogy_note": "routine chunk",
+      "spanish_translation": "Me despierto.",
+      "pedagogy_note": "Story beat 01: I wake up.",
       "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c029-prompt-24d59f35ad8baaacfb89",
+          "id": "lesson-4-5-morning-routine-c035-prompt-1d350f828ea35e50d2bd",
           "purpose": "prompt",
           "text": "I wake up.",
           "mode": "prompt",
@@ -1530,7 +1859,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c029-answer-515ba3aa53dd244bf989",
+          "id": "lesson-4-5-morning-routine-c035-answer-2cbd761cfefb06e3e2f6",
           "purpose": "answer",
           "text": "I wake up.",
           "mode": "prompt",
@@ -1546,54 +1875,54 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "I wash ___ ___.",
       "stage": "Use",
-      "correct_option_id": "get",
+      "correct_option_id": "my",
       "correct_option_ids": [
-        "get",
-        "dressed"
+        "my",
+        "face"
       ],
       "options": [
         {
-          "id": "get",
+          "id": "my",
           "image_url": "",
-          "label": "get"
+          "label": "my"
         },
         {
-          "id": "dressed",
+          "id": "face",
           "image_url": "",
-          "label": "dressed"
+          "label": "face"
         }
       ],
-      "audio_text": "I get dressed.",
-      "answer_audio_text": "I get dressed.",
-      "prompt_image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
-      "spanish_translation": "Yo me visto.",
-      "pedagogy_note": "routine chunk",
+      "audio_text": "I wash my face.",
+      "answer_audio_text": "I wash my face.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
+      "spanish_translation": "Me lavo la cara.",
+      "pedagogy_note": "Story beat 02: I wash my face.",
       "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c030-prompt-144a1c941f3980d0320b",
+          "id": "lesson-4-5-morning-routine-c036-prompt-e350505b9d5bb7728f17",
           "purpose": "prompt",
-          "text": "I get dressed.",
+          "text": "I wash my face.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c030-answer-79b5d9a986f96a3fe973",
+          "id": "lesson-4-5-morning-routine-c036-answer-d2626a722fe05441facd",
           "purpose": "answer",
-          "text": "I get dressed.",
+          "text": "I wash my face.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1603,6 +1932,64 @@
     },
     {
       "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "I brush ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "my",
+      "correct_option_ids": [
+        "my",
+        "teeth"
+      ],
+      "options": [
+        {
+          "id": "my",
+          "image_url": "",
+          "label": "my"
+        },
+        {
+          "id": "teeth",
+          "image_url": "",
+          "label": "teeth"
+        }
+      ],
+      "audio_text": "I brush my teeth.",
+      "answer_audio_text": "I brush my teeth.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "spanish_translation": "Me cepillo los dientes.",
+      "pedagogy_note": "Story beat 03: I brush my teeth.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c037-prompt-6032676480a1bb0d5696",
+          "purpose": "prompt",
+          "text": "I brush my teeth.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c037-answer-ddec68f5d8071b31ef20",
+          "purpose": "answer",
+          "text": "I brush my teeth.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "I ___ ___.",
       "stage": "Use",
@@ -1626,15 +2013,15 @@
       "audio_text": "I eat breakfast.",
       "answer_audio_text": "I eat breakfast.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-      "spanish_translation": "Yo desayuno.",
-      "pedagogy_note": "routine chunk",
+      "spanish_translation": "Desayuno.",
+      "pedagogy_note": "Story beat 04: I eat breakfast.",
       "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c031-prompt-e91d3c33e66bcb598ba7",
+          "id": "lesson-4-5-morning-routine-c038-prompt-41d5a353dc15a45563d3",
           "purpose": "prompt",
           "text": "I eat breakfast.",
           "mode": "prompt",
@@ -1646,82 +2033,12 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c031-answer-d38a357d048363e57d0f",
+          "id": "lesson-4-5-morning-routine-c038-answer-deb68897ee702002e889",
           "purpose": "answer",
           "text": "I eat breakfast.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana-breakfast_e7fbea5.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "wash"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "my"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "face"
-        }
-      ],
-      "audio_text": "I wash my face.",
-      "answer_audio_text": "I wash my face.",
-      "prompt_image_url": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
-      "spanish_translation": "Yo me lavo la cara.",
-      "pedagogy_note": "routine chunk",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-5-morning-routine-c032-prompt-a174aa9b9c261bc3ce95",
-          "purpose": "prompt",
-          "text": "I wash my face.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-5-morning-routine-c032-answer-6cddb5976c8094161b94",
-          "purpose": "answer",
-          "text": "I wash my face.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-wash-face_4ea6c79.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1732,66 +2049,60 @@
     {
       "slide_id": "U5",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3",
-        "word-4"
+        "word-3"
       ],
       "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "get"
+        },
         {
           "id": "word-1",
           "image_url": "",
           "label": "I"
         },
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "brush"
-        },
-        {
           "id": "word-3",
           "image_url": "",
-          "label": "my"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "teeth"
+          "label": "dressed"
         }
       ],
-      "audio_text": "I brush my teeth.",
-      "answer_audio_text": "I brush my teeth.",
-      "prompt_image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
-      "spanish_translation": "Yo me cepillo los dientes.",
-      "pedagogy_note": "routine chunk",
+      "audio_text": "I get dressed.",
+      "answer_audio_text": "I get dressed.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+      "spanish_translation": "Me visto.",
+      "pedagogy_note": "Story beat 05: I get dressed.",
       "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c033-prompt-6e55dda2158a44cb3069",
+          "id": "lesson-4-5-morning-routine-c039-prompt-49c91ee56f125aa65017",
           "purpose": "prompt",
-          "text": "I brush my teeth.",
+          "text": "I get dressed.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c033-answer-ae30006af614bd32c704",
+          "id": "lesson-4-5-morning-routine-c039-answer-822af443e449f83cae17",
           "purpose": "answer",
-          "text": "I brush my teeth.",
+          "text": "I get dressed.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1801,6 +2112,88 @@
     },
     {
       "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "eat"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "in"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "morning"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "breakfast"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "I eat breakfast in the morning.",
+      "answer_audio_text": "I eat breakfast in the morning.",
+      "prompt_image_url": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
+      "spanish_translation": "Desayuno en la ma\u00f1ana.",
+      "pedagogy_note": "Story beat 06: I eat breakfast in the morning.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c040-prompt-09d1c4555981fe3116fd",
+          "purpose": "prompt",
+          "text": "I eat breakfast in the morning.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c040-answer-fc17ee21299099cf5850",
+          "purpose": "answer",
+          "text": "I eat breakfast in the morning.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_breakfast-morning_e501f0d.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -1816,29 +2209,14 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "There"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
+          "label": "brush"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "bed"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "in"
+          "label": "teeth"
         },
         {
           "id": "word-6",
@@ -1846,42 +2224,139 @@
           "label": "the"
         },
         {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "my"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "in"
+        },
+        {
           "id": "word-7",
           "image_url": "",
-          "label": "bedroom"
+          "label": "bathroom"
         }
       ],
-      "audio_text": "There is a bed in the bedroom.",
-      "answer_audio_text": "There is a bed in the bedroom.",
-      "prompt_image_url": "/lesson-assets/a1_bedroom.webp",
-      "spanish_translation": "Hay una cama en el dormitorio.",
-      "pedagogy_note": "4.4 review",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "I brush my teeth in the bathroom.",
+      "answer_audio_text": "I brush my teeth in the bathroom.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "spanish_translation": "Me cepillo los dientes en el ba\u00f1o.",
+      "pedagogy_note": "Story beat 07: I brush my teeth in the bathroom.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-5-morning-routine-c034-prompt-b82680e7eaba1b0e342d",
+          "id": "lesson-4-5-morning-routine-c041-prompt-91742e872c1da0f88ee2",
           "purpose": "prompt",
-          "text": "There is a bed in the bedroom.",
+          "text": "I brush my teeth in the bathroom.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-5-morning-routine-c034-answer-8c96aec86f8d3e113fd3",
+          "id": "lesson-4-5-morning-routine-c041-answer-a56e8534869d5656b17a",
           "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
+          "text": "I brush my teeth in the bathroom.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bedroom.webp",
+          "image_ref": "/lesson-assets/a1_scene_ana-brush-teeth_d6ccad2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "get"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "in"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "bedroom"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "dressed"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "I get dressed in the bedroom.",
+      "answer_audio_text": "I get dressed in the bedroom.",
+      "prompt_image_url": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+      "spanish_translation": "Me visto en el dormitorio.",
+      "pedagogy_note": "Story beat 08: I get dressed in the bedroom.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-5-morning-routine-c042-prompt-25ce2dd803033f8548a3",
+          "purpose": "prompt",
+          "text": "I get dressed in the bedroom.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-5-morning-routine-c042-answer-d150d3caadba72bb2f3f",
+          "purpose": "answer",
+          "text": "I get dressed in the bedroom.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_ana-dressed_5135d82.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

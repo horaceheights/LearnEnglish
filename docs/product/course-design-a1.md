@@ -152,29 +152,37 @@ Lesson 3.10 `Cenas cruzadas` is a 13-beat community dinner mission in five chapt
 
 ### Unit 4: Home and Daily Life
 
-Goal: Identify rooms and home objects, locate them, and describe a supported daily routine with days and whole-hour times.
+Goal: Identify rooms and home objects, say where people and things are, describe a supported daily routine, ask and answer `Do you ...?`, and say the day and whole-hour times.
 
 Lessons:
 
-1. 4.1 Rooms at Home
-2. 4.2 Furniture and Home Objects
-3. 4.3 Where Things Are
-4. 4.4 There Is and There Are
-5. 4.5 Morning Routine
-6. 4.6 Everyday Verbs
-7. 4.7 Simple Present
-8. 4.8 Days and Time: `Monday` through `Sunday`, `today`, `afternoon`, `night`, `o'clock`, `on`, `at`; teaches the days of the week alongside `Today is [Day].` calendar sentences with photorealistic daylight desk-planner stills.
-9. 4.9 Unit 4 Review
-10. 4.10 My Day Mission
+1. 4.1 Rooms at Home: `home`, `kitchen`, `bedroom`, `bathroom`, `living room`, `dining room`; `The grandmother is in the kitchen.`
+2. 4.2 Furniture and Home Objects: `bed`, `sofa`, `lamp`, `door`, `window`, `computer`; `Is it a door? Yes, it is.`
+3. 4.3 Where Things Are: `in`, `on`, `under`, `next to`, `Where is it?`
+4. 4.4 There Is and There Are: `there is`, `there are`; `There are nine cars.`
+5. 4.5 Morning Routine: `wake up`, `wash my face`, `brush my teeth`, `eat breakfast`, `get dressed`, `in the morning`
+6. 4.6 Everyday Verbs: `go to school`, `go to work`, `study English`, `work`, `come home`, `sleep`
+7. 4.7 Every Day, First, and Then: `every day`, `first`, `then`
+8. 4.8 Do You...?: `Do you ...?`, `Yes, I do.`, `No, I do not.`
+9. 4.9 Days of the Week: `Monday`–`Sunday`, `today`; `What day is it today? Today is Tuesday.`
+10. 4.10 What Time Is It?: `What time is it?`, `o'clock`, `afternoon`, `night`, `at`
+11. 4.11 Unit 4 Review
+12. 4.12 Un día en casa
 
 Core patterns:
 
-- `The book is on the table.`
-- `There are two chairs in the kitchen.`
+- `The grandmother is in the kitchen.`
+- `Where is it? It is on the table.`
+- `There are two chairs in the dining room.`
 - `I wake up in the morning.`
-- `We study every day.`
+- `We study English every day.`
+- `Do you work? No, I do not.`
 - `Today is Tuesday.`
 - `It is seven o'clock.`
+
+**2026-09-26 rebuild (engine briefs).** Unit 4 was re-authored through the content engine from the briefs in `docs/product/content-briefs/unit-4/`. Seven of eight lessons were short of the 40–42 card standard, 4.5 declared ten items and the old 4.8 Days and Time thirteen (the problem the new-language budget names), days were practised two or three times and no day came back later, 31 Learn cards re-taught known frames, and the review and mission asked `What time is it?`, `What do you do ...?` and `When do you ...?` before `time`, `do` or `when` had been taught. Every teaching lesson now has 42 cards, and its Learn cards hold only its new vocabulary. The old 4.8 splits in two: **4.9 Days of the Week** keeps its ID (`lesson-4-8-days-and-time`) and teaches the seven days and `today` on matching desk-calendar pages with `What day is it today? / Today is ...`; the new **4.10 What Time Is It?** (`lesson-4-what-time-is-it`) teaches the question, `o'clock`, `afternoon`, `night` and `at` on clock cards that change only the hour (eleven and twelve bring the Unit 3 numbers back). The new **4.8 Do You...?** (`lesson-4-do-you-questions`) keeps the Unit 3 decision that `Do you ...?` waits for Unit 4: Luis asks Ana about her routine at a café and she answers `Yes, I do.` or `No, I do not.`; a `No` answer is only offered as text beside its `Yes` pair, and no bank offers another question's `No` answer, because that is true of almost any picture. Practice reuses what learners know: Unit 1 family members in the rooms (`The adults are in the living room.`), the Unit 2 counting photos with `There are ...`, the rooms again in the routine (`I brush my teeth in the bathroom.`), and `First/Then` choices that keep the connector and change the action, because one photo cannot show order. Unit 4 now has 12 lessons (review 4.11, mission 4.12). The review (54 cards) adds family members in rooms, `Today is Saturday.`, `Do you brush your teeth? Yes, I do.`, `Do you go to work?`, `It is twelve o'clock.` and `There are two cars.` on fresh photos; the mission's last two voice gates now ask `Do you wake up in the morning?` (`Yes, I do.`) and `What day is it today?` (`Today is Monday.`). Lesson IDs are unchanged, so learner progress survives.
+
+Before that rebuild, one lesson (4.8 Days and Time) taught `Monday` through `Sunday`, `today`, `afternoon`, `night`, `o'clock`, `on` and `at` on desk-planner stills; its days now live in 4.9 and its times in 4.10.
 
 ### Unit 5: Food, Drinks, and Shopping
 

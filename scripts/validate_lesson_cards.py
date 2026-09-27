@@ -142,7 +142,7 @@ SEMANTIC_ASSET_NEGATIVE_ACTIONS = {
     "girl_is_reading": {"sleeping"},
     "family_babies": {"sleeping"},
 }
-OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country"})
+OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country", "room"})
 SEMANTIC_RELATED_GROUP_MARKERS = (
     "family_adults",
     "family_babies",
@@ -1073,6 +1073,12 @@ def _semantic_details(text: str) -> frozenset[str]:
             details.add(('not:' if negated else '') + 'country:' + country.replace(' ', '-'))
         if not re.search(r"\bfrom\b", lowered) and re.search(rf"\b{country}\b", lowered):
             details.add('country:' + country.replace(' ', '-'))
+    # Rooms (Unit 4). A picture names its room in its filename (grandmother_kitchen,
+    # adults_living_room); a sentence places someone "in the kitchen" or names the room.
+    rooms = ('kitchen', 'bedroom', 'bathroom', 'living room', 'dining room')
+    placed = [room for room in rooms if re.search(rf"\bin the {room}\b", lowered)]
+    for room in placed or [room for room in rooms if re.search(rf"\b{room}\b", lowered)]:
+        details.add('room:' + room.replace(' ', '-'))
     if tokens & {'want', 'wants'}:
         details.add('predicate:want')
     if tokens & {'need', 'needs'}:
