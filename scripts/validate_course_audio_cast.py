@@ -278,25 +278,56 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "female-character", "U5"),
         ("answer_audio_speaker", "male-character", "R4 R10 R11 U8"),
     ],
+    # Unit 6 was rebuilt through the content engine on 2026-09-27: each brief names who says every
+    # line (the pictured traveller, the woman asking for help and the man she asks, or the crossing
+    # guard), neutral narration alternates the teacher and the co-teacher, and these pins are
+    # regenerated from the installed lessons.
+    "lesson-6-1-buildings-and-services": [
+        ("audio_speaker", "co-teacher", "L2 L4 A1 A3 A5 A7 A9 S2 S4 S6 S8 U1 U3 U5 U7 U9"),
+        ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 U1 U3 U5 U7 U9"),
+    ],
     "lesson-6-2-transportation": [
-        ("audio_speaker", "female-character", "L8 S6"),
-        ("audio_speaker", "male-character", "L4 L6 R4 R7 S2 S4 U1-U3"),
-        ("answer_audio_speaker", "female-character", "R6"),
+        ("audio_speaker", "co-teacher", "L2 R1 A1 A10 S2 S9 U8"),
+        ("audio_speaker", "female-character", "R3 R5 R7 A3 A5 A7 A8 S3 S5 S6 U1 U3 U5 U9"),
+        ("audio_speaker", "male-character", "A4 A6 A9 S4 S7 U2 U4 U6"),
+        ("answer_audio_speaker", "co-teacher", "R10 U8"),
+        ("answer_audio_speaker", "female-character", "R8 U1 U3 U5 U9"),
+        ("answer_audio_speaker", "male-character", "R4 R6 R9 U2 U4 U6"),
+    ],
+    "lesson-6-3-where-is-it": [
+        ("audio_speaker", "co-teacher", "L2 R8 R10 A2 A4 A6 A8 A10 S2 S4 S6 S8 U1 U3 U5 U7 U9"),
+        ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 R12 U1 U3 U5 U7 U9"),
+    ],
+    "lesson-6-4-location-words": [
+        ("audio_speaker", "co-teacher", "L2 R8 A2 A4 A6 A8 A10 S2 S4 S6 S8 U1 U3 U5 U7 U9"),
+        ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 R12 U1 U3 U5 U7 U9"),
+    ],
+    "lesson-6-5-simple-directions": [
+        ("audio_speaker", "co-teacher", "L2 L4 R1 R3 R5 R7 R9 R11 A2 A4 A6 A8 S1 S3 S5 S7 S9 U2 U4 U6 U8"),
+        ("answer_audio_speaker", "co-teacher", "U2 U4 U6 U8"),
     ],
     "lesson-6-6-can-and-cannot": [
-        ("audio_speaker", "male-character", "L2 R2 A2 S2 U2"),
+        ("audio_speaker", "co-teacher", "L2 A2 A6 A8 S4 S6 U4 U6"),
+        ("audio_speaker", "female-character", "A3 A9 A10 S1 S7 S8 S9 U1 U7 U8"),
+        ("audio_speaker", "male-character", "A4 S2 U2 U9"),
+        ("answer_audio_speaker", "co-teacher", "R2 R6 R8 U4 U6"),
+        ("answer_audio_speaker", "female-character", "R3 R9 R10 R11 U1 U7 U8"),
+        ("answer_audio_speaker", "male-character", "R4 R12 U2 U9"),
     ],
     "lesson-6-7-simple-requests": [
-        ("audio_speaker", "female-character", "L4 S4"),
-        ("audio_speaker", "male-character", "L3 R1 R4 A1 A3 S3 U7"),
-        ("answer_audio_speaker", "male-character", "R8"),
+        ("audio_speaker", "female-character", "L1 L2 L3 R1 R3 A1 A2 A3 A4 A7 A10 S1 S2 S3 S4 S7 S9 U1 U2 U3 U5 U6 U7 U9"),
+        ("audio_speaker", "male-character", "A8 S8 U4 U8"),
+        ("answer_audio_speaker", "female-character", "R2 R4 R7 R10 U1 U2 U3 U5 U6 U7 U9"),
+        ("answer_audio_speaker", "male-character", "R8 U4 U8"),
+    ],
+    "lesson-6-8-schedules": [
+        ("audio_speaker", "co-teacher", "L2 A2 A4 A6 A8 A10 S2 S4 S6 S8 U1 U3 U5 U7 U9"),
+        ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 R12 U1 U3 U5 U7 U9"),
     ],
     "lesson-6-9-unit-6-review": [
-        # Rebuilt review: every spoken first-person or exchange line matches the person in its
-        # picture, and the picture-free listening banks alternate two ordinary voices.
         ("audio_speaker", "female-character", "N2 N6 N10 N13 S5 U1 U4"),
         ("audio_speaker", "male-character", "N9 N14 S1 S4 U6"),
-        ("answer_audio_speaker", "male-character", "R2 R7 U6"),
+        ("answer_audio_speaker", "male-character", "R2 R7 R10 U6"),
     ],
     "lesson-7-1-the-body": [
         ("audio_speaker", "male-character", "L1-L8 R1-R4 A1-A5 S1-S6 U1-U6"),

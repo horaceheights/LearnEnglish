@@ -1,0 +1,155 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 6 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds the five directions; the aerial route photos practise them alone and in pairs (Go straight. Turn right.), and a crossing guard and a waiting man show crossing and stopping.",
+  "target": "backend/lessons/unit_6/lesson-6-5-simple-directions.yaml",
+  "lesson": {
+    "id": "lesson-6-5-simple-directions",
+    "title": "6.5 Simple Directions",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.5",
+    "sub_lesson_title": "Simple Directions",
+    "goal": "Understand and give five short directions: go straight, turn left, turn right, cross the street and stop.",
+    "vocabulary": [
+      "Go straight.",
+      "Turn left.",
+      "Turn right.",
+      "Cross the street.",
+      "Stop."
+    ],
+    "review_vocabulary": [
+      "go",
+      "left",
+      "right",
+      "street",
+      "the",
+      "at",
+      "hospital",
+      "bank"
+    ],
+    "grammar_function": "Imperatives: Go straight. Turn right. Cross the street. Stop at the bank.",
+    "prerequisite": "6.4 left and right; 2.2 street; 4.6 go.",
+    "speaking_outcome": "Give a short direction.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 9,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Go straight.",
+      "es": "Sigue derecho.",
+      "image": "a1_scene_straight-route_3aaa15e.webp",
+      "kind": "direction",
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction."
+      }
+    },
+    {
+      "text": "Turn left.",
+      "es": "Gira a la izquierda.",
+      "image": "a1_scene_left-turn-route_ab3e191.webp",
+      "kind": "direction",
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction."
+      }
+    },
+    {
+      "text": "Turn right.",
+      "es": "Gira a la derecha.",
+      "image": "a1_scene_right-turn-route_00fd21b.webp",
+      "kind": "direction",
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction."
+      }
+    },
+    {
+      "text": "Cross the street.",
+      "es": "Cruza la calle.",
+      "image": "a1_photo_u6_cross_street_v1.webp",
+      "kind": "direction",
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction."
+      }
+    },
+    {
+      "text": "Stop.",
+      "es": "Alto.",
+      "image": "a1_scene_stop_81436d8.webp",
+      "kind": "direction",
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction."
+      },
+      "use": false
+    },
+    {
+      "text": "Go straight. Turn right.",
+      "es": "Sigue derecho. Gira a la derecha.",
+      "image": "a1_scene_straight-then-right_df64e4f.webp",
+      "kind": "route",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction."
+      },
+      "prefer": [
+        "Go straight. Turn left."
+      ]
+    },
+    {
+      "text": "Go straight. Turn left.",
+      "es": "Sigue derecho. Gira a la izquierda.",
+      "image": "a1_scene_straight-then-left_428d77e.webp",
+      "kind": "route",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction."
+      },
+      "prefer": [
+        "Go straight. Turn right."
+      ]
+    },
+    {
+      "text": "Stop at the hospital.",
+      "es": "Detente en el hospital.",
+      "image": "a1_scene_crosses-and-stops-at-hospital_1f37eb9.webp",
+      "kind": "stop-at",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction.",
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "Stop at the bank."
+      ]
+    },
+    {
+      "text": "Stop at the bank.",
+      "es": "Detente en el banco.",
+      "image": "a1_scene_crosses-and-stops-at-bank_8fedf42.webp",
+      "kind": "stop-at",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Directions are instructions by nature; the bank tests only which direction.",
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "Stop at the hospital."
+      ]
+    }
+  ],
+  "pool": []
+}

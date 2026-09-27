@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d1c6dc46-875f-4054-aa7c-ca49dbb1a7ec",
+  "asset_id": "boy-near-station",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:42:12.236276+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows a boy about nine with short dark hair in a blue polo shirt (the boy on the left). Keep his face, hair and polo shirt exactly. Create a new photograph: he stands right beside the entrance of a small old train station with a pitched roof and a covered platform, close enough to touch its wall; a train waits at the platform. The camera is about five meters away at eye level, so the boy and the station building are both large in the frame, side by side. He is the only person; no readable signs or text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+    "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "1ci4arPVB6ODqtsPxYWOuAU",
+  "usage": {
+    "promptTokenCount": 560,
+    "candidatesTokenCount": 1287,
+    "totalTokenCount": 2024,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 302
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 177,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137244",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 560,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 177
+  },
+  "elapsed_seconds": 22.58,
+  "output": "output/imagegen/unit-6-lesson-v2/boy-near-station.png",
+  "sha256": "6a4b3ee783f56494558081587782c54d4285491a424041793789bb292163fe3b",
+  "byte_count": 5382114,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

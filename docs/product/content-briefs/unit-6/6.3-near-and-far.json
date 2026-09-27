@@ -1,0 +1,159 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 6 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds near and far from on the girl-and-school pair; every picture pair changes only the distance. The abstract tile diagrams that taught these words before are retired.",
+  "target": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+  "lesson": {
+    "id": "lesson-6-3-where-is-it",
+    "title": "6.3 Near and Far",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.3",
+    "sub_lesson_title": "Near and Far",
+    "goal": "Say that a person is near or far from a place, and answer Where is ...? with near or far from.",
+    "vocabulary": [
+      "near",
+      "far from"
+    ],
+    "review_vocabulary": [
+      "where",
+      "is",
+      "the",
+      "girl",
+      "boy",
+      "she",
+      "he",
+      "school",
+      "station"
+    ],
+    "grammar_function": "The girl is near the school. The boy is far from the station. Where is the girl? She is near the school.",
+    "prerequisite": "4.3 Where is it? and next to; 2.1 school; 6.1 station; 1.1 girl and boy.",
+    "speaking_outcome": "Say where someone is with near or far from.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Near",
+      "es": "Cerca de",
+      "image": "a1_photo_u6_girl_near_school_v1.webp",
+      "kind": "near-word",
+      "form": "word",
+      "accepts": {
+        "lexical-phrase": "Countable things take a or an and a bare activity word does not (A train, Walk); the bank tests only which one it is."
+      }
+    },
+    {
+      "text": "Far from",
+      "es": "Lejos de",
+      "image": "a1_photo_u6_girl_far_from_school_v1.webp",
+      "kind": "near-word",
+      "form": "word",
+      "accepts": {
+        "lexical-phrase": "Countable things take a or an and a bare activity word does not (A train, Walk); the bank tests only which one it is."
+      }
+    },
+    {
+      "text": "The girl is near the school.",
+      "es": "La niña está cerca de la escuela.",
+      "image": "a1_photo_u6_girl_near_school_v1.webp",
+      "kind": "girl-near",
+      "learn": false,
+      "prefer": [
+        "The girl is far from the school."
+      ]
+    },
+    {
+      "text": "The girl is far from the school.",
+      "es": "La niña está lejos de la escuela.",
+      "image": "a1_photo_u6_girl_far_from_school_v1.webp",
+      "kind": "girl-near",
+      "learn": false,
+      "prefer": [
+        "The girl is near the school."
+      ]
+    },
+    {
+      "text": "The boy is near the station.",
+      "es": "El niño está cerca de la estación.",
+      "image": "a1_photo_u6_boy_near_station_v1.webp",
+      "kind": "boy-near",
+      "learn": false,
+      "prefer": [
+        "The boy is far from the station."
+      ]
+    },
+    {
+      "text": "The boy is far from the station.",
+      "es": "El niño está lejos de la estación.",
+      "image": "a1_photo_u6_boy_far_from_station_v1.webp",
+      "kind": "boy-near",
+      "learn": false,
+      "prefer": [
+        "The boy is near the station."
+      ]
+    },
+    {
+      "text": "She is near the school.",
+      "es": "Está cerca de la escuela.",
+      "image": "a1_photo_u6_girl_near_school_v1.webp",
+      "kind": "she-near",
+      "learn": false,
+      "prefer": [
+        "She is far from the school."
+      ],
+      "question": "Where is the girl?",
+      "question_es": "¿Dónde está la niña?"
+    },
+    {
+      "text": "She is far from the school.",
+      "es": "Está lejos de la escuela.",
+      "image": "a1_photo_u6_girl_far_from_school_v1.webp",
+      "kind": "she-near",
+      "learn": false,
+      "prefer": [
+        "She is near the school."
+      ],
+      "question": "Where is the girl?",
+      "question_es": "¿Dónde está la niña?"
+    },
+    {
+      "text": "He is far from the station.",
+      "es": "Está lejos de la estación.",
+      "image": "a1_photo_u6_boy_far_from_station_v1.webp",
+      "kind": "he-near",
+      "learn": false,
+      "prefer": [
+        "He is near the station."
+      ],
+      "question": "Where is the boy?",
+      "question_es": "¿Dónde está el niño?"
+    },
+    {
+      "text": "He is near the station.",
+      "es": "Está cerca de la estación.",
+      "image": "a1_photo_u6_boy_near_station_v1.webp",
+      "kind": "he-near",
+      "learn": false,
+      "prefer": [
+        "He is far from the station."
+      ],
+      "question": "Where is the boy?",
+      "question_es": "¿Dónde está el niño?"
+    }
+  ],
+  "pool": []
+}

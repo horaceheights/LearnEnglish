@@ -228,7 +228,7 @@ class LessonStructureTests(unittest.TestCase):
                     # The reviewed rebuilds follow the comprehensive-review
                     # exception in course-design-a1.md; pin their intentional size.
                     # The 2026-09-25 Unit 3 and 2026-09-26 Unit 4 and Unit 5 reviews add six cards for their new language.
-                    self.assertEqual(len(lesson.cards), 54 if lesson.unit_id in ("unit-3", "unit-4", "unit-5") else 48)
+                    self.assertEqual(len(lesson.cards), 54 if lesson.unit_id in ("unit-3", "unit-4", "unit-5", "unit-6") else 48)
                 else:
                     # 40-42 is the 2026-09-23 standard; units not yet rebuilt stay shorter.
                     self.assertLessEqual(len(lesson.cards), 42)

@@ -1,0 +1,231 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 6 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Store and hospital were taught in 2.1, so Learn holds only the four new places and the known places are wrong options. The Unit 1 family is shown at each new place; its text choices change only the place.",
+  "target": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+  "lesson": {
+    "id": "lesson-6-1-buildings-and-services",
+    "title": "6.1 Buildings and Services",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.1",
+    "sub_lesson_title": "Buildings and Services",
+    "goal": "Recognize and name a station, a bank, a pharmacy and a library, and say which place a family member is at.",
+    "vocabulary": [
+      "station",
+      "bank",
+      "pharmacy",
+      "library"
+    ],
+    "review_vocabulary": [
+      "a",
+      "it",
+      "is",
+      "are",
+      "the",
+      "at",
+      "in",
+      "store",
+      "hospital",
+      "school",
+      "park",
+      "kitchen",
+      "children",
+      "mother",
+      "father",
+      "grandfather"
+    ],
+    "grammar_function": "It is a bank. The mother is at the pharmacy. The children are in the library.",
+    "prerequisite": "2.1 places; 1.4-1.6 family words; 4.1 and 4.3 in; 4.10 at.",
+    "speaking_outcome": "Name a place in town and say who is there.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "A station",
+      "es": "Una estación",
+      "image": "a1_station.webp",
+      "kind": "place-word"
+    },
+    {
+      "text": "A bank",
+      "es": "Un banco",
+      "image": "a1_photo_u6_bank_central_v1.webp",
+      "kind": "place-word"
+    },
+    {
+      "text": "A pharmacy",
+      "es": "Una farmacia",
+      "image": "a1_pharmacy.webp",
+      "kind": "place-word"
+    },
+    {
+      "text": "A library",
+      "es": "Una biblioteca",
+      "image": "a1_library.webp",
+      "kind": "place-word"
+    },
+    {
+      "text": "It is a bank.",
+      "es": "Es un banco.",
+      "image": "a1_photo_u6_bank_central_v1.webp",
+      "kind": "it-is-place",
+      "learn": false
+    },
+    {
+      "text": "It is a pharmacy.",
+      "es": "Es una farmacia.",
+      "image": "a1_pharmacy.webp",
+      "kind": "it-is-place",
+      "learn": false
+    },
+    {
+      "text": "It is a library.",
+      "es": "Es una biblioteca.",
+      "image": "a1_library.webp",
+      "kind": "it-is-place",
+      "learn": false
+    },
+    {
+      "text": "It is a station.",
+      "es": "Es una estación.",
+      "image": "a1_station.webp",
+      "kind": "it-is-place",
+      "learn": false
+    },
+    {
+      "text": "The children are in the library.",
+      "es": "Los niños están en la biblioteca.",
+      "image": "a1_photo_u6_children_in_library_v1.webp",
+      "kind": "children-place",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The children are in the kitchen.",
+        "The children are in the park."
+      ]
+    },
+    {
+      "text": "The mother is at the pharmacy.",
+      "es": "La madre está en la farmacia.",
+      "image": "a1_photo_u6_mother_at_pharmacy_v1.webp",
+      "kind": "mother-place",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The mother is at the bank.",
+        "The mother is at the station."
+      ]
+    },
+    {
+      "text": "The grandfather is at the bank.",
+      "es": "El abuelo está en el banco.",
+      "image": "a1_photo_u6_grandfather_at_bank_v1.webp",
+      "kind": "grandfather-place",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The grandfather is at the pharmacy.",
+        "The grandfather is at the library."
+      ]
+    },
+    {
+      "text": "The father is at the station.",
+      "es": "El padre está en la estación.",
+      "image": "a1_photo_u6_father_at_station_v1.webp",
+      "kind": "father-place",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The father is at the bank.",
+        "The father is at the school."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "A store",
+      "es": "Una tienda",
+      "kind": "place-word",
+      "image": "a1_photo_u6_store_v1.webp"
+    },
+    {
+      "text": "A hospital",
+      "es": "Un hospital",
+      "kind": "place-word",
+      "image": "a1_photo_u6_hospital_central_v1.webp"
+    },
+    {
+      "text": "A school",
+      "es": "Una escuela",
+      "kind": "place-word",
+      "image": "a1_school.webp"
+    },
+    {
+      "text": "It is a store.",
+      "es": "Es una tienda.",
+      "kind": "it-is-place",
+      "image": "a1_photo_u6_store_v1.webp"
+    },
+    {
+      "text": "It is a hospital.",
+      "es": "Es un hospital.",
+      "kind": "it-is-place",
+      "image": "a1_photo_u6_hospital_central_v1.webp"
+    },
+    {
+      "text": "The children are in the kitchen.",
+      "es": "Los niños están en la cocina.",
+      "kind": "children-place"
+    },
+    {
+      "text": "The children are in the park.",
+      "es": "Los niños están en el parque.",
+      "kind": "children-place"
+    },
+    {
+      "text": "The mother is at the bank.",
+      "es": "La madre está en el banco.",
+      "kind": "mother-place"
+    },
+    {
+      "text": "The mother is at the station.",
+      "es": "La madre está en la estación.",
+      "kind": "mother-place"
+    },
+    {
+      "text": "The grandfather is at the pharmacy.",
+      "es": "El abuelo está en la farmacia.",
+      "kind": "grandfather-place"
+    },
+    {
+      "text": "The grandfather is at the library.",
+      "es": "El abuelo está en la biblioteca.",
+      "kind": "grandfather-place"
+    },
+    {
+      "text": "The father is at the bank.",
+      "es": "El padre está en el banco.",
+      "kind": "father-place"
+    },
+    {
+      "text": "The father is at the school.",
+      "es": "El padre está en la escuela.",
+      "kind": "father-place"
+    }
+  ]
+}

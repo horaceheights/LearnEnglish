@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ea09fe87-9d8b-4a50-94ee-8dce7048b037",
+  "asset_id": "man-points-left-back",
+  "pack_sha256": "bca2718a7706d4bf0f2d6bc4f28c96545b0b45cf7062567649bae102a27c1619",
+  "started_at": "2026-09-27T07:48:39.142064+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows Luis (right: short dark curly hair, navy T-shirt). Keep his hair, build and navy T-shirt. Create a new photograph at a quiet town crossroads, seen from BEHIND Luis: he stands in the middle of the frame with his BACK to the camera, facing a street that splits to the left and to the right. He stretches his LEFT arm straight out to the LEFT side of the photo, pointing with his index finger, and turns his head to the left so his face is seen in profile. His right arm hangs down at his side. His shoulders, both arms and the pointing hand are fully inside the photo, and the pointing arm stands out clearly against the street behind it. No other people, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_age-luis-asks-ana_132f348.webp",
+    "sha256": "132f348df57f67d68510934a43da8bf96c0c3617d6ba650c026e52965dd33fef"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "WMq4ar-CEt3pz7IPvI2kuA4",
+  "usage": {
+    "promptTokenCount": 599,
+    "candidatesTokenCount": 1323,
+    "totalTokenCount": 2101,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 341
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 179,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137346",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 599,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 179
+  },
+  "elapsed_seconds": 23.02,
+  "output": "output/imagegen/unit-6-lesson-v2/man-points-left-back.png",
+  "sha256": "757dd97901ee7af91c6f8533d6d1a00577d9cf8ad3bb819e5ece0bc80fba2724",
+  "byte_count": 4976944,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

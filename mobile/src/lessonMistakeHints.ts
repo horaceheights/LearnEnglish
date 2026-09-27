@@ -184,6 +184,12 @@ const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   'does not understand': 'alguien que no entiende',
   'hobbies music': 'gusto por escuchar música',
   'wakes morning': 'despertarse por la mañana',
+  // Unit 6 asking for help: each caption-free picture names the request it shows.
+  'excuse me': 'llamar la atención con cortesía', 'can you help me': 'pedir ayuda',
+  'sorry no': 'decir que no con cortesía',
+  // Unit 6 directions: each caption-free route picture names the direction it shows.
+  stop: 'detenerse', 'cross the street': 'cruzar la calle', 'go straight': 'seguir recto',
+  'turn left': 'girar a la izquierda', 'turn right': 'girar a la derecha',
   // Unit 5 review contrasts: each caption-free pair names what its picture shows.
   'likes fish': 'gusto por el pescado', 'dislikes fish': 'rechazo al pescado',
   'dislikes bananas': 'rechazo a los plátanos', 'dislikes milk': 'rechazo a la leche',
@@ -226,6 +232,7 @@ const CHOICE_CONCEPTS: Record<string, string> = {
   'can you help me': 'una petición de ayuda', 'coffee please': 'un pedido de café',
   'coffee please no thank you': 'café y un rechazo', 'coffee please thank you': 'café y agradecimiento',
   'cross the street': 'cruzar la calle', 'cross the street stop': 'cruzar la calle y detenerse',
+  'go straight': 'seguir recto', 'turn left': 'girar a la izquierda', 'turn right': 'girar a la derecha',
   'go straight turn right': 'seguir recto y girar a la derecha',
   'go straight turn left': 'seguir recto y girar a la izquierda',
   'i cannot walk there': 'no poder caminar hasta allá',

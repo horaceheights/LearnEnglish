@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "a2299ddb-2196-4d82-a8b8-2487984c76b6",
+  "asset_id": "man-points-right",
+  "pack_sha256": "bca2718a7706d4bf0f2d6bc4f28c96545b0b45cf7062567649bae102a27c1619",
+  "started_at": "2026-09-27T07:51:28.993035+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Luis, still seen from behind, now lowers his LEFT arm to his side and instead stretches his RIGHT arm straight out to the RIGHT side of the photo, pointing with his index finger, and turns his head to the right so his face is seen in profile. Keep his hair, clothes, the crossroads, the light and the camera identical. No other changes, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-6-lesson-v2/man-points-left-back.png",
+    "sha256": "757dd97901ee7af91c6f8533d6d1a00577d9cf8ad3bb819e5ece0bc80fba2724"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "BMu4ap-vD_-Cz7IP9768oQ0",
+  "usage": {
+    "promptTokenCount": 342,
+    "candidatesTokenCount": 1267,
+    "totalTokenCount": 1780,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 84
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 171,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136736",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 342,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 171
+  },
+  "elapsed_seconds": 25.79,
+  "output": "output/imagegen/unit-6-lesson-v2/man-points-right.png",
+  "sha256": "2e5def355914b2478ea82b1f8fa9b50c884678438d9a9893b70818c161a5798f",
+  "byte_count": 4938322,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "919b2827-33ec-4266-8fe0-445ff96b038a",
+  "asset_id": "girl-near-school",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:41:46.373294+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA calm, clean neighborhood in a mid-sized town on a sunny morning, eye-level photograph. Buildings are recognizable by their shape and one clear symbol only: a pharmacy by a large plain green cross above its door; a bank by a stone front with columns and an ATM beside the door; a school by a low brick building with a playground fence and children's backpacks; a train station by its platform, tracks and a waiting train. No readable signs, no other shop fronts competing for attention, no traffic.\n\nImage 1 shows a girl about seven with long dark hair in a lilac T-shirt (the girl on the right). Keep her face, hair and T-shirt exactly; she now wears a school backpack. Create a new photograph: she stands right beside the front gate of a low brick school building with a playground fence, one hand touching the gate, close enough to touch the school. The camera is about five meters away at eye level, so the girl and the school entrance are both large in the frame, side by side. She is the only person; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+    "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "vMi4asukEP2dz7IPnZDluAM",
+  "usage": {
+    "promptTokenCount": 668,
+    "candidatesTokenCount": 1307,
+    "totalTokenCount": 2183,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 410
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 208,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137832",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 668,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 208
+  },
+  "elapsed_seconds": 24.36,
+  "output": "output/imagegen/unit-6-lesson-v2/girl-near-school.png",
+  "sha256": "db218ac88cc029d0ae5542a7edb526b9e976746ec367da47191e2d4933b3f41d",
+  "byte_count": 5364926,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -4,37 +4,67 @@
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Ask where a familiar place is, understand simple directions, and use familiar transportation and schedule language.",
+  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.2",
   "sub_lesson_title": "Transportation",
-  "goal": "Use familiar and new transport words in I go by... sentences.",
+  "goal": "Recognize a train and a taxi, say how I go with by, and say that I walk.",
   "vocabulary": [
     "train",
     "taxi",
+    "walk",
     "by"
   ],
   "review_vocabulary": [
+    "I",
+    "they",
+    "the",
+    "go",
+    "go to work",
+    "go to school",
     "bus",
     "car",
     "bike",
-    "walking",
-    "go",
-    "I",
-    "station",
-    "street"
+    "children"
   ],
-  "grammar_function": "I go by + bus/train/car/bike/taxi; I walk.",
-  "prerequisite": "2.2 Streets and Transportation introduced bus, car, bike; 4.6 Everyday Verbs introduced go; 6.1 station.",
-  "speaking_outcome": "Say five transport-mode sentences and I walk.",
+  "grammar_function": "I go by bus. I go to work by train. The children walk to school.",
+  "prerequisite": "2.2 bus, car and bike; 4.6 go to school and go to work; 1.4 children.",
+  "speaking_outcome": "Say how I go to work or school.",
   "purposeful_review_slides": [
-    "Learn:L3",
-    "Learn:L5",
-    "Learn:L6",
-    "Learn:L8",
-    "Recognize:R8",
-    "Listen:A6"
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U8",
+    "U9"
   ],
   "cards": [
     {
@@ -42,10 +72,10 @@
       "interaction_type": "teach",
       "prompt": "A train",
       "stage": "Learn",
-      "correct_option_id": "a-train-1",
+      "correct_option_id": "a-train-learn",
       "options": [
         {
-          "id": "a-train-1",
+          "id": "a-train-learn",
           "image_url": "/lesson-assets/a1_train.webp",
           "label": "A train"
         }
@@ -54,7 +84,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un tren",
-      "pedagogy_note": "New vehicle.",
+      "pedagogy_note": "Story beat 01: A train",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -91,10 +121,10 @@
       "interaction_type": "teach",
       "prompt": "A taxi",
       "stage": "Learn",
-      "correct_option_id": "a-taxi-1",
+      "correct_option_id": "a-taxi-learn",
       "options": [
         {
-          "id": "a-taxi-1",
+          "id": "a-taxi-learn",
           "image_url": "/lesson-assets/a1_taxi.webp",
           "label": "A taxi"
         }
@@ -103,33 +133,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un taxi",
-      "pedagogy_note": "New vehicle.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: A taxi",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c002-prompt-151bfa86df69341ec731",
+          "id": "lesson-6-2-transportation-c002-prompt-a9576ad3616392e9207f",
           "purpose": "prompt",
           "text": "A taxi",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_taxi.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c002-answer-8110e40ed64b42c450d2",
+          "id": "lesson-6-2-transportation-c002-answer-b11a26b0dd8bab175f10",
           "purpose": "answer",
           "text": "A taxi",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_taxi.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -138,292 +168,47 @@
     {
       "slide_id": "L3",
       "interaction_type": "teach",
-      "prompt": "I go by bus.",
+      "prompt": "Walk",
       "stage": "Learn",
-      "correct_option_id": "i-go-by-bus-1",
+      "correct_option_id": "walk-learn",
       "options": [
         {
-          "id": "i-go-by-bus-1",
-          "image_url": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
-          "label": "I go by bus."
-        }
-      ],
-      "audio_text": "I go by bus.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en autob\u00fas.",
-      "pedagogy_note": "Introduces by transport chunk using review noun.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-2-transportation-c003-prompt-7f25af699e8dcb031c37",
-          "purpose": "prompt",
-          "text": "I go by bus.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c003-answer-4b234d5ee5c06f568ac4",
-          "purpose": "answer",
-          "text": "I go by bus.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "I go by train.",
-      "stage": "Learn",
-      "correct_option_id": "i-go-by-train-1",
-      "options": [
-        {
-          "id": "i-go-by-train-1",
-          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-          "label": "I go by train."
-        }
-      ],
-      "audio_text": "I go by train.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en tren.",
-      "pedagogy_note": "New train in pattern.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-2-transportation-c004-prompt-c32609a9cc2834688f96",
-          "purpose": "prompt",
-          "text": "I go by train.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c004-answer-69841e5fc7ad87efa906",
-          "purpose": "answer",
-          "text": "I go by train.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L5",
-      "interaction_type": "teach",
-      "prompt": "I go by car.",
-      "stage": "Learn",
-      "correct_option_id": "i-go-by-car-1",
-      "options": [
-        {
-          "id": "i-go-by-car-1",
-          "image_url": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
-          "label": "I go by car."
-        }
-      ],
-      "audio_text": "I go by car.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en carro.",
-      "pedagogy_note": "Purposeful Unit 2 review.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-2-transportation-c005-prompt-6e8be5f82470343f6558",
-          "purpose": "prompt",
-          "text": "I go by car.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c005-answer-69f7dde3d4d757059b03",
-          "purpose": "answer",
-          "text": "I go by car.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L6",
-      "interaction_type": "teach",
-      "prompt": "I go by bike.",
-      "stage": "Learn",
-      "correct_option_id": "i-go-by-bike-1",
-      "options": [
-        {
-          "id": "i-go-by-bike-1",
-          "image_url": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
-          "label": "I go by bike."
-        }
-      ],
-      "audio_text": "I go by bike.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en bicicleta.",
-      "pedagogy_note": "Purposeful review.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-2-transportation-c006-prompt-ee771f17c15752192f62",
-          "purpose": "prompt",
-          "text": "I go by bike.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c006-answer-267c37e9f452d1d81dbd",
-          "purpose": "answer",
-          "text": "I go by bike.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "I go by taxi.",
-      "stage": "Learn",
-      "correct_option_id": "i-go-by-taxi-1",
-      "options": [
-        {
-          "id": "i-go-by-taxi-1",
-          "image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
-          "label": "I go by taxi."
-        }
-      ],
-      "audio_text": "I go by taxi.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en taxi.",
-      "pedagogy_note": "New taxi in pattern.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-2-transportation-c007-prompt-e8aff0a4202310dfaa2e",
-          "purpose": "prompt",
-          "text": "I go by taxi.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c007-answer-6a945fc47f02fb231033",
-          "purpose": "answer",
-          "text": "I go by taxi.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "I walk.",
-      "stage": "Learn",
-      "correct_option_id": "i-walk-1",
-      "options": [
-        {
-          "id": "i-walk-1",
+          "id": "walk-learn",
           "image_url": "/lesson-assets/a1_scene_i-walk_b4cf763.webp",
-          "label": "I walk."
+          "label": "Walk"
         }
       ],
-      "audio_text": "I walk.",
+      "audio_text": "Walk",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Camino.",
-      "pedagogy_note": "Purposeful Unit 1/4 review; does not introduce on foot.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Caminar",
+      "pedagogy_note": "Story beat 03: Walk",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c008-prompt-8c41b30a42d11d6bace5",
+          "id": "lesson-6-2-transportation-c003-prompt-34b47f388ba8f35a6559",
           "purpose": "prompt",
-          "text": "I walk.",
+          "text": "Walk",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_i-walk_b4cf763.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c008-answer-c8eb28088a1fd45d79a3",
+          "id": "lesson-6-2-transportation-c003-answer-993e79f2be843517f50b",
           "purpose": "answer",
-          "text": "I walk.",
+          "text": "Walk",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_i-walk_b4cf763.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -431,18 +216,18 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "A train",
       "stage": "Recognize",
-      "correct_option_id": "train-2",
+      "correct_option_id": "a-train-r1",
       "options": [
         {
-          "id": "bus-1",
-          "image_url": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
+          "id": "a-taxi-r1",
+          "image_url": "/lesson-assets/a1_taxi.webp",
           "label": null
         },
         {
-          "id": "train-2",
+          "id": "a-train-r1",
           "image_url": "/lesson-assets/a1_train.webp",
           "label": null
         }
@@ -451,33 +236,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un tren",
-      "pedagogy_note": "First new/review contrast.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 01: A train",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c009-prompt-ebc469f0f7b009c11663",
+          "id": "lesson-6-2-transportation-c004-prompt-860d69fdb2fe9d989e44",
           "purpose": "prompt",
           "text": "A train",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_train.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c009-answer-ae16f009b79b03ef3c8d",
+          "id": "lesson-6-2-transportation-c004-answer-d691a36a568e6f71e857",
           "purpose": "answer",
           "text": "A train",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_train.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -485,46 +270,34 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "A taxi",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "taxi-2",
+      "correct_option_id": "a-taxi-r2",
       "options": [
         {
-          "id": "car-1",
-          "image_url": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
-          "label": null
+          "id": "a-train-r2",
+          "image_url": "",
+          "label": "A train"
         },
         {
-          "id": "taxi-2",
-          "image_url": "/lesson-assets/a1_taxi.webp",
-          "label": null
+          "id": "a-taxi-r2",
+          "image_url": "",
+          "label": "A taxi"
         }
       ],
-      "audio_text": "A taxi",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un taxi",
-      "pedagogy_note": "Taxi cue explicit.",
+      "audio_text": "",
+      "answer_audio_text": "A taxi",
+      "prompt_image_url": "/lesson-assets/a1_taxi.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: A taxi",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c010-prompt-0a3721d3bc324d8532d8",
-          "purpose": "prompt",
-          "text": "A taxi",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_taxi.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c010-answer-0d5928c32acc8b46f6f7",
+          "id": "lesson-6-2-transportation-c005-answer-e83e1c096c5c801caa78",
           "purpose": "answer",
           "text": "A taxi",
           "mode": "prompt",
@@ -539,19 +312,19 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "I go by bus.",
       "stage": "Recognize",
-      "correct_option_id": "goes-by-bus-2",
+      "correct_option_id": "i-go-by-bus-r3",
       "options": [
         {
-          "id": "goes-by-train-1",
-          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "id": "i-go-by-bus-r3",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "label": null
         },
         {
-          "id": "goes-by-bus-2",
-          "image_url": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
+          "id": "i-go-by-train-r3",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
           "label": null
         }
       ],
@@ -559,33 +332,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Voy en autob\u00fas.",
-      "pedagogy_note": "Transport decides.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 03: I go by bus.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c011-prompt-25d70ebe0ac424c41a90",
+          "id": "lesson-6-2-transportation-c006-prompt-177631a78a85f23091e8",
           "purpose": "prompt",
           "text": "I go by bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c011-answer-c612ea55729c5e3212e0",
+          "id": "lesson-6-2-transportation-c006-answer-39b3179fb351528ae1ad",
           "purpose": "answer",
           "text": "I go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -593,51 +366,39 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "I go by bike.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "goes-by-bike-2",
+      "correct_option_id": "i-go-by-train-r4",
       "options": [
         {
-          "id": "walks-1",
-          "image_url": "/lesson-assets/a1_scene_walks_125feda.webp",
-          "label": null
+          "id": "i-go-by-bus-r4",
+          "image_url": "",
+          "label": "I go by bus."
         },
         {
-          "id": "goes-by-bike-2",
-          "image_url": "/lesson-assets/a1_scene_goes-by-bike_8f7cced.webp",
-          "label": null
+          "id": "i-go-by-train-r4",
+          "image_url": "",
+          "label": "I go by train."
         }
       ],
-      "audio_text": "I go by bike.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en bicicleta.",
-      "pedagogy_note": "Exact action contrast.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "I go by train.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: I go by train.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c012-prompt-41793086574710a04e3e",
-          "purpose": "prompt",
-          "text": "I go by bike.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bike_8f7cced.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c012-answer-f95aa261ebbd50e981f9",
+          "id": "lesson-6-2-transportation-c007-answer-035f1e95c135f149081d",
           "purpose": "answer",
-          "text": "I go by bike.",
+          "text": "I go by train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bike_8f7cced.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -647,41 +408,53 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "recognize-text",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "I go by car.",
       "stage": "Recognize",
-      "correct_option_id": "i-go-by-taxi-2",
+      "correct_option_id": "i-go-by-car-r5",
       "options": [
         {
-          "id": "i-go-by-car-1",
-          "image_url": "",
-          "label": "I go by car."
+          "id": "i-go-by-taxi-r5",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "label": null
         },
         {
-          "id": "i-go-by-taxi-2",
-          "image_url": "",
-          "label": "I go by taxi."
+          "id": "i-go-by-car-r5",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I go by taxi.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Image-to-text.",
-      "audio_speaker": null,
+      "audio_text": "I go by car.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Voy en carro.",
+      "pedagogy_note": "Story beat 05: I go by car.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c013-answer-8d3f2a4680728fd878b6",
+          "id": "lesson-6-2-transportation-c008-prompt-ff86d081c2665e0e9e6a",
+          "purpose": "prompt",
+          "text": "I go by car.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c008-answer-8068c3cb2935a42e1390",
           "purpose": "answer",
-          "text": "I go by taxi.",
+          "text": "I go by car.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -689,34 +462,145 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-walk-2",
+      "correct_option_id": "i-go-by-bike-r6",
       "options": [
         {
-          "id": "i-go-by-bike-1",
+          "id": "i-go-by-taxi-r6",
+          "image_url": "",
+          "label": "I go by taxi."
+        },
+        {
+          "id": "i-go-by-bike-r6",
           "image_url": "",
           "label": "I go by bike."
         },
         {
-          "id": "i-walk-2",
+          "id": "i-go-by-car-r6",
+          "image_url": "",
+          "label": "I go by car."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I go by bike.",
+      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: I go by bike.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c009-answer-ba4435e1f53fcb76138f",
+          "purpose": "answer",
+          "text": "I go by bike.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i4",
+      "prompt": "I go by taxi.",
+      "stage": "Recognize",
+      "correct_option_id": "i-go-by-taxi-r7",
+      "options": [
+        {
+          "id": "i-go-by-bike-r7",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+          "label": null
+        },
+        {
+          "id": "i-go-by-train-r7",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "label": null
+        },
+        {
+          "id": "i-go-by-taxi-r7",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "label": null
+        },
+        {
+          "id": "i-go-by-car-r7",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I go by taxi.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Voy en taxi.",
+      "pedagogy_note": "Story beat 07: I go by taxi.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c010-prompt-238c4dc4f0a8cf5f1ce7",
+          "purpose": "prompt",
+          "text": "I go by taxi.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c010-answer-81cb3fc34c0a7279d469",
+          "purpose": "answer",
+          "text": "I go by taxi.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-walk-r8",
+      "options": [
+        {
+          "id": "i-walk-r8",
           "image_url": "",
           "label": "I walk."
+        },
+        {
+          "id": "i-go-by-bike-r8",
+          "image_url": "",
+          "label": "I go by bike."
         }
       ],
       "audio_text": "",
       "answer_audio_text": "I walk.",
       "prompt_image_url": "/lesson-assets/a1_scene_i-walk_b4cf763.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Image-to-text.",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: I walk.",
       "audio_speaker": null,
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c014-answer-c7523af7e96abfde418f",
+          "id": "lesson-6-2-transportation-c011-answer-fc307837ff168e949f1f",
           "purpose": "answer",
           "text": "I walk.",
           "mode": "prompt",
@@ -730,59 +614,42 @@
       ]
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "recognize-image",
-      "prompt": "I go by train.",
+      "slide_id": "R9",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "goes-by-train-3",
+      "correct_option_id": "i-go-to-work-by-train-r9",
       "options": [
         {
-          "id": "goes-by-bus-1",
-          "image_url": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
-          "label": null
+          "id": "i-go-to-work-by-taxi-r9",
+          "image_url": "",
+          "label": "I go to work by taxi."
         },
         {
-          "id": "goes-by-taxi-2",
-          "image_url": "/lesson-assets/a1_scene_goes-by-taxi_19b09d5.webp",
-          "label": null
+          "id": "i-go-to-work-by-train-r9",
+          "image_url": "",
+          "label": "I go to work by train."
         },
         {
-          "id": "goes-by-train-3",
-          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-          "label": null
-        },
-        {
-          "id": "goes-by-car-4",
-          "image_url": "/lesson-assets/a1_scene_goes-by-car_9de6eb4.webp",
-          "label": null
+          "id": "i-go-to-work-by-bus-r9",
+          "image_url": "",
+          "label": "I go to work by bus."
         }
       ],
-      "audio_text": "I go by train.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en tren.",
-      "pedagogy_note": "Four-choice after all patterns.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "I go to work by train.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: I go to work by train.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c015-prompt-ad8c9907315863471d8f",
-          "purpose": "prompt",
-          "text": "I go by train.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c015-answer-5ea64710bd26eebe84da",
+          "id": "lesson-6-2-transportation-c012-answer-2a863acbbbe23065a734",
           "purpose": "answer",
-          "text": "I go by train.",
+          "text": "I go to work by train.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
@@ -794,40 +661,94 @@
       ]
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "they-go-by-bus-1",
+      "correct_option_id": "they-go-to-school-by-bus-r10",
       "options": [
         {
-          "id": "they-go-by-bus-1",
+          "id": "they-go-to-school-by-bus-r10",
           "image_url": "",
-          "label": "They go by bus."
+          "label": "They go to school by bus."
         },
         {
-          "id": "they-goes-by-bus-2",
+          "id": "the-children-walk-to-school-r10",
           "image_url": "",
-          "label": "They goes by bus."
+          "label": "The children walk to school."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "They go by bus.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_pair_boards_bus_v1.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Reviews plural simple present; invalid form is text only.",
+      "answer_audio_text": "They go to school by bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: They go to school by bus.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c013-answer-ab67e3a72101de3efaec",
+          "purpose": "answer",
+          "text": "They go to school by bus.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "t2i2",
+      "prompt": "The children walk to school.",
+      "stage": "Recognize",
+      "correct_option_id": "the-children-walk-to-school-r11",
+      "options": [
+        {
+          "id": "they-go-to-school-by-bus-r11",
+          "image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "label": null
+        },
+        {
+          "id": "the-children-walk-to-school-r11",
+          "image_url": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The children walk to school.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los ni\u00f1os caminan a la escuela.",
+      "pedagogy_note": "Story beat 11: The children walk to school.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c016-answer-cd42f3598dc841bbcdb1",
+          "id": "lesson-6-2-transportation-c014-prompt-9fb11fa14fd1754d5774",
+          "purpose": "prompt",
+          "text": "The children walk to school.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c014-answer-0dc75462686d0d184af1",
           "purpose": "answer",
-          "text": "They go by bus.",
+          "text": "The children walk to school.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_bus_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -837,19 +758,19 @@
     },
     {
       "slide_id": "A1",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "train-2",
+      "correct_option_id": "a-train-a1",
       "options": [
         {
-          "id": "bus-1",
-          "image_url": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
+          "id": "a-train-a1",
+          "image_url": "/lesson-assets/a1_train.webp",
           "label": null
         },
         {
-          "id": "train-2",
-          "image_url": "/lesson-assets/a1_train.webp",
+          "id": "a-taxi-a1",
+          "image_url": "/lesson-assets/a1_taxi.webp",
           "label": null
         }
       ],
@@ -857,33 +778,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 01: A train",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c017-prompt-ba3817f46dffade6140e",
+          "id": "lesson-6-2-transportation-c015-prompt-da3abaf826360fcca9e5",
           "purpose": "prompt",
           "text": "A train",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_train.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c017-answer-03fef6f05af75ed962a7",
+          "id": "lesson-6-2-transportation-c015-answer-10e8a2f843820e5e1857",
           "purpose": "answer",
           "text": "A train",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_train.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -891,19 +812,19 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "taxi-1",
+      "correct_option_id": "a-taxi-a2",
       "options": [
         {
-          "id": "taxi-1",
+          "id": "a-taxi-a2",
           "image_url": "/lesson-assets/a1_taxi.webp",
           "label": null
         },
         {
-          "id": "car-2",
-          "image_url": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
+          "id": "a-train-a2",
+          "image_url": "/lesson-assets/a1_train.webp",
           "label": null
         }
       ],
@@ -911,14 +832,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
+      "pedagogy_note": "Story beat 02: A taxi",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c018-prompt-020d5abe9c8567204d26",
+          "id": "lesson-6-2-transportation-c016-prompt-8d7661dc0d164cb97358",
           "purpose": "prompt",
           "text": "A taxi",
           "mode": "prompt",
@@ -930,7 +851,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c018-answer-abbc0069ac5011a92cc9",
+          "id": "lesson-6-2-transportation-c016-answer-8a4d8f11b9924414e550",
           "purpose": "answer",
           "text": "A taxi",
           "mode": "prompt",
@@ -945,53 +866,53 @@
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "goes-by-bus-2",
+      "correct_option_id": "i-go-by-bus-a3",
       "options": [
         {
-          "id": "goes-by-train-1",
-          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-          "label": null
+          "id": "i-go-by-bus-a3",
+          "image_url": "",
+          "label": "I go by bus."
         },
         {
-          "id": "goes-by-bus-2",
-          "image_url": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
-          "label": null
+          "id": "i-go-by-train-a3",
+          "image_url": "",
+          "label": "I go by train."
         }
       ],
       "audio_text": "I go by bus.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Sentence listening.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 03: I go by bus.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c019-prompt-35355ca86c7caa072ef2",
+          "id": "lesson-6-2-transportation-c017-prompt-6ff3e8033c10b1fdf1ac",
           "purpose": "prompt",
           "text": "I go by bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
+          "image_ref": "text-only:adda4455f23fc7a17a09",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c019-answer-6d46e8e7ce7c5134222f",
+          "id": "lesson-6-2-transportation-c017-answer-96698e9be5c4905b5605",
           "purpose": "answer",
           "text": "I go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
+          "image_ref": "text-only:adda4455f23fc7a17a09",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -999,53 +920,53 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "walks-1",
+      "correct_option_id": "i-go-by-train-a4",
       "options": [
         {
-          "id": "walks-1",
-          "image_url": "/lesson-assets/a1_scene_walks_125feda.webp",
+          "id": "i-go-by-bus-a4",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "label": null
         },
         {
-          "id": "goes-by-bike-2",
-          "image_url": "/lesson-assets/a1_scene_goes-by-bike_8f7cced.webp",
+          "id": "i-go-by-train-a4",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "I walk.",
+      "audio_text": "I go by train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Action listening.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: I go by train.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c020-prompt-edd3baa345fc0680d23f",
+          "id": "lesson-6-2-transportation-c018-prompt-d1ee343b4f432f35d33a",
           "purpose": "prompt",
-          "text": "I walk.",
+          "text": "I go by train.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_walks_125feda.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c020-answer-10899e2de4a3aa852d56",
+          "id": "lesson-6-2-transportation-c018-answer-31e5270124be49420f55",
           "purpose": "answer",
-          "text": "I walk.",
+          "text": "I go by train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_walks_125feda.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1053,63 +974,53 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "goes-by-taxi-3",
+      "correct_option_id": "i-go-by-car-a5",
       "options": [
         {
-          "id": "goes-by-car-1",
-          "image_url": "/lesson-assets/a1_scene_goes-by-car_9de6eb4.webp",
+          "id": "i-go-by-car-a5",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
           "label": null
         },
         {
-          "id": "walks-2",
-          "image_url": "/lesson-assets/a1_scene_walks_125feda.webp",
-          "label": null
-        },
-        {
-          "id": "goes-by-taxi-3",
-          "image_url": "/lesson-assets/a1_scene_goes-by-taxi_19b09d5.webp",
-          "label": null
-        },
-        {
-          "id": "goes-by-bike-4",
-          "image_url": "/lesson-assets/a1_scene_goes-by-bike_8f7cced.webp",
+          "id": "i-go-by-taxi-a5",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "label": null
         }
       ],
-      "audio_text": "I go by taxi.",
+      "audio_text": "I go by car.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Four-choice full mode.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 05: I go by car.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c021-prompt-e884bc691983646b1eb1",
+          "id": "lesson-6-2-transportation-c019-prompt-9dc0635acb760c13937f",
           "purpose": "prompt",
-          "text": "I go by taxi.",
+          "text": "I go by car.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-taxi_19b09d5.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c021-answer-a0916fadc83d8f772dda",
+          "id": "lesson-6-2-transportation-c019-answer-fe87b0f2bdbf5ba3a582",
           "purpose": "answer",
-          "text": "I go by taxi.",
+          "text": "I go by car.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-taxi_19b09d5.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1117,58 +1028,289 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "they-go-by-train-4",
+      "correct_option_id": "i-go-by-bike-a6",
       "options": [
         {
-          "id": "they-go-by-bus-1",
+          "id": "i-go-by-bike-a6",
           "image_url": "",
-          "label": "They go by bus."
+          "label": "I go by bike."
         },
         {
-          "id": "he-goes-by-train-2",
+          "id": "i-go-by-car-a6",
           "image_url": "",
-          "label": "He goes by train."
+          "label": "I go by car."
         },
         {
-          "id": "they-go-by-train-4",
+          "id": "i-go-by-taxi-a6",
           "image_url": "",
-          "label": "They go by train."
+          "label": "I go by taxi."
         }
       ],
-      "audio_text": "They go by train.",
+      "audio_text": "I go by bike.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Purposeful pronoun/agreement review.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 06: I go by bike.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c022-prompt-e95056afd68f4bddd4db",
+          "id": "lesson-6-2-transportation-c020-prompt-90e588d2ca85bd95c05c",
           "purpose": "prompt",
-          "text": "They go by train.",
+          "text": "I go by bike.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:6d379c54be3c00b106a5",
+          "image_ref": "text-only:9864e3321c796e1260d6",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c022-answer-af47eceda3d4febf81b3",
+          "id": "lesson-6-2-transportation-c020-answer-41c16424966bfeaf776a",
           "purpose": "answer",
-          "text": "They go by train.",
+          "text": "I go by bike.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:6d379c54be3c00b106a5",
+          "image_ref": "text-only:9864e3321c796e1260d6",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-go-by-taxi-a7",
+      "options": [
+        {
+          "id": "i-go-by-train-a7",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "label": null
+        },
+        {
+          "id": "i-go-by-taxi-a7",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "label": null
+        },
+        {
+          "id": "i-go-by-car-a7",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "label": null
+        },
+        {
+          "id": "i-go-by-bike-a7",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I go by taxi.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: I go by taxi.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c021-prompt-789234a960c2368c1bc4",
+          "purpose": "prompt",
+          "text": "I go by taxi.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c021-answer-e5d8ca7f21a3fd4e06c2",
+          "purpose": "answer",
+          "text": "I go by taxi.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-walk-a8",
+      "options": [
+        {
+          "id": "i-go-by-bike-a8",
+          "image_url": "",
+          "label": "I go by bike."
+        },
+        {
+          "id": "i-walk-a8",
+          "image_url": "",
+          "label": "I walk."
+        }
+      ],
+      "audio_text": "I walk.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: I walk.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c022-prompt-cb3e0b3f4ac4fda39e86",
+          "purpose": "prompt",
+          "text": "I walk.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:4705f19c28e22bbd6789",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c022-answer-76e57ff3cf20b1323dc3",
+          "purpose": "answer",
+          "text": "I walk.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:4705f19c28e22bbd6789",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-go-to-work-by-train-a9",
+      "options": [
+        {
+          "id": "i-go-to-work-by-bus-a9",
+          "image_url": "",
+          "label": "I go to work by bus."
+        },
+        {
+          "id": "i-go-to-work-by-taxi-a9",
+          "image_url": "",
+          "label": "I go to work by taxi."
+        },
+        {
+          "id": "i-go-to-work-by-train-a9",
+          "image_url": "",
+          "label": "I go to work by train."
+        }
+      ],
+      "audio_text": "I go to work by train.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: I go to work by train.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c023-prompt-23010e8ef0469f7b325c",
+          "purpose": "prompt",
+          "text": "I go to work by train.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:8b5d03533bda5e0cdfe6",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c023-answer-4522707f8b4226480dd2",
+          "purpose": "answer",
+          "text": "I go to work by train.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:8b5d03533bda5e0cdfe6",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A10",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-children-walk-to-school-a10",
+      "options": [
+        {
+          "id": "they-go-to-school-by-bus-a10",
+          "image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "label": null
+        },
+        {
+          "id": "the-children-walk-to-school-a10",
+          "image_url": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The children walk to school.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 10: The children walk to school.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c024-prompt-8c235a88c4adcb5db28e",
+          "purpose": "prompt",
+          "text": "The children walk to school.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c024-answer-0786698b7b18f21c8a71",
+          "purpose": "answer",
+          "text": "The children walk to school.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1177,45 +1319,45 @@
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "I go by bus.",
+      "prompt": "A train",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-bus-1",
+      "correct_option_id": "a-train-speak",
       "options": [
         {
-          "id": "i-go-by-bus-1",
-          "image_url": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
-          "label": "I go by bus."
+          "id": "a-train-speak",
+          "image_url": "/lesson-assets/a1_train.webp",
+          "label": "A train"
         }
       ],
-      "audio_text": "I go by bus.",
+      "audio_text": "A train",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy en autob\u00fas.",
-      "pedagogy_note": "Complete mode sentence.",
+      "spanish_translation": "Un tren",
+      "pedagogy_note": "Story beat 01: A train",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c023-prompt-54a2fad16613ce2e2607",
+          "id": "lesson-6-2-transportation-c025-prompt-bbc4ee7bad6d02af2940",
           "purpose": "prompt",
-          "text": "I go by bus.",
+          "text": "A train",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
+          "image_ref": "/lesson-assets/a1_train.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c023-answer-7f1fdca11d1367267db5",
+          "id": "lesson-6-2-transportation-c025-answer-4758b76421fe7b09a95e",
           "purpose": "answer",
-          "text": "I go by bus.",
+          "text": "A train",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
+          "image_ref": "/lesson-assets/a1_train.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1226,47 +1368,47 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "I go by train.",
+      "prompt": "A taxi",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-train-1",
+      "correct_option_id": "a-taxi-speak",
       "options": [
         {
-          "id": "i-go-by-train-1",
-          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-          "label": "I go by train."
+          "id": "a-taxi-speak",
+          "image_url": "/lesson-assets/a1_taxi.webp",
+          "label": "A taxi"
         }
       ],
-      "audio_text": "I go by train.",
+      "audio_text": "A taxi",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy en tren.",
-      "pedagogy_note": "Complete mode sentence.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Un taxi",
+      "pedagogy_note": "Story beat 02: A taxi",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c024-prompt-447c61cbf37df19b240c",
+          "id": "lesson-6-2-transportation-c026-prompt-224a250f45ba709fdf24",
           "purpose": "prompt",
-          "text": "I go by train.",
+          "text": "A taxi",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_taxi.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c024-answer-98db6bfc3564f1f50523",
+          "id": "lesson-6-2-transportation-c026-answer-f79bdfb754fbc92233e4",
           "purpose": "answer",
-          "text": "I go by train.",
+          "text": "A taxi",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_taxi.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1275,47 +1417,47 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "I go by car.",
+      "prompt": "I go by bus.",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-car-1",
+      "correct_option_id": "i-go-by-bus-speak",
       "options": [
         {
-          "id": "i-go-by-car-1",
-          "image_url": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
-          "label": "I go by car."
+          "id": "i-go-by-bus-speak",
+          "image_url": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
+          "label": "I go by bus."
         }
       ],
-      "audio_text": "I go by car.",
+      "audio_text": "I go by bus.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy en carro.",
-      "pedagogy_note": "Complete mode sentence.",
-      "audio_speaker": null,
+      "spanish_translation": "Voy en autob\u00fas.",
+      "pedagogy_note": "Story beat 03: I go by bus.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c025-prompt-151ddb1f2961fcc9407d",
+          "id": "lesson-6-2-transportation-c027-prompt-5205dc20dbf7b57ead15",
           "purpose": "prompt",
-          "text": "I go by car.",
+          "text": "I go by bus.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c025-answer-49956a719f7c68c21a8a",
+          "id": "lesson-6-2-transportation-c027-answer-aaab3050e4b5d388e63f",
           "purpose": "answer",
-          "text": "I go by car.",
+          "text": "I go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1324,45 +1466,45 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "I go by bike.",
+      "prompt": "I go by train.",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-bike-1",
+      "correct_option_id": "i-go-by-train-speak",
       "options": [
         {
-          "id": "i-go-by-bike-1",
-          "image_url": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
-          "label": "I go by bike."
+          "id": "i-go-by-train-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "label": "I go by train."
         }
       ],
-      "audio_text": "I go by bike.",
+      "audio_text": "I go by train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy en bicicleta.",
-      "pedagogy_note": "Complete mode sentence.",
+      "spanish_translation": "Voy en tren.",
+      "pedagogy_note": "Story beat 04: I go by train.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c026-prompt-e728ac0b6255fb921368",
+          "id": "lesson-6-2-transportation-c028-prompt-97e0b858f5cb68422fc3",
           "purpose": "prompt",
-          "text": "I go by bike.",
+          "text": "I go by train.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c026-answer-247682f5bef1e8403d83",
+          "id": "lesson-6-2-transportation-c028-answer-ce666ac168a2b4fed4dc",
           "purpose": "answer",
-          "text": "I go by bike.",
+          "text": "I go by train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1375,10 +1517,10 @@
       "interaction_type": "speak",
       "prompt": "I go by taxi.",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-taxi-1",
+      "correct_option_id": "i-go-by-taxi-speak",
       "options": [
         {
-          "id": "i-go-by-taxi-1",
+          "id": "i-go-by-taxi-speak",
           "image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "label": "I go by taxi."
         }
@@ -1387,33 +1529,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Voy en taxi.",
-      "pedagogy_note": "Complete mode sentence.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 05: I go by taxi.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c027-prompt-2542d7230b26cae0aca9",
+          "id": "lesson-6-2-transportation-c029-prompt-6088fac5d92b955c0023",
           "purpose": "prompt",
           "text": "I go by taxi.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c027-answer-136536157e4f70258e69",
+          "id": "lesson-6-2-transportation-c029-answer-44470b963cb3729fa22e",
           "purpose": "answer",
           "text": "I go by taxi.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1424,10 +1566,10 @@
       "interaction_type": "speak",
       "prompt": "I walk.",
       "stage": "Speak",
-      "correct_option_id": "i-walk-1",
+      "correct_option_id": "i-walk-speak",
       "options": [
         {
-          "id": "i-walk-1",
+          "id": "i-walk-speak",
           "image_url": "/lesson-assets/a1_scene_i-walk_b4cf763.webp",
           "label": "I walk."
         }
@@ -1436,14 +1578,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Camino.",
-      "pedagogy_note": "Review target.",
+      "pedagogy_note": "Story beat 06: I walk.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c028-prompt-98635e1eaa79b47236cc",
+          "id": "lesson-6-2-transportation-c030-prompt-bbed3142dc3abde736cd",
           "purpose": "prompt",
           "text": "I walk.",
           "mode": "pronunciation_slow",
@@ -1455,7 +1597,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c028-answer-e37b0197b431b86ff8e9",
+          "id": "lesson-6-2-transportation-c030-answer-99c7dc112c34a125112b",
           "purpose": "answer",
           "text": "I walk.",
           "mode": "prompt",
@@ -1463,6 +1605,153 @@
           "image_ref": "/lesson-assets/a1_scene_i-walk_b4cf763.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "I go to work by train.",
+      "stage": "Speak",
+      "correct_option_id": "i-go-to-work-by-train-speak",
+      "options": [
+        {
+          "id": "i-go-to-work-by-train-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "label": "I go to work by train."
+        }
+      ],
+      "audio_text": "I go to work by train.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Voy al trabajo en tren.",
+      "pedagogy_note": "Story beat 07: I go to work by train.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c031-prompt-8246a2f7164fe34681af",
+          "purpose": "prompt",
+          "text": "I go to work by train.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c031-answer-f664a62d6c562be03f0d",
+          "purpose": "answer",
+          "text": "I go to work by train.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "They go to school by bus.",
+      "stage": "Speak",
+      "correct_option_id": "they-go-to-school-by-bus-speak",
+      "options": [
+        {
+          "id": "they-go-to-school-by-bus-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "label": "They go to school by bus."
+        }
+      ],
+      "audio_text": "They go to school by bus.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Van a la escuela en autob\u00fas.",
+      "pedagogy_note": "Story beat 08: They go to school by bus.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c032-prompt-fcd8a29718ce92a6d8ba",
+          "purpose": "prompt",
+          "text": "They go to school by bus.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c032-answer-1414f483b13c259bb126",
+          "purpose": "answer",
+          "text": "They go to school by bus.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "The children walk to school.",
+      "stage": "Speak",
+      "correct_option_id": "the-children-walk-to-school-speak",
+      "options": [
+        {
+          "id": "the-children-walk-to-school-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "label": "The children walk to school."
+        }
+      ],
+      "audio_text": "The children walk to school.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los ni\u00f1os caminan a la escuela.",
+      "pedagogy_note": "Story beat 09: The children walk to school.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c033-prompt-5b8bb3ae80d05b2b5df7",
+          "purpose": "prompt",
+          "text": "The children walk to school.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c033-answer-8374cdef0f635874c770",
+          "purpose": "answer",
+          "text": "The children walk to school.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1492,35 +1781,35 @@
       ],
       "audio_text": "I go by bus.",
       "answer_audio_text": "I go by bus.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_bus_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
       "spanish_translation": "Voy en autob\u00fas.",
-      "pedagogy_note": "In is known location distractor; completed audio only after choice.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "pedagogy_note": "Story beat 01: I go by bus.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c029-prompt-7b6fce7a9a109d97c443",
+          "id": "lesson-6-2-transportation-c034-prompt-00a43813e56633f4890f",
           "purpose": "prompt",
           "text": "I go by bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_bus_v1.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c029-answer-95348bab17ca82dc5e52",
+          "id": "lesson-6-2-transportation-c034-answer-5e06faf1b43765460086",
           "purpose": "answer",
           "text": "I go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_bus_v1.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1552,14 +1841,14 @@
       "answer_audio_text": "I go by train.",
       "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
       "spanish_translation": "Voy en tren.",
-      "pedagogy_note": "Vehicle selection.",
+      "pedagogy_note": "Story beat 02: I go by train.",
       "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c030-prompt-da0f6fdbf923d6b574be",
+          "id": "lesson-6-2-transportation-c035-prompt-e9c30eac7893287a0d81",
           "purpose": "prompt",
           "text": "I go by train.",
           "mode": "prompt",
@@ -1571,7 +1860,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c030-answer-1b8f93657fa5ee3ea94b",
+          "id": "lesson-6-2-transportation-c035-answer-4c9c76b6ca75de11dc8d",
           "purpose": "answer",
           "text": "I go by train.",
           "mode": "prompt",
@@ -1586,6 +1875,122 @@
     },
     {
       "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "by",
+      "correct_option_ids": [
+        "by",
+        "car"
+      ],
+      "options": [
+        {
+          "id": "by",
+          "image_url": "",
+          "label": "by"
+        },
+        {
+          "id": "car",
+          "image_url": "",
+          "label": "car"
+        }
+      ],
+      "audio_text": "I go by car.",
+      "answer_audio_text": "I go by car.",
+      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+      "spanish_translation": "Voy en carro.",
+      "pedagogy_note": "Story beat 03: I go by car.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c036-prompt-fc7ac2cdb4634240f404",
+          "purpose": "prompt",
+          "text": "I go by car.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c036-answer-21f9a86e5609c1836285",
+          "purpose": "answer",
+          "text": "I go by car.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-car_6e60b4d.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "by",
+      "correct_option_ids": [
+        "by",
+        "bike"
+      ],
+      "options": [
+        {
+          "id": "by",
+          "image_url": "",
+          "label": "by"
+        },
+        {
+          "id": "bike",
+          "image_url": "",
+          "label": "bike"
+        }
+      ],
+      "audio_text": "I go by bike.",
+      "answer_audio_text": "I go by bike.",
+      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+      "spanish_translation": "Voy en bicicleta.",
+      "pedagogy_note": "Story beat 04: I go by bike.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c037-prompt-9767829717a89f1100aa",
+          "purpose": "prompt",
+          "text": "I go by bike.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c037-answer-38300ccfedabae5a0b27",
+          "purpose": "answer",
+          "text": "I go by bike.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-bike_fb5d9bc.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U5",
       "interaction_type": "complete2",
       "prompt": "I go ___ ___.",
       "stage": "Use",
@@ -1608,163 +2013,35 @@
       ],
       "audio_text": "I go by taxi.",
       "answer_audio_text": "I go by taxi.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
       "spanish_translation": "Voy en taxi.",
-      "pedagogy_note": "Taxi cue decisive.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "pedagogy_note": "Story beat 05: I go by taxi.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c031-prompt-2ac17376d2eaaa58de2b",
+          "id": "lesson-6-2-transportation-c038-prompt-6b2bdee715cbd6e58d92",
           "purpose": "prompt",
           "text": "I go by taxi.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c031-answer-4e48bf17949faf0fa750",
+          "id": "lesson-6-2-transportation-c038-answer-b81d85d90b50c01248f6",
           "purpose": "answer",
           "text": "I go by taxi.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ],
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "walk"
-        }
-      ],
-      "audio_text": "I walk.",
-      "answer_audio_text": "I walk.",
-      "prompt_image_url": "/lesson-assets/a1_scene_walk_df06b14.webp",
-      "spanish_translation": "Camino.",
-      "pedagogy_note": "Known chunks only.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-2-transportation-c032-prompt-90e13cc74b713640a842",
-          "purpose": "prompt",
-          "text": "I walk.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_walk_df06b14.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c032-answer-669ccf71301c905d1167",
-          "purpose": "answer",
-          "text": "I walk.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_walk_df06b14.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "They"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "go"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "by"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "bus"
-        }
-      ],
-      "audio_text": "They go by bus.",
-      "answer_audio_text": "They go by bus.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_pair_boards_bus_v1.webp",
-      "spanish_translation": "Ellos van en autob\u00fas.",
-      "pedagogy_note": "Purposeful simple-present review.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-2-transportation-c033-prompt-611591ff7a9bd227ac24",
-          "purpose": "prompt",
-          "text": "They go by bus.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_bus_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-2-transportation-c033-answer-1771c08577288e3d69ba",
-          "purpose": "answer",
-          "text": "They go by bus.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_bus_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1773,6 +2050,246 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "go"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "work"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "train"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "by"
+        }
+      ],
+      "audio_text": "I go to work by train.",
+      "answer_audio_text": "I go to work by train.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+      "spanish_translation": "Voy al trabajo en tren.",
+      "pedagogy_note": "Story beat 06: I go to work by train.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c039-prompt-405ddc9bebd253b8ba7d",
+          "purpose": "prompt",
+          "text": "I go to work by train.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c039-answer-03b13fb28008ba409485",
+          "purpose": "answer",
+          "text": "I go to work by train.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "go"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "school"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "bus"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "They"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "by"
+        }
+      ],
+      "audio_text": "They go to school by bus.",
+      "answer_audio_text": "They go to school by bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+      "spanish_translation": "Van a la escuela en autob\u00fas.",
+      "pedagogy_note": "Story beat 07: They go to school by bus.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c040-prompt-7b21dc9b78f41e3134b1",
+          "purpose": "prompt",
+          "text": "They go to school by bus.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c040-answer-10cab4a864b132c6cee9",
+          "purpose": "answer",
+          "text": "They go to school by bus.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "children"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "walk"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "school"
+        }
+      ],
+      "audio_text": "The children walk to school.",
+      "answer_audio_text": "The children walk to school.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+      "spanish_translation": "Los ni\u00f1os caminan a la escuela.",
+      "pedagogy_note": "Story beat 08: The children walk to school.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-2-transportation-c041-prompt-507240a53e879ffc04d1",
+          "purpose": "prompt",
+          "text": "The children walk to school.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-2-transportation-c041-answer-371ab61998faf459f90a",
+          "purpose": "answer",
+          "text": "The children walk to school.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
@@ -1784,57 +2301,57 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "He"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "goes"
+          "label": "go"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "taxi"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
         },
         {
           "id": "word-3",
           "image_url": "",
           "label": "by"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "train"
         }
       ],
-      "audio_text": "He goes by train.",
-      "answer_audio_text": "He goes by train.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
-      "spanish_translation": "\u00c9l va en tren.",
-      "pedagogy_note": "Third-person form previously established in Unit 4 core and 5.5 agreement.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "I go by taxi.",
+      "answer_audio_text": "I go by taxi.",
+      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
+      "spanish_translation": "Voy en taxi.",
+      "pedagogy_note": "Story beat 09: I go by taxi.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c034-prompt-942dbf7c887aa5510f5e",
+          "id": "lesson-6-2-transportation-c042-prompt-bda1ddac53f6a84f1f4c",
           "purpose": "prompt",
-          "text": "He goes by train.",
+          "text": "I go by taxi.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-2-transportation-c034-answer-50e5280f7748332dab3a",
+          "id": "lesson-6-2-transportation-c042-answer-3a35385d44691205bd20",
           "purpose": "answer",
-          "text": "He goes by train.",
+          "text": "I go by taxi.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_scene_i-go-by-taxi_7e2b0b3.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

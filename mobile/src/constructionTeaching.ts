@@ -128,7 +128,7 @@ function teachClause(text: string): ClausePlan {
     if (prep) {
       const length = words(prep[1]).length;
       const nounStart = start + length;
-      const nextPrep = keys.findIndex((key, index) => index > nounStart && index < end && ['at', 'in', 'on', 'every'].includes(key));
+      const nextPrep = keys.findIndex((key, index) => index > nounStart && index < end && ['at', 'in', 'on', 'every', 'by'].includes(key));
       const nounEnd = nextPrep < 0 ? end : nextPrep;
       const location = phrase(nounStart, nounEnd);
       const relation = prep[1] === 'by' ? 'el medio de transporte'

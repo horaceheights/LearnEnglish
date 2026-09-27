@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "pack": "unit-6-rebuild-photos",
+  "revision": 1,
+  "output_namespace": "unit-6-lesson-v2",
+  "authorization": "2026-09-26: the user asked for the Units 5-7 rebuild through the content engine and approved new image creation for it (\"Units 5 to 7 rebuild with engine, new image creation approved\"). Ceiling US$5.00, the Unit 3-5 cap. Gemini is the approved image tool (2026-09-23; OpenAI credit exhausted). Revision 1 is frozen: a changed prompt is a new revision. The base of each pair is inspected at phone sizes and at the centered 4:5 crop before its partner is sent, and every rejected output is reported with its cost. These photos replace the abstract tile diagrams that taught near/far and left/right.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image; input images about $0.0011 each; Unit 5 receipts averaged about $0.138 per image)",
+    "planned_images": 20,
+    "expected_cost_usd": "2.76",
+    "requested_ceiling_usd": "5.00",
+    "no_automatic_retries": true,
+    "order": "Generate the first photo of each pair (girl near the school, boy near the station, bank on the left, man pointing left) and inspect it at 900/360/250/180 px and at the centered 4:5 crop; only then send its partner. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "town": "A calm, clean neighborhood in a mid-sized town on a sunny morning, eye-level photograph. Buildings are recognizable by their shape and one clear symbol only: a pharmacy by a large plain green cross above its door; a bank by a stone front with columns and an ATM beside the door; a school by a low brick building with a playground fence and children's backpacks; a train station by its platform, tracks and a waiting train. No readable signs, no other shop fronts competing for attention, no traffic."
+  },
+  "assets": [
+    {
+      "id": "children-library",
+      "group": "family-town",
+      "lesson": "6.1",
+      "item": "The children are in the library.",
+      "runtime_filename": "a1_photo_u6_children_in_library_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows the family's two children: a boy about nine with short dark hair in a blue polo shirt, and a girl about seven with long dark hair in a lilac T-shirt. Keep both of their faces, hair and clothes exactly. Create a new photograph inside a quiet public library: the two children sit side by side at a long wooden reading table, each reading an open picture book whose pages show only colorful shapes, no letters. Tall wooden bookshelves full of books fill the background on both sides, so the room reads instantly as a library. Both faces are visible in three-quarter view. Only these two children; no adults, no text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+        "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd",
+        "observed_description": "In a sunny garden, a boy about nine with short dark hair in a blue polo shirt and a girl about seven with long dark hair in a lilac T-shirt stand side by side smiling at the camera among potted plants."
+      }
+    },
+    {
+      "id": "mother-pharmacy",
+      "group": "family-town",
+      "lesson": "6.1",
+      "item": "The mother is at the pharmacy.",
+      "runtime_filename": "a1_photo_u6_mother_at_pharmacy_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows the mother: about forty, long wavy dark-brown hair, a rust-red blouse. Keep her face, hair and blouse exactly. Create a new photograph inside a bright neighborhood pharmacy: she stands at the white pharmacy counter, turned toward the camera at a three-quarter angle, and receives a small white paper bag from a pharmacist in a white coat behind the counter. Behind the pharmacist, white shelves hold rows of plain medicine boxes, and one large plain green cross hangs on the wall above the shelves, so the place reads instantly as a pharmacy. No text or logos on the boxes, bag or walls; no other people.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_mother_3x2.webp",
+        "sha256": "85843eafa4d6a490ca029d58a33c91d62b601e30ebede06229e1ba994146de3a",
+        "observed_description": "A smiling mother about forty with long wavy dark-brown hair, in a rust-red blouse, stands at a wooden kitchen counter with a bowl of fruit and a cutting board in front of wooden cabinets."
+      }
+    },
+    {
+      "id": "grandfather-bank",
+      "group": "family-town",
+      "lesson": "6.1",
+      "item": "The grandfather is at the bank.",
+      "runtime_filename": "a1_photo_u6_grandfather_at_bank_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "town"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows the grandfather: about seventy, short grey hair, a grey mustache, rimless glasses, an olive-green cardigan over a white shirt. Keep his face, hair, glasses and clothes exactly. Create a new photograph on the sidewalk in front of a bank: he stands at an ATM set into the bank's stone front beside tall columns, one hand on the ATM keypad, turned toward the camera at a three-quarter angle. The bank's stone front with columns and its glass door fill the background, so the building reads instantly as a bank. The ATM screen is blank and bright. He is the only person; no text or logos.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_grandfather_3x2.webp",
+        "sha256": "c8ce773241ce23e871a5badaf5a0534b26c4dbda20857d542bfc9b3ba1b17c09",
+        "observed_description": "A smiling grandfather about seventy with short grey hair, a grey mustache and rimless glasses, in an olive-green cardigan over a white shirt, sits in a dark leather armchair in front of bookshelves with his hands folded."
+      }
+    },
+    {
+      "id": "father-station",
+      "group": "family-town",
+      "lesson": "6.1",
+      "item": "The father is at the station.",
+      "runtime_filename": "a1_photo_u6_father_at_station_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows the father: about forty, short dark hair, a friendly smile, a navy button-up shirt. Keep his face, hair and shirt exactly; he now also carries a dark backpack on one shoulder. Create a new photograph on the platform of a train station: he stands on the platform beside the yellow safety line, turned toward the camera at a three-quarter angle, while a modern passenger train waits at the platform behind him with its doors open. The platform roof, the tracks and the train make the place read instantly as a train station. No readable signs, screens or text; no other people near him.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_father_3x2.webp",
+        "sha256": "445e807e6c444b5a1d6fa65f8743b11f118330d6d63098a7bd0ea18a71b78941",
+        "observed_description": "A smiling father about forty with short dark hair, in a navy button-up shirt, stands in a bright doorway of his home with one hand on the door frame and a living room behind him."
+      }
+    },
+    {
+      "id": "children-walk-school",
+      "group": "family-transport",
+      "lesson": "6.2",
+      "item": "The children walk to school.",
+      "runtime_filename": "a1_photo_u6_children_walk_to_school_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "town"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows the family's two children: a boy about nine with short dark hair in a blue polo shirt, and a girl about seven with long dark hair in a lilac T-shirt. Keep both of their faces, hair and clothes exactly; each now wears a school backpack. Create a new photograph: the two children walk side by side along a sunny sidewalk toward a low brick school building with a playground fence, a few meters ahead of them. They are clearly walking, mid-stride, seen from the front at a slight angle so both faces are visible. No cars, buses or bikes; no adults; no text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+        "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd",
+        "observed_description": "In a sunny garden, a boy about nine with short dark hair in a blue polo shirt and a girl about seven with long dark hair in a lilac T-shirt stand side by side smiling at the camera among potted plants."
+      }
+    },
+    {
+      "id": "children-school-bus",
+      "group": "family-transport",
+      "lesson": "6.2",
+      "item": "They go to school by bus.",
+      "runtime_filename": "a1_photo_u6_children_school_bus_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "children-walk-school",
+      "prompt": "Precise edit of Image 1. The school building and the sidewalk stay, but now a yellow school bus stands at the curb right beside the children with its door open, and the two children are climbing its first step, one behind the other, looking back at the camera with smiles. Keep both children, their faces, hair, clothes and backpacks. No text, numbers or logos on the bus; no adults visible."
+    },
+    {
+      "id": "girl-near-school",
+      "group": "near-far",
+      "lesson": "6.3",
+      "item": "The girl is near the school.",
+      "runtime_filename": "a1_photo_u6_girl_near_school_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center",
+        "town"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows a girl about seven with long dark hair in a lilac T-shirt (the girl on the right). Keep her face, hair and T-shirt exactly; she now wears a school backpack. Create a new photograph: she stands right beside the front gate of a low brick school building with a playground fence, one hand touching the gate, close enough to touch the school. The camera is about five meters away at eye level, so the girl and the school entrance are both large in the frame, side by side. She is the only person; no text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+        "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd",
+        "observed_description": "In a sunny garden, a boy about nine with short dark hair in a blue polo shirt and a girl about seven with long dark hair in a lilac T-shirt stand side by side smiling at the camera among potted plants."
+      }
+    },
+    {
+      "id": "girl-far-from-school",
+      "group": "near-far",
+      "lesson": "6.3",
+      "item": "The girl is far from the school.",
+      "runtime_filename": "a1_photo_u6_girl_far_from_school_v1.webp",
+      "shared": [
+        "photo",
+        "town"
+      ],
+      "four_card": true,
+      "reference": "girl-near-school",
+      "prompt": "Image 1 shows a girl in a lilac T-shirt with a school backpack beside a brick school. Keep the same girl, her face, hair, clothes and backpack, and the same school building. Create a new photograph from a different spot: the girl stands in the foreground, large and close to the camera, on a long straight country path through open green fields, and the same low brick school building is very small and far away at the end of the path, near the horizon. The long empty distance between the girl and the tiny school is obvious. She is the only person; no text."
+    },
+    {
+      "id": "boy-near-station",
+      "group": "near-far",
+      "lesson": "6.3",
+      "item": "The boy is near the station.",
+      "runtime_filename": "a1_photo_u6_boy_near_station_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows a boy about nine with short dark hair in a blue polo shirt (the boy on the left). Keep his face, hair and polo shirt exactly. Create a new photograph: he stands right beside the entrance of a small old train station with a pitched roof and a covered platform, close enough to touch its wall; a train waits at the platform. The camera is about five meters away at eye level, so the boy and the station building are both large in the frame, side by side. He is the only person; no readable signs or text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+        "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd",
+        "observed_description": "In a sunny garden, a boy about nine with short dark hair in a blue polo shirt and a girl about seven with long dark hair in a lilac T-shirt stand side by side smiling at the camera among potted plants."
+      }
+    },
+    {
+      "id": "boy-far-from-station",
+      "group": "near-far",
+      "lesson": "6.3",
+      "item": "The boy is far from the station.",
+      "runtime_filename": "a1_photo_u6_boy_far_from_station_v1.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "reference": "boy-near-station",
+      "prompt": "Image 1 shows a boy in a blue polo shirt beside a small train station. Keep the same boy, his face, hair and clothes, and the same station building and train. Create a new photograph from a different spot: the boy stands in the foreground, large and close to the camera, on a hill of green grass, and the same small station with its train is very small and far away in the valley below, near the horizon. The long distance between the boy and the tiny station is obvious. He is the only person; no text."
+    },
+    {
+      "id": "bank-left",
+      "group": "left-right",
+      "lesson": "6.4",
+      "item": "The bank is on the left. The pharmacy is on the right.",
+      "runtime_filename": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
+      "shared": [
+        "photo",
+        "town"
+      ],
+      "four_card": false,
+      "prompt": "Looking straight down the middle of a quiet, empty pedestrian street at eye level. Exactly two buildings face each other across the street, both close to the camera and clearly visible: on the LEFT side of the photo, a bank with a pale stone front, two columns and an ATM beside its glass door; on the RIGHT side of the photo, a pharmacy with a large plain green cross above its glass door and white shelves visible inside. Each building fills about 40 percent of the photo width, one on each side, with the street between them. No people, no cars, no readable signs or text."
+    },
+    {
+      "id": "bank-right",
+      "group": "left-right",
+      "lesson": "6.4",
+      "item": "The bank is on the right. The pharmacy is on the left.",
+      "runtime_filename": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
+      "shared": [
+        "photo",
+        "town"
+      ],
+      "four_card": false,
+      "reference": "bank-left",
+      "prompt": "Precise edit of Image 1: mirror the scene left to right. The pharmacy with the large plain green cross is now on the LEFT side of the photo and the stone bank with columns and the ATM is now on the RIGHT side, both the same size and style as before, with the same empty street between them. No people, no cars, no readable signs or text."
+    },
+    {
+      "id": "man-points-left",
+      "group": "point",
+      "lesson": "6.4",
+      "item": "Left",
+      "runtime_filename": "a1_photo_u6_man_points_left_v1.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows Luis (right: short dark curly hair, navy T-shirt). Keep his face, hair and T-shirt exactly. Create a new photograph at a quiet crossroads in a town: Luis stands in the middle of the frame facing the camera and stretches his LEFT arm straight out to the LEFT side of the photo (toward the viewer's left), pointing with his index finger, and turns his head to look where he points. His right arm hangs down. The outstretched arm and pointing hand are fully inside the photo. No other people, no text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_age-luis-asks-ana_132f348.webp",
+        "sha256": "132f348df57f67d68510934a43da8bf96c0c3617d6ba650c026e52965dd33fef",
+        "observed_description": "At the survey station doorway, Ana (left: long dark wavy hair, sage-green overshirt, white top, cream tote) holds a COMMUNITY SURVEY clipboard showing ANA and 20, while Luis (right: short dark curly hair, navy T-shirt, LUIS badge, khaki trousers) talks to her with both hands open."
+      },
+      "rejected": "2026-09-27: facing the camera he pointed to the viewer's left with his right arm (his own right); replaced by man-points-left-back."
+    },
+    {
+      "id": "man-points-left-back",
+      "group": "point",
+      "lesson": "6.4",
+      "item": "Left",
+      "runtime_filename": "a1_photo_u6_man_points_left_v2.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Image 1 shows Luis (right: short dark curly hair, navy T-shirt). Keep his hair, build and navy T-shirt. Create a new photograph at a quiet town crossroads, seen from BEHIND Luis: he stands in the middle of the frame with his BACK to the camera, facing a street that splits to the left and to the right. He stretches his LEFT arm straight out to the LEFT side of the photo, pointing with his index finger, and turns his head to the left so his face is seen in profile. His right arm hangs down at his side. His shoulders, both arms and the pointing hand are fully inside the photo, and the pointing arm stands out clearly against the street behind it. No other people, no text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_age-luis-asks-ana_132f348.webp",
+        "sha256": "132f348df57f67d68510934a43da8bf96c0c3617d6ba650c026e52965dd33fef",
+        "observed_description": "At the survey station doorway, Ana (left: long dark wavy hair, sage-green overshirt, white top, cream tote) holds a COMMUNITY SURVEY clipboard showing ANA and 20, while Luis (right: short dark curly hair, navy T-shirt, LUIS badge, khaki trousers) talks to her with both hands open."
+      }
+    },
+    {
+      "id": "man-points-right",
+      "group": "point",
+      "lesson": "6.4",
+      "item": "Right",
+      "runtime_filename": "a1_photo_u6_man_points_right_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "man-points-left-back",
+      "prompt": "Precise edit of Image 1. Luis, still seen from behind, now lowers his LEFT arm to his side and instead stretches his RIGHT arm straight out to the RIGHT side of the photo, pointing with his index finger, and turns his head to the right so his face is seen in profile. Keep his hair, clothes, the crossroads, the light and the camera identical. No other changes, no text."
+    },
+    {
+      "id": "review-woman-at-library",
+      "group": "review",
+      "lesson": "6.9",
+      "item": "She is at the library.",
+      "runtime_filename": "a1_u6_review_v2_woman_at_library.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "Inside a modern public library with tall bookshelves on both sides, a woman in her twenties with short curly red hair and a mustard sweater stands between the shelves and takes a book from a shelf at shoulder height, smiling. The shelves full of books make the place read instantly as a library. She is the only person; no text or signs."
+    },
+    {
+      "id": "review-walk-to-work",
+      "group": "review",
+      "lesson": "6.9",
+      "item": "I walk to work.",
+      "runtime_filename": "a1_u6_review_v2_walk_to_work.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "A man in his thirties with a short beard, in a grey suit jacket and white shirt, carrying a leather work bag, walks briskly along a city sidewalk on a sunny morning, mid-stride, holding a paper coffee cup. He is clearly walking, seen from the front at a slight angle. No bikes, buses, taxis or other people close to him; no text."
+    },
+    {
+      "id": "review-car-far",
+      "group": "review",
+      "lesson": "6.9",
+      "item": "The hospital is far from the park.",
+      "runtime_filename": "a1_u6_review_v2_hospital_far_from_park.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": true,
+      "prompt": "Seen from a small green park with a bench and trees in the foreground, a large white hospital building with a big red cross on its front stands very small and far away across a wide open valley of fields, near the horizon. The long empty distance between the park in front and the tiny hospital is obvious. No people, no cars, no text."
+    },
+    {
+      "id": "review-hospital-on-the-right",
+      "group": "review",
+      "lesson": "6.9",
+      "item": "The hospital is on the right.",
+      "runtime_filename": "a1_u6_review_v2_hospital_on_the_right.webp",
+      "shared": [
+        "photo"
+      ],
+      "four_card": false,
+      "prompt": "Looking straight down the middle of a quiet, empty street at eye level. Exactly two buildings face each other across the street: on the LEFT side of the photo, a small library with tall windows showing bookshelves inside; on the RIGHT side of the photo, a white hospital entrance with a large red cross above its sliding glass doors. Each building fills about 40 percent of the photo width, one on each side. No people, no cars, no readable signs or text."
+    },
+    {
+      "id": "review-wait-red-light",
+      "group": "review",
+      "lesson": "6.9",
+      "item": "You cannot cross the street.",
+      "runtime_filename": "a1_u6_review_v2_cannot_cross.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "At a zebra crossing on a sunny city street, a young man with a backpack stands waiting at the edge of the sidewalk, one foot back, beside a pedestrian traffic light that clearly shows a large red standing-person light; cars pass in front of him on the street. He is clearly not crossing. No other pedestrians, no text."
+    },
+    {
+      "id": "review-taxi",
+      "group": "review",
+      "lesson": "6.9",
+      "item": "They go by taxi.",
+      "runtime_filename": "a1_u6_review_v2_they_go_by_taxi.webp",
+      "shared": [
+        "photo",
+        "safe_center"
+      ],
+      "four_card": true,
+      "prompt": "An older couple, a man with white hair in a navy coat and a woman with a grey bob in a red coat, climb into the back seat of a yellow taxi at the curb of a sunny city street; the rear door is open and the man holds it for the woman. The taxi is clearly a taxi by its yellow color and plain roof light with no text. No other people, no readable text or logos."
+    }
+  ]
+}

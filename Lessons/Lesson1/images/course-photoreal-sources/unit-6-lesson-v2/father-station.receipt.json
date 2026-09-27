@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3e44424b-e528-47c7-b1a6-8bf447cd8e17",
+  "asset_id": "father-station",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:40:57.789201+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the father: about forty, short dark hair, a friendly smile, a navy button-up shirt. Keep his face, hair and shirt exactly; he now also carries a dark backpack on one shoulder. Create a new photograph on the platform of a train station: he stands on the platform beside the yellow safety line, turned toward the camera at a three-quarter angle, while a modern passenger train waits at the platform behind him with its doors open. The platform roof, the tracks and the train make the place read instantly as a train station. No readable signs, screens or text; no other people near him.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_father_3x2.webp",
+    "sha256": "445e807e6c444b5a1d6fa65f8743b11f118330d6d63098a7bd0ea18a71b78941"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "isi4au60CqODqtsPxYWOuAU",
+  "usage": {
+    "promptTokenCount": 573,
+    "candidatesTokenCount": 1295,
+    "totalTokenCount": 2051,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 315
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 183,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137342",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 573,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 183
+  },
+  "elapsed_seconds": 22.34,
+  "output": "output/imagegen/unit-6-lesson-v2/father-station.png",
+  "sha256": "c4d5840b3b56bc603d40ed9a038374fe42befb1a59f78f49470e5fdec019d8c7",
+  "byte_count": 5358277,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

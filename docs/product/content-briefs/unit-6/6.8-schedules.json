@@ -1,0 +1,236 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 6 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds leaves and arrives. Each schedule card shows the vehicle, the time and an arrow away from or into the station, and each pair changes only the time or only leaves/arrives. Days of the week come back only in Speak and Use (the cards do not show a day, so no choice depends on one).",
+  "target": "backend/lessons/unit_6/lesson-6-8-schedules.yaml",
+  "lesson": {
+    "id": "lesson-6-8-schedules",
+    "title": "6.8 Schedules",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.8",
+    "sub_lesson_title": "Schedules",
+    "goal": "Understand when a bus or a train leaves or arrives, and add the part of the day or the day of the week.",
+    "vocabulary": [
+      "leaves",
+      "arrives"
+    ],
+    "review_vocabulary": [
+      "the",
+      "bus",
+      "train",
+      "at",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "ten",
+      "four",
+      "in the morning",
+      "afternoon",
+      "at night",
+      "on",
+      "Monday",
+      "Friday",
+      "Saturday",
+      "station"
+    ],
+    "grammar_function": "The bus leaves at eight. The train arrives at nine. The bus leaves at eight on Monday.",
+    "prerequisite": "4.9 days; 4.10 at and parts of the day; 6.2 train; 2.6-2.7 numbers.",
+    "speaking_outcome": "Say when a bus or a train leaves or arrives.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Leaves",
+      "es": "Sale",
+      "image": "a1_scene_bus-leaves-8-00_f0cb5be.webp",
+      "kind": "move-word",
+      "form": "word"
+    },
+    {
+      "text": "Arrives",
+      "es": "Llega",
+      "image": "a1_scene_bus-arrives-7-00_ff6fd43.webp",
+      "kind": "move-word",
+      "form": "word"
+    },
+    {
+      "text": "The bus leaves at eight.",
+      "es": "El autobús sale a las ocho.",
+      "image": "a1_scene_bus-leaves-8-00_f0cb5be.webp",
+      "kind": "bus-time",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The bus leaves at nine."
+      ]
+    },
+    {
+      "text": "The bus leaves at nine.",
+      "es": "El autobús sale a las nueve.",
+      "image": "a1_scene_bus-leaves-9-00_8cee9f4.webp",
+      "kind": "bus-time",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The bus leaves at eight."
+      ]
+    },
+    {
+      "text": "The bus leaves at seven.",
+      "es": "El autobús sale a las siete.",
+      "image": "a1_scene_bus-leaves-7-00_801e95a.webp",
+      "kind": "bus-move",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The bus arrives at seven."
+      ]
+    },
+    {
+      "text": "The bus arrives at seven.",
+      "es": "El autobús llega a las siete.",
+      "image": "a1_scene_bus-arrives-7-00_ff6fd43.webp",
+      "kind": "bus-move",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The bus leaves at seven."
+      ]
+    },
+    {
+      "text": "The train leaves at nine.",
+      "es": "El tren sale a las nueve.",
+      "image": "a1_scene_train-leaves-9-00_499abf3.webp",
+      "kind": "train-move",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The train arrives at nine."
+      ]
+    },
+    {
+      "text": "The train arrives at nine.",
+      "es": "El tren llega a las nueve.",
+      "image": "a1_scene_train-arrives-9-00_e656d46.webp",
+      "kind": "train-move",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The train leaves at nine."
+      ]
+    },
+    {
+      "text": "The train arrives at ten.",
+      "es": "El tren llega a las diez.",
+      "image": "a1_scene_train-arrives-10-00_dc4c40c.webp",
+      "kind": "train-time",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The train arrives at nine.",
+        "The train arrives at eight."
+      ]
+    },
+    {
+      "text": "The bus leaves at six in the morning.",
+      "es": "El autobús sale a las seis de la mañana.",
+      "image": "a1_scene_the-bus-leaves-at-six-in-the-morning_376cbdd.webp",
+      "kind": "bus-day-part",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The bus leaves at six at night."
+      ]
+    },
+    {
+      "text": "The train arrives at four in the afternoon.",
+      "es": "El tren llega a las cuatro de la tarde.",
+      "image": "a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
+      "kind": "train-day-part",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The train arrives at four in the morning."
+      ]
+    },
+    {
+      "text": "The train leaves at nine on Monday.",
+      "es": "El tren sale a las nueve el lunes.",
+      "image": "a1_scene_train-leaves-9-00_499abf3.webp",
+      "kind": "day-schedule",
+      "learn": false,
+      "choices": false
+    },
+    {
+      "text": "The bus leaves at eight on Saturday.",
+      "es": "El autobús sale a las ocho el sábado.",
+      "image": "a1_scene_bus-leaves-8-00_f0cb5be.webp",
+      "kind": "day-schedule",
+      "learn": false,
+      "choices": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "The train arrives at eight.",
+      "es": "El tren llega a las ocho.",
+      "kind": "train-time"
+    },
+    {
+      "text": "The train arrives at four in the morning.",
+      "es": "El tren llega a las cuatro de la mañana.",
+      "kind": "train-day-part"
+    },
+    {
+      "text": "The bus leaves at six at night.",
+      "es": "El autobús sale a las seis de la noche.",
+      "kind": "bus-day-part"
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 6 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds Excuse me., Can you help me? and Sorry, no. The exchanges are two voices: the woman with the map asks and the man she asks answers.",
+  "target": "backend/lessons/unit_6/lesson-6-7-simple-requests.yaml",
+  "lesson": {
+    "id": "lesson-6-7-simple-requests",
+    "title": "6.7 Asking for Help",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.7",
+    "sub_lesson_title": "Asking for Help",
+    "goal": "Ask for help politely with Excuse me. and Can you help me?, and understand Yes. or Sorry, no. and a short answer.",
+    "vocabulary": [
+      "Excuse me.",
+      "Can you help me?",
+      "Sorry, no."
+    ],
+    "review_vocabulary": [
+      "yes",
+      "where",
+      "is",
+      "the",
+      "station",
+      "bank",
+      "it",
+      "on the left",
+      "next to",
+      "Thank you."
+    ],
+    "grammar_function": "Excuse me. Can you help me? Yes. / Sorry, no. Where is the station? It is on the left.",
+    "prerequisite": "5.9 please and thank you; 3.4 yes; 4.3 Where is it?; 6.4 on the left; 6.6 can.",
+    "speaking_outcome": "Ask a stranger for help and ask where a place is.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Excuse me.",
+      "es": "Disculpe.",
+      "image": "a1_scene_excuse-me_91c6a04.webp",
+      "kind": "help-phrase",
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short requests and replies this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Can you help me?",
+      "es": "¿Puede ayudarme?",
+      "image": "a1_scene_can-you-help-me_eb476e5.webp",
+      "kind": "help-phrase",
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short requests and replies this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Sorry, no.",
+      "es": "Lo siento, no.",
+      "image": "a1_scene_sorry-no_0ecf515.webp",
+      "kind": "help-phrase",
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short requests and replies this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Excuse me. Can you help me?",
+      "es": "Disculpe. ¿Puede ayudarme?",
+      "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "kind": "ask-help",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "These are the short requests and replies this lesson teaches; they are complete responses by nature."
+      },
+      "prefer": [
+        "Excuse me. Thank you."
+      ]
+    },
+    {
+      "text": "Can you help me? Yes.",
+      "es": "¿Puede ayudarme? Sí.",
+      "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "kind": "help-answer",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "These are the short requests and replies this lesson teaches; they are complete responses by nature."
+      },
+      "turns": [
+        {
+          "text": "Can you help me?",
+          "speaker": "female-character",
+          "image": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        },
+        {
+          "text": "Yes.",
+          "speaker": "male-character",
+          "image": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Can you help me? Sorry, no."
+      ]
+    },
+    {
+      "text": "Can you help me? Sorry, no.",
+      "es": "¿Puede ayudarme? Lo siento, no.",
+      "image": "a1_scene_sorry-no-response_6649851.webp",
+      "kind": "help-answer",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "These are the short requests and replies this lesson teaches; they are complete responses by nature."
+      },
+      "turns": [
+        {
+          "text": "Can you help me?",
+          "speaker": "female-character",
+          "image": "a1_scene_sorry-no-response_6649851.webp"
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker": "male-character",
+          "image": "a1_scene_sorry-no-response_6649851.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Can you help me? Yes."
+      ]
+    },
+    {
+      "text": "Where is the station?",
+      "es": "¿Dónde está la estación?",
+      "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "kind": "where-q",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the place, the way to travel, the time, leaves or arrives, can or cannot), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "Where is the bank?"
+      ]
+    },
+    {
+      "text": "It is on the left.",
+      "es": "Está a la izquierda.",
+      "image": "a1_scene_town-male-left-answer_a00c3ac.webp",
+      "kind": "side-answer",
+      "learn": false,
+      "speaker": "male-character",
+      "image_choices": false,
+      "prefer": [
+        "It is on the right."
+      ]
+    },
+    {
+      "text": "Where is the station? It is on the left.",
+      "es": "¿Dónde está la estación? Está a la izquierda.",
+      "image": "a1_scene_town-male-left-answer_a00c3ac.webp",
+      "kind": "where-answer",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Where is the station?",
+          "speaker": "female-character",
+          "image": "a1_scene_asks-for-town-help_3f8f57a.webp"
+        },
+        {
+          "text": "It is on the left.",
+          "speaker": "male-character",
+          "image": "a1_scene_town-male-left-answer_a00c3ac.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Where is the station? It is on the right."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Excuse me. Thank you.",
+      "es": "Disculpe. Gracias.",
+      "kind": "ask-help"
+    },
+    {
+      "text": "Where is the bank?",
+      "es": "¿Dónde está el banco?",
+      "kind": "where-q"
+    },
+    {
+      "text": "It is on the right.",
+      "es": "Está a la derecha.",
+      "kind": "side-answer"
+    },
+    {
+      "text": "Where is the station? It is on the right.",
+      "es": "¿Dónde está la estación? Está a la derecha.",
+      "kind": "where-answer"
+    }
+  ]
+}

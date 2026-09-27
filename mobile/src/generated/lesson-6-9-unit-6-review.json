@@ -4,51 +4,43 @@
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Ask where a familiar place is, understand simple directions, and use familiar transportation and schedule language.",
+  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.9",
   "sub_lesson_title": "Unit 6 Review",
-  "goal": "Retrieve Unit 6 places, transport, location, direction, permission, help and schedule language from fresh review scenes, with no new vocabulary.",
+  "goal": "Retrieve Unit 6 places, transport, near and far, left and right, directions, can and cannot, requests for help and schedules from fresh review scenes, with no new vocabulary.",
   "vocabulary": [],
   "review_vocabulary": [
-    "store",
-    "hospital",
     "station",
     "bank",
     "pharmacy",
     "library",
     "train",
     "taxi",
+    "walk",
     "by",
-    "Where is the...?",
     "near",
     "far from",
     "left",
     "right",
     "on the left",
     "on the right",
-    "straight",
-    "turn",
-    "cross",
-    "stop",
-    "go straight",
-    "turn left",
-    "turn right",
-    "cross the street",
+    "Go straight.",
+    "Turn left.",
+    "Turn right.",
+    "Cross the street.",
+    "Stop.",
     "can",
     "cannot",
     "there",
     "Excuse me.",
-    "help",
     "Can you help me?",
-    "Yes.",
     "Sorry, no.",
-    "at",
     "leaves",
     "arrives"
   ],
-  "grammar_function": "Spiral review of where is the, next to, near and far from, on the left and right, imperatives for directions, can and cannot, polite requests, and leaves and arrives at.",
+  "grammar_function": "Spiral review of It is a ..., at and in with places, go by and walk, near and far from, on the left and on the right, imperatives for directions, can and cannot, polite requests for help, and leaves and arrives at.",
   "prerequisite": "Lessons 6.1 to 6.8.",
   "speaking_outcome": "Ask where a place is, say where it is, give simple directions, ask for help politely and say when a bus or train leaves or arrives.",
   "purposeful_review_slides": [
@@ -59,7 +51,13 @@
     "N12",
     "N14",
     "S5",
-    "U8"
+    "U8",
+    "R9",
+    "R10",
+    "R11",
+    "N19",
+    "N20",
+    "S7"
   ],
   "cards": [
     {
@@ -844,6 +842,132 @@
       ]
     },
     {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "she-is-at-the-library-1",
+      "options": [
+        {
+          "id": "she-is-at-the-library-1",
+          "image_url": "",
+          "label": "She is at the library."
+        },
+        {
+          "id": "she-is-at-the-bank-2",
+          "image_url": "",
+          "label": "She is at the bank."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "She is at the library.",
+      "prompt_image_url": "/lesson-assets/a1_u6_review_v2_woman_at_library.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "fresh scene, a 6.1 place with at",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-9-unit-6-review-c017-answer-6ed9ce69130031da3e7d",
+          "purpose": "answer",
+          "text": "She is at the library.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_woman_at_library.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-walk-to-work-2",
+      "options": [
+        {
+          "id": "i-go-to-work-by-bus-1",
+          "image_url": "",
+          "label": "I go to work by bus."
+        },
+        {
+          "id": "i-walk-to-work-2",
+          "image_url": "",
+          "label": "I walk to work."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I walk to work.",
+      "prompt_image_url": "/lesson-assets/a1_u6_review_v2_walk_to_work.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "fresh scene, walk against by bus",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-9-unit-6-review-c018-answer-3ca493e08284cc26f713",
+          "purpose": "answer",
+          "text": "I walk to work.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_walk_to_work.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-hospital-is-far-from-the-park-2",
+      "options": [
+        {
+          "id": "the-hospital-is-near-the-park-1",
+          "image_url": "",
+          "label": "The hospital is near the park."
+        },
+        {
+          "id": "the-hospital-is-far-from-the-park-2",
+          "image_url": "",
+          "label": "The hospital is far from the park."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The hospital is far from the park.",
+      "prompt_image_url": "/lesson-assets/a1_u6_review_v2_hospital_far_from_park.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "fresh scene, near against far from",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-9-unit-6-review-c019-answer-d3cdb50572893ff88e81",
+          "purpose": "answer",
+          "text": "The hospital is far from the park.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_hospital_far_from_park.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
       "slide_id": "N1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
@@ -872,7 +996,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c017-prompt-21de47093fd6da33dac8",
+          "id": "lesson-6-9-unit-6-review-c020-prompt-1528289dc1995bea25cd",
           "purpose": "prompt",
           "text": "A library",
           "mode": "prompt",
@@ -884,7 +1008,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c017-answer-aeeef05b6f3999902acc",
+          "id": "lesson-6-9-unit-6-review-c020-answer-efa722d8a9c0c85ce4d9",
           "purpose": "answer",
           "text": "A library",
           "mode": "prompt",
@@ -926,7 +1050,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c018-prompt-fa51e7960bf4616be505",
+          "id": "lesson-6-9-unit-6-review-c021-prompt-fdacdeda457d65d118dc",
           "purpose": "prompt",
           "text": "I go by taxi.",
           "mode": "prompt",
@@ -938,7 +1062,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c018-answer-e6151d90234010148df5",
+          "id": "lesson-6-9-unit-6-review-c021-answer-92d170de820b2ae7edbb",
           "purpose": "answer",
           "text": "I go by taxi.",
           "mode": "prompt",
@@ -980,7 +1104,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c019-prompt-b5239d9a08e5d0a38704",
+          "id": "lesson-6-9-unit-6-review-c022-prompt-5cc4c0e64fbd698ccbc5",
           "purpose": "prompt",
           "text": "This is the station.",
           "mode": "prompt",
@@ -992,7 +1116,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c019-answer-423b5d8647acebd43b63",
+          "id": "lesson-6-9-unit-6-review-c022-answer-7577eebda702e41c335a",
           "purpose": "answer",
           "text": "This is the station.",
           "mode": "prompt",
@@ -1034,7 +1158,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c020-prompt-0378f83100807e39458f",
+          "id": "lesson-6-9-unit-6-review-c023-prompt-fb9fa663a39fd5a9c7bb",
           "purpose": "prompt",
           "text": "The bank is next to the store.",
           "mode": "prompt",
@@ -1046,7 +1170,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c020-answer-b71d47e3043fe0367c6a",
+          "id": "lesson-6-9-unit-6-review-c023-answer-76a20f54ffaf8ac04dfc",
           "purpose": "answer",
           "text": "The bank is next to the store.",
           "mode": "prompt",
@@ -1088,7 +1212,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c021-prompt-4b8e863bfc4227ae2f21",
+          "id": "lesson-6-9-unit-6-review-c024-prompt-d26bd524ea7c83b82ae1",
           "purpose": "prompt",
           "text": "You can cross the street.",
           "mode": "prompt",
@@ -1100,7 +1224,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c021-answer-72396af6a7e48fc698be",
+          "id": "lesson-6-9-unit-6-review-c024-answer-8ddbba84ad7b5f334718",
           "purpose": "answer",
           "text": "You can cross the street.",
           "mode": "prompt",
@@ -1142,7 +1266,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c022-prompt-6b599cf280ac4261564d",
+          "id": "lesson-6-9-unit-6-review-c025-prompt-46a1668b5f4def417dfc",
           "purpose": "prompt",
           "text": "Excuse me. Can you help me?",
           "mode": "prompt",
@@ -1154,7 +1278,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c022-answer-1fc7b4f4800e36db1fa4",
+          "id": "lesson-6-9-unit-6-review-c025-answer-4b1eaf17a9bcefd91860",
           "purpose": "answer",
           "text": "Excuse me. Can you help me?",
           "mode": "prompt",
@@ -1206,7 +1330,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c023-prompt-1271d77e9d8d845f9451",
+          "id": "lesson-6-9-unit-6-review-c026-prompt-c61801ba3ea815642e9f",
           "purpose": "prompt",
           "text": "The bus leaves at seven at night.",
           "mode": "prompt",
@@ -1218,7 +1342,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c023-answer-f71514923c3cf7caa45e",
+          "id": "lesson-6-9-unit-6-review-c026-answer-41bba720581eafca9cca",
           "purpose": "answer",
           "text": "The bus leaves at seven at night.",
           "mode": "prompt",
@@ -1260,7 +1384,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c024-prompt-3bd574502a5d0d64975f",
+          "id": "lesson-6-9-unit-6-review-c027-prompt-4a12a7893c3ab0214d8d",
           "purpose": "prompt",
           "text": "It is near the bank.",
           "mode": "prompt",
@@ -1272,7 +1396,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c024-answer-d3eb4872aba7fc3f7a84",
+          "id": "lesson-6-9-unit-6-review-c027-answer-eb273331e825ecf509e2",
           "purpose": "answer",
           "text": "It is near the bank.",
           "mode": "prompt",
@@ -1319,7 +1443,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c025-prompt-d44e06ce349106bd2de1",
+          "id": "lesson-6-9-unit-6-review-c028-prompt-a57217858a0851bbfd64",
           "purpose": "prompt",
           "text": "I go by car.",
           "mode": "prompt",
@@ -1331,7 +1455,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c025-answer-0bd7ec94d0f83d3c70bb",
+          "id": "lesson-6-9-unit-6-review-c028-answer-b3c7ba1301cd8de779c0",
           "purpose": "answer",
           "text": "I go by car.",
           "mode": "prompt",
@@ -1378,7 +1502,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c026-prompt-0a2253db055d7d8c60ae",
+          "id": "lesson-6-9-unit-6-review-c029-prompt-9f81fdb1fd7c964cd502",
           "purpose": "prompt",
           "text": "I cannot walk there.",
           "mode": "prompt",
@@ -1390,7 +1514,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c026-answer-4f86c9ab73bfc208dde7",
+          "id": "lesson-6-9-unit-6-review-c029-answer-a21e9e9406f809906066",
           "purpose": "answer",
           "text": "I cannot walk there.",
           "mode": "prompt",
@@ -1437,7 +1561,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c027-prompt-0b2ad30c175f6a25b300",
+          "id": "lesson-6-9-unit-6-review-c030-prompt-96e496f97f2b9c45a342",
           "purpose": "prompt",
           "text": "The hospital is on the right.",
           "mode": "prompt",
@@ -1449,7 +1573,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c027-answer-3651b110dc9515fd7bb6",
+          "id": "lesson-6-9-unit-6-review-c030-answer-4af73341cca56f2d79da",
           "purpose": "answer",
           "text": "The hospital is on the right.",
           "mode": "prompt",
@@ -1496,7 +1620,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c028-prompt-38b234d88604f7f480ad",
+          "id": "lesson-6-9-unit-6-review-c031-prompt-60bd4c176e0f646883ca",
           "purpose": "prompt",
           "text": "Go straight. Turn right.",
           "mode": "prompt",
@@ -1508,7 +1632,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c028-answer-acdee1b5f78d328e757f",
+          "id": "lesson-6-9-unit-6-review-c031-answer-fd8d10f473c08b0b8df7",
           "purpose": "answer",
           "text": "Go straight. Turn right.",
           "mode": "prompt",
@@ -1555,7 +1679,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c029-prompt-0715690d3d0705030592",
+          "id": "lesson-6-9-unit-6-review-c032-prompt-682dbfd2aa63a6333e8c",
           "purpose": "prompt",
           "text": "Where is the pharmacy?",
           "mode": "prompt",
@@ -1567,7 +1691,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c029-answer-bef7094b5061194ecffa",
+          "id": "lesson-6-9-unit-6-review-c032-answer-fbc4b8b3ba1a2ae6de93",
           "purpose": "answer",
           "text": "Where is the pharmacy?",
           "mode": "prompt",
@@ -1614,7 +1738,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c030-prompt-851017cfb0641881e875",
+          "id": "lesson-6-9-unit-6-review-c033-prompt-2604e797cbfd60911992",
           "purpose": "prompt",
           "text": "Sorry, no.",
           "mode": "prompt",
@@ -1626,7 +1750,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c030-answer-349874439166409ca89d",
+          "id": "lesson-6-9-unit-6-review-c033-answer-2ef215a81129e9880d76",
           "purpose": "answer",
           "text": "Sorry, no.",
           "mode": "prompt",
@@ -1673,7 +1797,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c031-prompt-92424b40a34f11645f49",
+          "id": "lesson-6-9-unit-6-review-c034-prompt-b14984ef7cae32982578",
           "purpose": "prompt",
           "text": "The train arrives at ten.",
           "mode": "prompt",
@@ -1685,7 +1809,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c031-answer-a9b811bdb9ca52bc366b",
+          "id": "lesson-6-9-unit-6-review-c034-answer-85bfeb15c9c7f36db4bc",
           "purpose": "answer",
           "text": "The train arrives at ten.",
           "mode": "prompt",
@@ -1732,7 +1856,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c032-prompt-411bc137a6c27ddbf5b5",
+          "id": "lesson-6-9-unit-6-review-c035-prompt-fe793a232b51427ef06d",
           "purpose": "prompt",
           "text": "They cannot go by train.",
           "mode": "prompt",
@@ -1744,7 +1868,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c032-answer-4d7e84ad30c8882da5a0",
+          "id": "lesson-6-9-unit-6-review-c035-answer-bbe8efea737772f06125",
           "purpose": "answer",
           "text": "They cannot go by train.",
           "mode": "prompt",
@@ -1791,7 +1915,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c033-prompt-9ff5829736b3cba03858",
+          "id": "lesson-6-9-unit-6-review-c036-prompt-d470cb9dbc6253cda2ec",
           "purpose": "prompt",
           "text": "The store is far from the park.",
           "mode": "prompt",
@@ -1803,7 +1927,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c033-answer-eea51fc4573446a55fc1",
+          "id": "lesson-6-9-unit-6-review-c036-answer-3912e30d81aae4d48bc9",
           "purpose": "answer",
           "text": "The store is far from the park.",
           "mode": "prompt",
@@ -1850,7 +1974,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c034-prompt-d4d7acd2466171df1356",
+          "id": "lesson-6-9-unit-6-review-c037-prompt-6d350214c2ddb1a19ce2",
           "purpose": "prompt",
           "text": "Stop at the bank.",
           "mode": "prompt",
@@ -1862,12 +1986,120 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c034-answer-b56690897cca332c11d1",
+          "id": "lesson-6-9-unit-6-review-c037-answer-c3d0d04162cbaff7eeb8",
           "purpose": "answer",
           "text": "Stop at the bank.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "text-only:fbfc3dff4ec5bc7e304a",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "N19",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "they-go-by-taxi-1",
+      "options": [
+        {
+          "id": "they-go-by-taxi-1",
+          "image_url": "/lesson-assets/a1_u6_review_v2_they_go_by_taxi.webp",
+          "label": null
+        },
+        {
+          "id": "man-boards-train-2",
+          "image_url": "/lesson-assets/a1_photo_u6_review_man_boards_train_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "They go by taxi.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Van en taxi.",
+      "pedagogy_note": "text hidden; fresh scene, a couple by taxi against a man by train",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-9-unit-6-review-c038-prompt-2089f6423be2ca954106",
+          "purpose": "prompt",
+          "text": "They go by taxi.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_they_go_by_taxi.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-9-unit-6-review-c038-answer-2b4d8703a5b61e851352",
+          "purpose": "answer",
+          "text": "They go by taxi.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_they_go_by_taxi.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "N20",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "cannot-cross-1",
+      "options": [
+        {
+          "id": "can-cross-2",
+          "image_url": "/lesson-assets/a1_u6_review_v1_can_cross.webp",
+          "label": null
+        },
+        {
+          "id": "cannot-cross-1",
+          "image_url": "/lesson-assets/a1_u6_review_v2_cannot_cross.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "You cannot cross the street.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "No puedes cruzar la calle.",
+      "pedagogy_note": "text hidden; fresh scene, can against cannot",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-9-unit-6-review-c039-prompt-e5fddf438c9903fce9be",
+          "purpose": "prompt",
+          "text": "You cannot cross the street.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_cannot_cross.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-9-unit-6-review-c039-answer-2a0aa4e5ac2ff601a3c1",
+          "purpose": "answer",
+          "text": "You cannot cross the street.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_cannot_cross.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1899,7 +2131,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c035-prompt-86f4741e2304df55bb4c",
+          "id": "lesson-6-9-unit-6-review-c040-prompt-02a234b8a46400bd0f85",
           "purpose": "prompt",
           "text": "Where is the station?",
           "mode": "pronunciation_slow",
@@ -1911,7 +2143,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c035-answer-8893ca2d5c2f7f56fc19",
+          "id": "lesson-6-9-unit-6-review-c040-answer-ead0c88bbe3abd78c7c2",
           "purpose": "answer",
           "text": "Where is the station?",
           "mode": "prompt",
@@ -1948,7 +2180,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c036-prompt-04b76392953ceec5f8ef",
+          "id": "lesson-6-9-unit-6-review-c041-prompt-a5c39462e201d4140049",
           "purpose": "prompt",
           "text": "The hospital is on the right.",
           "mode": "pronunciation_slow",
@@ -1960,7 +2192,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c036-answer-4f33bee0ca558a86e0a8",
+          "id": "lesson-6-9-unit-6-review-c041-answer-eeaa591a259ad23064f0",
           "purpose": "answer",
           "text": "The hospital is on the right.",
           "mode": "prompt",
@@ -1997,7 +2229,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c037-prompt-31299256606d46baa86b",
+          "id": "lesson-6-9-unit-6-review-c042-prompt-232f0aca7d7eab1bcebb",
           "purpose": "prompt",
           "text": "Go straight. Turn left. Stop.",
           "mode": "pronunciation_slow",
@@ -2009,7 +2241,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c037-answer-070421d5582f7179d58f",
+          "id": "lesson-6-9-unit-6-review-c042-answer-710719f2e00bcbbe93b9",
           "purpose": "answer",
           "text": "Go straight. Turn left. Stop.",
           "mode": "prompt",
@@ -2046,7 +2278,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c038-prompt-18d626d70f842b310e55",
+          "id": "lesson-6-9-unit-6-review-c043-prompt-529cfa9a9e655befe455",
           "purpose": "prompt",
           "text": "I go by train.",
           "mode": "pronunciation_slow",
@@ -2058,7 +2290,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c038-answer-cc390982896356e8ecad",
+          "id": "lesson-6-9-unit-6-review-c043-answer-cf7cab3e671e138178c1",
           "purpose": "answer",
           "text": "I go by train.",
           "mode": "prompt",
@@ -2095,7 +2327,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c039-prompt-877376a76e9c3b93e2da",
+          "id": "lesson-6-9-unit-6-review-c044-prompt-ec0c930387aac0b5c582",
           "purpose": "prompt",
           "text": "Excuse me. Can you help me?",
           "mode": "pronunciation_slow",
@@ -2107,7 +2339,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c039-answer-dab8f415ed76b879ff4e",
+          "id": "lesson-6-9-unit-6-review-c044-answer-af7d0af13b19f0cb1a55",
           "purpose": "answer",
           "text": "Excuse me. Can you help me?",
           "mode": "prompt",
@@ -2144,7 +2376,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c040-prompt-431c85f26eb875e61320",
+          "id": "lesson-6-9-unit-6-review-c045-prompt-d3e49d3682c1bfa6f66f",
           "purpose": "prompt",
           "text": "The train arrives at ten.",
           "mode": "pronunciation_slow",
@@ -2156,12 +2388,61 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c040-answer-d1d97bdd134d4d7c091b",
+          "id": "lesson-6-9-unit-6-review-c045-answer-77fb4447e04f83ecae0c",
           "purpose": "answer",
           "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u6_review_v1_train_ten.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "repeat",
+      "prompt": "The hospital is on the right.",
+      "stage": "Speak",
+      "correct_option_id": "the-hospital-is-on-the-right-1",
+      "options": [
+        {
+          "id": "the-hospital-is-on-the-right-1",
+          "image_url": "/lesson-assets/a1_u6_review_v2_hospital_on_the_right.webp",
+          "label": "The hospital is on the right."
+        }
+      ],
+      "audio_text": "The hospital is on the right.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El hospital est\u00e1 a la derecha.",
+      "pedagogy_note": "single-image speaking, fresh scene",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-9-unit-6-review-c046-prompt-33c5f5b764f48bb7790b",
+          "purpose": "prompt",
+          "text": "The hospital is on the right.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_hospital_on_the_right.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-9-unit-6-review-c046-answer-84033dd0639d5b4a7629",
+          "purpose": "answer",
+          "text": "The hospital is on the right.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u6_review_v2_hospital_on_the_right.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2202,7 +2483,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c041-prompt-b20998b0361e717e5014",
+          "id": "lesson-6-9-unit-6-review-c047-prompt-9e59047e39d31e6d7df2",
           "purpose": "prompt",
           "text": "I go by taxi.",
           "mode": "prompt",
@@ -2214,7 +2495,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c041-answer-68f85da313a520de530e",
+          "id": "lesson-6-9-unit-6-review-c047-answer-4d61d085e9a499aebfbf",
           "purpose": "answer",
           "text": "I go by taxi.",
           "mode": "prompt",
@@ -2260,7 +2541,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c042-prompt-d4305499d92d476fb02f",
+          "id": "lesson-6-9-unit-6-review-c048-prompt-dfae7e60595a42e131a7",
           "purpose": "prompt",
           "text": "The bank is on the left.",
           "mode": "prompt",
@@ -2272,7 +2553,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c042-answer-4c7c049e0b4147e7bc82",
+          "id": "lesson-6-9-unit-6-review-c048-answer-4add1fd4c919a09d4aca",
           "purpose": "answer",
           "text": "The bank is on the left.",
           "mode": "prompt",
@@ -2318,7 +2599,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c043-prompt-7c7ea24cd669bc1e3885",
+          "id": "lesson-6-9-unit-6-review-c049-prompt-ca2d1926d76e7f6b3579",
           "purpose": "prompt",
           "text": "You can cross the street.",
           "mode": "prompt",
@@ -2330,7 +2611,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c043-answer-7808c32ccab28481c211",
+          "id": "lesson-6-9-unit-6-review-c049-answer-1c8363903eb9c29e6ca8",
           "purpose": "answer",
           "text": "You can cross the street.",
           "mode": "prompt",
@@ -2376,7 +2657,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c044-prompt-fa4fc866efd28125d62e",
+          "id": "lesson-6-9-unit-6-review-c050-prompt-ad68e2b4133647097bc7",
           "purpose": "prompt",
           "text": "Can you help me?",
           "mode": "prompt",
@@ -2388,7 +2669,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c044-answer-ae649e91349f003e92e1",
+          "id": "lesson-6-9-unit-6-review-c050-answer-a6893f6085738ab9aab4",
           "purpose": "answer",
           "text": "Can you help me?",
           "mode": "prompt",
@@ -2434,7 +2715,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c045-prompt-631520388e12d1745abe",
+          "id": "lesson-6-9-unit-6-review-c051-prompt-d389c9bbb33addc36b7f",
           "purpose": "prompt",
           "text": "Turn left.",
           "mode": "prompt",
@@ -2446,7 +2727,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c045-answer-7751df5765eabd25fab5",
+          "id": "lesson-6-9-unit-6-review-c051-answer-4f4ae207a3319fb0aec6",
           "purpose": "answer",
           "text": "Turn left.",
           "mode": "prompt",
@@ -2492,7 +2773,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c046-prompt-b411dfdcdf52592429fa",
+          "id": "lesson-6-9-unit-6-review-c052-prompt-2fa5f8f1085f5aa12228",
           "purpose": "prompt",
           "text": "Thank you.",
           "mode": "prompt",
@@ -2504,7 +2785,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c046-answer-6103c3267fa99656afd0",
+          "id": "lesson-6-9-unit-6-review-c052-answer-f99b6adcf8f8aae918fc",
           "purpose": "answer",
           "text": "Thank you.",
           "mode": "prompt",
@@ -2574,7 +2855,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c047-prompt-847c51e472bf2b5cf21c",
+          "id": "lesson-6-9-unit-6-review-c053-prompt-4b5c5f16399d5e1253d3",
           "purpose": "prompt",
           "text": "It is next to the store.",
           "mode": "prompt",
@@ -2586,7 +2867,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c047-answer-990bf96d8f753c8531db",
+          "id": "lesson-6-9-unit-6-review-c053-answer-e2b9be59195fed39739e",
           "purpose": "answer",
           "text": "It is next to the store.",
           "mode": "prompt",
@@ -2650,7 +2931,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c048-prompt-c4414d41899e192d7e2b",
+          "id": "lesson-6-9-unit-6-review-c054-prompt-e859a10627d8b6eb12e8",
           "purpose": "prompt",
           "text": "The train leaves at nine.",
           "mode": "prompt",
@@ -2662,7 +2943,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c048-answer-f3295899671203ada842",
+          "id": "lesson-6-9-unit-6-review-c054-answer-65bfd88382650083210b",
           "purpose": "answer",
           "text": "The train leaves at nine.",
           "mode": "prompt",

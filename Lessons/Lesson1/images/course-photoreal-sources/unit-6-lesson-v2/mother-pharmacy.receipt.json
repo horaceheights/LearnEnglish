@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "edbffe20-b23c-4f1a-8561-30de584d1f46",
+  "asset_id": "mother-pharmacy",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:40:08.195603+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the mother: about forty, long wavy dark-brown hair, a rust-red blouse. Keep her face, hair and blouse exactly. Create a new photograph inside a bright neighborhood pharmacy: she stands at the white pharmacy counter, turned toward the camera at a three-quarter angle, and receives a small white paper bag from a pharmacist in a white coat behind the counter. Behind the pharmacist, white shelves hold rows of plain medicine boxes, and one large plain green cross hangs on the wall above the shelves, so the place reads instantly as a pharmacy. No text or logos on the boxes, bag or walls; no other people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_mother_3x2.webp",
+    "sha256": "85843eafa4d6a490ca029d58a33c91d62b601e30ebede06229e1ba994146de3a"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Wci4at-3Cu2hz7IP743syAE",
+  "usage": {
+    "promptTokenCount": 576,
+    "candidatesTokenCount": 1319,
+    "totalTokenCount": 2087,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 318
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 192,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137456",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 576,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 192
+  },
+  "elapsed_seconds": 22.59,
+  "output": "output/imagegen/unit-6-lesson-v2/mother-pharmacy.png",
+  "sha256": "96c00c566812ee1362fa8aed99a5ac6cbcfaeba28372079a8d5e55525d907776",
+  "byte_count": 5254902,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

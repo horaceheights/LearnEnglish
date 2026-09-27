@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7004d899-f100-470d-9c27-6e16b1a45570",
+  "asset_id": "children-walk-school",
+  "pack_sha256": "9742cd90e315add9cac69a17a1e17e727c0b321b0b812dc5190064429e91a543",
+  "started_at": "2026-09-27T07:41:21.960385+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on buildings, signs, vehicles, clothing and screens, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, building and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA calm, clean neighborhood in a mid-sized town on a sunny morning, eye-level photograph. Buildings are recognizable by their shape and one clear symbol only: a pharmacy by a large plain green cross above its door; a bank by a stone front with columns and an ATM beside the door; a school by a low brick building with a playground fence and children's backpacks; a train station by its platform, tracks and a waiting train. No readable signs, no other shop fronts competing for attention, no traffic.\n\nImage 1 shows the family's two children: a boy about nine with short dark hair in a blue polo shirt, and a girl about seven with long dark hair in a lilac T-shirt. Keep both of their faces, hair and clothes exactly; each now wears a school backpack. Create a new photograph: the two children walk side by side along a sunny sidewalk toward a low brick school building with a playground fence, a few meters ahead of them. They are clearly walking, mid-stride, seen from the front at a slight angle so both faces are visible. No cars, buses or bikes; no adults; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+    "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "osi4auzuI4Hhz7IPtZPU0QY",
+  "usage": {
+    "promptTokenCount": 680,
+    "candidatesTokenCount": 1311,
+    "totalTokenCount": 2257,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 422
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 266,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138552",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 680,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 266
+  },
+  "elapsed_seconds": 22.93,
+  "output": "output/imagegen/unit-6-lesson-v2/children-walk-school.png",
+  "sha256": "bc03d3507379947f209af52152e10f98b0e94c836647f1b73b2e53178d60c589",
+  "byte_count": 5560171,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

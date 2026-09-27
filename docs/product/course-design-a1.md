@@ -217,28 +217,33 @@ Before that rebuild, 5.2 Food and Drinks taught ten items, 5.3 Food Quantities o
 
 ### Unit 6: Around Town
 
-Goal: Find familiar services, describe their location, follow simple directions, ask for help, and understand whole-hour transport schedules.
+Goal: Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read whole-hour bus and train times.
 
 Lessons:
 
-1. 6.1 Buildings and Services
-2. 6.2 Transportation
-3. 6.3 Where Is It?
-4. 6.4 Location Words
-5. 6.5 Simple Directions
-6. 6.6 Can and Cannot
-7. 6.7 Simple Requests
-8. 6.8 Schedules
+1. 6.1 Buildings and Services: `station`, `bank`, `pharmacy`, `library`; `The mother is at the pharmacy.`, `The children are in the library.`
+2. 6.2 Transportation: `train`, `taxi`, `walk`, `by`; `I go to work by train.`, `The children walk to school.`
+3. 6.3 Near and Far: `near`, `far from`; `The girl is far from the school.`, `Where is the boy? He is near the station.`
+4. 6.4 Left and Right: `left`, `right`, `on the left`, `on the right`; `The bank is on the left.`
+5. 6.5 Simple Directions: `Go straight.`, `Turn left.`, `Turn right.`, `Cross the street.`, `Stop.`; `Stop at the bank.`
+6. 6.6 Can and Cannot: `can`, `cannot`, `there`; `The boy cannot cross the street.`, `They can go by train.`
+7. 6.7 Asking for Help: `Excuse me.`, `Can you help me?`, `Sorry, no.`; `Where is the station? It is on the left.`
+8. 6.8 Schedules: `leaves`, `arrives`; `The train arrives at four in the afternoon.`, `The bus leaves at eight on Saturday.`
 9. 6.9 Unit 6 Review
-10. 6.10 Town Mission
+10. 6.10 Ruta del barrio
 
 Core patterns:
 
-- `Where is the bank? It is next to the store.`
-- `Go straight. Turn right.`
-- `You can cross the street.`
-- `Excuse me. Can you help me?`
-- `The bus leaves at eight.`
+- `It is a bank. The grandfather is at the bank.`
+- `I go by bus. The children walk to school.`
+- `The girl is near the school. The bank is on the left.`
+- `Go straight. Turn right. Stop at the bank.`
+- `You cannot cross the street. Excuse me. Can you help me?`
+- `The bus leaves at eight. The train arrives at nine.`
+
+**2026-09-27 rebuild (engine briefs, user direction: rebuild Units 5-7 through the engine, new photos approved).** Unit 6 was re-authored through the content engine from the briefs in `docs/product/content-briefs/unit-6/`. Every lesson had 34-36 cards; 6.1 re-taught `store` and `hospital` from 2.1, 6.3 re-taught the 4.3 `Where is ...? / next to / in / on` frames, 6.4 packed six items (near, far from, left, right and both `on the ...` phrases) onto arrow and tile diagrams, and most Learn cards re-taught known frames (`I go by bus.`, `The bus leaves at eight.`). Every teaching lesson now has 42 cards and its Learn cards hold only its new vocabulary. The old 6.3 and 6.4 are re-scoped: **6.3 Near and Far** (`lesson-6-3-where-is-it`) and **6.4 Left and Right** (`lesson-6-4-location-words`) each teach one contrast on photo pairs that change only that contrast (the same girl at the school gate or far down a road; the same bank and pharmacy swapped across one street; Luis pointing from behind, so his left is the learner's left). Practice reuses what learners know: the Unit 1 family at the new places, the Unit 2 vehicles in `I go by ...`, the Unit 4 `go to work` and `go to school`, and the Unit 4 days and parts of the day in the schedules (`in the afternoon`, `on Monday`, Speak and Use only). 6.5 practises `Stop` in `Stop at the hospital.` and `Stop at the bank.` so it reaches Speak; 6.7 adds `Where is the station?` and `It is on the left.` as the answer; untaught `goes` is gone (the old 6.2 and 6.6 used it), so people travel with `I go ...`, `They go ...` and `walk`. Unit 6 keeps 10 lessons. The review (54 cards) adds `She is at the library.`, `I walk to work.`, `The hospital is far from the park.`, `They go by taxi.`, `You cannot cross the street.` and `The hospital is on the right.` on six fresh photos; the mission already practised every rebuilt function and is unchanged except its vocabulary list. Lesson IDs are unchanged, so learner progress survives.
+
+Before that rebuild, 6.3 was Where Is It? (`Where is the...?` with `next to`, `in` and `on`), 6.4 Location Words (near, far and left and right together), and 6.7 Simple Requests (with `Yes.` and `Thank you.` as new items).
 
 ### Unit 7: Everyday Needs and A1 Integration
 

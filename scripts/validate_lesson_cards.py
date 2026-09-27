@@ -142,7 +142,7 @@ SEMANTIC_ASSET_NEGATIVE_ACTIONS = {
     "girl_is_reading": {"sleeping"},
     "family_babies": {"sleeping"},
 }
-OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country", "room"})
+OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country", "room", "place", "distance", "travel"})
 SEMANTIC_RELATED_GROUP_MARKERS = (
     "family_adults",
     "family_babies",
@@ -1083,6 +1083,21 @@ def _semantic_details(text: str) -> frozenset[str]:
         details.add('predicate:want')
     if tokens & {'need', 'needs'}:
         details.add('predicate:need')
+    # Town places, distance and travel (Unit 6). A picture states them in its filename
+    # (mother_at_pharmacy, girl_far_from_school, children_school_bus); a sentence says
+    # "at the bank", "near the station", "far from the park", "by bus" or "walk".
+    # Rooms join the places, so "in the kitchen" also contradicts a picture at the library.
+    places = 'library|pharmacy|bank|station|school|park|hospital|store|kitchen|bedroom|bathroom|living room|dining room'
+    for place in re.findall(rf"\b(?:at|in)\s+(?:the\s+)?({places})\b", lowered):
+        details.add('place:' + place)
+    for relation, place in re.findall(rf"\b(near|far\s+from)\s+(?:the\s+)?({places})\b", lowered):
+        details.add('distance:' + relation.split()[0] + '-' + place)
+    if tokens & {'walk', 'walks'}:
+        details.add('travel:walk')
+    for vehicle in re.findall(r"\bby\s+(bus|train|car|bike|taxi)\b", lowered):
+        details.add('travel:' + vehicle)
+    if re.search(r"\bschool bus\b", lowered) or re.search(r"\bboards?\s+(?:the\s+)?bus\b", lowered):
+        details.add('travel:bus')
     if {'cross', 'cannot'} <= tokens or {'waits', 'red'} <= tokens:
         details.add('crossing:cannot')
     elif {'cross', 'can'} <= tokens or {'crosses', 'green'} <= tokens:

@@ -71,15 +71,15 @@
       ]
     },
     "6": {
-      "outcome": "Reach a destination: choose a service and transport, follow directions, decide whether crossing is allowed, ask for help, and read a real schedule.",
+      "outcome": "Reach a destination: choose a place and a way to travel, say where places are, follow directions, decide whether you can cross, ask for help, and read a real schedule.",
       "functions": [
         {"id": "services", "taught_in": "6.1", "patterns": ["\\bbank\\b", "\\bpharmacy\\b", "\\blibrary\\b", "\\bstation\\b"]},
         {"id": "travel", "taught_in": "6.2", "patterns": ["\\bby (?:bus|train|car|bike|taxi)\\b", "\\bi walk\\b"]},
-        {"id": "where-exchange", "taught_in": "6.3", "patterns": ["\\bwhere is the\\b", "\\bnext to\\b"]},
-        {"id": "relative-location", "taught_in": "6.4", "patterns": ["\\bon the left\\b", "\\bon the right\\b", "\\bnear\\b", "\\bfar from\\b"]},
+        {"id": "near-far", "taught_in": "6.3", "patterns": ["\\bnear\\b", "\\bfar from\\b"]},
+        {"id": "left-right", "taught_in": "6.4", "patterns": ["\\bon the left\\b", "\\bon the right\\b"]},
         {"id": "directions", "taught_in": "6.5", "patterns": ["\\bgo straight\\b", "\\bturn left\\b", "\\bturn right\\b", "\\bcross the street\\b", "\\bstop\\b"]},
         {"id": "permission", "taught_in": "6.6", "patterns": ["\\byou can cross the street\\b", "\\byou cannot cross the street\\b"]},
-        {"id": "help-exchange", "taught_in": "6.7", "patterns": ["\\bexcuse me\\b", "\\bcan you help me\\b", "\\bthank you\\b"]},
+        {"id": "help-exchange", "taught_in": "6.7", "patterns": ["\\bexcuse me\\b", "\\bcan you help me\\b", "\\bwhere is the\\b", "\\bthank you\\b"]},
         {"id": "schedule", "taught_in": "6.8", "patterns": ["\\b(?:bus|train) leaves at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b", "\\b(?:bus|train) arrives at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b"]}
       ]
     },
