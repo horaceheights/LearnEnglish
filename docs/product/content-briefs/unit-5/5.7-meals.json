@@ -1,0 +1,295 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds lunch and dinner; breakfast was taught in 4.5 (eat breakfast), so it is a known wrong option, and for is practised in whole sentences. Photos of the same food at two meals differ only in the clock and the light.",
+  "target": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+  "lesson": {
+    "id": "lesson-5-6-meals",
+    "title": "5.7 Meals",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.7",
+    "sub_lesson_title": "Meals",
+    "goal": "Recognize lunch and dinner, and say what I eat or drink for breakfast, lunch and dinner and at what time.",
+    "vocabulary": [
+      "lunch",
+      "dinner",
+      "for"
+    ],
+    "review_vocabulary": [
+      "breakfast",
+      "eat",
+      "drink",
+      "I",
+      "they",
+      "an",
+      "egg",
+      "eggs",
+      "rice",
+      "chicken",
+      "tea",
+      "coffee",
+      "at",
+      "o'clock",
+      "one",
+      "seven",
+      "Me too."
+    ],
+    "grammar_function": "I eat eggs for breakfast. They eat chicken for dinner. They eat lunch at one o'clock.",
+    "prerequisite": "4.5 eat breakfast; 4.10 at and o'clock; 5.2-5.3 food, drinks and drink.",
+    "speaking_outcome": "Say what I eat for breakfast, lunch or dinner.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Lunch",
+      "es": "Almuerzo",
+      "image": "a1_scene_lunch-scene_f025a1a.webp",
+      "kind": "meal-word"
+    },
+    {
+      "text": "Dinner",
+      "es": "Cena",
+      "image": "a1_scene_dinner-scene_0fbb004.webp",
+      "kind": "meal-word"
+    },
+    {
+      "text": "I eat eggs for breakfast.",
+      "es": "Como huevos en el desayuno.",
+      "image": "a1_photo_u5_eggs_breakfast_v1.webp",
+      "kind": "eggs-meal",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "The speaker and food stay the same so only the meal changes; the bank tests breakfast, lunch and dinner.",
+        "action-variety": "The speaker and food stay the same so only the meal changes; the bank tests breakfast, lunch and dinner."
+      },
+      "prefer": [
+        "I eat eggs for dinner."
+      ]
+    },
+    {
+      "text": "I eat eggs for dinner.",
+      "es": "Como huevos en la cena.",
+      "image": "a1_photo_u5_eggs_dinner_v1.webp",
+      "kind": "eggs-meal",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "The speaker and food stay the same so only the meal changes; the bank tests breakfast, lunch and dinner.",
+        "action-variety": "The speaker and food stay the same so only the meal changes; the bank tests breakfast, lunch and dinner."
+      },
+      "prefer": [
+        "I eat eggs for breakfast."
+      ]
+    },
+    {
+      "text": "I drink tea for breakfast.",
+      "es": "Tomo té en el desayuno.",
+      "image": "a1_photo_u5_tea_breakfast_v1.webp",
+      "kind": "tea-meal",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I drink tea for dinner.",
+        "I drink tea for lunch."
+      ]
+    },
+    {
+      "text": "I drink coffee for breakfast.",
+      "es": "Tomo café en el desayuno.",
+      "image": "a1_photo_u5_coffee_breakfast_v1.webp",
+      "kind": "coffee-meal",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "speaker": "male-character",
+      "image_choices": false,
+      "prefer": [
+        "I drink coffee for dinner.",
+        "I drink coffee for lunch."
+      ]
+    },
+    {
+      "text": "They eat chicken for lunch.",
+      "es": "Comen pollo en el almuerzo.",
+      "image": "a1_photo_u5_chicken_lunch_v1.webp",
+      "kind": "chicken-meal",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "They eat chicken for dinner."
+      ]
+    },
+    {
+      "text": "They eat chicken for dinner.",
+      "es": "Comen pollo en la cena.",
+      "image": "a1_photo_u5_chicken_dinner_v1.webp",
+      "kind": "chicken-meal",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "They eat chicken for lunch."
+      ]
+    },
+    {
+      "text": "They eat rice for lunch.",
+      "es": "Comen arroz en el almuerzo.",
+      "image": "a1_photo_u5_rice_lunch_v1.webp",
+      "kind": "rice-meal",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "They eat rice for dinner.",
+        "They eat rice for breakfast."
+      ]
+    },
+    {
+      "text": "I eat an egg for breakfast.",
+      "es": "Como un huevo en el desayuno.",
+      "image": "a1_photo_u5_one_egg_breakfast_v1.webp",
+      "kind": "egg-meal",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I eat an egg for dinner.",
+        "I eat an egg for lunch."
+      ]
+    },
+    {
+      "text": "Me too.",
+      "es": "Yo también.",
+      "image": "a1_photo_u5_rice_lunch_v1.webp",
+      "kind": "agree-response",
+      "learn": false,
+      "speaker": "male-character",
+      "question": "I eat rice for lunch.",
+      "question_es": "Como arroz en el almuerzo.",
+      "question_speaker": "female-character",
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "They eat lunch at one o'clock.",
+      "es": "Almuerzan a la una.",
+      "image": "a1_photo_u5_rice_lunch_v1.webp",
+      "kind": "lunch-time",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "They eat lunch at two o'clock.",
+        "They eat lunch at seven o'clock."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Breakfast",
+      "es": "Desayuno",
+      "kind": "meal-word",
+      "image": "a1_scene_breakfast-scene_64f12d9.webp"
+    },
+    {
+      "text": "I drink tea for dinner.",
+      "es": "Tomo té en la cena.",
+      "kind": "tea-meal"
+    },
+    {
+      "text": "I drink tea for lunch.",
+      "es": "Tomo té en el almuerzo.",
+      "kind": "tea-meal"
+    },
+    {
+      "text": "I drink coffee for dinner.",
+      "es": "Tomo café en la cena.",
+      "kind": "coffee-meal"
+    },
+    {
+      "text": "I drink coffee for lunch.",
+      "es": "Tomo café en el almuerzo.",
+      "kind": "coffee-meal"
+    },
+    {
+      "text": "They eat rice for dinner.",
+      "es": "Comen arroz en la cena.",
+      "kind": "rice-meal"
+    },
+    {
+      "text": "They eat rice for breakfast.",
+      "es": "Comen arroz en el desayuno.",
+      "kind": "rice-meal"
+    },
+    {
+      "text": "They eat lunch at two o'clock.",
+      "es": "Almuerzan a las dos.",
+      "kind": "lunch-time"
+    },
+    {
+      "text": "They eat lunch at seven o'clock.",
+      "es": "Almuerzan a las siete.",
+      "kind": "lunch-time"
+    },
+    {
+      "text": "I eat an egg for dinner.",
+      "es": "Como un huevo en la cena.",
+      "kind": "egg-meal"
+    },
+    {
+      "text": "I eat an egg for lunch.",
+      "es": "Como un huevo en el almuerzo.",
+      "kind": "egg-meal"
+    },
+    {
+      "text": "Goodbye.",
+      "es": "Adiós.",
+      "kind": "agree-response"
+    },
+    {
+      "text": "Hello.",
+      "es": "Hola.",
+      "kind": "agree-response"
+    }
+  ]
+}

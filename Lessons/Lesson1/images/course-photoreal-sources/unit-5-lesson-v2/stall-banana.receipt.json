@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "788f31d1-b02c-4960-b65b-7835f9b40e71",
+  "asset_id": "stall-banana",
+  "pack_sha256": "c0342ad2c61b860c3cf637b8b013c26f5749fcbb74632f8889e140a3de7288ad",
+  "started_at": "2026-09-27T02:25:51.202706+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nAt a sunny outdoor fruit stall, seen at eye level from about two meters away. On the left, a customer, a woman in her thirties with a short dark-brown bob in a teal cardigan over a white T-shirt, stands at the wooden counter, smiles and holds both open hands out in front of her, palms up, ready to receive. On the right, behind the counter, a friendly vendor, a man in his fifties with grey hair and a green apron over a checked shirt, holds out exactly ONE yellow banana toward her in his right hand, at chest height between them, large and clearly visible against a plain background. The counter between them is empty; the crates of fruit are only softly blurred in the background, behind the vendor. Both faces are clearly visible in three-quarter view. No text, prices, signs or logos; no other people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "r364avGNHNPoz7IPz5uROQ",
+  "usage": {
+    "promptTokenCount": 470,
+    "candidatesTokenCount": 1351,
+    "totalTokenCount": 2159,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 470
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 338,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138996",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 470,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 338
+  },
+  "elapsed_seconds": 22.59,
+  "output": "output/imagegen/unit-5-lesson-v2/stall-banana.png",
+  "sha256": "6f9365fcab294ffcd8ea9738da9d2f7ccc7fcf383f635c8f66f616a3251e61e0",
+  "byte_count": 6286113,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

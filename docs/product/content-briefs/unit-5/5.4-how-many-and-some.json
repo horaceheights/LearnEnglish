@@ -1,0 +1,271 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds How many? and some only. Luis asks every How many question; the answers are practice on the 5.1-5.2 counting photos, whose wrong options change only the number, and never sit in four-picture cards. Some is practised on food and drinks that are not counted.",
+  "target": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+  "lesson": {
+    "id": "lesson-5-3-food-quantities",
+    "title": "5.4 How Many? and Some",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.4",
+    "sub_lesson_title": "How Many? and Some",
+    "goal": "Ask How many ... are there? and answer with there are and a number; say there is some ... about food and drinks.",
+    "vocabulary": [
+      "How many...?",
+      "some"
+    ],
+    "review_vocabulary": [
+      "there is",
+      "there are",
+      "two",
+      "three",
+      "four",
+      "five",
+      "apples",
+      "oranges",
+      "eggs",
+      "strawberries",
+      "rice",
+      "water",
+      "milk",
+      "bread",
+      "juice"
+    ],
+    "grammar_function": "How many + plural noun + are there? There are three apples. There is some rice.",
+    "prerequisite": "4.4 there is and there are; 2.6-2.7 numbers; 5.1-5.3 fruit, food and drinks.",
+    "speaking_outcome": "Ask How many ... are there? and answer; say There is some ....",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "How many?",
+      "es": "¿Cuántos?",
+      "image": "a1_photo_u5_luis_how_many_v1.webp",
+      "kind": "question-word",
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "Some",
+      "es": "Un poco de",
+      "image": "a1_rice.webp",
+      "kind": "quantity-word",
+      "choices": false
+    },
+    {
+      "text": "How many apples are there?",
+      "es": "¿Cuántas manzanas hay?",
+      "image": "a1_photo_u5_luis_how_many_v1.webp",
+      "kind": "how-many-question",
+      "learn": false,
+      "speaker": "luis",
+      "choices": false
+    },
+    {
+      "text": "There are two apples.",
+      "es": "Hay dos manzanas.",
+      "image": "a1_photo_u5_two_apples_v1.webp",
+      "kind": "apple-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are three apples."
+      ],
+      "question": "How many apples are there?",
+      "question_es": "¿Cuántas manzanas hay?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "There are three apples.",
+      "es": "Hay tres manzanas.",
+      "image": "a1_photo_u5_three_apples_v1.webp",
+      "kind": "apple-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are two apples."
+      ],
+      "question": "How many apples are there?",
+      "question_es": "¿Cuántas manzanas hay?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "There are four apples.",
+      "es": "Hay cuatro manzanas.",
+      "image": "a1_photo_u5_four_red_apples_v1.webp",
+      "kind": "apple-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are three apples."
+      ],
+      "question": "How many apples are there?",
+      "question_es": "¿Cuántas manzanas hay?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "There are two oranges.",
+      "es": "Hay dos naranjas.",
+      "image": "a1_photo_u5_two_oranges_v1.webp",
+      "kind": "orange-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are three oranges."
+      ],
+      "question": "How many oranges are there?",
+      "question_es": "¿Cuántas naranjas hay?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "There are four oranges.",
+      "es": "Hay cuatro naranjas.",
+      "image": "a1_photo_u5_four_oranges_v1.webp",
+      "kind": "orange-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are three oranges."
+      ],
+      "question": "How many oranges are there?",
+      "question_es": "¿Cuántas naranjas hay?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "There are three eggs.",
+      "es": "Hay tres huevos.",
+      "image": "a1_photo_u5_three_eggs_v1.webp",
+      "kind": "egg-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are two eggs."
+      ],
+      "question": "How many eggs are there?",
+      "question_es": "¿Cuántos huevos hay?",
+      "question_speaker": "luis"
+    },
+    {
+      "text": "There is some rice.",
+      "es": "Hay un poco de arroz.",
+      "image": "a1_rice.webp",
+      "kind": "some-food",
+      "learn": false,
+      "prefer": [
+        "There is some bread."
+      ]
+    },
+    {
+      "text": "There is some bread.",
+      "es": "Hay un poco de pan.",
+      "image": "a1_bread.webp",
+      "kind": "some-food",
+      "learn": false,
+      "prefer": [
+        "There is some rice."
+      ]
+    },
+    {
+      "text": "There is some water.",
+      "es": "Hay un poco de agua.",
+      "image": "a1_water.webp",
+      "kind": "some-drink",
+      "learn": false,
+      "prefer": [
+        "There is some milk."
+      ]
+    },
+    {
+      "text": "There is some milk.",
+      "es": "Hay un poco de leche.",
+      "image": "a1_milk.webp",
+      "kind": "some-drink",
+      "learn": false,
+      "prefer": [
+        "There is some juice."
+      ]
+    },
+    {
+      "text": "There is some juice.",
+      "es": "Hay un poco de jugo.",
+      "image": "a1_juice.webp",
+      "kind": "some-drink",
+      "learn": false,
+      "prefer": [
+        "There is some water."
+      ]
+    },
+    {
+      "text": "There is some fruit.",
+      "es": "Hay un poco de fruta.",
+      "image": "a1_photo_u5_fruit_v1.webp",
+      "kind": "some-food",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "There is some bread.",
+        "There is some rice."
+      ]
+    },
+    {
+      "text": "There are five drinks.",
+      "es": "Hay cinco bebidas.",
+      "image": "a1_photo_u5_drinks_v1.webp",
+      "kind": "drinks-count",
+      "learn": false,
+      "accepts": {
+        "action-variety": "Drinks is the noun here (bebidas), not the verb; only the number changes."
+      },
+      "image_choices": false,
+      "prefer": [
+        "There are four drinks.",
+        "There are three drinks."
+      ],
+      "question": "How many drinks are there?",
+      "question_es": "¿Cuántas bebidas hay?",
+      "question_speaker": "luis"
+    }
+  ],
+  "pool": [
+    {
+      "text": "There are three oranges.",
+      "es": "Hay tres naranjas.",
+      "kind": "orange-count"
+    },
+    {
+      "text": "There are two eggs.",
+      "es": "Hay dos huevos.",
+      "kind": "egg-count"
+    },
+    {
+      "text": "There are four eggs.",
+      "es": "Hay cuatro huevos.",
+      "kind": "egg-count"
+    },
+    {
+      "text": "There are four drinks.",
+      "es": "Hay cuatro bebidas.",
+      "kind": "drinks-count"
+    },
+    {
+      "text": "There are three drinks.",
+      "es": "Hay tres bebidas.",
+      "kind": "drinks-count"
+    }
+  ]
+}

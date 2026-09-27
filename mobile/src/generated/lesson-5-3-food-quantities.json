@@ -1,87 +1,125 @@
 {
   "id": "lesson-5-3-food-quantities",
-  "title": "5.3 Food Quantities",
+  "title": "5.4 How Many? and Some",
   "level": "Beginner A1",
   "unit_id": "unit-5",
   "unit_title": "Unit 5: Food, Drinks, and Shopping",
-  "unit_outcome": "Express simple food preferences and needs and complete a supported purchase or caf\u00e9 order.",
+  "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a caf\u00e9.",
   "lesson_id": "lesson-5",
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
-  "sub_lesson_id": "5.3",
-  "sub_lesson_title": "Food Quantities",
-  "goal": "Distinguish one from more than one for countable foods and use some with familiar non-count foods.",
+  "sub_lesson_id": "5.4",
+  "sub_lesson_title": "How Many? and Some",
+  "goal": "Ask How many ... are there? and answer with there are and a number; say there is some ... about food and drinks.",
   "vocabulary": [
+    "How many...?",
     "some"
   ],
   "review_vocabulary": [
-    "one",
+    "there is",
+    "there are",
     "two",
     "three",
     "four",
     "five",
-    "apple/apples",
-    "orange/oranges",
-    "egg/eggs",
-    "bread",
+    "apples",
+    "oranges",
+    "eggs",
+    "strawberries",
     "rice",
-    "water"
+    "water",
+    "milk",
+    "bread",
+    "juice"
   ],
-  "grammar_function": "one + singular; two-five + plural; some + bread/rice/water.",
-  "prerequisite": "2.6-2.8 counting and plural descriptions; 5.1-5.2 food nouns.",
-  "speaking_outcome": "Say six short food-quantity chunks with intelligible number and noun endings.",
+  "grammar_function": "How many + plural noun + are there? There are three apples. There is some rice.",
+  "prerequisite": "4.4 there is and there are; 2.6-2.7 numbers; 5.1-5.3 fruit, food and drinks.",
+  "speaking_outcome": "Ask How many ... are there? and answer; say There is some ....",
   "purposeful_review_slides": [
-    "Learn:L3",
-    "Learn:L4",
-    "Recognize:R7",
-    "Listen:A5",
-    "Listen:A6",
-    "Use:U8"
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U8",
+    "U9"
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "One egg",
+      "prompt": "How many?",
       "stage": "Learn",
-      "correct_option_id": "one-egg-1",
+      "correct_option_id": "how-many-learn",
       "options": [
         {
-          "id": "one-egg-1",
-          "image_url": "/lesson-assets/a1_egg.webp",
-          "label": "One egg"
+          "id": "how-many-learn",
+          "image_url": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "label": "How many?"
         }
       ],
-      "audio_text": "One egg",
+      "audio_text": "How many?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un huevo",
-      "pedagogy_note": "Grammar anchor: singular.",
-      "audio_speaker": null,
+      "spanish_translation": "\u00bfCu\u00e1ntos?",
+      "pedagogy_note": "Story beat 01: How many?",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c001-prompt-bdaadafb0483e2d47932",
+          "id": "lesson-5-3-food-quantities-c001-prompt-45d81ff73509d85a529e",
           "purpose": "prompt",
-          "text": "One egg",
+          "text": "How many?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_egg.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c001-answer-87593e14b0beef71163a",
+          "id": "lesson-5-3-food-quantities-c001-answer-688cb6feda5a468ceec5",
           "purpose": "answer",
-          "text": "One egg",
+          "text": "How many?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_egg.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -90,177 +128,30 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Two eggs",
+      "prompt": "Some",
       "stage": "Learn",
-      "correct_option_id": "two-eggs-1",
+      "correct_option_id": "some-learn",
       "options": [
         {
-          "id": "two-eggs-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "label": "Two eggs"
-        }
-      ],
-      "audio_text": "Two eggs",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dos huevos",
-      "pedagogy_note": "Plural -s introduced in a known count frame.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-3-food-quantities-c002-prompt-76122e1c472006d4d399",
-          "purpose": "prompt",
-          "text": "Two eggs",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-3-food-quantities-c002-answer-5ae8db85af4d4e5e3f27",
-          "purpose": "answer",
-          "text": "Two eggs",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
-      "prompt": "One apple",
-      "stage": "Learn",
-      "correct_option_id": "one-apple-1",
-      "options": [
-        {
-          "id": "one-apple-1",
-          "image_url": "/lesson-assets/a1_apple.webp",
-          "label": "One apple"
-        }
-      ],
-      "audio_text": "One apple",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una manzana",
-      "pedagogy_note": "Review fruit plus singular.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-3-food-quantities-c003-prompt-cf786286bdf337593255",
-          "purpose": "prompt",
-          "text": "One apple",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-3-food-quantities-c003-answer-7b72ce35ab3919870478",
-          "purpose": "answer",
-          "text": "One apple",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "Three apples",
-      "stage": "Learn",
-      "correct_option_id": "three-apples-1",
-      "options": [
-        {
-          "id": "three-apples-1",
-          "image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
-          "label": "Three apples"
-        }
-      ],
-      "audio_text": "Three apples",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tres manzanas",
-      "pedagogy_note": "Review number plus plural.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-3-food-quantities-c004-prompt-a1db4c8000adef86d120",
-          "purpose": "prompt",
-          "text": "Three apples",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-3-food-quantities-c004-answer-e67930914dc9c4406bfb",
-          "purpose": "answer",
-          "text": "Three apples",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L5",
-      "interaction_type": "teach",
-      "prompt": "Some rice",
-      "stage": "Learn",
-      "correct_option_id": "some-rice-1",
-      "options": [
-        {
-          "id": "some-rice-1",
+          "id": "some-learn",
           "image_url": "/lesson-assets/a1_rice.webp",
-          "label": "Some rice"
+          "label": "Some"
         }
       ],
-      "audio_text": "Some rice",
+      "audio_text": "Some",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un poco de arroz",
-      "pedagogy_note": "New some chunk.",
+      "spanish_translation": "Un poco de",
+      "pedagogy_note": "Story beat 02: Some",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c005-prompt-6fb545be970639f3b21a",
+          "id": "lesson-5-3-food-quantities-c002-prompt-56f8f427a76f8879424e",
           "purpose": "prompt",
-          "text": "Some rice",
+          "text": "Some",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_rice.webp",
@@ -270,61 +161,12 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c005-answer-a9bb4b6686da8b73b305",
+          "id": "lesson-5-3-food-quantities-c002-answer-b37b8cf0172a2d625927",
           "purpose": "answer",
-          "text": "Some rice",
+          "text": "Some",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_rice.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L6",
-      "interaction_type": "teach",
-      "prompt": "Some water",
-      "stage": "Learn",
-      "correct_option_id": "some-water-1",
-      "options": [
-        {
-          "id": "some-water-1",
-          "image_url": "/lesson-assets/a1_water.webp",
-          "label": "Some water"
-        }
-      ],
-      "audio_text": "Some water",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un poco de agua",
-      "pedagogy_note": "New some + liquid chunk.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-3-food-quantities-c006-prompt-b29b11af983b3833b4a4",
-          "purpose": "prompt",
-          "text": "Some water",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_water.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-3-food-quantities-c006-answer-1c6649f389a20a91fd42",
-          "purpose": "answer",
-          "text": "Some water",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_water.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -334,53 +176,53 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
-      "prompt": "One egg",
+      "interaction_type": "t2i2",
+      "prompt": "There are two apples.",
       "stage": "Recognize",
-      "correct_option_id": "one-egg-1",
+      "correct_option_id": "there-are-two-apples-r1",
       "options": [
         {
-          "id": "one-egg-1",
-          "image_url": "/lesson-assets/a1_egg.webp",
+          "id": "there-are-three-apples-r1",
+          "image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
           "label": null
         },
         {
-          "id": "two-eggs-2",
-          "image_url": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
+          "id": "there-are-two-apples-r1",
+          "image_url": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "One egg",
+      "audio_text": "There are two apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un huevo",
-      "pedagogy_note": "Count and noun form align.",
-      "audio_speaker": null,
+      "spanish_translation": "Hay dos manzanas.",
+      "pedagogy_note": "Story beat 01: There are two apples.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c007-prompt-a587f8291398f808342b",
+          "id": "lesson-5-3-food-quantities-c003-prompt-3cad691debfd01b5690d",
           "purpose": "prompt",
-          "text": "One egg",
+          "text": "There are two apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_egg.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c007-answer-0a6606fc85912b6ed132",
+          "id": "lesson-5-3-food-quantities-c003-answer-5c833a6db8e0d240cc74",
           "purpose": "answer",
-          "text": "One egg",
+          "text": "There are two apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_egg.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -388,53 +230,53 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "Two eggs",
+      "interaction_type": "i2t2",
+      "prompt": "How many apples are there?",
       "stage": "Recognize",
-      "correct_option_id": "two-eggs-1",
+      "correct_option_id": "there-are-three-apples-r2",
       "options": [
         {
-          "id": "two-eggs-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "label": null
+          "id": "there-are-two-apples-r2",
+          "image_url": "",
+          "label": "There are two apples."
         },
         {
-          "id": "one-egg-2",
-          "image_url": "/lesson-assets/a1_egg.webp",
-          "label": null
+          "id": "there-are-three-apples-r2",
+          "image_url": "",
+          "label": "There are three apples."
         }
       ],
-      "audio_text": "Two eggs",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dos huevos",
-      "pedagogy_note": "Exact count.",
-      "audio_speaker": null,
+      "audio_text": "How many apples are there?",
+      "answer_audio_text": "There are three apples.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+      "spanish_translation": "\u00bfCu\u00e1ntas manzanas hay?",
+      "pedagogy_note": "Story beat 02: There are three apples.",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c008-prompt-cc57e8761dd6941dcaca",
+          "id": "lesson-5-3-food-quantities-c004-prompt-0932541724531d9b28a9",
           "purpose": "prompt",
-          "text": "Two eggs",
+          "text": "How many apples are there?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c008-answer-44c99d3a3a2e440abc7f",
+          "id": "lesson-5-3-food-quantities-c004-answer-4abb03d8f8d194e11523",
           "purpose": "answer",
-          "text": "Two eggs",
+          "text": "There are three apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -442,53 +284,53 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "Three apples",
+      "interaction_type": "t2i2",
+      "prompt": "There are four apples.",
       "stage": "Recognize",
-      "correct_option_id": "three-apples-2",
+      "correct_option_id": "there-are-four-apples-r3",
       "options": [
         {
-          "id": "two-apples-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
+          "id": "there-are-four-apples-r3",
+          "image_url": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
           "label": null
         },
         {
-          "id": "three-apples-2",
+          "id": "there-are-three-apples-r3",
           "image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "Three apples",
+      "audio_text": "There are four apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tres manzanas",
-      "pedagogy_note": "No partly hidden apples.",
-      "audio_speaker": null,
+      "spanish_translation": "Hay cuatro manzanas.",
+      "pedagogy_note": "Story beat 03: There are four apples.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c009-prompt-3e6a75b52eb312b2019b",
+          "id": "lesson-5-3-food-quantities-c005-prompt-83f66031bd0ef81d79bb",
           "purpose": "prompt",
-          "text": "Three apples",
+          "text": "There are four apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c009-answer-b24a3042a271851bbb18",
+          "id": "lesson-5-3-food-quantities-c005-answer-940cdc51a63fcca1973d",
           "purpose": "answer",
-          "text": "Three apples",
+          "text": "There are four apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -496,53 +338,53 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "Some rice",
+      "interaction_type": "i2t2",
+      "prompt": "How many oranges are there?",
       "stage": "Recognize",
-      "correct_option_id": "rice-1",
+      "correct_option_id": "there-are-two-oranges-r4",
       "options": [
         {
-          "id": "rice-1",
-          "image_url": "/lesson-assets/a1_rice.webp",
-          "label": null
+          "id": "there-are-three-oranges-r4",
+          "image_url": "",
+          "label": "There are three oranges."
         },
         {
-          "id": "water-2",
-          "image_url": "/lesson-assets/a1_water.webp",
-          "label": null
+          "id": "there-are-two-oranges-r4",
+          "image_url": "",
+          "label": "There are two oranges."
         }
       ],
-      "audio_text": "Some rice",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un poco de arroz",
-      "pedagogy_note": "Tests noun within some chunk, not quantity size.",
-      "audio_speaker": null,
+      "audio_text": "How many oranges are there?",
+      "answer_audio_text": "There are two oranges.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
+      "spanish_translation": "\u00bfCu\u00e1ntas naranjas hay?",
+      "pedagogy_note": "Story beat 04: There are two oranges.",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c010-prompt-23bae16a01a384fcd6e9",
+          "id": "lesson-5-3-food-quantities-c006-prompt-35f618ceedc54fb0a2a2",
           "purpose": "prompt",
-          "text": "Some rice",
+          "text": "How many oranges are there?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_rice.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c010-answer-2900d8171c3863fcc262",
+          "id": "lesson-5-3-food-quantities-c006-answer-95ac57e7b9434af0bfde",
           "purpose": "answer",
-          "text": "Some rice",
+          "text": "There are two oranges.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_rice.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -550,46 +392,53 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "recognize-text",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "There are four oranges.",
       "stage": "Recognize",
-      "correct_option_id": "four-oranges-4",
+      "correct_option_id": "there-are-four-oranges-r5",
       "options": [
         {
-          "id": "one-orange-1",
-          "image_url": "",
-          "label": "One orange"
+          "id": "there-are-two-oranges-r5",
+          "image_url": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
+          "label": null
         },
         {
-          "id": "two-oranges-2",
-          "image_url": "",
-          "label": "Two oranges"
-        },
-        {
-          "id": "four-oranges-4",
-          "image_url": "",
-          "label": "Four oranges"
+          "id": "there-are-four-oranges-r5",
+          "image_url": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Four oranges",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Image-to-text count; all fruit separated.",
-      "audio_speaker": null,
+      "audio_text": "There are four oranges.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hay cuatro naranjas.",
+      "pedagogy_note": "Story beat 05: There are four oranges.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c011-answer-e8c73b4bd0afef263e93",
+          "id": "lesson-5-3-food-quantities-c007-prompt-4659087a6eb6a1025876",
+          "purpose": "prompt",
+          "text": "There are four oranges.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c007-answer-68ff5b484723be73bc79",
           "purpose": "answer",
-          "text": "Four oranges",
+          "text": "There are four oranges.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -597,41 +446,53 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "recognize-text",
-      "prompt": "",
+      "interaction_type": "i2t2",
+      "prompt": "How many eggs are there?",
       "stage": "Recognize",
-      "correct_option_id": "some-water-2",
+      "correct_option_id": "there-are-three-eggs-r6",
       "options": [
         {
-          "id": "some-rice-1",
+          "id": "there-are-three-eggs-r6",
           "image_url": "",
-          "label": "Some rice"
+          "label": "There are three eggs."
         },
         {
-          "id": "some-water-2",
+          "id": "there-are-two-eggs-r6",
           "image_url": "",
-          "label": "Some water"
+          "label": "There are two eggs."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Some water",
-      "prompt_image_url": "/lesson-assets/a1_water.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Removes count-unit readings such as one water and prevents untaught waters from first appearing as a distractor.",
-      "audio_speaker": null,
+      "audio_text": "How many eggs are there?",
+      "answer_audio_text": "There are three eggs.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+      "spanish_translation": "\u00bfCu\u00e1ntos huevos hay?",
+      "pedagogy_note": "Story beat 06: There are three eggs.",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c012-answer-d82c57141f6e78ff827a",
+          "id": "lesson-5-3-food-quantities-c008-prompt-df9602440e8ac223cfb5",
+          "purpose": "prompt",
+          "text": "How many eggs are there?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c008-answer-0dc91e6f8feeffc25dff",
           "purpose": "answer",
-          "text": "Some water",
+          "text": "There are three eggs.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_water.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -639,61 +500,103 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "recognize-image",
-      "prompt": "Five strawberries",
+      "interaction_type": "t2i3",
+      "prompt": "There is some rice.",
       "stage": "Recognize",
-      "correct_option_id": "five-strawberries-4",
+      "correct_option_id": "there-is-some-rice-r7",
       "options": [
         {
-          "id": "two-strawberries-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_strawberries_v1.webp",
+          "id": "there-is-some-rice-r7",
+          "image_url": "/lesson-assets/a1_rice.webp",
           "label": null
         },
         {
-          "id": "three-strawberries-2",
-          "image_url": "/lesson-assets/a1_photo_u5_three_strawberries_v1.webp",
+          "id": "there-is-some-bread-r7",
+          "image_url": "/lesson-assets/a1_bread.webp",
           "label": null
         },
         {
-          "id": "four-strawberries-3",
-          "image_url": "/lesson-assets/a1_photo_u5_four_strawberries_v1.webp",
-          "label": null
-        },
-        {
-          "id": "five-strawberries-4",
-          "image_url": "/lesson-assets/a1_photo_u5_five_strawberries_v1.webp",
+          "id": "there-is-some-fruit-r7",
+          "image_url": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "Five strawberries",
+      "audio_text": "There is some rice.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Cinco fresas",
-      "pedagogy_note": "Purposeful review of 5.1 and number five.",
+      "spanish_translation": "Hay un poco de arroz.",
+      "pedagogy_note": "Story beat 07: There is some rice.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c009-prompt-77df994eebe537e4e7d3",
+          "purpose": "prompt",
+          "text": "There is some rice.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_rice.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c009-answer-77a61cd0497efa4500e4",
+          "purpose": "answer",
+          "text": "There is some rice.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_rice.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "there-is-some-bread-r8",
+      "options": [
+        {
+          "id": "there-is-some-fruit-r8",
+          "image_url": "",
+          "label": "There is some fruit."
+        },
+        {
+          "id": "there-is-some-bread-r8",
+          "image_url": "",
+          "label": "There is some bread."
+        },
+        {
+          "id": "there-is-some-rice-r8",
+          "image_url": "",
+          "label": "There is some rice."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "There is some bread.",
+      "prompt_image_url": "/lesson-assets/a1_bread.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: There is some bread.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c013-prompt-4e248fc05a4e9ed7a7ad",
-          "purpose": "prompt",
-          "text": "Five strawberries",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_five_strawberries_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-3-food-quantities-c013-answer-c5581d2cae06431b4d91",
+          "id": "lesson-5-3-food-quantities-c010-answer-28ed926a403f4b708229",
           "purpose": "answer",
-          "text": "Five strawberries",
+          "text": "There is some bread.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_five_strawberries_v1.webp",
+          "image_ref": "/lesson-assets/a1_bread.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -702,40 +605,210 @@
       ]
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
-      "prompt": "",
+      "slide_id": "R9",
+      "interaction_type": "t2i3",
+      "prompt": "There is some water.",
       "stage": "Recognize",
-      "correct_option_id": "some-bread-2",
+      "correct_option_id": "there-is-some-water-r9",
       "options": [
         {
-          "id": "some-rice-1",
-          "image_url": "",
-          "label": "Some rice"
+          "id": "there-is-some-juice-r9",
+          "image_url": "/lesson-assets/a1_juice.webp",
+          "label": null
         },
         {
-          "id": "some-bread-2",
+          "id": "there-is-some-water-r9",
+          "image_url": "/lesson-assets/a1_water.webp",
+          "label": null
+        },
+        {
+          "id": "there-is-some-milk-r9",
+          "image_url": "/lesson-assets/a1_milk.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "There is some water.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hay un poco de agua.",
+      "pedagogy_note": "Story beat 09: There is some water.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c011-prompt-fc45602dfea0214c25b3",
+          "purpose": "prompt",
+          "text": "There is some water.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_water.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c011-answer-82a9ca375fe78705f8d1",
+          "purpose": "answer",
+          "text": "There is some water.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_water.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "there-is-some-milk-r10",
+      "options": [
+        {
+          "id": "there-is-some-milk-r10",
           "image_url": "",
-          "label": "Some bread"
+          "label": "There is some milk."
+        },
+        {
+          "id": "there-is-some-juice-r10",
+          "image_url": "",
+          "label": "There is some juice."
+        },
+        {
+          "id": "there-is-some-water-r10",
+          "image_url": "",
+          "label": "There is some water."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Some bread",
-      "prompt_image_url": "/lesson-assets/a1_bread.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Uses two already established some phrases and removes untaught breads plus context-dependent count readings.",
+      "answer_audio_text": "There is some milk.",
+      "prompt_image_url": "/lesson-assets/a1_milk.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: There is some milk.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c014-answer-bb92796ee19aaafdfef1",
+          "id": "lesson-5-3-food-quantities-c012-answer-b920d198fd5bb1ea3822",
           "purpose": "answer",
-          "text": "Some bread",
+          "text": "There is some milk.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bread.webp",
+          "image_ref": "/lesson-assets/a1_milk.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "t2i3",
+      "prompt": "There is some juice.",
+      "stage": "Recognize",
+      "correct_option_id": "there-is-some-juice-r11",
+      "options": [
+        {
+          "id": "there-is-some-water-r11",
+          "image_url": "/lesson-assets/a1_water.webp",
+          "label": null
+        },
+        {
+          "id": "there-is-some-milk-r11",
+          "image_url": "/lesson-assets/a1_milk.webp",
+          "label": null
+        },
+        {
+          "id": "there-is-some-juice-r11",
+          "image_url": "/lesson-assets/a1_juice.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "There is some juice.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hay un poco de jugo.",
+      "pedagogy_note": "Story beat 11: There is some juice.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c013-prompt-984e064c1a035f05da21",
+          "purpose": "prompt",
+          "text": "There is some juice.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_juice.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c013-answer-98115873413b6fe5f0ed",
+          "purpose": "answer",
+          "text": "There is some juice.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_juice.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R12",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "there-is-some-fruit-r12",
+      "options": [
+        {
+          "id": "there-is-some-fruit-r12",
+          "image_url": "",
+          "label": "There is some fruit."
+        },
+        {
+          "id": "there-is-some-bread-r12",
+          "image_url": "",
+          "label": "There is some bread."
+        },
+        {
+          "id": "there-is-some-rice-r12",
+          "image_url": "",
+          "label": "There is some rice."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "There is some fruit.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 12: There is some fruit.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c014-answer-00e5b58446507da879a5",
+          "purpose": "answer",
+          "text": "There is some fruit.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -745,53 +818,53 @@
     },
     {
       "slide_id": "A1",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "one-apple-1",
+      "correct_option_id": "there-are-two-apples-a1",
       "options": [
         {
-          "id": "one-apple-1",
-          "image_url": "/lesson-assets/a1_apple.webp",
+          "id": "there-are-two-apples-a1",
+          "image_url": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
           "label": null
         },
         {
-          "id": "three-apples-2",
+          "id": "there-are-three-apples-a1",
           "image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "One apple",
+      "audio_text": "There are two apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only count.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 01: There are two apples.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c015-prompt-9fa08cb8b64beedb8ece",
+          "id": "lesson-5-3-food-quantities-c015-prompt-915ab03cb5c894c27f27",
           "purpose": "prompt",
-          "text": "One apple",
+          "text": "There are two apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c015-answer-c0261fad23bf69bf3b14",
+          "id": "lesson-5-3-food-quantities-c015-answer-95fd82cd213f3581ff9e",
           "purpose": "answer",
-          "text": "One apple",
+          "text": "There are two apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -799,51 +872,51 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "three-eggs-2",
+      "correct_option_id": "there-are-three-apples-a2",
       "options": [
         {
-          "id": "two-eggs-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
+          "id": "there-are-three-apples-a2",
+          "image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
           "label": null
         },
         {
-          "id": "three-eggs-2",
-          "image_url": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+          "id": "there-are-two-apples-a2",
+          "image_url": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "Three eggs",
+      "audio_text": "There are three apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Plural ending plus number.",
+      "pedagogy_note": "Story beat 02: There are three apples.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c016-prompt-527a09f70ca888160078",
+          "id": "lesson-5-3-food-quantities-c016-prompt-21968942464494373028",
           "purpose": "prompt",
-          "text": "Three eggs",
+          "text": "There are three apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c016-answer-cbde19914c43c672c83e",
+          "id": "lesson-5-3-food-quantities-c016-answer-0df74d3d84a95b6a857e",
           "purpose": "answer",
-          "text": "Three eggs",
+          "text": "There are three apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -853,53 +926,53 @@
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "water-2",
+      "correct_option_id": "there-are-four-apples-a3",
       "options": [
         {
-          "id": "rice-1",
-          "image_url": "/lesson-assets/a1_rice.webp",
-          "label": null
+          "id": "there-are-four-apples-a3",
+          "image_url": "",
+          "label": "There are four apples."
         },
         {
-          "id": "water-2",
-          "image_url": "/lesson-assets/a1_water.webp",
-          "label": null
+          "id": "there-are-three-apples-a3",
+          "image_url": "",
+          "label": "There are three apples."
         }
       ],
-      "audio_text": "Some water",
+      "audio_text": "There are four apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only noun discrimination.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 03: There are four apples.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c017-prompt-f5296adf4ffc2d1e28dd",
+          "id": "lesson-5-3-food-quantities-c017-prompt-f3d22f145a3c4a1f590f",
           "purpose": "prompt",
-          "text": "Some water",
+          "text": "There are four apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_water.webp",
+          "image_ref": "text-only:f3c4ca70133d87f18966",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c017-answer-e39b84528a0cf16e4384",
+          "id": "lesson-5-3-food-quantities-c017-answer-6b615dc1eff0a4c571e8",
           "purpose": "answer",
-          "text": "Some water",
+          "text": "There are four apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_water.webp",
+          "image_ref": "text-only:f3c4ca70133d87f18966",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -907,61 +980,51 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "bread-2",
+      "correct_option_id": "there-is-some-rice-a4",
       "options": [
         {
-          "id": "rice-1",
-          "image_url": "/lesson-assets/a1_rice.webp",
-          "label": null
-        },
-        {
-          "id": "bread-2",
+          "id": "there-is-some-bread-a4",
           "image_url": "/lesson-assets/a1_bread.webp",
           "label": null
         },
         {
-          "id": "eggs-3",
-          "image_url": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "label": null
-        },
-        {
-          "id": "water-4",
-          "image_url": "/lesson-assets/a1_water.webp",
+          "id": "there-is-some-rice-a4",
+          "image_url": "/lesson-assets/a1_rice.webp",
           "label": null
         }
       ],
-      "audio_text": "Some bread",
+      "audio_text": "There is some rice.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Four-choice after exposure.",
+      "pedagogy_note": "Story beat 04: There is some rice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c018-prompt-6d0304323735588e54f0",
+          "id": "lesson-5-3-food-quantities-c018-prompt-7d8eba408a7f52a0f478",
           "purpose": "prompt",
-          "text": "Some bread",
+          "text": "There is some rice.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_bread.webp",
+          "image_ref": "/lesson-assets/a1_rice.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c018-answer-62d0d3df56c751d387be",
+          "id": "lesson-5-3-food-quantities-c018-answer-6c9c6bdd5b412118c094",
           "purpose": "answer",
-          "text": "Some bread",
+          "text": "There is some rice.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_bread.webp",
+          "image_ref": "/lesson-assets/a1_rice.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -971,56 +1034,110 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "there-are-four-oranges-3",
+      "correct_option_id": "there-is-some-bread-a5",
       "options": [
         {
-          "id": "there-is-one-orange-1",
-          "image_url": "",
-          "label": "There is one orange."
+          "id": "there-is-some-bread-a5",
+          "image_url": "/lesson-assets/a1_bread.webp",
+          "label": null
         },
         {
-          "id": "there-are-two-oranges-2",
-          "image_url": "",
-          "label": "There are two oranges."
-        },
-        {
-          "id": "there-are-four-oranges-3",
-          "image_url": "",
-          "label": "There are four oranges."
+          "id": "there-is-some-rice-a5",
+          "image_url": "/lesson-assets/a1_rice.webp",
+          "label": null
         }
       ],
-      "audio_text": "There are four oranges.",
+      "audio_text": "There is some bread.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review there are and numbers.",
+      "pedagogy_note": "Story beat 05: There is some bread.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c019-prompt-bf5fe22d2fb4955dbdd8",
+          "purpose": "prompt",
+          "text": "There is some bread.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_bread.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c019-answer-07a3b044c1815f704d64",
+          "purpose": "answer",
+          "text": "There is some bread.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_bread.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "there-is-some-water-a6",
+      "options": [
+        {
+          "id": "there-is-some-water-a6",
+          "image_url": "",
+          "label": "There is some water."
+        },
+        {
+          "id": "there-is-some-milk-a6",
+          "image_url": "",
+          "label": "There is some milk."
+        },
+        {
+          "id": "there-is-some-juice-a6",
+          "image_url": "",
+          "label": "There is some juice."
+        }
+      ],
+      "audio_text": "There is some water.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: There is some water.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c019-prompt-fdedab7e0ac3a4377d22",
+          "id": "lesson-5-3-food-quantities-c020-prompt-bf3e9bfd1cb34e8a7a30",
           "purpose": "prompt",
-          "text": "There are four oranges.",
+          "text": "There is some water.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:55162059a727ce80c5f6",
+          "image_ref": "text-only:1fca66950d56ceb29980",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c019-answer-ef137eea0821aa46d797",
+          "id": "lesson-5-3-food-quantities-c020-answer-b093509c672fd1c4ca35",
           "purpose": "answer",
-          "text": "There are four oranges.",
+          "text": "There is some water.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:55162059a727ce80c5f6",
+          "image_ref": "text-only:1fca66950d56ceb29980",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1029,62 +1146,234 @@
       ]
     },
     {
-      "slide_id": "A6",
-      "interaction_type": "listen-image",
+      "slide_id": "A7",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "two-red-apples-3",
+      "correct_option_id": "there-is-some-milk-a7",
       "options": [
         {
-          "id": "two-green-apples-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_green_apples_v1.webp",
+          "id": "there-is-some-milk-a7",
+          "image_url": "/lesson-assets/a1_milk.webp",
           "label": null
         },
         {
-          "id": "three-red-apples-2",
-          "image_url": "/lesson-assets/a1_photo_u5_three_red_apples_v1.webp",
+          "id": "there-is-some-juice-a7",
+          "image_url": "/lesson-assets/a1_juice.webp",
           "label": null
         },
         {
-          "id": "two-red-apples-3",
-          "image_url": "/lesson-assets/a1_photo_u5_two_red_apples_v1.webp",
-          "label": null
-        },
-        {
-          "id": "one-red-apple-4",
-          "image_url": "/lesson-assets/a1_apple.webp",
+          "id": "there-is-some-water-a7",
+          "image_url": "/lesson-assets/a1_water.webp",
           "label": null
         }
       ],
-      "audio_text": "Two red apples",
+      "audio_text": "There is some milk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review number+color+noun; every distractor changes one feature.",
+      "pedagogy_note": "Story beat 07: There is some milk.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c021-prompt-6fcff0da4668c5353350",
+          "purpose": "prompt",
+          "text": "There is some milk.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_milk.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c021-answer-aba5f65afc8c523e7b98",
+          "purpose": "answer",
+          "text": "There is some milk.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_milk.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "there-is-some-juice-a8",
+      "options": [
+        {
+          "id": "there-is-some-juice-a8",
+          "image_url": "/lesson-assets/a1_juice.webp",
+          "label": null
+        },
+        {
+          "id": "there-is-some-water-a8",
+          "image_url": "/lesson-assets/a1_water.webp",
+          "label": null
+        },
+        {
+          "id": "there-is-some-milk-a8",
+          "image_url": "/lesson-assets/a1_milk.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "There is some juice.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: There is some juice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c020-prompt-532003b0cfbed4ec49fa",
+          "id": "lesson-5-3-food-quantities-c022-prompt-eb2038e053b4fa3ee82f",
           "purpose": "prompt",
-          "text": "Two red apples",
+          "text": "There is some juice.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_red_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_juice.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c020-answer-2806eca78a2e0e64b834",
+          "id": "lesson-5-3-food-quantities-c022-answer-544a23b977a84acfe43b",
           "purpose": "answer",
-          "text": "Two red apples",
+          "text": "There is some juice.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_red_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_juice.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "there-is-some-fruit-a9",
+      "options": [
+        {
+          "id": "there-is-some-bread-a9",
+          "image_url": "",
+          "label": "There is some bread."
+        },
+        {
+          "id": "there-is-some-rice-a9",
+          "image_url": "",
+          "label": "There is some rice."
+        },
+        {
+          "id": "there-is-some-fruit-a9",
+          "image_url": "",
+          "label": "There is some fruit."
+        }
+      ],
+      "audio_text": "There is some fruit.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: There is some fruit.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c023-prompt-8244e0455e1520325004",
+          "purpose": "prompt",
+          "text": "There is some fruit.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:06f9c942a1ec1e6292d1",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c023-answer-0ebf44bfd453ed533a33",
+          "purpose": "answer",
+          "text": "There is some fruit.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:06f9c942a1ec1e6292d1",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A10",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "there-are-five-drinks-a10",
+      "options": [
+        {
+          "id": "there-are-four-drinks-a10",
+          "image_url": "",
+          "label": "There are four drinks."
+        },
+        {
+          "id": "there-are-three-drinks-a10",
+          "image_url": "",
+          "label": "There are three drinks."
+        },
+        {
+          "id": "there-are-five-drinks-a10",
+          "image_url": "",
+          "label": "There are five drinks."
+        }
+      ],
+      "audio_text": "There are five drinks.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 10: There are five drinks.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c024-prompt-ab9be3e1ab33d054666d",
+          "purpose": "prompt",
+          "text": "There are five drinks.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:e49b91b7b8ac76493ce6",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c024-answer-9ad0229152a2ca67fb51",
+          "purpose": "answer",
+          "text": "There are five drinks.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:e49b91b7b8ac76493ce6",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1095,47 +1384,47 @@
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "One egg",
+      "prompt": "How many?",
       "stage": "Speak",
-      "correct_option_id": "one-egg-1",
+      "correct_option_id": "how-many-speak",
       "options": [
         {
-          "id": "one-egg-1",
-          "image_url": "/lesson-assets/a1_egg.webp",
-          "label": "One egg"
+          "id": "how-many-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "label": "How many?"
         }
       ],
-      "audio_text": "One egg",
+      "audio_text": "How many?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un huevo",
-      "pedagogy_note": "Complete chunk.",
-      "audio_speaker": null,
+      "spanish_translation": "\u00bfCu\u00e1ntos?",
+      "pedagogy_note": "Story beat 01: How many?",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c021-prompt-cfeff1b732271390053e",
+          "id": "lesson-5-3-food-quantities-c025-prompt-13362bd4f3f31487518b",
           "purpose": "prompt",
-          "text": "One egg",
+          "text": "How many?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_egg.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c021-answer-7e3c7cfc9c94373ac4e7",
+          "id": "lesson-5-3-food-quantities-c025-answer-ec2893839a65fb9358c6",
           "purpose": "answer",
-          "text": "One egg",
+          "text": "How many?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_egg.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1144,47 +1433,47 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "Two eggs",
+      "prompt": "How many apples are there?",
       "stage": "Speak",
-      "correct_option_id": "two-eggs-1",
+      "correct_option_id": "how-many-apples-are-there-speak",
       "options": [
         {
-          "id": "two-eggs-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "label": "Two eggs"
+          "id": "how-many-apples-are-there-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "label": "How many apples are there?"
         }
       ],
-      "audio_text": "Two eggs",
+      "audio_text": "How many apples are there?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Dos huevos",
-      "pedagogy_note": "Plural ending coached after result.",
-      "audio_speaker": null,
+      "spanish_translation": "\u00bfCu\u00e1ntas manzanas hay?",
+      "pedagogy_note": "Story beat 02: How many apples are there?",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c022-prompt-e6c45c3eca61df58183c",
+          "id": "lesson-5-3-food-quantities-c026-prompt-fc06dec53c151ee2fa33",
           "purpose": "prompt",
-          "text": "Two eggs",
+          "text": "How many apples are there?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c022-answer-cc6492afe1c8847b2d4b",
+          "id": "lesson-5-3-food-quantities-c026-answer-f32a6a1e9fa1be5c8c37",
           "purpose": "answer",
-          "text": "Two eggs",
+          "text": "How many apples are there?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_eggs_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1193,47 +1482,47 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "Three apples",
+      "prompt": "There are two oranges.",
       "stage": "Speak",
-      "correct_option_id": "three-apples-1",
+      "correct_option_id": "there-are-two-oranges-speak",
       "options": [
         {
-          "id": "three-apples-1",
-          "image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
-          "label": "Three apples"
+          "id": "there-are-two-oranges-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
+          "label": "There are two oranges."
         }
       ],
-      "audio_text": "Three apples",
+      "audio_text": "There are two oranges.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tres manzanas",
-      "pedagogy_note": "Complete quantity phrase.",
-      "audio_speaker": null,
+      "spanish_translation": "Hay dos naranjas.",
+      "pedagogy_note": "Story beat 03: There are two oranges.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c023-prompt-50a9b5ee5abd137fe918",
+          "id": "lesson-5-3-food-quantities-c027-prompt-36cf15fb51d56e0d0357",
           "purpose": "prompt",
-          "text": "Three apples",
+          "text": "There are two oranges.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c023-answer-09b51685259150be82a7",
+          "id": "lesson-5-3-food-quantities-c027-answer-8b20f168c0c478be6a46",
           "purpose": "answer",
-          "text": "Three apples",
+          "text": "There are two oranges.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1242,45 +1531,45 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "Four oranges",
+      "prompt": "There is some rice.",
       "stage": "Speak",
-      "correct_option_id": "four-oranges-1",
+      "correct_option_id": "there-is-some-rice-speak",
       "options": [
         {
-          "id": "four-oranges-1",
-          "image_url": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
-          "label": "Four oranges"
+          "id": "there-is-some-rice-speak",
+          "image_url": "/lesson-assets/a1_rice.webp",
+          "label": "There is some rice."
         }
       ],
-      "audio_text": "Four oranges",
+      "audio_text": "There is some rice.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Cuatro naranjas",
-      "pedagogy_note": "Review orange plural.",
+      "spanish_translation": "Hay un poco de arroz.",
+      "pedagogy_note": "Story beat 04: There is some rice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c024-prompt-018588c582a24ad7083b",
+          "id": "lesson-5-3-food-quantities-c028-prompt-236aa9524d0461fa8bb5",
           "purpose": "prompt",
-          "text": "Four oranges",
+          "text": "There is some rice.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
+          "image_ref": "/lesson-assets/a1_rice.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c024-answer-9ba15dace6b42e5418d5",
+          "id": "lesson-5-3-food-quantities-c028-answer-63d2295af066fa52fce4",
           "purpose": "answer",
-          "text": "Four oranges",
+          "text": "There is some rice.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
+          "image_ref": "/lesson-assets/a1_rice.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1291,47 +1580,47 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "Some rice",
+      "prompt": "There is some bread.",
       "stage": "Speak",
-      "correct_option_id": "some-rice-1",
+      "correct_option_id": "there-is-some-bread-speak",
       "options": [
         {
-          "id": "some-rice-1",
-          "image_url": "/lesson-assets/a1_rice.webp",
-          "label": "Some rice"
+          "id": "there-is-some-bread-speak",
+          "image_url": "/lesson-assets/a1_bread.webp",
+          "label": "There is some bread."
         }
       ],
-      "audio_text": "Some rice",
+      "audio_text": "There is some bread.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un poco de arroz",
-      "pedagogy_note": "Assess both words.",
-      "audio_speaker": null,
+      "spanish_translation": "Hay un poco de pan.",
+      "pedagogy_note": "Story beat 05: There is some bread.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c025-prompt-c5a8c7a69b5c22fec297",
+          "id": "lesson-5-3-food-quantities-c029-prompt-5dcd5c136d948f2ea88f",
           "purpose": "prompt",
-          "text": "Some rice",
+          "text": "There is some bread.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_rice.webp",
+          "image_ref": "/lesson-assets/a1_bread.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c025-answer-d5723fb64e217d09abb5",
+          "id": "lesson-5-3-food-quantities-c029-answer-ce0b6fbcb484a9338e72",
           "purpose": "answer",
-          "text": "Some rice",
+          "text": "There is some bread.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_rice.webp",
+          "image_ref": "/lesson-assets/a1_bread.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1340,30 +1629,30 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "Some water",
+      "prompt": "There is some water.",
       "stage": "Speak",
-      "correct_option_id": "some-water-1",
+      "correct_option_id": "there-is-some-water-speak",
       "options": [
         {
-          "id": "some-water-1",
+          "id": "there-is-some-water-speak",
           "image_url": "/lesson-assets/a1_water.webp",
-          "label": "Some water"
+          "label": "There is some water."
         }
       ],
-      "audio_text": "Some water",
+      "audio_text": "There is some water.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un poco de agua",
-      "pedagogy_note": "Assess both words.",
+      "spanish_translation": "Hay un poco de agua.",
+      "pedagogy_note": "Story beat 06: There is some water.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c026-prompt-62f8c0f741d3a737db03",
+          "id": "lesson-5-3-food-quantities-c030-prompt-f6b38d347fb3b5bf57ab",
           "purpose": "prompt",
-          "text": "Some water",
+          "text": "There is some water.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_water.webp",
@@ -1373,9 +1662,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c026-answer-6a501177b23953b86051",
+          "id": "lesson-5-3-food-quantities-c030-answer-000f0de624f4a5c8388d",
           "purpose": "answer",
-          "text": "Some water",
+          "text": "There is some water.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_water.webp",
@@ -1387,58 +1676,205 @@
       ]
     },
     {
-      "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "There is ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "one",
-      "correct_option_ids": [
-        "one",
-        "apple"
-      ],
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "There is some milk.",
+      "stage": "Speak",
+      "correct_option_id": "there-is-some-milk-speak",
       "options": [
         {
-          "id": "one",
-          "image_url": "",
-          "label": "one"
-        },
-        {
-          "id": "apple",
-          "image_url": "",
-          "label": "apple"
+          "id": "there-is-some-milk-speak",
+          "image_url": "/lesson-assets/a1_milk.webp",
+          "label": "There is some milk."
         }
       ],
-      "audio_text": "There is one apple.",
-      "answer_audio_text": "There is one apple.",
-      "prompt_image_url": "/lesson-assets/a1_apple.webp",
-      "spanish_translation": "Hay una manzana.",
-      "pedagogy_note": "Tests singular after one.",
+      "audio_text": "There is some milk.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hay un poco de leche.",
+      "pedagogy_note": "Story beat 07: There is some milk.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c031-prompt-557a284ba7abfec8a576",
+          "purpose": "prompt",
+          "text": "There is some milk.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_milk.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c031-answer-5fc2919775ff69c2a484",
+          "purpose": "answer",
+          "text": "There is some milk.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_milk.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "There is some juice.",
+      "stage": "Speak",
+      "correct_option_id": "there-is-some-juice-speak",
+      "options": [
+        {
+          "id": "there-is-some-juice-speak",
+          "image_url": "/lesson-assets/a1_juice.webp",
+          "label": "There is some juice."
+        }
+      ],
+      "audio_text": "There is some juice.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hay un poco de jugo.",
+      "pedagogy_note": "Story beat 08: There is some juice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c027-prompt-883463ab0fb6baad0020",
+          "id": "lesson-5-3-food-quantities-c032-prompt-91da256d6b69f53b5d55",
           "purpose": "prompt",
-          "text": "There is one apple.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "text": "There is some juice.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_juice.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c027-answer-721b830c643e46c6911a",
+          "id": "lesson-5-3-food-quantities-c032-answer-6a2d59f754aa017d88d1",
           "purpose": "answer",
-          "text": "There is one apple.",
+          "text": "There is some juice.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_juice.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "There is some fruit.",
+      "stage": "Speak",
+      "correct_option_id": "there-is-some-fruit-speak",
+      "options": [
+        {
+          "id": "there-is-some-fruit-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
+          "label": "There is some fruit."
+        }
+      ],
+      "audio_text": "There is some fruit.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hay un poco de fruta.",
+      "pedagogy_note": "Story beat 09: There is some fruit.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c033-prompt-817be39e83c46d926308",
+          "purpose": "prompt",
+          "text": "There is some fruit.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c033-answer-a0516bd1d4fba959c131",
+          "purpose": "answer",
+          "text": "There is some fruit.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U1",
+      "interaction_type": "complete2",
+      "prompt": "How many apples ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "are",
+      "correct_option_ids": [
+        "are",
+        "there"
+      ],
+      "options": [
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "there",
+          "image_url": "",
+          "label": "there"
+        }
+      ],
+      "audio_text": "How many apples are there?",
+      "answer_audio_text": "How many apples are there?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+      "spanish_translation": "\u00bfCu\u00e1ntas manzanas hay?",
+      "pedagogy_note": "Story beat 01: How many apples are there?",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c034-prompt-c255b38d9276cce276ec",
+          "purpose": "prompt",
+          "text": "How many apples are there?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c034-answer-4f0c181af1009f300ef6",
+          "purpose": "answer",
+          "text": "How many apples are there?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_how_many_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1446,64 +1882,6 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "There are ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "three",
-      "correct_option_ids": [
-        "three",
-        "oranges"
-      ],
-      "options": [
-        {
-          "id": "three",
-          "image_url": "",
-          "label": "three"
-        },
-        {
-          "id": "oranges",
-          "image_url": "",
-          "label": "oranges"
-        }
-      ],
-      "audio_text": "There are three oranges.",
-      "answer_audio_text": "There are three oranges.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
-      "spanish_translation": "Hay tres naranjas.",
-      "pedagogy_note": "Tests plural after two.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-3-food-quantities-c028-prompt-ac7527aba989fead9879",
-          "purpose": "prompt",
-          "text": "There are three oranges.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-3-food-quantities-c028-answer-98cfd33c7c76d0d28de1",
-          "purpose": "answer",
-          "text": "There are three oranges.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "There are ___ ___.",
       "stage": "Use",
@@ -1528,14 +1906,14 @@
       "answer_audio_text": "There are four oranges.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
       "spanish_translation": "Hay cuatro naranjas.",
-      "pedagogy_note": "Tests plural.",
+      "pedagogy_note": "Story beat 02: There are four oranges.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c029-prompt-f9b687dcdecdae3077ff",
+          "id": "lesson-5-3-food-quantities-c035-prompt-18fbfdbd3a9e75dada18",
           "purpose": "prompt",
           "text": "There are four oranges.",
           "mode": "prompt",
@@ -1547,7 +1925,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c029-answer-0842d87953d80549971d",
+          "id": "lesson-5-3-food-quantities-c035-answer-95c5f87954740d518842",
           "purpose": "answer",
           "text": "There are four oranges.",
           "mode": "prompt",
@@ -1561,56 +1939,114 @@
       ]
     },
     {
-      "slide_id": "U4",
+      "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "There are four ___ ___.",
+      "prompt": "There are ___ ___.",
       "stage": "Use",
-      "correct_option_id": "red",
+      "correct_option_id": "three",
       "correct_option_ids": [
-        "red",
-        "apples"
+        "three",
+        "eggs"
       ],
       "options": [
         {
-          "id": "red",
+          "id": "three",
           "image_url": "",
-          "label": "red"
+          "label": "three"
         },
         {
-          "id": "apples",
+          "id": "eggs",
           "image_url": "",
-          "label": "apples"
+          "label": "eggs"
         }
       ],
-      "audio_text": "There are four red apples.",
-      "answer_audio_text": "There are four red apples.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
-      "spanish_translation": "Hay cuatro manzanas rojas.",
-      "pedagogy_note": "Only Some forms the taught mass-noun phrase; avoids the valid restaurant reading one rice.",
+      "audio_text": "There are three eggs.",
+      "answer_audio_text": "There are three eggs.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+      "spanish_translation": "Hay tres huevos.",
+      "pedagogy_note": "Story beat 03: There are three eggs.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c036-prompt-82cebd47ec0234da832f",
+          "purpose": "prompt",
+          "text": "There are three eggs.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c036-answer-9f836ed943fae74efbd7",
+          "purpose": "answer",
+          "text": "There are three eggs.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_three_eggs_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "There is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "some",
+      "correct_option_ids": [
+        "some",
+        "rice"
+      ],
+      "options": [
+        {
+          "id": "some",
+          "image_url": "",
+          "label": "some"
+        },
+        {
+          "id": "rice",
+          "image_url": "",
+          "label": "rice"
+        }
+      ],
+      "audio_text": "There is some rice.",
+      "answer_audio_text": "There is some rice.",
+      "prompt_image_url": "/lesson-assets/a1_rice.webp",
+      "spanish_translation": "Hay un poco de arroz.",
+      "pedagogy_note": "Story beat 04: There is some rice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c030-prompt-c9eee26169016d86cca9",
+          "id": "lesson-5-3-food-quantities-c037-prompt-9de5f458a1bafc9a8dc9",
           "purpose": "prompt",
-          "text": "There are four red apples.",
+          "text": "There is some rice.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_rice.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c030-answer-4310b79051f137dc397a",
+          "id": "lesson-5-3-food-quantities-c037-answer-a771db03a3b0d8501428",
           "purpose": "answer",
-          "text": "There are four red apples.",
+          "text": "There is some rice.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_rice.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1620,57 +2056,57 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
+      "interaction_type": "complete2",
+      "prompt": "There is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "some",
       "correct_option_ids": [
-        "word-1",
-        "word-2"
+        "some",
+        "bread"
       ],
       "options": [
         {
-          "id": "word-1",
+          "id": "some",
           "image_url": "",
-          "label": "Some"
+          "label": "some"
         },
         {
-          "id": "word-2",
+          "id": "bread",
           "image_url": "",
-          "label": "rice"
+          "label": "bread"
         }
       ],
-      "audio_text": "Some rice.",
-      "answer_audio_text": "Some rice.",
-      "prompt_image_url": "/lesson-assets/a1_rice.webp",
-      "spanish_translation": "Un poco de arroz.",
-      "pedagogy_note": "Count/mass contrast.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "There is some bread.",
+      "answer_audio_text": "There is some bread.",
+      "prompt_image_url": "/lesson-assets/a1_bread.webp",
+      "spanish_translation": "Hay un poco de pan.",
+      "pedagogy_note": "Story beat 05: There is some bread.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c031-prompt-667940f911e24e41c4b4",
+          "id": "lesson-5-3-food-quantities-c038-prompt-a8a2e299f69a1a40d759",
           "purpose": "prompt",
-          "text": "Some rice.",
+          "text": "There is some bread.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_rice.webp",
+          "image_ref": "/lesson-assets/a1_bread.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c031-answer-58f97692484954ddcaf5",
+          "id": "lesson-5-3-food-quantities-c038-answer-3048e239ac915d0f8bb6",
           "purpose": "answer",
-          "text": "Some rice.",
+          "text": "There is some bread.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_rice.webp",
+          "image_ref": "/lesson-assets/a1_bread.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1679,54 +2115,66 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
-        "word-2"
+        "word-2",
+        "word-3",
+        "word-4"
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Three"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "apples"
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "water"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "There"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "some"
         }
       ],
-      "audio_text": "Three apples.",
-      "answer_audio_text": "Three apples.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
-      "spanish_translation": "Tres manzanas.",
-      "pedagogy_note": "Review plural be.",
+      "audio_text": "There is some water.",
+      "answer_audio_text": "There is some water.",
+      "prompt_image_url": "/lesson-assets/a1_water.webp",
+      "spanish_translation": "Hay un poco de agua.",
+      "pedagogy_note": "Story beat 06: There is some water.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c032-prompt-bea883fe56119d55d375",
+          "id": "lesson-5-3-food-quantities-c039-prompt-15c2306c680ad4e993e9",
           "purpose": "prompt",
-          "text": "Three apples.",
+          "text": "There is some water.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_water.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c032-answer-e086844edb7c3f18bcf4",
+          "id": "lesson-5-3-food-quantities-c039-answer-f2d90904b8236239e355",
           "purpose": "answer",
-          "text": "Three apples.",
+          "text": "There is some water.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_water.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1748,57 +2196,57 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "There"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "one"
-        },
-        {
           "id": "word-4",
           "image_url": "",
-          "label": "apple"
+          "label": "milk"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "There"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "some"
         }
       ],
-      "audio_text": "There is one apple.",
-      "answer_audio_text": "There is one apple.",
-      "prompt_image_url": "/lesson-assets/a1_apple.webp",
-      "spanish_translation": "Hay una manzana.",
-      "pedagogy_note": "Review singular be.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "There is some milk.",
+      "answer_audio_text": "There is some milk.",
+      "prompt_image_url": "/lesson-assets/a1_milk.webp",
+      "spanish_translation": "Hay un poco de leche.",
+      "pedagogy_note": "Story beat 07: There is some milk.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c033-prompt-e0306cc0f924afb9fcad",
+          "id": "lesson-5-3-food-quantities-c040-prompt-2a055255cbd2b2f751e6",
           "purpose": "prompt",
-          "text": "There is one apple.",
+          "text": "There is some milk.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_milk.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c033-answer-52cfab415fc03d9f306b",
+          "id": "lesson-5-3-food-quantities-c040-answer-ccde451e40a54ba0d9dc",
           "purpose": "answer",
-          "text": "There is one apple.",
+          "text": "There is some milk.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_milk.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1807,74 +2255,138 @@
     {
       "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4",
-        "word-5"
+        "word-4"
       ],
       "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "juice"
+        },
         {
           "id": "word-1",
           "image_url": "",
           "label": "There"
         },
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "are"
-        },
-        {
           "id": "word-3",
           "image_url": "",
-          "label": "four"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "red"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "apples"
+          "label": "some"
         }
       ],
-      "audio_text": "There are four red apples.",
-      "answer_audio_text": "There are four red apples.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
-      "spanish_translation": "Hay cuatro manzanas rojas.",
-      "pedagogy_note": "Review number+color+noun.",
+      "audio_text": "There is some juice.",
+      "answer_audio_text": "There is some juice.",
+      "prompt_image_url": "/lesson-assets/a1_juice.webp",
+      "spanish_translation": "Hay un poco de jugo.",
+      "pedagogy_note": "Story beat 08: There is some juice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c034-prompt-8fe61ef89f2519d7a87e",
+          "id": "lesson-5-3-food-quantities-c041-prompt-64692fa0ef697ee2fa0d",
           "purpose": "prompt",
-          "text": "There are four red apples.",
+          "text": "There is some juice.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_juice.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c034-answer-c85675c37524ebb801cb",
+          "id": "lesson-5-3-food-quantities-c041-answer-abd41d3c7bfca33583cf",
           "purpose": "answer",
-          "text": "There are four red apples.",
+          "text": "There is some juice.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_four_red_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_juice.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "fruit"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "There"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "some"
+        }
+      ],
+      "audio_text": "There is some fruit.",
+      "answer_audio_text": "There is some fruit.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
+      "spanish_translation": "Hay un poco de fruta.",
+      "pedagogy_note": "Story beat 09: There is some fruit.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-3-food-quantities-c042-prompt-860bb98e0f9a77cd2526",
+          "purpose": "prompt",
+          "text": "There is some fruit.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-3-food-quantities-c042-answer-b9eb67c69b9a73c10e52",
+          "purpose": "answer",
+          "text": "There is some fruit.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

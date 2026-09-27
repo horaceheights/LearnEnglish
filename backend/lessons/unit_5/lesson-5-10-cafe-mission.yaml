@@ -1,16 +1,16 @@
 {
   "id": "lesson-5-10-cafe-mission",
-  "title": "5.10 Un día en el mercado y el café",
+  "title": "5.12 Un día en el mercado y el café",
   "level": "Beginner A1",
   "unit_id": "unit-5",
   "unit_title": "Unit 5: Food, Drinks, and Shopping",
   "unit_outcome": "Follow audio clues to identify market goods, food preferences, and complete café purchases.",
   "lesson_id": "lesson-5",
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
-  "sub_lesson_id": "5.10",
+  "sub_lesson_id": "5.12",
   "sub_lesson_title": "Un día en el mercado y el café",
   "experience_type": "mission",
-  "content_revision": 2,
+  "content_revision": 3,
   "mission": {
     "label": "MISIÓN FINAL · UNIDAD 5",
     "title": "Un día en el mercado y el café",
@@ -64,29 +64,30 @@
     "grapes",
     "strawberry",
     "pear",
-    "an",
     "food",
-    "drinks",
     "bread",
     "rice",
     "egg",
     "chicken",
     "fish",
+    "drinks",
     "water",
     "milk",
     "juice",
+    "coffee",
+    "tea",
+    "drink",
+    "How many...?",
     "some",
     "like",
     "do not like",
+    "Me too.",
     "want",
     "wants",
     "need",
     "needs",
-    "breakfast",
     "lunch",
     "dinner",
-    "coffee",
-    "tea",
     "for",
     "How much is it?",
     "dollar",
@@ -95,11 +96,12 @@
     "please",
     "Here you are.",
     "Thank you.",
+    "Can I have...?",
     "Yes, please.",
     "No, thank you."
   ],
   "grammar_function": "Integrate food wants/needs, purchasing actions, and polite requests.",
-  "prerequisite": "Lessons 5.1-5.9 completed.",
+  "prerequisite": "Lessons 5.1-5.11 completed.",
   "speaking_outcome": "Speak polite café orders and price answers aloud across final voice gates.",
   "purposeful_review_slides": [
     "M01",
@@ -289,7 +291,7 @@
       "mission_chapter_id": "mercado",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "There are five oranges. There are two pears. There are grapes. There is a strawberry.",
+      "prompt": "There are five oranges. How many pears are there? There are two pears. There are grapes. There is a strawberry.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_fruit_counter.webp",
       "options": [
         {
@@ -300,7 +302,7 @@
         {
           "id": "fruit-counter-2",
           "image_url": "",
-          "label": "There are two pears."
+          "label": "How many pears are there? There are two pears."
         },
         {
           "id": "fruit-counter-3",
@@ -320,7 +322,7 @@
         "fruit-counter-3",
         "fruit-counter-4"
       ],
-      "audio_text": "There are five oranges. There are two pears. There are grapes. There is a strawberry.",
+      "audio_text": "There are five oranges. How many pears are there? There are two pears. There are grapes. There is a strawberry.",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -329,7 +331,7 @@
           "image_url": "/lesson-assets/a1_u5_market_v1_fruit_counter.webp"
         },
         {
-          "text": "There are two pears.",
+          "text": "How many pears are there? There are two pears.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u5_market_v1_fruit_counter.webp"
         },
@@ -344,7 +346,7 @@
           "image_url": "/lesson-assets/a1_u5_market_v1_fruit_counter.webp"
         }
       ],
-      "spanish_translation": "Hay cinco naranjas. Hay dos peras. Hay uvas. Hay una fresa.",
+      "spanish_translation": "Hay cinco naranjas. ¿Cuántas peras hay? Hay dos peras. Hay uvas. Hay una fresa.",
       "pedagogy_note": "Mission beat 02/13: En la fruta, cuenta y toca lo que escuchas.",
       "mission_game": {
         "kind": "crowd-search",
@@ -372,7 +374,7 @@
           },
           {
             "id": "fruit-counter-2",
-            "label_es": "Hay dos peras.",
+            "label_es": "¿Cuántas peras hay? Hay dos peras.",
             "accepted_option_ids": [
               "fruit-counter-2"
             ],
@@ -438,8 +440,8 @@
           },
           {
             "id": "cue-fruit-counter-2",
-            "text": "There are two pears.",
-            "answer_text": "There are two pears.",
+            "text": "How many pears are there? There are two pears.",
+            "answer_text": "How many pears are there? There are two pears.",
             "target_id": "fruit-counter-2",
             "option_id": "fruit-counter-2"
           },
@@ -817,7 +819,7 @@
       "mission_chapter_id": "pide",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "I want two eggs. I want some rice. I want three apples. I want some water.",
+      "prompt": "I want two eggs. I want some rice. I want three apples. He wants some water.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_wants_counter.webp",
       "options": [
         {
@@ -838,7 +840,7 @@
         {
           "id": "wants-counter-4",
           "image_url": "",
-          "label": "I want some water."
+          "label": "He wants some water."
         }
       ],
       "correct_option_id": "wants-counter-1",
@@ -848,7 +850,7 @@
         "wants-counter-3",
         "wants-counter-4"
       ],
-      "audio_text": "I want two eggs. I want some rice. I want three apples. I want some water.",
+      "audio_text": "I want two eggs. I want some rice. I want three apples. He wants some water.",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -867,12 +869,12 @@
           "image_url": "/lesson-assets/a1_u5_market_v1_wants_counter.webp"
         },
         {
-          "text": "I want some water.",
-          "speaker_role": "male-character",
+          "text": "He wants some water.",
+          "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u5_market_v1_wants_counter.webp"
         }
       ],
-      "spanish_translation": "Quiero dos huevos. Quiero un poco de arroz. Quiero tres manzanas. Quiero un poco de agua.",
+      "spanish_translation": "Quiero dos huevos. Quiero un poco de arroz. Quiero tres manzanas. Él quiere un poco de agua.",
       "pedagogy_note": "Mission beat 05/13: En el mostrador, escucha qué quiere cada quien.",
       "mission_game": {
         "kind": "action-hunt",
@@ -938,7 +940,7 @@
           },
           {
             "id": "wants-counter-4",
-            "label_es": "Quiero un poco de agua.",
+            "label_es": "Él quiere un poco de agua.",
             "accepted_option_ids": [
               "wants-counter-4"
             ],
@@ -980,8 +982,8 @@
           },
           {
             "id": "cue-wants-counter-4",
-            "text": "I want some water.",
-            "answer_text": "I want some water.",
+            "text": "He wants some water.",
+            "answer_text": "He wants some water.",
             "target_id": "wants-counter-4",
             "option_id": "wants-counter-4"
           }
@@ -1521,13 +1523,13 @@
       "mission_chapter_id": "cafe",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "Water, please. Yes, please. No, thank you. Tea, please.",
+      "prompt": "Can I have water, please? Yes, please. No, thank you. Tea, please.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_cafe_counter.webp",
       "options": [
         {
           "id": "cafe-counter-v2-1",
           "image_url": "",
-          "label": "Water, please."
+          "label": "Can I have water, please?"
         },
         {
           "id": "cafe-counter-v2-2",
@@ -1552,11 +1554,11 @@
         "cafe-counter-v2-3",
         "cafe-counter-v2-4"
       ],
-      "audio_text": "Water, please. Yes, please. No, thank you. Tea, please.",
+      "audio_text": "Can I have water, please? Yes, please. No, thank you. Tea, please.",
       "answer_audio_text": null,
       "audio_turns": [
         {
-          "text": "Water, please.",
+          "text": "Can I have water, please?",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u5_market_v1_cafe_counter.webp"
         },
@@ -1576,7 +1578,7 @@
           "image_url": "/lesson-assets/a1_u5_market_v1_cafe_counter.webp"
         }
       ],
-      "spanish_translation": "Agua, por favor. Sí, por favor. No, gracias. Té, por favor.",
+      "spanish_translation": "¿Me da agua, por favor? Sí, por favor. No, gracias. Té, por favor.",
       "pedagogy_note": "Mission beat 09/13: En el café, escucha quién dice cada frase.",
       "mission_game": {
         "kind": "crowd-search",
@@ -1585,7 +1587,7 @@
         "targets": [
           {
             "id": "cafe-counter-v2-1",
-            "label_es": "Agua, por favor.",
+            "label_es": "¿Me da agua, por favor?",
             "accepted_option_ids": [
               "cafe-counter-v2-1"
             ],
@@ -1663,8 +1665,8 @@
         "cues": [
           {
             "id": "cue-cafe-counter-v2-1",
-            "text": "Water, please.",
-            "answer_text": "Water, please.",
+            "text": "Can I have water, please?",
+            "answer_text": "Can I have water, please?",
             "target_id": "cafe-counter-v2-1",
             "option_id": "cafe-counter-v2-1"
           },
@@ -1868,17 +1870,17 @@
       "mission_chapter_id": "cafe",
       "interaction_type": "mission-finale",
       "stage": "Speak",
-      "prompt": "Hello. Coffee, please.",
+      "prompt": "Hello. Can I have coffee, please?",
       "prompt_image_url": "",
       "options": [
         {
           "id": "order-response",
-          "label": "Hello. Coffee, please.",
+          "label": "Hello. Can I have coffee, please?",
           "image_url": "/lesson-assets/a1_u5_market_v1_order_response.webp"
         }
       ],
       "correct_option_id": "order-response",
-      "audio_text": "Hello. Coffee, please.",
+      "audio_text": "Hello. Can I have coffee, please?",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -1887,7 +1889,7 @@
           "image_url": "/lesson-assets/a1_u5_market_v1_order_question.webp"
         }
       ],
-      "spanish_translation": "Hola. Un café, por favor.",
+      "spanish_translation": "Hola. ¿Me da un café, por favor?",
       "pedagogy_note": "Mission beat 13/13: El mesero te saluda; haz tu pedido y la misión queda lista.",
       "mission_game": {
         "kind": "voice-gate",
@@ -1897,7 +1899,7 @@
         "targets": [
           {
             "id": "order-response",
-            "label_es": "Hola. Un café, por favor.",
+            "label_es": "Hola. ¿Me da un café, por favor?",
             "accepted_option_ids": [
               "order-response"
             ],
@@ -1913,7 +1915,7 @@
           {
             "id": "cue-order-response",
             "text": "Hello.",
-            "answer_text": "Hello. Coffee, please.",
+            "answer_text": "Hello. Can I have coffee, please?",
             "target_id": "order-response",
             "option_id": "order-response"
           }

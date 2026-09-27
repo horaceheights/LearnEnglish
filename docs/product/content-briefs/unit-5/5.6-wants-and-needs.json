@@ -1,0 +1,279 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds want and need; wants and needs are practised with he, she and the baby, and the -s form is the lesson's grammar target. Choices change one thing: the pronoun (boy or girl), the number, or the food.",
+  "target": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+  "lesson": {
+    "id": "lesson-5-5-wants-and-needs",
+    "title": "5.6 Wants and Needs",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.6",
+    "sub_lesson_title": "Wants and Needs",
+    "goal": "Say what I want and need, and what he, she, they and the baby want or need, with known food, drinks, numbers and colors.",
+    "vocabulary": [
+      "want",
+      "wants",
+      "need",
+      "needs"
+    ],
+    "review_vocabulary": [
+      "I",
+      "he",
+      "she",
+      "they",
+      "the",
+      "baby",
+      "an",
+      "some",
+      "two",
+      "three",
+      "red",
+      "apple",
+      "apples",
+      "bread",
+      "eggs",
+      "juice",
+      "water",
+      "milk",
+      "chicken",
+      "fish"
+    ],
+    "grammar_function": "I want juice. He wants an apple. She needs milk. The baby needs milk. They need some water.",
+    "prerequisite": "3.2 I; 1.1-1.3 he, she and they; 5.1-5.4 fruit, food, drinks and some.",
+    "speaking_outcome": "Say what I want or need, and what someone else wants or needs.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Want",
+      "es": "Querer",
+      "image": "a1_scene_i-want-juice_9e02e22.webp",
+      "kind": "want-word",
+      "accepts": {
+        "conversational-response": "Want and need are the verbs this lesson teaches; alone they read like commands, and the bank tests only which verb."
+      }
+    },
+    {
+      "text": "Need",
+      "es": "Necesitar",
+      "image": "a1_scene_i-need-water_3031cd6.webp",
+      "kind": "want-word",
+      "accepts": {
+        "conversational-response": "Want and need are the verbs this lesson teaches; alone they read like commands, and the bank tests only which verb."
+      }
+    },
+    {
+      "text": "I want juice.",
+      "es": "Quiero jugo.",
+      "image": "a1_scene_i-want-juice_9e02e22.webp",
+      "kind": "i-want",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I want water.",
+        "I want milk."
+      ]
+    },
+    {
+      "text": "I need water.",
+      "es": "Necesito agua.",
+      "image": "a1_scene_i-need-water_3031cd6.webp",
+      "kind": "i-need",
+      "learn": false,
+      "speaker": "male-character",
+      "image_choices": false,
+      "prefer": [
+        "I need juice.",
+        "I need milk."
+      ]
+    },
+    {
+      "text": "He wants an apple.",
+      "es": "Él quiere una manzana.",
+      "image": "a1_photo_u5_boy_wants_apple_v1.webp",
+      "kind": "wants-apple",
+      "learn": false,
+      "prefer": [
+        "She wants an apple."
+      ]
+    },
+    {
+      "text": "She wants an apple.",
+      "es": "Ella quiere una manzana.",
+      "image": "a1_photo_u5_girl_wants_apple_v1.webp",
+      "kind": "wants-apple",
+      "learn": false,
+      "prefer": [
+        "He wants an apple."
+      ]
+    },
+    {
+      "text": "He wants bread.",
+      "es": "Él quiere pan.",
+      "image": "a1_photo_u5_man_wants_bread_v1.webp",
+      "kind": "he-wants",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "He wants rice.",
+        "He wants fish."
+      ]
+    },
+    {
+      "text": "She needs milk.",
+      "es": "Ella necesita leche.",
+      "image": "a1_scene_she-needs-milk_d925690.webp",
+      "kind": "she-needs",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "She needs juice.",
+        "She needs water."
+      ]
+    },
+    {
+      "text": "The baby needs milk.",
+      "es": "El bebé necesita leche.",
+      "image": "a1_photo_u5_baby_needs_milk_v1.webp",
+      "kind": "baby-needs",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The baby needs juice.",
+        "The baby needs water."
+      ]
+    },
+    {
+      "text": "They want chicken.",
+      "es": "Ellos quieren pollo.",
+      "image": "a1_photo_u5_pair_wants_chicken_v1.webp",
+      "kind": "they-want",
+      "learn": false,
+      "prefer": [
+        "They want fish."
+      ]
+    },
+    {
+      "text": "They want fish.",
+      "es": "Ellos quieren pescado.",
+      "image": "a1_photo_u5_pair_wants_fish_v1.webp",
+      "kind": "they-want",
+      "learn": false,
+      "prefer": [
+        "They want chicken."
+      ]
+    },
+    {
+      "text": "She wants two red apples.",
+      "es": "Ella quiere dos manzanas rojas.",
+      "image": "a1_photo_u5_woman_wants_two_red_apples_v1.webp",
+      "kind": "wants-red-apples",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "She wants three red apples."
+      ]
+    },
+    {
+      "text": "She wants three red apples.",
+      "es": "Ella quiere tres manzanas rojas.",
+      "image": "a1_photo_u5_woman_wants_three_red_apples_v1.webp",
+      "kind": "wants-red-apples",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "She wants two red apples."
+      ]
+    },
+    {
+      "text": "They need some water.",
+      "es": "Necesitan un poco de agua.",
+      "image": "a1_photo_u5_pair_needs_water_v1.webp",
+      "kind": "they-need",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "They need some milk.",
+        "They need some juice."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "I want water.",
+      "es": "Quiero agua.",
+      "kind": "i-want"
+    },
+    {
+      "text": "I want milk.",
+      "es": "Quiero leche.",
+      "kind": "i-want"
+    },
+    {
+      "text": "I need juice.",
+      "es": "Necesito jugo.",
+      "kind": "i-need"
+    },
+    {
+      "text": "I need milk.",
+      "es": "Necesito leche.",
+      "kind": "i-need"
+    },
+    {
+      "text": "He wants rice.",
+      "es": "Él quiere arroz.",
+      "kind": "he-wants"
+    },
+    {
+      "text": "He wants fish.",
+      "es": "Él quiere pescado.",
+      "kind": "he-wants"
+    },
+    {
+      "text": "She needs juice.",
+      "es": "Ella necesita jugo.",
+      "kind": "she-needs"
+    },
+    {
+      "text": "She needs water.",
+      "es": "Ella necesita agua.",
+      "kind": "she-needs"
+    },
+    {
+      "text": "The baby needs juice.",
+      "es": "El bebé necesita jugo.",
+      "kind": "baby-needs"
+    },
+    {
+      "text": "The baby needs water.",
+      "es": "El bebé necesita agua.",
+      "kind": "baby-needs"
+    },
+    {
+      "text": "They need some milk.",
+      "es": "Necesitan un poco de leche.",
+      "kind": "they-need"
+    },
+    {
+      "text": "They need some juice.",
+      "es": "Necesitan un poco de jugo.",
+      "kind": "they-need"
+    }
+  ]
+}

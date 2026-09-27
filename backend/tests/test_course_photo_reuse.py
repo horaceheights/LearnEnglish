@@ -158,7 +158,14 @@ class PhotoReuseTests(unittest.TestCase):
     def test_exact_diagram_correction_cannot_change_sentence_or_stage(self):
         rows=json.loads((ROOT/'docs/qa/course-exact-diagram-reuse-v1.json').read_text())['assets']
         current=lessons(ROOT)
+        # A unit rebuild may retire the corrected Use card; its plan then records the retirement
+        # and the evidence row is history (the 2026-09-26 Unit 5 rebuild re-authored 5.8 Prices).
+        changes=json.loads((ROOT/'docs/product/course-media-change-plans.json').read_text(encoding='utf-8'))['changes']
+        retired={(c['lesson_id'],c['old_filename']) for c in changes if c.get('issue')=='lesson-rebuild-retires-use'}
         for row in rows:
+            if (row['lesson_id'],row['old_filename']) in retired:
+                self.assertNotIn(row['old_filename'],images(current[row['lesson_id']]))
+                continue
             plan={'lesson_id':row['lesson_id'],'old_filename':row['old_filename'],'new_filename':row['candidate_filename'],
                   'old_sha256':row['old_sha256'],'evidence_file':'docs/qa/course-exact-diagram-reuse-v1.json'}
             validate_exact_diagram_plan(plan,current,ROOT)

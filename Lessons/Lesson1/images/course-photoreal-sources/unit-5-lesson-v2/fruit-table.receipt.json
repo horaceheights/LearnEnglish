@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f936537c-fb17-49f7-909d-24ba8635e198",
+  "asset_id": "fruit-table",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:38:19.077893+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA bright family dining room seen at eye level from about two meters away. In the middle of a rectangular wooden dining table with wooden chairs around it stands one wide white bowl heaped with fruit: red apples, yellow bananas, oranges, a bunch of purple grapes, one green pear and red strawberries. The bowl of fruit is large and sits clearly ON the tabletop, in the center of the photo. Nothing else is on the table. No people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Wkm4aorzIL39qtsP0J6N0A0",
+  "usage": {
+    "promptTokenCount": 281,
+    "candidatesTokenCount": 1306,
+    "totalTokenCount": 1830,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 281
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 243,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137478",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 281,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 243
+  },
+  "elapsed_seconds": 20.37,
+  "output": "output/imagegen/unit-5-lesson-v2/fruit-table.png",
+  "sha256": "90a688d051e3f427a6efeb2d3b8e6eb7b1db478b9a3399da0e3ffcd02dc77aeb",
+  "byte_count": 5564549,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

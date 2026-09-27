@@ -1,93 +1,842 @@
 {
   "id": "lesson-5-8-ordering-politely",
-  "title": "5.8 Ordering Politely",
+  "title": "5.9 Ordering Politely",
   "level": "Beginner A1",
   "unit_id": "unit-5",
   "unit_title": "Unit 5: Food, Drinks, and Shopping",
-  "unit_outcome": "Express simple food preferences and needs and complete a supported purchase or café order.",
+  "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
   "lesson_id": "lesson-5",
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
-  "sub_lesson_id": "5.8",
+  "sub_lesson_id": "5.9",
   "sub_lesson_title": "Ordering Politely",
-  "goal": "Complete a very short, highly supported café exchange using memorized polite chunks.",
+  "goal": "Recognize a café and order a drink with please, and say Here you are. and Thank you.",
   "vocabulary": [
     "café",
     "please",
     "Here you are.",
-    "Thank you.",
-    "Yes, please.",
-    "No, thank you."
+    "Thank you."
   ],
   "review_vocabulary": [
-    "hello",
+    "this",
+    "is",
+    "a",
     "water",
     "juice",
-    "milk",
     "coffee",
     "tea",
-    "I want",
-    "How much is it?",
-    "dollars"
+    "milk",
+    "hello"
   ],
-  "grammar_function": "Item + please; receive with Here you are; respond with Thank you / Yes, please / No, thank you.",
-  "prerequisite": "3.1 Greetings; 5.2, 5.5, 5.7 food, wants, and prices.",
-  "speaking_outcome": "Say six polite service chunks, including a short request and thanks.",
+  "grammar_function": "This is a café. Coffee, please. Here you are. Thank you.",
+  "prerequisite": "3.1 hello; 2.5 this; 5.3 drinks.",
+  "speaking_outcome": "Order a drink with please, and say Here you are. and Thank you.",
+  "content_revision": 2,
   "purposeful_review_slides": [
-    "Learn:L2",
-    "Recognize:R8",
-    "Listen:A5",
-    "Listen:A6",
-    "Speak:S1",
-    "Use:U8"
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9"
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "At the café",
+      "prompt": "A café",
       "stage": "Learn",
-      "correct_option_id": "at-the-cafe-1",
+      "correct_option_id": "a-caf-learn",
       "options": [
         {
-          "id": "at-the-cafe-1",
-          "image_url": "a1_scene_at-the-cafe_61dd3b6.webp",
-          "label": "At the café"
+          "id": "a-caf-learn",
+          "image_url": "a1_scene_hello_19bd437.webp",
+          "label": "A café"
         }
       ],
-      "audio_text": "At the café",
+      "audio_text": "A café",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "En el café",
-      "pedagogy_note": "Introduces café before mission use."
+      "spanish_translation": "Un café (lugar)",
+      "pedagogy_note": "Story beat 01: A café"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Hello.",
+      "prompt": "Please",
       "stage": "Learn",
-      "correct_option_id": "hello-1",
+      "correct_option_id": "please-learn",
       "options": [
         {
-          "id": "hello-1",
-          "image_url": "a1_scene_hello_19bd437.webp",
-          "label": "Hello."
+          "id": "please-learn",
+          "image_url": "a1_photo_u5_request_water_v1.webp",
+          "label": "Please"
         }
       ],
-      "audio_text": "Hello.",
+      "audio_text": "Please",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hola.",
-      "pedagogy_note": "Purposeful review of Unit 3 greeting."
+      "spanish_translation": "Por favor",
+      "pedagogy_note": "Story beat 02: Please",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "L3",
       "interaction_type": "teach",
-      "prompt": "Juice, please.",
+      "prompt": "Here you are.",
       "stage": "Learn",
-      "correct_option_id": "juice-please-1",
+      "correct_option_id": "here-you-are-learn",
       "options": [
         {
-          "id": "juice-please-1",
+          "id": "here-you-are-learn",
+          "image_url": "a1_scene_here-you-are_4ab9749.webp",
+          "label": "Here you are."
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Aquí tienes.",
+      "pedagogy_note": "Story beat 03: Here you are.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "Thank you.",
+      "stage": "Learn",
+      "correct_option_id": "thank-you-learn",
+      "options": [
+        {
+          "id": "thank-you-learn",
+          "image_url": "a1_scene_thank-you_a6f59e1.webp",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Story beat 04: Thank you.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "i2t2",
+      "prompt": "Juice, please.",
+      "stage": "Recognize",
+      "correct_option_id": "here-you-are-r1",
+      "options": [
+        {
+          "id": "thank-you-r1",
+          "image_url": "",
+          "label": "Thank you."
+        },
+        {
+          "id": "here-you-are-r1",
+          "image_url": "",
+          "label": "Here you are."
+        }
+      ],
+      "audio_text": "Juice, please.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Jugo, por favor.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 01: Here you are.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "Here you are.",
+      "stage": "Recognize",
+      "correct_option_id": "thank-you-r2",
+      "options": [
+        {
+          "id": "here-you-are-r2",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "thank-you-r2",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
+      "spanish_translation": "Aquí tienes.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 02: Thank you.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "this-is-a-caf-r3",
+      "options": [
+        {
+          "id": "this-is-a-caf-r3",
+          "image_url": "",
+          "label": "This is a café."
+        },
+        {
+          "id": "this-is-a-store-r3",
+          "image_url": "",
+          "label": "This is a store."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "This is a café.",
+      "prompt_image_url": "a1_scene_hello_19bd437.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 03: This is a café."
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "water-please-r4",
+      "options": [
+        {
+          "id": "milk-please-r4",
+          "image_url": "",
+          "label": "Milk, please."
+        },
+        {
+          "id": "water-please-r4",
+          "image_url": "",
+          "label": "Water, please."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Water, please.",
+      "prompt_image_url": "a1_scene_orders-water_37bb622.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 04: Water, please."
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
+      "prompt": "Juice, please.",
+      "stage": "Recognize",
+      "correct_option_id": "juice-please-r5",
+      "options": [
+        {
+          "id": "tea-please-r5",
+          "image_url": "a1_scene_orders-tea_14f7d45.webp",
+          "label": null
+        },
+        {
+          "id": "juice-please-r5",
+          "image_url": "a1_scene_juice-please_ee4b773.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Juice, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Jugo, por favor.",
+      "pedagogy_note": "Story beat 05: Juice, please.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "coffee-please-r6",
+      "options": [
+        {
+          "id": "juice-please-r6",
+          "image_url": "",
+          "label": "Juice, please."
+        },
+        {
+          "id": "coffee-please-r6",
+          "image_url": "",
+          "label": "Coffee, please."
+        },
+        {
+          "id": "tea-please-r6",
+          "image_url": "",
+          "label": "Tea, please."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Coffee, please.",
+      "prompt_image_url": "a1_scene_orders-coffee_3164cd2.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 06: Coffee, please."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i4",
+      "prompt": "Tea, please.",
+      "stage": "Recognize",
+      "correct_option_id": "tea-please-r7",
+      "options": [
+        {
+          "id": "milk-please-r7",
+          "image_url": "a1_scene_orders-milk_6835950.webp",
+          "label": null
+        },
+        {
+          "id": "juice-please-r7",
+          "image_url": "a1_scene_juice-please_ee4b773.webp",
+          "label": null
+        },
+        {
+          "id": "tea-please-r7",
+          "image_url": "a1_scene_orders-tea_14f7d45.webp",
+          "label": null
+        },
+        {
+          "id": "coffee-please-r7",
+          "image_url": "a1_scene_orders-coffee_3164cd2.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Tea, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Té, por favor.",
+      "pedagogy_note": "Story beat 07: Tea, please.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "milk-please-r8",
+      "options": [
+        {
+          "id": "tea-please-r8",
+          "image_url": "",
+          "label": "Tea, please."
+        },
+        {
+          "id": "milk-please-r8",
+          "image_url": "",
+          "label": "Milk, please."
+        },
+        {
+          "id": "water-please-r8",
+          "image_url": "",
+          "label": "Water, please."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Milk, please.",
+      "prompt_image_url": "a1_scene_orders-milk_6835950.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 08: Milk, please."
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "here-you-are-thank-you-r9",
+      "options": [
+        {
+          "id": "here-you-are-thank-you-r9",
+          "image_url": "",
+          "label": "Here you are. Thank you."
+        },
+        {
+          "id": "here-you-are-hello-r9",
+          "image_url": "",
+          "label": "Here you are. Hello."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Here you are. Thank you.",
+      "answer_audio_turns": [
+        {
+          "text": "Here you are.",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_here-you-are_4ab9749.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_thank-you_a6f59e1.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: Here you are. Thank you."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "this-is-a-caf-r10",
+      "options": [
+        {
+          "id": "this-is-a-caf-r10",
+          "image_url": "",
+          "label": "This is a café."
+        },
+        {
+          "id": "this-is-a-store-r10",
+          "image_url": "",
+          "label": "This is a store."
+        },
+        {
+          "id": "this-is-a-school-r10",
+          "image_url": "",
+          "label": "This is a school."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "This is a café.",
+      "prompt_image_url": "a1_scene_hello_19bd437.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: This is a café."
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "here-you-are-thank-you-r11",
+      "options": [
+        {
+          "id": "here-you-are-hello-r11",
+          "image_url": "",
+          "label": "Here you are. Hello."
+        },
+        {
+          "id": "here-you-are-thank-you-r11",
+          "image_url": "",
+          "label": "Here you are. Thank you."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Here you are. Thank you.",
+      "answer_audio_turns": [
+        {
+          "text": "Here you are.",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_here-you-are_4ab9749.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_thank-you_a6f59e1.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 11: Here you are. Thank you."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "here-you-are-a1",
+      "options": [
+        {
+          "id": "here-you-are-a1",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "thank-you-a1",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: Here you are.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "thank-you-a2",
+      "options": [
+        {
+          "id": "thank-you-a2",
+          "image_url": "",
+          "label": "Thank you."
+        },
+        {
+          "id": "here-you-are-a2",
+          "image_url": "",
+          "label": "Here you are."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: Thank you.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "this-is-a-caf-a3",
+      "options": [
+        {
+          "id": "this-is-a-caf-a3",
+          "image_url": "",
+          "label": "This is a café."
+        },
+        {
+          "id": "this-is-a-store-a3",
+          "image_url": "",
+          "label": "This is a store."
+        }
+      ],
+      "audio_text": "This is a café.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: This is a café.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "water-please-a4",
+      "options": [
+        {
+          "id": "milk-please-a4",
+          "image_url": "a1_scene_orders-milk_6835950.webp",
+          "label": null
+        },
+        {
+          "id": "water-please-a4",
+          "image_url": "a1_scene_orders-water_37bb622.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Water, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: Water, please.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "juice-please-a5",
+      "options": [
+        {
+          "id": "water-please-a5",
+          "image_url": "a1_scene_orders-water_37bb622.webp",
+          "label": null
+        },
+        {
+          "id": "coffee-please-a5",
+          "image_url": "a1_scene_orders-coffee_3164cd2.webp",
+          "label": null
+        },
+        {
+          "id": "juice-please-a5",
+          "image_url": "a1_scene_juice-please_ee4b773.webp",
+          "label": null
+        },
+        {
+          "id": "tea-please-a5",
+          "image_url": "a1_scene_orders-tea_14f7d45.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Juice, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: Juice, please.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "coffee-please-a6",
+      "options": [
+        {
+          "id": "coffee-please-a6",
+          "image_url": "",
+          "label": "Coffee, please."
+        },
+        {
+          "id": "tea-please-a6",
+          "image_url": "",
+          "label": "Tea, please."
+        },
+        {
+          "id": "juice-please-a6",
+          "image_url": "",
+          "label": "Juice, please."
+        }
+      ],
+      "audio_text": "Coffee, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: Coffee, please.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "tea-please-a7",
+      "options": [
+        {
+          "id": "juice-please-a7",
+          "image_url": "a1_scene_juice-please_ee4b773.webp",
+          "label": null
+        },
+        {
+          "id": "tea-please-a7",
+          "image_url": "a1_scene_orders-tea_14f7d45.webp",
+          "label": null
+        },
+        {
+          "id": "coffee-please-a7",
+          "image_url": "a1_scene_orders-coffee_3164cd2.webp",
+          "label": null
+        },
+        {
+          "id": "milk-please-a7",
+          "image_url": "a1_scene_orders-milk_6835950.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Tea, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: Tea, please.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "milk-please-a8",
+      "options": [
+        {
+          "id": "coffee-please-a8",
+          "image_url": "a1_scene_orders-coffee_3164cd2.webp",
+          "label": null
+        },
+        {
+          "id": "milk-please-a8",
+          "image_url": "a1_scene_orders-milk_6835950.webp",
+          "label": null
+        },
+        {
+          "id": "water-please-a8",
+          "image_url": "a1_scene_orders-water_37bb622.webp",
+          "label": null
+        },
+        {
+          "id": "tea-please-a8",
+          "image_url": "a1_scene_orders-tea_14f7d45.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Milk, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: Milk, please.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "here-you-are-thank-you-a9",
+      "options": [
+        {
+          "id": "here-you-are-hello-a9",
+          "image_url": "",
+          "label": "Here you are. Hello."
+        },
+        {
+          "id": "here-you-are-thank-you-a9",
+          "image_url": "",
+          "label": "Here you are. Thank you."
+        }
+      ],
+      "audio_text": "Here you are. Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Here you are.",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_here-you-are_4ab9749.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_thank-you_a6f59e1.webp"
+        }
+      ],
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: Here you are. Thank you."
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "A café",
+      "stage": "Speak",
+      "correct_option_id": "a-caf-speak",
+      "options": [
+        {
+          "id": "a-caf-speak",
+          "image_url": "a1_scene_hello_19bd437.webp",
+          "label": "A café"
+        }
+      ],
+      "audio_text": "A café",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un café (lugar)",
+      "pedagogy_note": "Story beat 01: A café"
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "Here you are.",
+      "stage": "Speak",
+      "correct_option_id": "here-you-are-speak",
+      "options": [
+        {
+          "id": "here-you-are-speak",
+          "image_url": "a1_scene_here-you-are_4ab9749.webp",
+          "label": "Here you are."
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Aquí tienes.",
+      "pedagogy_note": "Story beat 02: Here you are.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "Thank you.",
+      "stage": "Speak",
+      "correct_option_id": "thank-you-speak",
+      "options": [
+        {
+          "id": "thank-you-speak",
+          "image_url": "a1_scene_thank-you_a6f59e1.webp",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Story beat 03: Thank you.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "This is a café.",
+      "stage": "Speak",
+      "correct_option_id": "this-is-a-caf-speak",
+      "options": [
+        {
+          "id": "this-is-a-caf-speak",
+          "image_url": "a1_scene_hello_19bd437.webp",
+          "label": "This is a café."
+        }
+      ],
+      "audio_text": "This is a café.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Este es un café.",
+      "pedagogy_note": "Story beat 04: This is a café.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "Water, please.",
+      "stage": "Speak",
+      "correct_option_id": "water-please-speak",
+      "options": [
+        {
+          "id": "water-please-speak",
+          "image_url": "a1_scene_orders-water_37bb622.webp",
+          "label": "Water, please."
+        }
+      ],
+      "audio_text": "Water, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Agua, por favor.",
+      "pedagogy_note": "Story beat 05: Water, please.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "Juice, please.",
+      "stage": "Speak",
+      "correct_option_id": "juice-please-speak",
+      "options": [
+        {
+          "id": "juice-please-speak",
           "image_url": "a1_scene_juice-please_ee4b773.webp",
           "label": "Juice, please."
         }
@@ -96,613 +845,79 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Jugo, por favor.",
-      "pedagogy_note": "New please request chunk; no Can I have yet."
+      "pedagogy_note": "Story beat 06: Juice, please.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "Here you are.",
-      "stage": "Learn",
-      "correct_option_id": "here-you-are-1",
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "Coffee, please.",
+      "stage": "Speak",
+      "correct_option_id": "coffee-please-speak",
       "options": [
         {
-          "id": "here-you-are-1",
-          "image_url": "a1_scene_here-you-are_4ab9749.webp",
-          "label": "Here you are."
-        }
-      ],
-      "audio_text": "Here you are.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Aquí tienes.",
-      "pedagogy_note": "New service response."
-    },
-    {
-      "slide_id": "L5",
-      "interaction_type": "teach",
-      "prompt": "Thank you.",
-      "stage": "Learn",
-      "correct_option_id": "thank-you-1",
-      "options": [
-        {
-          "id": "thank-you-1",
-          "image_url": "a1_scene_thank-you_a6f59e1.webp",
-          "label": "Thank you."
-        }
-      ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Gracias.",
-      "pedagogy_note": "New.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "L6",
-      "interaction_type": "teach",
-      "prompt": "Yes, please.",
-      "stage": "Learn",
-      "correct_option_id": "yes-please-1",
-      "options": [
-        {
-          "id": "yes-please-1",
-          "image_url": "a1_scene_yes-please_ae43854.webp",
-          "label": "Yes, please."
-        }
-      ],
-      "audio_text": "Yes, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sí, por favor.",
-      "pedagogy_note": "New positive response."
-    },
-    {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "No, thank you.",
-      "stage": "Learn",
-      "correct_option_id": "no-thank-you-1",
-      "options": [
-        {
-          "id": "no-thank-you-1",
-          "image_url": "a1_scene_no-thank-you_23aa575.webp",
-          "label": "No, thank you."
-        }
-      ],
-      "audio_text": "No, thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "No, gracias.",
-      "pedagogy_note": "New polite refusal; not a dislike claim.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "Hello. Water, please. Here you are. Thank you.",
-      "stage": "Learn",
-      "correct_option_id": "hello-water-please-here-you-are-thank-you-1",
-      "options": [
-        {
-          "id": "hello-water-please-here-you-are-thank-you-1",
-          "image_url": "a1_photo_u5_request_water_v1.webp",
-          "label": "Hello. Water, please. Here you are. Thank you."
-        }
-      ],
-      "audio_text": "Hello. Water, please. Here you are. Thank you.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "Hello.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_cafe-male-hello_8ddd7f3.webp"
-        },
-        {
-          "text": "Water, please.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_cafe-male-water-please_9194971.webp"
-        },
-        {
-          "text": "Here you are.",
-          "speaker_role": "female-character",
-          "image_url": "a1_scene_cafe-female-here-you-are_a140cca.webp"
-        },
-        {
-          "text": "Thank you.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_cafe-male-thank-you_9ad5106.webp"
-        }
-      ],
-      "prompt_image_url": "",
-      "spanish_translation": "Hola. Agua, por favor. Aquí tienes. Gracias.",
-      "pedagogy_note": "Integrated model; audio uses brief natural pauses."
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "recognize-image",
-      "prompt": "Water, please.",
-      "stage": "Recognize",
-      "correct_option_id": "orders-water-2",
-      "options": [
-        {
-          "id": "orders-juice-1",
-          "image_url": "a1_scene_orders-juice_e20f7f7.webp",
-          "label": null
-        },
-        {
-          "id": "orders-water-2",
-          "image_url": "a1_scene_orders-water_37bb622.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Water, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "Requested item is decisive.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "Here you are.",
-      "stage": "Recognize",
-      "correct_option_id": "server-hands-drink-1",
-      "options": [
-        {
-          "id": "server-hands-drink-1",
-          "image_url": "a1_scene_server-hands-drink_9f32830.webp",
-          "label": null
-        },
-        {
-          "id": "learner-requests-drink-2",
-          "image_url": "a1_scene_learner-requests-drink_57c9a84.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Here you are.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Aquí tienes.",
-      "pedagogy_note": "Turn role is clear."
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "Yes, please.",
-      "stage": "Recognize",
-      "correct_option_id": "accepts-tea-1",
-      "options": [
-        {
-          "id": "accepts-tea-1",
-          "image_url": "a1_scene_accepts-tea_91500af.webp",
-          "label": null
-        },
-        {
-          "id": "declines-tea-2",
-          "image_url": "a1_scene_declines-tea_f17ccc5.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Yes, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sí, por favor.",
-      "pedagogy_note": "Exact positive/negative contrast."
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "No, thank you.",
-      "stage": "Recognize",
-      "correct_option_id": "declines-tea-2",
-      "options": [
-        {
-          "id": "accepts-tea-1",
-          "image_url": "a1_scene_accepts-tea_91500af.webp",
-          "label": null
-        },
-        {
-          "id": "declines-tea-2",
-          "image_url": "a1_scene_declines-tea_f17ccc5.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "No, thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "No, gracias.",
-      "pedagogy_note": "Polite refusal cue visible."
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "coffee-please-1",
-      "options": [
-        {
-          "id": "coffee-please-1",
-          "image_url": "",
-          "label": "Coffee, please."
-        },
-        {
-          "id": "tea-please-2",
-          "image_url": "",
-          "label": "Tea, please."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Coffee, please.",
-      "prompt_image_url": "a1_photo_u5_request_coffee_v1.webp",
-      "spanish_translation": "Elige las palabras.",
-      "pedagogy_note": "Image-to-text item request."
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "thank-you-1",
-      "options": [
-        {
-          "id": "thank-you-1",
-          "image_url": "",
-          "label": "Thank you."
-        },
-        {
-          "id": "here-you-are-2",
-          "image_url": "",
-          "label": "Here you are."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Speaker roles make only the learner's gratitude response valid; removes a plausible additional drink request.",
-      "answer_audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "yes-please-4",
-      "options": [
-        {
-          "id": "no-thank-you-1",
-          "image_url": "",
-          "label": "No, thank you."
-        },
-        {
-          "id": "here-you-are-2",
-          "image_url": "",
-          "label": "Here you are."
-        },
-        {
-          "id": "yes-please-4",
-          "image_url": "",
-          "label": "Yes, please."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Yes, please.",
-      "prompt_image_url": "a1_scene_yes-please_ae43854.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Acceptance cue, item, and speaker role each eliminate a distractor; Thank you alone is removed because it could also accept politely."
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "tea-please-3",
-      "options": [
-        {
-          "id": "coffee-please-1",
-          "image_url": "",
-          "label": "Coffee, please."
-        },
-        {
-          "id": "no-thank-you-2",
-          "image_url": "",
-          "label": "No, thank you."
-        },
-        {
-          "id": "tea-please-3",
-          "image_url": "",
-          "label": "Tea, please."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Tea, please.",
-      "prompt_image_url": "a1_photo_u5_request_tea_v1.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Review tea; role and item are decisive."
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "orders-juice-2",
-      "options": [
-        {
-          "id": "orders-water-1",
-          "image_url": "a1_scene_orders-water_37bb622.webp",
-          "label": null
-        },
-        {
-          "id": "orders-juice-2",
-          "image_url": "a1_scene_orders-juice_e20f7f7.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Juice, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only item."
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "handoff-2",
-      "options": [
-        {
-          "id": "request-1",
-          "image_url": "a1_scene_request_088e29b.webp",
-          "label": null
-        },
-        {
-          "id": "handoff-2",
-          "image_url": "a1_scene_handoff_2f45a9f.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Here you are.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only chunk."
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "declines-2",
-      "options": [
-        {
-          "id": "accepts-1",
-          "image_url": "a1_scene_accepts_3a1306b.webp",
-          "label": null
-        },
-        {
-          "id": "declines-2",
-          "image_url": "a1_scene_declines_39c6dcc.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "No, thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only polarity.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "listen-text",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "thank-you-3",
-      "options": [
-        {
-          "id": "hello-1",
-          "image_url": "",
-          "label": "Hello."
-        },
-        {
-          "id": "here-you-are-2",
-          "image_url": "",
-          "label": "Here you are."
-        },
-        {
-          "id": "thank-you-3",
-          "image_url": "",
-          "label": "Thank you."
-        }
-      ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Listening-to-text."
-    },
-    {
-      "slide_id": "A5",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "orders-coffee-3",
-      "options": [
-        {
-          "id": "orders-tea-1",
-          "image_url": "a1_scene_orders-tea_14f7d45.webp",
-          "label": null
-        },
-        {
-          "id": "orders-milk-2",
-          "image_url": "a1_scene_orders-milk_6835950.webp",
-          "label": null
-        },
-        {
-          "id": "orders-coffee-3",
+          "id": "coffee-please-speak",
           "image_url": "a1_scene_orders-coffee_3164cd2.webp",
-          "label": null
-        },
-        {
-          "id": "orders-juice-4",
-          "image_url": "a1_scene_orders-juice_e20f7f7.webp",
-          "label": null
+          "label": "Coffee, please."
         }
       ],
       "audio_text": "Coffee, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review drinks.",
+      "spanish_translation": "Café, por favor.",
+      "pedagogy_note": "Story beat 07: Coffee, please.",
       "audio_speaker": "male-character"
     },
     {
-      "slide_id": "A6",
-      "interaction_type": "listen-text",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "hello-water-please-3",
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "Tea, please.",
+      "stage": "Speak",
+      "correct_option_id": "tea-please-speak",
       "options": [
         {
-          "id": "hello-juice-please-1",
-          "image_url": "",
-          "label": "Hello. Juice, please."
-        },
-        {
-          "id": "goodbye-water-please-2",
-          "image_url": "",
-          "label": "Goodbye. Water, please."
-        },
-        {
-          "id": "hello-water-please-3",
-          "image_url": "",
-          "label": "Hello. Water, please."
+          "id": "tea-please-speak",
+          "image_url": "a1_scene_orders-tea_14f7d45.webp",
+          "label": "Tea, please."
         }
       ],
-      "audio_text": "Hello. Water, please.",
+      "audio_text": "Tea, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Reviews greeting plus request; no image."
+      "spanish_translation": "Té, por favor.",
+      "pedagogy_note": "Story beat 08: Tea, please.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "S1",
+      "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "Hello.",
+      "prompt": "Here you are. Thank you.",
       "stage": "Speak",
-      "correct_option_id": "hello-1",
+      "correct_option_id": "here-you-are-thank-you-speak",
       "options": [
         {
-          "id": "hello-1",
-          "image_url": "a1_scene_hello_19bd437.webp",
-          "label": "Hello."
-        }
-      ],
-      "audio_text": "Hello.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hola.",
-      "pedagogy_note": "Review greeting."
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "Water, please.",
-      "stage": "Speak",
-      "correct_option_id": "water-please-1",
-      "options": [
-        {
-          "id": "water-please-1",
-          "image_url": "a1_scene_water-please_416a23c.webp",
-          "label": "Water, please."
-        }
-      ],
-      "audio_text": "Water, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "Complete request chunk.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "Here you are.",
-      "stage": "Speak",
-      "correct_option_id": "here-you-are-1",
-      "options": [
-        {
-          "id": "here-you-are-1",
+          "id": "here-you-are-thank-you-speak",
           "image_url": "a1_scene_here-you-are_4ab9749.webp",
-          "label": "Here you are."
+          "label": "Here you are. Thank you."
         }
       ],
-      "audio_text": "Here you are.",
+      "audio_text": "Here you are. Thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Aquí tienes.",
-      "pedagogy_note": "Complete service chunk."
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "Thank you.",
-      "stage": "Speak",
-      "correct_option_id": "thank-you-1",
-      "options": [
+      "audio_turns": [
         {
-          "id": "thank-you-1",
-          "image_url": "a1_scene_thank-you_a6f59e1.webp",
-          "label": "Thank you."
-        }
-      ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Gracias.",
-      "pedagogy_note": "Complete chunk.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "speak",
-      "prompt": "Yes, please.",
-      "stage": "Speak",
-      "correct_option_id": "yes-please-1",
-      "options": [
+          "text": "Here you are.",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_here-you-are_4ab9749.webp"
+        },
         {
-          "id": "yes-please-1",
-          "image_url": "a1_scene_yes-please_ae43854.webp",
-          "label": "Yes, please."
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_thank-you_a6f59e1.webp"
         }
       ],
-      "audio_text": "Yes, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sí, por favor.",
-      "pedagogy_note": "Complete chunk."
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "No, thank you.",
-      "stage": "Speak",
-      "correct_option_id": "no-thank-you-1",
-      "options": [
-        {
-          "id": "no-thank-you-1",
-          "image_url": "a1_scene_no-thank-you_23aa575.webp",
-          "label": "No, thank you."
-        }
-      ],
-      "audio_text": "No, thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "No, gracias.",
-      "pedagogy_note": "Complete chunk.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Aquí tienes. Gracias.",
+      "pedagogy_note": "Story beat 09: Here you are. Thank you."
     },
     {
       "slide_id": "U1",
@@ -724,220 +939,288 @@
       ],
       "audio_text": "Here you are.",
       "answer_audio_text": "Here you are.",
-      "prompt_image_url": "a1_scene_hello_19bd437.webp",
-      "spanish_translation": "Aquí tiene.",
-      "pedagogy_note": "Generic proven instruction; scene establishes the opening turn.",
-      "translation": "Aquí tiene.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
       "correct_option_ids": [
         "you",
         "are"
-      ]
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 01: Here you are.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "No, ___ ___.",
+      "prompt": "Here ___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank",
+      "correct_option_id": "you",
       "options": [
-        {
-          "id": "thank",
-          "image_url": "",
-          "label": "thank"
-        },
         {
           "id": "you",
           "image_url": "",
           "label": "you"
+        },
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
         }
       ],
-      "audio_text": "No, thank you.",
-      "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "a1_scene_no-thank-you_23aa575.webp",
-      "spanish_translation": "No, gracias.",
-      "pedagogy_note": "Only please forms the taught request; Water, thank you was removed because it can also be a valid polite request.",
-      "translation": "No, gracias.",
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
       "correct_option_ids": [
-        "thank",
-        "you"
+        "you",
+        "are"
       ],
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 02: Here you are.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "The juice is ___ ___.",
+      "prompt": "Here ___ ___.",
       "stage": "Use",
-      "correct_option_id": "four",
+      "correct_option_id": "you",
       "options": [
-        {
-          "id": "four",
-          "image_url": "",
-          "label": "four"
-        },
-        {
-          "id": "dollars",
-          "image_url": "",
-          "label": "dollars"
-        }
-      ],
-      "audio_text": "The juice is four dollars.",
-      "answer_audio_text": "The juice is four dollars.",
-      "prompt_image_url": "a1_scene_the-juice-is-four-dollars_df87bd6.webp",
-      "spanish_translation": "El jugo cuesta cuatro dólares.",
-      "pedagogy_note": "Role-appropriate response.",
-      "translation": "El jugo cuesta cuatro dólares.",
-      "correct_option_ids": [
-        "four",
-        "dollars"
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "Coffee, please. ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "thank",
-      "options": [
-        {
-          "id": "thank",
-          "image_url": "",
-          "label": "Thank"
-        },
         {
           "id": "you",
           "image_url": "",
           "label": "you"
+        },
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
         }
       ],
-      "audio_text": "Coffee, please. Thank you.",
-      "answer_audio_text": "Coffee, please. Thank you.",
-      "prompt_image_url": "a1_photo_u5_request_coffee_v1.webp",
-      "spanish_translation": "Café, por favor. Gracias.",
-      "pedagogy_note": "Role contrast removes the plausible option of placing another order.",
-      "translation": "Café, por favor. Gracias.",
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
       "correct_option_ids": [
-        "thank",
-        "you"
-      ]
+        "you",
+        "are"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 03: Here you are.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "Here ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "you",
+      "options": [
+        {
+          "id": "you",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
+      "correct_option_ids": [
+        "you",
+        "are"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 04: Here you are.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___, ___.",
+      "interaction_type": "complete2",
+      "prompt": "Here ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "you",
       "options": [
         {
-          "id": "word-1",
+          "id": "you",
           "image_url": "",
-          "label": "Water"
+          "label": "you"
         },
         {
-          "id": "word-2",
+          "id": "are",
           "image_url": "",
-          "label": "please"
+          "label": "are"
         }
       ],
-      "audio_text": "Water, please.",
-      "answer_audio_text": "Water, please.",
-      "prompt_image_url": "a1_scene_yes-please_ae43854.webp",
-      "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "Visual turn context; no new offer wording.",
-      "translation": "Agua, por favor.",
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
       "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
+        "you",
+        "are"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 05: Here you are.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___, ___.",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Yes"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "please"
-        }
-      ],
-      "audio_text": "Yes, please.",
-      "answer_audio_text": "Yes, please.",
-      "prompt_image_url": "a1_scene_no-thank-you_23aa575.webp",
-      "spanish_translation": "Sí, por favor.",
-      "pedagogy_note": "Polite refusal from visual context.",
-      "translation": "Sí, por favor.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ],
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___, ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Juice"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "please"
-        }
-      ],
-      "audio_text": "Juice, please.",
-      "answer_audio_text": "Juice, please.",
-      "prompt_image_url": "a1_scene_juice-please_ee4b773.webp",
-      "spanish_translation": "Jugo, por favor.",
-      "pedagogy_note": "Two-choice request completion removes Thank you, which can also be valid after an elliptical item request.",
-      "translation": "Jugo, por favor.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Thank"
-        },
         {
           "id": "word-2",
           "image_url": "",
           "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Here"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "are"
         }
       ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Gracias.",
-      "pedagogy_note": "Reviews price; scene explicitly shows completed purchase rather than refusal.",
-      "translation": "Gracias.",
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
       "correct_option_ids": [
         "word-1",
-        "word-2"
+        "word-2",
+        "word-3"
       ],
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 06: Here you are.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Here"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "are"
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 07: Here you are.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Here"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "are"
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 08: Here you are.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Here"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "are"
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
+      "spanish_translation": "Aquí tienes.",
+      "translation": "Aquí tienes.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 09: Here you are.",
+      "audio_speaker": "female-character"
     }
   ]
 }

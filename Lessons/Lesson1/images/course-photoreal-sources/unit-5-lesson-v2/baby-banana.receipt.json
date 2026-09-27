@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9ce54f3d-d876-4273-8150-e9e3f4e28c8e",
+  "asset_id": "baby-banana",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:36:11.195458+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nImage 1 shows the family's baby: about ten months old, with dark curly hair and a round, happy face, in a pale-yellow short-sleeved romper. Keep the baby's face, hair and clothes exactly. Create a new photograph in a bright kitchen: the baby sits in a white high chair, facing the camera at a slight angle, holding one half-peeled yellow banana in both hands and taking a bite from its top; the yellow peel hangs down around the baby's hands. The banana is large in the frame and clearly yellow. Only the baby; no adults, no other food on the high-chair tray.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_baby_3x2.webp",
+    "sha256": "09f56c09580dff65ed65ce81975dbe07e8e0b11a81904d92a40290bd017b06f3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "20i4atnWGsfQz7IP_OCkiAk",
+  "usage": {
+    "promptTokenCount": 686,
+    "candidatesTokenCount": 1310,
+    "totalTokenCount": 2186,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 428
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 190,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137652",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 686,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 190
+  },
+  "elapsed_seconds": 26.27,
+  "output": "output/imagegen/unit-5-lesson-v2/baby-banana.png",
+  "sha256": "d25193d6e2ca01d64eb55c54733827d85046e60a445dc936ec933873a66819dd",
+  "byte_count": 4879591,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

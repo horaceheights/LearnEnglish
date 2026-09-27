@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b432b771-a709-4755-8e65-b0c294b93077",
+  "asset_id": "review-twelve-dollars",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:47:50.488901+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOn a wooden shop shelf stands one plain white ceramic teapot, with a small white price card on a little metal stand right in front of it. The card shows exactly one printed price, $12, in large bold black characters, perfectly formed, and nothing else. The teapot and the price card are in the center of the photo and together fill about 50 percent of the photo height; the $12 reads clearly on a phone. Softly blurred shelves in the background. No other prices, text, logos or people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "lUu4apLMKsn4qtsP1tLWwQc",
+  "usage": {
+    "promptTokenCount": 300,
+    "candidatesTokenCount": 1338,
+    "totalTokenCount": 1867,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 300
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 229,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137348",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 300,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 229
+  },
+  "elapsed_seconds": 21.32,
+  "output": "output/imagegen/unit-5-lesson-v2/review-twelve-dollars.png",
+  "sha256": "f8afa3d6691d79604a9fc275389fc9f4e5e4c32bb3649cffec5d85da0478a5fb",
+  "byte_count": 5062982,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

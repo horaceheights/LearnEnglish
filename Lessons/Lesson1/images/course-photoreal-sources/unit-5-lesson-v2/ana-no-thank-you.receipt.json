@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1454db5f-346f-4266-bded-31af97fbe178",
+  "asset_id": "ana-no-thank-you",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:41:21.121223+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Ana now politely declines: she raises her right hand to shoulder height with the palm facing the teapot, fingers together, and smiles kindly with a small head shake while looking up at the server. Her empty teacup stays on the table. The server holds the teapot still, not pouring. Keep both people's faces, hair and clothes, and keep the table, cafe, light and camera identical. No new objects, text, arrows or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-5-lesson-v2/server-offers-tea.png",
+    "sha256": "7c60f4ee88abbe1612e32a68696ebc35ce24130a9b209412ea1ffc3347c9f5fb"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "FUq4atL6B4-cz7IPhMjlsAQ",
+  "usage": {
+    "promptTokenCount": 357,
+    "candidatesTokenCount": 1295,
+    "totalTokenCount": 1844,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 99
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 192,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137018",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 357,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 192
+  },
+  "elapsed_seconds": 26.75,
+  "output": "output/imagegen/unit-5-lesson-v2/ana-no-thank-you.png",
+  "sha256": "b92d5f75db2ebb2b796c8f07a78472884c09ff5a1f7dbcb7adf74ebca7dd667d",
+  "byte_count": 5151765,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,268 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). New lesson (A1 basic Can I have...?, planned for Unit 5 in the 2026-09-23 tune-up). Learn holds Can I have...?, Yes, please. and No, thank you.; Ana asks at the counter and answers a server's offer of tea. Requests reuse the 5.9 order photos with one more phrase; their wrong options change only the drink.",
+  "target": "backend/lessons/unit_5/lesson-5-can-i-have.yaml",
+  "lesson": {
+    "id": "lesson-5-can-i-have",
+    "title": "5.10 Can I Have...?",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.10",
+    "sub_lesson_title": "Can I Have...?",
+    "goal": "Ask for food and drinks with Can I have ..., please?, and answer an offer with Yes, please. or No, thank you.",
+    "vocabulary": [
+      "Can I have...?",
+      "Yes, please.",
+      "No, thank you."
+    ],
+    "review_vocabulary": [
+      "please",
+      "thank you",
+      "Do you...?",
+      "want",
+      "water",
+      "juice",
+      "coffee",
+      "tea",
+      "milk",
+      "bread",
+      "a",
+      "an",
+      "banana",
+      "orange",
+      "pear",
+      "Ana",
+      "is",
+      "at",
+      "café"
+    ],
+    "grammar_function": "Can I have + food or drink + please? Do you want tea? Yes, please. / No, thank you.",
+    "prerequisite": "5.9 please and thank you; 5.6 want; 4.8 Do you...?; 5.2-5.3 food and drinks.",
+    "speaking_outcome": "Ask Can I have ..., please? and accept or refuse an offer politely.",
+    "content_revision": 1
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Yes, please.",
+      "es": "Sí, por favor.",
+      "image": "a1_photo_u5_ana_yes_please_v1.webp",
+      "kind": "offer-answer",
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "No, thank you.",
+      "es": "No, gracias.",
+      "image": "a1_photo_u5_ana_no_thank_you_v1.webp",
+      "kind": "offer-answer",
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Can I have water, please?",
+      "es": "¿Me da agua, por favor?",
+      "image": "a1_scene_orders-water_37bb622.webp",
+      "kind": "can-i-have",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "male-character",
+      "prefer": [
+        "Can I have milk, please?"
+      ]
+    },
+    {
+      "text": "Can I have juice, please?",
+      "es": "¿Me da jugo, por favor?",
+      "image": "a1_scene_juice-please_ee4b773.webp",
+      "kind": "can-i-have",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Can I have tea, please?"
+      ]
+    },
+    {
+      "text": "Can I have coffee, please?",
+      "es": "¿Me da café, por favor?",
+      "image": "a1_scene_orders-coffee_3164cd2.webp",
+      "kind": "can-i-have",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "male-character",
+      "prefer": [
+        "Can I have tea, please?"
+      ]
+    },
+    {
+      "text": "Can I have tea, please?",
+      "es": "¿Me da té, por favor?",
+      "image": "a1_scene_orders-tea_14f7d45.webp",
+      "kind": "can-i-have",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Can I have coffee, please?"
+      ]
+    },
+    {
+      "text": "Can I have milk, please?",
+      "es": "¿Me da leche, por favor?",
+      "image": "a1_scene_orders-milk_6835950.webp",
+      "kind": "can-i-have",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Can I have water, please?"
+      ]
+    },
+    {
+      "text": "Can I have a banana, please?",
+      "es": "¿Me da un plátano, por favor?",
+      "image": "a1_photo_u5_stall_banana_request_v1.webp",
+      "kind": "can-i-have-fruit",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Can I have an orange, please?"
+      ]
+    },
+    {
+      "text": "Can I have an orange, please?",
+      "es": "¿Me da una naranja, por favor?",
+      "image": "a1_photo_u5_stall_orange_request_v1.webp",
+      "kind": "can-i-have-fruit",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Can I have a pear, please?"
+      ]
+    },
+    {
+      "text": "Can I have a pear, please?",
+      "es": "¿Me da una pera, por favor?",
+      "image": "a1_photo_u5_stall_pear_request_v1.webp",
+      "kind": "can-i-have-fruit",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Can I have a banana, please?"
+      ]
+    },
+    {
+      "text": "Ana is at the café.",
+      "es": "Ana está en el café.",
+      "image": "a1_photo_u5_ana_can_i_have_v1.webp",
+      "kind": "at-place",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Ana is at the store.",
+        "Ana is at the school."
+      ]
+    },
+    {
+      "text": "Do you want tea? Yes, please.",
+      "es": "¿Quieres té? Sí, por favor.",
+      "image": "a1_photo_u5_ana_yes_please_v1.webp",
+      "kind": "offer-exchange",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      },
+      "turns": [
+        {
+          "text": "Do you want tea?",
+          "speaker": "male-character",
+          "image": "a1_photo_u5_server_offers_tea_v1.webp"
+        },
+        {
+          "text": "Yes, please.",
+          "speaker": "ana",
+          "image": "a1_photo_u5_ana_yes_please_v1.webp"
+        }
+      ],
+      "prefer": [
+        "Do you want tea? No, thank you."
+      ]
+    },
+    {
+      "text": "Do you want tea? No, thank you.",
+      "es": "¿Quieres té? No, gracias.",
+      "image": "a1_photo_u5_ana_no_thank_you_v1.webp",
+      "kind": "offer-exchange",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      },
+      "turns": [
+        {
+          "text": "Do you want tea?",
+          "speaker": "male-character",
+          "image": "a1_photo_u5_server_offers_tea_v1.webp"
+        },
+        {
+          "text": "No, thank you.",
+          "speaker": "ana",
+          "image": "a1_photo_u5_ana_no_thank_you_v1.webp"
+        }
+      ],
+      "prefer": [
+        "Do you want tea? Yes, please."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana is at the store.",
+      "es": "Ana está en la tienda.",
+      "kind": "at-place"
+    },
+    {
+      "text": "Ana is at the school.",
+      "es": "Ana está en la escuela.",
+      "kind": "at-place"
+    }
+  ]
+}

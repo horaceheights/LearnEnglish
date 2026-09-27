@@ -186,27 +186,34 @@ Before that rebuild, one lesson (4.8 Days and Time) taught `Monday` through `Sun
 
 ### Unit 5: Food, Drinks, and Shopping
 
-Goal: Identify food and drinks, state preferences and needs, understand simple prices, and complete a short supported café exchange.
+Goal: Name fruit, food and drinks, ask how many and say some, say what people like, want and need, talk about meals, ask and understand prices, and order politely at a café with `Can I have ...?`.
 
 Lessons:
 
-1. 5.1 Fruits
-2. 5.2 Food and Drinks
-3. 5.3 Food Quantities
-4. 5.4 Likes and Dislikes
-5. 5.5 Wants and Needs
-6. 5.6 Meals
-7. 5.7 Prices
-8. 5.8 Ordering Politely
-9. 5.9 Unit 5 Review
-10. 5.10 Café Mission
+1. 5.1 Fruits: `fruit`, `apple`, `banana`, `orange`, `grapes`, `strawberry`, `pear`; `The baby is eating a banana.`
+2. 5.2 Food: `food`, `bread`, `rice`, `egg`, `chicken`, `fish`; `The father is cooking fish.`
+3. 5.3 Drinks: `drinks`, `water`, `milk`, `juice`, `coffee`, `tea`, `drink`; `The grandmother is drinking tea.`, `I drink water every day.`
+4. 5.4 How Many? and Some: `How many ...?`, `some`; `How many apples are there? There are three apples.`, `There is some rice.`
+5. 5.5 Likes, Dislikes, and Me Too: `like`, `do not like`, `Me too.`; `Do you like coffee? Yes, I do.`
+6. 5.6 Wants and Needs: `want`, `wants`, `need`, `needs`; `The baby needs milk.`
+7. 5.7 Meals: `lunch`, `dinner`, `for`; `I eat eggs for breakfast.`, `They eat lunch at one o'clock.`
+8. 5.8 Prices: `How much is it?`, `dollar`, `dollars`
+9. 5.9 Ordering Politely: `café`, `please`, `Here you are.`, `Thank you.`
+10. 5.10 Can I Have...?: `Can I have ...?`, `Yes, please.`, `No, thank you.`; `Do you want tea? Yes, please.`
+11. 5.11 Unit 5 Review
+12. 5.12 Un día en el mercado y el café
 
 Core patterns:
 
-- `I like apples. I do not like fish.`
+- `I like apples. I do not like fish. I like coffee. Me too.`
 - `She wants water. He needs bread.`
+- `How many eggs are there? There are four eggs. There is some milk.`
 - `How much is it? It is five dollars.`
-- `Coffee, please. Yes, thank you.`
+- `Can I have coffee, please? Do you want tea? No, thank you.`
+
+**2026-09-26 rebuild (engine briefs, user direction: rebuild Units 5-7 through the engine, new photos approved).** Unit 5 was re-authored through the content engine from the briefs in `docs/product/content-briefs/unit-5/`. Every lesson had 34-36 cards, the old 5.2 taught ten items (food and drinks together), `food`, `drinks` and `café` were met once, `fruit`, `banana` and `egg` never came back, 5.3 taught only `some`, and 37 Learn cards re-taught known frames (`I like apples.`, `It is one dollar.`). Every teaching lesson now has 42 cards and its Learn cards hold only its new vocabulary. Drinks split into a new **5.3 Drinks** (`lesson-5-drinks`), with coffee and tea moved from Meals and `drink` practised in `I drink ...` and `Do you drink ...?`. 5.4 adds `How many ...?` to `some` and counts the 5.1 and 5.2 photos (`There are five drinks.`). 5.5 adds `Me too`, the 2026-09-23 tune-up basic, on the Unit 4 café table where Ana says `I like coffee.` and Luis answers `Me too.` A new **5.10 Can I Have...?** (`lesson-5-can-i-have`) adds the other tune-up basic: Ana asks at the counter, answers a server's `Do you want tea?`, and a customer asks for a banana, an orange or a pear at a fruit stall. Practice reuses what learners know: the Unit 1 family eats and drinks (the baby, the children, the grandparents, the father and the mother), the Unit 4 routine (`every day`, `in the morning`, `Do you ...?`) and times (`at one o'clock`), and the Unit 2 numbers and colors. Wrong options change one thing at a time (the food, the drink, the meal or the number), and counting photos stay out of four-picture cards. `So do I` was left out: `Me too` is the simpler agreement for adult beginners. Unit 5 now has 12 lessons (review 5.11, mission 5.12). The review (54 cards) adds `How many eggs are there?`, `Me too`, `Can I have bread, please?`, `an egg`, `a banana` and `Here you are.` on fresh photos or audio; the mission re-cues four lines (`How many pears are there?`, `He wants some water.`, `Can I have water, please?` and the closing `Hello. Can I have coffee, please?`). Lesson IDs are unchanged, so learner progress survives.
+
+Before that rebuild, 5.2 Food and Drinks taught ten items, 5.3 Food Quantities only `some`, 5.6 Meals `coffee` and `tea`, and 5.8 Ordering Politely `café`, `please`, `Here you are.`, `Thank you.`, `Yes, please.` and `No, thank you.`; the review was 5.9 and the mission 5.10.
 
 ### Unit 6: Around Town
 

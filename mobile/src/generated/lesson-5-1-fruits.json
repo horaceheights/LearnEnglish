@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-5",
   "unit_title": "Unit 5: Food, Drinks, and Shopping",
-  "unit_outcome": "Express simple food preferences and needs and complete a supported purchase or caf\u00e9 order.",
+  "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a caf\u00e9.",
   "lesson_id": "lesson-5",
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
   "sub_lesson_id": "5.1",
   "sub_lesson_title": "Fruits",
-  "goal": "Recognize and name six common fruits and connect them to familiar colors and numbers.",
+  "goal": "Recognize and name six fruits and fruit itself, and describe them with known colors, numbers and family members.",
   "vocabulary": [
     "fruit",
     "apple",
@@ -17,30 +17,60 @@
     "orange",
     "grapes",
     "strawberry",
-    "pear",
-    "an"
+    "pear"
   ],
   "review_vocabulary": [
+    "a",
+    "an",
+    "it",
+    "is",
+    "they",
+    "are",
+    "the",
+    "on",
+    "table",
     "red",
     "yellow",
     "green",
-    "one",
     "two",
     "three",
-    "there are",
-    "it is"
+    "four",
+    "five",
+    "woman",
+    "baby",
+    "children",
+    "eating"
   ],
-  "grammar_function": "Use a/an with one fruit and familiar number + plural noun chunks.",
-  "prerequisite": "2.6 Numbers 1-10, 2.7 Basic Colors, 2.8 Count and Describe; singular/plural be from Unit 1.",
-  "speaking_outcome": "Say the six fruit names or noun phrases clearly enough to be understood.",
+  "grammar_function": "a/an + fruit; It is a pear. They are grapes. The apple is green. Three oranges. The baby is eating a banana.",
+  "prerequisite": "1.2-1.4 eating, baby, children; 2.6-2.8 numbers and colors; 4.3 on.",
+  "speaking_outcome": "Name the fruit in a picture and say what a family member is eating.",
   "purposeful_review_slides": [
-    "Learn:L8",
-    "Recognize:R7",
-    "Recognize:R8",
-    "Listen:A5",
-    "Listen:A6",
-    "Use:U5",
-    "Use:U6"
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S6",
+    "S7",
+    "S8",
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7"
   ],
   "cards": [
     {
@@ -48,10 +78,10 @@
       "interaction_type": "teach",
       "prompt": "Fruit",
       "stage": "Learn",
-      "correct_option_id": "fruit-1",
+      "correct_option_id": "fruit-learn",
       "options": [
         {
-          "id": "fruit-1",
+          "id": "fruit-learn",
           "image_url": "/lesson-assets/a1_photo_u5_fruit_v1.webp",
           "label": "Fruit"
         }
@@ -60,7 +90,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Fruta",
-      "pedagogy_note": "New category anchor; do not test individual items yet.",
+      "pedagogy_note": "Story beat 01: Fruit",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -97,10 +127,10 @@
       "interaction_type": "teach",
       "prompt": "An apple",
       "stage": "Learn",
-      "correct_option_id": "an-apple-1",
+      "correct_option_id": "an-apple-learn",
       "options": [
         {
-          "id": "an-apple-1",
+          "id": "an-apple-learn",
           "image_url": "/lesson-assets/a1_apple.webp",
           "label": "An apple"
         }
@@ -109,33 +139,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una manzana",
-      "pedagogy_note": "New; whole fruit, not sliced.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: An apple",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c002-prompt-5002a52e857a36d927fd",
+          "id": "lesson-5-1-fruits-c002-prompt-916a366f22634ab4879c",
           "purpose": "prompt",
           "text": "An apple",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_apple.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c002-answer-06cde7f3a942c8a87aed",
+          "id": "lesson-5-1-fruits-c002-answer-0b523ba9a94bacbbb822",
           "purpose": "answer",
           "text": "An apple",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_apple.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -146,10 +176,10 @@
       "interaction_type": "teach",
       "prompt": "A banana",
       "stage": "Learn",
-      "correct_option_id": "a-banana-1",
+      "correct_option_id": "a-banana-learn",
       "options": [
         {
-          "id": "a-banana-1",
+          "id": "a-banana-learn",
           "image_url": "/lesson-assets/a1_banana.webp",
           "label": "A banana"
         }
@@ -158,7 +188,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un pl\u00e1tano",
-      "pedagogy_note": "New; one banana only.",
+      "pedagogy_note": "Story beat 03: A banana",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -195,10 +225,10 @@
       "interaction_type": "teach",
       "prompt": "An orange",
       "stage": "Learn",
-      "correct_option_id": "an-orange-1",
+      "correct_option_id": "an-orange-learn",
       "options": [
         {
-          "id": "an-orange-1",
+          "id": "an-orange-learn",
           "image_url": "/lesson-assets/a1_orange.webp",
           "label": "An orange"
         }
@@ -207,33 +237,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una naranja",
-      "pedagogy_note": "New; establishes an before a vowel sound.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: An orange",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c004-prompt-1a845805cc9452fb4b76",
+          "id": "lesson-5-1-fruits-c004-prompt-c45520b079048858f843",
           "purpose": "prompt",
           "text": "An orange",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c004-answer-9044d33150ba134fedf1",
+          "id": "lesson-5-1-fruits-c004-answer-a17e99b0569a59c2a2a3",
           "purpose": "answer",
           "text": "An orange",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -244,10 +274,10 @@
       "interaction_type": "teach",
       "prompt": "Grapes",
       "stage": "Learn",
-      "correct_option_id": "grapes-1",
+      "correct_option_id": "grapes-learn",
       "options": [
         {
-          "id": "grapes-1",
+          "id": "grapes-learn",
           "image_url": "/lesson-assets/a1_grapes.webp",
           "label": "Grapes"
         }
@@ -256,7 +286,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Uvas",
-      "pedagogy_note": "New plural lexical form.",
+      "pedagogy_note": "Story beat 05: Grapes",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -293,10 +323,10 @@
       "interaction_type": "teach",
       "prompt": "A strawberry",
       "stage": "Learn",
-      "correct_option_id": "a-strawberry-1",
+      "correct_option_id": "a-strawberry-learn",
       "options": [
         {
-          "id": "a-strawberry-1",
+          "id": "a-strawberry-learn",
           "image_url": "/lesson-assets/a1_strawberry.webp",
           "label": "A strawberry"
         }
@@ -305,33 +335,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una fresa",
-      "pedagogy_note": "New.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 06: A strawberry",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c006-prompt-7d15e5fc2f3917492714",
+          "id": "lesson-5-1-fruits-c006-prompt-2bf24ffc1b7a62f3d871",
           "purpose": "prompt",
           "text": "A strawberry",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_strawberry.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c006-answer-5750fc7454826cef6f2c",
+          "id": "lesson-5-1-fruits-c006-answer-f0652fd56a61fbe8f473",
           "purpose": "answer",
           "text": "A strawberry",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_strawberry.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -342,10 +372,10 @@
       "interaction_type": "teach",
       "prompt": "A pear",
       "stage": "Learn",
-      "correct_option_id": "a-pear-1",
+      "correct_option_id": "a-pear-learn",
       "options": [
         {
-          "id": "a-pear-1",
+          "id": "a-pear-learn",
           "image_url": "/lesson-assets/a1_pear.webp",
           "label": "A pear"
         }
@@ -354,7 +384,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una pera",
-      "pedagogy_note": "New.",
+      "pedagogy_note": "Story beat 07: A pear",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -387,103 +417,54 @@
       ]
     },
     {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "Two apples",
-      "stage": "Learn",
-      "correct_option_id": "two-apples-1",
-      "options": [
-        {
-          "id": "two-apples-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
-          "label": "Two apples"
-        }
-      ],
-      "audio_text": "Two apples",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dos manzanas",
-      "pedagogy_note": "Review number two; introduces plural apples after singular apple.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-1-fruits-c008-prompt-50fe8e367215681796d0",
-          "purpose": "prompt",
-          "text": "Two apples",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c008-answer-d21f5117c04e911288c1",
-          "purpose": "answer",
-          "text": "Two apples",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
-      "prompt": "An apple",
+      "interaction_type": "t2i2",
+      "prompt": "An orange",
       "stage": "Recognize",
-      "correct_option_id": "apple-1",
+      "correct_option_id": "an-orange-r1",
       "options": [
         {
-          "id": "apple-1",
-          "image_url": "/lesson-assets/a1_apple.webp",
-          "label": null
-        },
-        {
-          "id": "banana-2",
+          "id": "a-banana-r1",
           "image_url": "/lesson-assets/a1_banana.webp",
           "label": null
+        },
+        {
+          "id": "an-orange-r1",
+          "image_url": "/lesson-assets/a1_orange.webp",
+          "label": null
         }
       ],
-      "audio_text": "An apple",
+      "audio_text": "An orange",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una manzana",
-      "pedagogy_note": "First two-choice contrast.",
-      "audio_speaker": null,
+      "spanish_translation": "Una naranja",
+      "pedagogy_note": "Story beat 01: An orange",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c009-prompt-1697a5ac6ca7f8854d56",
+          "id": "lesson-5-1-fruits-c008-prompt-d920addd28de99f83c4c",
           "purpose": "prompt",
-          "text": "An apple",
+          "text": "An orange",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c009-answer-67c58406a5bb00ac7316",
+          "id": "lesson-5-1-fruits-c008-answer-d2bd855a2cc6a2d23124",
           "purpose": "answer",
-          "text": "An apple",
+          "text": "An orange",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -491,51 +472,39 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "A banana",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "banana-2",
+      "correct_option_id": "the-fruit-is-on-the-table-r2",
       "options": [
         {
-          "id": "orange-1",
-          "image_url": "/lesson-assets/a1_orange.webp",
-          "label": null
+          "id": "the-fruit-is-under-the-table-r2",
+          "image_url": "",
+          "label": "The fruit is under the table."
         },
         {
-          "id": "banana-2",
-          "image_url": "/lesson-assets/a1_banana.webp",
-          "label": null
+          "id": "the-fruit-is-on-the-table-r2",
+          "image_url": "",
+          "label": "The fruit is on the table."
         }
       ],
-      "audio_text": "A banana",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un pl\u00e1tano",
-      "pedagogy_note": "Fruit shapes and colors both differ.",
+      "audio_text": "",
+      "answer_audio_text": "The fruit is on the table.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: The fruit is on the table.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c010-prompt-4595738ca531dad6ff62",
-          "purpose": "prompt",
-          "text": "A banana",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_banana.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c010-answer-690b161eedb3a0316243",
+          "id": "lesson-5-1-fruits-c009-answer-2ba3b67d37c6d776c418",
           "purpose": "answer",
-          "text": "A banana",
+          "text": "The fruit is on the table.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_banana.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -545,53 +514,53 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "An orange",
+      "interaction_type": "t2i2",
+      "prompt": "It is a pear.",
       "stage": "Recognize",
-      "correct_option_id": "orange-2",
+      "correct_option_id": "it-is-a-pear-r3",
       "options": [
         {
-          "id": "pear-1",
+          "id": "it-is-a-pear-r3",
           "image_url": "/lesson-assets/a1_pear.webp",
           "label": null
         },
         {
-          "id": "orange-2",
-          "image_url": "/lesson-assets/a1_orange.webp",
+          "id": "it-is-a-banana-r3",
+          "image_url": "/lesson-assets/a1_banana.webp",
           "label": null
         }
       ],
-      "audio_text": "An orange",
+      "audio_text": "It is a pear.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una naranja",
-      "pedagogy_note": "Do not use an orange-colored apple as distractor.",
-      "audio_speaker": null,
+      "spanish_translation": "Es una pera.",
+      "pedagogy_note": "Story beat 03: It is a pear.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c011-prompt-05f5049c874816f0a8c6",
+          "id": "lesson-5-1-fruits-c010-prompt-ed14c370fc5e54351edf",
           "purpose": "prompt",
-          "text": "An orange",
+          "text": "It is a pear.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_orange.webp",
+          "image_ref": "/lesson-assets/a1_pear.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c011-answer-6df31ceaf3c7531772f5",
+          "id": "lesson-5-1-fruits-c010-answer-10fa99cf9a29dede8100",
           "purpose": "answer",
-          "text": "An orange",
+          "text": "It is a pear.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_orange.webp",
+          "image_ref": "/lesson-assets/a1_pear.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -599,51 +568,39 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "Grapes",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "grapes-1",
+      "correct_option_id": "it-is-a-banana-r4",
       "options": [
         {
-          "id": "grapes-1",
-          "image_url": "/lesson-assets/a1_grapes.webp",
-          "label": null
+          "id": "it-is-a-pear-r4",
+          "image_url": "",
+          "label": "It is a pear."
         },
         {
-          "id": "strawberry-2",
-          "image_url": "/lesson-assets/a1_strawberry.webp",
-          "label": null
+          "id": "it-is-a-banana-r4",
+          "image_url": "",
+          "label": "It is a banana."
         }
       ],
-      "audio_text": "Grapes",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Uvas",
-      "pedagogy_note": "Clear bunch versus single berry.",
+      "audio_text": "",
+      "answer_audio_text": "It is a banana.",
+      "prompt_image_url": "/lesson-assets/a1_banana.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: It is a banana.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c012-prompt-69ed62cfba4bf457e4f1",
-          "purpose": "prompt",
-          "text": "Grapes",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_grapes.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c012-answer-84432de7ca6d0f44efca",
+          "id": "lesson-5-1-fruits-c011-answer-cf194ae1094d110f7b94",
           "purpose": "answer",
-          "text": "Grapes",
+          "text": "It is a banana.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_grapes.webp",
+          "image_ref": "/lesson-assets/a1_banana.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -653,41 +610,95 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "recognize-text",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "It is an orange.",
       "stage": "Recognize",
-      "correct_option_id": "a-strawberry-3",
+      "correct_option_id": "it-is-an-orange-r5",
       "options": [
         {
-          "id": "a-pear-1",
-          "image_url": "",
-          "label": "A pear"
+          "id": "it-is-a-banana-r5",
+          "image_url": "/lesson-assets/a1_banana.webp",
+          "label": null
         },
         {
-          "id": "grapes-2",
-          "image_url": "",
-          "label": "Grapes"
+          "id": "it-is-an-orange-r5",
+          "image_url": "/lesson-assets/a1_orange.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is an orange.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es una naranja.",
+      "pedagogy_note": "Story beat 05: It is an orange.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c012-prompt-17d43bb0d7c104755254",
+          "purpose": "prompt",
+          "text": "It is an orange.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_orange.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
         },
         {
-          "id": "a-strawberry-3",
+          "id": "lesson-5-1-fruits-c012-answer-f96472e243382abe5e8c",
+          "purpose": "answer",
+          "text": "It is an orange.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_orange.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-a-strawberry-r6",
+      "options": [
+        {
+          "id": "it-is-a-banana-r6",
           "image_url": "",
-          "label": "A strawberry"
+          "label": "It is a banana."
+        },
+        {
+          "id": "it-is-a-strawberry-r6",
+          "image_url": "",
+          "label": "It is a strawberry."
+        },
+        {
+          "id": "it-is-an-orange-r6",
+          "image_url": "",
+          "label": "It is an orange."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "A strawberry",
+      "answer_audio_text": "It is a strawberry.",
       "prompt_image_url": "/lesson-assets/a1_strawberry.webp",
-      "spanish_translation": "Elige la fruta.",
-      "pedagogy_note": "Four-choice image-to-text connection.",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: It is a strawberry.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c013-answer-f610fdfe225864fb00ae",
+          "id": "lesson-5-1-fruits-c013-answer-76f38e818ba367c30b65",
           "purpose": "answer",
-          "text": "A strawberry",
+          "text": "It is a strawberry.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_strawberry.webp",
@@ -699,62 +710,82 @@
       ]
     },
     {
-      "slide_id": "R6",
-      "interaction_type": "recognize-image",
-      "prompt": "A pear",
+      "slide_id": "R7",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "pear-1",
+      "correct_option_id": "they-are-grapes-r7",
       "options": [
         {
-          "id": "pear-1",
-          "image_url": "/lesson-assets/a1_pear.webp",
-          "label": null
+          "id": "they-are-grapes-r7",
+          "image_url": "",
+          "label": "They are grapes."
         },
         {
-          "id": "apple-2",
-          "image_url": "/lesson-assets/a1_apple.webp",
-          "label": null
-        },
-        {
-          "id": "banana-3",
-          "image_url": "/lesson-assets/a1_banana.webp",
-          "label": null
-        },
-        {
-          "id": "orange-4",
-          "image_url": "/lesson-assets/a1_orange.webp",
-          "label": null
+          "id": "they-are-strawberries-r7",
+          "image_url": "",
+          "label": "They are strawberries."
         }
       ],
-      "audio_text": "A pear",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una pera",
-      "pedagogy_note": "Four-choice only after each item was taught.",
+      "audio_text": "",
+      "answer_audio_text": "They are grapes.",
+      "prompt_image_url": "/lesson-assets/a1_grapes.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 07: They are grapes.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c014-answer-73d0197b5775e45a6d39",
+          "purpose": "answer",
+          "text": "They are grapes.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_grapes.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-apple-is-green-r8",
+      "options": [
+        {
+          "id": "the-apple-is-green-r8",
+          "image_url": "",
+          "label": "The apple is green."
+        },
+        {
+          "id": "the-apple-is-red-r8",
+          "image_url": "",
+          "label": "The apple is red."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The apple is green.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_green_apple_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: The apple is green.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c014-prompt-c320254e9107f8439b58",
-          "purpose": "prompt",
-          "text": "A pear",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_pear.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c014-answer-70ddeb8e863cc1a82332",
+          "id": "lesson-5-1-fruits-c015-answer-1c3f5af8aac2c8f3765a",
           "purpose": "answer",
-          "text": "A pear",
+          "text": "The apple is green.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pear.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_green_apple_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -763,19 +794,19 @@
       ]
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "recognize-image",
+      "slide_id": "R9",
+      "interaction_type": "t2i2",
       "prompt": "The apple is red.",
       "stage": "Recognize",
-      "correct_option_id": "red-apple-1",
+      "correct_option_id": "the-apple-is-red-r9",
       "options": [
         {
-          "id": "red-apple-1",
+          "id": "the-apple-is-red-r9",
           "image_url": "/lesson-assets/a1_apple.webp",
           "label": null
         },
         {
-          "id": "green-apple-2",
+          "id": "the-apple-is-green-r9",
           "image_url": "/lesson-assets/a1_photo_u5_green_apple_v1.webp",
           "label": null
         }
@@ -784,31 +815,78 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "La manzana es roja.",
-      "pedagogy_note": "Review color description; exact same object isolates color.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 09: The apple is red.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c015-prompt-1abacd3801de4fc1c09c",
+          "id": "lesson-5-1-fruits-c016-prompt-7b24de10b27e479fc077",
           "purpose": "prompt",
           "text": "The apple is red.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_apple.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c015-answer-773fd569b9ee46aada27",
+          "id": "lesson-5-1-fruits-c016-answer-fa7c5810c21eed4a55cc",
           "purpose": "answer",
           "text": "The apple is red.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_apple.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-banana-is-yellow-r10",
+      "options": [
+        {
+          "id": "the-banana-is-yellow-r10",
+          "image_url": "",
+          "label": "The banana is yellow."
+        },
+        {
+          "id": "the-banana-is-red-r10",
+          "image_url": "",
+          "label": "The banana is red."
+        },
+        {
+          "id": "the-banana-is-blue-r10",
+          "image_url": "",
+          "label": "The banana is blue."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The banana is yellow.",
+      "prompt_image_url": "/lesson-assets/a1_banana.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: The banana is yellow.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c017-answer-7cbc28d5ade86804f197",
+          "purpose": "answer",
+          "text": "The banana is yellow.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_banana.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -817,64 +895,47 @@
       ]
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "recognize-image",
-      "prompt": "Three oranges",
+      "slide_id": "R11",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "three-oranges-2",
+      "correct_option_id": "the-children-are-eating-grapes-r11",
       "options": [
         {
-          "id": "two-oranges-1",
-          "image_url": "/lesson-assets/a1_photo_u5_two_oranges_v1.webp",
-          "label": null
+          "id": "the-children-are-eating-strawberries-r11",
+          "image_url": "",
+          "label": "The children are eating strawberries."
         },
         {
-          "id": "three-oranges-2",
-          "image_url": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
-          "label": null
+          "id": "the-children-are-eating-bananas-r11",
+          "image_url": "",
+          "label": "The children are eating bananas."
         },
         {
-          "id": "four-oranges-3",
-          "image_url": "/lesson-assets/a1_photo_u5_four_oranges_v1.webp",
-          "label": null
-        },
-        {
-          "id": "five-oranges-4",
-          "image_url": "/lesson-assets/a1_photo_u5_five_oranges_v2.webp",
-          "label": null
+          "id": "the-children-are-eating-grapes-r11",
+          "image_url": "",
+          "label": "The children are eating grapes."
         }
       ],
-      "audio_text": "Three oranges",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tres naranjas",
-      "pedagogy_note": "Review count; no overlapping or partly hidden fruit.",
+      "audio_text": "",
+      "answer_audio_text": "The children are eating grapes.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 11: The children are eating grapes.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c016-prompt-45176cb46149d3b42e8d",
-          "purpose": "prompt",
-          "text": "Three oranges",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c016-answer-91a0f232ebc14c3f463f",
+          "id": "lesson-5-1-fruits-c018-answer-f9c982b907d40fe427bc",
           "purpose": "answer",
-          "text": "Three oranges",
+          "text": "The children are eating grapes.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -882,127 +943,19 @@
     },
     {
       "slide_id": "A1",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "apple-1",
+      "correct_option_id": "grapes-a1",
       "options": [
         {
-          "id": "apple-1",
-          "image_url": "/lesson-assets/a1_apple.webp",
-          "label": null
-        },
-        {
-          "id": "banana-2",
-          "image_url": "/lesson-assets/a1_banana.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "An apple",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only noun discrimination.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-1-fruits-c017-prompt-6ec02466e5e3e330c514",
-          "purpose": "prompt",
-          "text": "An apple",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c017-answer-cbb4e74d7d7c7065d24d",
-          "purpose": "answer",
-          "text": "An apple",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "orange-2",
-      "options": [
-        {
-          "id": "pear-1",
-          "image_url": "/lesson-assets/a1_pear.webp",
-          "label": null
-        },
-        {
-          "id": "orange-2",
-          "image_url": "/lesson-assets/a1_orange.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "An orange",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-1-fruits-c018-prompt-c2c406c86d7df85a316b",
-          "purpose": "prompt",
-          "text": "An orange",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_orange.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c018-answer-26c13299f023aa9e60ac",
-          "purpose": "answer",
-          "text": "An orange",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_orange.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "grapes-1",
-      "options": [
-        {
-          "id": "grapes-1",
+          "id": "grapes-a1",
           "image_url": "/lesson-assets/a1_grapes.webp",
           "label": null
         },
         {
-          "id": "strawberry-2",
-          "image_url": "/lesson-assets/a1_strawberry.webp",
+          "id": "an-orange-a1",
+          "image_url": "/lesson-assets/a1_orange.webp",
           "label": null
         }
       ],
@@ -1010,7 +963,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
+      "pedagogy_note": "Story beat 01: Grapes",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -1043,62 +996,106 @@
       ]
     },
     {
-      "slide_id": "A4",
-      "interaction_type": "listen-image",
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "pear-2",
+      "correct_option_id": "a-strawberry-a2",
       "options": [
         {
-          "id": "strawberry-1",
+          "id": "a-strawberry-a2",
           "image_url": "/lesson-assets/a1_strawberry.webp",
           "label": null
         },
         {
-          "id": "pear-2",
-          "image_url": "/lesson-assets/a1_pear.webp",
+          "id": "grapes-a2",
+          "image_url": "/lesson-assets/a1_grapes.webp",
           "label": null
+        }
+      ],
+      "audio_text": "A strawberry",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: A strawberry",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c020-prompt-4cc485814bd82dc8acfb",
+          "purpose": "prompt",
+          "text": "A strawberry",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
         },
         {
-          "id": "apple-3",
-          "image_url": "/lesson-assets/a1_apple.webp",
-          "label": null
+          "id": "lesson-5-1-fruits-c020-answer-2718095d5d89a8e93890",
+          "purpose": "answer",
+          "text": "A strawberry",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-pear-a3",
+      "options": [
+        {
+          "id": "a-pear-a3",
+          "image_url": "",
+          "label": "A pear"
         },
         {
-          "id": "banana-4",
-          "image_url": "/lesson-assets/a1_banana.webp",
-          "label": null
+          "id": "a-strawberry-a3",
+          "image_url": "",
+          "label": "A strawberry"
         }
       ],
       "audio_text": "A pear",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Four-choice listening after two-choice practice.",
+      "pedagogy_note": "Story beat 03: A pear",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c020-prompt-ad04d2e4088b33b0eb63",
+          "id": "lesson-5-1-fruits-c021-prompt-1ade3b313db89a8f0db0",
           "purpose": "prompt",
           "text": "A pear",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_pear.webp",
+          "image_ref": "text-only:11163c9e53b085d1ef3c",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c020-answer-6dedad22554c4e373239",
+          "id": "lesson-5-1-fruits-c021-answer-3354a3a277c482b8844c",
           "purpose": "answer",
           "text": "A pear",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pear.webp",
+          "image_ref": "text-only:11163c9e53b085d1ef3c",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1107,52 +1104,116 @@
       ]
     },
     {
-      "slide_id": "A5",
-      "interaction_type": "listen-image",
+      "slide_id": "A4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "two-apples-2",
+      "correct_option_id": "the-fruit-is-on-the-table-a4",
       "options": [
         {
-          "id": "one-apple-1",
-          "image_url": "/lesson-assets/a1_apple.webp",
-          "label": null
+          "id": "the-fruit-is-under-the-table-a4",
+          "image_url": "",
+          "label": "The fruit is under the table."
         },
         {
-          "id": "two-apples-2",
-          "image_url": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
-          "label": null
+          "id": "the-fruit-is-on-the-table-a4",
+          "image_url": "",
+          "label": "The fruit is on the table."
         }
       ],
-      "audio_text": "Two apples",
+      "audio_text": "The fruit is on the table.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review number and plural; every apple fully visible.",
+      "pedagogy_note": "Story beat 04: The fruit is on the table.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c022-prompt-4ebbfd9d4d14f5459b2f",
+          "purpose": "prompt",
+          "text": "The fruit is on the table.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:6576117e45f0f9339e36",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c022-answer-0fa66ff379390c707bb1",
+          "purpose": "answer",
+          "text": "The fruit is on the table.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:6576117e45f0f9339e36",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-a-pear-a5",
+      "options": [
+        {
+          "id": "it-is-an-orange-a5",
+          "image_url": "/lesson-assets/a1_orange.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-strawberry-a5",
+          "image_url": "/lesson-assets/a1_strawberry.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-pear-a5",
+          "image_url": "/lesson-assets/a1_pear.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-banana-a5",
+          "image_url": "/lesson-assets/a1_banana.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is a pear.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: It is a pear.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c021-prompt-4e4f90b637eb225260b7",
+          "id": "lesson-5-1-fruits-c023-prompt-e0cc7d5ac4d6a09b8cf7",
           "purpose": "prompt",
-          "text": "Two apples",
+          "text": "It is a pear.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_pear.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c021-answer-35d9ce9cb122028949d8",
+          "id": "lesson-5-1-fruits-c023-answer-060486482f285ae7c712",
           "purpose": "answer",
-          "text": "Two apples",
+          "text": "It is a pear.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_two_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_pear.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1162,61 +1223,238 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "yellow-banana-1",
+      "correct_option_id": "it-is-an-orange-a6",
       "options": [
         {
-          "id": "yellow-banana-1",
-          "image_url": "/lesson-assets/a1_banana.webp",
-          "label": null
+          "id": "it-is-an-orange-a6",
+          "image_url": "",
+          "label": "It is an orange."
         },
         {
-          "id": "green-pear-2",
+          "id": "it-is-a-banana-a6",
+          "image_url": "",
+          "label": "It is a banana."
+        },
+        {
+          "id": "it-is-a-strawberry-a6",
+          "image_url": "",
+          "label": "It is a strawberry."
+        }
+      ],
+      "audio_text": "It is an orange.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: It is an orange.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c024-prompt-00bb5bedff9b11080587",
+          "purpose": "prompt",
+          "text": "It is an orange.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:28be5560acf5f1cc02a9",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c024-answer-403d500a9d2d3ff9ed86",
+          "purpose": "answer",
+          "text": "It is an orange.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:28be5560acf5f1cc02a9",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-a-strawberry-a7",
+      "options": [
+        {
+          "id": "it-is-a-pear-a7",
           "image_url": "/lesson-assets/a1_pear.webp",
           "label": null
         },
         {
-          "id": "red-apple-3",
-          "image_url": "/lesson-assets/a1_apple.webp",
+          "id": "it-is-a-strawberry-a7",
+          "image_url": "/lesson-assets/a1_strawberry.webp",
           "label": null
         },
         {
-          "id": "orange-fruit-4",
+          "id": "it-is-an-orange-a7",
           "image_url": "/lesson-assets/a1_orange.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-banana-a7",
+          "image_url": "/lesson-assets/a1_banana.webp",
           "label": null
         }
       ],
-      "audio_text": "The banana is yellow.",
+      "audio_text": "It is a strawberry.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review full color+noun phrase; every distractor fails at least one word.",
+      "pedagogy_note": "Story beat 07: It is a strawberry.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c022-prompt-ddc23c8c1dadc463db4e",
+          "id": "lesson-5-1-fruits-c025-prompt-46de5a90eafdbf77069d",
           "purpose": "prompt",
-          "text": "The banana is yellow.",
+          "text": "It is a strawberry.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_banana.webp",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c022-answer-0f22cffe84f964b8d277",
+          "id": "lesson-5-1-fruits-c025-answer-ff71642da2ca078beb69",
           "purpose": "answer",
-          "text": "The banana is yellow.",
+          "text": "It is a strawberry.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_banana.webp",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-woman-is-eating-an-apple-a8",
+      "options": [
+        {
+          "id": "the-woman-is-eating-an-apple-a8",
+          "image_url": "",
+          "label": "The woman is eating an apple."
+        },
+        {
+          "id": "the-woman-is-eating-an-orange-a8",
+          "image_url": "",
+          "label": "The woman is eating an orange."
+        },
+        {
+          "id": "the-woman-is-eating-a-pear-a8",
+          "image_url": "",
+          "label": "The woman is eating a pear."
+        }
+      ],
+      "audio_text": "The woman is eating an apple.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: The woman is eating an apple.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c026-prompt-6229981e8218559bba02",
+          "purpose": "prompt",
+          "text": "The woman is eating an apple.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:a785185f5f8ec23587b5",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c026-answer-b68961cbe54f8ba5b4ae",
+          "purpose": "answer",
+          "text": "The woman is eating an apple.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:a785185f5f8ec23587b5",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-baby-is-eating-a-banana-a9",
+      "options": [
+        {
+          "id": "the-baby-is-eating-an-apple-a9",
+          "image_url": "",
+          "label": "The baby is eating an apple."
+        },
+        {
+          "id": "the-baby-is-eating-a-strawberry-a9",
+          "image_url": "",
+          "label": "The baby is eating a strawberry."
+        },
+        {
+          "id": "the-baby-is-eating-a-banana-a9",
+          "image_url": "",
+          "label": "The baby is eating a banana."
+        }
+      ],
+      "audio_text": "The baby is eating a banana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: The baby is eating a banana.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c027-prompt-464d6ac45691a1a82abe",
+          "purpose": "prompt",
+          "text": "The baby is eating a banana.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:b84b3ab8201740ec0cf5",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c027-answer-afa619e0e5e411de5cfe",
+          "purpose": "answer",
+          "text": "The baby is eating a banana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:b84b3ab8201740ec0cf5",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1229,10 +1467,10 @@
       "interaction_type": "speak",
       "prompt": "An apple",
       "stage": "Speak",
-      "correct_option_id": "an-apple-1",
+      "correct_option_id": "an-apple-speak",
       "options": [
         {
-          "id": "an-apple-1",
+          "id": "an-apple-speak",
           "image_url": "/lesson-assets/a1_apple.webp",
           "label": "An apple"
         }
@@ -1241,33 +1479,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una manzana",
-      "pedagogy_note": "Assess complete article+noun chunk.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 01: An apple",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c023-prompt-e17d30d9b3d0df4f4430",
+          "id": "lesson-5-1-fruits-c028-prompt-5d761ff533280e7688f3",
           "purpose": "prompt",
           "text": "An apple",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_apple.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c023-answer-539a1c3cd9ede949bbc7",
+          "id": "lesson-5-1-fruits-c028-answer-c25c1ccbd632019feeab",
           "purpose": "answer",
           "text": "An apple",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_apple.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1278,10 +1516,10 @@
       "interaction_type": "speak",
       "prompt": "A banana",
       "stage": "Speak",
-      "correct_option_id": "a-banana-1",
+      "correct_option_id": "a-banana-speak",
       "options": [
         {
-          "id": "a-banana-1",
+          "id": "a-banana-speak",
           "image_url": "/lesson-assets/a1_banana.webp",
           "label": "A banana"
         }
@@ -1290,14 +1528,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un pl\u00e1tano",
-      "pedagogy_note": "Assess complete chunk.",
+      "pedagogy_note": "Story beat 02: A banana",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c024-prompt-19a8f67c6e30498c4993",
+          "id": "lesson-5-1-fruits-c029-prompt-c1d14a5c6c0236abdd69",
           "purpose": "prompt",
           "text": "A banana",
           "mode": "pronunciation_slow",
@@ -1309,7 +1547,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c024-answer-7c2a1060b41a12ec0a1a",
+          "id": "lesson-5-1-fruits-c029-answer-6727ca0b050f69075d53",
           "purpose": "answer",
           "text": "A banana",
           "mode": "prompt",
@@ -1327,10 +1565,10 @@
       "interaction_type": "speak",
       "prompt": "An orange",
       "stage": "Speak",
-      "correct_option_id": "an-orange-1",
+      "correct_option_id": "an-orange-speak",
       "options": [
         {
-          "id": "an-orange-1",
+          "id": "an-orange-speak",
           "image_url": "/lesson-assets/a1_orange.webp",
           "label": "An orange"
         }
@@ -1339,33 +1577,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una naranja",
-      "pedagogy_note": "Assess complete chunk, not color meaning.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 03: An orange",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c025-prompt-5b7a904c6d7d9a0ba6eb",
+          "id": "lesson-5-1-fruits-c030-prompt-e128c16c2a07c6cd5140",
           "purpose": "prompt",
           "text": "An orange",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c025-answer-3f3a401e13bc4545e1e1",
+          "id": "lesson-5-1-fruits-c030-answer-244bea5a0218d54b8266",
           "purpose": "answer",
           "text": "An orange",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1374,45 +1612,45 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "Grapes",
+      "prompt": "A strawberry",
       "stage": "Speak",
-      "correct_option_id": "grapes-1",
+      "correct_option_id": "a-strawberry-speak",
       "options": [
         {
-          "id": "grapes-1",
-          "image_url": "/lesson-assets/a1_grapes.webp",
-          "label": "Grapes"
+          "id": "a-strawberry-speak",
+          "image_url": "/lesson-assets/a1_strawberry.webp",
+          "label": "A strawberry"
         }
       ],
-      "audio_text": "Grapes",
+      "audio_text": "A strawberry",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Uvas",
-      "pedagogy_note": "Plural ending is coached but beginner policy remains forgiving.",
+      "spanish_translation": "Una fresa",
+      "pedagogy_note": "Story beat 04: A strawberry",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c026-prompt-2b7057c30637e25ff725",
+          "id": "lesson-5-1-fruits-c031-prompt-6187e3b297c1156ea122",
           "purpose": "prompt",
-          "text": "Grapes",
+          "text": "A strawberry",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_grapes.webp",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c026-answer-4cb4bfcd2dd875090b9a",
+          "id": "lesson-5-1-fruits-c031-answer-9b93dd051918817e2aed",
           "purpose": "answer",
-          "text": "Grapes",
+          "text": "A strawberry",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_grapes.webp",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1423,61 +1661,12 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "A strawberry",
-      "stage": "Speak",
-      "correct_option_id": "a-strawberry-1",
-      "options": [
-        {
-          "id": "a-strawberry-1",
-          "image_url": "/lesson-assets/a1_strawberry.webp",
-          "label": "A strawberry"
-        }
-      ],
-      "audio_text": "A strawberry",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una fresa",
-      "pedagogy_note": "Full word required; retry guidance may syllabify.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-1-fruits-c027-prompt-98d224ccf8822ea7415b",
-          "purpose": "prompt",
-          "text": "A strawberry",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_strawberry.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-1-fruits-c027-answer-dc4111178d82851deff1",
-          "purpose": "answer",
-          "text": "A strawberry",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_strawberry.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
       "prompt": "A pear",
       "stage": "Speak",
-      "correct_option_id": "a-pear-1",
+      "correct_option_id": "a-pear-speak",
       "options": [
         {
-          "id": "a-pear-1",
+          "id": "a-pear-speak",
           "image_url": "/lesson-assets/a1_pear.webp",
           "label": "A pear"
         }
@@ -1486,31 +1675,178 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una pera",
-      "pedagogy_note": "No exact rhythm requirement.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 05: A pear",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c028-prompt-09b4f78f83f9b60eaded",
+          "id": "lesson-5-1-fruits-c032-prompt-5b3d593a6a4712c12d76",
           "purpose": "prompt",
           "text": "A pear",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_pear.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c028-answer-965ae0aa29bfa70bbd05",
+          "id": "lesson-5-1-fruits-c032-answer-676630a206ae159dc2f0",
           "purpose": "answer",
           "text": "A pear",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_pear.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "The fruit is on the table.",
+      "stage": "Speak",
+      "correct_option_id": "the-fruit-is-on-the-table-speak",
+      "options": [
+        {
+          "id": "the-fruit-is-on-the-table-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
+          "label": "The fruit is on the table."
+        }
+      ],
+      "audio_text": "The fruit is on the table.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La fruta est\u00e1 en la mesa.",
+      "pedagogy_note": "Story beat 06: The fruit is on the table.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c033-prompt-8d9eeb8e55f344af9e16",
+          "purpose": "prompt",
+          "text": "The fruit is on the table.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c033-answer-a28ac09142417e56c1dd",
+          "purpose": "answer",
+          "text": "The fruit is on the table.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "It is a banana.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-a-banana-speak",
+      "options": [
+        {
+          "id": "it-is-a-banana-speak",
+          "image_url": "/lesson-assets/a1_banana.webp",
+          "label": "It is a banana."
+        }
+      ],
+      "audio_text": "It is a banana.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un pl\u00e1tano.",
+      "pedagogy_note": "Story beat 07: It is a banana.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c034-prompt-6f5ae59386c94fc7005d",
+          "purpose": "prompt",
+          "text": "It is a banana.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_banana.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c034-answer-29a0b5b9d7966f7fe587",
+          "purpose": "answer",
+          "text": "It is a banana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_banana.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "They are grapes.",
+      "stage": "Speak",
+      "correct_option_id": "they-are-grapes-speak",
+      "options": [
+        {
+          "id": "they-are-grapes-speak",
+          "image_url": "/lesson-assets/a1_grapes.webp",
+          "label": "They are grapes."
+        }
+      ],
+      "audio_text": "They are grapes.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son uvas.",
+      "pedagogy_note": "Story beat 08: They are grapes.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c035-prompt-94fa76b602594d069bc6",
+          "purpose": "prompt",
+          "text": "They are grapes.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_grapes.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c035-answer-bebdf59bac6f70e7c8c4",
+          "purpose": "answer",
+          "text": "They are grapes.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_grapes.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1521,56 +1857,56 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
+      "prompt": "The fruit is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "an",
+      "correct_option_id": "the",
       "correct_option_ids": [
-        "an",
-        "apple"
+        "the",
+        "table"
       ],
       "options": [
         {
-          "id": "an",
+          "id": "the",
           "image_url": "",
-          "label": "an"
+          "label": "the"
         },
         {
-          "id": "apple",
+          "id": "table",
           "image_url": "",
-          "label": "apple"
+          "label": "table"
         }
       ],
-      "audio_text": "It is an apple.",
-      "answer_audio_text": "It is an apple.",
-      "prompt_image_url": "/lesson-assets/a1_apple.webp",
-      "spanish_translation": "Es una manzana.",
-      "pedagogy_note": "New noun plus review it is; completed audio: It is an apple.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "The fruit is on the table.",
+      "answer_audio_text": "The fruit is on the table.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
+      "spanish_translation": "La fruta est\u00e1 en la mesa.",
+      "pedagogy_note": "Story beat 01: The fruit is on the table.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c029-prompt-ba091b754415e48ea566",
+          "id": "lesson-5-1-fruits-c036-prompt-92a9575e6ca9b7d44343",
           "purpose": "prompt",
-          "text": "It is an apple.",
+          "text": "The fruit is on the table.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c029-answer-915578a39e8fc822b274",
+          "id": "lesson-5-1-fruits-c036-answer-2ca8369bc13335610cfa",
           "purpose": "answer",
-          "text": "It is an apple.",
+          "text": "The fruit is on the table.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_fruit_on_table_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1584,7 +1920,7 @@
       "correct_option_id": "a",
       "correct_option_ids": [
         "a",
-        "banana"
+        "pear"
       ],
       "options": [
         {
@@ -1593,40 +1929,40 @@
           "label": "a"
         },
         {
-          "id": "banana",
+          "id": "pear",
           "image_url": "",
-          "label": "banana"
+          "label": "pear"
         }
       ],
-      "audio_text": "It is a banana.",
-      "answer_audio_text": "It is a banana.",
-      "prompt_image_url": "/lesson-assets/a1_banana.webp",
-      "spanish_translation": "Es un pl\u00e1tano.",
-      "pedagogy_note": "Article form is fixed by prompt; completed audio: It is a banana.",
+      "audio_text": "It is a pear.",
+      "answer_audio_text": "It is a pear.",
+      "prompt_image_url": "/lesson-assets/a1_pear.webp",
+      "spanish_translation": "Es una pera.",
+      "pedagogy_note": "Story beat 02: It is a pear.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c030-prompt-57be6b6dadc6e2893706",
+          "id": "lesson-5-1-fruits-c037-prompt-5f46c95d30388ea2b894",
           "purpose": "prompt",
-          "text": "It is a banana.",
+          "text": "It is a pear.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_banana.webp",
+          "image_ref": "/lesson-assets/a1_pear.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c030-answer-33775db550f2759a159f",
+          "id": "lesson-5-1-fruits-c037-answer-71c19aea989e6b56898b",
           "purpose": "answer",
-          "text": "It is a banana.",
+          "text": "It is a pear.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_banana.webp",
+          "image_ref": "/lesson-assets/a1_pear.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1637,56 +1973,56 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "The apple ___ ___.",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is",
+      "correct_option_id": "an",
       "correct_option_ids": [
-        "is",
-        "red"
+        "an",
+        "orange"
       ],
       "options": [
         {
-          "id": "is",
+          "id": "an",
           "image_url": "",
-          "label": "is"
+          "label": "an"
         },
         {
-          "id": "red",
+          "id": "orange",
           "image_url": "",
-          "label": "red"
+          "label": "orange"
         }
       ],
-      "audio_text": "The apple is red.",
-      "answer_audio_text": "The apple is red.",
-      "prompt_image_url": "/lesson-assets/a1_apple.webp",
-      "spanish_translation": "La manzana es roja.",
-      "pedagogy_note": "Review they are; picture denotes multiple grapes.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "It is an orange.",
+      "answer_audio_text": "It is an orange.",
+      "prompt_image_url": "/lesson-assets/a1_orange.webp",
+      "spanish_translation": "Es una naranja.",
+      "pedagogy_note": "Story beat 03: It is an orange.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c031-prompt-cf23e94eab8ad7d7627b",
+          "id": "lesson-5-1-fruits-c038-prompt-653508188aa1fb51132f",
           "purpose": "prompt",
-          "text": "The apple is red.",
+          "text": "It is an orange.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c031-answer-cd7b948d33daa9e4ea33",
+          "id": "lesson-5-1-fruits-c038-answer-07fafceaeafb5af824a8",
           "purpose": "answer",
-          "text": "The apple is red.",
+          "text": "It is an orange.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_apple.webp",
+          "image_ref": "/lesson-assets/a1_orange.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1695,60 +2031,66 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
+        "word-3",
+        "word-4"
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "They"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "are"
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "strawberry"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "grapes"
+          "label": "a"
         }
       ],
-      "audio_text": "They are grapes.",
-      "answer_audio_text": "They are grapes.",
-      "prompt_image_url": "/lesson-assets/a1_grapes.webp",
-      "spanish_translation": "Son uvas.",
-      "pedagogy_note": "Completed audio only after answer.",
+      "audio_text": "It is a strawberry.",
+      "answer_audio_text": "It is a strawberry.",
+      "prompt_image_url": "/lesson-assets/a1_strawberry.webp",
+      "spanish_translation": "Es una fresa.",
+      "pedagogy_note": "Story beat 04: It is a strawberry.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c032-prompt-a8c5b7be79ba1531779c",
+          "id": "lesson-5-1-fruits-c039-prompt-2537bccee1d25b2dec2d",
           "purpose": "prompt",
-          "text": "They are grapes.",
+          "text": "It is a strawberry.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_grapes.webp",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c032-answer-6f3c1ce3a7ad43adc4ac",
+          "id": "lesson-5-1-fruits-c039-answer-a8c8c1bef94d4d722fb5",
           "purpose": "answer",
-          "text": "They are grapes.",
+          "text": "It is a strawberry.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_grapes.webp",
+          "image_ref": "/lesson-assets/a1_strawberry.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1770,57 +2112,57 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "a"
+          "label": "apple"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "strawberry"
+          "label": "green"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
         }
       ],
-      "audio_text": "It is a strawberry.",
-      "answer_audio_text": "It is a strawberry.",
-      "prompt_image_url": "/lesson-assets/a1_strawberry.webp",
-      "spanish_translation": "Es una fresa.",
-      "pedagogy_note": "Review color grammar.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "The apple is green.",
+      "answer_audio_text": "The apple is green.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_green_apple_v1.webp",
+      "spanish_translation": "La manzana es verde.",
+      "pedagogy_note": "Story beat 05: The apple is green.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c033-prompt-949407d019b41c8beafb",
+          "id": "lesson-5-1-fruits-c040-prompt-dd23c7ad8298771f3c22",
           "purpose": "prompt",
-          "text": "It is a strawberry.",
+          "text": "The apple is green.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_strawberry.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_green_apple_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c033-answer-6211d0cbd57c7c161006",
+          "id": "lesson-5-1-fruits-c040-answer-303e96450c5ab7f4ec3b",
           "purpose": "answer",
-          "text": "It is a strawberry.",
+          "text": "The apple is green.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_strawberry.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_green_apple_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1840,57 +2182,133 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "There"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "are"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "three"
+          "label": "apple"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "oranges"
+          "label": "red"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
         }
       ],
-      "audio_text": "There are three oranges.",
-      "answer_audio_text": "There are three oranges.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
-      "spanish_translation": "Hay tres naranjas.",
-      "pedagogy_note": "Review quantity; exact count visible.",
+      "audio_text": "The apple is red.",
+      "answer_audio_text": "The apple is red.",
+      "prompt_image_url": "/lesson-assets/a1_apple.webp",
+      "spanish_translation": "La manzana es roja.",
+      "pedagogy_note": "Story beat 06: The apple is red.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-1-fruits-c034-prompt-44ca984a88d9bac6909d",
+          "id": "lesson-5-1-fruits-c041-prompt-41f063ffafe15e538822",
           "purpose": "prompt",
-          "text": "There are three oranges.",
+          "text": "The apple is red.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
+          "image_ref": "/lesson-assets/a1_apple.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-1-fruits-c034-answer-718b743377c498e9a511",
+          "id": "lesson-5-1-fruits-c041-answer-b8162b76a7fc3e47ece2",
           "purpose": "answer",
-          "text": "There are three oranges.",
+          "text": "The apple is red.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_three_oranges_v1.webp",
+          "image_ref": "/lesson-assets/a1_apple.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "children"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "eating"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "grapes"
+        }
+      ],
+      "audio_text": "The children are eating grapes.",
+      "answer_audio_text": "The children are eating grapes.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n comiendo uvas.",
+      "pedagogy_note": "Story beat 07: The children are eating grapes.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-1-fruits-c042-prompt-df044873544e88d217ba",
+          "purpose": "prompt",
+          "text": "The children are eating grapes.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-1-fruits-c042-answer-2fa603e8b20e91cccf58",
+          "purpose": "answer",
+          "text": "The children are eating grapes.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
