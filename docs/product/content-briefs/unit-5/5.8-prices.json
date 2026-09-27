@@ -1,0 +1,208 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds How much is it?, a dollar and dollars; every price answer is practice whose wrong options change only the number.",
+  "target": "backend/lessons/unit_5/lesson-5-7-prices.yaml",
+  "lesson": {
+    "id": "lesson-5-7-prices",
+    "title": "5.8 Prices",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.8",
+    "sub_lesson_title": "Prices",
+    "goal": "Ask How much is it? and understand prices from one to ten dollars on known food, drinks and a bag.",
+    "vocabulary": [
+      "How much is it?",
+      "dollar",
+      "dollars"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "the",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "ten",
+      "apple",
+      "bread",
+      "juice",
+      "milk",
+      "coffee",
+      "bag"
+    ],
+    "grammar_function": "How much is it? It is one dollar. The juice is four dollars.",
+    "prerequisite": "2.6-2.7 numbers; 2.3 bag; 5.1-5.3 fruit, food and drinks.",
+    "speaking_outcome": "Ask How much is it? and say a price.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "How much is it?",
+      "es": "¿Cuánto cuesta?",
+      "image": "a1_scene_how-much-is-it_6073d26.webp",
+      "kind": "price-question",
+      "speaker": "female-character",
+      "choices": false
+    },
+    {
+      "text": "A dollar",
+      "es": "Un dólar",
+      "image": "a1_scene_apple-1_ac43e97.webp",
+      "kind": "dollar-word",
+      "choices": false
+    },
+    {
+      "text": "Dollars",
+      "es": "Dólares",
+      "image": "a1_scene_bread-5_703d54a.webp",
+      "kind": "dollar-word",
+      "choices": false
+    },
+    {
+      "text": "It is one dollar.",
+      "es": "Cuesta un dólar.",
+      "image": "a1_scene_apple-1_ac43e97.webp",
+      "kind": "apple-price",
+      "learn": false,
+      "prefer": [
+        "It is two dollars."
+      ],
+      "question": "How much is it?",
+      "question_es": "¿Cuánto cuesta?"
+    },
+    {
+      "text": "It is two dollars.",
+      "es": "Cuesta dos dólares.",
+      "image": "a1_scene_apple-2_0b629d1.webp",
+      "kind": "apple-price",
+      "learn": false,
+      "prefer": [
+        "It is one dollar."
+      ],
+      "question": "How much is it?",
+      "question_es": "¿Cuánto cuesta?"
+    },
+    {
+      "text": "It is three dollars.",
+      "es": "Cuesta tres dólares.",
+      "image": "a1_scene_bread-3_f752557.webp",
+      "kind": "bread-price",
+      "learn": false,
+      "prefer": [
+        "It is five dollars."
+      ],
+      "question": "How much is it?",
+      "question_es": "¿Cuánto cuesta?"
+    },
+    {
+      "text": "It is five dollars.",
+      "es": "Cuesta cinco dólares.",
+      "image": "a1_scene_bread-5_703d54a.webp",
+      "kind": "bread-price",
+      "learn": false,
+      "prefer": [
+        "It is three dollars."
+      ],
+      "question": "How much is it?",
+      "question_es": "¿Cuánto cuesta?"
+    },
+    {
+      "text": "It is ten dollars.",
+      "es": "Cuesta diez dólares.",
+      "image": "a1_scene_it-is-ten-dollars_717f891.webp",
+      "kind": "bread-price",
+      "learn": false,
+      "prefer": [
+        "It is five dollars."
+      ],
+      "question": "How much is it?",
+      "question_es": "¿Cuánto cuesta?"
+    },
+    {
+      "text": "The juice is four dollars.",
+      "es": "El jugo cuesta cuatro dólares.",
+      "image": "a1_scene_juice-4_fac8ec5.webp",
+      "kind": "juice-price",
+      "learn": false,
+      "prefer": [
+        "The juice is six dollars."
+      ]
+    },
+    {
+      "text": "The juice is six dollars.",
+      "es": "El jugo cuesta seis dólares.",
+      "image": "a1_scene_juice-6_62dbd4f.webp",
+      "kind": "juice-price",
+      "learn": false,
+      "prefer": [
+        "The juice is four dollars."
+      ]
+    },
+    {
+      "text": "The milk is two dollars.",
+      "es": "La leche cuesta dos dólares.",
+      "image": "a1_scene_milk-2_6c36e21.webp",
+      "kind": "milk-price",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The milk is four dollars.",
+        "The milk is five dollars."
+      ]
+    },
+    {
+      "text": "The bag is seven dollars.",
+      "es": "La bolsa cuesta siete dólares.",
+      "image": "a1_scene_bag-7_378b7f0_four-card.webp",
+      "kind": "bag-price",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The bag is eight dollars."
+      ]
+    },
+    {
+      "text": "The bag is eight dollars.",
+      "es": "La bolsa cuesta ocho dólares.",
+      "image": "a1_scene_bag-8_7f5b9cb_four-card.webp",
+      "kind": "bag-price",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The bag is seven dollars."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "The milk is four dollars.",
+      "es": "La leche cuesta cuatro dólares.",
+      "kind": "milk-price"
+    },
+    {
+      "text": "The milk is five dollars.",
+      "es": "La leche cuesta cinco dólares.",
+      "kind": "milk-price"
+    }
+  ]
+}

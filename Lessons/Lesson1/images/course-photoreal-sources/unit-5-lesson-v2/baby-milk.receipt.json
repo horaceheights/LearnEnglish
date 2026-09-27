@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "db8b9e0e-1fe9-4ccc-b613-ade2c69bf88c",
+  "asset_id": "baby-milk",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:44:54.528445+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "The named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nPrecise edit of Image 1. Remove the banana and the peel. The baby now looks hungry and a little upset, mouth open, and reaches both arms straight out toward one baby bottle full of white milk that stands on the far end of the high-chair tray, just out of reach. The bottle is clearly visible and clearly full of white milk. Keep the baby's face, hair, romper and high chair, and keep the kitchen, light and camera identical. No people, no other food or drink, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-5-lesson-v2/baby-banana.png",
+    "sha256": "d25193d6e2ca01d64eb55c54733827d85046e60a445dc936ec933873a66819dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "7Uq4arqCIqn9qtsP5JCO0A8",
+  "usage": {
+    "promptTokenCount": 469,
+    "candidatesTokenCount": 1268,
+    "totalTokenCount": 1931,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 211
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 194,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137266",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 469,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 194
+  },
+  "elapsed_seconds": 31.02,
+  "output": "output/imagegen/unit-5-lesson-v2/baby-milk.png",
+  "sha256": "a00940efd94f269ee547b1555bd628ffdc864625e86b6a380bddb6037925f85d",
+  "byte_count": 4688326,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

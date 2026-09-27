@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "9552f0ed-7776-4ec9-9b32-a86530ac926b",
+  "asset_id": "mother-chicken",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:37:50.175629+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nImage 1 shows the mother: about forty, long wavy dark-brown hair, a rust-red blouse. Keep her face, hair and blouse exactly. Create a new photograph in the same kind of warm home kitchen with wooden cabinets: she stands at the stove, turned toward the camera at a three-quarter angle, and cooks four golden-brown chicken drumsticks in a large black frying pan, turning one with kitchen tongs. The chicken drumsticks are large, clearly visible and clearly chicken. Seen from slightly above so the inside of the pan shows. She is the only person; no other food.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_mother_3x2.webp",
+    "sha256": "85843eafa4d6a490ca029d58a33c91d62b601e30ebede06229e1ba994146de3a"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Pkm4aurRE_ij6dkPxeG4wQs",
+  "usage": {
+    "promptTokenCount": 674,
+    "candidatesTokenCount": 1329,
+    "totalTokenCount": 2218,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 416
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 215,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137928",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 674,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 215
+  },
+  "elapsed_seconds": 23.61,
+  "output": "output/imagegen/unit-5-lesson-v2/mother-chicken.png",
+  "sha256": "5b477d20069999bb82de2a0fedb48e804a2373ece8a6fe4504811eb6f3b7e7a7",
+  "byte_count": 5904419,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

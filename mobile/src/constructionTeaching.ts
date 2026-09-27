@@ -12,6 +12,8 @@ const NOUNS = set('boy girl man woman baby babies child children adult adults br
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
 for (const noun of words('spain diego states')) NOUNS.add(noun);
 for (const noun of words('home window')) NOUNS.add(noun);
+// Unit 5 (2026-09-26): fruit and food words that its constructions name.
+for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 const OWNERS = set('mine yours');
 const PRONOUNS = set('i you he she it we they this that these those there');
@@ -220,6 +222,24 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: 2, end: 5, explanation: explanations[3] });
     if (keys[4] === 'listen') teach(5, keys.length, '“Listen to music” significa escuchar música; “to” va entre “listen” y lo que escuchamos.');
     return { explanations, relations, supported: true };
+  }
+  // Lesson 5.4 counts with "How many ... are there?": the question words and the counted noun come first.
+  const howMany = /^how many (.+) are there$/.exec(joined);
+  if (howMany && text.trim().endsWith('?')) {
+    teach(0, keys.length, `En esta pregunta, primero “How many”, después lo que contamos ${quote(phrase(2, keys.length - 2))} y al final “are there”.`);
+    teach(0, 2, '“How many” pregunta la cantidad: “How” va antes de “many” y las dos palabras abren la pregunta.');
+    teach(keys.length - 2, keys.length, '“Are there” cierra la pregunta: en la pregunta “are” va antes de “there”, al revés que en “There are”.');
+    const supported = nominal(2, keys.length - 2);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
+  // Lesson 5.10 asks politely with "Can I have ..., please?" as a fixed request frame.
+  const canHave = /^can i have (.+) please$/.exec(joined);
+  if (canHave && text.trim().endsWith('?')) {
+    teach(0, keys.length, 'Para pedir algo con cortesía decimos “Can I have …, please?”: primero “Can I have”, después lo que pedimos y al final “please”.');
+    teach(0, 3, 'En “Can I have”, “Can” va primero, antes de “I” y de “have”: así empieza la petición.');
+    teach(keys.length - 1, keys.length, '“Please” va al final, después de lo que pedimos, para pedirlo con cortesía.');
+    const supported = nominal(3, keys.length - 1);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   const question = /^(who|what number|what color|what time|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {

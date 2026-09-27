@@ -280,23 +280,28 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-5-1-fruits': {
-    image: 'a1_scene_fruit_f053b8b.webp',
+    image: 'a1_photo_u5_fruit_on_table_v1.webp',
     description: 'Frutas comunes, colores y cantidades.',
     color: '#ffe8c7',
   },
   'lesson-5-2-food-and-drinks': {
-    image: 'a1_scene_food-and-drinks_bdcf3f2.webp',
-    description: 'Comidas y bebidas frecuentes.',
+    image: 'a1_photo_u5_food_on_table_v1.webp',
+    description: 'Comida frecuente: pan, arroz, huevos, pollo y pescado.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-drinks': {
+    image: 'a1_photo_u5_grandmother_drinking_tea_v1.webp',
+    description: 'Bebidas: agua, leche, jugo, café y té.',
     color: '#ffe8c7',
   },
   'lesson-5-3-food-quantities': {
-    image: 'a1_scene_three-eggs_e579b07.webp',
-    description: 'Cantidades de alimentos conocidas.',
+    image: 'a1_photo_u5_luis_how_many_v1.webp',
+    description: 'Pregunta cuántos hay y usa some.',
     color: '#ffe8c7',
   },
   'lesson-5-4-likes-and-dislikes': {
-    image: 'a1_scene_i-like-apples_8f1a9bc.webp',
-    description: 'Expresa gustos y disgustos.',
+    image: 'a1_photo_u5_luis_me_too_v1.webp',
+    description: 'Gustos, disgustos y Me too.',
     color: '#ffe8c7',
   },
   'lesson-5-5-wants-and-needs': {
@@ -317,6 +322,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   'lesson-5-8-ordering-politely': {
     image: 'a1_scene_server-hands-drink_9f32830.webp',
     description: 'Pide bebidas con frases amables.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-can-i-have': {
+    image: 'a1_photo_u5_ana_yes_please_v1.webp',
+    description: 'Pide con Can I have...? y responde con cortesía.',
     color: '#ffe8c7',
   },
   'lesson-5-9-unit-5-review': {

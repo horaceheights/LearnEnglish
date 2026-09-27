@@ -1,0 +1,226 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds café, please, Here you are. and Thank you. Every order is said in the pictured customer's voice, and the server's Here you are. and the customer's Thank you. keep their own voices.",
+  "target": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
+  "lesson": {
+    "id": "lesson-5-8-ordering-politely",
+    "title": "5.9 Ordering Politely",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.9",
+    "sub_lesson_title": "Ordering Politely",
+    "goal": "Recognize a café and order a drink with please, and say Here you are. and Thank you.",
+    "vocabulary": [
+      "café",
+      "please",
+      "Here you are.",
+      "Thank you."
+    ],
+    "review_vocabulary": [
+      "this",
+      "is",
+      "a",
+      "water",
+      "juice",
+      "coffee",
+      "tea",
+      "milk",
+      "hello"
+    ],
+    "grammar_function": "This is a café. Coffee, please. Here you are. Thank you.",
+    "prerequisite": "3.1 hello; 2.5 this; 5.3 drinks.",
+    "speaking_outcome": "Order a drink with please, and say Here you are. and Thank you.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "A café",
+      "es": "Un café (lugar)",
+      "image": "a1_scene_hello_19bd437.webp",
+      "kind": "place-word",
+      "choices": false
+    },
+    {
+      "text": "Please",
+      "es": "Por favor",
+      "image": "a1_photo_u5_request_water_v1.webp",
+      "kind": "polite-word",
+      "speaker": "female-character",
+      "choices": false
+    },
+    {
+      "text": "Here you are.",
+      "es": "Aquí tienes.",
+      "image": "a1_scene_here-you-are_4ab9749.webp",
+      "kind": "polite",
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      },
+      "speaker": "female-character",
+      "question": "Juice, please.",
+      "question_es": "Jugo, por favor.",
+      "question_speaker": "male-character",
+      "image_choices": false
+    },
+    {
+      "text": "Thank you.",
+      "es": "Gracias.",
+      "image": "a1_scene_thank-you_a6f59e1.webp",
+      "kind": "polite",
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      },
+      "speaker": "male-character",
+      "question": "Here you are.",
+      "question_es": "Aquí tienes.",
+      "question_speaker": "female-character",
+      "image_choices": false
+    },
+    {
+      "text": "This is a café.",
+      "es": "Este es un café.",
+      "image": "a1_scene_hello_19bd437.webp",
+      "kind": "this-place",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "This is a store.",
+        "This is a school."
+      ]
+    },
+    {
+      "text": "Water, please.",
+      "es": "Agua, por favor.",
+      "image": "a1_scene_orders-water_37bb622.webp",
+      "kind": "order",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "male-character",
+      "prefer": [
+        "Milk, please."
+      ]
+    },
+    {
+      "text": "Juice, please.",
+      "es": "Jugo, por favor.",
+      "image": "a1_scene_juice-please_ee4b773.webp",
+      "kind": "order",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Tea, please."
+      ]
+    },
+    {
+      "text": "Coffee, please.",
+      "es": "Café, por favor.",
+      "image": "a1_scene_orders-coffee_3164cd2.webp",
+      "kind": "order",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "male-character",
+      "prefer": [
+        "Tea, please."
+      ]
+    },
+    {
+      "text": "Tea, please.",
+      "es": "Té, por favor.",
+      "image": "a1_scene_orders-tea_14f7d45.webp",
+      "kind": "order",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Coffee, please."
+      ]
+    },
+    {
+      "text": "Milk, please.",
+      "es": "Leche, por favor.",
+      "image": "a1_scene_orders-milk_6835950.webp",
+      "kind": "order",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
+      },
+      "speaker": "female-character",
+      "prefer": [
+        "Water, please."
+      ]
+    },
+    {
+      "text": "Here you are. Thank you.",
+      "es": "Aquí tienes. Gracias.",
+      "image": "a1_scene_here-you-are_4ab9749.webp",
+      "kind": "handoff",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      },
+      "turns": [
+        {
+          "text": "Here you are.",
+          "speaker": "female-character",
+          "image": "a1_scene_here-you-are_4ab9749.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker": "male-character",
+          "image": "a1_scene_thank-you_a6f59e1.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Here you are. Hello."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "This is a store.",
+      "es": "Esta es una tienda.",
+      "kind": "this-place"
+    },
+    {
+      "text": "This is a school.",
+      "es": "Esta es una escuela.",
+      "kind": "this-place"
+    },
+    {
+      "text": "Here you are. Hello.",
+      "es": "Aquí tienes. Hola.",
+      "kind": "handoff"
+    },
+    {
+      "text": "Hello.",
+      "es": "Hola.",
+      "kind": "polite"
+    }
+  ]
+}

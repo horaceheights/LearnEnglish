@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4e832e2a-42a9-4ede-87d5-e79a8c765762",
+  "asset_id": "children-milk",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:41:55.619723+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "The named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nPrecise edit of Image 1. Remove the bowl of grapes and the grapes in their hands. Each child now holds one tall clear glass full of white milk with both hands and drinks from it, the rim of the glass at their lips and their eyes open and happy; the white milk is clearly visible through each glass. Keep both children, their faces, hair, clothes and seats, and keep the table, kitchen, light and camera identical. No other food or drink, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-5-lesson-v2/children-grapes.png",
+    "sha256": "05f5b645f0bf1f287b14d00d7228ddc57336759188d1e2055a60c68a91959f81"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "OUq4arv6Gsqh6dkPna27wA0",
+  "usage": {
+    "promptTokenCount": 460,
+    "candidatesTokenCount": 1271,
+    "totalTokenCount": 1926,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 202
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 195,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137260",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 460,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 195
+  },
+  "elapsed_seconds": 30.0,
+  "output": "output/imagegen/unit-5-lesson-v2/children-milk.png",
+  "sha256": "f390883aeabbaa16985e1631646dd3bcff030ef303fac221711bb68475ffc52d",
+  "byte_count": 4741615,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

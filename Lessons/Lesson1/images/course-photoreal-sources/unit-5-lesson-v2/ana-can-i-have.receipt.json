@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f2b0dd68-61eb-49d5-b9c5-529f5038e4da",
+  "asset_id": "ana-can-i-have",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:39:37.382370+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows Ana (left: long dark wavy hair, sage-green overshirt over a white top). Keep her face, hair and clothes exactly. Create a new photograph inside a small, bright neighborhood cafe: Ana stands at the wooden counter on the left, facing a male server behind the counter on the right, and asks him politely for something: her right hand is raised with the palm open toward him at chest height, her eyebrows are raised and her mouth is open as she speaks. The server, a man in his thirties with short brown hair and a trimmed beard, in a black T-shirt and a plain dark apron, listens with a friendly nod, his hands resting on the counter. Behind him: a coffee machine, white cups and a clear glass jug of orange juice. Both faces are clearly visible in three-quarter view. No text, menus, signs or logos; no other people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+    "sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "qkm4ap_0H7bkqtsP8KSxoAY",
+  "usage": {
+    "promptTokenCount": 634,
+    "candidatesTokenCount": 1357,
+    "totalTokenCount": 2227,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 376
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 236,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138100",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 634,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 236
+  },
+  "elapsed_seconds": 24.8,
+  "output": "output/imagegen/unit-5-lesson-v2/ana-can-i-have.png",
+  "sha256": "5b8839f14b516a52f34a1dacc9d79e58ebc6d42340b746e86e71f3cdfd91994f",
+  "byte_count": 5273767,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

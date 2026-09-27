@@ -15,7 +15,7 @@ CONTRACTS_PATH = ROOT / "docs/product/answer-choice-contracts.json"
 TOKEN = re.compile(r"[a-z]+(?:'[a-z]+)?|\d+", re.I)
 UTTERANCES = {"hello", "hi", "goodbye", "bye", "thanks", "yes", "no", "sorry",
               "please", "stop", "thank you", "no thank you", "yes thank you", "yes please",
-              "sorry no", "excuse me", "here you are"}
+              "sorry no", "excuse me", "here you are", "me too"}
 VERBS = {
     "arrive": "arrives arrived", "leave": "leaves left", "play": "plays played",
     "study": "studies studied", "work": "works worked", "cook": "cooks cooked",

@@ -1,0 +1,311 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds like, do not like and Me too. First-person likes use the pictured speaker's voice; Luis asks Ana about coffee at the Unit 4 cafe table, and Ana says I like coffee and Luis answers Me too. A No answer is only offered as text beside its Yes pair.",
+  "target": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+  "lesson": {
+    "id": "lesson-5-4-likes-and-dislikes",
+    "title": "5.5 Likes, Dislikes, and Me Too",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.5",
+    "sub_lesson_title": "Likes, Dislikes, and Me Too",
+    "goal": "Say what I like and do not like, ask Do you like ...?, and agree with Me too.",
+    "vocabulary": [
+      "like",
+      "do not like",
+      "Me too."
+    ],
+    "review_vocabulary": [
+      "I",
+      "they",
+      "not",
+      "Do you...?",
+      "Yes, I do.",
+      "No, I do not.",
+      "apples",
+      "fish",
+      "rice",
+      "milk",
+      "juice",
+      "bread",
+      "eggs",
+      "grapes",
+      "coffee"
+    ],
+    "grammar_function": "I like apples. I do not like fish. They like grapes. Do you like coffee? Yes, I do. I like coffee. Me too.",
+    "prerequisite": "3.2 I; 1.8 not; 4.8 Do you...?; 5.1-5.3 fruit, food and drinks.",
+    "speaking_outcome": "Say what I like and do not like, and agree with Me too.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "Like",
+      "es": "Gustar",
+      "image": "a1_photo_likes_apples_v1.webp",
+      "kind": "like-word",
+      "form": "word",
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Do not like",
+      "es": "No gustar",
+      "image": "a1_photo_dislikes_fish_crop_v1.webp",
+      "kind": "like-word",
+      "form": "word",
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      },
+      "use": false
+    },
+    {
+      "text": "Me too.",
+      "es": "Yo también.",
+      "image": "a1_photo_u5_luis_me_too_v1.webp",
+      "kind": "agree-response",
+      "speaker": "luis",
+      "question": "I like coffee.",
+      "question_es": "Me gusta el café.",
+      "question_speaker": "ana",
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "I like apples.",
+      "es": "Me gustan las manzanas.",
+      "image": "a1_photo_likes_apples_v1.webp",
+      "kind": "i-like-apples",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I do not like apples."
+      ]
+    },
+    {
+      "text": "I do not like fish.",
+      "es": "No me gusta el pescado.",
+      "image": "a1_photo_dislikes_fish_crop_v1.webp",
+      "kind": "i-like-fish",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I like fish."
+      ]
+    },
+    {
+      "text": "I like rice.",
+      "es": "Me gusta el arroz.",
+      "image": "a1_scene_likes-rice_1dce2b8.webp",
+      "kind": "i-like-rice",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I do not like rice."
+      ]
+    },
+    {
+      "text": "I do not like milk.",
+      "es": "No me gusta la leche.",
+      "image": "a1_scene_i-do-not-like-milk_f3786e9.webp",
+      "kind": "i-like-milk",
+      "learn": false,
+      "speaker": "male-character",
+      "image_choices": false,
+      "prefer": [
+        "I like milk."
+      ]
+    },
+    {
+      "text": "I like juice.",
+      "es": "Me gusta el jugo.",
+      "image": "a1_scene_i-like-juice_b1740dd.webp",
+      "kind": "i-like-juice",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I do not like juice."
+      ]
+    },
+    {
+      "text": "I do not like bread.",
+      "es": "No me gusta el pan.",
+      "image": "a1_scene_does-not-like-bread_cce412b.webp",
+      "kind": "i-like-bread",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "prefer": [
+        "I like bread."
+      ]
+    },
+    {
+      "text": "They like grapes.",
+      "es": "Les gustan las uvas.",
+      "image": "a1_photo_u5_children_eating_grapes_v1.webp",
+      "kind": "they-like",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "They like strawberries.",
+        "They like bananas."
+      ]
+    },
+    {
+      "text": "Do you like coffee? Yes, I do.",
+      "es": "¿Te gusta el café? Sí.",
+      "image": "a1_photo_u4_yes_i_do_v1.webp",
+      "kind": "do-like",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you like coffee?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker": "ana",
+          "image": "a1_photo_u4_yes_i_do_v1.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Do you like coffee? No, I do not."
+      ],
+      "avoid": [
+        "Do you like milk? No, I do not.",
+        "Do you like milk? Yes, I do."
+      ]
+    },
+    {
+      "text": "Do you like milk? No, I do not.",
+      "es": "¿Te gusta la leche? No.",
+      "image": "a1_photo_u4_no_i_do_not_v1.webp",
+      "kind": "do-like",
+      "learn": false,
+      "turns": [
+        {
+          "text": "Do you like milk?",
+          "speaker": "luis",
+          "image": "a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "No, I do not.",
+          "speaker": "ana",
+          "image": "a1_photo_u4_no_i_do_not_v1.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "Do you like milk? Yes, I do."
+      ],
+      "avoid": [
+        "Do you like coffee? No, I do not."
+      ]
+    },
+    {
+      "text": "I like coffee. Me too.",
+      "es": "Me gusta el café. Yo también.",
+      "image": "a1_photo_u5_luis_me_too_v1.webp",
+      "kind": "me-too-exchange",
+      "learn": false,
+      "turns": [
+        {
+          "text": "I like coffee.",
+          "speaker": "ana",
+          "image": "a1_photo_u5_ana_likes_coffee_v1.webp"
+        },
+        {
+          "text": "Me too.",
+          "speaker": "luis",
+          "image": "a1_photo_u5_luis_me_too_v1.webp"
+        }
+      ],
+      "choices": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "I do not like apples.",
+      "es": "No me gustan las manzanas.",
+      "kind": "i-like-apples"
+    },
+    {
+      "text": "I like fish.",
+      "es": "Me gusta el pescado.",
+      "kind": "i-like-fish"
+    },
+    {
+      "text": "I do not like rice.",
+      "es": "No me gusta el arroz.",
+      "kind": "i-like-rice"
+    },
+    {
+      "text": "I like milk.",
+      "es": "Me gusta la leche.",
+      "kind": "i-like-milk"
+    },
+    {
+      "text": "I do not like juice.",
+      "es": "No me gusta el jugo.",
+      "kind": "i-like-juice"
+    },
+    {
+      "text": "I like bread.",
+      "es": "Me gusta el pan.",
+      "kind": "i-like-bread"
+    },
+    {
+      "text": "They like strawberries.",
+      "es": "Les gustan las fresas.",
+      "kind": "they-like"
+    },
+    {
+      "text": "They like bananas.",
+      "es": "Les gustan los plátanos.",
+      "kind": "they-like"
+    },
+    {
+      "text": "Do you like coffee? No, I do not.",
+      "es": "¿Te gusta el café? No.",
+      "kind": "do-like"
+    },
+    {
+      "text": "Do you like milk? Yes, I do.",
+      "es": "¿Te gusta la leche? Sí.",
+      "kind": "do-like"
+    },
+    {
+      "text": "Goodbye.",
+      "es": "Adiós.",
+      "kind": "agree-response"
+    },
+    {
+      "text": "Hello.",
+      "es": "Hola.",
+      "kind": "agree-response"
+    }
+  ]
+}

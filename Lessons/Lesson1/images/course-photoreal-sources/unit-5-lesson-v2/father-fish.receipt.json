@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3f3f8c16-14b2-43f6-867f-d1d72a76f7df",
+  "asset_id": "father-fish",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:37:21.293452+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nImage 1 shows the father: about forty, short dark hair, a friendly smile, a navy button-up shirt. Keep his face, hair and shirt exactly. Create a new photograph in a home kitchen: he stands at the stove, turned toward the camera at a three-quarter angle, and cooks one whole fish in a large black frying pan, turning it with a spatula in his right hand. The whole fish, with its head and tail, lies flat in the pan and is large, clearly visible and clearly a fish. Seen from slightly above so the inside of the pan shows. He is the only person; no other food.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_father_3x2.webp",
+    "sha256": "445e807e6c444b5a1d6fa65f8743b11f118330d6d63098a7bd0ea18a71b78941"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Ikm4atyHAs_oqtsPtqGx8Ao",
+  "usage": {
+    "promptTokenCount": 682,
+    "candidatesTokenCount": 1317,
+    "totalTokenCount": 2216,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 424
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 217,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137968",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 682,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 217
+  },
+  "elapsed_seconds": 23.3,
+  "output": "output/imagegen/unit-5-lesson-v2/father-fish.png",
+  "sha256": "db3aad5a7d9170e591fc4f33b8593860ac9bd481a44f792d2686dd226cdfa817",
+  "byte_count": 5603743,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

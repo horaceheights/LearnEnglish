@@ -98,7 +98,9 @@ with 14 lessons: yes/no questions with *be*, ages 16-20, Canada and Spain, and
 our/their/'s are new lessons, 3.12 adds mine/yours, and neutral narration alternates
 two narrators (#214). Unit 4 is rebuilt with 12 lessons (the course has 79): 4.8 Do
 You...? is new, and the overloaded Days and Time splits into 4.9 Days of the Week and
-4.10 What Time Is It?. Unit 5 is next.
+4.10 What Time Is It?. Unit 5 is rebuilt with 12 lessons (the course has 81): 5.3 Drinks
+splits from food, 5.4 adds How many?, 5.5 adds Me too, and 5.10 Can I Have...? is new.
+Unit 6 is next.
 
 A1+ and later levels wait until that path is proven.
 

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "468525bd-9319-4b29-bf26-190775fc8d17",
+  "asset_id": "stall-pear",
+  "pack_sha256": "c0342ad2c61b860c3cf637b8b013c26f5749fcbb74632f8889e140a3de7288ad",
+  "started_at": "2026-09-27T02:27:22.776038+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "The named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nPrecise edit of Image 1. The vendor now holds out exactly ONE green pear in his right hand instead of the banana, in the same place, at chest height between them, large and clearly visible. Keep both people, their faces, clothes, poses and open hands, and keep the stall, background, light and camera identical. No other fruit in either person's hands, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-5-lesson-v2/stall-banana.png",
+    "sha256": "6f9365fcab294ffcd8ea9738da9d2f7ccc7fcf383f635c8f66f616a3251e61e0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "FH-4arWjO-_sz7IPy4CLiQM",
+  "usage": {
+    "promptTokenCount": 442,
+    "candidatesTokenCount": 1235,
+    "totalTokenCount": 1845,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 184
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 168,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136900",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 442,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 168
+  },
+  "elapsed_seconds": 33.09,
+  "output": "output/imagegen/unit-5-lesson-v2/stall-pear.png",
+  "sha256": "d10c26ba30a208fc76f3f221ac44061efed16140d56d3436bd91de1c2670eb5a",
+  "byte_count": 6197311,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

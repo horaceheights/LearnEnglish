@@ -102,9 +102,11 @@ EXACT_ROLE_CHANGES = {
 # alternates the teacher and the co-teacher (+232 net across 14 lessons).
 # The 2026-09-26 Unit 4 rebuild does the same for its ten teaching lessons, and the review's
 # pictured people and alternating narrators keep their voices (+261 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1058
+# The 2026-09-26 Unit 5 rebuild does the same for its ten teaching lessons (Ana, Luis, the
+# servers and every pictured customer keep their voices) and the six new review cards (+321 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1379
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "0f7afa90eed9fac1d3eb9ab0619bb28c322080548bb2d1635f6c514c55916449"
+    "74255d7aedc2780d49ef790017f072ceb87a5c292db6ea2efe3425f883828887"
 )
 
 

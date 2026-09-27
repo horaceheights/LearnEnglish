@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "318c5184-3320-4030-ab41-e6eab315ffe0",
+  "asset_id": "review-dinner-night",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:47:26.990212+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA family of four eats dinner at a round dining table at night: a mother and a father in their forties and two teenage children, all smiling and eating. Warm lamp light over the table; the large window behind them is completely dark, with a few distant city lights, so it is clearly night. On the table: chicken, rice and salad on white plates. No clocks, screens, text or other people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "fku4api4Do-qqtsPuaqJkQk",
+  "usage": {
+    "promptTokenCount": 277,
+    "candidatesTokenCount": 1298,
+    "totalTokenCount": 1854,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 277
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 279,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137902",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 277,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 279
+  },
+  "elapsed_seconds": 22.08,
+  "output": "output/imagegen/unit-5-lesson-v2/review-dinner-night.png",
+  "sha256": "3eb0463e6a958312e56948d7dc115bdde6146ec08b2519dd1c53b49cf6f64f46",
+  "byte_count": 5415604,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

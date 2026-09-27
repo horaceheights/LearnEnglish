@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b2b62a61-7983-4bee-840e-a577b935f269",
+  "asset_id": "grandmother-tea",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:36:42.500859+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it.\n\nImage 1 shows the grandmother: about seventy, curly grey hair, a cream knit cardigan over a light floral blouse. Keep her face, hair and clothes exactly. Create a new photograph in the afternoon: she sits at a small round wooden table in a sunny living room, turned toward the camera at a three-quarter angle, and drinks from one clear glass teacup of amber tea held by its handle, the rim at her lips; the amber tea is clearly visible through the glass, and her eyes and nose stay fully visible. A small clear glass teapot with amber tea stands on the table beside her. She is the only person; no coffee, milk or juice.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_grandmother_3x2.webp",
+    "sha256": "adb2006cd20eeb5a8f88c036cc12c917d716e2f725a3d123902710e7de1f2e47"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "_Ui4apuaJuPrz7IPnLzOoA0",
+  "usage": {
+    "promptTokenCount": 687,
+    "candidatesTokenCount": 1297,
+    "totalTokenCount": 2184,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 429
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 200,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137774",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 687,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 200
+  },
+  "elapsed_seconds": 33.66,
+  "output": "output/imagegen/unit-5-lesson-v2/grandmother-tea.png",
+  "sha256": "eb2205ed37daf1c8d0e7c586036a3654f8bfedfb8e68e7e36c72a2179ed1eafd",
+  "byte_count": 5828237,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

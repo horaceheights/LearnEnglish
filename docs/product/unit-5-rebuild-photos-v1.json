@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "pack": "unit-5-rebuild-photos",
+  "revision": 1,
+  "output_namespace": "unit-5-lesson-v2",
+  "authorization": "2026-09-26: the user asked for the Units 5-7 rebuild through the content engine and approved new image creation for it (\"Units 5 to 7 rebuild with engine, new image creation approved\"). Ceiling US$5.00, the Unit 3 and Unit 4 cap. Gemini is the approved image tool (2026-09-23; OpenAI credit exhausted). Revision 1 is frozen: a changed prompt is a new revision. The base of each group is inspected at phone sizes and at the centered 4:5 crop before its edits are sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image; input images about $0.0011 each; Unit 3 and Unit 4 receipts averaged about $0.137 per image)",
+    "planned_images": 25,
+    "expected_cost_usd": "3.45",
+    "requested_ceiling_usd": "5.00",
+    "no_automatic_retries": true,
+    "order": "Generate each group's base first (the children eating grapes, Ana and Luis at the cafe, the server offering tea) and inspect it at 900/360/250/180 px and at the centered 4:5 crop; only then send its edits. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "food_clear": "The named food or drink must read instantly on a phone at 180 px wide: it is large, well lit, in the foreground, and not hidden by hands, cutlery or other dishes. Coffee is visibly black in a white mug; tea is visibly amber in a clear glass cup; milk is visibly white in a clear glass; juice is visibly orange in a clear glass; water is visibly clear in a clear glass. No other food or drink competes with it unless the prompt names it."
+  },
+  "assets": [
+    {
+      "id": "children-grapes",
+      "group": "family-food",
+      "lesson": "5.1",
+      "item": "The children are eating grapes.",
+      "runtime_filename": "a1_photo_u5_children_eating_grapes_v1.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Image 1 shows the family's two children: a boy about nine with short dark hair in a blue polo shirt, and a girl about seven with long dark hair in a lilac T-shirt. Keep both of their faces, hair and clothes exactly. Create a new photograph in a bright kitchen: the two children sit side by side at a light wooden kitchen table, facing the camera at a slight angle. In the middle of the table in front of them stands one white bowl piled with large purple grapes. Each child is putting one purple grape into their mouth with one hand, smiling; the grapes are clearly visible in the bowl and in their fingers. Both faces are clearly visible. Only these two children; no adults, no other food.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+        "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd",
+        "observed_description": "In a sunny garden, a boy about nine with short dark hair in a blue polo shirt and a girl about seven with long dark hair in a lilac T-shirt stand side by side smiling at the camera among potted plants."
+      }
+    },
+    {
+      "id": "children-milk",
+      "group": "family-food",
+      "lesson": "5.3",
+      "item": "The children are drinking milk.",
+      "runtime_filename": "a1_photo_u5_children_drinking_milk_v1.webp",
+      "shared": ["food_clear"],
+      "four_card": true,
+      "reference": "children-grapes",
+      "prompt": "Precise edit of Image 1. Remove the bowl of grapes and the grapes in their hands. Each child now holds one tall clear glass full of white milk with both hands and drinks from it, the rim of the glass at their lips and their eyes open and happy; the white milk is clearly visible through each glass. Keep both children, their faces, hair, clothes and seats, and keep the table, kitchen, light and camera identical. No other food or drink, no text."
+    },
+    {
+      "id": "baby-banana",
+      "group": "family-food",
+      "lesson": "5.1",
+      "item": "The baby is eating a banana.",
+      "runtime_filename": "a1_photo_u5_baby_eating_banana_v1.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Image 1 shows the family's baby: about ten months old, with dark curly hair and a round, happy face, in a pale-yellow short-sleeved romper. Keep the baby's face, hair and clothes exactly. Create a new photograph in a bright kitchen: the baby sits in a white high chair, facing the camera at a slight angle, holding one half-peeled yellow banana in both hands and taking a bite from its top; the yellow peel hangs down around the baby's hands. The banana is large in the frame and clearly yellow. Only the baby; no adults, no other food on the high-chair tray.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_baby_3x2.webp",
+        "sha256": "09f56c09580dff65ed65ce81975dbe07e8e0b11a81904d92a40290bd017b06f3",
+        "observed_description": "A smiling baby about ten months old with dark curly hair, in a pale-yellow short-sleeved romper, sits on a cream rug in a sunny nursery with a white crib and a small bookshelf behind."
+      }
+    },
+    {
+      "id": "baby-milk",
+      "group": "family-food",
+      "lesson": "5.6",
+      "item": "The baby needs milk.",
+      "runtime_filename": "a1_photo_u5_baby_needs_milk_v1.webp",
+      "shared": ["food_clear"],
+      "four_card": true,
+      "reference": "baby-banana",
+      "prompt": "Precise edit of Image 1. Remove the banana and the peel. The baby now looks hungry and a little upset, mouth open, and reaches both arms straight out toward one baby bottle full of white milk that stands on the far end of the high-chair tray, just out of reach. The bottle is clearly visible and clearly full of white milk. Keep the baby's face, hair, romper and high chair, and keep the kitchen, light and camera identical. No people, no other food or drink, no text."
+    },
+    {
+      "id": "grandfather-coffee",
+      "group": "family-food",
+      "lesson": "5.3",
+      "item": "The grandfather is drinking coffee.",
+      "runtime_filename": "a1_photo_u5_grandfather_drinking_coffee_v1.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Image 1 shows the grandfather: about seventy, short grey hair, a grey mustache, rimless glasses, an olive-green cardigan over a white shirt. Keep his face, hair, glasses and clothes exactly. Create a new photograph at breakfast time: he sits at a wooden kitchen table, turned toward the camera at a three-quarter angle, and drinks from one plain white mug of black coffee held in his right hand, the rim at his lips and tilted slightly so the black coffee shows; his eyes, nose and glasses stay fully visible above the mug. A small glass coffee pot with dark coffee stands on the table beside him. He is the only person; no tea, milk or juice.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_grandfather_3x2.webp",
+        "sha256": "c8ce773241ce23e871a5badaf5a0534b26c4dbda20857d542bfc9b3ba1b17c09",
+        "observed_description": "A smiling grandfather about seventy with short grey hair, a grey mustache and rimless glasses, in an olive-green cardigan over a white shirt, sits in a dark leather armchair in front of bookshelves with his hands folded."
+      }
+    },
+    {
+      "id": "grandmother-tea",
+      "group": "family-food",
+      "lesson": "5.3",
+      "item": "The grandmother is drinking tea.",
+      "runtime_filename": "a1_photo_u5_grandmother_drinking_tea_v1.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Image 1 shows the grandmother: about seventy, curly grey hair, a cream knit cardigan over a light floral blouse. Keep her face, hair and clothes exactly. Create a new photograph in the afternoon: she sits at a small round wooden table in a sunny living room, turned toward the camera at a three-quarter angle, and drinks from one clear glass teacup of amber tea held by its handle, the rim at her lips; the amber tea is clearly visible through the glass, and her eyes and nose stay fully visible. A small clear glass teapot with amber tea stands on the table beside her. She is the only person; no coffee, milk or juice.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_grandmother_3x2.webp",
+        "sha256": "adb2006cd20eeb5a8f88c036cc12c917d716e2f725a3d123902710e7de1f2e47",
+        "observed_description": "A smiling grandmother about seventy with curly grey hair, in a cream knit cardigan over a light floral blouse, sits at a wooden table with a cup and saucer in a bright room with plants and framed photos."
+      }
+    },
+    {
+      "id": "father-fish",
+      "group": "family-food",
+      "lesson": "5.2",
+      "item": "The father is cooking fish.",
+      "runtime_filename": "a1_photo_u5_father_cooking_fish_v1.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Image 1 shows the father: about forty, short dark hair, a friendly smile, a navy button-up shirt. Keep his face, hair and shirt exactly. Create a new photograph in a home kitchen: he stands at the stove, turned toward the camera at a three-quarter angle, and cooks one whole fish in a large black frying pan, turning it with a spatula in his right hand. The whole fish, with its head and tail, lies flat in the pan and is large, clearly visible and clearly a fish. Seen from slightly above so the inside of the pan shows. He is the only person; no other food.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_father_3x2.webp",
+        "sha256": "445e807e6c444b5a1d6fa65f8743b11f118330d6d63098a7bd0ea18a71b78941",
+        "observed_description": "A smiling father about forty with short dark hair, in a navy button-up shirt, stands in a bright doorway of his home with one hand on the door frame and a living room behind him."
+      }
+    },
+    {
+      "id": "mother-chicken",
+      "group": "family-food",
+      "lesson": "5.2",
+      "item": "The mother is cooking chicken.",
+      "runtime_filename": "a1_photo_u5_mother_cooking_chicken_v1.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Image 1 shows the mother: about forty, long wavy dark-brown hair, a rust-red blouse. Keep her face, hair and blouse exactly. Create a new photograph in the same kind of warm home kitchen with wooden cabinets: she stands at the stove, turned toward the camera at a three-quarter angle, and cooks four golden-brown chicken drumsticks in a large black frying pan, turning one with kitchen tongs. The chicken drumsticks are large, clearly visible and clearly chicken. Seen from slightly above so the inside of the pan shows. She is the only person; no other food.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_mother_3x2.webp",
+        "sha256": "85843eafa4d6a490ca029d58a33c91d62b601e30ebede06229e1ba994146de3a",
+        "observed_description": "A smiling mother about forty with long wavy dark-brown hair, in a rust-red blouse, stands at a wooden kitchen counter with a bowl of fruit and a cutting board in front of wooden cabinets."
+      }
+    },
+    {
+      "id": "fruit-table",
+      "group": "tables",
+      "lesson": "5.1",
+      "item": "The fruit is on the table.",
+      "runtime_filename": "a1_photo_u5_fruit_on_table_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "A bright family dining room seen at eye level from about two meters away. In the middle of a rectangular wooden dining table with wooden chairs around it stands one wide white bowl heaped with fruit: red apples, yellow bananas, oranges, a bunch of purple grapes, one green pear and red strawberries. The bowl of fruit is large and sits clearly ON the tabletop, in the center of the photo. Nothing else is on the table. No people."
+    },
+    {
+      "id": "food-table",
+      "group": "tables",
+      "lesson": "5.2",
+      "item": "The food is on the table.",
+      "runtime_filename": "a1_photo_u5_food_on_table_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "A family dining room set for dinner, seen at eye level from about two meters away. On a rectangular wooden dining table with wooden chairs around it stand, close together in the center of the photo: a roast chicken on a white platter, a white bowl of white rice, a basket of bread rolls and a whole cooked fish on a white plate. The dishes sit clearly ON the tabletop. No drinks, no fruit and no people."
+    },
+    {
+      "id": "cafe-question",
+      "group": "ana-luis-cafe",
+      "lesson": "5.5",
+      "item": "I like coffee. (Ana)",
+      "runtime_filename": "a1_photo_u5_ana_likes_coffee_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "prompt": "Precise edit of Image 1. Ana, on the left, now lifts her white coffee cup a little above the table with her right hand, tilted so the black coffee inside is visible, and smiles happily while talking to Luis. Luis listens with a friendly smile; his hands rest on the table beside his own white cup. Keep both of their faces, hair, clothes and seats, and keep the table, cafe, light and camera identical. No new objects, text, arrows or symbols.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+        "sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
+        "observed_description": "Outside a neighborhood cafe in morning sun, Ana (left: long dark wavy hair, sage-green overshirt over a white top) and Luis (right: short dark curly hair, navy T-shirt) sit across a small round table, each with a white cup; Luis gestures to her with an open palm, asking a question."
+      }
+    },
+    {
+      "id": "luis-me-too",
+      "group": "ana-luis-cafe",
+      "lesson": "5.5",
+      "item": "Me too. (Luis)",
+      "runtime_filename": "a1_photo_u5_luis_me_too_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "cafe-question",
+      "prompt": "Precise edit of Image 1. Luis, on the right, now answers 'me too': he lifts his own white coffee cup a little above the table with his left hand and points to the middle of his own chest with his right index finger, smiling broadly at Ana. Ana keeps holding her raised cup and smiles back at him. Keep both of their faces, hair, clothes and seats, and keep the table, cafe, light and camera identical. No new objects, text, arrows or symbols."
+    },
+    {
+      "id": "luis-how-many",
+      "group": "counting",
+      "lesson": "5.4",
+      "item": "How many apples are there?",
+      "runtime_filename": "a1_photo_u5_luis_how_many_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Image 1 shows Luis (right: short dark curly hair). Keep his face and hair exactly; he wears a navy T-shirt. Create a new photograph in a bright home kitchen: Luis stands behind a light wooden table, turned toward someone just outside the photo on the left, with raised eyebrows and a friendly questioning expression, and points with his right index finger down at one white plate holding a small group of red apples in front of him. His face, pointing hand and the plate of apples are all clearly visible in the center of the photo. He holds nothing else. No text, numbers or other people.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_age-luis-asks-ana_132f348.webp",
+        "sha256": "132f348df57f67d68510934a43da8bf96c0c3617d6ba650c026e52965dd33fef",
+        "observed_description": "At the survey station doorway, Ana (left: long dark wavy hair, sage-green overshirt, white top, cream tote) holds a COMMUNITY SURVEY clipboard showing ANA and 20, while Luis (right: short dark curly hair, navy T-shirt, LUIS badge, khaki trousers) talks to her with both hands open."
+      }
+    },
+    {
+      "id": "ana-can-i-have",
+      "group": "cafe-counter",
+      "lesson": "5.10",
+      "item": "Can I have ...?",
+      "runtime_filename": "a1_photo_u5_ana_can_i_have_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Image 1 shows Ana (left: long dark wavy hair, sage-green overshirt over a white top). Keep her face, hair and clothes exactly. Create a new photograph inside a small, bright neighborhood cafe: Ana stands at the wooden counter on the left, facing a male server behind the counter on the right, and asks him politely for something: her right hand is raised with the palm open toward him at chest height, her eyebrows are raised and her mouth is open as she speaks. The server, a man in his thirties with short brown hair and a trimmed beard, in a black T-shirt and a plain dark apron, listens with a friendly nod, his hands resting on the counter. Behind him: a coffee machine, white cups and a clear glass jug of orange juice. Both faces are clearly visible in three-quarter view. No text, menus, signs or logos; no other people.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+        "sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
+        "observed_description": "Outside a neighborhood cafe in morning sun, Ana (left: long dark wavy hair, sage-green overshirt over a white top) and Luis (right: short dark curly hair, navy T-shirt) sit across a small round table, each with a white cup; Luis gestures to her with an open palm, asking a question."
+      }
+    },
+    {
+      "id": "server-offers-tea",
+      "group": "cafe-offer",
+      "lesson": "5.10",
+      "item": "Do you want tea?",
+      "runtime_filename": "a1_photo_u5_server_offers_tea_v1.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Image 1 shows Ana (left: long dark wavy hair, sage-green overshirt over a white top). Keep her face, hair and clothes exactly. Create a new photograph inside a small, bright cafe: Ana sits alone at a small round wooden table on the left with one empty clear glass teacup in front of her. On the right, a male server in his thirties with short brown hair and a trimmed beard, in a black T-shirt and a plain dark apron, stands beside the table, holds a clear glass teapot full of amber tea toward her cup and leans in slightly with raised eyebrows, clearly offering it and asking a question. Ana looks up at him with a neutral, friendly expression, both hands resting on the table. Both faces are clearly visible in three-quarter view. No text, menus, signs or logos; no other people.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+        "sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
+        "observed_description": "Outside a neighborhood cafe in morning sun, Ana (left: long dark wavy hair, sage-green overshirt over a white top) and Luis (right: short dark curly hair, navy T-shirt) sit across a small round table, each with a white cup; Luis gestures to her with an open palm, asking a question."
+      }
+    },
+    {
+      "id": "ana-yes-please",
+      "group": "cafe-offer",
+      "lesson": "5.10",
+      "item": "Yes, please.",
+      "runtime_filename": "a1_photo_u5_ana_yes_please_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "server-offers-tea",
+      "prompt": "Precise edit of Image 1. Ana now accepts: she nods with a big warm smile, looking up at the server, and slides her empty glass teacup toward the teapot with one hand. The server starts to pour: a thin stream of amber tea runs from the teapot spout into her cup. Keep both people's faces, hair and clothes, and keep the table, cafe, light and camera identical. No new objects, text, arrows or symbols."
+    },
+    {
+      "id": "ana-no-thank-you",
+      "group": "cafe-offer",
+      "lesson": "5.10",
+      "item": "No, thank you.",
+      "runtime_filename": "a1_photo_u5_ana_no_thank_you_v1.webp",
+      "shared": [],
+      "four_card": true,
+      "reference": "server-offers-tea",
+      "prompt": "Precise edit of Image 1. Ana now politely declines: she raises her right hand to shoulder height with the palm facing the teapot, fingers together, and smiles kindly with a small head shake while looking up at the server. Her empty teacup stays on the table. The server holds the teapot still, not pouring. Keep both people's faces, hair and clothes, and keep the table, cafe, light and camera identical. No new objects, text, arrows or symbols."
+    },
+    {
+      "id": "review-four-eggs",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "How many eggs are there? There are four eggs.",
+      "runtime_filename": "a1_u5_review_v2_four_eggs.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Exactly four white eggs lie in one straight row on a rectangular dark-blue ceramic plate, with a clear gap between each egg, on a light kitchen counter. Shot from slightly above at a 30 degree angle, so all four eggs are fully visible, separate and easy to count on a phone. The row of eggs fills about 45 percent of the photo width, in the center. No other eggs, food, hands or people."
+    },
+    {
+      "id": "review-some-milk",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "There is some milk.",
+      "runtime_filename": "a1_u5_review_v2_some_milk.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "One clear glass jug, about one-third full of white milk, stands in the center of a sunlit wooden kitchen table; the white milk is clearly visible through the glass and the rest of the jug is empty. Shot at table height from about one meter away; the jug is about 50 percent of the photo height. No other drinks, food, hands or people."
+    },
+    {
+      "id": "review-me-too",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "I like juice. Me too.",
+      "runtime_filename": "a1_u5_review_v2_me_too_juice.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Two friends in their twenties sit side by side at a picnic table in a sunny park, each with one clear glass of orange juice. On the left, a woman with short black hair in a yellow T-shirt raises her glass of orange juice toward the camera and smiles as she speaks. On the right, a man with a shaved head and a short beard in a green T-shirt points to the middle of his own chest with his right index finger and raises his own glass of orange juice with his left hand, grinning at her. Both faces are clearly visible. No other people, no text."
+    },
+    {
+      "id": "review-can-i-have-bread",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "Can I have bread, please?",
+      "runtime_filename": "a1_u5_review_v2_can_i_have_bread.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "Inside a small neighborhood bakery: a man in his fifties with grey hair and a brown jacket stands at the glass counter, points with his right index finger at a round loaf of bread on the top shelf behind the glass, and looks up at the baker with raised eyebrows, asking politely. Behind the counter, a woman baker in a white apron and a white cap listens with a smile. The loaves of bread are large and clearly visible. No text, price tags, signs or logos; no other people."
+    },
+    {
+      "id": "review-children-juice",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "The children are drinking juice.",
+      "runtime_filename": "a1_u5_review_v2_children_drinking_juice.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "Two children, a girl about six with two short pigtails in a red T-shirt and a boy about eight with short blond hair in a white T-shirt, sit on the steps of a back porch in the afternoon sun. Each holds one clear glass of orange juice with both hands and drinks from it, the rim at their lips; the orange juice is clearly visible through each glass and their eyes are open. No adults, no other food or drink, no text."
+    },
+    {
+      "id": "review-dinner-night",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "They eat dinner at night.",
+      "runtime_filename": "a1_u5_review_v2_dinner_at_night.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "A family of four eats dinner at a round dining table at night: a mother and a father in their forties and two teenage children, all smiling and eating. Warm lamp light over the table; the large window behind them is completely dark, with a few distant city lights, so it is clearly night. On the table: chicken, rice and salad on white plates. No clocks, screens, text or other people."
+    },
+    {
+      "id": "review-twelve-dollars",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "It is twelve dollars.",
+      "runtime_filename": "a1_u5_review_v2_twelve_dollars.webp",
+      "shared": ["photo", "safe_center"],
+      "four_card": true,
+      "prompt": "On a wooden shop shelf stands one plain white ceramic teapot, with a small white price card on a little metal stand right in front of it. The card shows exactly one printed price, $12, in large bold black characters, perfectly formed, and nothing else. The teapot and the price card are in the center of the photo and together fill about 50 percent of the photo height; the $12 reads clearly on a phone. Softly blurred shelves in the background. No other prices, text, logos or people."
+    },
+    {
+      "id": "review-grandparents-coffee",
+      "group": "review",
+      "lesson": "5.11",
+      "item": "They drink coffee in the morning.",
+      "runtime_filename": "a1_u5_review_v2_grandparents_coffee_morning.webp",
+      "shared": ["photo", "safe_center", "food_clear"],
+      "four_card": true,
+      "prompt": "An older couple in their seventies, a man with white hair in a blue sweater and a woman with a grey bob in a pink cardigan, sit together at a small kitchen table by a sunny window in the early morning, each drinking from one plain white mug of black coffee; the black coffee shows in both mugs. Bright low morning sunlight streams through the window. No other drinks, food, clocks, text or people."
+    }
+  ]
+}

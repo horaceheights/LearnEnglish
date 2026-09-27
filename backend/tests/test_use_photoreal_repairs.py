@@ -24,14 +24,19 @@ class UsePhotorealRepairsTest(unittest.TestCase):
         self.assertEqual({('lesson-5-4-likes-and-dislikes', 'U7'), ('lesson-5-5-wants-and-needs', 'U7'),
                           ('lesson-6-8-schedules', 'U6'), ('lesson-7-9-complete-a1-review', 'U3')},
                          {(a['lesson_id'], a['slide_id']) for a in self.pack['assets']})
+        # The 2026-09-26 Unit 5 rebuild re-authored 5.4 and 5.5 from engine briefs, so their
+        # repaired Use cards are history; the originals stay preserved byte for byte.
+        rebuilt = {'lesson-5-4-likes-and-dislikes', 'lesson-5-5-wants-and-needs'}
         for asset in self.pack['assets']:
+            for folder in FOLDERS:
+                self.assertEqual(asset['old_sha256'], sha(ROOT / folder / asset['old_filename']))
+            if asset['lesson_id'] in rebuilt:
+                continue
             lesson = json.loads((ROOT / 'backend/lessons' / f"unit_{asset['unit']}" / f"{asset['lesson_id']}.yaml").read_text(encoding='utf-8'))
             card = next(c for c in lesson['cards'] if c['slide_id'] == asset['slide_id'])
             self.assertEqual('Use', card['stage'])
             self.assertEqual(asset['sentence'], card['answer_audio_text'])
             self.assertEqual(asset['runtime_filename'], card['prompt_image_url'])
-            for folder in FOLDERS:
-                self.assertEqual(asset['old_sha256'], sha(ROOT / folder / asset['old_filename']))
 
     def test_sources_receipts_review_and_all_runtime_copies_agree(self):
         self.assertEqual(sha(ROOT / 'docs/product/use-photoreal-repairs-v1.json'), self.proof['pack_sha256'])

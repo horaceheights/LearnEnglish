@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0de457c6-3fa3-42c2-be1f-a9baca96b8cc",
+  "asset_id": "ana-yes-please",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:40:47.162777+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Ana now accepts: she nods with a big warm smile, looking up at the server, and slides her empty glass teacup toward the teapot with one hand. The server starts to pour: a thin stream of amber tea runs from the teapot spout into her cup. Keep both people's faces, hair and clothes, and keep the table, cafe, light and camera identical. No new objects, text, arrows or symbols.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-5-lesson-v2/server-offers-tea.png",
+    "sha256": "7c60f4ee88abbe1612e32a68696ebc35ce24130a9b209412ea1ffc3347c9f5fb"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "80m4armMFt6CmtkP4YO7sAk",
+  "usage": {
+    "promptTokenCount": 353,
+    "candidatesTokenCount": 1259,
+    "totalTokenCount": 1752,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 95
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 140,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136386",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 353,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 140
+  },
+  "elapsed_seconds": 26.99,
+  "output": "output/imagegen/unit-5-lesson-v2/ana-yes-please.png",
+  "sha256": "2d25cfe5f13985bee93be481651dfd5a3749f3c9efe91b3df48c42acf71a47ea",
+  "byte_count": 5073519,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

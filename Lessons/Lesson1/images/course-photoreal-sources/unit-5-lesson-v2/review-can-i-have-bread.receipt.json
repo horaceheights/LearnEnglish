@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "febdacfa-b4b0-4150-92c8-4f7bc0b1bd85",
+  "asset_id": "review-can-i-have-bread",
+  "pack_sha256": "6ba6673fd5d7dec67fc010ecd5d9771ccab63e3e3e89b60f3e854ed5034fad7c",
+  "started_at": "2026-09-26T22:46:41.926783+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, packaging, screens, clothing, signs and menus, except the numerals or printed words the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nInside a small neighborhood bakery: a man in his fifties with grey hair and a brown jacket stands at the glass counter, points with his right index finger at a round loaf of bread on the top shelf behind the glass, and looks up at the baker with raised eyebrows, asking politely. Behind the counter, a woman baker in a white apron and a white cap listens with a smile. The loaves of bread are large and clearly visible. No text, price tags, signs or logos; no other people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "UUu4atvSC--Dz7IPu-rLuQ0",
+  "usage": {
+    "promptTokenCount": 293,
+    "candidatesTokenCount": 1342,
+    "totalTokenCount": 1837,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 293
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 202,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137010",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 293,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 202
+  },
+  "elapsed_seconds": 21.82,
+  "output": "output/imagegen/unit-5-lesson-v2/review-can-i-have-bread.png",
+  "sha256": "e8c628336908c35b0e8acc96dea30c2d0dbcde237161b70a0c22b4ded23c9fe4",
+  "byte_count": 6370929,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

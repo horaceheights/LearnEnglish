@@ -1,23 +1,33 @@
 {
   "id": "lesson-5-7-prices",
-  "title": "5.7 Prices",
+  "title": "5.8 Prices",
   "level": "Beginner A1",
   "unit_id": "unit-5",
   "unit_title": "Unit 5: Food, Drinks, and Shopping",
-  "unit_outcome": "Express simple food preferences and needs and complete a supported purchase or café order.",
+  "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
   "lesson_id": "lesson-5",
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
-  "sub_lesson_id": "5.7",
+  "sub_lesson_id": "5.8",
   "sub_lesson_title": "Prices",
-  "goal": "Ask and understand very simple prices from one to ten dollars.",
+  "goal": "Ask How much is it? and understand prices from one to ten dollars on known food, drinks and a bag.",
   "vocabulary": [
     "How much is it?",
     "dollar",
     "dollars"
   ],
   "review_vocabulary": [
-    "numbers one-ten",
-    "it is",
+    "it",
+    "is",
+    "the",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "ten",
     "apple",
     "bread",
     "juice",
@@ -25,15 +35,47 @@
     "coffee",
     "bag"
   ],
-  "grammar_function": "How much is it? It is one dollar / two-ten dollars.",
-  "prerequisite": "2.6 Numbers 1-10; 5.1-5.6 item nouns.",
-  "speaking_outcome": "Ask How much is it? and say five clear one-to-ten-dollar prices.",
+  "grammar_function": "How much is it? It is one dollar. The juice is four dollars.",
+  "prerequisite": "2.6-2.7 numbers; 2.3 bag; 5.1-5.3 fruit, food and drinks.",
+  "speaking_outcome": "Ask How much is it? and say a price.",
+  "content_revision": 2,
   "purposeful_review_slides": [
-    "Recognize:R6",
-    "Recognize:R7",
-    "Listen:A5",
-    "Listen:A6",
-    "Use:U7"
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U8",
+    "U9"
   ],
   "cards": [
     {
@@ -41,10 +83,10 @@
       "interaction_type": "teach",
       "prompt": "How much is it?",
       "stage": "Learn",
-      "correct_option_id": "how-much-is-it-1",
+      "correct_option_id": "how-much-is-it-learn",
       "options": [
         {
-          "id": "how-much-is-it-1",
+          "id": "how-much-is-it-learn",
           "image_url": "a1_scene_how-much-is-it_6073d26.webp",
           "label": "How much is it?"
         }
@@ -53,478 +95,583 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "New fixed question chunk."
+      "pedagogy_note": "Story beat 01: How much is it?",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "It is one dollar.",
+      "prompt": "A dollar",
       "stage": "Learn",
-      "correct_option_id": "it-is-one-dollar-1",
+      "correct_option_id": "a-dollar-learn",
       "options": [
         {
-          "id": "it-is-one-dollar-1",
-          "image_url": "a1_scene_it-is-one-dollar_bbafcba.webp",
-          "label": "It is one dollar."
+          "id": "a-dollar-learn",
+          "image_url": "a1_scene_apple-1_ac43e97.webp",
+          "label": "A dollar"
+        }
+      ],
+      "audio_text": "A dollar",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un dólar",
+      "pedagogy_note": "Story beat 02: A dollar"
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "Dollars",
+      "stage": "Learn",
+      "correct_option_id": "dollars-learn",
+      "options": [
+        {
+          "id": "dollars-learn",
+          "image_url": "a1_scene_bread-5_703d54a.webp",
+          "label": "Dollars"
+        }
+      ],
+      "audio_text": "Dollars",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Dólares",
+      "pedagogy_note": "Story beat 03: Dollars",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "t2i2",
+      "prompt": "It is one dollar.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-one-dollar-r1",
+      "options": [
+        {
+          "id": "it-is-two-dollars-r1",
+          "image_url": "a1_scene_apple-2_0b629d1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-one-dollar-r1",
+          "image_url": "a1_scene_apple-1_ac43e97.webp",
+          "label": null
         }
       ],
       "audio_text": "It is one dollar.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cuesta un dólar.",
-      "pedagogy_note": "Singular dollar."
+      "pedagogy_note": "Story beat 01: It is one dollar."
     },
     {
-      "slide_id": "L3",
-      "interaction_type": "teach",
-      "prompt": "It is three dollars.",
-      "stage": "Learn",
-      "correct_option_id": "it-is-three-dollars-1",
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "How much is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-two-dollars-r2",
       "options": [
         {
-          "id": "it-is-three-dollars-1",
-          "image_url": "a1_scene_it-is-three-dollars_ae387f3.webp",
-          "label": "It is three dollars."
+          "id": "it-is-one-dollar-r2",
+          "image_url": "",
+          "label": "It is one dollar."
+        },
+        {
+          "id": "it-is-two-dollars-r2",
+          "image_url": "",
+          "label": "It is two dollars."
+        }
+      ],
+      "audio_text": "How much is it?",
+      "answer_audio_text": "It is two dollars.",
+      "prompt_image_url": "a1_scene_apple-2_0b629d1.webp",
+      "spanish_translation": "¿Cuánto cuesta?",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: It is two dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "t2i2",
+      "prompt": "It is three dollars.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-three-dollars-r3",
+      "options": [
+        {
+          "id": "it-is-three-dollars-r3",
+          "image_url": "a1_scene_bread-3_f752557.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-five-dollars-r3",
+          "image_url": "a1_scene_bread-5_703d54a.webp",
+          "label": null
         }
       ],
       "audio_text": "It is three dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cuesta tres dólares.",
-      "pedagogy_note": "Plural dollars."
+      "pedagogy_note": "Story beat 03: It is three dollars."
     },
     {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "The juice is four dollars.",
-      "stage": "Learn",
-      "correct_option_id": "the-juice-is-four-dollars-1",
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "How much is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-five-dollars-r4",
       "options": [
         {
-          "id": "the-juice-is-four-dollars-1",
-          "image_url": "a1_scene_the-juice-is-four-dollars_df87bd6.webp",
+          "id": "it-is-three-dollars-r4",
+          "image_url": "",
+          "label": "It is three dollars."
+        },
+        {
+          "id": "it-is-five-dollars-r4",
+          "image_url": "",
+          "label": "It is five dollars."
+        }
+      ],
+      "audio_text": "How much is it?",
+      "answer_audio_text": "It is five dollars.",
+      "prompt_image_url": "a1_scene_bread-5_703d54a.webp",
+      "spanish_translation": "¿Cuánto cuesta?",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: It is five dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
+      "prompt": "It is ten dollars.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-ten-dollars-r5",
+      "options": [
+        {
+          "id": "it-is-five-dollars-r5",
+          "image_url": "a1_scene_bread-5_703d54a.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-ten-dollars-r5",
+          "image_url": "a1_scene_it-is-ten-dollars_717f891.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is ten dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Cuesta diez dólares.",
+      "pedagogy_note": "Story beat 05: It is ten dollars."
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-juice-is-four-dollars-r6",
+      "options": [
+        {
+          "id": "the-juice-is-four-dollars-r6",
+          "image_url": "",
+          "label": "The juice is four dollars."
+        },
+        {
+          "id": "the-juice-is-six-dollars-r6",
+          "image_url": "",
+          "label": "The juice is six dollars."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The juice is four dollars.",
+      "prompt_image_url": "a1_scene_juice-4_fac8ec5.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 06: The juice is four dollars."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i2",
+      "prompt": "The juice is six dollars.",
+      "stage": "Recognize",
+      "correct_option_id": "the-juice-is-six-dollars-r7",
+      "options": [
+        {
+          "id": "the-juice-is-six-dollars-r7",
+          "image_url": "a1_scene_juice-6_62dbd4f.webp",
+          "label": null
+        },
+        {
+          "id": "the-juice-is-four-dollars-r7",
+          "image_url": "a1_scene_juice-4_fac8ec5.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The juice is six dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El jugo cuesta seis dólares.",
+      "pedagogy_note": "Story beat 07: The juice is six dollars."
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-milk-is-two-dollars-r8",
+      "options": [
+        {
+          "id": "the-milk-is-five-dollars-r8",
+          "image_url": "",
+          "label": "The milk is five dollars."
+        },
+        {
+          "id": "the-milk-is-two-dollars-r8",
+          "image_url": "",
+          "label": "The milk is two dollars."
+        },
+        {
+          "id": "the-milk-is-four-dollars-r8",
+          "image_url": "",
+          "label": "The milk is four dollars."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The milk is two dollars.",
+      "prompt_image_url": "a1_scene_milk-2_6c36e21.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 08: The milk is two dollars."
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-bag-is-seven-dollars-r9",
+      "options": [
+        {
+          "id": "the-bag-is-seven-dollars-r9",
+          "image_url": "",
+          "label": "The bag is seven dollars."
+        },
+        {
+          "id": "the-bag-is-eight-dollars-r9",
+          "image_url": "",
+          "label": "The bag is eight dollars."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The bag is seven dollars.",
+      "prompt_image_url": "a1_scene_bag-7_378b7f0_four-card.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 09: The bag is seven dollars."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-bag-is-eight-dollars-r10",
+      "options": [
+        {
+          "id": "the-bag-is-eight-dollars-r10",
+          "image_url": "",
+          "label": "The bag is eight dollars."
+        },
+        {
+          "id": "the-bag-is-seven-dollars-r10",
+          "image_url": "",
+          "label": "The bag is seven dollars."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The bag is eight dollars.",
+      "prompt_image_url": "a1_scene_bag-8_7f5b9cb_four-card.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: The bag is eight dollars."
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "t2i2",
+      "prompt": "It is one dollar.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-one-dollar-r11",
+      "options": [
+        {
+          "id": "it-is-two-dollars-r11",
+          "image_url": "a1_scene_apple-2_0b629d1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-one-dollar-r11",
+          "image_url": "a1_scene_apple-1_ac43e97.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is one dollar.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Cuesta un dólar.",
+      "pedagogy_note": "Story beat 11: It is one dollar."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-one-dollar-a1",
+      "options": [
+        {
+          "id": "it-is-one-dollar-a1",
+          "image_url": "a1_scene_apple-1_ac43e97.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-two-dollars-a1",
+          "image_url": "a1_scene_apple-2_0b629d1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is one dollar.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: It is one dollar.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-two-dollars-a2",
+      "options": [
+        {
+          "id": "it-is-two-dollars-a2",
+          "image_url": "a1_scene_apple-2_0b629d1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-one-dollar-a2",
+          "image_url": "a1_scene_apple-1_ac43e97.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is two dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: It is two dollars."
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-three-dollars-a3",
+      "options": [
+        {
+          "id": "it-is-three-dollars-a3",
+          "image_url": "",
+          "label": "It is three dollars."
+        },
+        {
+          "id": "it-is-five-dollars-a3",
+          "image_url": "",
+          "label": "It is five dollars."
+        }
+      ],
+      "audio_text": "It is three dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: It is three dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-five-dollars-a4",
+      "options": [
+        {
+          "id": "it-is-three-dollars-a4",
+          "image_url": "a1_scene_bread-3_f752557.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-five-dollars-a4",
+          "image_url": "a1_scene_bread-5_703d54a.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is five dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: It is five dollars."
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-ten-dollars-a5",
+      "options": [
+        {
+          "id": "it-is-ten-dollars-a5",
+          "image_url": "a1_scene_it-is-ten-dollars_717f891.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-five-dollars-a5",
+          "image_url": "a1_scene_bread-5_703d54a.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is ten dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: It is ten dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-juice-is-four-dollars-a6",
+      "options": [
+        {
+          "id": "the-juice-is-six-dollars-a6",
+          "image_url": "",
+          "label": "The juice is six dollars."
+        },
+        {
+          "id": "the-juice-is-four-dollars-a6",
+          "image_url": "",
           "label": "The juice is four dollars."
         }
       ],
       "audio_text": "The juice is four dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El jugo cuesta cuatro dólares.",
-      "pedagogy_note": "Item-specific price sentence."
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: The juice is four dollars."
     },
     {
-      "slide_id": "L5",
-      "interaction_type": "teach",
-      "prompt": "The milk is two dollars.",
-      "stage": "Learn",
-      "correct_option_id": "the-milk-is-two-dollars-1",
+      "slide_id": "A7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-juice-is-six-dollars-a7",
       "options": [
         {
-          "id": "the-milk-is-two-dollars-1",
-          "image_url": "a1_scene_the-milk-is-two-dollars_e49118c.webp",
-          "label": "The milk is two dollars."
-        }
-      ],
-      "audio_text": "The milk is two dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La leche cuesta dos dólares.",
-      "pedagogy_note": "Pattern repetition."
-    },
-    {
-      "slide_id": "L6",
-      "interaction_type": "teach",
-      "prompt": "The coffee is five dollars.",
-      "stage": "Learn",
-      "correct_option_id": "the-coffee-is-five-dollars-1",
-      "options": [
-        {
-          "id": "the-coffee-is-five-dollars-1",
-          "image_url": "a1_scene_the-coffee-is-five-dollars_2a9a9f0.webp",
-          "label": "The coffee is five dollars."
-        }
-      ],
-      "audio_text": "The coffee is five dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El café cuesta cinco dólares.",
-      "pedagogy_note": "Pattern repetition."
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "recognize-image",
-      "prompt": "It is one dollar.",
-      "stage": "Recognize",
-      "correct_option_id": "apple-1-1",
-      "options": [
-        {
-          "id": "apple-1-1",
-          "image_url": "a1_scene_apple-1_ac43e97.webp",
-          "label": null
-        },
-        {
-          "id": "apple-2-2",
-          "image_url": "a1_scene_apple-2_0b629d1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is one dollar.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Cuesta un dólar.",
-      "pedagogy_note": "Exact price tag."
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "It is three dollars.",
-      "stage": "Recognize",
-      "correct_option_id": "bread-3-2",
-      "options": [
-        {
-          "id": "bread-5-1",
-          "image_url": "a1_scene_bread-5_703d54a.webp",
-          "label": null
-        },
-        {
-          "id": "bread-3-2",
-          "image_url": "a1_scene_bread-3_f752557.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is three dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Cuesta tres dólares.",
-      "pedagogy_note": "Exact digit."
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "The juice is four dollars.",
-      "stage": "Recognize",
-      "correct_option_id": "juice-4-2",
-      "options": [
-        {
-          "id": "milk-4-1",
-          "image_url": "a1_photo_u5_milk_four_dollars_v1.webp",
-          "label": null
-        },
-        {
-          "id": "juice-4-2",
+          "id": "the-juice-is-four-dollars-a7",
           "image_url": "a1_scene_juice-4_fac8ec5.webp",
           "label": null
-        }
-      ],
-      "audio_text": "The juice is four dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El jugo cuesta cuatro dólares.",
-      "pedagogy_note": "Item decides while price held constant."
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "The milk is two dollars.",
-      "stage": "Recognize",
-      "correct_option_id": "milk-2-1",
-      "options": [
-        {
-          "id": "milk-2-1",
-          "image_url": "a1_scene_milk-2_6c36e21.webp",
-          "label": null
         },
         {
-          "id": "milk-4-2",
-          "image_url": "a1_photo_u5_milk_four_dollars_v1.webp",
+          "id": "the-juice-is-six-dollars-a7",
+          "image_url": "a1_scene_juice-6_62dbd4f.webp",
           "label": null
+        }
+      ],
+      "audio_text": "The juice is six dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: The juice is six dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-milk-is-two-dollars-a8",
+      "options": [
+        {
+          "id": "the-milk-is-two-dollars-a8",
+          "image_url": "",
+          "label": "The milk is two dollars."
+        },
+        {
+          "id": "the-milk-is-four-dollars-a8",
+          "image_url": "",
+          "label": "The milk is four dollars."
+        },
+        {
+          "id": "the-milk-is-five-dollars-a8",
+          "image_url": "",
+          "label": "The milk is five dollars."
         }
       ],
       "audio_text": "The milk is two dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "La leche cuesta dos dólares.",
-      "pedagogy_note": "Price decides."
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: The milk is two dollars."
     },
     {
-      "slide_id": "R5",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-five-dollars-4",
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-bag-is-seven-dollars-a9",
       "options": [
         {
-          "id": "it-is-two-dollars-1",
+          "id": "the-bag-is-eight-dollars-a9",
           "image_url": "",
-          "label": "It is two dollars."
+          "label": "The bag is eight dollars."
         },
         {
-          "id": "it-is-three-dollars-2",
+          "id": "the-bag-is-seven-dollars-a9",
           "image_url": "",
-          "label": "It is three dollars."
-        },
-        {
-          "id": "it-is-five-dollars-4",
-          "image_url": "",
-          "label": "It is five dollars."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "It is five dollars.",
-      "prompt_image_url": "a1_scene_it-is-five-dollars_fb6615f.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Image-to-text price."
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "how-much-is-it-2",
-      "options": [
-        {
-          "id": "who-is-she-1",
-          "image_url": "",
-          "label": "Who is she?"
-        },
-        {
-          "id": "how-much-is-it-2",
-          "image_url": "",
-          "label": "How much is it?"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "How much is it?",
-      "prompt_image_url": "a1_scene_how-much-is-it_6073d26.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Both choices are previously taught chunks, but only the price question can apply to this non-person price task."
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "recognize-image",
-      "prompt": "The bag is seven dollars.",
-      "stage": "Recognize",
-      "correct_option_id": "bag-7-2",
-      "options": [
-        {
-          "id": "bag-6-1",
-          "image_url": "a1_scene_bag-6_431210e_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "bag-7-2",
-          "image_url": "a1_scene_bag-7_378b7f0_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "bag-8-3",
-          "image_url": "a1_scene_bag-8_7f5b9cb_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "bag-9-4",
-          "image_url": "a1_scene_bag-9_adb8071_four-card.webp",
-          "label": null
+          "label": "The bag is seven dollars."
         }
       ],
       "audio_text": "The bag is seven dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "La bolsa cuesta siete dólares.",
-      "pedagogy_note": "Review Unit 2 object and numbers."
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: The bag is seven dollars.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-one-dollar-1",
-      "options": [
-        {
-          "id": "it-is-one-dollar-1",
-          "image_url": "",
-          "label": "It is one dollar."
-        },
-        {
-          "id": "it-is-one-dollars-2",
-          "image_url": "",
-          "label": "It is one dollars."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "It is one dollar.",
-      "prompt_image_url": "a1_scene_it-is-one-dollar_bbafcba.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Singular/plural text contrast."
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "listen-image",
+      "slide_id": "A10",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "apple-1-1",
+      "correct_option_id": "the-bag-is-eight-dollars-a10",
       "options": [
         {
-          "id": "apple-1-1",
-          "image_url": "a1_scene_apple-1_ac43e97.webp",
-          "label": null
+          "id": "the-bag-is-seven-dollars-a10",
+          "image_url": "",
+          "label": "The bag is seven dollars."
         },
         {
-          "id": "apple-2-2",
-          "image_url": "a1_scene_apple-2_0b629d1.webp",
-          "label": null
+          "id": "the-bag-is-eight-dollars-a10",
+          "image_url": "",
+          "label": "The bag is eight dollars."
         }
       ],
-      "audio_text": "It is one dollar.",
+      "audio_text": "The bag is eight dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only price."
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "bread-3-2",
-      "options": [
-        {
-          "id": "bread-5-1",
-          "image_url": "a1_scene_bread-5_703d54a.webp",
-          "label": null
-        },
-        {
-          "id": "bread-3-2",
-          "image_url": "a1_scene_bread-3_f752557.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is three dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only number."
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "juice-4-1",
-      "options": [
-        {
-          "id": "juice-4-1",
-          "image_url": "a1_scene_juice-4_fac8ec5.webp",
-          "label": null
-        },
-        {
-          "id": "juice-6-2",
-          "image_url": "a1_scene_juice-6_62dbd4f.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The juice is four dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Price decides."
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "listen-text",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "how-much-is-it-2",
-      "options": [
-        {
-          "id": "what-is-it-1",
-          "image_url": "",
-          "label": "What is it?"
-        },
-        {
-          "id": "how-much-is-it-2",
-          "image_url": "",
-          "label": "How much is it?"
-        }
-      ],
-      "audio_text": "How much is it?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Question listening without image dependence."
-    },
-    {
-      "slide_id": "A5",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "coffee-8-3",
-      "options": [
-        {
-          "id": "coffee-6-1",
-          "image_url": "a1_scene_coffee-6_1ea48e3_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "tea-8-2",
-          "image_url": "a1_scene_tea-8_43e62f6_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "coffee-8-3",
-          "image_url": "a1_scene_coffee-8_90b7ae7_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "juice-8-4",
-          "image_url": "a1_scene_juice-8_437a2f8_four-card.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The coffee is eight dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review coffee/tea; every distractor changes one element."
-    },
-    {
-      "slide_id": "A6",
-      "interaction_type": "listen-text",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-bread-is-ten-dollars-3",
-      "options": [
-        {
-          "id": "the-bread-is-two-dollars-1",
-          "image_url": "",
-          "label": "The bread is two dollars."
-        },
-        {
-          "id": "the-rice-is-ten-dollars-2",
-          "image_url": "",
-          "label": "The rice is ten dollars."
-        },
-        {
-          "id": "the-bread-is-ten-dollars-3",
-          "image_url": "",
-          "label": "The bread is ten dollars."
-        }
-      ],
-      "audio_text": "The bread is ten dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review number ten and food."
+      "pedagogy_note": "Story beat 10: The bag is eight dollars."
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
       "prompt": "How much is it?",
       "stage": "Speak",
-      "correct_option_id": "how-much-is-it-1",
+      "correct_option_id": "how-much-is-it-speak",
       "options": [
         {
-          "id": "how-much-is-it-1",
+          "id": "how-much-is-it-speak",
           "image_url": "a1_scene_how-much-is-it_6073d26.webp",
           "label": "How much is it?"
         }
@@ -533,18 +680,39 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "Complete question chunk."
+      "pedagogy_note": "Story beat 01: How much is it?",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "It is one dollar.",
+      "prompt": "A dollar",
       "stage": "Speak",
-      "correct_option_id": "it-is-one-dollar-1",
+      "correct_option_id": "a-dollar-speak",
       "options": [
         {
-          "id": "it-is-one-dollar-1",
-          "image_url": "a1_scene_it-is-one-dollar_bbafcba.webp",
+          "id": "a-dollar-speak",
+          "image_url": "a1_scene_apple-1_ac43e97.webp",
+          "label": "A dollar"
+        }
+      ],
+      "audio_text": "A dollar",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un dólar",
+      "pedagogy_note": "Story beat 02: A dollar",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "It is one dollar.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-one-dollar-speak",
+      "options": [
+        {
+          "id": "it-is-one-dollar-speak",
+          "image_url": "a1_scene_apple-1_ac43e97.webp",
           "label": "It is one dollar."
         }
       ],
@@ -552,18 +720,38 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cuesta un dólar.",
-      "pedagogy_note": "Singular form."
+      "pedagogy_note": "Story beat 03: It is one dollar."
     },
     {
-      "slide_id": "S3",
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "It is two dollars.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-two-dollars-speak",
+      "options": [
+        {
+          "id": "it-is-two-dollars-speak",
+          "image_url": "a1_scene_apple-2_0b629d1.webp",
+          "label": "It is two dollars."
+        }
+      ],
+      "audio_text": "It is two dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Cuesta dos dólares.",
+      "pedagogy_note": "Story beat 04: It is two dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S5",
       "interaction_type": "speak",
       "prompt": "It is three dollars.",
       "stage": "Speak",
-      "correct_option_id": "it-is-three-dollars-1",
+      "correct_option_id": "it-is-three-dollars-speak",
       "options": [
         {
-          "id": "it-is-three-dollars-1",
-          "image_url": "a1_scene_it-is-three-dollars_ae387f3.webp",
+          "id": "it-is-three-dollars-speak",
+          "image_url": "a1_scene_bread-3_f752557.webp",
           "label": "It is three dollars."
         }
       ],
@@ -571,18 +759,57 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cuesta tres dólares.",
-      "pedagogy_note": "Plural form."
+      "pedagogy_note": "Story beat 05: It is three dollars."
     },
     {
-      "slide_id": "S4",
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "It is five dollars.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-five-dollars-speak",
+      "options": [
+        {
+          "id": "it-is-five-dollars-speak",
+          "image_url": "a1_scene_bread-5_703d54a.webp",
+          "label": "It is five dollars."
+        }
+      ],
+      "audio_text": "It is five dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Cuesta cinco dólares.",
+      "pedagogy_note": "Story beat 06: It is five dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "It is ten dollars.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-ten-dollars-speak",
+      "options": [
+        {
+          "id": "it-is-ten-dollars-speak",
+          "image_url": "a1_scene_it-is-ten-dollars_717f891.webp",
+          "label": "It is ten dollars."
+        }
+      ],
+      "audio_text": "It is ten dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Cuesta diez dólares.",
+      "pedagogy_note": "Story beat 07: It is ten dollars."
+    },
+    {
+      "slide_id": "S8",
       "interaction_type": "speak",
       "prompt": "The juice is four dollars.",
       "stage": "Speak",
-      "correct_option_id": "the-juice-is-four-dollars-1",
+      "correct_option_id": "the-juice-is-four-dollars-speak",
       "options": [
         {
-          "id": "the-juice-is-four-dollars-1",
-          "image_url": "a1_scene_the-juice-is-four-dollars_df87bd6.webp",
+          "id": "the-juice-is-four-dollars-speak",
+          "image_url": "a1_scene_juice-4_fac8ec5.webp",
           "label": "The juice is four dollars."
         }
       ],
@@ -590,48 +817,61 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "El jugo cuesta cuatro dólares.",
-      "pedagogy_note": "Complete sentence."
+      "pedagogy_note": "Story beat 08: The juice is four dollars.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "S5",
+      "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "The milk is two dollars.",
+      "prompt": "The juice is six dollars.",
       "stage": "Speak",
-      "correct_option_id": "the-milk-is-two-dollars-1",
+      "correct_option_id": "the-juice-is-six-dollars-speak",
       "options": [
         {
-          "id": "the-milk-is-two-dollars-1",
-          "image_url": "a1_scene_the-milk-is-two-dollars_e49118c.webp",
-          "label": "The milk is two dollars."
+          "id": "the-juice-is-six-dollars-speak",
+          "image_url": "a1_scene_juice-6_62dbd4f.webp",
+          "label": "The juice is six dollars."
         }
       ],
-      "audio_text": "The milk is two dollars.",
+      "audio_text": "The juice is six dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "La leche cuesta dos dólares.",
-      "pedagogy_note": "Complete sentence."
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "The coffee is five dollars.",
-      "stage": "Speak",
-      "correct_option_id": "the-coffee-is-five-dollars-1",
-      "options": [
-        {
-          "id": "the-coffee-is-five-dollars-1",
-          "image_url": "a1_scene_the-coffee-is-five-dollars_2a9a9f0.webp",
-          "label": "The coffee is five dollars."
-        }
-      ],
-      "audio_text": "The coffee is five dollars.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El café cuesta cinco dólares.",
-      "pedagogy_note": "Complete sentence."
+      "spanish_translation": "El jugo cuesta seis dólares.",
+      "pedagogy_note": "Story beat 09: The juice is six dollars."
     },
     {
       "slide_id": "U1",
+      "interaction_type": "complete2",
+      "prompt": "How much ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "is",
+      "options": [
+        {
+          "id": "is",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "it",
+          "image_url": "",
+          "label": "it"
+        }
+      ],
+      "audio_text": "How much is it?",
+      "answer_audio_text": "How much is it?",
+      "prompt_image_url": "a1_scene_how-much-is-it_6073d26.webp",
+      "spanish_translation": "¿Cuánto cuesta?",
+      "translation": "¿Cuánto cuesta?",
+      "correct_option_ids": [
+        "is",
+        "it"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 01: How much is it?",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U2",
       "interaction_type": "complete2",
       "prompt": "It is ___ ___.",
       "stage": "Use",
@@ -650,17 +890,48 @@
       ],
       "audio_text": "It is one dollar.",
       "answer_audio_text": "It is one dollar.",
-      "prompt_image_url": "a1_scene_it-is-one-dollar_bbafcba.webp",
+      "prompt_image_url": "a1_scene_apple-1_ac43e97.webp",
       "spanish_translation": "Cuesta un dólar.",
-      "pedagogy_note": "Uses only the previously learned what distractor; Spanish hint explains this fixed price question after a miss.",
       "translation": "Cuesta un dólar.",
       "correct_option_ids": [
         "one",
         "dollar"
-      ]
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: It is one dollar.",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "U2",
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "two",
+      "options": [
+        {
+          "id": "two",
+          "image_url": "",
+          "label": "two"
+        },
+        {
+          "id": "dollars",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "It is two dollars.",
+      "answer_audio_text": "It is two dollars.",
+      "prompt_image_url": "a1_scene_apple-2_0b629d1.webp",
+      "spanish_translation": "Cuesta dos dólares.",
+      "translation": "Cuesta dos dólares.",
+      "correct_option_ids": [
+        "two",
+        "dollars"
+      ],
+      "pedagogy_note": "Story beat 03: It is two dollars."
+    },
+    {
+      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "It is ___ ___.",
       "stage": "Use",
@@ -679,113 +950,45 @@
       ],
       "audio_text": "It is three dollars.",
       "answer_audio_text": "It is three dollars.",
-      "prompt_image_url": "a1_scene_it-is-three-dollars_ae387f3.webp",
+      "prompt_image_url": "a1_scene_bread-3_f752557.webp",
       "spanish_translation": "Cuesta tres dólares.",
-      "pedagogy_note": "Singular agreement.",
       "translation": "Cuesta tres dólares.",
       "correct_option_ids": [
         "three",
         "dollars"
-      ]
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "The juice is ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "four",
-      "options": [
-        {
-          "id": "four",
-          "image_url": "",
-          "label": "four"
-        },
-        {
-          "id": "dollars",
-          "image_url": "",
-          "label": "dollars"
-        }
       ],
-      "audio_text": "The juice is four dollars.",
-      "answer_audio_text": "The juice is four dollars.",
-      "prompt_image_url": "a1_scene_the-juice-is-four-dollars_df87bd6.webp",
-      "spanish_translation": "El jugo cuesta cuatro dólares.",
-      "pedagogy_note": "Plural agreement.",
-      "translation": "El jugo cuesta cuatro dólares.",
-      "correct_option_ids": [
-        "four",
-        "dollars"
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "The bag is ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "seven",
-      "options": [
-        {
-          "id": "seven",
-          "image_url": "",
-          "label": "seven"
-        },
-        {
-          "id": "dollars",
-          "image_url": "",
-          "label": "dollars"
-        }
-      ],
-      "audio_text": "The bag is seven dollars.",
-      "answer_audio_text": "The bag is seven dollars.",
-      "prompt_image_url": "a1_scene_seven_a00bbe5.webp",
-      "spanish_translation": "La bolsa cuesta siete dólares.",
-      "pedagogy_note": "Exact tag.",
-      "translation": "La bolsa cuesta siete dólares.",
-      "correct_option_ids": [
-        "seven",
-        "dollars"
-      ]
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: It is three dollars.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___?",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "five",
       "options": [
         {
-          "id": "word-1",
+          "id": "five",
           "image_url": "",
-          "label": "How"
+          "label": "five"
         },
         {
-          "id": "word-2",
+          "id": "dollars",
           "image_url": "",
-          "label": "much"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "it"
+          "label": "dollars"
         }
       ],
-      "audio_text": "How much is it?",
-      "answer_audio_text": "How much is it?",
-      "prompt_image_url": "a1_scene_how-much-is-it_6073d26.webp",
-      "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "Controlled price response.",
-      "translation": "¿Cuánto cuesta?",
+      "audio_text": "It is five dollars.",
+      "answer_audio_text": "It is five dollars.",
+      "prompt_image_url": "a1_scene_bread-5_703d54a.webp",
+      "spanish_translation": "Cuesta cinco dólares.",
+      "translation": "Cuesta cinco dólares.",
       "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ]
+        "five",
+        "dollars"
+      ],
+      "pedagogy_note": "Story beat 05: It is five dollars."
     },
     {
       "slide_id": "U6",
@@ -795,120 +998,183 @@
       "correct_option_id": "word-1",
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "two"
         },
         {
           "id": "word-4",
           "image_url": "",
           "label": "dollars"
-        }
-      ],
-      "audio_text": "It is two dollars.",
-      "answer_audio_text": "It is two dollars.",
-      "prompt_image_url": "a1_scene_milk-2_6c36e21.webp",
-      "spanish_translation": "Cuesta dos dólares.",
-      "pedagogy_note": "Controlled response.",
-      "translation": "Cuesta dos dólares.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ]
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
+        },
         {
           "id": "word-1",
           "image_url": "",
           "label": "It"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "five"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "dollars"
-        }
-      ],
-      "audio_text": "It is five dollars.",
-      "answer_audio_text": "It is five dollars.",
-      "prompt_image_url": "a1_scene_it-is-five-dollars_fb6615f.webp",
-      "spanish_translation": "Cuesta cinco dólares.",
-      "pedagogy_note": "Review object and upper-range number.",
-      "translation": "Cuesta cinco dólares.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ]
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
         },
         {
           "id": "word-3",
           "image_url": "",
           "label": "ten"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "dollars"
         }
       ],
       "audio_text": "It is ten dollars.",
       "answer_audio_text": "It is ten dollars.",
       "prompt_image_url": "a1_scene_it-is-ten-dollars_717f891.webp",
       "spanish_translation": "Cuesta diez dólares.",
-      "pedagogy_note": "Uses the exact taught question-answer frame rather than first testing a noun-substitution question here.",
       "translation": "Cuesta diez dólares.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
-      ]
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 06: It is ten dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "milk"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "two"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "The milk is two dollars.",
+      "answer_audio_text": "The milk is two dollars.",
+      "prompt_image_url": "a1_scene_milk-2_6c36e21.webp",
+      "spanish_translation": "La leche cuesta dos dólares.",
+      "translation": "La leche cuesta dos dólares.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "pedagogy_note": "Story beat 07: The milk is two dollars."
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "bag"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "seven"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "The bag is seven dollars.",
+      "answer_audio_text": "The bag is seven dollars.",
+      "prompt_image_url": "a1_scene_bag-7_378b7f0_four-card.webp",
+      "spanish_translation": "La bolsa cuesta siete dólares.",
+      "translation": "La bolsa cuesta siete dólares.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 08: The bag is seven dollars.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "bag"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "eight"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "The bag is eight dollars.",
+      "answer_audio_text": "The bag is eight dollars.",
+      "prompt_image_url": "a1_scene_bag-8_7f5b9cb_four-card.webp",
+      "spanish_translation": "La bolsa cuesta ocho dólares.",
+      "translation": "La bolsa cuesta ocho dólares.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "pedagogy_note": "Story beat 09: The bag is eight dollars."
     }
   ]
 }

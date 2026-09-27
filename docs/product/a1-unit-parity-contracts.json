@@ -56,16 +56,18 @@
       ]
     },
     "5": {
-      "outcome": "Complete a food purchase: select quantities, explain preferences and needs, order politely, check the price, and close the exchange.",
+      "outcome": "Complete a day of food shopping: find fruit, food and drinks, count them, say what people like, want and need, check the price, and ask politely at the cafe.",
       "functions": [
         {"id": "fruit", "taught_in": "5.1", "patterns": ["\\b(?:apple|apples)\\b", "\\b(?:banana|bananas|orange|oranges|grapes|strawberry|pear)\\b"]},
-        {"id": "food-drinks", "taught_in": "5.2", "patterns": ["\\b(?:bread|rice|egg|eggs|chicken|fish)\\b", "\\bwater\\b", "\\bmilk\\b", "\\bjuice\\b"]},
-        {"id": "quantities", "taught_in": "5.3", "patterns": ["\\b(?:one|two|three) (?:egg|eggs|apple|apples)\\b", "\\bsome (?:rice|water)\\b"]},
-        {"id": "preferences", "taught_in": "5.4", "patterns": ["\\bi like\\b", "\\bi do not like\\b"]},
-        {"id": "wants-needs", "taught_in": "5.5", "patterns": ["\\b(?:want|wants)\\b", "\\b(?:need|needs)\\b"]},
-        {"id": "meals", "taught_in": "5.6", "patterns": ["\\bfor breakfast\\b", "\\b(?:for lunch|for dinner)\\b"]},
-        {"id": "price", "taught_in": "5.7", "patterns": ["\\bhow much is it\\b", "\\b(?:one dollar|two dollars|three dollars|four dollars|five dollars)\\b"]},
-        {"id": "polite-order", "taught_in": "5.8", "patterns": ["\\b(?:water|juice|milk|coffee|tea) please\\b", "\\bhere you are\\b", "\\bthank you\\b", "\\byes please\\b", "\\bno thank you\\b"]}
+        {"id": "food", "taught_in": "5.2", "patterns": ["\\b(?:bread|rice|egg|eggs|chicken|fish)\\b"]},
+        {"id": "drinks", "taught_in": "5.3", "patterns": ["\\bwater\\b", "\\bmilk\\b", "\\bjuice\\b", "\\bcoffee\\b"]},
+        {"id": "quantities", "taught_in": "5.4", "patterns": ["\\bhow many\\b", "\\bsome (?:rice|water)\\b"]},
+        {"id": "preferences", "taught_in": "5.5", "patterns": ["\\bi like\\b", "\\bi do not like\\b"]},
+        {"id": "wants-needs", "taught_in": "5.6", "patterns": ["\\b(?:want|wants)\\b", "\\b(?:need|needs)\\b"]},
+        {"id": "meals", "taught_in": "5.7", "patterns": ["\\bfor breakfast\\b", "\\b(?:for lunch|for dinner)\\b"]},
+        {"id": "price", "taught_in": "5.8", "patterns": ["\\bhow much is it\\b", "\\b(?:one dollar|two dollars|three dollars|four dollars|five dollars)\\b"]},
+        {"id": "polite-order", "taught_in": "5.9", "patterns": ["\\b(?:water|juice|milk|coffee|tea) please\\b", "\\bhere you are\\b", "\\bthank you\\b"]},
+        {"id": "polite-request", "taught_in": "5.10", "patterns": ["\\bcan i have\\b", "\\byes please\\b", "\\bno thank you\\b"]}
       ]
     },
     "6": {

@@ -77,6 +77,9 @@ const MEANINGS: Record<string, string> = {
   bread: 'pan', egg: 'huevo', eggs: 'huevos', rice: 'arroz', milk: 'leche', fish: 'pescado',
   juice: 'jugo', water: 'agua', breakfast: 'desayuno', lunch: 'almuerzo', dinner: 'cena',
   drink: 'beber', coffee: 'café', tea: 'té', chicken: 'pollo',
+  bananas: 'plátanos', oranges: 'naranjas', strawberries: 'fresas', pears: 'peras',
+  fruit: 'fruta', food: 'comida', drinks: 'bebidas', café: 'cafetería', cafe: 'cafetería',
+  'me too': 'yo también',
   station: 'estación', pharmacy: 'farmacia', train: 'tren', taxi: 'taxi', walk: 'caminar',
   left: 'izquierda', right: 'derecha', straight: 'recto, sin girar', cross: 'cruzar',
   leaves: 'sale', arrives: 'llega', afternoon: 'tarde', head: 'cabeza', eyes: 'ojos',
@@ -157,6 +160,7 @@ const PERSON_PRONOUNS: Record<string, { meaning: string; scope: string }> = {
 // explained accurately by a single vocabulary contrast.
 const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   'luis go work': 'Luis yendo al trabajo', 'luis work': 'Luis trabajando',
+  like: 'algo que le gusta', 'do not like': 'algo que no le gusta',
   'likes bananas': 'gusto por los plátanos', 'likes apples': 'gusto por las manzanas',
   'server hands drink': 'la entrega de una bebida',
   'learner requests drink': 'una petición de bebida',

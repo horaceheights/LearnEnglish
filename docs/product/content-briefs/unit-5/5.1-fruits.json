@@ -1,0 +1,370 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds fruit and the six fruits only; colors, counts and family members eating fruit are practice on known words. Counting photos stay out of four-picture cards. A photo of a person eating keeps the person and changes only the fruit, so it is offered as text.",
+  "target": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+  "lesson": {
+    "id": "lesson-5-1-fruits",
+    "title": "5.1 Fruits",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.1",
+    "sub_lesson_title": "Fruits",
+    "goal": "Recognize and name six fruits and fruit itself, and describe them with known colors, numbers and family members.",
+    "vocabulary": [
+      "fruit",
+      "apple",
+      "banana",
+      "orange",
+      "grapes",
+      "strawberry",
+      "pear"
+    ],
+    "review_vocabulary": [
+      "a",
+      "an",
+      "it",
+      "is",
+      "they",
+      "are",
+      "the",
+      "on",
+      "table",
+      "red",
+      "yellow",
+      "green",
+      "two",
+      "three",
+      "four",
+      "five",
+      "woman",
+      "baby",
+      "children",
+      "eating"
+    ],
+    "grammar_function": "a/an + fruit; It is a pear. They are grapes. The apple is green. Three oranges. The baby is eating a banana.",
+    "prerequisite": "1.2-1.4 eating, baby, children; 2.6-2.8 numbers and colors; 4.3 on.",
+    "speaking_outcome": "Name the fruit in a picture and say what a family member is eating.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 7
+  },
+  "items": [
+    {
+      "text": "Fruit",
+      "es": "Fruta",
+      "image": "a1_photo_u5_fruit_v1.webp",
+      "kind": "category",
+      "choices": false
+    },
+    {
+      "text": "An apple",
+      "es": "Una manzana",
+      "image": "a1_apple.webp",
+      "kind": "fruit-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "A banana",
+      "es": "Un plátano",
+      "image": "a1_banana.webp",
+      "kind": "fruit-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "An orange",
+      "es": "Una naranja",
+      "image": "a1_orange.webp",
+      "kind": "fruit-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "Grapes",
+      "es": "Uvas",
+      "image": "a1_grapes.webp",
+      "kind": "fruit-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "A strawberry",
+      "es": "Una fresa",
+      "image": "a1_strawberry.webp",
+      "kind": "fruit-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "A pear",
+      "es": "Una pera",
+      "image": "a1_pear.webp",
+      "kind": "fruit-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "The fruit is on the table.",
+      "es": "La fruta está en la mesa.",
+      "image": "a1_photo_u5_fruit_on_table_v1.webp",
+      "kind": "fruit-place",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The fruit is under the table.",
+        "The fruit is next to the table."
+      ]
+    },
+    {
+      "text": "It is a pear.",
+      "es": "Es una pera.",
+      "image": "a1_pear.webp",
+      "kind": "it-is-fruit",
+      "learn": false
+    },
+    {
+      "text": "It is a banana.",
+      "es": "Es un plátano.",
+      "image": "a1_banana.webp",
+      "kind": "it-is-fruit",
+      "learn": false
+    },
+    {
+      "text": "It is an orange.",
+      "es": "Es una naranja.",
+      "image": "a1_orange.webp",
+      "kind": "it-is-fruit",
+      "learn": false
+    },
+    {
+      "text": "It is a strawberry.",
+      "es": "Es una fresa.",
+      "image": "a1_strawberry.webp",
+      "kind": "it-is-fruit",
+      "learn": false
+    },
+    {
+      "text": "They are grapes.",
+      "es": "Son uvas.",
+      "image": "a1_grapes.webp",
+      "kind": "they-are-fruit",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "They are strawberries."
+      ]
+    },
+    {
+      "text": "The apple is green.",
+      "es": "La manzana es verde.",
+      "image": "a1_photo_u5_green_apple_v1.webp",
+      "kind": "apple-color",
+      "learn": false,
+      "prefer": [
+        "The apple is red."
+      ]
+    },
+    {
+      "text": "The apple is red.",
+      "es": "La manzana es roja.",
+      "image": "a1_apple.webp",
+      "kind": "apple-color",
+      "learn": false,
+      "prefer": [
+        "The apple is green."
+      ]
+    },
+    {
+      "text": "The banana is yellow.",
+      "es": "El plátano es amarillo.",
+      "image": "a1_banana.webp",
+      "kind": "banana-color",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The banana is red.",
+        "The banana is blue."
+      ]
+    },
+    {
+      "text": "Two oranges.",
+      "es": "Dos naranjas.",
+      "image": "a1_photo_u5_two_oranges_v1.webp",
+      "kind": "orange-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Three oranges."
+      ]
+    },
+    {
+      "text": "Three oranges.",
+      "es": "Tres naranjas.",
+      "image": "a1_photo_u5_three_oranges_v1.webp",
+      "kind": "orange-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Four oranges."
+      ]
+    },
+    {
+      "text": "Four oranges.",
+      "es": "Cuatro naranjas.",
+      "image": "a1_photo_u5_four_oranges_v1.webp",
+      "kind": "orange-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Three oranges."
+      ]
+    },
+    {
+      "text": "Five strawberries.",
+      "es": "Cinco fresas.",
+      "image": "a1_photo_u5_five_strawberries_v1.webp",
+      "kind": "strawberry-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Four strawberries."
+      ]
+    },
+    {
+      "text": "Four strawberries.",
+      "es": "Cuatro fresas.",
+      "image": "a1_photo_u5_four_strawberries_v1.webp",
+      "kind": "strawberry-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "Five strawberries."
+      ]
+    },
+    {
+      "text": "The woman is eating an apple.",
+      "es": "La mujer está comiendo una manzana.",
+      "image": "a1_photo_u5_woman_eating_apple_v1.webp",
+      "kind": "woman-eating",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "The woman is eating an orange.",
+        "The woman is eating a pear."
+      ]
+    },
+    {
+      "text": "The baby is eating a banana.",
+      "es": "El bebé está comiendo un plátano.",
+      "image": "a1_photo_u5_baby_eating_banana_v1.webp",
+      "kind": "baby-eating",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "The baby is eating an apple.",
+        "The baby is eating a strawberry."
+      ]
+    },
+    {
+      "text": "The children are eating grapes.",
+      "es": "Los niños están comiendo uvas.",
+      "image": "a1_photo_u5_children_eating_grapes_v1.webp",
+      "kind": "children-eating",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "The children are eating strawberries.",
+        "The children are eating bananas."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "The fruit is under the table.",
+      "es": "La fruta está debajo de la mesa.",
+      "kind": "fruit-place"
+    },
+    {
+      "text": "The fruit is next to the table.",
+      "es": "La fruta está al lado de la mesa.",
+      "kind": "fruit-place"
+    },
+    {
+      "text": "They are strawberries.",
+      "es": "Son fresas.",
+      "kind": "they-are-fruit"
+    },
+    {
+      "text": "The banana is red.",
+      "es": "El plátano es rojo.",
+      "kind": "banana-color"
+    },
+    {
+      "text": "The banana is blue.",
+      "es": "El plátano es azul.",
+      "kind": "banana-color"
+    },
+    {
+      "text": "The woman is eating an orange.",
+      "es": "La mujer está comiendo una naranja.",
+      "kind": "woman-eating"
+    },
+    {
+      "text": "The woman is eating a pear.",
+      "es": "La mujer está comiendo una pera.",
+      "kind": "woman-eating"
+    },
+    {
+      "text": "The baby is eating an apple.",
+      "es": "El bebé está comiendo una manzana.",
+      "kind": "baby-eating"
+    },
+    {
+      "text": "The baby is eating a strawberry.",
+      "es": "El bebé está comiendo una fresa.",
+      "kind": "baby-eating"
+    },
+    {
+      "text": "The children are eating strawberries.",
+      "es": "Los niños están comiendo fresas.",
+      "kind": "children-eating"
+    },
+    {
+      "text": "The children are eating bananas.",
+      "es": "Los niños están comiendo plátanos.",
+      "kind": "children-eating"
+    }
+  ]
+}

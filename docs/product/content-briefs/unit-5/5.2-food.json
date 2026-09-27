@@ -1,0 +1,302 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). The old 5.2 taught ten items (food and drinks together), so drinks move to the new 5.3. Learn holds food and the five foods; family members eating and cooking are practice on Unit 1 words, and a cooking photo changes only the food in its text choices.",
+  "target": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+  "lesson": {
+    "id": "lesson-5-2-food-and-drinks",
+    "title": "5.2 Food",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Name fruit, food and drinks, say what you like, want and need, ask how many and how much, and order politely at a café.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.2",
+    "sub_lesson_title": "Food",
+    "goal": "Recognize and name food and five common foods, and say who is eating or cooking them.",
+    "vocabulary": [
+      "food",
+      "bread",
+      "rice",
+      "egg",
+      "chicken",
+      "fish"
+    ],
+    "review_vocabulary": [
+      "an",
+      "it",
+      "is",
+      "the",
+      "on",
+      "table",
+      "boy",
+      "girl",
+      "father",
+      "mother",
+      "eating",
+      "cooking",
+      "there are",
+      "two",
+      "three"
+    ],
+    "grammar_function": "It is bread. The boy is eating rice. The father is cooking fish. There are three eggs.",
+    "prerequisite": "1.2 and 1.7 eating and cooking; 1.6 father and mother; 4.3-4.4 on and there are; 5.1 fruit.",
+    "speaking_outcome": "Name the food in a picture and say who is eating or cooking it.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Food",
+      "es": "Comida",
+      "image": "a1_photo_u5_food_v1.webp",
+      "kind": "category",
+      "choices": false
+    },
+    {
+      "text": "Bread",
+      "es": "Pan",
+      "image": "a1_bread.webp",
+      "kind": "food-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "Rice",
+      "es": "Arroz",
+      "image": "a1_rice.webp",
+      "kind": "food-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "An egg",
+      "es": "Un huevo",
+      "image": "a1_egg.webp",
+      "kind": "food-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "Chicken",
+      "es": "Pollo",
+      "image": "a1_chicken.webp",
+      "kind": "food-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "Fish",
+      "es": "Pescado",
+      "image": "a1_fish.webp",
+      "kind": "food-word",
+      "accepts": {
+        "lexical-phrase": "Countable foods take a or an and mass or plural foods do not (An apple, Grapes, Bread); the bank tests only which food it is."
+      }
+    },
+    {
+      "text": "The food is on the table.",
+      "es": "La comida está en la mesa.",
+      "image": "a1_photo_u5_food_on_table_v1.webp",
+      "kind": "food-place",
+      "learn": false,
+      "image_choices": false,
+      "prefer": [
+        "The food is under the table.",
+        "The food is next to the table."
+      ]
+    },
+    {
+      "text": "It is bread.",
+      "es": "Es pan.",
+      "image": "a1_bread.webp",
+      "kind": "it-is-food",
+      "learn": false
+    },
+    {
+      "text": "It is chicken.",
+      "es": "Es pollo.",
+      "image": "a1_chicken.webp",
+      "kind": "it-is-food",
+      "learn": false
+    },
+    {
+      "text": "It is fish.",
+      "es": "Es pescado.",
+      "image": "a1_fish.webp",
+      "kind": "it-is-food",
+      "learn": false
+    },
+    {
+      "text": "It is an egg.",
+      "es": "Es un huevo.",
+      "image": "a1_egg.webp",
+      "kind": "it-is-food",
+      "learn": false
+    },
+    {
+      "text": "The boy is eating bread.",
+      "es": "El niño está comiendo pan.",
+      "image": "a1_photo_u5_boy_eating_bread_v1.webp",
+      "kind": "boy-eating",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The boy is eating rice."
+      ]
+    },
+    {
+      "text": "The boy is eating rice.",
+      "es": "El niño está comiendo arroz.",
+      "image": "a1_photo_u5_boy_eating_rice_v1.webp",
+      "kind": "boy-eating",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The boy is eating bread."
+      ]
+    },
+    {
+      "text": "The girl is eating fish.",
+      "es": "La niña está comiendo pescado.",
+      "image": "a1_photo_u5_girl_eating_fish_v1.webp",
+      "kind": "girl-eating",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "The girl is eating chicken.",
+        "The girl is eating rice."
+      ]
+    },
+    {
+      "text": "The father is cooking fish.",
+      "es": "El padre está cocinando pescado.",
+      "image": "a1_photo_u5_father_cooking_fish_v1.webp",
+      "kind": "father-cooking",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "The father is cooking chicken.",
+        "The father is cooking rice."
+      ]
+    },
+    {
+      "text": "The mother is cooking chicken.",
+      "es": "La madre está cocinando pollo.",
+      "image": "a1_photo_u5_mother_cooking_chicken_v1.webp",
+      "kind": "mother-cooking",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only the food, drink, meal or time changes, so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "The mother is cooking fish.",
+        "The mother is cooking eggs."
+      ]
+    },
+    {
+      "text": "There are two eggs.",
+      "es": "Hay dos huevos.",
+      "image": "a1_photo_u5_two_eggs_v1.webp",
+      "kind": "egg-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are three eggs."
+      ]
+    },
+    {
+      "text": "There are three eggs.",
+      "es": "Hay tres huevos.",
+      "image": "a1_photo_u5_three_eggs_v1.webp",
+      "kind": "egg-count",
+      "learn": false,
+      "four_card": false,
+      "prefer": [
+        "There are two eggs."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "The food is under the table.",
+      "es": "La comida está debajo de la mesa.",
+      "kind": "food-place"
+    },
+    {
+      "text": "The food is next to the table.",
+      "es": "La comida está al lado de la mesa.",
+      "kind": "food-place"
+    },
+    {
+      "text": "It is rice.",
+      "es": "Es arroz.",
+      "kind": "it-is-food"
+    },
+    {
+      "text": "The girl is eating chicken.",
+      "es": "La niña está comiendo pollo.",
+      "kind": "girl-eating"
+    },
+    {
+      "text": "The girl is eating rice.",
+      "es": "La niña está comiendo arroz.",
+      "kind": "girl-eating"
+    },
+    {
+      "text": "The father is cooking chicken.",
+      "es": "El padre está cocinando pollo.",
+      "kind": "father-cooking"
+    },
+    {
+      "text": "The father is cooking rice.",
+      "es": "El padre está cocinando arroz.",
+      "kind": "father-cooking"
+    },
+    {
+      "text": "The mother is cooking fish.",
+      "es": "La madre está cocinando pescado.",
+      "kind": "mother-cooking"
+    },
+    {
+      "text": "The mother is cooking eggs.",
+      "es": "La madre está cocinando huevos.",
+      "kind": "mother-cooking"
+    },
+    {
+      "text": "There are four eggs.",
+      "es": "Hay cuatro huevos.",
+      "kind": "egg-count"
+    }
+  ]
+}
