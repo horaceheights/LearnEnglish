@@ -1,0 +1,294 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 7 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds the five feelings and How are you?. The Unit 1 family shows one clear feeling each (the baby at an empty bowl, the grandfather yawning, the children jumping), and text choices change only the feeling.",
+  "target": "backend/lessons/unit_7/lesson-7-2-feelings-and-needs.yaml",
+  "lesson": {
+    "id": "lesson-7-2-feelings-and-needs",
+    "title": "7.2 Feelings and Needs",
+    "level": "Beginner A1",
+    "unit_id": "unit-7",
+    "unit_title": "Unit 7: Everyday Needs and A1 Integration",
+    "unit_outcome": "Name the body, feelings, clothes and the weather, say what you need and like, invite with Do you want to ...? and Let's, and ask for help when you do not understand.",
+    "lesson_id": "lesson-7",
+    "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
+    "sub_lesson_id": "7.2",
+    "sub_lesson_title": "Feelings and Needs",
+    "goal": "Recognize five feelings, say how a family member feels, ask How are you? and answer with I am ....",
+    "vocabulary": [
+      "happy",
+      "sad",
+      "tired",
+      "hungry",
+      "thirsty",
+      "How are you?"
+    ],
+    "review_vocabulary": [
+      "I",
+      "am",
+      "is",
+      "are",
+      "the",
+      "baby",
+      "girl",
+      "children",
+      "mother",
+      "grandfather",
+      "need",
+      "food",
+      "water"
+    ],
+    "grammar_function": "The baby is hungry. How are you? I am happy. I am thirsty. I need water.",
+    "prerequisite": "1.1-1.6 family; 3.2 I am; 5.2 food; 5.3 water; 5.6 need.",
+    "speaking_outcome": "Ask How are you? and say how I feel.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 10,
+    "Listen": 9,
+    "Speak": 9,
+    "Use": 8
+  },
+  "items": [
+    {
+      "text": "Happy",
+      "es": "Feliz",
+      "image": "a1_happy.webp",
+      "kind": "feeling-word",
+      "form": "word"
+    },
+    {
+      "text": "Sad",
+      "es": "Triste",
+      "image": "a1_sad.webp",
+      "kind": "feeling-word",
+      "form": "word"
+    },
+    {
+      "text": "Tired",
+      "es": "Cansado",
+      "image": "a1_tired.webp",
+      "kind": "feeling-word",
+      "form": "word"
+    },
+    {
+      "text": "Hungry",
+      "es": "Con hambre",
+      "image": "a1_hungry.webp",
+      "kind": "feeling-word",
+      "form": "word"
+    },
+    {
+      "text": "Thirsty",
+      "es": "Con sed",
+      "image": "a1_thirsty.webp",
+      "kind": "feeling-word",
+      "form": "word"
+    },
+    {
+      "text": "How are you?",
+      "es": "¿Cómo estás?",
+      "image": "a1_scene_how-are-you_be4c34b.webp",
+      "kind": "how-question",
+      "speaker": "male-character",
+      "choices": false
+    },
+    {
+      "text": "The baby is hungry.",
+      "es": "El bebé tiene hambre.",
+      "image": "a1_photo_u7_baby_hungry_v1.webp",
+      "kind": "baby-feels",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The baby is thirsty.",
+        "The baby is tired."
+      ]
+    },
+    {
+      "text": "The grandfather is tired.",
+      "es": "El abuelo está cansado.",
+      "image": "a1_photo_u7_grandfather_tired_v2.webp",
+      "kind": "grandfather-feels",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The grandfather is happy.",
+        "The grandfather is sad."
+      ]
+    },
+    {
+      "text": "The girl is sad.",
+      "es": "La niña está triste.",
+      "image": "a1_photo_u7_girl_sad_v1.webp",
+      "kind": "girl-feels",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The girl is happy.",
+        "The girl is hungry."
+      ]
+    },
+    {
+      "text": "The children are happy.",
+      "es": "Los niños están felices.",
+      "image": "a1_photo_u7_children_happy_v1.webp",
+      "kind": "children-feel",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The children are sad.",
+        "The children are tired."
+      ]
+    },
+    {
+      "text": "The mother is thirsty.",
+      "es": "La madre tiene sed.",
+      "image": "a1_photo_u7_mother_thirsty_v1.webp",
+      "kind": "mother-feels",
+      "learn": false,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "The mother is hungry.",
+        "The mother is tired."
+      ]
+    },
+    {
+      "text": "I am hungry. I need food.",
+      "es": "Tengo hambre. Necesito comida.",
+      "image": "a1_hungry.webp",
+      "kind": "i-need",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I am thirsty. I need water."
+      ]
+    },
+    {
+      "text": "I am thirsty. I need water.",
+      "es": "Tengo sed. Necesito agua.",
+      "image": "a1_thirsty.webp",
+      "kind": "i-need",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I am hungry. I need food."
+      ]
+    },
+    {
+      "text": "How are you? I am happy.",
+      "es": "¿Cómo estás? Estoy feliz.",
+      "image": "a1_scene_how-are-you_be4c34b.webp",
+      "kind": "how-answer",
+      "learn": false,
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      },
+      "turns": [
+        {
+          "text": "How are you?",
+          "speaker": "male-character",
+          "image": "a1_scene_how-are-you_be4c34b.webp"
+        },
+        {
+          "text": "I am happy.",
+          "speaker": "female-character",
+          "image": "a1_scene_how-are-you_be4c34b.webp"
+        }
+      ],
+      "image_choices": false,
+      "prefer": [
+        "How are you? I am tired."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "The baby is thirsty.",
+      "es": "El bebé tiene sed.",
+      "kind": "baby-feels"
+    },
+    {
+      "text": "The baby is tired.",
+      "es": "El bebé está cansado.",
+      "kind": "baby-feels"
+    },
+    {
+      "text": "The grandfather is happy.",
+      "es": "El abuelo está feliz.",
+      "kind": "grandfather-feels"
+    },
+    {
+      "text": "The grandfather is sad.",
+      "es": "El abuelo está triste.",
+      "kind": "grandfather-feels"
+    },
+    {
+      "text": "The girl is happy.",
+      "es": "La niña está feliz.",
+      "kind": "girl-feels"
+    },
+    {
+      "text": "The girl is hungry.",
+      "es": "La niña tiene hambre.",
+      "kind": "girl-feels"
+    },
+    {
+      "text": "The children are sad.",
+      "es": "Los niños están tristes.",
+      "kind": "children-feel"
+    },
+    {
+      "text": "The children are tired.",
+      "es": "Los niños están cansados.",
+      "kind": "children-feel"
+    },
+    {
+      "text": "The mother is hungry.",
+      "es": "La madre tiene hambre.",
+      "kind": "mother-feels"
+    },
+    {
+      "text": "The mother is tired.",
+      "es": "La madre está cansada.",
+      "kind": "mother-feels"
+    },
+    {
+      "text": "How are you? I am tired.",
+      "es": "¿Cómo estás? Estoy cansada.",
+      "kind": "how-answer"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "ad34b0b3-e4ce-4437-aa38-43bbe0dd4e86",
+  "asset_id": "review-cold-hat",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:16:53.367274+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA photograph on a snowy street on a very cold winter day, snow falling: a man about thirty-five with short brown hair and a dark winter coat pulls a thick grey wool hat down over his ears with both hands, shoulders hunched, his breath visible as a small cloud, clearly cold. Face toward the camera. Only one person; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "BN-4apbhLJn5qtsPnPmD8Aw",
+  "usage": {
+    "promptTokenCount": 257,
+    "candidatesTokenCount": 1275,
+    "totalTokenCount": 1818,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 257
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 286,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137946",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 257,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 286
+  },
+  "elapsed_seconds": 21.22,
+  "output": "output/imagegen/unit-7-lesson-v2/review-cold-hat.png",
+  "sha256": "918e1bce9aefb2e6b26f71a88922a28d36c7f27043dc495f5dc1692a7753effb",
+  "byte_count": 5670208,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

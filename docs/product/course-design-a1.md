@@ -247,28 +247,32 @@ Before that rebuild, 6.3 was Where Is It? (`Where is the...?` with `next to`, `i
 
 ### Unit 7: Everyday Needs and A1 Integration
 
-Goal: Describe basic body, feelings, clothing, and weather needs; handle simple invitations; and use memorized help phrases in a final A1 mission.
+Goal: Name the body, feelings, clothes and the weather, say what you need and like, invite with `Do you want to ...?` and `Let's ...`, and ask for help when you do not understand, then use all of A1 in a final mission.
 
 Lessons:
 
-1. 7.1 The Body
-2. 7.2 Feelings and Needs
-3. 7.3 Clothing
-4. 7.4 Weather
-5. 7.5 Clothes for the Weather
-6. 7.6 Hobbies and Free Time
-7. 7.7 Invitations and Responses
-8. 7.8 Help and Important Phrases
+1. 7.1 The Body: `head`, `eyes`, `ears`, `mouth`, `arms`, `hands`, `legs`, `feet`; `I have two hands.`, `This is my head.`
+2. 7.2 Feelings and Needs: `happy`, `sad`, `tired`, `hungry`, `thirsty`, `How are you?`; `The baby is hungry.`, `I am thirsty. I need water.`
+3. 7.3 Clothing: `shirt`, `pants`, `dress`, `jacket`, `shoes`, `hat`, `socks`, `skirt`; `The jacket is blue.`, `This is a skirt.`
+4. 7.4 Weather: `sunny`, `rainy`, `hot`, `cold`, `windy`, `cloudy`; `It is hot and sunny.`, `It is cold in the morning.`
+5. 7.5 Clothes for the Weather: `umbrella`, `boots`; `It is rainy. I need an umbrella.`
+6. 7.6 Hobbies and Free Time: `TV`, `music`, `watching TV`, `listening to music`; `I like reading.`, `I do not like watching TV.`
+7. 7.7 Invitations and Responses: `Do you want to...?`, `Let's...`, `OK.`, `play`; `Let's watch TV. OK.`, `Let's play on Saturday.`
+8. 7.8 Help and Important Phrases: `I need help.`, `I do not understand.`, `Please repeat.`, `Please speak slowly.`
 9. 7.9 Complete A1 Review
-10. 7.10 A1 Final Mission
+10. 7.10 Gran misión de familia
 
 Core patterns:
 
-- `My eyes. My hands.`
-- `How are you? I am tired.`
-- `It is cold. I need a jacket.`
-- `Do you want to play? Yes, thank you.`
+- `I have two hands. This is my head.`
+- `How are you? I am tired. The baby is hungry.`
+- `The jacket is blue. It is cold. I need a jacket.`
+- `Do you want to play? Yes, thank you. Let's watch TV. OK.`
 - `I do not understand. Please repeat.`
+
+**2026-09-27 rebuild (engine briefs, user direction: rebuild Units 5-7 through the engine, new photos approved).** Unit 7 was re-authored through the content engine from the briefs in `docs/product/content-briefs/unit-7/`. Every lesson had 34-36 cards; `ears`, `pants`, `skirt` and `socks` were met only two or three times, and most Learn cards re-taught known frames (`My head`, `It is sunny.`, `I like reading.`, `Yes, thank you.`). Every teaching lesson now has 42 cards and its Learn cards hold only its new words (`Head`, `Sunny`, `Watching TV`). Practice reuses what learners know: `I have two ...` (3.12, 2.6) and `This is my ...` for the body; the Unit 1 family for feelings (the baby at an empty bowl, the grandfather yawning, the children jumping) with `I need food / water` from Unit 5; the four jacket photos that change only the color; `and`, `today` and `in the morning` with the weather; the Unit 1 activities in `I like ...`. 7.7 adds `Let's`, the tune-up basic, with people who clearly propose (the boy with a ball, Ana with the remote, the grandmother with headphones) and Luis answering `OK.`, and days come back in `Let's play on Saturday.` (Speak and Use only). Wrong choices change one thing at a time, and a picture that only one person shows is offered as text choices. Unit 7 keeps 10 lessons. The review (54 cards) adds `The grandmother is happy.`, `The boy is thirsty.`, `Her hat is red.`, `Let's read.`, `It is cold. I need a hat.` and `I do not understand.` on six fresh photos; in the mission the reader now says `Let's read.` Lesson IDs are unchanged, so learner progress survives.
+
+Before that rebuild, 7.7 taught `watch TV`, `listen to music`, `read` and `play` as new with `Yes, thank you.` and `Sorry, no.` on Learn cards, and `Let's` was not taught.
 
 ## Lesson Design Template
 

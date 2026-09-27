@@ -1,0 +1,221 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 7 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds umbrella and boots. Each It is .... I need .... photo shows its speaker, and a wrong choice changes only the weather or only the thing, never both.",
+  "target": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+  "lesson": {
+    "id": "lesson-7-5-clothes-for-the-weather",
+    "title": "7.5 Clothes for the Weather",
+    "level": "Beginner A1",
+    "unit_id": "unit-7",
+    "unit_title": "Unit 7: Everyday Needs and A1 Integration",
+    "unit_outcome": "Name the body, feelings, clothes and the weather, say what you need and like, invite with Do you want to ...? and Let's, and ask for help when you do not understand.",
+    "lesson_id": "lesson-7",
+    "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
+    "sub_lesson_id": "7.5",
+    "sub_lesson_title": "Clothes for the Weather",
+    "goal": "Recognize an umbrella and boots, and say what I need for the weather.",
+    "vocabulary": [
+      "umbrella",
+      "boots"
+    ],
+    "review_vocabulary": [
+      "it",
+      "is",
+      "I",
+      "need",
+      "a",
+      "an",
+      "jacket",
+      "hat",
+      "shirt",
+      "sunny",
+      "rainy",
+      "hot",
+      "cold",
+      "windy"
+    ],
+    "grammar_function": "It is rainy. I need an umbrella. It is cold. I need a jacket.",
+    "prerequisite": "5.6 need; 7.3 clothes; 7.4 weather.",
+    "speaking_outcome": "Say the weather and what I need.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 12,
+    "Listen": 10,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "An umbrella",
+      "es": "Un paraguas",
+      "image": "a1_umbrella.webp",
+      "kind": "rain-word",
+      "accepts": {
+        "lexical-phrase": "Countable things take a or an and pairs such as pants, shoes, socks and boots are plural; the bank tests only which thing it is."
+      }
+    },
+    {
+      "text": "Boots",
+      "es": "Botas",
+      "image": "a1_boots.webp",
+      "kind": "rain-word",
+      "accepts": {
+        "lexical-phrase": "Countable things take a or an and pairs such as pants, shoes, socks and boots are plural; the bank tests only which thing it is."
+      }
+    },
+    {
+      "text": "It is rainy. I need an umbrella.",
+      "es": "Está lloviendo. Necesito un paraguas.",
+      "image": "a1_photo_u7_rain_umbrella_v1.webp",
+      "kind": "rain-need",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "It is sunny. I need an umbrella."
+      ]
+    },
+    {
+      "text": "It is rainy. I need boots.",
+      "es": "Está lloviendo. Necesito botas.",
+      "image": "a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+      "kind": "boots-need",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "It is sunny. I need boots."
+      ]
+    },
+    {
+      "text": "It is cold. I need a jacket.",
+      "es": "Hace frío. Necesito una chaqueta.",
+      "image": "a1_photo_u7_cold_jacket_v1.webp",
+      "kind": "jacket-need",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "It is windy. I need a jacket."
+      ]
+    },
+    {
+      "text": "It is windy. I need a jacket.",
+      "es": "Hace viento. Necesito una chaqueta.",
+      "image": "a1_photo_u7_windy_jacket_v1.webp",
+      "kind": "jacket-need",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "It is cold. I need a jacket."
+      ]
+    },
+    {
+      "text": "It is hot. I need a shirt.",
+      "es": "Hace calor. Necesito una camisa.",
+      "image": "a1_photo_u7_hot_shirt_v1.webp",
+      "kind": "shirt-need",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "It is hot. I need a jacket."
+      ]
+    },
+    {
+      "text": "It is sunny. I need a hat.",
+      "es": "Hace sol. Necesito un sombrero.",
+      "image": "a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+      "kind": "hat-need",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character",
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "It is rainy. I need a hat."
+      ]
+    },
+    {
+      "text": "I need an umbrella.",
+      "es": "Necesito un paraguas.",
+      "image": "a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
+      "kind": "i-need-thing",
+      "learn": false,
+      "speaker": "female-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I need boots."
+      ]
+    },
+    {
+      "text": "I need boots.",
+      "es": "Necesito botas.",
+      "image": "a1_scene_rain-boots_c3ee514.webp",
+      "kind": "i-need-thing",
+      "learn": false,
+      "speaker": "male-character",
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "prefer": [
+        "I need an umbrella."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "It is sunny. I need an umbrella.",
+      "es": "Hace sol. Necesito un paraguas.",
+      "kind": "rain-need"
+    },
+    {
+      "text": "It is sunny. I need boots.",
+      "es": "Hace sol. Necesito botas.",
+      "kind": "boots-need"
+    },
+    {
+      "text": "It is hot. I need a jacket.",
+      "es": "Hace calor. Necesito una chaqueta.",
+      "kind": "shirt-need"
+    },
+    {
+      "text": "It is rainy. I need a hat.",
+      "es": "Está lloviendo. Necesito un sombrero.",
+      "kind": "hat-need"
+    }
+  ]
+}

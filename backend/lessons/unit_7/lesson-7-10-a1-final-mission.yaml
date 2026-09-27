@@ -10,7 +10,7 @@
   "sub_lesson_id": "7.10",
   "sub_lesson_title": "Gran misión de familia",
   "experience_type": "mission",
-  "content_revision": 1,
+  "content_revision": 2,
   "mission": {
     "label": "MISIÓN FINAL · NIVEL A1",
     "title": "Gran misión de familia",
@@ -112,16 +112,13 @@
     "cloudy",
     "umbrella",
     "boots",
-    "watching",
     "TV",
     "music",
-    "listening to",
     "watching TV",
     "listening to music",
     "Do you want to...?",
-    "watch TV",
-    "listen to music",
-    "read",
+    "Let's...",
+    "OK.",
     "play",
     "help",
     "understand",
@@ -1027,7 +1024,7 @@
       "mission_chapter_id": "invitaciones",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "Do you want to play? Yes, thank you. Do you want to read? Sorry, no.",
+      "prompt": "Do you want to play? Yes, thank you. Let's read. Sorry, no.",
       "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
       "options": [
         {
@@ -1043,7 +1040,7 @@
         {
           "id": "invitations-3",
           "image_url": "",
-          "label": "Do you want to read?"
+          "label": "Let's read."
         },
         {
           "id": "invitations-4",
@@ -1058,7 +1055,7 @@
         "invitations-3",
         "invitations-4"
       ],
-      "audio_text": "Do you want to play? Yes, thank you. Do you want to read? Sorry, no.",
+      "audio_text": "Do you want to play? Yes, thank you. Let's read. Sorry, no.",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -1072,7 +1069,7 @@
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         },
         {
-          "text": "Do you want to read?",
+          "text": "Let's read.",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         },
@@ -1082,7 +1079,7 @@
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         }
       ],
-      "spanish_translation": "¿Quieres jugar? Sí, gracias. ¿Quieres leer? Lo siento, no.",
+      "spanish_translation": "¿Quieres jugar? Sí, gracias. Leamos. Lo siento, no.",
       "pedagogy_note": "Mission beat 06/13: Cuatro amigos se invitan y responden: toca a quien corresponde cada frase.",
       "mission_game": {
         "kind": "action-hunt",
@@ -1129,7 +1126,7 @@
           },
           {
             "id": "invitations-3",
-            "label_es": "¿Quieres leer?",
+            "label_es": "Leamos.",
             "accepted_option_ids": [
               "invitations-3"
             ],
@@ -1183,8 +1180,8 @@
           },
           {
             "id": "cue-invitations-3",
-            "text": "Do you want to read?",
-            "answer_text": "Do you want to read?",
+            "text": "Let's read.",
+            "answer_text": "Let's read.",
             "target_id": "invitations-3",
             "option_id": "invitations-3"
           },

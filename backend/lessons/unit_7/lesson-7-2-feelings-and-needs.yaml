@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
-  "unit_outcome": "Handle basic physical needs, weather, clothing, leisure, invitations, and requests for help.",
+  "unit_outcome": "Name the body, feelings, clothes and the weather, say what you need and like, invite with Do you want to ...? and Let's, and ask for help when you do not understand.",
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.2",
   "sub_lesson_title": "Feelings and Needs",
-  "goal": "Recognize five common states and answer How are you? with I am + state.",
+  "goal": "Recognize five feelings, say how a family member feels, ask How are you? and answer with I am ....",
   "vocabulary": [
     "happy",
     "sad",
@@ -19,25 +19,53 @@
     "How are you?"
   ],
   "review_vocabulary": [
-    "I am",
-    "he is",
-    "she is",
-    "water",
+    "I",
+    "am",
+    "is",
+    "are",
+    "the",
+    "baby",
+    "girl",
+    "children",
+    "mother",
+    "grandfather",
+    "need",
     "food",
-    "sleeping",
-    "morning",
-    "night"
+    "water"
   ],
-  "grammar_function": "How are you? I am + adjective.",
-  "prerequisite": "3.1 greetings, 3.3 am/is/are; Unit 1 states/actions; Unit 5 food and needs.",
-  "speaking_outcome": "Ask How are you? and say I am happy/sad/tired/hungry/thirsty.",
+  "grammar_function": "The baby is hungry. How are you? I am happy. I am thirsty. I need water.",
+  "prerequisite": "1.1-1.6 family; 3.2 I am; 5.2 food; 5.3 water; 5.6 need.",
+  "speaking_outcome": "Ask How are you? and say how I feel.",
+  "content_revision": 2,
   "purposeful_review_slides": [
-    "Learn:L7",
-    "Learn:L8",
-    "Recognize:R7",
-    "Listen:A6",
-    "Use:U1",
-    "Use:U6"
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U8"
   ],
   "cards": [
     {
@@ -45,10 +73,10 @@
       "interaction_type": "teach",
       "prompt": "Happy",
       "stage": "Learn",
-      "correct_option_id": "happy-1",
+      "correct_option_id": "happy-learn",
       "options": [
         {
-          "id": "happy-1",
+          "id": "happy-learn",
           "image_url": "a1_happy.webp",
           "label": "Happy"
         }
@@ -57,17 +85,17 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Feliz",
-      "pedagogy_note": "New."
+      "pedagogy_note": "Story beat 01: Happy"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "Sad",
       "stage": "Learn",
-      "correct_option_id": "sad-1",
+      "correct_option_id": "sad-learn",
       "options": [
         {
-          "id": "sad-1",
+          "id": "sad-learn",
           "image_url": "a1_sad.webp",
           "label": "Sad"
         }
@@ -76,17 +104,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Triste",
-      "pedagogy_note": "New; distinct from tired."
+      "pedagogy_note": "Story beat 02: Sad",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "L3",
       "interaction_type": "teach",
       "prompt": "Tired",
       "stage": "Learn",
-      "correct_option_id": "tired-1",
+      "correct_option_id": "tired-learn",
       "options": [
         {
-          "id": "tired-1",
+          "id": "tired-learn",
           "image_url": "a1_tired.webp",
           "label": "Tired"
         }
@@ -95,17 +124,17 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cansado",
-      "pedagogy_note": "New."
+      "pedagogy_note": "Story beat 03: Tired"
     },
     {
       "slide_id": "L4",
       "interaction_type": "teach",
       "prompt": "Hungry",
       "stage": "Learn",
-      "correct_option_id": "hungry-1",
+      "correct_option_id": "hungry-learn",
       "options": [
         {
-          "id": "hungry-1",
+          "id": "hungry-learn",
           "image_url": "a1_hungry.webp",
           "label": "Hungry"
         }
@@ -114,17 +143,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Con hambre",
-      "pedagogy_note": "New; explicit need cue."
+      "pedagogy_note": "Story beat 04: Hungry",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "L5",
       "interaction_type": "teach",
       "prompt": "Thirsty",
       "stage": "Learn",
-      "correct_option_id": "thirsty-1",
+      "correct_option_id": "thirsty-learn",
       "options": [
         {
-          "id": "thirsty-1",
+          "id": "thirsty-learn",
           "image_url": "a1_thirsty.webp",
           "label": "Thirsty"
         }
@@ -133,17 +163,17 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Con sed",
-      "pedagogy_note": "New; distinct from hungry."
+      "pedagogy_note": "Story beat 05: Thirsty"
     },
     {
       "slide_id": "L6",
       "interaction_type": "teach",
       "prompt": "How are you?",
       "stage": "Learn",
-      "correct_option_id": "how-are-you-1",
+      "correct_option_id": "how-are-you-learn",
       "options": [
         {
-          "id": "how-are-you-1",
+          "id": "how-are-you-learn",
           "image_url": "a1_scene_how-are-you_be4c34b.webp",
           "label": "How are you?"
         }
@@ -152,87 +182,23 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo estás?",
-      "pedagogy_note": "New fixed question.",
+      "pedagogy_note": "Story beat 06: How are you?",
       "audio_speaker": "male-character"
     },
     {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "I am happy.",
-      "stage": "Learn",
-      "correct_option_id": "i-am-happy-1",
-      "options": [
-        {
-          "id": "i-am-happy-1",
-          "image_url": "a1_happy.webp",
-          "label": "I am happy."
-        }
-      ],
-      "audio_text": "I am happy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Estoy feliz.",
-      "pedagogy_note": "Answer pattern with known I am.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "I am tired.",
-      "stage": "Learn",
-      "correct_option_id": "i-am-tired-1",
-      "options": [
-        {
-          "id": "i-am-tired-1",
-          "image_url": "a1_tired.webp",
-          "label": "I am tired."
-        }
-      ],
-      "audio_text": "I am tired.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "Pattern repetition.",
-      "audio_speaker": "female-character"
-    },
-    {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
-      "prompt": "Happy",
-      "stage": "Recognize",
-      "correct_option_id": "happy-1",
-      "options": [
-        {
-          "id": "happy-1",
-          "image_url": "a1_happy.webp",
-          "label": null
-        },
-        {
-          "id": "sad-2",
-          "image_url": "a1_sad.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Happy",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Feliz",
-      "pedagogy_note": "Exact emotional contrast."
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "Sad",
       "stage": "Recognize",
-      "correct_option_id": "sad-2",
+      "correct_option_id": "sad-r1",
       "options": [
         {
-          "id": "tired-1",
-          "image_url": "a1_tired.webp",
+          "id": "happy-r1",
+          "image_url": "a1_happy.webp",
           "label": null
         },
         {
-          "id": "sad-2",
+          "id": "sad-r1",
           "image_url": "a1_sad.webp",
           "label": null
         }
@@ -241,180 +207,267 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Triste",
-      "pedagogy_note": "Distinct cues."
+      "pedagogy_note": "Story beat 01: Sad",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "tired-r2",
+      "options": [
+        {
+          "id": "sad-r2",
+          "image_url": "",
+          "label": "Sad"
+        },
+        {
+          "id": "tired-r2",
+          "image_url": "",
+          "label": "Tired"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Tired",
+      "prompt_image_url": "a1_tired.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: Tired"
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "Hungry",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "hungry-1",
+      "correct_option_id": "the-baby-is-hungry-r3",
       "options": [
         {
-          "id": "hungry-1",
-          "image_url": "a1_hungry.webp",
-          "label": null
+          "id": "the-baby-is-hungry-r3",
+          "image_url": "",
+          "label": "The baby is hungry."
         },
         {
-          "id": "thirsty-2",
-          "image_url": "a1_thirsty.webp",
-          "label": null
+          "id": "the-baby-is-thirsty-r3",
+          "image_url": "",
+          "label": "The baby is thirsty."
         }
       ],
-      "audio_text": "Hungry",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Con hambre",
-      "pedagogy_note": "Objects make state decisive."
+      "audio_text": "",
+      "answer_audio_text": "The baby is hungry.",
+      "prompt_image_url": "a1_photo_u7_baby_hungry_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 03: The baby is hungry."
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "Thirsty",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "thirsty-2",
+      "correct_option_id": "the-grandfather-is-tired-r4",
       "options": [
         {
-          "id": "hungry-1",
-          "image_url": "a1_hungry.webp",
-          "label": null
+          "id": "the-grandfather-is-happy-r4",
+          "image_url": "",
+          "label": "The grandfather is happy."
         },
         {
-          "id": "thirsty-2",
-          "image_url": "a1_thirsty.webp",
-          "label": null
+          "id": "the-grandfather-is-tired-r4",
+          "image_url": "",
+          "label": "The grandfather is tired."
         }
       ],
-      "audio_text": "Thirsty",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Con sed",
-      "pedagogy_note": "Exact contrast."
+      "audio_text": "",
+      "answer_audio_text": "The grandfather is tired.",
+      "prompt_image_url": "a1_photo_u7_grandfather_tired_v2.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: The grandfather is tired."
     },
     {
       "slide_id": "R5",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-am-tired-2",
+      "correct_option_id": "the-girl-is-sad-r5",
       "options": [
         {
-          "id": "i-am-sad-1",
+          "id": "the-girl-is-happy-r5",
           "image_url": "",
-          "label": "I am sad."
+          "label": "The girl is happy."
         },
         {
-          "id": "i-am-tired-2",
+          "id": "the-girl-is-sad-r5",
           "image_url": "",
-          "label": "I am tired."
+          "label": "The girl is sad."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I am tired.",
-      "prompt_image_url": "a1_tired.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Image-to-text.",
-      "answer_audio_speaker": "female-character"
+      "answer_audio_text": "The girl is sad.",
+      "prompt_image_url": "a1_photo_u7_girl_sad_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 05: The girl is sad."
     },
     {
       "slide_id": "R6",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-am-hungry-2",
+      "correct_option_id": "the-children-are-happy-r6",
       "options": [
         {
-          "id": "i-am-thirsty-1",
+          "id": "the-children-are-tired-r6",
           "image_url": "",
-          "label": "I am thirsty."
+          "label": "The children are tired."
         },
         {
-          "id": "i-am-hungry-2",
+          "id": "the-children-are-happy-r6",
           "image_url": "",
-          "label": "I am hungry."
+          "label": "The children are happy."
+        },
+        {
+          "id": "the-children-are-sad-r6",
+          "image_url": "",
+          "label": "The children are sad."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I am hungry.",
-      "prompt_image_url": "a1_hungry.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Image-to-text.",
-      "answer_audio_speaker": "female-character"
+      "answer_audio_text": "The children are happy.",
+      "prompt_image_url": "a1_photo_u7_children_happy_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: The children are happy."
     },
     {
       "slide_id": "R7",
-      "interaction_type": "recognize-image",
-      "prompt": "She is thirsty.",
-      "stage": "Recognize",
-      "correct_option_id": "woman-thirsty-4",
-      "options": [
-        {
-          "id": "woman-happy-1",
-          "image_url": "a1_happy.webp",
-          "label": null
-        },
-        {
-          "id": "woman-tired-2",
-          "image_url": "a1_tired.webp",
-          "label": null
-        },
-        {
-          "id": "woman-hungry-3",
-          "image_url": "a1_hungry.webp",
-          "label": null
-        },
-        {
-          "id": "woman-thirsty-4",
-          "image_url": "a1_photo_u7_woman_thirsty_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "She is thirsty.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ella tiene sed.",
-      "pedagogy_note": "Purposeful she is review."
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "how-are-you-2",
+      "correct_option_id": "the-mother-is-thirsty-r7",
       "options": [
         {
-          "id": "what-is-your-name-1",
+          "id": "the-mother-is-thirsty-r7",
           "image_url": "",
-          "label": "What is your name?"
+          "label": "The mother is thirsty."
         },
         {
-          "id": "how-are-you-2",
+          "id": "the-mother-is-hungry-r7",
           "image_url": "",
-          "label": "How are you?"
+          "label": "The mother is hungry."
+        },
+        {
+          "id": "the-mother-is-tired-r7",
+          "image_url": "",
+          "label": "The mother is tired."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "How are you?",
-      "prompt_image_url": "a1_scene_how-are-you_be4c34b.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Uses a generic proven instruction, only previously taught questions, and makes the state question the sole scene fit.",
-      "answer_audio_speaker": "male-character"
+      "answer_audio_text": "The mother is thirsty.",
+      "prompt_image_url": "a1_photo_u7_mother_thirsty_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 07: The mother is thirsty."
     },
     {
-      "slide_id": "A1",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "happy-2",
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-am-hungry-i-need-food-r8",
       "options": [
         {
-          "id": "sad-1",
-          "image_url": "a1_sad.webp",
+          "id": "i-am-hungry-i-need-food-r8",
+          "image_url": "",
+          "label": "I am hungry. I need food."
+        },
+        {
+          "id": "i-am-thirsty-i-need-water-r8",
+          "image_url": "",
+          "label": "I am thirsty. I need water."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I am hungry. I need food.",
+      "prompt_image_url": "a1_hungry.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 08: I am hungry. I need food."
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "t2i2",
+      "prompt": "I am thirsty. I need water.",
+      "stage": "Recognize",
+      "correct_option_id": "i-am-thirsty-i-need-water-r9",
+      "options": [
+        {
+          "id": "i-am-thirsty-i-need-water-r9",
+          "image_url": "a1_thirsty.webp",
           "label": null
         },
         {
-          "id": "happy-2",
+          "id": "i-am-hungry-i-need-food-r9",
+          "image_url": "a1_hungry.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I am thirsty. I need water.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Tengo sed. Necesito agua.",
+      "pedagogy_note": "Story beat 09: I am thirsty. I need water.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "how-are-you-i-am-happy-r10",
+      "options": [
+        {
+          "id": "how-are-you-i-am-happy-r10",
+          "image_url": "",
+          "label": "How are you? I am happy."
+        },
+        {
+          "id": "how-are-you-i-am-tired-r10",
+          "image_url": "",
+          "label": "How are you? I am tired."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "How are you? I am happy.",
+      "answer_audio_turns": [
+        {
+          "text": "How are you?",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_how-are-you_be4c34b.webp"
+        },
+        {
+          "text": "I am happy.",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_how-are-you_be4c34b.webp"
+        }
+      ],
+      "prompt_image_url": "a1_scene_how-are-you_be4c34b.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: How are you? I am happy."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "happy-a1",
+      "options": [
+        {
+          "id": "happy-a1",
           "image_url": "a1_happy.webp",
+          "label": null
+        },
+        {
+          "id": "sad-a1",
+          "image_url": "a1_sad.webp",
           "label": null
         }
       ],
@@ -422,153 +475,245 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only."
+      "pedagogy_note": "Story beat 01: Happy"
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "tired-1",
+      "correct_option_id": "sad-a2",
       "options": [
         {
-          "id": "tired-1",
-          "image_url": "a1_tired.webp",
+          "id": "sad-a2",
+          "image_url": "a1_sad.webp",
           "label": null
         },
         {
-          "id": "sad-2",
-          "image_url": "a1_sad.webp",
+          "id": "happy-a2",
+          "image_url": "a1_happy.webp",
           "label": null
         }
       ],
-      "audio_text": "Tired",
+      "audio_text": "Sad",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Distinct cues."
+      "pedagogy_note": "Story beat 02: Sad",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "hungry-2",
+      "correct_option_id": "hungry-a3",
       "options": [
         {
-          "id": "thirsty-1",
-          "image_url": "a1_thirsty.webp",
-          "label": null
+          "id": "hungry-a3",
+          "image_url": "",
+          "label": "Hungry"
         },
         {
-          "id": "hungry-2",
-          "image_url": "a1_hungry.webp",
-          "label": null
+          "id": "tired-a3",
+          "image_url": "",
+          "label": "Tired"
         }
       ],
       "audio_text": "Hungry",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only."
+      "pedagogy_note": "Story beat 03: Hungry"
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "how-are-you-2",
+      "correct_option_id": "thirsty-a4",
       "options": [
         {
-          "id": "what-is-your-name-1",
-          "image_url": "",
-          "label": "What is your name?"
-        },
-        {
-          "id": "how-are-you-2",
-          "image_url": "",
-          "label": "How are you?"
-        }
-      ],
-      "audio_text": "How are you?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Removes the untaught question Who are you?."
-    },
-    {
-      "slide_id": "A5",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "thirsty-4",
-      "options": [
-        {
-          "id": "happy-1",
-          "image_url": "a1_happy.webp",
-          "label": null
-        },
-        {
-          "id": "hungry-2",
+          "id": "hungry-a4",
           "image_url": "a1_hungry.webp",
           "label": null
         },
         {
-          "id": "tired-3",
-          "image_url": "a1_tired.webp",
-          "label": null
-        },
-        {
-          "id": "thirsty-4",
-          "image_url": "a1_photo_u7_woman_thirsty_v1.webp",
+          "id": "thirsty-a4",
+          "image_url": "a1_thirsty.webp",
           "label": null
         }
       ],
-      "audio_text": "I am thirsty.",
+      "audio_text": "Thirsty",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Sentence listening.",
-      "audio_speaker": "female-character"
+      "pedagogy_note": "Story beat 04: Thirsty",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-baby-is-hungry-a5",
+      "options": [
+        {
+          "id": "the-baby-is-hungry-a5",
+          "image_url": "",
+          "label": "The baby is hungry."
+        },
+        {
+          "id": "the-baby-is-thirsty-a5",
+          "image_url": "",
+          "label": "The baby is thirsty."
+        },
+        {
+          "id": "the-baby-is-tired-a5",
+          "image_url": "",
+          "label": "The baby is tired."
+        }
+      ],
+      "audio_text": "The baby is hungry.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: The baby is hungry."
     },
     {
       "slide_id": "A6",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "she-is-sad-4",
+      "correct_option_id": "the-grandfather-is-tired-a6",
       "options": [
         {
-          "id": "she-is-happy-1",
+          "id": "the-grandfather-is-tired-a6",
           "image_url": "",
-          "label": "She is happy."
+          "label": "The grandfather is tired."
         },
         {
-          "id": "he-is-sad-2",
+          "id": "the-grandfather-is-happy-a6",
           "image_url": "",
-          "label": "He is sad."
+          "label": "The grandfather is happy."
         },
         {
-          "id": "she-is-sad-4",
+          "id": "the-grandfather-is-sad-a6",
           "image_url": "",
-          "label": "She is sad."
+          "label": "The grandfather is sad."
         }
       ],
-      "audio_text": "She is sad.",
+      "audio_text": "The grandfather is tired.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Purposeful pronoun/state review."
+      "pedagogy_note": "Story beat 06: The grandfather is tired.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-girl-is-sad-a7",
+      "options": [
+        {
+          "id": "the-girl-is-sad-a7",
+          "image_url": "",
+          "label": "The girl is sad."
+        },
+        {
+          "id": "the-girl-is-happy-a7",
+          "image_url": "",
+          "label": "The girl is happy."
+        },
+        {
+          "id": "the-girl-is-hungry-a7",
+          "image_url": "",
+          "label": "The girl is hungry."
+        }
+      ],
+      "audio_text": "The girl is sad.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: The girl is sad."
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-mother-is-thirsty-a8",
+      "options": [
+        {
+          "id": "the-mother-is-thirsty-a8",
+          "image_url": "",
+          "label": "The mother is thirsty."
+        },
+        {
+          "id": "the-mother-is-hungry-a8",
+          "image_url": "",
+          "label": "The mother is hungry."
+        },
+        {
+          "id": "the-mother-is-tired-a8",
+          "image_url": "",
+          "label": "The mother is tired."
+        }
+      ],
+      "audio_text": "The mother is thirsty.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: The mother is thirsty.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "how-are-you-i-am-happy-a9",
+      "options": [
+        {
+          "id": "how-are-you-i-am-tired-a9",
+          "image_url": "",
+          "label": "How are you? I am tired."
+        },
+        {
+          "id": "how-are-you-i-am-happy-a9",
+          "image_url": "",
+          "label": "How are you? I am happy."
+        }
+      ],
+      "audio_text": "How are you? I am happy.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "How are you?",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_how-are-you_be4c34b.webp"
+        },
+        {
+          "text": "I am happy.",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_how-are-you_be4c34b.webp"
+        }
+      ],
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: How are you? I am happy."
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
       "prompt": "How are you?",
       "stage": "Speak",
-      "correct_option_id": "how-are-you-1",
+      "correct_option_id": "how-are-you-speak",
       "options": [
         {
-          "id": "how-are-you-1",
+          "id": "how-are-you-speak",
           "image_url": "a1_scene_how-are-you_be4c34b.webp",
           "label": "How are you?"
         }
@@ -577,180 +722,250 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo estás?",
-      "pedagogy_note": "Complete question.",
+      "pedagogy_note": "Story beat 01: How are you?",
       "audio_speaker": "male-character"
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "I am happy.",
+      "prompt": "The baby is hungry.",
       "stage": "Speak",
-      "correct_option_id": "i-am-happy-1",
+      "correct_option_id": "the-baby-is-hungry-speak",
       "options": [
         {
-          "id": "i-am-happy-1",
-          "image_url": "a1_happy.webp",
-          "label": "I am happy."
+          "id": "the-baby-is-hungry-speak",
+          "image_url": "a1_photo_u7_baby_hungry_v1.webp",
+          "label": "The baby is hungry."
         }
       ],
-      "audio_text": "I am happy.",
+      "audio_text": "The baby is hungry.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy feliz.",
-      "pedagogy_note": "Complete answer.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "El bebé tiene hambre.",
+      "pedagogy_note": "Story beat 02: The baby is hungry."
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "I am sad.",
+      "prompt": "The grandfather is tired.",
       "stage": "Speak",
-      "correct_option_id": "i-am-sad-1",
+      "correct_option_id": "the-grandfather-is-tired-speak",
       "options": [
         {
-          "id": "i-am-sad-1",
-          "image_url": "a1_sad.webp",
-          "label": "I am sad."
+          "id": "the-grandfather-is-tired-speak",
+          "image_url": "a1_photo_u7_grandfather_tired_v2.webp",
+          "label": "The grandfather is tired."
         }
       ],
-      "audio_text": "I am sad.",
+      "audio_text": "The grandfather is tired.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy triste.",
-      "pedagogy_note": "Complete answer.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "El abuelo está cansado.",
+      "pedagogy_note": "Story beat 03: The grandfather is tired.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "I am tired.",
+      "prompt": "The girl is sad.",
       "stage": "Speak",
-      "correct_option_id": "i-am-tired-1",
+      "correct_option_id": "the-girl-is-sad-speak",
       "options": [
         {
-          "id": "i-am-tired-1",
-          "image_url": "a1_tired.webp",
-          "label": "I am tired."
+          "id": "the-girl-is-sad-speak",
+          "image_url": "a1_photo_u7_girl_sad_v1.webp",
+          "label": "The girl is sad."
         }
       ],
-      "audio_text": "I am tired.",
+      "audio_text": "The girl is sad.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "Complete answer.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "La niña está triste.",
+      "pedagogy_note": "Story beat 04: The girl is sad."
     },
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "I am hungry.",
+      "prompt": "The children are happy.",
       "stage": "Speak",
-      "correct_option_id": "i-am-hungry-1",
+      "correct_option_id": "the-children-are-happy-speak",
       "options": [
         {
-          "id": "i-am-hungry-1",
-          "image_url": "a1_hungry.webp",
-          "label": "I am hungry."
+          "id": "the-children-are-happy-speak",
+          "image_url": "a1_photo_u7_children_happy_v1.webp",
+          "label": "The children are happy."
         }
       ],
-      "audio_text": "I am hungry.",
+      "audio_text": "The children are happy.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tengo hambre.",
-      "pedagogy_note": "Complete answer.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Los niños están felices.",
+      "pedagogy_note": "Story beat 05: The children are happy.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "I am thirsty.",
+      "prompt": "The mother is thirsty.",
       "stage": "Speak",
-      "correct_option_id": "i-am-thirsty-1",
+      "correct_option_id": "the-mother-is-thirsty-speak",
       "options": [
         {
-          "id": "i-am-thirsty-1",
-          "image_url": "a1_thirsty.webp",
-          "label": "I am thirsty."
+          "id": "the-mother-is-thirsty-speak",
+          "image_url": "a1_photo_u7_mother_thirsty_v1.webp",
+          "label": "The mother is thirsty."
         }
       ],
-      "audio_text": "I am thirsty.",
+      "audio_text": "The mother is thirsty.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tengo sed.",
-      "pedagogy_note": "Complete answer.",
+      "spanish_translation": "La madre tiene sed.",
+      "pedagogy_note": "Story beat 06: The mother is thirsty."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "I am hungry. I need food.",
+      "stage": "Speak",
+      "correct_option_id": "i-am-hungry-i-need-food-speak",
+      "options": [
+        {
+          "id": "i-am-hungry-i-need-food-speak",
+          "image_url": "a1_hungry.webp",
+          "label": "I am hungry. I need food."
+        }
+      ],
+      "audio_text": "I am hungry. I need food.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Tengo hambre. Necesito comida.",
+      "pedagogy_note": "Story beat 07: I am hungry. I need food.",
       "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "I am thirsty. I need water.",
+      "stage": "Speak",
+      "correct_option_id": "i-am-thirsty-i-need-water-speak",
+      "options": [
+        {
+          "id": "i-am-thirsty-i-need-water-speak",
+          "image_url": "a1_thirsty.webp",
+          "label": "I am thirsty. I need water."
+        }
+      ],
+      "audio_text": "I am thirsty. I need water.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Tengo sed. Necesito agua.",
+      "pedagogy_note": "Story beat 08: I am thirsty. I need water.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "How are you? I am happy.",
+      "stage": "Speak",
+      "correct_option_id": "how-are-you-i-am-happy-speak",
+      "options": [
+        {
+          "id": "how-are-you-i-am-happy-speak",
+          "image_url": "a1_scene_how-are-you_be4c34b.webp",
+          "label": "How are you? I am happy."
+        }
+      ],
+      "audio_text": "How are you? I am happy.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "How are you?",
+          "speaker_role": "male-character",
+          "image_url": "a1_scene_how-are-you_be4c34b.webp"
+        },
+        {
+          "text": "I am happy.",
+          "speaker_role": "female-character",
+          "image_url": "a1_scene_how-are-you_be4c34b.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo estás? Estoy feliz.",
+      "pedagogy_note": "Story beat 09: How are you? I am happy."
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "How ___ ___?",
       "stage": "Use",
-      "correct_option_id": "am",
+      "correct_option_id": "are",
       "options": [
         {
-          "id": "am",
+          "id": "are",
           "image_url": "",
-          "label": "am"
+          "label": "are"
         },
         {
-          "id": "happy",
+          "id": "you",
           "image_url": "",
-          "label": "happy"
+          "label": "you"
         }
       ],
-      "audio_text": "I am happy.",
-      "answer_audio_text": "I am happy.",
-      "prompt_image_url": "a1_happy.webp",
-      "spanish_translation": "Estoy feliz.",
-      "pedagogy_note": "State choice.",
-      "audio_speaker": "female-character",
-      "translation": "Estoy feliz.",
+      "audio_text": "How are you?",
+      "answer_audio_text": "How are you?",
+      "prompt_image_url": "a1_scene_how-are-you_be4c34b.webp",
+      "spanish_translation": "¿Cómo estás?",
+      "translation": "¿Cómo estás?",
       "correct_option_ids": [
-        "am",
-        "happy"
-      ]
+        "are",
+        "you"
+      ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 01: How are you?",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "The baby ___ ___.",
       "stage": "Use",
-      "correct_option_id": "am",
+      "correct_option_id": "is",
       "options": [
         {
-          "id": "am",
+          "id": "is",
           "image_url": "",
-          "label": "am"
+          "label": "is"
         },
         {
-          "id": "sad",
+          "id": "hungry",
           "image_url": "",
-          "label": "sad"
+          "label": "hungry"
         }
       ],
-      "audio_text": "I am sad.",
-      "answer_audio_text": "I am sad.",
-      "prompt_image_url": "a1_sad.webp",
-      "spanish_translation": "Estoy triste.",
-      "pedagogy_note": "Distinct cues.",
-      "audio_speaker": "female-character",
-      "translation": "Estoy triste.",
+      "audio_text": "The baby is hungry.",
+      "answer_audio_text": "The baby is hungry.",
+      "prompt_image_url": "a1_photo_u7_baby_hungry_v1.webp",
+      "spanish_translation": "El bebé tiene hambre.",
+      "translation": "El bebé tiene hambre.",
       "correct_option_ids": [
-        "am",
-        "sad"
-      ]
+        "is",
+        "hungry"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: The baby is hungry.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "The grandfather ___ ___.",
       "stage": "Use",
-      "correct_option_id": "am",
+      "correct_option_id": "is",
       "options": [
         {
-          "id": "am",
+          "id": "is",
           "image_url": "",
-          "label": "am"
+          "label": "is"
         },
         {
           "id": "tired",
@@ -758,125 +973,240 @@
           "label": "tired"
         }
       ],
-      "audio_text": "I am tired.",
-      "answer_audio_text": "I am tired.",
-      "prompt_image_url": "a1_tired.webp",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "State choice.",
-      "audio_speaker": "female-character",
-      "translation": "Estoy cansado.",
+      "audio_text": "The grandfather is tired.",
+      "answer_audio_text": "The grandfather is tired.",
+      "prompt_image_url": "a1_photo_u7_grandfather_tired_v2.webp",
+      "spanish_translation": "El abuelo está cansado.",
+      "translation": "El abuelo está cansado.",
       "correct_option_ids": [
-        "am",
+        "is",
         "tired"
-      ]
+      ],
+      "pedagogy_note": "Story beat 03: The grandfather is tired."
     },
     {
       "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "The girl ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "is",
+      "options": [
+        {
+          "id": "is",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "sad",
+          "image_url": "",
+          "label": "sad"
+        }
+      ],
+      "audio_text": "The girl is sad.",
+      "answer_audio_text": "The girl is sad.",
+      "prompt_image_url": "a1_photo_u7_girl_sad_v1.webp",
+      "spanish_translation": "La niña está triste.",
+      "translation": "La niña está triste.",
+      "correct_option_ids": [
+        "is",
+        "sad"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: The girl is sad.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U5",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
+          "id": "word-2",
+          "image_url": "",
+          "label": "children"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "happy"
+        },
+        {
           "id": "word-1",
           "image_url": "",
-          "label": "I"
+          "label": "The"
         },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "are"
+        }
+      ],
+      "audio_text": "The children are happy.",
+      "answer_audio_text": "The children are happy.",
+      "prompt_image_url": "a1_photo_u7_children_happy_v1.webp",
+      "spanish_translation": "Los niños están felices.",
+      "translation": "Los niños están felices.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "pedagogy_note": "Story beat 05: The children are happy."
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "mother"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "thirsty"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "The mother is thirsty.",
+      "answer_audio_text": "The mother is thirsty.",
+      "prompt_image_url": "a1_photo_u7_mother_thirsty_v1.webp",
+      "spanish_translation": "La madre tiene sed.",
+      "translation": "La madre tiene sed.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 06: The mother is thirsty.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
         {
           "id": "word-2",
           "image_url": "",
           "label": "am"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "food"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
         },
         {
           "id": "word-3",
           "image_url": "",
           "label": "hungry"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
         }
       ],
-      "audio_text": "I am hungry.",
-      "answer_audio_text": "I am hungry.",
+      "audio_text": "I am hungry. I need food.",
+      "answer_audio_text": "I am hungry. I need food.",
       "prompt_image_url": "a1_hungry.webp",
-      "spanish_translation": "Tengo hambre.",
-      "pedagogy_note": "Need cue.",
-      "audio_speaker": "female-character",
-      "translation": "Tengo hambre.",
+      "spanish_translation": "Tengo hambre. Necesito comida.",
+      "translation": "Tengo hambre. Necesito comida.",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
-      ]
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 07: I am hungry. I need food.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "U5",
+      "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___. ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
-          "id": "word-1",
+          "id": "word-2",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "I"
         },
         {
-          "id": "word-2",
+          "id": "word-6",
           "image_url": "",
-          "label": "am"
+          "label": "water"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
         },
         {
           "id": "word-3",
           "image_url": "",
           "label": "thirsty"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
         }
       ],
-      "audio_text": "I am thirsty.",
-      "answer_audio_text": "I am thirsty.",
-      "prompt_image_url": "a1_photo_u7_woman_thirsty_v1.webp",
-      "spanish_translation": "Tengo sed.",
-      "pedagogy_note": "Need cue.",
-      "audio_speaker": "female-character",
-      "translation": "Tengo sed.",
+      "audio_text": "I am thirsty. I need water.",
+      "answer_audio_text": "I am thirsty. I need water.",
+      "prompt_image_url": "a1_thirsty.webp",
+      "spanish_translation": "Tengo sed. Necesito agua.",
+      "translation": "Tengo sed. Necesito agua.",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
-      ]
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "am"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "tired"
-        }
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
       ],
-      "audio_text": "I am tired.",
-      "answer_audio_text": "I am tired.",
-      "prompt_image_url": "a1_tired.webp",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "Controlled answer to taught question.",
       "answer_audio_speaker": "female-character",
-      "translation": "Estoy cansado.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
-      ],
+      "pedagogy_note": "Story beat 08: I am thirsty. I need water.",
       "audio_speaker": "female-character"
     }
   ]

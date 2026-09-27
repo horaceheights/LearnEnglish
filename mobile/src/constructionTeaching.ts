@@ -14,6 +14,8 @@ for (const noun of words('spain diego states')) NOUNS.add(noun);
 for (const noun of words('home window')) NOUNS.add(noun);
 // Unit 5 (2026-09-26): fruit and food words that its constructions name.
 for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
+// Unit 7 (2026-09-27): the body word its constructions name.
+NOUNS.add('ears');
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 const OWNERS = set('mine yours');
 const PRONOUNS = set('i you he she it we they this that these those there');
@@ -158,6 +160,15 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `En ${quote(original)}, “and” va entre las dos características para unirlas.`);
       return true;
     }
+    // Lesson 7.4 says when the weather holds: "sunny today", "cold in the morning".
+    if (end - start > 1 && STATES.has(keys[start]) && (keys[start + 1] === 'today' || keys[start + 1] === 'in')) {
+      teach(start, start + 1, `${quote(tokens[start])} describe cómo es o cómo está; va después de ${quote(anchor)}.`);
+      if (keys[start + 1] === 'today') {
+        teach(start + 1, end, `“Today” va al final, después de ${quote(tokens[start])}, e indica cuándo: hoy.`);
+        return end - start === 2;
+      }
+      return complement(start + 1, end, tokens[start]);
+    }
     if (ACTIONS.has(keys[start])) {
       teach(start, start + 1, `${quote(tokens[start])} expresa la acción; aquí va después de ${quote(anchor)}.`);
       if (keys[start] === 'listening' && keys[start + 1] === 'to') {
@@ -194,6 +205,10 @@ function teachClause(text: string): ClausePlan {
     // Unit 3 short answers: "Yes." or "No." comes first, then the subject and its be.
     yes: 'En la respuesta corta, “Yes” va primero para decir que sí; después repetimos el sujeto y el verbo.',
     no: 'En la respuesta corta, “No” va primero para decir que no; después repetimos el sujeto, el verbo y “not”.',
+    // Unit 7: the greeting question and the two free-time activities are fixed chunks.
+    'how are you': 'Para preguntar cómo está alguien decimos “How are you?”: primero “How”, luego “are” y al final “you”.',
+    'listening to music': 'En “Listening to music”, primero la actividad “Listening”, después “to” y al final lo que escuchamos, “music”.',
+    'watching tv': 'En “Watching TV”, primero la actividad “Watching” y después lo que miramos, “TV”.',
   };
   if (fixed[joined]) {
     teach(0, keys.length, fixed[joined]);
@@ -211,6 +226,19 @@ function teachClause(text: string): ClausePlan {
     teach(0, keys.length, `Para dar esta indicación, primero va la acción ${quote(tokens[0])} y después ${quote(phrase(1, keys.length))}, que dice hacia dónde o dónde realizarla.`);
     const supported = ['go', 'turn'].includes(keys[0]) || complement(1, keys.length, tokens[0]);
     return { explanations, relations, supported };
+  }
+  // Lesson 7.7 proposes with "Let's": it opens the proposal and the activity follows.
+  if (/^let's (play|read|watch|listen)\b/.test(joined)) {
+    teach(0, keys.length, `Para proponer algo, primero va “Let's” y después la actividad: ${quote(phrase(1, keys.length))}.`);
+    teach(0, 1, '“Let\'s” va primero: abre la propuesta, antes de la actividad.');
+    teach(1, 2, `${quote(tokens[1])} es la actividad que proponemos; va después de “Let's”.`);
+    let next = 2;
+    if (keys[1] === 'listen' && keys[2] === 'to') {
+      teach(2, 3, '“To” une “listen” con lo que escuchamos y va entre ambos.');
+      next = 3;
+    }
+    const supported = next === keys.length || complement(next, keys.length, phrase(0, next));
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   if (joined === 'can you help me') {
     teach(0, keys.length, 'Para pedir ayuda preguntamos “Can you help me?”: “Can” va antes de “you”, luego “help” y al final “me”, quien necesita ayuda.');

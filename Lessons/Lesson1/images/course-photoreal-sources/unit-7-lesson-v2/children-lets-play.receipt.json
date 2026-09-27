@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "e15a4e8c-b3a8-4949-a9c1-3a5fcbb3f5b0",
+  "asset_id": "children-lets-play",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:13:37.086228+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the family's two children: a boy about nine with short dark hair in a blue polo shirt, and a girl about seven with long dark hair in a lilac T-shirt. Keep their faces, hair and clothes exactly. Create a new photograph in the family's garden: the boy holds a soccer ball under one arm and turns toward the girl, speaking to her with an excited smile and his free hand open toward the lawn, inviting her to play; the girl looks at him and smiles. The boy is the clear speaker, both faces in three-quarter view. Only these two children; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+    "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Qt64asD-B5CKmtkPyYiHuAY",
+  "usage": {
+    "promptTokenCount": 571,
+    "candidatesTokenCount": 1301,
+    "totalTokenCount": 2099,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 313
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 227,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137866",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 571,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 227
+  },
+  "elapsed_seconds": 29.29,
+  "output": "output/imagegen/unit-7-lesson-v2/children-lets-play.png",
+  "sha256": "91744798e53088f39e84d20a4e552fc4317f4cadf73b327a4856743093d3c7f3",
+  "byte_count": 6118045,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

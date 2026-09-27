@@ -37,9 +37,9 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  357, // 2026-09-25: the engine-built Unit 3 gives its 12 teaching lessons sentence-choice cards;
+  392, // 2026-09-25: the engine-built Unit 3 gives its 12 teaching lessons sentence-choice cards;
   // 2026-09-26: the engine-built Unit 4 does the same for its ten (+30), and Unit 5 for its ten;
-  // 2026-09-27: the engine-built Unit 6 for its eight
+  // 2026-09-27: the engine-built Units 6 and 7 for their eight each
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
@@ -59,10 +59,9 @@ assert.deepEqual(englishInstructions, [], 'Recognize cards must not show or spea
 assert.deepEqual(
   emptyRecognizeCards.filter(({ card }) => card.audio_text?.trim()).map(({ card, lessonId }) => `${lessonId} ${card.slide_id}`),
   [
-    // 5.9 R7 left this list with the Unit 5 rebuild; its reply choice became a text bank, and
-    // 6.7 R7/R8 left with the Unit 6 rebuild, whose exchanges show their own prompt picture.
-    'lesson-7-7-invitations-and-responses R6',
-    'lesson-7-7-invitations-and-responses R7',
+    // 5.9 R7 left this list with the Unit 5 rebuild; its reply choice became a text bank,
+    // 6.7 R7/R8 left with the Unit 6 rebuild, whose exchanges show their own prompt picture,
+    // and 7.7 R6/R7 left with the Unit 7 rebuild for the same reason. No reply card remains.
   ],
   'Only reply choices keep a heard English line, and the speaker can replay it before the choice.',
 );

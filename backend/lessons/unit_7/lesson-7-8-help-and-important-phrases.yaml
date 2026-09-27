@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
-  "unit_outcome": "Handle basic physical needs, weather, clothing, leisure, invitations, and requests for help.",
+  "unit_outcome": "Name the body, feelings, clothes and the weather, say what you need and like, invite with Do you want to ...? and Let's, and ask for help when you do not understand.",
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.8",
   "sub_lesson_title": "Help and Important Phrases",
-  "goal": "Use memorized phrases to ask for immediate help, signal non-understanding, request repetition, and request slower speech.",
+  "goal": "Say I need help, say that I do not understand, and ask someone to repeat or to speak slowly.",
   "vocabulary": [
     "help",
     "understand",
@@ -21,55 +21,48 @@
     "Please speak slowly."
   ],
   "review_vocabulary": [
-    "excuse me",
+    "Excuse me.",
     "please",
-    "thank you",
+    "Thank you.",
     "Where is the bathroom?",
-    "Can you help me?",
-    "tired",
-    "hungry",
-    "thirsty"
+    "Can you help me?"
   ],
-  "grammar_function": "Practical fixed phrases; I need + noun and I do not + base verb recycle established patterns.",
-  "prerequisite": "5.5 need; 5.8 please/thanks; 6.7 help request; 7.2 states.",
-  "speaking_outcome": "Say six practical recovery/help phrases clearly enough to obtain assistance.",
+  "grammar_function": "I need help. I do not understand. Please repeat. Please speak slowly.",
+  "prerequisite": "5.9 please and thank you; 6.7 Excuse me. and Can you help me?; 4.1 bathroom; 4.3 Where is ...?",
+  "speaking_outcome": "Ask for help and ask someone to repeat.",
+  "content_revision": 2,
   "purposeful_review_slides": [
-    "Learn:L2",
-    "Learn:L6",
-    "Learn:L7",
-    "Learn:L8",
-    "Recognize:R8",
-    "Use:U7"
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U9"
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Help",
-      "stage": "Learn",
-      "correct_option_id": "help-1",
-      "options": [
-        {
-          "id": "help-1",
-          "image_url": "a1_scene_help_92005ec.webp",
-          "label": "Help"
-        }
-      ],
-      "audio_text": "Help",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ayuda",
-      "pedagogy_note": "Word was receptive in 6.7 chunk; isolated meaning now anchored."
-    },
-    {
-      "slide_id": "L2",
-      "interaction_type": "teach",
       "prompt": "I need help.",
       "stage": "Learn",
-      "correct_option_id": "i-need-help-1",
+      "correct_option_id": "i-need-help-learn",
       "options": [
         {
-          "id": "i-need-help-1",
+          "id": "i-need-help-learn",
           "image_url": "a1_scene_i-need-help_93277f0.webp",
           "label": "I need help."
         }
@@ -78,17 +71,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Necesito ayuda.",
-      "pedagogy_note": "New practical target using known need."
+      "pedagogy_note": "Story beat 01: I need help.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "L3",
+      "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "I do not understand.",
       "stage": "Learn",
-      "correct_option_id": "i-do-not-understand-1",
+      "correct_option_id": "i-do-not-understand-learn",
       "options": [
         {
-          "id": "i-do-not-understand-1",
+          "id": "i-do-not-understand-learn",
           "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
           "label": "I do not understand."
         }
@@ -97,18 +91,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "No entiendo.",
-      "pedagogy_note": "New understand phrase.",
+      "pedagogy_note": "Story beat 02: I do not understand.",
       "audio_speaker": "male-character"
     },
     {
-      "slide_id": "L4",
+      "slide_id": "L3",
       "interaction_type": "teach",
       "prompt": "Please repeat.",
       "stage": "Learn",
-      "correct_option_id": "please-repeat-1",
+      "correct_option_id": "please-repeat-learn",
       "options": [
         {
-          "id": "please-repeat-1",
+          "id": "please-repeat-learn",
           "image_url": "a1_scene_please-repeat_50ab734.webp",
           "label": "Please repeat."
         }
@@ -117,17 +111,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Repita, por favor.",
-      "pedagogy_note": "New recovery request."
+      "pedagogy_note": "Story beat 03: Please repeat.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "L5",
+      "slide_id": "L4",
       "interaction_type": "teach",
       "prompt": "Please speak slowly.",
       "stage": "Learn",
-      "correct_option_id": "please-speak-slowly-1",
+      "correct_option_id": "please-speak-slowly-learn",
       "options": [
         {
-          "id": "please-speak-slowly-1",
+          "id": "please-speak-slowly-learn",
           "image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
           "label": "Please speak slowly."
         }
@@ -136,81 +131,24 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Hable despacio, por favor.",
-      "pedagogy_note": "New recovery request; no speed jargon."
-    },
-    {
-      "slide_id": "L6",
-      "interaction_type": "teach",
-      "prompt": "Excuse me. I need help.",
-      "stage": "Learn",
-      "correct_option_id": "excuse-me-i-need-help-1",
-      "options": [
-        {
-          "id": "excuse-me-i-need-help-1",
-          "image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
-          "label": "Excuse me. I need help."
-        }
-      ],
-      "audio_text": "Excuse me. I need help.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Disculpe. Necesito ayuda.",
-      "pedagogy_note": "Combines known/new chunks."
-    },
-    {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "Where is the bathroom?",
-      "stage": "Learn",
-      "correct_option_id": "where-is-the-bathroom-1",
-      "options": [
-        {
-          "id": "where-is-the-bathroom-1",
-          "image_url": "a1_bathroom.webp",
-          "label": "Where is the bathroom?"
-        }
-      ],
-      "audio_text": "Where is the bathroom?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Dónde está el baño?",
-      "pedagogy_note": "Purposeful Unit 4 room and Unit 6 question review."
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "Thank you.",
-      "stage": "Learn",
-      "correct_option_id": "thank-you-1",
-      "options": [
-        {
-          "id": "thank-you-1",
-          "image_url": "a1_scene_thank-you_a6f59e1.webp",
-          "label": "Thank you."
-        }
-      ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Gracias.",
-      "pedagogy_note": "Purposeful polite close.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Story beat 04: Please speak slowly.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "I need help.",
       "stage": "Recognize",
-      "correct_option_id": "needs-help-1",
+      "correct_option_id": "i-need-help-r1",
       "options": [
         {
-          "id": "needs-help-1",
-          "image_url": "a1_scene_needs-help_bd54960.webp",
+          "id": "i-do-not-understand-r1",
+          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
           "label": null
         },
         {
-          "id": "orders-water-2",
-          "image_url": "a1_scene_orders-water_37bb622.webp",
+          "id": "i-need-help-r1",
+          "image_url": "a1_scene_i-need-help_93277f0.webp",
           "label": null
         }
       ],
@@ -218,48 +156,49 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Necesito ayuda.",
-      "pedagogy_note": "Function clear."
+      "pedagogy_note": "Story beat 01: I need help.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "I do not understand.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "does-not-understand-2",
+      "correct_option_id": "i-do-not-understand-r2",
       "options": [
         {
-          "id": "understands-1",
-          "image_url": "a1_scene_understands_3881ac9.webp",
-          "label": null
+          "id": "i-need-help-r2",
+          "image_url": "",
+          "label": "I need help."
         },
         {
-          "id": "does-not-understand-2",
-          "image_url": "a1_scene_does-not-understand_6ad015b.webp",
-          "label": null
+          "id": "i-do-not-understand-r2",
+          "image_url": "",
+          "label": "I do not understand."
         }
       ],
-      "audio_text": "I do not understand.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "No entiendo.",
-      "pedagogy_note": "Only the comprehension polarity cue changes; exact negative contrast.",
-      "audio_speaker": "male-character"
+      "audio_text": "",
+      "answer_audio_text": "I do not understand.",
+      "prompt_image_url": "a1_scene_i-do-not-understand_d56b045.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 02: I do not understand."
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "Please repeat.",
       "stage": "Recognize",
-      "correct_option_id": "asks-to-repeat-1",
+      "correct_option_id": "please-repeat-r3",
       "options": [
         {
-          "id": "asks-to-repeat-1",
-          "image_url": "a1_scene_asks-to-repeat_c77cbe4.webp",
+          "id": "please-repeat-r3",
+          "image_url": "a1_scene_please-repeat_50ab734.webp",
           "label": null
         },
         {
-          "id": "asks-to-slow-down-2",
-          "image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+          "id": "i-do-not-understand-r3",
+          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
           "label": null
         }
       ],
@@ -267,144 +206,223 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Repita, por favor.",
-      "pedagogy_note": "Icons standardized and taught."
+      "pedagogy_note": "Story beat 03: Please repeat.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "Please speak slowly.",
-      "stage": "Recognize",
-      "correct_option_id": "asks-to-slow-down-2",
-      "options": [
-        {
-          "id": "asks-to-repeat-1",
-          "image_url": "a1_scene_asks-to-repeat_c77cbe4.webp",
-          "label": null
-        },
-        {
-          "id": "asks-to-slow-down-2",
-          "image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Please speak slowly.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hable despacio, por favor.",
-      "pedagogy_note": "Exact contrast."
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-need-help-1",
+      "correct_option_id": "please-speak-slowly-r4",
       "options": [
         {
-          "id": "i-need-help-1",
-          "image_url": "",
-          "label": "I need help."
-        },
-        {
-          "id": "i-need-water-2",
-          "image_url": "",
-          "label": "I need water."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I need help.",
-      "prompt_image_url": "a1_scene_i-need-help_93277f0.webp",
-      "spanish_translation": "Elige las palabras.",
-      "pedagogy_note": "Image-to-text need object."
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-do-not-understand-1",
-      "options": [
-        {
-          "id": "i-do-not-understand-1",
-          "image_url": "",
-          "label": "I do not understand."
-        },
-        {
-          "id": "i-do-not-like-music-2",
-          "image_url": "",
-          "label": "I do not like music."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I do not understand.",
-      "prompt_image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-      "spanish_translation": "Elige las palabras.",
-      "pedagogy_note": "Function and verb distinguish.",
-      "answer_audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "please-repeat-1",
-      "options": [
-        {
-          "id": "please-repeat-1",
+          "id": "please-repeat-r4",
           "image_url": "",
           "label": "Please repeat."
         },
         {
-          "id": "please-speak-slowly-2",
+          "id": "please-speak-slowly-r4",
           "image_url": "",
           "label": "Please speak slowly."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Please repeat.",
-      "prompt_image_url": "a1_scene_please-repeat_50ab734.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Image-to-text recovery contrast."
+      "answer_audio_text": "Please speak slowly.",
+      "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 04: Please speak slowly."
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "excuse-me-i-need-help-r5",
+      "options": [
+        {
+          "id": "excuse-me-thank-you-r5",
+          "image_url": "",
+          "label": "Excuse me. Thank you."
+        },
+        {
+          "id": "excuse-me-i-need-help-r5",
+          "image_url": "",
+          "label": "Excuse me. I need help."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Excuse me. I need help.",
+      "prompt_image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 05: Excuse me. I need help."
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-do-not-understand-please-repeat-r6",
+      "options": [
+        {
+          "id": "i-do-not-understand-please-repeat-r6",
+          "image_url": "",
+          "label": "I do not understand. Please repeat."
+        },
+        {
+          "id": "i-do-not-understand-thank-you-r6",
+          "image_url": "",
+          "label": "I do not understand. Thank you."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I do not understand. Please repeat.",
+      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 06: I do not understand. Please repeat."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "please-speak-slowly-thank-you-r7",
+      "options": [
+        {
+          "id": "please-speak-slowly-thank-you-r7",
+          "image_url": "",
+          "label": "Please speak slowly. Thank you."
+        },
+        {
+          "id": "please-repeat-thank-you-r7",
+          "image_url": "",
+          "label": "Please repeat. Thank you."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Please speak slowly. Thank you.",
+      "prompt_image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 07: Please speak slowly. Thank you."
     },
     {
       "slide_id": "R8",
-      "interaction_type": "recognize-text",
-      "prompt": "Where is the bathroom?",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-on-the-right-2",
+      "correct_option_id": "where-is-the-bathroom-r8",
       "options": [
         {
-          "id": "it-is-on-the-left-1",
+          "id": "where-is-the-bathroom-r8",
           "image_url": "",
-          "label": "It is on the left."
+          "label": "Where is the bathroom?"
         },
         {
-          "id": "it-is-on-the-right-2",
+          "id": "where-is-the-kitchen-r8",
           "image_url": "",
-          "label": "It is on the right."
+          "label": "Where is the kitchen?"
         }
       ],
-      "audio_text": "Where is the bathroom?",
-      "answer_audio_text": "It is on the right.",
-      "prompt_image_url": "a1_scene_it-is-on-the-right_95dc6ee.webp",
-      "spanish_translation": "¿Dónde está el baño?",
-      "pedagogy_note": "Removes near/far responses that could also be true of a right-side location."
+      "audio_text": "",
+      "answer_audio_text": "Where is the bathroom?",
+      "prompt_image_url": "a1_bathroom.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: Where is the bathroom?"
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "excuse-me-i-need-help-r9",
+      "options": [
+        {
+          "id": "excuse-me-i-need-help-r9",
+          "image_url": "",
+          "label": "Excuse me. I need help."
+        },
+        {
+          "id": "excuse-me-thank-you-r9",
+          "image_url": "",
+          "label": "Excuse me. Thank you."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Excuse me. I need help.",
+      "prompt_image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 09: Excuse me. I need help."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-do-not-understand-please-repeat-r10",
+      "options": [
+        {
+          "id": "i-do-not-understand-please-repeat-r10",
+          "image_url": "",
+          "label": "I do not understand. Please repeat."
+        },
+        {
+          "id": "i-do-not-understand-thank-you-r10",
+          "image_url": "",
+          "label": "I do not understand. Thank you."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I do not understand. Please repeat.",
+      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 10: I do not understand. Please repeat."
+    },
+    {
+      "slide_id": "R11",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "please-speak-slowly-thank-you-r11",
+      "options": [
+        {
+          "id": "please-repeat-thank-you-r11",
+          "image_url": "",
+          "label": "Please repeat. Thank you."
+        },
+        {
+          "id": "please-speak-slowly-thank-you-r11",
+          "image_url": "",
+          "label": "Please speak slowly. Thank you."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Please speak slowly. Thank you.",
+      "prompt_image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 11: Please speak slowly. Thank you."
     },
     {
       "slide_id": "A1",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "needs-help-2",
+      "correct_option_id": "i-need-help-a1",
       "options": [
         {
-          "id": "orders-water-1",
-          "image_url": "a1_scene_orders-water_37bb622.webp",
+          "id": "i-need-help-a1",
+          "image_url": "a1_scene_i-need-help_93277f0.webp",
           "label": null
         },
         {
-          "id": "needs-help-2",
-          "image_url": "a1_scene_needs-help_bd54960.webp",
+          "id": "i-do-not-understand-a1",
+          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
           "label": null
         }
       ],
@@ -412,23 +430,24 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only."
+      "pedagogy_note": "Story beat 01: I need help.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "does-not-understand-1",
+      "correct_option_id": "i-do-not-understand-a2",
       "options": [
         {
-          "id": "does-not-understand-1",
-          "image_url": "a1_scene_does-not-understand_6ad015b.webp",
+          "id": "i-do-not-understand-a2",
+          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
           "label": null
         },
         {
-          "id": "understands-2",
-          "image_url": "a1_scene_understands_3881ac9.webp",
+          "id": "i-need-help-a2",
+          "image_url": "a1_scene_i-need-help_93277f0.webp",
           "label": null
         }
       ],
@@ -436,129 +455,198 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only polarity with every non-polarity detail controlled.",
+      "pedagogy_note": "Story beat 02: I do not understand.",
       "audio_speaker": "male-character"
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "asks-repeat-2",
+      "correct_option_id": "please-repeat-a3",
       "options": [
         {
-          "id": "asks-slow-speech-1",
-          "image_url": "a1_scene_asks-slow-speech_f9144fc.webp",
-          "label": null
+          "id": "please-repeat-a3",
+          "image_url": "",
+          "label": "Please repeat."
         },
         {
-          "id": "asks-repeat-2",
-          "image_url": "a1_scene_asks-repeat_6abbdbc.webp",
-          "label": null
+          "id": "i-do-not-understand-a3",
+          "image_url": "",
+          "label": "I do not understand."
         }
       ],
       "audio_text": "Please repeat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only."
+      "pedagogy_note": "Story beat 03: Please repeat.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "please-speak-slowly-2",
+      "correct_option_id": "please-speak-slowly-a4",
       "options": [
         {
-          "id": "please-repeat-1",
-          "image_url": "",
-          "label": "Please repeat."
+          "id": "please-repeat-a4",
+          "image_url": "a1_scene_please-repeat_50ab734.webp",
+          "label": null
         },
         {
-          "id": "please-speak-slowly-2",
-          "image_url": "",
-          "label": "Please speak slowly."
+          "id": "please-speak-slowly-a4",
+          "image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
+          "label": null
         }
       ],
       "audio_text": "Please speak slowly.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "No image support."
+      "pedagogy_note": "Story beat 04: Please speak slowly.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "A5",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "excuse-me-i-need-help-2",
+      "correct_option_id": "excuse-me-i-need-help-a5",
       "options": [
         {
-          "id": "hello-water-please-1",
-          "image_url": "",
-          "label": "Hello. Water, please."
-        },
-        {
-          "id": "excuse-me-i-need-help-2",
+          "id": "excuse-me-i-need-help-a5",
           "image_url": "",
           "label": "Excuse me. I need help."
         },
         {
-          "id": "sorry-no-thank-you-3",
+          "id": "excuse-me-thank-you-a5",
           "image_url": "",
-          "label": "Sorry, no. Thank you."
+          "label": "Excuse me. Thank you."
         }
       ],
       "audio_text": "Excuse me. I need help.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Integrated request."
+      "pedagogy_note": "Story beat 05: Excuse me. I need help.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "A6",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "asks-bathroom-1",
+      "correct_option_id": "i-do-not-understand-please-repeat-a6",
       "options": [
         {
-          "id": "asks-bathroom-1",
-          "image_url": "a1_bathroom.webp",
-          "label": null
+          "id": "i-do-not-understand-thank-you-a6",
+          "image_url": "",
+          "label": "I do not understand. Thank you."
         },
         {
-          "id": "asks-station-2",
-          "image_url": "a1_photo_u7_station_central_v1.webp",
-          "label": null
+          "id": "i-do-not-understand-please-repeat-a6",
+          "image_url": "",
+          "label": "I do not understand. Please repeat."
+        }
+      ],
+      "audio_text": "I do not understand. Please repeat.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: I do not understand. Please repeat.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "please-speak-slowly-thank-you-a7",
+      "options": [
+        {
+          "id": "please-repeat-thank-you-a7",
+          "image_url": "",
+          "label": "Please repeat. Thank you."
         },
         {
-          "id": "asks-hospital-3",
-          "image_url": "a1_photo_u6_hospital_central_v1.webp",
-          "label": null
+          "id": "please-speak-slowly-thank-you-a7",
+          "image_url": "",
+          "label": "Please speak slowly. Thank you."
+        }
+      ],
+      "audio_text": "Please speak slowly. Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: Please speak slowly. Thank you.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "where-is-the-bathroom-a8",
+      "options": [
+        {
+          "id": "where-is-the-kitchen-a8",
+          "image_url": "",
+          "label": "Where is the kitchen?"
         },
         {
-          "id": "asks-bank-4",
-          "image_url": "a1_photo_u6_bank_central_v1.webp",
-          "label": null
+          "id": "where-is-the-bathroom-a8",
+          "image_url": "",
+          "label": "Where is the bathroom?"
         }
       ],
       "audio_text": "Where is the bathroom?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Purposeful known location transfer."
+      "pedagogy_note": "Story beat 08: Where is the bathroom?",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-need-help-a9",
+      "options": [
+        {
+          "id": "i-do-not-understand-a9",
+          "image_url": "",
+          "label": "I do not understand."
+        },
+        {
+          "id": "please-repeat-a9",
+          "image_url": "",
+          "label": "Please repeat."
+        },
+        {
+          "id": "i-need-help-a9",
+          "image_url": "",
+          "label": "I need help."
+        }
+      ],
+      "audio_text": "I need help.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: I need help.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
       "prompt": "I need help.",
       "stage": "Speak",
-      "correct_option_id": "i-need-help-1",
+      "correct_option_id": "i-need-help-speak",
       "options": [
         {
-          "id": "i-need-help-1",
+          "id": "i-need-help-speak",
           "image_url": "a1_scene_i-need-help_93277f0.webp",
           "label": "I need help."
         }
@@ -567,17 +655,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Necesito ayuda.",
-      "pedagogy_note": "Practical target."
+      "pedagogy_note": "Story beat 01: I need help.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
       "prompt": "I do not understand.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-understand-1",
+      "correct_option_id": "i-do-not-understand-speak",
       "options": [
         {
-          "id": "i-do-not-understand-1",
+          "id": "i-do-not-understand-speak",
           "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
           "label": "I do not understand."
         }
@@ -586,7 +675,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "No entiendo.",
-      "pedagogy_note": "Complete negative phrase.",
+      "pedagogy_note": "Story beat 02: I do not understand.",
       "audio_speaker": "male-character"
     },
     {
@@ -594,10 +683,10 @@
       "interaction_type": "speak",
       "prompt": "Please repeat.",
       "stage": "Speak",
-      "correct_option_id": "please-repeat-1",
+      "correct_option_id": "please-repeat-speak",
       "options": [
         {
-          "id": "please-repeat-1",
+          "id": "please-repeat-speak",
           "image_url": "a1_scene_please-repeat_50ab734.webp",
           "label": "Please repeat."
         }
@@ -606,17 +695,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Repita, por favor.",
-      "pedagogy_note": "Practical request."
+      "pedagogy_note": "Story beat 03: Please repeat.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
       "prompt": "Please speak slowly.",
       "stage": "Speak",
-      "correct_option_id": "please-speak-slowly-1",
+      "correct_option_id": "please-speak-slowly-speak",
       "options": [
         {
-          "id": "please-speak-slowly-1",
+          "id": "please-speak-slowly-speak",
           "image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
           "label": "Please speak slowly."
         }
@@ -625,17 +715,18 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Hable despacio, por favor.",
-      "pedagogy_note": "Practical request."
+      "pedagogy_note": "Story beat 04: Please speak slowly.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S5",
       "interaction_type": "speak",
       "prompt": "Excuse me. I need help.",
       "stage": "Speak",
-      "correct_option_id": "excuse-me-i-need-help-1",
+      "correct_option_id": "excuse-me-i-need-help-speak",
       "options": [
         {
-          "id": "excuse-me-i-need-help-1",
+          "id": "excuse-me-i-need-help-speak",
           "image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
           "label": "Excuse me. I need help."
         }
@@ -644,17 +735,58 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Disculpe. Necesito ayuda.",
-      "pedagogy_note": "Two chunks with pause."
+      "pedagogy_note": "Story beat 05: Excuse me. I need help.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "Where is the bathroom?",
+      "prompt": "I do not understand. Please repeat.",
       "stage": "Speak",
-      "correct_option_id": "where-is-the-bathroom-1",
+      "correct_option_id": "i-do-not-understand-please-repeat-speak",
       "options": [
         {
-          "id": "where-is-the-bathroom-1",
+          "id": "i-do-not-understand-please-repeat-speak",
+          "image_url": "a1_scene_does-not-understand_6ad015b.webp",
+          "label": "I do not understand. Please repeat."
+        }
+      ],
+      "audio_text": "I do not understand. Please repeat.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "No entiendo. Repita, por favor.",
+      "pedagogy_note": "Story beat 06: I do not understand. Please repeat.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "Please speak slowly. Thank you.",
+      "stage": "Speak",
+      "correct_option_id": "please-speak-slowly-thank-you-speak",
+      "options": [
+        {
+          "id": "please-speak-slowly-thank-you-speak",
+          "image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+          "label": "Please speak slowly. Thank you."
+        }
+      ],
+      "audio_text": "Please speak slowly. Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hable despacio, por favor. Gracias.",
+      "pedagogy_note": "Story beat 07: Please speak slowly. Thank you.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "Where is the bathroom?",
+      "stage": "Speak",
+      "correct_option_id": "where-is-the-bathroom-speak",
+      "options": [
+        {
+          "id": "where-is-the-bathroom-speak",
           "image_url": "a1_bathroom.webp",
           "label": "Where is the bathroom?"
         }
@@ -663,7 +795,27 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Dónde está el baño?",
-      "pedagogy_note": "Practical location question."
+      "pedagogy_note": "Story beat 08: Where is the bathroom?"
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "I do not understand.",
+      "stage": "Speak",
+      "correct_option_id": "i-do-not-understand-speak",
+      "options": [
+        {
+          "id": "i-do-not-understand-speak",
+          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
+          "label": "I do not understand."
+        }
+      ],
+      "audio_text": "I do not understand.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "No entiendo.",
+      "pedagogy_note": "Story beat 09: I do not understand.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "U1",
@@ -685,46 +837,19 @@
       ],
       "audio_text": "I need help.",
       "answer_audio_text": "I need help.",
-      "prompt_image_url": "a1_scene_help_92005ec.webp",
+      "prompt_image_url": "a1_scene_i-need-help_93277f0.webp",
       "spanish_translation": "Necesito ayuda.",
-      "pedagogy_note": "Scene decides.",
       "translation": "Necesito ayuda.",
       "correct_option_ids": [
         "need",
         "help"
-      ]
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 01: I need help.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "Please ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "speak",
-      "options": [
-        {
-          "id": "speak",
-          "image_url": "",
-          "label": "speak"
-        },
-        {
-          "id": "slowly",
-          "image_url": "",
-          "label": "slowly"
-        }
-      ],
-      "audio_text": "Please speak slowly.",
-      "answer_audio_text": "Please speak slowly.",
-      "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-      "spanish_translation": "Por favor habla despacio.",
-      "pedagogy_note": "Known like distractor; function decides.",
-      "translation": "Por favor habla despacio.",
-      "correct_option_ids": [
-        "speak",
-        "slowly"
-      ]
-    },
-    {
-      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "I do ___ ___.",
       "stage": "Use",
@@ -745,118 +870,216 @@
       "answer_audio_text": "I do not understand.",
       "prompt_image_url": "a1_scene_i-do-not-understand_d56b045.webp",
       "spanish_translation": "No entiendo.",
-      "pedagogy_note": "Recovery action.",
       "translation": "No entiendo.",
       "correct_option_ids": [
         "not",
         "understand"
       ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 02: I do not understand.",
       "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "Please ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "speak",
+      "options": [
+        {
+          "id": "speak",
+          "image_url": "",
+          "label": "speak"
+        },
+        {
+          "id": "slowly",
+          "image_url": "",
+          "label": "slowly"
+        }
+      ],
+      "audio_text": "Please speak slowly.",
+      "answer_audio_text": "Please speak slowly.",
+      "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
+      "spanish_translation": "Hable despacio, por favor.",
+      "translation": "Hable despacio, por favor.",
+      "correct_option_ids": [
+        "speak",
+        "slowly"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 03: Please speak slowly.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "Where is ___ ___?",
+      "prompt": "Excuse me. I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "the",
+      "correct_option_id": "need",
       "options": [
         {
-          "id": "the",
+          "id": "need",
           "image_url": "",
-          "label": "the"
+          "label": "need"
         },
         {
-          "id": "bathroom",
+          "id": "help",
+          "image_url": "",
+          "label": "help"
+        }
+      ],
+      "audio_text": "Excuse me. I need help.",
+      "answer_audio_text": "Excuse me. I need help.",
+      "prompt_image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
+      "spanish_translation": "Disculpe. Necesito ayuda.",
+      "translation": "Disculpe. Necesito ayuda.",
+      "correct_option_ids": [
+        "need",
+        "help"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 04: Excuse me. I need help.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete2",
+      "prompt": "I do not understand. ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "please",
+      "options": [
+        {
+          "id": "please",
+          "image_url": "",
+          "label": "Please"
+        },
+        {
+          "id": "repeat",
+          "image_url": "",
+          "label": "repeat"
+        }
+      ],
+      "audio_text": "I do not understand. Please repeat.",
+      "answer_audio_text": "I do not understand. Please repeat.",
+      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
+      "spanish_translation": "No entiendo. Repita, por favor.",
+      "translation": "No entiendo. Repita, por favor.",
+      "correct_option_ids": [
+        "please",
+        "repeat"
+      ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 05: I do not understand. Please repeat.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "speak"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "Thank"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Please"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "slowly"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "you"
+        }
+      ],
+      "audio_text": "Please speak slowly. Thank you.",
+      "answer_audio_text": "Please speak slowly. Thank you.",
+      "prompt_image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+      "spanish_translation": "Hable despacio, por favor. Gracias.",
+      "translation": "Hable despacio, por favor. Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 06: Please speak slowly. Thank you.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "bathroom"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Where"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
         }
       ],
       "audio_text": "Where is the bathroom?",
       "answer_audio_text": "Where is the bathroom?",
       "prompt_image_url": "a1_bathroom.webp",
       "spanish_translation": "¿Dónde está el baño?",
-      "pedagogy_note": "Both choice words are already taught; only slowly completes the established phrase.",
       "translation": "¿Dónde está el baño?",
       "correct_option_ids": [
-        "the",
-        "bathroom"
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Thank"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "you"
-        }
-      ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Gracias.",
-      "pedagogy_note": "Situation and icon decide without introducing a second-person understand sentence.",
-      "translation": "Gracias.",
-      "correct_option_ids": [
         "word-1",
-        "word-2"
+        "word-2",
+        "word-3",
+        "word-4"
       ],
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 07: Where is the bathroom?",
+      "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Please"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "repeat"
-        }
-      ],
-      "audio_text": "Please repeat.",
-      "answer_audio_text": "Please repeat.",
-      "prompt_image_url": "a1_scene_please-repeat_50ab734.webp",
-      "spanish_translation": "Por favor repite.",
-      "pedagogy_note": "Visual speed cue establishes the recovery need without untaught instructional vocabulary.",
-      "translation": "Por favor repite.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ]
-    },
-    {
-      "slide_id": "U7",
+      "slide_id": "U8",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Please"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "speak"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Please"
         },
         {
           "id": "word-3",
@@ -867,31 +1090,43 @@
       "audio_text": "Please speak slowly.",
       "answer_audio_text": "Please speak slowly.",
       "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-      "spanish_translation": "Por favor habla despacio.",
-      "pedagogy_note": "Practical location transfer.",
-      "translation": "Por favor habla despacio.",
+      "spanish_translation": "Hable despacio, por favor.",
+      "translation": "Hable despacio, por favor.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3"
-      ]
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 08: Please speak slowly.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "U8",
+      "slide_id": "U9",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___. ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
           "id": "word-2",
           "image_url": "",
           "label": "do"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "understand"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "repeat"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
         },
         {
           "id": "word-3",
@@ -899,23 +1134,26 @@
           "label": "not"
         },
         {
-          "id": "word-4",
+          "id": "word-5",
           "image_url": "",
-          "label": "understand"
+          "label": "Please"
         }
       ],
-      "audio_text": "I do not understand.",
-      "answer_audio_text": "I do not understand.",
-      "prompt_image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-      "spanish_translation": "No entiendo.",
-      "pedagogy_note": "Polite close.",
-      "translation": "No entiendo.",
+      "audio_text": "I do not understand. Please repeat.",
+      "answer_audio_text": "I do not understand. Please repeat.",
+      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
+      "spanish_translation": "No entiendo. Repita, por favor.",
+      "translation": "No entiendo. Repita, por favor.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5",
+        "word-6"
       ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 09: I do not understand. Please repeat.",
       "audio_speaker": "male-character"
     }
   ]

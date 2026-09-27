@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3b93617d-dca8-41ab-a75e-4dd7179635de",
+  "asset_id": "luis-ok",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:19:01.350970+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Precise edit of Image 1. Luis now turns to Ana with a big smile and gives her a clear thumbs up with his right hand, answering her; Ana lowers the remote and smiles at him. Keep both faces, hair, clothes, the sofa, the TV, the room, the light and the camera identical. No other changes, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "output/imagegen/unit-7-lesson-v2/ana-lets-watch-tv.png",
+    "sha256": "977350f99afd22a1f19416d450f7d831e50093e73e989f6dff1fa1a0f16e6caf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "iN-4aubZBZX_qtsPnsWo-AM",
+  "usage": {
+    "promptTokenCount": 331,
+    "candidatesTokenCount": 1263,
+    "totalTokenCount": 1780,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 73
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 186,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136894",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 331,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 186
+  },
+  "elapsed_seconds": 26.14,
+  "output": "output/imagegen/unit-7-lesson-v2/luis-ok.png",
+  "sha256": "a7a23832821df2e58ef996f57a1fbf879950a0aa66b136664b18e10cd9b39f80",
+  "byte_count": 6439948,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
