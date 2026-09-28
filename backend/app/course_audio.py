@@ -146,6 +146,8 @@ COURSE_SYLLABLES = {
     "listen": 2,
     "man": 1,
     "many": 2,
+    "let's": 1,
+    "ok": 2,
     "meet": 1,
     "mother": 2,
     "mo": 1,

@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
-  "unit_outcome": "Handle basic physical needs, weather, clothing, leisure, invitations, and requests for help.",
+  "unit_outcome": "Name the body, feelings, clothes and the weather, say what you need and like, invite with Do you want to ...? and Let's, and ask for help when you do not understand.",
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.2",
   "sub_lesson_title": "Feelings and Needs",
-  "goal": "Recognize five common states and answer How are you? with I am + state.",
+  "goal": "Recognize five feelings, say how a family member feels, ask How are you? and answer with I am ....",
   "vocabulary": [
     "happy",
     "sad",
@@ -19,25 +19,52 @@
     "How are you?"
   ],
   "review_vocabulary": [
-    "I am",
-    "he is",
-    "she is",
-    "water",
+    "I",
+    "am",
+    "is",
+    "are",
+    "the",
+    "baby",
+    "girl",
+    "children",
+    "mother",
+    "grandfather",
+    "need",
     "food",
-    "sleeping",
-    "morning",
-    "night"
+    "water"
   ],
-  "grammar_function": "How are you? I am + adjective.",
-  "prerequisite": "3.1 greetings, 3.3 am/is/are; Unit 1 states/actions; Unit 5 food and needs.",
-  "speaking_outcome": "Ask How are you? and say I am happy/sad/tired/hungry/thirsty.",
+  "grammar_function": "The baby is hungry. How are you? I am happy. I am thirsty. I need water.",
+  "prerequisite": "1.1-1.6 family; 3.2 I am; 5.2 food; 5.3 water; 5.6 need.",
+  "speaking_outcome": "Ask How are you? and say how I feel.",
   "purposeful_review_slides": [
-    "Learn:L7",
-    "Learn:L8",
-    "Recognize:R7",
-    "Listen:A6",
-    "Use:U1",
-    "Use:U6"
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U8"
   ],
   "cards": [
     {
@@ -45,10 +72,10 @@
       "interaction_type": "teach",
       "prompt": "Happy",
       "stage": "Learn",
-      "correct_option_id": "happy-1",
+      "correct_option_id": "happy-learn",
       "options": [
         {
-          "id": "happy-1",
+          "id": "happy-learn",
           "image_url": "/lesson-assets/a1_happy.webp",
           "label": "Happy"
         }
@@ -57,7 +84,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Feliz",
-      "pedagogy_note": "New.",
+      "pedagogy_note": "Story beat 01: Happy",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -94,10 +121,10 @@
       "interaction_type": "teach",
       "prompt": "Sad",
       "stage": "Learn",
-      "correct_option_id": "sad-1",
+      "correct_option_id": "sad-learn",
       "options": [
         {
-          "id": "sad-1",
+          "id": "sad-learn",
           "image_url": "/lesson-assets/a1_sad.webp",
           "label": "Sad"
         }
@@ -106,33 +133,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Triste",
-      "pedagogy_note": "New; distinct from tired.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: Sad",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c002-prompt-ac68c3479e4a929c3d62",
+          "id": "lesson-7-2-feelings-and-needs-c002-prompt-ccabceff494781b53f56",
           "purpose": "prompt",
           "text": "Sad",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_sad.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c002-answer-57c963f16ff40f6212e3",
+          "id": "lesson-7-2-feelings-and-needs-c002-answer-3765de8798dbed24ea94",
           "purpose": "answer",
           "text": "Sad",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_sad.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -143,10 +170,10 @@
       "interaction_type": "teach",
       "prompt": "Tired",
       "stage": "Learn",
-      "correct_option_id": "tired-1",
+      "correct_option_id": "tired-learn",
       "options": [
         {
-          "id": "tired-1",
+          "id": "tired-learn",
           "image_url": "/lesson-assets/a1_tired.webp",
           "label": "Tired"
         }
@@ -155,7 +182,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Cansado",
-      "pedagogy_note": "New.",
+      "pedagogy_note": "Story beat 03: Tired",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -192,10 +219,10 @@
       "interaction_type": "teach",
       "prompt": "Hungry",
       "stage": "Learn",
-      "correct_option_id": "hungry-1",
+      "correct_option_id": "hungry-learn",
       "options": [
         {
-          "id": "hungry-1",
+          "id": "hungry-learn",
           "image_url": "/lesson-assets/a1_hungry.webp",
           "label": "Hungry"
         }
@@ -204,33 +231,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Con hambre",
-      "pedagogy_note": "New; explicit need cue.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: Hungry",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c004-prompt-17d0334722542f5bef49",
+          "id": "lesson-7-2-feelings-and-needs-c004-prompt-2f02d92ba188c7400d61",
           "purpose": "prompt",
           "text": "Hungry",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_hungry.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c004-answer-ea7479f120b3ac1b417a",
+          "id": "lesson-7-2-feelings-and-needs-c004-answer-f35b835204e4209eff8c",
           "purpose": "answer",
           "text": "Hungry",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_hungry.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -241,10 +268,10 @@
       "interaction_type": "teach",
       "prompt": "Thirsty",
       "stage": "Learn",
-      "correct_option_id": "thirsty-1",
+      "correct_option_id": "thirsty-learn",
       "options": [
         {
-          "id": "thirsty-1",
+          "id": "thirsty-learn",
           "image_url": "/lesson-assets/a1_thirsty.webp",
           "label": "Thirsty"
         }
@@ -253,7 +280,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Con sed",
-      "pedagogy_note": "New; distinct from hungry.",
+      "pedagogy_note": "Story beat 05: Thirsty",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -290,10 +317,10 @@
       "interaction_type": "teach",
       "prompt": "How are you?",
       "stage": "Learn",
-      "correct_option_id": "how-are-you-1",
+      "correct_option_id": "how-are-you-learn",
       "options": [
         {
-          "id": "how-are-you-1",
+          "id": "how-are-you-learn",
           "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
           "label": "How are you?"
         }
@@ -302,7 +329,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfC\u00f3mo est\u00e1s?",
-      "pedagogy_note": "New fixed question.",
+      "pedagogy_note": "Story beat 06: How are you?",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -335,171 +362,19 @@
       ]
     },
     {
-      "slide_id": "L7",
-      "interaction_type": "teach",
-      "prompt": "I am happy.",
-      "stage": "Learn",
-      "correct_option_id": "i-am-happy-1",
-      "options": [
-        {
-          "id": "i-am-happy-1",
-          "image_url": "/lesson-assets/a1_happy.webp",
-          "label": "I am happy."
-        }
-      ],
-      "audio_text": "I am happy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Estoy feliz.",
-      "pedagogy_note": "Answer pattern with known I am.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-2-feelings-and-needs-c007-prompt-7186d3657298ceb2368f",
-          "purpose": "prompt",
-          "text": "I am happy.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_happy.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-2-feelings-and-needs-c007-answer-2e323cc3c74a42ee0b1b",
-          "purpose": "answer",
-          "text": "I am happy.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_happy.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "I am tired.",
-      "stage": "Learn",
-      "correct_option_id": "i-am-tired-1",
-      "options": [
-        {
-          "id": "i-am-tired-1",
-          "image_url": "/lesson-assets/a1_tired.webp",
-          "label": "I am tired."
-        }
-      ],
-      "audio_text": "I am tired.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "Pattern repetition.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-2-feelings-and-needs-c008-prompt-363a9869dfe844641cfb",
-          "purpose": "prompt",
-          "text": "I am tired.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_tired.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-2-feelings-and-needs-c008-answer-75a0a00536168f1f298d",
-          "purpose": "answer",
-          "text": "I am tired.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_tired.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
-      "prompt": "Happy",
-      "stage": "Recognize",
-      "correct_option_id": "happy-1",
-      "options": [
-        {
-          "id": "happy-1",
-          "image_url": "/lesson-assets/a1_happy.webp",
-          "label": null
-        },
-        {
-          "id": "sad-2",
-          "image_url": "/lesson-assets/a1_sad.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Happy",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Feliz",
-      "pedagogy_note": "Exact emotional contrast.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-2-feelings-and-needs-c009-prompt-c17018c0c7c2df493dc7",
-          "purpose": "prompt",
-          "text": "Happy",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_happy.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-2-feelings-and-needs-c009-answer-23bc19e3ec42cfa2ee83",
-          "purpose": "answer",
-          "text": "Happy",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_happy.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "Sad",
       "stage": "Recognize",
-      "correct_option_id": "sad-2",
+      "correct_option_id": "sad-r1",
       "options": [
         {
-          "id": "tired-1",
-          "image_url": "/lesson-assets/a1_tired.webp",
+          "id": "happy-r1",
+          "image_url": "/lesson-assets/a1_happy.webp",
           "label": null
         },
         {
-          "id": "sad-2",
+          "id": "sad-r1",
           "image_url": "/lesson-assets/a1_sad.webp",
           "label": null
         }
@@ -508,31 +383,73 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Triste",
-      "pedagogy_note": "Distinct cues.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 01: Sad",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c010-prompt-4f995c6b334cb1b2b002",
+          "id": "lesson-7-2-feelings-and-needs-c007-prompt-8cd8af0dafca6c77fbce",
           "purpose": "prompt",
           "text": "Sad",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_sad.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c010-answer-0d14de9977423c7d7e59",
+          "id": "lesson-7-2-feelings-and-needs-c007-answer-c706af56bea4bca0ca56",
           "purpose": "answer",
           "text": "Sad",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_sad.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "tired-r2",
+      "options": [
+        {
+          "id": "sad-r2",
+          "image_url": "",
+          "label": "Sad"
+        },
+        {
+          "id": "tired-r2",
+          "image_url": "",
+          "label": "Tired"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "Tired",
+      "prompt_image_url": "/lesson-assets/a1_tired.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: Tired",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c008-answer-cefe797e31cbc17042e7",
+          "purpose": "answer",
+          "text": "Tired",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_tired.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -542,53 +459,41 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "Hungry",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "hungry-1",
+      "correct_option_id": "the-baby-is-hungry-r3",
       "options": [
         {
-          "id": "hungry-1",
-          "image_url": "/lesson-assets/a1_hungry.webp",
-          "label": null
+          "id": "the-baby-is-hungry-r3",
+          "image_url": "",
+          "label": "The baby is hungry."
         },
         {
-          "id": "thirsty-2",
-          "image_url": "/lesson-assets/a1_thirsty.webp",
-          "label": null
+          "id": "the-baby-is-thirsty-r3",
+          "image_url": "",
+          "label": "The baby is thirsty."
         }
       ],
-      "audio_text": "Hungry",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Con hambre",
-      "pedagogy_note": "Objects make state decisive.",
+      "audio_text": "",
+      "answer_audio_text": "The baby is hungry.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 03: The baby is hungry.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c011-prompt-03406818de4b1db25a03",
-          "purpose": "prompt",
-          "text": "Hungry",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_hungry.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-2-feelings-and-needs-c011-answer-78ca52c2749ece8a08f1",
+          "id": "lesson-7-2-feelings-and-needs-c009-answer-4d58cab0db16763bf51e",
           "purpose": "answer",
-          "text": "Hungry",
+          "text": "The baby is hungry.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_hungry.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -596,51 +501,39 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "Thirsty",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "thirsty-2",
+      "correct_option_id": "the-grandfather-is-tired-r4",
       "options": [
         {
-          "id": "hungry-1",
-          "image_url": "/lesson-assets/a1_hungry.webp",
-          "label": null
+          "id": "the-grandfather-is-happy-r4",
+          "image_url": "",
+          "label": "The grandfather is happy."
         },
         {
-          "id": "thirsty-2",
-          "image_url": "/lesson-assets/a1_thirsty.webp",
-          "label": null
+          "id": "the-grandfather-is-tired-r4",
+          "image_url": "",
+          "label": "The grandfather is tired."
         }
       ],
-      "audio_text": "Thirsty",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Con sed",
-      "pedagogy_note": "Exact contrast.",
+      "audio_text": "",
+      "answer_audio_text": "The grandfather is tired.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: The grandfather is tired.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c012-prompt-84b9db70df62444c4543",
-          "purpose": "prompt",
-          "text": "Thirsty",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_thirsty.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-2-feelings-and-needs-c012-answer-e51748b3ff66efdc40c4",
+          "id": "lesson-7-2-feelings-and-needs-c010-answer-93058605ff655968e4a0",
           "purpose": "answer",
-          "text": "Thirsty",
+          "text": "The grandfather is tired.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_thirsty.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -650,41 +543,41 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-am-tired-2",
+      "correct_option_id": "the-girl-is-sad-r5",
       "options": [
         {
-          "id": "i-am-sad-1",
+          "id": "the-girl-is-happy-r5",
           "image_url": "",
-          "label": "I am sad."
+          "label": "The girl is happy."
         },
         {
-          "id": "i-am-tired-2",
+          "id": "the-girl-is-sad-r5",
           "image_url": "",
-          "label": "I am tired."
+          "label": "The girl is sad."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I am tired.",
-      "prompt_image_url": "/lesson-assets/a1_tired.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Image-to-text.",
+      "answer_audio_text": "The girl is sad.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 05: The girl is sad.",
       "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c013-answer-a6b16a7b78d1ac9137d8",
+          "id": "lesson-7-2-feelings-and-needs-c011-answer-283c4db62a0d6292dc5d",
           "purpose": "answer",
-          "text": "I am tired.",
+          "text": "The girl is sad.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -692,36 +585,130 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-am-hungry-2",
+      "correct_option_id": "the-children-are-happy-r6",
       "options": [
         {
-          "id": "i-am-thirsty-1",
+          "id": "the-children-are-tired-r6",
           "image_url": "",
-          "label": "I am thirsty."
+          "label": "The children are tired."
         },
         {
-          "id": "i-am-hungry-2",
+          "id": "the-children-are-happy-r6",
           "image_url": "",
-          "label": "I am hungry."
+          "label": "The children are happy."
+        },
+        {
+          "id": "the-children-are-sad-r6",
+          "image_url": "",
+          "label": "The children are sad."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I am hungry.",
+      "answer_audio_text": "The children are happy.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: The children are happy.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c012-answer-54771fd564cb9235d840",
+          "purpose": "answer",
+          "text": "The children are happy.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-mother-is-thirsty-r7",
+      "options": [
+        {
+          "id": "the-mother-is-thirsty-r7",
+          "image_url": "",
+          "label": "The mother is thirsty."
+        },
+        {
+          "id": "the-mother-is-hungry-r7",
+          "image_url": "",
+          "label": "The mother is hungry."
+        },
+        {
+          "id": "the-mother-is-tired-r7",
+          "image_url": "",
+          "label": "The mother is tired."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The mother is thirsty.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 07: The mother is thirsty.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c013-answer-b7c93e2bd64a087c04b6",
+          "purpose": "answer",
+          "text": "The mother is thirsty.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-am-hungry-i-need-food-r8",
+      "options": [
+        {
+          "id": "i-am-hungry-i-need-food-r8",
+          "image_url": "",
+          "label": "I am hungry. I need food."
+        },
+        {
+          "id": "i-am-thirsty-i-need-water-r8",
+          "image_url": "",
+          "label": "I am thirsty. I need water."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I am hungry. I need food.",
       "prompt_image_url": "/lesson-assets/a1_hungry.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Image-to-text.",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: I am hungry. I need food.",
       "audio_speaker": null,
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c014-answer-00b6fec81e64a001232a",
+          "id": "lesson-7-2-feelings-and-needs-c014-answer-76e2e9b2e4486297b1e4",
           "purpose": "answer",
-          "text": "I am hungry.",
+          "text": "I am hungry. I need food.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_hungry.webp",
@@ -733,100 +720,102 @@
       ]
     },
     {
-      "slide_id": "R7",
-      "interaction_type": "recognize-image",
-      "prompt": "She is thirsty.",
+      "slide_id": "R9",
+      "interaction_type": "t2i2",
+      "prompt": "I am thirsty. I need water.",
       "stage": "Recognize",
-      "correct_option_id": "woman-thirsty-4",
+      "correct_option_id": "i-am-thirsty-i-need-water-r9",
       "options": [
         {
-          "id": "woman-happy-1",
-          "image_url": "/lesson-assets/a1_happy.webp",
+          "id": "i-am-thirsty-i-need-water-r9",
+          "image_url": "/lesson-assets/a1_thirsty.webp",
           "label": null
         },
         {
-          "id": "woman-tired-2",
-          "image_url": "/lesson-assets/a1_tired.webp",
-          "label": null
-        },
-        {
-          "id": "woman-hungry-3",
+          "id": "i-am-hungry-i-need-food-r9",
           "image_url": "/lesson-assets/a1_hungry.webp",
-          "label": null
-        },
-        {
-          "id": "woman-thirsty-4",
-          "image_url": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "She is thirsty.",
+      "audio_text": "I am thirsty. I need water.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Ella tiene sed.",
-      "pedagogy_note": "Purposeful she is review.",
-      "audio_speaker": null,
+      "spanish_translation": "Tengo sed. Necesito agua.",
+      "pedagogy_note": "Story beat 09: I am thirsty. I need water.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c015-prompt-aa6e5d0d29a5ab8785bf",
+          "id": "lesson-7-2-feelings-and-needs-c015-prompt-b1bd56bff0048484eaac",
           "purpose": "prompt",
-          "text": "She is thirsty.",
+          "text": "I am thirsty. I need water.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
+          "image_ref": "/lesson-assets/a1_thirsty.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c015-answer-a5043ae0c3a157bb9bd6",
+          "id": "lesson-7-2-feelings-and-needs-c015-answer-0429ffc78df72c53d6f5",
           "purpose": "answer",
-          "text": "She is thirsty.",
+          "text": "I am thirsty. I need water.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
+          "image_ref": "/lesson-assets/a1_thirsty.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "how-are-you-2",
+      "correct_option_id": "how-are-you-i-am-happy-r10",
       "options": [
         {
-          "id": "what-is-your-name-1",
+          "id": "how-are-you-i-am-happy-r10",
           "image_url": "",
-          "label": "What is your name?"
+          "label": "How are you? I am happy."
         },
         {
-          "id": "how-are-you-2",
+          "id": "how-are-you-i-am-tired-r10",
           "image_url": "",
-          "label": "How are you?"
+          "label": "How are you? I am tired."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "How are you?",
+      "answer_audio_text": "How are you? I am happy.",
       "prompt_image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Uses a generic proven instruction, only previously taught questions, and makes the state question the sole scene fit.",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: How are you? I am happy.",
       "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "answer_audio_turns": [
+        {
+          "text": "How are you?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp"
+        },
+        {
+          "text": "I am happy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c016-answer-a019471a253710820d39",
-          "purpose": "answer",
+          "id": "lesson-7-2-feelings-and-needs-c016-answer-turn-1-76877937cf38f7b42666",
+          "purpose": "answer-turn-1",
           "text": "How are you?",
           "mode": "prompt",
           "variant": "answer",
@@ -835,24 +824,36 @@
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c016-answer-turn-2-dd34962ac570f2fd4b2b",
+          "purpose": "answer-turn-2",
+          "text": "I am happy.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
         }
       ]
     },
     {
       "slide_id": "A1",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "happy-2",
+      "correct_option_id": "happy-a1",
       "options": [
         {
-          "id": "sad-1",
-          "image_url": "/lesson-assets/a1_sad.webp",
+          "id": "happy-a1",
+          "image_url": "/lesson-assets/a1_happy.webp",
           "label": null
         },
         {
-          "id": "happy-2",
-          "image_url": "/lesson-assets/a1_happy.webp",
+          "id": "sad-a1",
+          "image_url": "/lesson-assets/a1_sad.webp",
           "label": null
         }
       ],
@@ -860,7 +861,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
+      "pedagogy_note": "Story beat 01: Happy",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -894,53 +895,53 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "tired-1",
+      "correct_option_id": "sad-a2",
       "options": [
         {
-          "id": "tired-1",
-          "image_url": "/lesson-assets/a1_tired.webp",
+          "id": "sad-a2",
+          "image_url": "/lesson-assets/a1_sad.webp",
           "label": null
         },
         {
-          "id": "sad-2",
-          "image_url": "/lesson-assets/a1_sad.webp",
+          "id": "happy-a2",
+          "image_url": "/lesson-assets/a1_happy.webp",
           "label": null
         }
       ],
-      "audio_text": "Tired",
+      "audio_text": "Sad",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Distinct cues.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: Sad",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c018-prompt-25261fbc458dafb7fe37",
+          "id": "lesson-7-2-feelings-and-needs-c018-prompt-0feaddb11631f6a71d86",
           "purpose": "prompt",
-          "text": "Tired",
+          "text": "Sad",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_sad.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c018-answer-dca4a656d3f1099efabf",
+          "id": "lesson-7-2-feelings-and-needs-c018-answer-90647154997d6a14d086",
           "purpose": "answer",
-          "text": "Tired",
+          "text": "Sad",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_sad.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -948,51 +949,51 @@
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "hungry-2",
+      "correct_option_id": "hungry-a3",
       "options": [
         {
-          "id": "thirsty-1",
-          "image_url": "/lesson-assets/a1_thirsty.webp",
-          "label": null
+          "id": "hungry-a3",
+          "image_url": "",
+          "label": "Hungry"
         },
         {
-          "id": "hungry-2",
-          "image_url": "/lesson-assets/a1_hungry.webp",
-          "label": null
+          "id": "tired-a3",
+          "image_url": "",
+          "label": "Tired"
         }
       ],
       "audio_text": "Hungry",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
+      "pedagogy_note": "Story beat 03: Hungry",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c019-prompt-b37fc6c85b0f32efb901",
+          "id": "lesson-7-2-feelings-and-needs-c019-prompt-f0707802854dc93de261",
           "purpose": "prompt",
           "text": "Hungry",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_hungry.webp",
+          "image_ref": "text-only:9717e1f9593c498bd1b9",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c019-answer-cc965493b2144189849f",
+          "id": "lesson-7-2-feelings-and-needs-c019-answer-69927feb083b6d0cf268",
           "purpose": "answer",
           "text": "Hungry",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_hungry.webp",
+          "image_ref": "text-only:9717e1f9593c498bd1b9",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1002,53 +1003,53 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "how-are-you-2",
+      "correct_option_id": "thirsty-a4",
       "options": [
         {
-          "id": "what-is-your-name-1",
-          "image_url": "",
-          "label": "What is your name?"
+          "id": "hungry-a4",
+          "image_url": "/lesson-assets/a1_hungry.webp",
+          "label": null
         },
         {
-          "id": "how-are-you-2",
-          "image_url": "",
-          "label": "How are you?"
+          "id": "thirsty-a4",
+          "image_url": "/lesson-assets/a1_thirsty.webp",
+          "label": null
         }
       ],
-      "audio_text": "How are you?",
+      "audio_text": "Thirsty",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Removes the untaught question Who are you?.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: Thirsty",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c020-prompt-e6f700a50bdee3c1a70f",
+          "id": "lesson-7-2-feelings-and-needs-c020-prompt-4d80a5466fd8640fa1f7",
           "purpose": "prompt",
-          "text": "How are you?",
+          "text": "Thirsty",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:094b0bf15a3928d77845",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "image_ref": "/lesson-assets/a1_thirsty.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c020-answer-294165e1fe4425bdf705",
+          "id": "lesson-7-2-feelings-and-needs-c020-answer-71d158e8265f2198c365",
           "purpose": "answer",
-          "text": "How are you?",
+          "text": "Thirsty",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:094b0bf15a3928d77845",
+          "image_ref": "/lesson-assets/a1_thirsty.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1056,63 +1057,58 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "thirsty-4",
+      "correct_option_id": "the-baby-is-hungry-a5",
       "options": [
         {
-          "id": "happy-1",
-          "image_url": "/lesson-assets/a1_happy.webp",
-          "label": null
+          "id": "the-baby-is-hungry-a5",
+          "image_url": "",
+          "label": "The baby is hungry."
         },
         {
-          "id": "hungry-2",
-          "image_url": "/lesson-assets/a1_hungry.webp",
-          "label": null
+          "id": "the-baby-is-thirsty-a5",
+          "image_url": "",
+          "label": "The baby is thirsty."
         },
         {
-          "id": "tired-3",
-          "image_url": "/lesson-assets/a1_tired.webp",
-          "label": null
-        },
-        {
-          "id": "thirsty-4",
-          "image_url": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
-          "label": null
+          "id": "the-baby-is-tired-a5",
+          "image_url": "",
+          "label": "The baby is tired."
         }
       ],
-      "audio_text": "I am thirsty.",
+      "audio_text": "The baby is hungry.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Sentence listening.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 05: The baby is hungry.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c021-prompt-8a06bc9af7676f4ce99c",
+          "id": "lesson-7-2-feelings-and-needs-c021-prompt-2eb23ecb1beb989aebcf",
           "purpose": "prompt",
-          "text": "I am thirsty.",
+          "text": "The baby is hungry.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
+          "image_ref": "text-only:1f8c7fabd542be9b42eb",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c021-answer-166d6b3e153dc82c5545",
+          "id": "lesson-7-2-feelings-and-needs-c021-answer-2340c9d259add3dc7adc",
           "purpose": "answer",
-          "text": "I am thirsty.",
+          "text": "The baby is hungry.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
+          "image_ref": "text-only:1f8c7fabd542be9b42eb",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1120,58 +1116,242 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "she-is-sad-4",
+      "correct_option_id": "the-grandfather-is-tired-a6",
       "options": [
         {
-          "id": "she-is-happy-1",
+          "id": "the-grandfather-is-tired-a6",
           "image_url": "",
-          "label": "She is happy."
+          "label": "The grandfather is tired."
         },
         {
-          "id": "he-is-sad-2",
+          "id": "the-grandfather-is-happy-a6",
           "image_url": "",
-          "label": "He is sad."
+          "label": "The grandfather is happy."
         },
         {
-          "id": "she-is-sad-4",
+          "id": "the-grandfather-is-sad-a6",
           "image_url": "",
-          "label": "She is sad."
+          "label": "The grandfather is sad."
         }
       ],
-      "audio_text": "She is sad.",
+      "audio_text": "The grandfather is tired.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Purposeful pronoun/state review.",
+      "pedagogy_note": "Story beat 06: The grandfather is tired.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c022-prompt-b052607227e2c1f321ac",
+          "purpose": "prompt",
+          "text": "The grandfather is tired.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:934ca09909bc92654cbb",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c022-answer-ef60907a929909f17c4c",
+          "purpose": "answer",
+          "text": "The grandfather is tired.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:934ca09909bc92654cbb",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-girl-is-sad-a7",
+      "options": [
+        {
+          "id": "the-girl-is-sad-a7",
+          "image_url": "",
+          "label": "The girl is sad."
+        },
+        {
+          "id": "the-girl-is-happy-a7",
+          "image_url": "",
+          "label": "The girl is happy."
+        },
+        {
+          "id": "the-girl-is-hungry-a7",
+          "image_url": "",
+          "label": "The girl is hungry."
+        }
+      ],
+      "audio_text": "The girl is sad.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: The girl is sad.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c022-prompt-b2a067a7d95d2c25546e",
+          "id": "lesson-7-2-feelings-and-needs-c023-prompt-195acbe29f6333d040dc",
           "purpose": "prompt",
-          "text": "She is sad.",
+          "text": "The girl is sad.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:4bd771fec4a37fafe74a",
+          "image_ref": "text-only:11cec5eccb3efee0b766",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c022-answer-6cb1a73c473426793e5a",
+          "id": "lesson-7-2-feelings-and-needs-c023-answer-1e245d1a7695288d42e5",
           "purpose": "answer",
-          "text": "She is sad.",
+          "text": "The girl is sad.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:4bd771fec4a37fafe74a",
+          "image_ref": "text-only:11cec5eccb3efee0b766",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-mother-is-thirsty-a8",
+      "options": [
+        {
+          "id": "the-mother-is-thirsty-a8",
+          "image_url": "",
+          "label": "The mother is thirsty."
+        },
+        {
+          "id": "the-mother-is-hungry-a8",
+          "image_url": "",
+          "label": "The mother is hungry."
+        },
+        {
+          "id": "the-mother-is-tired-a8",
+          "image_url": "",
+          "label": "The mother is tired."
+        }
+      ],
+      "audio_text": "The mother is thirsty.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: The mother is thirsty.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c024-prompt-b5661c5150418f6d7a2b",
+          "purpose": "prompt",
+          "text": "The mother is thirsty.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:8c7fd7ad6de5782d3aa0",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c024-answer-ed5c88a347330c29f814",
+          "purpose": "answer",
+          "text": "The mother is thirsty.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:8c7fd7ad6de5782d3aa0",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "how-are-you-i-am-happy-a9",
+      "options": [
+        {
+          "id": "how-are-you-i-am-tired-a9",
+          "image_url": "",
+          "label": "How are you? I am tired."
+        },
+        {
+          "id": "how-are-you-i-am-happy-a9",
+          "image_url": "",
+          "label": "How are you? I am happy."
+        }
+      ],
+      "audio_text": "How are you? I am happy.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: How are you? I am happy.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "How are you?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp"
+        },
+        {
+          "text": "I am happy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c025-prompt-turn-1-13d1f06ece9c6a7f9e54",
+          "purpose": "prompt-turn-1",
+          "text": "How are you?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c025-prompt-turn-2-48bb273087039254bcd3",
+          "purpose": "prompt-turn-2",
+          "text": "I am happy.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1182,10 +1362,10 @@
       "interaction_type": "speak",
       "prompt": "How are you?",
       "stage": "Speak",
-      "correct_option_id": "how-are-you-1",
+      "correct_option_id": "how-are-you-speak",
       "options": [
         {
-          "id": "how-are-you-1",
+          "id": "how-are-you-speak",
           "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
           "label": "How are you?"
         }
@@ -1194,14 +1374,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfC\u00f3mo est\u00e1s?",
-      "pedagogy_note": "Complete question.",
+      "pedagogy_note": "Story beat 01: How are you?",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c023-prompt-5e8e94fff423e47d9ecb",
+          "id": "lesson-7-2-feelings-and-needs-c026-prompt-e564c1aeb1ea12ec1ae9",
           "purpose": "prompt",
           "text": "How are you?",
           "mode": "pronunciation_slow",
@@ -1213,7 +1393,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c023-answer-b6e6abf3b36d97be58a7",
+          "id": "lesson-7-2-feelings-and-needs-c026-answer-345ad283225c9fb7d12e",
           "purpose": "answer",
           "text": "How are you?",
           "mode": "prompt",
@@ -1229,47 +1409,47 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "I am happy.",
+      "prompt": "The baby is hungry.",
       "stage": "Speak",
-      "correct_option_id": "i-am-happy-1",
+      "correct_option_id": "the-baby-is-hungry-speak",
       "options": [
         {
-          "id": "i-am-happy-1",
-          "image_url": "/lesson-assets/a1_happy.webp",
-          "label": "I am happy."
+          "id": "the-baby-is-hungry-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+          "label": "The baby is hungry."
         }
       ],
-      "audio_text": "I am happy.",
+      "audio_text": "The baby is hungry.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy feliz.",
-      "pedagogy_note": "Complete answer.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "El beb\u00e9 tiene hambre.",
+      "pedagogy_note": "Story beat 02: The baby is hungry.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c024-prompt-19e93352e6d8d6968910",
+          "id": "lesson-7-2-feelings-and-needs-c027-prompt-01855e4f5b5b5d6992c6",
           "purpose": "prompt",
-          "text": "I am happy.",
+          "text": "The baby is hungry.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_happy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c024-answer-b3a55f5fdfe52036f7ea",
+          "id": "lesson-7-2-feelings-and-needs-c027-answer-30b0f088589e285ef4dc",
           "purpose": "answer",
-          "text": "I am happy.",
+          "text": "The baby is hungry.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_happy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1278,47 +1458,47 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "I am sad.",
+      "prompt": "The grandfather is tired.",
       "stage": "Speak",
-      "correct_option_id": "i-am-sad-1",
+      "correct_option_id": "the-grandfather-is-tired-speak",
       "options": [
         {
-          "id": "i-am-sad-1",
-          "image_url": "/lesson-assets/a1_sad.webp",
-          "label": "I am sad."
+          "id": "the-grandfather-is-tired-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+          "label": "The grandfather is tired."
         }
       ],
-      "audio_text": "I am sad.",
+      "audio_text": "The grandfather is tired.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy triste.",
-      "pedagogy_note": "Complete answer.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "El abuelo est\u00e1 cansado.",
+      "pedagogy_note": "Story beat 03: The grandfather is tired.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c025-prompt-0a8292b505d88b3f38c3",
+          "id": "lesson-7-2-feelings-and-needs-c028-prompt-288dad617410064aabff",
           "purpose": "prompt",
-          "text": "I am sad.",
+          "text": "The grandfather is tired.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_sad.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c025-answer-906d504d1c92ba39f4e3",
+          "id": "lesson-7-2-feelings-and-needs-c028-answer-e86426d514cc0d25e12f",
           "purpose": "answer",
-          "text": "I am sad.",
+          "text": "The grandfather is tired.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_sad.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1327,47 +1507,47 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "I am tired.",
+      "prompt": "The girl is sad.",
       "stage": "Speak",
-      "correct_option_id": "i-am-tired-1",
+      "correct_option_id": "the-girl-is-sad-speak",
       "options": [
         {
-          "id": "i-am-tired-1",
-          "image_url": "/lesson-assets/a1_tired.webp",
-          "label": "I am tired."
+          "id": "the-girl-is-sad-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
+          "label": "The girl is sad."
         }
       ],
-      "audio_text": "I am tired.",
+      "audio_text": "The girl is sad.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "Complete answer.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "La ni\u00f1a est\u00e1 triste.",
+      "pedagogy_note": "Story beat 04: The girl is sad.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c026-prompt-96477335bbe046b076e2",
+          "id": "lesson-7-2-feelings-and-needs-c029-prompt-198e4eb28e826e7c4ba2",
           "purpose": "prompt",
-          "text": "I am tired.",
+          "text": "The girl is sad.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c026-answer-01b8b98ef44c4422f34a",
+          "id": "lesson-7-2-feelings-and-needs-c029-answer-d0fff1cc0150630f6a97",
           "purpose": "answer",
-          "text": "I am tired.",
+          "text": "The girl is sad.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1376,30 +1556,128 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "I am hungry.",
+      "prompt": "The children are happy.",
       "stage": "Speak",
-      "correct_option_id": "i-am-hungry-1",
+      "correct_option_id": "the-children-are-happy-speak",
       "options": [
         {
-          "id": "i-am-hungry-1",
-          "image_url": "/lesson-assets/a1_hungry.webp",
-          "label": "I am hungry."
+          "id": "the-children-are-happy-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
+          "label": "The children are happy."
         }
       ],
-      "audio_text": "I am hungry.",
+      "audio_text": "The children are happy.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tengo hambre.",
-      "pedagogy_note": "Complete answer.",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n felices.",
+      "pedagogy_note": "Story beat 05: The children are happy.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c030-prompt-d4e750c5dcb86f70acfa",
+          "purpose": "prompt",
+          "text": "The children are happy.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c030-answer-a5b547e86e56452b2e8e",
+          "purpose": "answer",
+          "text": "The children are happy.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "The mother is thirsty.",
+      "stage": "Speak",
+      "correct_option_id": "the-mother-is-thirsty-speak",
+      "options": [
+        {
+          "id": "the-mother-is-thirsty-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+          "label": "The mother is thirsty."
+        }
+      ],
+      "audio_text": "The mother is thirsty.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La madre tiene sed.",
+      "pedagogy_note": "Story beat 06: The mother is thirsty.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c031-prompt-d4b0a5a5d182443b8401",
+          "purpose": "prompt",
+          "text": "The mother is thirsty.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c031-answer-d7cbaf0b653c22b60a4b",
+          "purpose": "answer",
+          "text": "The mother is thirsty.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "I am hungry. I need food.",
+      "stage": "Speak",
+      "correct_option_id": "i-am-hungry-i-need-food-speak",
+      "options": [
+        {
+          "id": "i-am-hungry-i-need-food-speak",
+          "image_url": "/lesson-assets/a1_hungry.webp",
+          "label": "I am hungry. I need food."
+        }
+      ],
+      "audio_text": "I am hungry. I need food.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Tengo hambre. Necesito comida.",
+      "pedagogy_note": "Story beat 07: I am hungry. I need food.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c027-prompt-54377f31b73ae8bdbe4d",
+          "id": "lesson-7-2-feelings-and-needs-c032-prompt-fa03188587a71a93d462",
           "purpose": "prompt",
-          "text": "I am hungry.",
+          "text": "I am hungry. I need food.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_hungry.webp",
@@ -1409,9 +1687,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c027-answer-0854cb11a56e664d64ee",
+          "id": "lesson-7-2-feelings-and-needs-c032-answer-55a56c0dcaa181fb6b83",
           "purpose": "answer",
-          "text": "I am hungry.",
+          "text": "I am hungry. I need food.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_hungry.webp",
@@ -1423,32 +1701,32 @@
       ]
     },
     {
-      "slide_id": "S6",
+      "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I am thirsty.",
+      "prompt": "I am thirsty. I need water.",
       "stage": "Speak",
-      "correct_option_id": "i-am-thirsty-1",
+      "correct_option_id": "i-am-thirsty-i-need-water-speak",
       "options": [
         {
-          "id": "i-am-thirsty-1",
+          "id": "i-am-thirsty-i-need-water-speak",
           "image_url": "/lesson-assets/a1_thirsty.webp",
-          "label": "I am thirsty."
+          "label": "I am thirsty. I need water."
         }
       ],
-      "audio_text": "I am thirsty.",
+      "audio_text": "I am thirsty. I need water.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tengo sed.",
-      "pedagogy_note": "Complete answer.",
+      "spanish_translation": "Tengo sed. Necesito agua.",
+      "pedagogy_note": "Story beat 08: I am thirsty. I need water.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c028-prompt-b9e3b4a19e7da8e20441",
+          "id": "lesson-7-2-feelings-and-needs-c033-prompt-aa5c02d39e366a4badd6",
           "purpose": "prompt",
-          "text": "I am thirsty.",
+          "text": "I am thirsty. I need water.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_thirsty.webp",
@@ -1458,13 +1736,74 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c028-answer-463af69f26eb83802250",
+          "id": "lesson-7-2-feelings-and-needs-c033-answer-87952a38796a1ef0c357",
           "purpose": "answer",
-          "text": "I am thirsty.",
+          "text": "I am thirsty. I need water.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_thirsty.webp",
           "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "How are you? I am happy.",
+      "stage": "Speak",
+      "correct_option_id": "how-are-you-i-am-happy-speak",
+      "options": [
+        {
+          "id": "how-are-you-i-am-happy-speak",
+          "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+          "label": "How are you? I am happy."
+        }
+      ],
+      "audio_text": "How are you? I am happy.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfC\u00f3mo est\u00e1s? Estoy feliz.",
+      "pedagogy_note": "Story beat 09: How are you? I am happy.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "How are you?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp"
+        },
+        {
+          "text": "I am happy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c034-prompt-turn-1-3fcab96f9699614ff009",
+          "purpose": "prompt-turn-1",
+          "text": "How are you?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c034-prompt-turn-2-4e2b1782269849ab6fce",
+          "purpose": "prompt-turn-2",
+          "text": "I am happy.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+          "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
@@ -1474,56 +1813,56 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "How ___ ___?",
       "stage": "Use",
-      "correct_option_id": "am",
+      "correct_option_id": "are",
       "correct_option_ids": [
-        "am",
-        "happy"
+        "are",
+        "you"
       ],
       "options": [
         {
-          "id": "am",
+          "id": "are",
           "image_url": "",
-          "label": "am"
+          "label": "are"
         },
         {
-          "id": "happy",
+          "id": "you",
           "image_url": "",
-          "label": "happy"
+          "label": "you"
         }
       ],
-      "audio_text": "I am happy.",
-      "answer_audio_text": "I am happy.",
-      "prompt_image_url": "/lesson-assets/a1_happy.webp",
-      "spanish_translation": "Estoy feliz.",
-      "pedagogy_note": "State choice.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "audio_text": "How are you?",
+      "answer_audio_text": "How are you?",
+      "prompt_image_url": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+      "spanish_translation": "\u00bfC\u00f3mo est\u00e1s?",
+      "pedagogy_note": "Story beat 01: How are you?",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c029-prompt-dca7ade09282a56779cc",
+          "id": "lesson-7-2-feelings-and-needs-c035-prompt-63c1ceba79a7094f2b9c",
           "purpose": "prompt",
-          "text": "I am happy.",
+          "text": "How are you?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_happy.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "image_ref": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c029-answer-c555260209c0fdabf49d",
+          "id": "lesson-7-2-feelings-and-needs-c035-answer-51a34e71e8113b014ea2",
           "purpose": "answer",
-          "text": "I am happy.",
+          "text": "How are you?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_happy.webp",
+          "image_ref": "/lesson-assets/a1_scene_how-are-you_be4c34b.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1532,56 +1871,56 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "The baby ___ ___.",
       "stage": "Use",
-      "correct_option_id": "am",
+      "correct_option_id": "is",
       "correct_option_ids": [
-        "am",
-        "sad"
+        "is",
+        "hungry"
       ],
       "options": [
         {
-          "id": "am",
+          "id": "is",
           "image_url": "",
-          "label": "am"
+          "label": "is"
         },
         {
-          "id": "sad",
+          "id": "hungry",
           "image_url": "",
-          "label": "sad"
+          "label": "hungry"
         }
       ],
-      "audio_text": "I am sad.",
-      "answer_audio_text": "I am sad.",
-      "prompt_image_url": "/lesson-assets/a1_sad.webp",
-      "spanish_translation": "Estoy triste.",
-      "pedagogy_note": "Distinct cues.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "audio_text": "The baby is hungry.",
+      "answer_audio_text": "The baby is hungry.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
+      "spanish_translation": "El beb\u00e9 tiene hambre.",
+      "pedagogy_note": "Story beat 02: The baby is hungry.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c030-prompt-3e5e6455eed1c3139f7b",
+          "id": "lesson-7-2-feelings-and-needs-c036-prompt-8557e668f1f90df5b197",
           "purpose": "prompt",
-          "text": "I am sad.",
+          "text": "The baby is hungry.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_sad.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c030-answer-a25b793c2fc91c49461c",
+          "id": "lesson-7-2-feelings-and-needs-c036-answer-6b83b085247d09f20b78",
           "purpose": "answer",
-          "text": "I am sad.",
+          "text": "The baby is hungry.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_sad.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_baby_hungry_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1590,18 +1929,18 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "The grandfather ___ ___.",
       "stage": "Use",
-      "correct_option_id": "am",
+      "correct_option_id": "is",
       "correct_option_ids": [
-        "am",
+        "is",
         "tired"
       ],
       "options": [
         {
-          "id": "am",
+          "id": "is",
           "image_url": "",
-          "label": "am"
+          "label": "is"
         },
         {
           "id": "tired",
@@ -1609,37 +1948,37 @@
           "label": "tired"
         }
       ],
-      "audio_text": "I am tired.",
-      "answer_audio_text": "I am tired.",
-      "prompt_image_url": "/lesson-assets/a1_tired.webp",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "State choice.",
-      "audio_speaker": "female-character",
+      "audio_text": "The grandfather is tired.",
+      "answer_audio_text": "The grandfather is tired.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
+      "spanish_translation": "El abuelo est\u00e1 cansado.",
+      "pedagogy_note": "Story beat 03: The grandfather is tired.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c031-prompt-2d50246ebd4d1cb8a7e5",
+          "id": "lesson-7-2-feelings-and-needs-c037-prompt-e2cc246a94d0be6fef38",
           "purpose": "prompt",
-          "text": "I am tired.",
+          "text": "The grandfather is tired.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c031-answer-5b7567e7f87ec2f01cfe",
+          "id": "lesson-7-2-feelings-and-needs-c037-answer-3d2428e675b6aed919f9",
           "purpose": "answer",
-          "text": "I am tired.",
+          "text": "The grandfather is tired.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_grandfather_tired_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1647,63 +1986,57 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "interaction_type": "complete2",
+      "prompt": "The girl ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "is",
       "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
+        "is",
+        "sad"
       ],
       "options": [
         {
-          "id": "word-1",
+          "id": "is",
           "image_url": "",
-          "label": "I"
+          "label": "is"
         },
         {
-          "id": "word-2",
+          "id": "sad",
           "image_url": "",
-          "label": "am"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "hungry"
+          "label": "sad"
         }
       ],
-      "audio_text": "I am hungry.",
-      "answer_audio_text": "I am hungry.",
-      "prompt_image_url": "/lesson-assets/a1_hungry.webp",
-      "spanish_translation": "Tengo hambre.",
-      "pedagogy_note": "Need cue.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "audio_text": "The girl is sad.",
+      "answer_audio_text": "The girl is sad.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
+      "spanish_translation": "La ni\u00f1a est\u00e1 triste.",
+      "pedagogy_note": "Story beat 04: The girl is sad.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c032-prompt-80252c6c47bf0d062363",
+          "id": "lesson-7-2-feelings-and-needs-c038-prompt-49825207d40ac9387a99",
           "purpose": "prompt",
-          "text": "I am hungry.",
+          "text": "The girl is sad.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_hungry.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c032-answer-20932b9e8b546537fd92",
+          "id": "lesson-7-2-feelings-and-needs-c038-answer-4c49e5b7961878993c97",
           "purpose": "answer",
-          "text": "I am hungry.",
+          "text": "The girl is sad.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_hungry.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_girl_sad_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1712,62 +2045,68 @@
     {
       "slide_id": "U5",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
+        "word-3",
+        "word-4"
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "am"
+          "label": "children"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "happy"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "thirsty"
+          "label": "are"
         }
       ],
-      "audio_text": "I am thirsty.",
-      "answer_audio_text": "I am thirsty.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
-      "spanish_translation": "Tengo sed.",
-      "pedagogy_note": "Need cue.",
-      "audio_speaker": "female-character",
+      "audio_text": "The children are happy.",
+      "answer_audio_text": "The children are happy.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n felices.",
+      "pedagogy_note": "Story beat 05: The children are happy.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c033-prompt-1342504249e9a832dcb1",
+          "id": "lesson-7-2-feelings-and-needs-c039-prompt-7e7c8704c693a7b7ded5",
           "purpose": "prompt",
-          "text": "I am thirsty.",
+          "text": "The children are happy.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c033-answer-32f7f35232a7188fdd06",
+          "id": "lesson-7-2-feelings-and-needs-c039-answer-9a777976ca3dc886f731",
           "purpose": "answer",
-          "text": "I am thirsty.",
+          "text": "The children are happy.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_woman_thirsty_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_children_happy_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1776,60 +2115,230 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
+        "word-3",
+        "word-4"
       ],
       "options": [
         {
+          "id": "word-2",
+          "image_url": "",
+          "label": "mother"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "thirsty"
+        },
+        {
           "id": "word-1",
           "image_url": "",
-          "label": "I"
+          "label": "The"
         },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "The mother is thirsty.",
+      "answer_audio_text": "The mother is thirsty.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+      "spanish_translation": "La madre tiene sed.",
+      "pedagogy_note": "Story beat 06: The mother is thirsty.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c040-prompt-2bca9a9db05d3e85a454",
+          "purpose": "prompt",
+          "text": "The mother is thirsty.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c040-answer-ed8d1ae91d83a0ba79c2",
+          "purpose": "answer",
+          "text": "The mother is thirsty.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_mother_thirsty_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "options": [
         {
           "id": "word-2",
           "image_url": "",
           "label": "am"
         },
         {
+          "id": "word-4",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "food"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
           "id": "word-3",
           "image_url": "",
-          "label": "tired"
+          "label": "hungry"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
         }
       ],
-      "audio_text": "I am tired.",
-      "answer_audio_text": "I am tired.",
-      "prompt_image_url": "/lesson-assets/a1_tired.webp",
-      "spanish_translation": "Estoy cansado.",
-      "pedagogy_note": "Controlled answer to taught question.",
+      "audio_text": "I am hungry. I need food.",
+      "answer_audio_text": "I am hungry. I need food.",
+      "prompt_image_url": "/lesson-assets/a1_hungry.webp",
+      "spanish_translation": "Tengo hambre. Necesito comida.",
+      "pedagogy_note": "Story beat 07: I am hungry. I need food.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-2-feelings-and-needs-c034-prompt-3f64f2482b1878a5b5f0",
+          "id": "lesson-7-2-feelings-and-needs-c041-prompt-743ae85a8a657613250b",
           "purpose": "prompt",
-          "text": "I am tired.",
+          "text": "I am hungry. I need food.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_hungry.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-2-feelings-and-needs-c034-answer-b940009e1c1f5c49d2df",
+          "id": "lesson-7-2-feelings-and-needs-c041-answer-8bd22af3983e16e364a8",
           "purpose": "answer",
-          "text": "I am tired.",
+          "text": "I am hungry. I need food.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_tired.webp",
+          "image_ref": "/lesson-assets/a1_hungry.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "water"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "thirsty"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
+        }
+      ],
+      "audio_text": "I am thirsty. I need water.",
+      "answer_audio_text": "I am thirsty. I need water.",
+      "prompt_image_url": "/lesson-assets/a1_thirsty.webp",
+      "spanish_translation": "Tengo sed. Necesito agua.",
+      "pedagogy_note": "Story beat 08: I am thirsty. I need water.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-2-feelings-and-needs-c042-prompt-9c7d77b320533e280b1a",
+          "purpose": "prompt",
+          "text": "I am thirsty. I need water.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_thirsty.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-2-feelings-and-needs-c042-answer-d623bb45d14f01b1b526",
+          "purpose": "answer",
+          "text": "I am thirsty. I need water.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_thirsty.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",

@@ -306,13 +306,13 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-09-26: the engine-built Unit 5 gives Luis his cafe and How many? lines, and the
         # pictured men, male customers and servers keep their voices (+55 net).
         self.assertEqual(
-            Counter({"male-character": 416, "luis": 224, "diego": 16}),
+            Counter({"male-character": 431, "luis": 231, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
-        self.assertEqual(656, len(selected))
-        self.assertEqual(139, len(jobs))
-        self.assertEqual(139, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(2283, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(678, len(selected))
+        self.assertEqual(138, len(jobs))
+        self.assertEqual(138, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(2371, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},

@@ -1,0 +1,174 @@
+{
+  "brief_version": 1,
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "note": "2026-09-27 Unit 7 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds the four phrases; each photo shows its speaker. Excuse me., Thank you and Where is the bathroom? are known and come back in practice.",
+  "target": "backend/lessons/unit_7/lesson-7-8-help-and-important-phrases.yaml",
+  "lesson": {
+    "id": "lesson-7-8-help-and-important-phrases",
+    "title": "7.8 Help and Important Phrases",
+    "level": "Beginner A1",
+    "unit_id": "unit-7",
+    "unit_title": "Unit 7: Everyday Needs and A1 Integration",
+    "unit_outcome": "Name the body, feelings, clothes and the weather, say what you need and like, invite with Do you want to ...? and Let's, and ask for help when you do not understand.",
+    "lesson_id": "lesson-7",
+    "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
+    "sub_lesson_id": "7.8",
+    "sub_lesson_title": "Help and Important Phrases",
+    "goal": "Say I need help, say that I do not understand, and ask someone to repeat or to speak slowly.",
+    "vocabulary": [
+      "help",
+      "understand",
+      "repeat",
+      "slowly",
+      "I need help.",
+      "I do not understand.",
+      "Please repeat.",
+      "Please speak slowly."
+    ],
+    "review_vocabulary": [
+      "Excuse me.",
+      "please",
+      "Thank you.",
+      "Where is the bathroom?",
+      "Can you help me?"
+    ],
+    "grammar_function": "I need help. I do not understand. Please repeat. Please speak slowly.",
+    "prerequisite": "5.9 please and thank you; 6.7 Excuse me. and Can you help me?; 4.1 bathroom; 4.3 Where is ...?",
+    "speaking_outcome": "Ask for help and ask someone to repeat.",
+    "content_revision": 2
+  },
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 9,
+    "Use": 9
+  },
+  "items": [
+    {
+      "text": "I need help.",
+      "es": "Necesito ayuda.",
+      "image": "a1_scene_i-need-help_93277f0.webp",
+      "kind": "help-phrase",
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "I do not understand.",
+      "es": "No entiendo.",
+      "image": "a1_scene_i-do-not-understand_d56b045.webp",
+      "kind": "help-phrase",
+      "speaker": "male-character",
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Please repeat.",
+      "es": "Repita, por favor.",
+      "image": "a1_scene_please-repeat_50ab734.webp",
+      "kind": "help-phrase",
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Please speak slowly.",
+      "es": "Hable despacio, por favor.",
+      "image": "a1_scene_please-speak-slowly_f0a8349.webp",
+      "kind": "help-phrase",
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      }
+    },
+    {
+      "text": "Excuse me. I need help.",
+      "es": "Disculpe. Necesito ayuda.",
+      "image": "a1_scene_excuse-me-i-need-help_02700a5.webp",
+      "kind": "excuse-help",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      },
+      "prefer": [
+        "Excuse me. Thank you."
+      ]
+    },
+    {
+      "text": "I do not understand. Please repeat.",
+      "es": "No entiendo. Repita, por favor.",
+      "image": "a1_scene_does-not-understand_6ad015b.webp",
+      "kind": "repair",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      },
+      "prefer": [
+        "I do not understand. Thank you."
+      ]
+    },
+    {
+      "text": "Please speak slowly. Thank you.",
+      "es": "Hable despacio, por favor. Gracias.",
+      "image": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+      "kind": "slow-thanks",
+      "learn": false,
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "These are the short invitations, answers and requests this lesson teaches; they are complete responses by nature."
+      },
+      "image_choices": false,
+      "prefer": [
+        "Please repeat. Thank you."
+      ]
+    },
+    {
+      "text": "Where is the bathroom?",
+      "es": "¿Dónde está el baño?",
+      "image": "a1_bathroom.webp",
+      "kind": "where-place",
+      "learn": false,
+      "accepts": {
+        "subject-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24).",
+        "action-variety": "Only one thing changes between the choices (the body part, the feeling, the color, the clothing, the weather, the activity or yes and no), so the picture's person cannot give the answer away (one variable per choice, 2026-09-24)."
+      },
+      "image_choices": false,
+      "prefer": [
+        "Where is the kitchen?"
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Excuse me. Thank you.",
+      "es": "Disculpe. Gracias.",
+      "kind": "excuse-help"
+    },
+    {
+      "text": "I do not understand. Thank you.",
+      "es": "No entiendo. Gracias.",
+      "kind": "repair"
+    },
+    {
+      "text": "Please repeat. Thank you.",
+      "es": "Repita, por favor. Gracias.",
+      "kind": "slow-thanks"
+    },
+    {
+      "text": "Where is the kitchen?",
+      "es": "¿Dónde está la cocina?",
+      "kind": "where-place"
+    }
+  ]
+}

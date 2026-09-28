@@ -142,7 +142,7 @@ SEMANTIC_ASSET_NEGATIVE_ACTIONS = {
     "girl_is_reading": {"sleeping"},
     "family_babies": {"sleeping"},
 }
-OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country", "room", "place", "distance", "travel"})
+OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country", "room", "place", "distance", "travel", "feeling"})
 SEMANTIC_RELATED_GROUP_MARKERS = (
     "family_adults",
     "family_babies",
@@ -1098,6 +1098,10 @@ def _semantic_details(text: str) -> frozenset[str]:
         details.add('travel:' + vehicle)
     if re.search(r"\bschool bus\b", lowered) or re.search(r"\bboards?\s+(?:the\s+)?bus\b", lowered):
         details.add('travel:bus')
+    # Feelings (Unit 7). A picture names one in its filename (baby_hungry, girl_sad); a
+    # sentence says "is hungry" or "am happy", and "not sad" denies one.
+    for negated, feeling in re.findall(r"\b(not\s+)?(happy|sad|tired|hungry|thirsty)\b", lowered):
+        details.add(('not:' if negated else '') + 'feeling:' + feeling)
     if {'cross', 'cannot'} <= tokens or {'waits', 'red'} <= tokens:
         details.add('crossing:cannot')
     elif {'cross', 'can'} <= tokens or {'crosses', 'green'} <= tokens:

@@ -103,7 +103,8 @@ for (const filename of fs.readdirSync(generatedRoot)) {
   }
 }
 
-assert.ok(optionImages.size > 700, 'the guardrail must inspect the complete A1 option-image catalog');
+// The 2026-09-27 Unit 7 rebuild retired duplicate scene variants (674 distinct option images).
+assert.ok(optionImages.size > 650, 'the guardrail must inspect the complete A1 option-image catalog');
 assert.equal(optionImageUnits.size, 7, 'option-image subject preservation must cover all seven units');
 assert.deepEqual(
   [...optionImageStages].sort(),

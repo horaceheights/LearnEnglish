@@ -42,16 +42,13 @@
     "cloudy",
     "umbrella",
     "boots",
-    "watching",
     "TV",
     "music",
-    "listening to",
     "watching TV",
     "listening to music",
     "Do you want to...?",
-    "watch TV",
-    "listen to music",
-    "read",
+    "Let's...",
+    "OK.",
     "play",
     "help",
     "understand",
@@ -138,7 +135,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c001-mission-intro-3c2ae39c7ae18144d7e2",
+          "id": "lesson-7-10-a1-final-mission-c001-mission-intro-b7229d92eaccd4f3cd30",
           "purpose": "mission-intro",
           "text": "\u00daltima misi\u00f3n del nivel A1: acompa\u00f1a a la familia en la gran celebraci\u00f3n y salida al parque. Escucha cada pista y toca el clima, la ropa, c\u00f3mo se siente cada persona, las actividades y las indicaciones. Al final, responde cuatro veces en voz alta para completar tu certificaci\u00f3n A1.",
           "mode": "prompt",
@@ -147,7 +144,7 @@
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         },
         {
           "id": "lesson-7-10-a1-final-mission-c001-prompt-turn-1-7875aeb8334f85678335",
@@ -1266,7 +1263,7 @@
     {
       "slide_id": "M06",
       "interaction_type": "mission-game",
-      "prompt": "Do you want to play? Yes, thank you. Do you want to read? Sorry, no.",
+      "prompt": "Do you want to play? Yes, thank you. Let's read. Sorry, no.",
       "stage": "Listen",
       "correct_option_id": "invitations-1",
       "correct_option_ids": [
@@ -1289,7 +1286,7 @@
         {
           "id": "invitations-3",
           "image_url": "",
-          "label": "Do you want to read?"
+          "label": "Let's read."
         },
         {
           "id": "invitations-4",
@@ -1297,10 +1294,10 @@
           "label": "Sorry, no."
         }
       ],
-      "audio_text": "Do you want to play? Yes, thank you. Do you want to read? Sorry, no.",
+      "audio_text": "Do you want to play? Yes, thank you. Let's read. Sorry, no.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
-      "spanish_translation": "\u00bfQuieres jugar? S\u00ed, gracias. \u00bfQuieres leer? Lo siento, no.",
+      "spanish_translation": "\u00bfQuieres jugar? S\u00ed, gracias. Leamos. Lo siento, no.",
       "pedagogy_note": "Mission beat 06/13: Cuatro amigos se invitan y responden: toca a quien corresponde cada frase.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1316,7 +1313,7 @@
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         },
         {
-          "text": "Do you want to read?",
+          "text": "Let's read.",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u7_outing_v1_invitations.webp"
         },
@@ -1354,13 +1351,13 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-10-a1-final-mission-c006-prompt-turn-3-d62aec61ea220863e049",
+          "id": "lesson-7-10-a1-final-mission-c006-prompt-turn-3-22a8f6e981d0a5f94857",
           "purpose": "prompt-turn-3",
-          "text": "Do you want to read?",
+          "text": "Let's read.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u7_outing_v1_invitations.webp",
-          "semantic_role": "question",
+          "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
@@ -1426,7 +1423,7 @@
           },
           {
             "id": "invitations-3",
-            "label_es": "\u00bfQuieres leer?",
+            "label_es": "Leamos.",
             "rect": {
               "x": 0.535,
               "y": 0.16,
@@ -1482,8 +1479,8 @@
           },
           {
             "id": "cue-invitations-3",
-            "text": "Do you want to read?",
-            "answer_text": "Do you want to read?",
+            "text": "Let's read.",
+            "answer_text": "Let's read.",
             "target_id": "invitations-3",
             "option_id": "invitations-3"
           },
@@ -2238,7 +2235,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c010-mission-cue-62ad66727103efac1fae",
+          "id": "lesson-7-10-a1-final-mission-c010-mission-cue-40790b7a7492a3551f6c",
           "purpose": "mission-cue",
           "text": "What is your name? How are you?",
           "mode": "prompt",
@@ -2247,7 +2244,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         },
         {
           "id": "lesson-7-10-a1-final-mission-c010-prompt-turn-1-2c761877fe8750034e77",
@@ -2328,7 +2325,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c011-mission-cue-27f20852f02475320a18",
+          "id": "lesson-7-10-a1-final-mission-c011-mission-cue-f8b796f188e1eebfaa84",
           "purpose": "mission-cue",
           "text": "Excuse me. Where is the bathroom?",
           "mode": "prompt",
@@ -2337,7 +2334,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         },
         {
           "id": "lesson-7-10-a1-final-mission-c011-prompt-turn-1-04dfc7816d107a51e708",
@@ -2418,7 +2415,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c012-mission-cue-13fb65ccad55542df170",
+          "id": "lesson-7-10-a1-final-mission-c012-mission-cue-c9670e3c8afd2409634e",
           "purpose": "mission-cue",
           "text": "Hello. How are you?",
           "mode": "prompt",
@@ -2427,7 +2424,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         },
         {
           "id": "lesson-7-10-a1-final-mission-c012-prompt-turn-1-6c05bcc3cbbd58083f35",
@@ -2508,7 +2505,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-10-a1-final-mission-c013-mission-cue-ee3d65db855d2076cb78",
+          "id": "lesson-7-10-a1-final-mission-c013-mission-cue-504388036e9825c86b1b",
           "purpose": "mission-cue",
           "text": "Do you want to listen to music?",
           "mode": "prompt",
@@ -2517,7 +2514,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         },
         {
           "id": "lesson-7-10-a1-final-mission-c013-prompt-turn-1-35a904136ffd6155e8a7",
@@ -2569,7 +2566,7 @@
     }
   ],
   "experience_type": "mission",
-  "content_revision": 1,
+  "content_revision": 2,
   "mission": {
     "label": "MISI\u00d3N FINAL \u00b7 NIVEL A1",
     "title": "Gran misi\u00f3n de familia",

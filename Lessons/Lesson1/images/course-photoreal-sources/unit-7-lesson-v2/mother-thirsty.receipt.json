@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1730c037-2744-4924-8f4b-9b4adec833b6",
+  "asset_id": "mother-thirsty",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:13:13.387612+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the mother: about forty, long wavy dark-brown hair, a rust-red blouse. Keep her face, hair and blouse exactly. Create a new photograph in her kitchen on a hot afternoon after gardening: a little sweaty, she wipes her forehead with the back of one hand and reaches eagerly with the other hand for a tall glass of cold water on the counter, a water jug beside it, her mouth slightly open, clearly thirsty. Face in three-quarter view. She is the only person; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_mother_3x2.webp",
+    "sha256": "85843eafa4d6a490ca029d58a33c91d62b601e30ebede06229e1ba994146de3a"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Kd64asfBHNz4qtsPlKODsAs",
+  "usage": {
+    "promptTokenCount": 551,
+    "candidatesTokenCount": 1323,
+    "totalTokenCount": 2074,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 293
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 200,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137502",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 551,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 200
+  },
+  "elapsed_seconds": 22.19,
+  "output": "output/imagegen/unit-7-lesson-v2/mother-thirsty.png",
+  "sha256": "97219dc371844d5fa794272854102c3061a1e3639c84cd17c5f91024f81fac39",
+  "byte_count": 5906630,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

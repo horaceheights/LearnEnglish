@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f605b255-26a5-4711-9d07-2a50e3667712",
+  "asset_id": "girl-sad",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:12:22.406774+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the family's two children; use only the girl: about seven, long dark hair, a lilac T-shirt. Keep her face, hair and T-shirt exactly; the boy is not in the new photo. Create a new photograph in the family's garden: the girl sits alone on a low stone step with her elbows on her knees and her chin in her hands, her mouth turned down and her eyes looking down, clearly sad. Face in three-quarter view, fully visible. Only the girl; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+    "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "9924av9ZjejPsg--hJzYDQ",
+  "usage": {
+    "promptTokenCount": 555,
+    "candidatesTokenCount": 1290,
+    "totalTokenCount": 2022,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 297
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 177,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137234",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 555,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 177
+  },
+  "elapsed_seconds": 24.48,
+  "output": "output/imagegen/unit-7-lesson-v2/girl-sad.png",
+  "sha256": "173042a9697faa6881480739af3a8918dd2eb1f0328af30fefe7ea7211328309",
+  "byte_count": 6131940,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

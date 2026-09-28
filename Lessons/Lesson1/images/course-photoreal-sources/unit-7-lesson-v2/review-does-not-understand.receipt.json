@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "81246c9e-35ae-4e40-afc4-ef39eba1294d",
+  "asset_id": "review-does-not-understand",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:17:15.619426+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA photograph at a train-station ticket window: a man about forty with short black hair and a grey jacket stands at the window, frowning in confusion with his head tilted, one hand raised palm up and his shoulders lifted, clearly not understanding; behind the glass a ticket clerk talks to him. The man faces the camera at a three-quarter angle and is the clear speaker. No readable signs, screens or text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "Gt-4aruVOOmP6dkPpaaV6Aw",
+  "usage": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 1282,
+    "totalTokenCount": 1812,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 269
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 261,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137670",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 269,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 261
+  },
+  "elapsed_seconds": 23.03,
+  "output": "output/imagegen/unit-7-lesson-v2/review-does-not-understand.png",
+  "sha256": "5b156aea458c2fbf78c5dae334545b7add4e651f6cddf440fd1de23d0ceee2be",
+  "byte_count": 5972721,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

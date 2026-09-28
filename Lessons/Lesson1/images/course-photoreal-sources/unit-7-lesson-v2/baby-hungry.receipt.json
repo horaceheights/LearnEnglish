@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c4a877e6-4fe5-4388-853a-b4c7e5c99d95",
+  "asset_id": "baby-hungry",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:11:31.297691+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the family's baby: about ten months old, dark curly hair, a pale-yellow romper. Keep the baby's face, hair and romper exactly. Create a new photograph in a bright family kitchen: the baby sits in a white high chair with an EMPTY small bowl and a spoon on its tray, and cries with an open mouth while reaching both hands toward the empty bowl, clearly hungry for food. Face in three-quarter view toward the camera, tears not needed. No adults in the photo, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_baby_3x2.webp",
+    "sha256": "09f56c09580dff65ed65ce81975dbe07e8e0b11a81904d92a40290bd017b06f3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "xd24aoGlDbf_qtsPpcGTMA",
+  "usage": {
+    "promptTokenCount": 553,
+    "candidatesTokenCount": 1285,
+    "totalTokenCount": 2016,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 295
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 178,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137242",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 553,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 178
+  },
+  "elapsed_seconds": 24.7,
+  "output": "output/imagegen/unit-7-lesson-v2/baby-hungry.png",
+  "sha256": "80da6718ac16d7e97734fc56d75cf0bbebb1f2d460f18347d01078475df74df8",
+  "byte_count": 5096979,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

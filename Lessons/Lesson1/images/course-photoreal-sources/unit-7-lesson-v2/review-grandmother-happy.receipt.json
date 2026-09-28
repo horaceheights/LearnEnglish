@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f3a8bf39-cf8b-4e93-b4c5-ec0a3307ae21",
+  "asset_id": "review-grandmother-happy",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:15:05.547582+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the grandmother: about seventy, curly grey hair, a cream knit cardigan over a light floral blouse. Keep her face, hair and clothes exactly. Create a new photograph in a sunny garden: she laughs with a big open smile, holding a bunch of bright yellow flowers close to her chest, clearly happy. Face toward the camera. She is the only person; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_grandmother_3x2.webp",
+    "sha256": "adb2006cd20eeb5a8f88c036cc12c917d716e2f725a3d123902710e7de1f2e47"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "mt64asCaB76J6dkPuqGyWA",
+  "usage": {
+    "promptTokenCount": 522,
+    "candidatesTokenCount": 1286,
+    "totalTokenCount": 2003,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 264
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 195,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137384",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 522,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 195
+  },
+  "elapsed_seconds": 27.98,
+  "output": "output/imagegen/unit-7-lesson-v2/review-grandmother-happy.png",
+  "sha256": "dafad23d7612bf1f24b84d602481f7c01d8ce76c0b633eb8c80e234acf2bed8d",
+  "byte_count": 6675284,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -4,12 +4,12 @@
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
-  "unit_outcome": "Handle basic physical needs, weather, clothing, leisure, invitations, and requests for help.",
+  "unit_outcome": "Name the body, feelings, clothes and the weather, say what you need and like, invite with Do you want to ...? and Let's, and ask for help when you do not understand.",
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.3",
   "sub_lesson_title": "Clothing",
-  "goal": "Recognize and name eight common clothing items and describe familiar colors.",
+  "goal": "Recognize and name eight clothes, and say what color they are.",
   "vocabulary": [
     "shirt",
     "pants",
@@ -21,26 +21,48 @@
     "skirt"
   ],
   "review_vocabulary": [
-    "my",
-    "red",
-    "blue",
-    "green",
-    "yellow",
-    "black",
-    "white",
+    "a",
+    "the",
     "is",
-    "are"
+    "are",
+    "this",
+    "these",
+    "red",
+    "green",
+    "blue",
+    "black",
+    "white"
   ],
-  "grammar_function": "A singular clothing noun; plural clothing nouns; The item is/are + color.",
-  "prerequisite": "2.7 colors, 2.8 descriptions; 3.7 my; Unit 1 is/are.",
-  "speaking_outcome": "Name six representative clothing items; pants and socks recur in spoken review 7.9.",
+  "grammar_function": "The jacket is blue. The shoes are black. This is a skirt. These are pants.",
+  "prerequisite": "2.8 colors; 2.3 this; 2.10 these; 1.3 is and are.",
+  "speaking_outcome": "Name clothes and say their color.",
   "purposeful_review_slides": [
-    "Recognize:R7",
-    "Recognize:R8",
-    "Listen:A5",
-    "Listen:A6",
-    "Use:U5",
-    "Use:U6"
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "A7",
+    "A8",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5",
+    "U6",
+    "U7",
+    "U8"
   ],
   "cards": [
     {
@@ -48,10 +70,10 @@
       "interaction_type": "teach",
       "prompt": "A shirt",
       "stage": "Learn",
-      "correct_option_id": "a-shirt-1",
+      "correct_option_id": "a-shirt-learn",
       "options": [
         {
-          "id": "a-shirt-1",
+          "id": "a-shirt-learn",
           "image_url": "/lesson-assets/a1_shirt.webp",
           "label": "A shirt"
         }
@@ -60,7 +82,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una camisa",
-      "pedagogy_note": "New.",
+      "pedagogy_note": "Story beat 01: A shirt",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -97,10 +119,10 @@
       "interaction_type": "teach",
       "prompt": "Pants",
       "stage": "Learn",
-      "correct_option_id": "pants-1",
+      "correct_option_id": "pants-learn",
       "options": [
         {
-          "id": "pants-1",
+          "id": "pants-learn",
           "image_url": "/lesson-assets/a1_pants.webp",
           "label": "Pants"
         }
@@ -109,33 +131,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Pantalones",
-      "pedagogy_note": "New lexical plural.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: Pants",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c002-prompt-43baeef8db3ae4b77ed1",
+          "id": "lesson-7-3-clothing-c002-prompt-1e695922ac57688e8e6d",
           "purpose": "prompt",
           "text": "Pants",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_pants.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c002-answer-bfff672f8095a79c1b73",
+          "id": "lesson-7-3-clothing-c002-answer-602e21ffef0f92162d45",
           "purpose": "answer",
           "text": "Pants",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_pants.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -146,10 +168,10 @@
       "interaction_type": "teach",
       "prompt": "A dress",
       "stage": "Learn",
-      "correct_option_id": "a-dress-1",
+      "correct_option_id": "a-dress-learn",
       "options": [
         {
-          "id": "a-dress-1",
+          "id": "a-dress-learn",
           "image_url": "/lesson-assets/a1_dress.webp",
           "label": "A dress"
         }
@@ -158,7 +180,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un vestido",
-      "pedagogy_note": "New.",
+      "pedagogy_note": "Story beat 03: A dress",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -195,10 +217,10 @@
       "interaction_type": "teach",
       "prompt": "A jacket",
       "stage": "Learn",
-      "correct_option_id": "a-jacket-1",
+      "correct_option_id": "a-jacket-learn",
       "options": [
         {
-          "id": "a-jacket-1",
+          "id": "a-jacket-learn",
           "image_url": "/lesson-assets/a1_jacket.webp",
           "label": "A jacket"
         }
@@ -207,33 +229,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una chaqueta",
-      "pedagogy_note": "New; visibly heavier than shirt.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: A jacket",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c004-prompt-f568aa504ecf261cd100",
+          "id": "lesson-7-3-clothing-c004-prompt-1ddbdb3c7750a8a5f0bd",
           "purpose": "prompt",
           "text": "A jacket",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_jacket.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c004-answer-b9411cbe23da7c89a0ae",
+          "id": "lesson-7-3-clothing-c004-answer-cf20a2dcdfc6fbe2ec26",
           "purpose": "answer",
           "text": "A jacket",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_jacket.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -244,10 +266,10 @@
       "interaction_type": "teach",
       "prompt": "Shoes",
       "stage": "Learn",
-      "correct_option_id": "shoes-1",
+      "correct_option_id": "shoes-learn",
       "options": [
         {
-          "id": "shoes-1",
+          "id": "shoes-learn",
           "image_url": "/lesson-assets/a1_shoes.webp",
           "label": "Shoes"
         }
@@ -256,7 +278,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Zapatos",
-      "pedagogy_note": "New plural.",
+      "pedagogy_note": "Story beat 05: Shoes",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -293,10 +315,10 @@
       "interaction_type": "teach",
       "prompt": "A hat",
       "stage": "Learn",
-      "correct_option_id": "a-hat-1",
+      "correct_option_id": "a-hat-learn",
       "options": [
         {
-          "id": "a-hat-1",
+          "id": "a-hat-learn",
           "image_url": "/lesson-assets/a1_hat.webp",
           "label": "A hat"
         }
@@ -305,33 +327,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un sombrero",
-      "pedagogy_note": "New.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 06: A hat",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c006-prompt-1ec8df7e257dce5b068d",
+          "id": "lesson-7-3-clothing-c006-prompt-ae719c22cf70d93c96fa",
           "purpose": "prompt",
           "text": "A hat",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c006-answer-a4eecd2d7fd76a49e103",
+          "id": "lesson-7-3-clothing-c006-answer-c4605cf04510db406afa",
           "purpose": "answer",
           "text": "A hat",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -342,10 +364,10 @@
       "interaction_type": "teach",
       "prompt": "Socks",
       "stage": "Learn",
-      "correct_option_id": "socks-1",
+      "correct_option_id": "socks-learn",
       "options": [
         {
-          "id": "socks-1",
+          "id": "socks-learn",
           "image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "label": "Socks"
         }
@@ -354,7 +376,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Calcetines",
-      "pedagogy_note": "New plural.",
+      "pedagogy_note": "Story beat 07: Socks",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -391,10 +413,10 @@
       "interaction_type": "teach",
       "prompt": "A skirt",
       "stage": "Learn",
-      "correct_option_id": "a-skirt-1",
+      "correct_option_id": "a-skirt-learn",
       "options": [
         {
-          "id": "a-skirt-1",
+          "id": "a-skirt-learn",
           "image_url": "/lesson-assets/a1_skirt.webp",
           "label": "A skirt"
         }
@@ -403,33 +425,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una falda",
-      "pedagogy_note": "New.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 08: A skirt",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c008-prompt-dea45a3241c3c931fc3c",
+          "id": "lesson-7-3-clothing-c008-prompt-0df327be958ab20ddbd8",
           "purpose": "prompt",
           "text": "A skirt",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_skirt.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c008-answer-08256aae3bf104774c77",
+          "id": "lesson-7-3-clothing-c008-answer-fab672dbc75aa20d7740",
           "purpose": "answer",
           "text": "A skirt",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_skirt.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -437,19 +459,19 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "recognize-image",
+      "interaction_type": "t2i2",
       "prompt": "A shirt",
       "stage": "Recognize",
-      "correct_option_id": "shirt-2",
+      "correct_option_id": "a-shirt-r1",
       "options": [
         {
-          "id": "jacket-1",
-          "image_url": "/lesson-assets/a1_jacket.webp",
+          "id": "pants-r1",
+          "image_url": "/lesson-assets/a1_pants.webp",
           "label": null
         },
         {
-          "id": "shirt-2",
-          "image_url": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "id": "a-shirt-r1",
+          "image_url": "/lesson-assets/a1_shirt.webp",
           "label": null
         }
       ],
@@ -457,31 +479,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una camisa",
-      "pedagogy_note": "Layer/weight cues clear.",
+      "pedagogy_note": "Story beat 01: A shirt",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c009-prompt-b1ac90520b9466ab744e",
+          "id": "lesson-7-3-clothing-c009-prompt-b67a38901afeac98d5a3",
           "purpose": "prompt",
           "text": "A shirt",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "image_ref": "/lesson-assets/a1_shirt.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c009-answer-4149886c4968c91c77d4",
+          "id": "lesson-7-3-clothing-c009-answer-99e29cd1288b0c1e6138",
           "purpose": "answer",
           "text": "A shirt",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "image_ref": "/lesson-assets/a1_shirt.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -491,53 +513,41 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "recognize-image",
-      "prompt": "Pants",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "pants-1",
+      "correct_option_id": "the-jacket-is-red-r2",
       "options": [
         {
-          "id": "pants-1",
-          "image_url": "/lesson-assets/a1_pants.webp",
-          "label": null
+          "id": "the-jacket-is-green-r2",
+          "image_url": "",
+          "label": "The jacket is green."
         },
         {
-          "id": "skirt-2",
-          "image_url": "/lesson-assets/a1_skirt.webp",
-          "label": null
+          "id": "the-jacket-is-red-r2",
+          "image_url": "",
+          "label": "The jacket is red."
         }
       ],
-      "audio_text": "Pants",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Pantalones",
-      "pedagogy_note": "Silhouettes distinct.",
+      "audio_text": "",
+      "answer_audio_text": "The jacket is red.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: The jacket is red.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c010-prompt-dd250599c9c77635fe99",
-          "purpose": "prompt",
-          "text": "Pants",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_pants.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-3-clothing-c010-answer-72c30f48d8b564bf7321",
+          "id": "lesson-7-3-clothing-c010-answer-c4b776df5c1f18c7bb69",
           "purpose": "answer",
-          "text": "Pants",
+          "text": "The jacket is red.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pants.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -545,51 +555,51 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "recognize-image",
-      "prompt": "A dress",
+      "interaction_type": "t2i2",
+      "prompt": "The jacket is green.",
       "stage": "Recognize",
-      "correct_option_id": "dress-2",
+      "correct_option_id": "the-jacket-is-green-r3",
       "options": [
         {
-          "id": "skirt-1",
-          "image_url": "/lesson-assets/a1_skirt.webp",
+          "id": "the-jacket-is-green-r3",
+          "image_url": "/lesson-assets/a1_photo_u7_green_jacket_v1.webp",
           "label": null
         },
         {
-          "id": "dress-2",
-          "image_url": "/lesson-assets/a1_dress.webp",
+          "id": "the-jacket-is-red-r3",
+          "image_url": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "A dress",
+      "audio_text": "The jacket is green.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un vestido",
-      "pedagogy_note": "Full bodice versus waist-only.",
+      "spanish_translation": "La chaqueta es verde.",
+      "pedagogy_note": "Story beat 03: The jacket is green.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c011-prompt-fa1238fe7a8b1389815f",
+          "id": "lesson-7-3-clothing-c011-prompt-1fef4e7d7379ea6be20f",
           "purpose": "prompt",
-          "text": "A dress",
+          "text": "The jacket is green.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_dress.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_green_jacket_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c011-answer-a83aee8e931a907eab25",
+          "id": "lesson-7-3-clothing-c011-answer-32ea658d766ac36ee37e",
           "purpose": "answer",
-          "text": "A dress",
+          "text": "The jacket is green.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_dress.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_green_jacket_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -599,53 +609,41 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "recognize-image",
-      "prompt": "Shoes",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "shoes-2",
+      "correct_option_id": "the-shirt-is-red-r4",
       "options": [
         {
-          "id": "socks-1",
-          "image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
-          "label": null
+          "id": "the-shirt-is-blue-r4",
+          "image_url": "",
+          "label": "The shirt is blue."
         },
         {
-          "id": "shoes-2",
-          "image_url": "/lesson-assets/a1_shoes.webp",
-          "label": null
+          "id": "the-shirt-is-red-r4",
+          "image_url": "",
+          "label": "The shirt is red."
         }
       ],
-      "audio_text": "Shoes",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Zapatos",
-      "pedagogy_note": "Exact contrast.",
+      "audio_text": "",
+      "answer_audio_text": "The shirt is red.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: The shirt is red.",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c012-prompt-0c5dc1547b833ee0bed6",
-          "purpose": "prompt",
-          "text": "Shoes",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_shoes.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-3-clothing-c012-answer-12110ba0869ab07bf009",
+          "id": "lesson-7-3-clothing-c012-answer-af74fda16398417fe1fe",
           "purpose": "answer",
-          "text": "Shoes",
+          "text": "The shirt is red.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_shoes.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -653,171 +651,18 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "recognize-text",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "a-hat-3",
+      "correct_option_id": "the-shoes-are-black-r5",
       "options": [
         {
-          "id": "a-shirt-1",
+          "id": "the-shoes-are-white-r5",
           "image_url": "",
-          "label": "A shirt"
+          "label": "The shoes are white."
         },
         {
-          "id": "a-jacket-2",
-          "image_url": "",
-          "label": "A jacket"
-        },
-        {
-          "id": "a-hat-3",
-          "image_url": "",
-          "label": "A hat"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "A hat",
-      "prompt_image_url": "/lesson-assets/a1_hat.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Image-to-text.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-3-clothing-c013-answer-b732789d4b8c1b669073",
-          "purpose": "answer",
-          "text": "A hat",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_hat.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "recognize-image",
-      "prompt": "A jacket",
-      "stage": "Recognize",
-      "correct_option_id": "jacket-3",
-      "options": [
-        {
-          "id": "shirt-1",
-          "image_url": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
-          "label": null
-        },
-        {
-          "id": "hat-2",
-          "image_url": "/lesson-assets/a1_hat.webp",
-          "label": null
-        },
-        {
-          "id": "jacket-3",
-          "image_url": "/lesson-assets/a1_jacket.webp",
-          "label": null
-        },
-        {
-          "id": "dress-4",
-          "image_url": "/lesson-assets/a1_dress.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "A jacket",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una chaqueta",
-      "pedagogy_note": "All taught.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-3-clothing-c014-prompt-cc26ba307304e6880a73",
-          "purpose": "prompt",
-          "text": "A jacket",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_jacket.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-3-clothing-c014-answer-45127b3b3b7b01bb3872",
-          "purpose": "answer",
-          "text": "A jacket",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_jacket.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-shirt-is-red-1",
-      "options": [
-        {
-          "id": "the-shirt-is-red-1",
-          "image_url": "",
-          "label": "The shirt is red."
-        },
-        {
-          "id": "the-shirt-is-blue-2",
-          "image_url": "",
-          "label": "The shirt is blue."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The shirt is red.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Purposeful color review.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-3-clothing-c015-answer-228de03329b6d0b790c0",
-          "purpose": "answer",
-          "text": "The shirt is red.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-shoes-are-black-2",
-      "options": [
-        {
-          "id": "the-shoes-is-black-1",
-          "image_url": "",
-          "label": "The shoes is black."
-        },
-        {
-          "id": "the-shoes-are-black-2",
+          "id": "the-shoes-are-black-r5",
           "image_url": "",
           "label": "The shoes are black."
         }
@@ -825,15 +670,15 @@
       "audio_text": "",
       "answer_audio_text": "The shoes are black.",
       "prompt_image_url": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Purposeful plural be review; invalid form text only.",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 05: The shoes are black.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c016-answer-f57f439a91c4f4dbf525",
+          "id": "lesson-7-3-clothing-c013-answer-c1d555a498f96c773f2a",
           "purpose": "answer",
           "text": "The shoes are black.",
           "mode": "prompt",
@@ -847,52 +692,301 @@
       ]
     },
     {
-      "slide_id": "A1",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "shirt-1",
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-socks-are-white-r6",
       "options": [
         {
-          "id": "shirt-1",
-          "image_url": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "id": "the-socks-are-white-r6",
+          "image_url": "",
+          "label": "The socks are white."
+        },
+        {
+          "id": "the-socks-are-black-r6",
+          "image_url": "",
+          "label": "The socks are black."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The socks are white.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 06: The socks are white.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c014-answer-f170e3557f05d3856a6b",
+          "purpose": "answer",
+          "text": "The socks are white.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i3",
+      "prompt": "This is a dress.",
+      "stage": "Recognize",
+      "correct_option_id": "this-is-a-dress-r7",
+      "options": [
+        {
+          "id": "this-is-a-dress-r7",
+          "image_url": "/lesson-assets/a1_dress.webp",
           "label": null
         },
         {
-          "id": "jacket-2",
-          "image_url": "/lesson-assets/a1_jacket.webp",
+          "id": "this-is-a-skirt-r7",
+          "image_url": "/lesson-assets/a1_skirt.webp",
+          "label": null
+        },
+        {
+          "id": "this-is-a-hat-r7",
+          "image_url": "/lesson-assets/a1_hat.webp",
           "label": null
         }
       ],
-      "audio_text": "A shirt",
+      "audio_text": "This is a dress.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
+      "spanish_translation": "Este es un vestido.",
+      "pedagogy_note": "Story beat 07: This is a dress.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c017-prompt-08cc7e2c2f5aec994454",
+          "id": "lesson-7-3-clothing-c015-prompt-b59acd455bfabb6704dd",
           "purpose": "prompt",
-          "text": "A shirt",
+          "text": "This is a dress.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "image_ref": "/lesson-assets/a1_dress.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c017-answer-cd3a85894d7ea8af85fe",
+          "id": "lesson-7-3-clothing-c015-answer-9d8ca616588ba28a0fdf",
           "purpose": "answer",
-          "text": "A shirt",
+          "text": "This is a dress.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "image_ref": "/lesson-assets/a1_dress.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "this-is-a-skirt-r8",
+      "options": [
+        {
+          "id": "this-is-a-hat-r8",
+          "image_url": "",
+          "label": "This is a hat."
+        },
+        {
+          "id": "this-is-a-skirt-r8",
+          "image_url": "",
+          "label": "This is a skirt."
+        },
+        {
+          "id": "this-is-a-dress-r8",
+          "image_url": "",
+          "label": "This is a dress."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "This is a skirt.",
+      "prompt_image_url": "/lesson-assets/a1_skirt.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: This is a skirt.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c016-answer-523ae0287c7d0096cdb2",
+          "purpose": "answer",
+          "text": "This is a skirt.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_skirt.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "t2i3",
+      "prompt": "This is a hat.",
+      "stage": "Recognize",
+      "correct_option_id": "this-is-a-hat-r9",
+      "options": [
+        {
+          "id": "this-is-a-dress-r9",
+          "image_url": "/lesson-assets/a1_dress.webp",
+          "label": null
+        },
+        {
+          "id": "this-is-a-hat-r9",
+          "image_url": "/lesson-assets/a1_hat.webp",
+          "label": null
+        },
+        {
+          "id": "this-is-a-skirt-r9",
+          "image_url": "/lesson-assets/a1_skirt.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "This is a hat.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Este es un sombrero.",
+      "pedagogy_note": "Story beat 09: This is a hat.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c017-prompt-db2618e26bbee8d07fc7",
+          "purpose": "prompt",
+          "text": "This is a hat.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_hat.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c017-answer-5c96efaf5a6aee9cc489",
+          "purpose": "answer",
+          "text": "This is a hat.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_hat.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "these-are-pants-r10",
+      "options": [
+        {
+          "id": "these-are-pants-r10",
+          "image_url": "",
+          "label": "These are pants."
+        },
+        {
+          "id": "these-are-socks-r10",
+          "image_url": "",
+          "label": "These are socks."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "These are pants.",
+      "prompt_image_url": "/lesson-assets/a1_pants.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 10: These are pants.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c018-answer-a77652f882c231918c8c",
+          "purpose": "answer",
+          "text": "These are pants.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_pants.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "pants-a1",
+      "options": [
+        {
+          "id": "pants-a1",
+          "image_url": "/lesson-assets/a1_pants.webp",
+          "label": null
+        },
+        {
+          "id": "a-shirt-a1",
+          "image_url": "/lesson-assets/a1_shirt.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Pants",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: Pants",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c019-prompt-ec0cfa5f8940d7142b29",
+          "purpose": "prompt",
+          "text": "Pants",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_pants.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c019-answer-4c23b6863d4d7c49904a",
+          "purpose": "answer",
+          "text": "Pants",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_pants.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -902,19 +996,19 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "dress-2",
+      "correct_option_id": "a-dress-a2",
       "options": [
         {
-          "id": "skirt-1",
-          "image_url": "/lesson-assets/a1_skirt.webp",
+          "id": "a-dress-a2",
+          "image_url": "/lesson-assets/a1_dress.webp",
           "label": null
         },
         {
-          "id": "dress-2",
-          "image_url": "/lesson-assets/a1_dress.webp",
+          "id": "pants-a2",
+          "image_url": "/lesson-assets/a1_pants.webp",
           "label": null
         }
       ],
@@ -922,33 +1016,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 02: A dress",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c018-prompt-ba33009038f93e1bc40c",
+          "id": "lesson-7-3-clothing-c020-prompt-82595f3c1af2763a7aed",
           "purpose": "prompt",
           "text": "A dress",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_dress.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c018-answer-587558ae58fa6e7e00ce",
+          "id": "lesson-7-3-clothing-c020-answer-f6107e16cd807c9eeb99",
           "purpose": "answer",
           "text": "A dress",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_dress.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -956,51 +1050,51 @@
     },
     {
       "slide_id": "A3",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "shoes-1",
+      "correct_option_id": "shoes-a3",
       "options": [
         {
-          "id": "shoes-1",
-          "image_url": "/lesson-assets/a1_shoes.webp",
-          "label": null
+          "id": "shoes-a3",
+          "image_url": "",
+          "label": "Shoes"
         },
         {
-          "id": "socks-2",
-          "image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
-          "label": null
+          "id": "a-jacket-a3",
+          "image_url": "",
+          "label": "A jacket"
         }
       ],
       "audio_text": "Shoes",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Audio-only.",
+      "pedagogy_note": "Story beat 03: Shoes",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c019-prompt-3c395a18f874b50ea84e",
+          "id": "lesson-7-3-clothing-c021-prompt-8f25eeb524339e01baf8",
           "purpose": "prompt",
           "text": "Shoes",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_shoes.webp",
+          "image_ref": "text-only:0af4fb3e6b5f1373c85e",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c019-answer-8659ba89db3a53ce4c90",
+          "id": "lesson-7-3-clothing-c021-answer-f16684a10ee5be016bf7",
           "purpose": "answer",
           "text": "Shoes",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_shoes.webp",
+          "image_ref": "text-only:0af4fb3e6b5f1373c85e",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1010,29 +1104,19 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "hat-2",
+      "correct_option_id": "a-hat-a4",
       "options": [
         {
-          "id": "shirt-1",
-          "image_url": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "id": "shoes-a4",
+          "image_url": "/lesson-assets/a1_shoes.webp",
           "label": null
         },
         {
-          "id": "hat-2",
+          "id": "a-hat-a4",
           "image_url": "/lesson-assets/a1_hat.webp",
-          "label": null
-        },
-        {
-          "id": "skirt-3",
-          "image_url": "/lesson-assets/a1_skirt.webp",
-          "label": null
-        },
-        {
-          "id": "jacket-4",
-          "image_url": "/lesson-assets/a1_jacket.webp",
           "label": null
         }
       ],
@@ -1040,33 +1124,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Four-choice.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 04: A hat",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c020-prompt-3ff05ea3edb7aba36cba",
+          "id": "lesson-7-3-clothing-c022-prompt-8989286f480e9ee9a2e4",
           "purpose": "prompt",
           "text": "A hat",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c020-answer-952fed28f02cccf3eb8a",
+          "id": "lesson-7-3-clothing-c022-answer-1487e55d5cdbfb3156cc",
           "purpose": "answer",
           "text": "A hat",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1074,61 +1158,61 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2i4",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "blue-jacket-3",
+      "correct_option_id": "socks-a5",
       "options": [
         {
-          "id": "red-jacket-1",
-          "image_url": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
+          "id": "a-skirt-a5",
+          "image_url": "/lesson-assets/a1_skirt.webp",
           "label": null
         },
         {
-          "id": "green-jacket-2",
-          "image_url": "/lesson-assets/a1_photo_u7_green_jacket_v1.webp",
+          "id": "shoes-a5",
+          "image_url": "/lesson-assets/a1_shoes.webp",
           "label": null
         },
         {
-          "id": "blue-jacket-3",
-          "image_url": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
+          "id": "socks-a5",
+          "image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "label": null
         },
         {
-          "id": "black-jacket-4",
-          "image_url": "/lesson-assets/a1_photo_u7_black_jacket_v1.webp",
+          "id": "a-hat-a5",
+          "image_url": "/lesson-assets/a1_hat.webp",
           "label": null
         }
       ],
-      "audio_text": "The jacket is blue.",
+      "audio_text": "Socks",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Color review; same garment silhouette.",
+      "pedagogy_note": "Story beat 05: Socks",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c021-prompt-8793d681173441396616",
+          "id": "lesson-7-3-clothing-c023-prompt-3adb10d2d5caa8911594",
           "purpose": "prompt",
-          "text": "The jacket is blue.",
+          "text": "Socks",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c021-answer-8322991d2b10b11cd039",
+          "id": "lesson-7-3-clothing-c023-answer-b6fdc6b11e77f4eb68d4",
           "purpose": "answer",
-          "text": "The jacket is blue.",
+          "text": "Socks",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1138,58 +1222,176 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "listen-text",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-socks-are-white-3",
+      "correct_option_id": "a-skirt-a6",
       "options": [
         {
-          "id": "the-shoes-are-white-1",
+          "id": "a-skirt-a6",
           "image_url": "",
-          "label": "The shoes are white."
+          "label": "A skirt"
         },
         {
-          "id": "the-socks-are-black-2",
+          "id": "socks-a6",
           "image_url": "",
-          "label": "The socks are black."
+          "label": "Socks"
         },
         {
-          "id": "the-socks-are-white-3",
+          "id": "a-hat-a6",
           "image_url": "",
-          "label": "The socks are white."
+          "label": "A hat"
         }
       ],
-      "audio_text": "The socks are white.",
+      "audio_text": "A skirt",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "No image support; item/color/agreement.",
+      "pedagogy_note": "Story beat 06: A skirt",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c024-prompt-15acf95c2f73dd1bf2b5",
+          "purpose": "prompt",
+          "text": "A skirt",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:709619bb0e1954bca439",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c024-answer-f03d075e38d6bbea5b4b",
+          "purpose": "answer",
+          "text": "A skirt",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:709619bb0e1954bca439",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-jacket-is-blue-a7",
+      "options": [
+        {
+          "id": "the-jacket-is-black-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_black_jacket_v1.webp",
+          "label": null
+        },
+        {
+          "id": "the-jacket-is-blue-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
+          "label": null
+        },
+        {
+          "id": "the-jacket-is-red-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
+          "label": null
+        },
+        {
+          "id": "the-jacket-is-green-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_green_jacket_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "The jacket is blue.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: The jacket is blue.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c022-prompt-f6b852a12c6db56f7249",
+          "id": "lesson-7-3-clothing-c025-prompt-852a80c323a232303e0f",
           "purpose": "prompt",
-          "text": "The socks are white.",
+          "text": "The jacket is blue.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:ea4ee0e08ec2bf0a6253",
+          "image_ref": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c022-answer-88e7491cae0239cdef78",
+          "id": "lesson-7-3-clothing-c025-answer-b86a60985a78822c6fce",
           "purpose": "answer",
-          "text": "The socks are white.",
+          "text": "The jacket is blue.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:ea4ee0e08ec2bf0a6253",
+          "image_ref": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-shirt-is-red-a8",
+      "options": [
+        {
+          "id": "the-shirt-is-blue-a8",
+          "image_url": "",
+          "label": "The shirt is blue."
+        },
+        {
+          "id": "the-shirt-is-red-a8",
+          "image_url": "",
+          "label": "The shirt is red."
+        }
+      ],
+      "audio_text": "The shirt is red.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: The shirt is red.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c026-prompt-6726810e2fc1de4c5823",
+          "purpose": "prompt",
+          "text": "The shirt is red.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:9d807fe80c1d82069b48",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c026-answer-ffa494b6da5fbac38b9c",
+          "purpose": "answer",
+          "text": "The shirt is red.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:9d807fe80c1d82069b48",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1200,10 +1402,10 @@
       "interaction_type": "speak",
       "prompt": "A shirt",
       "stage": "Speak",
-      "correct_option_id": "a-shirt-1",
+      "correct_option_id": "a-shirt-speak",
       "options": [
         {
-          "id": "a-shirt-1",
+          "id": "a-shirt-speak",
           "image_url": "/lesson-assets/a1_shirt.webp",
           "label": "A shirt"
         }
@@ -1212,14 +1414,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Una camisa",
-      "pedagogy_note": "Complete chunk.",
+      "pedagogy_note": "Story beat 01: A shirt",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c023-prompt-540e7f34183b68ea9343",
+          "id": "lesson-7-3-clothing-c027-prompt-ccf0f71f8a4e0a29d810",
           "purpose": "prompt",
           "text": "A shirt",
           "mode": "pronunciation_slow",
@@ -1231,7 +1433,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c023-answer-ce4141de21b18d0b2a15",
+          "id": "lesson-7-3-clothing-c027-answer-ae3e691bcadc6fe8e330",
           "purpose": "answer",
           "text": "A shirt",
           "mode": "prompt",
@@ -1247,47 +1449,47 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "A dress",
+      "prompt": "The jacket is black.",
       "stage": "Speak",
-      "correct_option_id": "a-dress-1",
+      "correct_option_id": "the-jacket-is-black-speak",
       "options": [
         {
-          "id": "a-dress-1",
-          "image_url": "/lesson-assets/a1_dress.webp",
-          "label": "A dress"
+          "id": "the-jacket-is-black-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_black_jacket_v1.webp",
+          "label": "The jacket is black."
         }
       ],
-      "audio_text": "A dress",
+      "audio_text": "The jacket is black.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un vestido",
-      "pedagogy_note": "Complete chunk.",
-      "audio_speaker": null,
+      "spanish_translation": "La chaqueta es negra.",
+      "pedagogy_note": "Story beat 02: The jacket is black.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c024-prompt-6eec8bdcea07b6f39c3f",
+          "id": "lesson-7-3-clothing-c028-prompt-6d727a2697ac0512771f",
           "purpose": "prompt",
-          "text": "A dress",
+          "text": "The jacket is black.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_dress.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_black_jacket_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c024-answer-ff28ce2ddb1054ad80f2",
+          "id": "lesson-7-3-clothing-c028-answer-482eadfe60d24ee944e5",
           "purpose": "answer",
-          "text": "A dress",
+          "text": "The jacket is black.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_dress.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_black_jacket_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1296,45 +1498,45 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "A jacket",
+      "prompt": "The shoes are black.",
       "stage": "Speak",
-      "correct_option_id": "a-jacket-1",
+      "correct_option_id": "the-shoes-are-black-speak",
       "options": [
         {
-          "id": "a-jacket-1",
-          "image_url": "/lesson-assets/a1_jacket.webp",
-          "label": "A jacket"
+          "id": "the-shoes-are-black-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
+          "label": "The shoes are black."
         }
       ],
-      "audio_text": "A jacket",
+      "audio_text": "The shoes are black.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una chaqueta",
-      "pedagogy_note": "Complete chunk.",
+      "spanish_translation": "Los zapatos son negros.",
+      "pedagogy_note": "Story beat 03: The shoes are black.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c025-prompt-b3b903af6bf98d6d5553",
+          "id": "lesson-7-3-clothing-c029-prompt-c904af921e1af1881715",
           "purpose": "prompt",
-          "text": "A jacket",
+          "text": "The shoes are black.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_jacket.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c025-answer-6d5cf53039b155d4e2ab",
+          "id": "lesson-7-3-clothing-c029-answer-cb9bb3a4382c6e52ec5e",
           "purpose": "answer",
-          "text": "A jacket",
+          "text": "The shoes are black.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_jacket.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1345,47 +1547,47 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "Shoes",
+      "prompt": "The socks are white.",
       "stage": "Speak",
-      "correct_option_id": "shoes-1",
+      "correct_option_id": "the-socks-are-white-speak",
       "options": [
         {
-          "id": "shoes-1",
-          "image_url": "/lesson-assets/a1_shoes.webp",
-          "label": "Shoes"
+          "id": "the-socks-are-white-speak",
+          "image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
+          "label": "The socks are white."
         }
       ],
-      "audio_text": "Shoes",
+      "audio_text": "The socks are white.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Zapatos",
-      "pedagogy_note": "Plural target.",
-      "audio_speaker": null,
+      "spanish_translation": "Los calcetines son blancos.",
+      "pedagogy_note": "Story beat 04: The socks are white.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c026-prompt-bd4be34b5bd4ef45b920",
+          "id": "lesson-7-3-clothing-c030-prompt-7ac2efb5cc12c63e56ab",
           "purpose": "prompt",
-          "text": "Shoes",
+          "text": "The socks are white.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_shoes.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c026-answer-830efe411c322cbbbf17",
+          "id": "lesson-7-3-clothing-c030-answer-e4c676057c2ff073afdc",
           "purpose": "answer",
-          "text": "Shoes",
+          "text": "The socks are white.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_shoes.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1394,45 +1596,45 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "A hat",
+      "prompt": "This is a dress.",
       "stage": "Speak",
-      "correct_option_id": "a-hat-1",
+      "correct_option_id": "this-is-a-dress-speak",
       "options": [
         {
-          "id": "a-hat-1",
-          "image_url": "/lesson-assets/a1_hat.webp",
-          "label": "A hat"
+          "id": "this-is-a-dress-speak",
+          "image_url": "/lesson-assets/a1_dress.webp",
+          "label": "This is a dress."
         }
       ],
-      "audio_text": "A hat",
+      "audio_text": "This is a dress.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un sombrero",
-      "pedagogy_note": "Complete chunk.",
+      "spanish_translation": "Este es un vestido.",
+      "pedagogy_note": "Story beat 05: This is a dress.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c027-prompt-c4f94bd1cc90257f9fb7",
+          "id": "lesson-7-3-clothing-c031-prompt-e0172276d81ccae494ac",
           "purpose": "prompt",
-          "text": "A hat",
+          "text": "This is a dress.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_hat.webp",
+          "image_ref": "/lesson-assets/a1_dress.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c027-answer-d2eab0e5dea99ead699a",
+          "id": "lesson-7-3-clothing-c031-answer-b7ffaacdda9950b3e8b0",
           "purpose": "answer",
-          "text": "A hat",
+          "text": "This is a dress.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_hat.webp",
+          "image_ref": "/lesson-assets/a1_dress.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1443,47 +1645,145 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "A skirt",
+      "prompt": "This is a skirt.",
       "stage": "Speak",
-      "correct_option_id": "a-skirt-1",
+      "correct_option_id": "this-is-a-skirt-speak",
       "options": [
         {
-          "id": "a-skirt-1",
+          "id": "this-is-a-skirt-speak",
           "image_url": "/lesson-assets/a1_skirt.webp",
-          "label": "A skirt"
+          "label": "This is a skirt."
         }
       ],
-      "audio_text": "A skirt",
+      "audio_text": "This is a skirt.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una falda",
-      "pedagogy_note": "Complete chunk.",
+      "spanish_translation": "Esta es una falda.",
+      "pedagogy_note": "Story beat 06: This is a skirt.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c032-prompt-368dde6a60f4eaa324f8",
+          "purpose": "prompt",
+          "text": "This is a skirt.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_skirt.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c032-answer-949ff5ead048b80def1a",
+          "purpose": "answer",
+          "text": "This is a skirt.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_skirt.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "This is a hat.",
+      "stage": "Speak",
+      "correct_option_id": "this-is-a-hat-speak",
+      "options": [
+        {
+          "id": "this-is-a-hat-speak",
+          "image_url": "/lesson-assets/a1_hat.webp",
+          "label": "This is a hat."
+        }
+      ],
+      "audio_text": "This is a hat.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Este es un sombrero.",
+      "pedagogy_note": "Story beat 07: This is a hat.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c028-prompt-ccf1d8cddda0ef7be3e9",
+          "id": "lesson-7-3-clothing-c033-prompt-e5f216fa06c619bfd982",
           "purpose": "prompt",
-          "text": "A skirt",
+          "text": "This is a hat.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_skirt.webp",
+          "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c028-answer-6481b854cc2ca4fe1b30",
+          "id": "lesson-7-3-clothing-c033-answer-7f000ed2aaade6bc04ef",
           "purpose": "answer",
-          "text": "A skirt",
+          "text": "This is a hat.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_skirt.webp",
+          "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "These are pants.",
+      "stage": "Speak",
+      "correct_option_id": "these-are-pants-speak",
+      "options": [
+        {
+          "id": "these-are-pants-speak",
+          "image_url": "/lesson-assets/a1_pants.webp",
+          "label": "These are pants."
+        }
+      ],
+      "audio_text": "These are pants.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Estos son pantalones.",
+      "pedagogy_note": "Story beat 08: These are pants.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c034-prompt-b953f04e78b73350b14b",
+          "purpose": "prompt",
+          "text": "These are pants.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_pants.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c034-answer-09e339e484a012bfe1e1",
+          "purpose": "answer",
+          "text": "These are pants.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_pants.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1497,7 +1797,7 @@
       "correct_option_id": "is",
       "correct_option_ids": [
         "is",
-        "blue"
+        "red"
       ],
       "options": [
         {
@@ -1506,40 +1806,40 @@
           "label": "is"
         },
         {
-          "id": "blue",
+          "id": "red",
           "image_url": "",
-          "label": "blue"
+          "label": "red"
         }
       ],
-      "audio_text": "The jacket is blue.",
-      "answer_audio_text": "The jacket is blue.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
-      "spanish_translation": "La chaqueta es azul.",
-      "pedagogy_note": "Item choice.",
+      "audio_text": "The jacket is red.",
+      "answer_audio_text": "The jacket is red.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
+      "spanish_translation": "La chaqueta es roja.",
+      "pedagogy_note": "Story beat 01: The jacket is red.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c029-prompt-54f8682305c042129cfd",
+          "id": "lesson-7-3-clothing-c035-prompt-f33ce0dd61ccda3812d6",
           "purpose": "prompt",
-          "text": "The jacket is blue.",
+          "text": "The jacket is red.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c029-answer-4956abc974fc425ed9b3",
+          "id": "lesson-7-3-clothing-c035-answer-66c4dadd96fec086b0d4",
           "purpose": "answer",
-          "text": "The jacket is blue.",
+          "text": "The jacket is red.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_blue_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_red_jacket_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1549,64 +1849,6 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "The shoes ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "are",
-      "correct_option_ids": [
-        "are",
-        "black"
-      ],
-      "options": [
-        {
-          "id": "are",
-          "image_url": "",
-          "label": "are"
-        },
-        {
-          "id": "black",
-          "image_url": "",
-          "label": "black"
-        }
-      ],
-      "audio_text": "The shoes are black.",
-      "answer_audio_text": "The shoes are black.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
-      "spanish_translation": "Los zapatos son negros.",
-      "pedagogy_note": "Lexical form.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-3-clothing-c030-prompt-e9449e02d00b86a3112b",
-          "purpose": "prompt",
-          "text": "The shoes are black.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-3-clothing-c030-answer-6eb62adae166e2888564",
-          "purpose": "answer",
-          "text": "The shoes are black.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "The shirt ___ ___.",
       "stage": "Use",
@@ -1631,31 +1873,89 @@
       "answer_audio_text": "The shirt is red.",
       "prompt_image_url": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
       "spanish_translation": "La camisa es roja.",
-      "pedagogy_note": "Item choice.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "pedagogy_note": "Story beat 02: The shirt is red.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c031-prompt-45db9de5ea4e4d7f1a6d",
+          "id": "lesson-7-3-clothing-c036-prompt-58d33ca211020de0121d",
           "purpose": "prompt",
           "text": "The shirt is red.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c031-answer-86d2a3b25ed5b02fca83",
+          "id": "lesson-7-3-clothing-c036-answer-0c3183ce30d3be7b73bd",
           "purpose": "answer",
           "text": "The shirt is red.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u7_red_shirt_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "The shoes ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "are",
+      "correct_option_ids": [
+        "are",
+        "black"
+      ],
+      "options": [
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "black",
+          "image_url": "",
+          "label": "black"
+        }
+      ],
+      "audio_text": "The shoes are black.",
+      "answer_audio_text": "The shoes are black.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
+      "spanish_translation": "Los zapatos son negros.",
+      "pedagogy_note": "Story beat 03: The shoes are black.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c037-prompt-5076bde9b94f7f233e59",
+          "purpose": "prompt",
+          "text": "The shoes are black.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c037-answer-c225c29ed8670d3fa6e5",
+          "purpose": "answer",
+          "text": "The shoes are black.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_black_shoes_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1665,57 +1965,57 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
+      "interaction_type": "complete2",
+      "prompt": "The socks ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "are",
       "correct_option_ids": [
-        "word-1",
-        "word-2"
+        "are",
+        "white"
       ],
       "options": [
         {
-          "id": "word-1",
+          "id": "are",
           "image_url": "",
-          "label": "A"
+          "label": "are"
         },
         {
-          "id": "word-2",
+          "id": "white",
           "image_url": "",
-          "label": "shirt"
+          "label": "white"
         }
       ],
-      "audio_text": "A shirt.",
-      "answer_audio_text": "A shirt.",
-      "prompt_image_url": "/lesson-assets/a1_shirt.webp",
-      "spanish_translation": "Una camisa.",
-      "pedagogy_note": "Pair contrast.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "The socks are white.",
+      "answer_audio_text": "The socks are white.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
+      "spanish_translation": "Los calcetines son blancos.",
+      "pedagogy_note": "Story beat 04: The socks are white.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c032-prompt-b35d0d2067b5b64d13c7",
+          "id": "lesson-7-3-clothing-c038-prompt-ae6418dbe3f837f8b5b1",
           "purpose": "prompt",
-          "text": "A shirt.",
+          "text": "The socks are white.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_shirt.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c032-answer-a79c9a38e021f21a06c7",
+          "id": "lesson-7-3-clothing-c038-answer-113acb4ece292931b52b",
           "purpose": "answer",
-          "text": "A shirt.",
+          "text": "The socks are white.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_shirt.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1724,39 +2024,51 @@
     {
       "slide_id": "U5",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
-        "word-2"
+        "word-2",
+        "word-3",
+        "word-4"
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "A"
-        },
-        {
           "id": "word-2",
           "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
           "label": "dress"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
         }
       ],
-      "audio_text": "A dress.",
-      "answer_audio_text": "A dress.",
+      "audio_text": "This is a dress.",
+      "answer_audio_text": "This is a dress.",
       "prompt_image_url": "/lesson-assets/a1_dress.webp",
-      "spanish_translation": "Un vestido.",
-      "pedagogy_note": "Color review.",
+      "spanish_translation": "Este es un vestido.",
+      "pedagogy_note": "Story beat 05: This is a dress.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c033-prompt-7296bfbccfb9d75b4220",
+          "id": "lesson-7-3-clothing-c039-prompt-6568440b8afe9a468130",
           "purpose": "prompt",
-          "text": "A dress.",
+          "text": "This is a dress.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_dress.webp",
@@ -1766,9 +2078,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c033-answer-ab65336d578889ae4d40",
+          "id": "lesson-7-3-clothing-c039-answer-2ad6db684eca9402d29f",
           "purpose": "answer",
-          "text": "A dress.",
+          "text": "This is a dress.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_dress.webp",
@@ -1793,57 +2105,191 @@
       ],
       "options": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "The"
-        },
-        {
           "id": "word-2",
           "image_url": "",
-          "label": "socks"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "are"
+          "label": "is"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "white"
+          "label": "skirt"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
         }
       ],
-      "audio_text": "The socks are white.",
-      "answer_audio_text": "The socks are white.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
-      "spanish_translation": "Los calcetines son blancos.",
-      "pedagogy_note": "Plural agreement.",
+      "audio_text": "This is a skirt.",
+      "answer_audio_text": "This is a skirt.",
+      "prompt_image_url": "/lesson-assets/a1_skirt.webp",
+      "spanish_translation": "Esta es una falda.",
+      "pedagogy_note": "Story beat 06: This is a skirt.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c040-prompt-cd598fb89998adf95750",
+          "purpose": "prompt",
+          "text": "This is a skirt.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_skirt.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c040-answer-e41d2342504b3628170e",
+          "purpose": "answer",
+          "text": "This is a skirt.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_skirt.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "hat"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "audio_text": "This is a hat.",
+      "answer_audio_text": "This is a hat.",
+      "prompt_image_url": "/lesson-assets/a1_hat.webp",
+      "spanish_translation": "Este es un sombrero.",
+      "pedagogy_note": "Story beat 07: This is a hat.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-3-clothing-c034-prompt-362d07c3343518b6b49d",
+          "id": "lesson-7-3-clothing-c041-prompt-93be00e853a8d8dd0eef",
           "purpose": "prompt",
-          "text": "The socks are white.",
+          "text": "This is a hat.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
+          "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-3-clothing-c034-answer-783f5a832df54db7608f",
+          "id": "lesson-7-3-clothing-c041-answer-b93d9b612d94698748eb",
           "purpose": "answer",
-          "text": "The socks are white.",
+          "text": "This is a hat.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_white_socks_v1.webp",
+          "image_ref": "/lesson-assets/a1_hat.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "These"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "pants"
+        }
+      ],
+      "audio_text": "These are pants.",
+      "answer_audio_text": "These are pants.",
+      "prompt_image_url": "/lesson-assets/a1_pants.webp",
+      "spanish_translation": "Estos son pantalones.",
+      "pedagogy_note": "Story beat 08: These are pants.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-3-clothing-c042-prompt-4a0819672d8e9bbeb846",
+          "purpose": "prompt",
+          "text": "These are pants.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_pants.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-3-clothing-c042-answer-1151cd53e73b5edc915b",
+          "purpose": "answer",
+          "text": "These are pants.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_pants.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

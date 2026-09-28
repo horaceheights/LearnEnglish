@@ -23,16 +23,10 @@ SPEAKER_FIELDS = ("audio_speaker", "answer_audio_speaker")
 # The 2026-09-26 Unit 4 rebuild did the same for 4.5 L1/L4/L5, 4.6 L3 and the 4.7 recasts,
 # and the 2026-09-27 Unit 6 rebuild for the ten 6.7 fields: its briefs voice the woman asking
 # for help and the man she asks.
+# The 2026-09-27 Unit 7 rebuild re-authored 7.1-7.8 from briefs that name every speaker, so the
+# 21 forced-neutral fields of 7.6-7.8 and the 7.5 and 7.6 recasts are history; the review and
+# mission fields below keep their pins.
 FORCED_NEUTRAL_GROUPS = {
-    "lesson-7-6-hobbies-and-free-time": [
-        ("audio_speaker", "U6"),
-        ("answer_audio_speaker", "U8"),
-    ],
-    "lesson-7-7-invitations-and-responses": [("answer_audio_speaker", "U7")],
-    "lesson-7-8-help-and-important-phrases": [
-        ("audio_speaker", "A3 L1 L2 L4-L6 R3 R4 S1 S3-S5 U1 U2 U4"),
-        ("answer_audio_speaker", "R5 R7 U6"),
-    ],
     "lesson-7-9-complete-a1-review": [
         ("audio_speaker", "A4 S6"),
         ("answer_audio_speaker", "R8"),
@@ -43,22 +37,6 @@ FORCED_NEUTRAL_GROUPS = {
 # The old role is retained here as audit evidence; the final role is what must
 # appear in both the validator map and canonical lesson YAML.
 EXACT_ROLE_CHANGES = {
-    ("lesson-7-5-clothes-for-the-weather", "L3", "audio_speaker"): (
-        "female-character",
-        "male-character",
-    ),
-    ("lesson-7-5-clothes-for-the-weather", "R3", "audio_speaker"): (
-        "female-character",
-        "male-character",
-    ),
-    ("lesson-7-5-clothes-for-the-weather", "A3", "audio_speaker"): (
-        "female-character",
-        "male-character",
-    ),
-    ("lesson-7-5-clothes-for-the-weather", "S3", "audio_speaker"): (
-        "female-character",
-        "male-character",
-    ),
     ("lesson-7-9-complete-a1-review", "R7", "answer_audio_speaker"): (
         "female-character",
         "male-character",
@@ -70,12 +48,6 @@ EXACT_ROLE_CHANGES = {
     # re-authored that card over a fresh photograph of a man walking to work, so the line
     # is spoken by the pictured man again and has no recast left to pin. The 6.7 U7 removal left
     # with the 2026-09-27 Unit 6 rebuild, whose briefs name every speaker.
-    ("lesson-7-6-hobbies-and-free-time", "A3", "audio_speaker"): ("male-character", "female-character"),
-    ("lesson-7-6-hobbies-and-free-time", "L5", "audio_speaker"): ("male-character", "female-character"),
-    ("lesson-7-6-hobbies-and-free-time", "R6", "answer_audio_speaker"): ("male-character", "female-character"),
-    ("lesson-7-6-hobbies-and-free-time", "S5", "audio_speaker"): ("male-character", "female-character"),
-    ("lesson-7-6-hobbies-and-free-time", "U1", "audio_speaker"): ("male-character", "female-character"),
-    ("lesson-7-6-hobbies-and-free-time", "U5", "audio_speaker"): ("male-character", "female-character"),
 }
 
 # Lesson 1.8 adds 25 visitor-question cards with prompt and answer speaker fields.
@@ -102,9 +74,9 @@ EXACT_ROLE_CHANGES = {
 # pictured people and alternating narrators keep their voices (+261 net).
 # The 2026-09-26 Unit 5 rebuild does the same for its ten teaching lessons (Ana, Luis, the
 # servers and every pictured customer keep their voices) and the six new review cards (+321 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1607
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1809
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "f6f0f724140693a8fe109f8afdce1da0be8031e03d370440d0202aea934266d1"
+    "110af89cddd593bf963fcc2f9ceb011906f4cd329cf1727b0af6a08eb37e8b34"
 )
 
 
@@ -199,8 +171,8 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         lessons = lesson_assignments()
         neutral = forced_neutral_targets()
 
-        self.assertEqual(26, len(neutral))
-        self.assertEqual(11, len(EXACT_ROLE_CHANGES))
+        self.assertEqual(5, len(neutral))
+        self.assertEqual(1, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
         self.assertEqual(validator, lessons)

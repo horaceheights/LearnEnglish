@@ -101,7 +101,8 @@ You...? is new, and the overloaded Days and Time splits into 4.9 Days of the Wee
 4.10 What Time Is It?. Unit 5 is rebuilt with 12 lessons (the course has 81): 5.3 Drinks
 splits from food, 5.4 adds How many?, 5.5 adds Me too, and 5.10 Can I Have...? is new.
 Unit 6 is rebuilt with 10 lessons: 6.3 Near and Far and 6.4 Left and Right each teach one
-contrast on photo pairs, and 6.2 adds walk. Unit 7 is next.
+contrast on photo pairs, and 6.2 adds walk. Unit 7 is rebuilt with 10 lessons: 7.7 adds
+Let's and OK., and feelings are practised on the Unit 1 family. Every A1 unit now runs on the engine.
 
 A1+ and later levels wait until that path is proven.
 

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7c5e1230-374c-478f-ac22-1021d789bbd5",
+  "asset_id": "grandfather-tired-2",
+  "pack_sha256": "48cc6cd3385fcaec242249a70ee3ed6c919452f198d7d8020684bbae5767480f",
+  "started_at": "2026-09-27T09:20:13.284845+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the grandfather: about seventy, short grey hair, a grey mustache, rimless glasses, an olive-green cardigan over a white shirt. Keep his face, hair, glasses and clothes exactly. Create a new photograph in the evening in his living room: he sits in a dark leather armchair under a warm lamp, eyes closed, yawning widely with one hand raised in front of his open mouth, his head leaning back, clearly tired and sleepy. His glasses stay on. Beside the armchair stands only a small wooden side table holding one plain mug; there are NO books, papers, magazines or labels anywhere near him, and the shelves behind him are soft and out of focus. He is the only person; no text or logos anywhere.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_grandfather_3x2.webp",
+    "sha256": "c8ce773241ce23e871a5badaf5a0534b26c4dbda20857d542bfc9b3ba1b17c09"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "zd-4apC2FumP6dkPpaaV6Aw",
+  "usage": {
+    "promptTokenCount": 594,
+    "candidatesTokenCount": 1295,
+    "totalTokenCount": 2066,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 336
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 177,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137312",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 594,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 177
+  },
+  "elapsed_seconds": 24.29,
+  "output": "output/imagegen/unit-7-lesson-v2/grandfather-tired-2.png",
+  "sha256": "5f39a0e3578c2025cf03eefe72a5ac4e9772b48b48d548be1ba00effe42f2033",
+  "byte_count": 6252153,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

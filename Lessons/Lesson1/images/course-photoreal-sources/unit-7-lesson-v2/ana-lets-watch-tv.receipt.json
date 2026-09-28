@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "00573d9e-2cb7-4130-bf5f-b5f93a6aceec",
+  "asset_id": "ana-lets-watch-tv",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:14:07.663827+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows Ana (left: long dark wavy hair, sage-green overshirt over a white top) and Luis (right: short dark curly hair, navy T-shirt). Keep both faces, hair and clothes exactly. Create a new photograph in the evening in a cozy living room: Ana and Luis sit side by side on a grey sofa facing a flat TV on a low cabinet; the TV screen shows only soft blurred colors, no text or logos. Ana holds a TV remote pointed at the TV and turns to Luis, speaking to him with a smile, inviting him to watch; Luis looks at her, listening. Ana is the clear speaker. Both faces in three-quarter view; no other people, no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+    "sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "X964atf4Mcv8qtsP_fqR2Aw",
+  "usage": {
+    "promptTokenCount": 591,
+    "candidatesTokenCount": 1330,
+    "totalTokenCount": 2139,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 333
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 218,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137798",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 591,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 218
+  },
+  "elapsed_seconds": 27.07,
+  "output": "output/imagegen/unit-7-lesson-v2/ana-lets-watch-tv.png",
+  "sha256": "977350f99afd22a1f19416d450f7d831e50093e73e989f6dff1fa1a0f16e6caf",
+  "byte_count": 6246817,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

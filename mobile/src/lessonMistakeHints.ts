@@ -190,6 +190,13 @@ const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   // Unit 6 directions: each caption-free route picture names the direction it shows.
   stop: 'detenerse', 'cross the street': 'cruzar la calle', 'go straight': 'seguir recto',
   'turn left': 'girar a la izquierda', 'turn right': 'girar a la derecha',
+  // Unit 7 invitations: each caption-free picture names the invitation or proposal it shows.
+  'do you want to play': 'una invitación a jugar', 'do you want to read': 'una invitación a leer',
+  'do you want to watch tv': 'una invitación a ver televisión',
+  'do you want to listen to music': 'una invitación a escuchar música',
+  "let's play": 'una propuesta para jugar', "let's watch tv": 'una propuesta para ver televisión',
+  "let's listen to music": 'una propuesta para escuchar música',
+  "let's read": 'una propuesta para leer',
   // Unit 5 review contrasts: each caption-free pair names what its picture shows.
   'likes fish': 'gusto por el pescado', 'dislikes fish': 'rechazo al pescado',
   'dislikes bananas': 'rechazo a los plátanos', 'dislikes milk': 'rechazo a la leche',
@@ -226,6 +233,9 @@ const CHOICE_CONCEPTS: Record<string, string> = {
   'it is rainy i need an umbrella': 'lluvia y un paraguas',
   'do you want to read': 'una invitación a leer',
   'do you want to watch tv': 'una invitación a ver televisión',
+  'do you want to play': 'una invitación a jugar',
+  'do you want to listen to music': 'una invitación a escuchar música',
+  "let's watch tv ok": 'aceptar la propuesta', "let's watch tv sorry no": 'rechazar la propuesta',
   'i do not understand': 'que no entiendo',
   'i do not like music': 'que no me gusta la música',
   'i like listening to music': 'que me gusta escuchar música',

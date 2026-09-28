@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "12d710fc-2621-48fd-9b86-6c5b5325c3cd",
+  "asset_id": "review-red-hat",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:16:02.467094+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nA photograph on a quiet town sidewalk on a cold, grey winter morning: a woman about thirty with long straight black hair wears a bright red knitted wool hat and a grey winter coat, smiling toward the camera, head and shoulders filling the center of the frame so the red hat is large and obvious. Only one person in focus; no text.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "0d64au61M57iz7IPyNOp4Aw",
+  "usage": {
+    "promptTokenCount": 254,
+    "candidatesTokenCount": 1265,
+    "totalTokenCount": 1744,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 254
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 225,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137208",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 254,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 225
+  },
+  "elapsed_seconds": 24.87,
+  "output": "output/imagegen/unit-7-lesson-v2/review-red-hat.png",
+  "sha256": "1eb8a272c70a185cad474a8d0fe9d701d68dcf667f49fad9bf3634f627fdb198",
+  "byte_count": 5663624,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

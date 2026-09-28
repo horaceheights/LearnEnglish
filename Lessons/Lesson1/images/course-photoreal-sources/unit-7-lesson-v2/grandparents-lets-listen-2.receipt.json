@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "170e09a6-42c3-41a3-9ddf-3ce68aa44a76",
+  "asset_id": "grandparents-lets-listen-2",
+  "pack_sha256": "48cc6cd3385fcaec242249a70ee3ed6c919452f198d7d8020684bbae5767480f",
+  "started_at": "2026-09-27T09:20:39.091021+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the grandparents: the grandfather (short grey hair, rimless glasses, olive-green cardigan over a white shirt) and the grandmother (curly grey hair, cream cable-knit cardigan over a floral blouse). Keep both faces, hair and clothes exactly. Create a new photograph in their warm living room: the grandparents sit on the patterned sofa next to a small wooden side table with an open vintage record player on it, a plain black vinyl record on its turntable (the record's center label is a plain solid red circle with no writing). The grandmother holds out a pair of large over-ear headphones toward the grandfather and speaks to him with a warm smile, inviting him to listen to music; the grandfather reaches for the headphones and smiles. The record player and the headphones are large and obvious; the grandmother is the clear speaker. Both faces in three-quarter view; no other people, no text or logos.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_grandparents_3x2.webp",
+    "sha256": "9f02732e724cb5ad23c054aba29bf783895c2a33d1d0274f43b89d1b63f3846b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "59-4aryXIdrlqtsPnNzGQA",
+  "usage": {
+    "promptTokenCount": 630,
+    "candidatesTokenCount": 1320,
+    "totalTokenCount": 2139,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 372
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 189,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137528",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 630,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 189
+  },
+  "elapsed_seconds": 23.38,
+  "output": "output/imagegen/unit-7-lesson-v2/grandparents-lets-listen-2.png",
+  "sha256": "5468386a6e1d5262c0e1e825b9c93779913ccfa5ac6badfb24b27b78722a6887",
+  "byte_count": 6408084,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

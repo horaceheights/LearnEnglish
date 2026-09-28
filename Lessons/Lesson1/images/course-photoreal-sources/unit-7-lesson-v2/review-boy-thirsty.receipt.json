@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "236a8d72-c80d-4d9f-9b05-1011275d8b22",
+  "asset_id": "review-boy-thirsty",
+  "pack_sha256": "0c784b7c18001be71acd6aeaad7c50d80ddb0e3f1790539004597f30019befa0",
+  "started_at": "2026-09-27T09:15:34.896305+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on signs, clothing, screens, books and bottles, except the symbols the prompt explicitly asks for. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the family's two children; use only the boy: about nine, short dark hair, a blue polo shirt. Keep his face, hair and shirt exactly; the girl is not in the new photo. Create a new photograph on a grassy park field on a hot day after soccer: the boy, a little sweaty, drinks eagerly from a plain water bottle tilted up to his mouth, a soccer ball at his feet, clearly thirsty. Face in three-quarter view. Only the boy; no text or logos.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_children_3x2.webp",
+    "sha256": "6d7e789dc7f57c3c0f13ae2fafcb89396229d87d7420df443ad7f808f00e11dd"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "uN64aryQPOvjz7IP7JjywQY",
+  "usage": {
+    "promptTokenCount": 551,
+    "candidatesTokenCount": 1281,
+    "totalTokenCount": 2026,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 293
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 194,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137430",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 551,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 194
+  },
+  "elapsed_seconds": 25.91,
+  "output": "output/imagegen/unit-7-lesson-v2/review-boy-thirsty.png",
+  "sha256": "1fb133887f03e49bffe0e933f75f3ed6845a7ab5a7e357e967c1e955ef73c464",
+  "byte_count": 5438732,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
