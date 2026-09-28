@@ -390,7 +390,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#dff4ef',
   },
   'lesson-7-1-the-body': {
-    image: 'a1_scene_my-head_bc334a5.webp',
+    image: 'a1_photo_u7_body_body_title_v1.webp',
     description: 'Partes comunes del cuerpo.',
     color: '#f1e4fa',
   },
