@@ -28,3 +28,5 @@ This is agent visual inspection, not human approval of the installed runtime con
 ## Verification commands
 
 Run the backend suite, `npm run verify:preview` from `mobile`, `scripts/audit_course_media_preservation.py`, `scripts/audit_a1_unit_parity.py --check`, `scripts/audit_content_practice.py --check`, and `scripts/content_engine_plans.py --check`. The release manifest retains 81 lessons and the existing per-unit counts. Protected CI and the exact-main Preview workflow remain required; real Android/iOS playback and final human framing review occur in Preview.
+
+Local results on 2026-09-28: all 447 backend tests passed; the complete Preview preflight passed, including content/audio checks, TypeScript, mobile interaction/layout tests and the production Android bundle export. Preservation, unit parity, content practice and exact engine-plan checks passed. Comparing the full course to task base `1b1a9ed8` confirms that only Lesson 7.1 changed; the other 80 lesson payloads are identical. All 61 changed media contracts belong to 7.1 (59 lesson fields and two thumbnail contexts).
