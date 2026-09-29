@@ -158,7 +158,7 @@ Lessons:
 
 1. 4.1 Rooms at Home: `home`, `kitchen`, `bedroom`, `bathroom`, `living room`, `dining room`; `The grandmother is in the kitchen.`
 2. 4.2 Furniture and Home Objects: `bed`, `sofa`, `lamp`, `door`, `window`, `computer`; `Is it a door? Yes, it is.`
-3. 4.3 Where Things Are: `in`, `on`, `under`, `next to`, `Where is it?`
+3. 4.3 Where Things Are: `in`, `on`, `under`, `next to`, `Where is ...?`; name the blue book, bag, phone or lamp in location questions and answers to reinforce known object vocabulary across all five stages.
 4. 4.4 There Is and There Are: `there is`, `there are`; `There are nine cars.`
 5. 4.5 Morning Routine: `wake up`, `wash my face`, `brush my teeth`, `eat breakfast`, `get dressed`, `in the morning`
 6. 4.6 Everyday Verbs: `go to school`, `go to work`, `study English`, `work`, `come home`, `sleep`
@@ -172,7 +172,7 @@ Lessons:
 Core patterns:
 
 - `The grandmother is in the kitchen.`
-- `Where is it? It is on the table.`
+- `Where is the blue book? The blue book is on the table.`
 - `There are two chairs in the dining room.`
 - `I wake up in the morning.`
 - `We study English every day.`

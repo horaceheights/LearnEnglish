@@ -14,6 +14,10 @@ COURSE_AUDIO_SEED = 1101
 PLAYING_CORRECTION_MODEL_ID = "eleven_flash_v2"
 PLAYING_CORRECTION_SPEED = 0.85
 
+# Exact, user-requested In/On replacements; never applied to other course audio.
+LOCATION_WORD_CORRECTION_MODEL_ID = "eleven_flash_v2"
+LOCATION_WORD_CORRECTION_SPEED = 0.85
+
 NARRATOR_VOICE_IDS = {
     "female-teacher": "XfNU2rGpBa01ckF309OY",  # Nichalia
     "female-warm": "EXAVITQu4vr4xnSDxMaL",  # Sarah

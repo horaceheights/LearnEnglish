@@ -5,7 +5,7 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "2026-09-26 Unit 4 rebuild: Learn holds the four place words and Where is it?; every location sentence is practice on known objects. Each choice changes only the place word (the book and bag photos are matched pairs); phone and lamp answers are offered as text.",
+  "note": "2026-09-29 user refinement of the Unit 4 rebuild: practise named objects throughout all five stages instead of repeatedly saying it. The blue book, bag, phone and lamp remain explicit in questions, answers, distractors and constructions. Keep the canonical 42-card order and current picture/voice bindings. Preserve revision 2 for the user-approved standalone In teacher prompt/answer on L1/R1 and On teacher prompt/answer on A2. Brief proposals are drafts; preserve the reviewed canonical cards when installing refinements.",
   "target": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
   "lesson": {
     "id": "lesson-4-3-where-things-are",
@@ -24,7 +24,7 @@
       "on",
       "under",
       "next to",
-      "Where is it?"
+      "Where is"
     ],
     "review_vocabulary": [
       "where",
@@ -38,11 +38,12 @@
       "phone",
       "bed",
       "lamp",
-      "sofa"
+      "sofa",
+      "blue"
     ],
-    "grammar_function": "Where is the + noun? It is in/on/under/next to the + noun. The bag is on the chair.",
+    "grammar_function": "Where is the + named object? The named object is in/on/under/next to the + known noun.",
     "prerequisite": "4.1-4.2 rooms and home objects; 2.3 objects; 3.7 where.",
-    "speaking_outcome": "Ask Where is it? and say where a known thing is.",
+    "speaking_outcome": "Ask where a named object is and describe its location, reusing known object names and blue.",
     "content_revision": 2
   },
   "layout": {
@@ -56,7 +57,8 @@
       "text": "In",
       "es": "Dentro de",
       "image": "a1_photo_u4_book_in_bag_v1.webp",
-      "kind": "place-word-prep"
+      "kind": "place-word-prep",
+      "learn_revision": 2
     },
     {
       "text": "On",
@@ -77,60 +79,60 @@
       "kind": "place-word-prep"
     },
     {
-      "text": "Where is it?",
-      "es": "¿Dónde está?",
+      "text": "Where is the phone?",
+      "es": "¿Dónde está el teléfono?",
       "image": "a1_photo_u4_where_is_it_v1.webp",
       "kind": "where-question",
       "speaker": "male-character",
       "choices": false
     },
     {
-      "text": "It is in the bag.",
-      "es": "Está dentro de la bolsa.",
+      "text": "The blue book is in the bag.",
+      "es": "El libro azul está dentro de la bolsa.",
       "image": "a1_photo_u4_book_in_bag_v1.webp",
       "kind": "book-where",
       "learn": false,
       "prefer": [
-        "It is on the bag."
+        "The blue book is on the bag."
       ],
-      "question": "Where is it?",
-      "question_es": "¿Dónde está?"
+      "question": "Where is the blue book?",
+      "question_es": "¿Dónde está el libro azul?"
     },
     {
-      "text": "It is on the table.",
-      "es": "Está sobre la mesa.",
+      "text": "The blue book is on the table.",
+      "es": "El libro azul está sobre la mesa.",
       "image": "a1_photo_u4_book_on_table_v1.webp",
       "kind": "book-where",
       "learn": false,
       "prefer": [
-        "It is under the table."
+        "The blue book is under the table."
       ],
-      "question": "Where is it?",
-      "question_es": "¿Dónde está?"
+      "question": "Where is the blue book?",
+      "question_es": "¿Dónde está el libro azul?"
     },
     {
-      "text": "It is under the table.",
-      "es": "Está debajo de la mesa.",
+      "text": "The blue book is under the table.",
+      "es": "El libro azul está debajo de la mesa.",
       "image": "a1_photo_u4_book_under_table_v1.webp",
       "kind": "book-where",
       "learn": false,
       "prefer": [
-        "It is on the table."
+        "The blue book is on the table."
       ],
-      "question": "Where is it?",
-      "question_es": "¿Dónde está?"
+      "question": "Where is the blue book?",
+      "question_es": "¿Dónde está el libro azul?"
     },
     {
-      "text": "It is next to the phone.",
-      "es": "Está al lado del teléfono.",
+      "text": "The blue book is next to the phone.",
+      "es": "El libro azul está al lado del teléfono.",
       "image": "a1_photo_u4_book_next_to_phone_v1.webp",
       "kind": "book-where",
       "learn": false,
       "prefer": [
-        "It is on the phone."
+        "The blue book is on the phone."
       ],
-      "question": "Where is it?",
-      "question_es": "¿Dónde está?"
+      "question": "Where is the blue book?",
+      "question_es": "¿Dónde está el libro azul?"
     },
     {
       "text": "The phone is on the bed.",
@@ -167,8 +169,8 @@
       "prefer": [
         "The bag is under the chair."
       ],
-      "question": "Where is it?",
-      "question_es": "¿Dónde está?"
+      "question": "Where is the bag?",
+      "question_es": "¿Dónde está la bolsa?"
     },
     {
       "text": "The bag is under the chair.",
@@ -179,19 +181,19 @@
       "prefer": [
         "The bag is on the chair."
       ],
-      "question": "Where is it?",
-      "question_es": "¿Dónde está?"
+      "question": "Where is the bag?",
+      "question_es": "¿Dónde está la bolsa?"
     }
   ],
   "pool": [
     {
-      "text": "It is on the bag.",
-      "es": "Está sobre la bolsa.",
+      "text": "The blue book is on the bag.",
+      "es": "El libro azul está sobre la bolsa.",
       "kind": "book-where"
     },
     {
-      "text": "It is on the phone.",
-      "es": "Está sobre el teléfono.",
+      "text": "The blue book is on the phone.",
+      "es": "El libro azul está sobre el teléfono.",
       "kind": "book-where"
     },
     {

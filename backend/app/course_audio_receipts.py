@@ -11,6 +11,8 @@ from typing import Any
 import av
 
 from .course_audio_profile import (
+    LOCATION_WORD_CORRECTION_MODEL_ID,
+    LOCATION_WORD_CORRECTION_SPEED,
     NEUTRAL_SPEAKER_ROLES,
     PLAYING_CORRECTION_MODEL_ID,
     PLAYING_CORRECTION_SPEED,
@@ -40,6 +42,18 @@ NATURAL_PLAYING_ASSET_IDS = frozenset({
 APPROVED_ONE_AUDIO_SHA256 = (
     "802f1c7d7e2d8a3e868f89f7d99fdb106f0f3b7fd4876cfe088634e4b9e9f432"
 )
+NATURAL_LOCATION_WORD_ASSET_IDS = {
+    "98a130ae509d0c9ac30c071ef6e4017c1f880c4775690fd69b60f73e6ed61add": frozenset({
+        "lesson-4-3-where-things-are-c001-prompt-8f0e13d497db1bdf4a43",
+        "lesson-4-3-where-things-are-c001-answer-e37151e29ce6d3107418",
+        "lesson-4-3-where-things-are-c006-prompt-d5d7ba3d6487262da23f",
+        "lesson-4-3-where-things-are-c006-answer-378e8b3088609ef2f692",
+    }),
+    "7061cbda4302d38dc7ebd848984f237062ab69dfb54baba124259c2891c67c26": frozenset({
+        "lesson-4-3-where-things-are-c018-prompt-2bdc83af1efdfee52498",
+        "lesson-4-3-where-things-are-c018-answer-1d0cc9ed810d8addecbf",
+    }),
+}
 APPROVED_ONE_AUDIO_APPROVED_AT = "2026-08-28T15:20:54-06:00"
 APPROVED_ONE_AUDIO_SOURCE_COMMIT = "84efef509c902cd416eb37511fce18ca3b9bcd6d"
 APPROVED_ONE_AUDIO_PROCESSING = [
@@ -170,6 +184,9 @@ def _profile_mismatch(
     if audio_sha256 == NATURAL_PLAYING_AUDIO_SHA256 and asset.id in NATURAL_PLAYING_ASSET_IDS:
         expected["model_id"] = PLAYING_CORRECTION_MODEL_ID
         expected["settings"]["speed"] = PLAYING_CORRECTION_SPEED
+    if asset.id in NATURAL_LOCATION_WORD_ASSET_IDS.get(audio_sha256, ()):
+        expected["model_id"] = LOCATION_WORD_CORRECTION_MODEL_ID
+        expected["settings"]["speed"] = LOCATION_WORD_CORRECTION_SPEED
     for key, value in expected.items():
         if provenance.get(key) != value:
             return key

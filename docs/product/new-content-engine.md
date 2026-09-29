@@ -76,6 +76,8 @@ For current A1, preserve the standard `Learn → Recognize → Listen → Speak 
 
 Use existing schemas and shared authoring patterns. Author unambiguous answers, coherent distractors, contextual help, and feedback that explains the actual mistake. Avoid answer leakage before assessment. Treat images, audio, and all answer options as teaching content subject to the same language boundary.
 
+Reuse known object names and meaningful attributes while practising a new relationship: `Where is the blue book? The blue book is in the bag.` Do not replace the target nouns with repeated, unanchored `it` across a lesson. Questions, answers, distractors, audio and constructions keep the intended object explicit; pronouns remain appropriate for deliberate pronoun practice or a clear conversational antecedent. A declared new question frame may embed an already-taught object under the narrow `learn_question_frames` course setting; this does not make that object new vocabulary or permit an unrelated repeated statement on Learn.
+
 Declare mission behavior through supported metadata, never a lesson-ID condition. If an activity or teaching explanation lacks shared support, identify the engine gap. Within an authorized implementation task, solve it once in the shared layer; otherwise return the blocked portion and continue independent work. Do not hide the gap inside another unit-specific builder.
 
 ### C. Prepare and review media/audio
