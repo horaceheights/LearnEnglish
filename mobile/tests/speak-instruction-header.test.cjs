@@ -44,7 +44,8 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // its 54-card review.
 // 595 since 2026-09-27: the engine-built Unit 6 (nine Speak cards in each teaching lesson, one more in the review).
 // 618 since 2026-09-27: the engine-built Unit 7 (8-9 Speak cards in each teaching lesson, one more in the review).
-assert.equal(speakCards.length, 618, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4, Unit 5, Unit 6 and Unit 7 mission gates each, plus the 3.3 current-action exchange and the rebuilt Unit 1 family lessons.');
+// 2026-09-29: 3.3 uses eight alternating questions and answers instead of nine old drills.
+assert.equal(speakCards.length, 617, 'The Speak inventory preserves every lesson and mission gate, with eight current-action cards in 3.3.');
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
 // The Unit 3 mission gained a fifth gate, Is it yours?, on 2026-09-25.
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 5);
@@ -52,7 +53,7 @@ assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-10-my-da
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-5-10-cafe-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-6-10-town-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-7-10-a1-final-mission').length, 4);
-assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-3-am-is-and-are').length, 9);
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-3-am-is-and-are').length, 8);
 assert.equal(affectedLessons.size, courseContract.lessonCount, 'The shared Speak instruction must cover every A1 lesson.');
 assert.ok(
   speakCards.every(({ card }) => card.prompt.trim()),

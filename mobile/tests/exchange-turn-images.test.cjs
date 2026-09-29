@@ -19,7 +19,7 @@ const course = JSON.parse(fs.readFileSync(path.join(mobileRoot, 'src', 'generate
 const speaker = '/lesson-assets/speaker.webp';
 
 test('a speaker picture never appears on an answer-choice card without its own prompt picture', () => {
-  for (const [stage, interaction_type] of [['Recognize', 't2i2'], ['Listen', 'a2i2'], ['Listen', 'a2t2'], ['Listen', 'listen-text']]) {
+  for (const [stage, interaction_type] of [['Recognize', 't2i2'], ['Recognize', 'a2t2'], ['Listen', 'a2i2'], ['Listen', 'a2t2'], ['Listen', 'listen-text']]) {
     assert.equal(visibleTurnImageUrl({ stage, interaction_type, prompt_image_url: '' }, speaker), null, interaction_type);
   }
   assert.equal(
@@ -52,7 +52,8 @@ test('no card in the course lets a spoken turn cover or reveal its choices', () 
   }
   // The Unit 3 exchanges on picture and listening cards, and Lesson 7.7 A8 (Let's watch TV. OK.;
   // the engine-built 7.7 of 2026-09-27 replaced the old A6 exchange).
-  for (const slide of ['3.1 R9', '3.1 A8', '3.1 A9', '3.3 R1', '3.4 R9', '3.8 R5', '3.9 A4', '7.7 A8']) {
+  // 3.3 now gives each question and answer its own card instead of a combined exchange.
+  for (const slide of ['3.1 R9', '3.1 A8', '3.1 A9', '3.4 R9', '3.8 R5', '3.9 A4', '7.7 A8']) {
     assert.ok(hidden.includes(slide), `${slide} must play its voices without covering the choices.`);
   }
 });
