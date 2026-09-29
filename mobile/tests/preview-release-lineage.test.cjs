@@ -113,7 +113,8 @@ test('the versioned manifest locks the complete recovery baseline and release id
   // Do You...? and splits Days and Time into Days of the Week and What Time Is It? (12 lessons).
   // 2026-09-26: 81 lessons; the engine-built Unit 5 adds 5.3 Drinks and 5.10 Can I Have...? (12 lessons).
   // 2026-09-28: Lesson 7.1 body-photo replacement preserves all 81 lessons and their language.
-  assert.equal(integrityManifest.catalog.expectedGitBlob, '238416c55abc1e8cd15dca2b8ebcd2e5eea9688f');
+  // 2026-09-29: explicit objects and corrected In/On takes in Lesson 4.3; all 81 lessons remain.
+  assert.equal(integrityManifest.catalog.expectedGitBlob, 'c631b1f09d0761321d83d8515a9ff9e1798347ab');
   assert.equal(integrityManifest.catalog.lessonCount, 81);
   assert.equal(integrityManifest.catalog.unitCount, 7);
   assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 12, 14, 12, 12, 10, 10]);
