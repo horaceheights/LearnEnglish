@@ -69,6 +69,14 @@ MANIFEST = {
 
 
 class UsePromptImageMeaningTest(unittest.TestCase):
+    def test_current_action_question_needs_evidence_of_a_specific_visible_action(self):
+        manifest = {'assets': [_asset('reader.webp', 'A woman is reading an open book.'),
+                               _asset('portrait.webp', 'A woman against a plain background.')]}
+        good = find_use_prompt_image_mismatches(_lessons(_card('What is she doing?', 'reader.webp')), manifest)
+        bad = find_use_prompt_image_mismatches(_lessons(_card('What is she doing?', 'portrait.webp')), manifest)
+        self.assertEqual(good, ([], []))
+        self.assertEqual(len(bad[0]), 1)
+
     def findings(self, *cards):
         return find_use_prompt_image_mismatches(_lessons(*cards), MANIFEST)
 

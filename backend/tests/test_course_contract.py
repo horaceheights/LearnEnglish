@@ -18,6 +18,16 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class CourseContractTests(unittest.TestCase):
+    def test_counts_can_grow_with_an_approved_catalog_without_a_hardcoded_cap(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'mobile').mkdir()
+            counts = {f'unit-{i}': 13 for i in range(1, 10)}
+            (root / 'mobile/release-integrity.json').write_text(json.dumps({'catalog': {
+                'lessonCount': 117, 'unitCount': 9, 'lessonsByUnit': counts}}), encoding='utf-8')
+            self.assertEqual(expected_lesson_count(root), 117)
+            self.assertEqual(expected_lessons_by_unit(root), counts)
+
     def test_counts_come_from_the_release_manifest(self):
         manifest = json.loads((ROOT / "mobile/release-integrity.json").read_text(encoding="utf-8"))["catalog"]
         self.assertEqual(release_catalog(), manifest)

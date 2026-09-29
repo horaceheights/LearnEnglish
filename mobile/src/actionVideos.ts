@@ -64,11 +64,9 @@ const TWO_CARD_ACTION_POSTERS: Record<string, number> = {
 };
 
 const LESSON_ACTION_VIDEOS: Record<string, string> = {
-  boy_is_drinking: 'boy-drinking-scene-v2.mp4',
   boy_is_eating: 'boy-eating-scene-v2.mp4',
   boy_is_reading: 'boy-reading-scene-v2.mp4',
   boy_is_running: 'boy-running-scene-v2.mp4',
-  boy_is_sleeping: 'boy-sleeping-scene-v2.mp4',
   boy_is_swimming: 'boy-swimming-scene-v2.mp4',
   boy_is_walking: 'boy-walking-scene-v2.mp4',
   family_brother_studying: 'brother-studying-scene-full-bleed-v1.mp4',
@@ -79,7 +77,6 @@ const LESSON_ACTION_VIDEOS: Record<string, string> = {
   family_father_working: 'father-working-scene-photo-v3.mp4',
   family_mother_cooking: 'mother-cooking-scene-full-bleed-v1.mp4',
   family_parents_talking: 'parents-talking-scene-full-bleed-wide-v1.mp4',
-  girl_is_drinking: 'girl-drinking-scene-v2.mp4',
   girl_is_sleeping: 'girl-sleeping-scene-photo-v3.mp4',
   girl_is_walking: 'girl-walking-scene-full-bleed-v1.mp4',
   girl_is_writing: 'girl-writing-scene-photo-v3.mp4',

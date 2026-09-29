@@ -37,12 +37,12 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "ana", "R2 R4 R6 R8 R10 R12 U1 U2 U3 U4 U5 U6"),
     ],
     "lesson-3-3-am-is-and-are": [
-        ("audio_speaker", "ana", "R3 R4 A3 S4 U2"),
-        ("audio_speaker", "co-teacher", "R5 R7 R9 R11 A5 A7 A9 S6 S8 U4 U6 U8"),
-        ("audio_speaker", "luis", "L1 A4 S1 S5 U1 U3"),
-        ("answer_audio_speaker", "ana", "U2"),
-        ("answer_audio_speaker", "co-teacher", "U4 U6 U8"),
-        ("answer_audio_speaker", "luis", "R4 U1 U3"),
+        ("audio_speaker", "ana", "L1 A1 S1 U1"),
+        ("audio_speaker", "co-teacher", "L4 L6 L8 R4 R6 R8 A4 A6 A8 S4 S6 S8 U4 U6 U8"),
+        ("audio_speaker", "luis", "L2 R1 R2 A2 S2 U2"),
+        ("answer_audio_speaker", "ana", "R2 U1"),
+        ("answer_audio_speaker", "co-teacher", "R4 R6 R8 U4 U6 U8"),
+        ("answer_audio_speaker", "luis", "U2"),
     ],
     "lesson-3-yes-no-questions": [
         ("audio_speaker", "ana", "L1 R1 A1 U8"),

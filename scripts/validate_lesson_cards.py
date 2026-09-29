@@ -2284,6 +2284,9 @@ USE_NUMBER_WORDS = {
 }
 # Plain words a still can show through a more specific depiction.
 USE_IMAGE_WORD_SUPPORT = {
+    # "What ... doing?" asks about a visible current action; the generic verb
+    # is grounded by the pictured specific action, not a standalone Doing label.
+    "doing": {"read", "write", "eat", "drink", "run", "swim", "sit", "sleep", "play", "study", "work", "cook", "talk"},
     "dollar": {"cost", "money", "price"},
     "drink": {"coffee", "juice", "milk", "tea", "water"},
     "food": {"bread", "chicken", "egg", "fish", "rice"},

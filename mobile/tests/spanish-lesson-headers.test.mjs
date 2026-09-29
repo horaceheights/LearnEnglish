@@ -38,3 +38,12 @@ test('an empty Recognize prompt asks for the word or the phrase in Spanish', () 
   assert.equal(instructions.lessonHeaderPromptText('lesson-2-1-places-around-me', 'Recognize', 'A boy', park.options),
     'A boy', 'authored English content stays as the lesson wrote it');
 });
+
+test('audio choices in Recognize use the compact Spanish listening instruction', () => {
+  const lesson = course.find(item => item.id === 'lesson-3-3-am-is-and-are');
+  for (const card of lesson.cards.filter(item => item.stage === 'Recognize' && item.interaction_type.startsWith('a2t'))) {
+    assert.equal(instructions.usesCompactListenInstruction(card.stage, card.prompt), true);
+    assert.equal(instructions.listeningChoiceInstruction(card.options), '¡Escucha y elige la frase!');
+    assert.match(card.audio_text, /^What (are|is) .+ doing\?$/);
+  }
+});

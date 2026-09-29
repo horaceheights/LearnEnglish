@@ -87,6 +87,41 @@ def is_known(word: str, known: set[str]) -> bool:
     return word.endswith("s") and word[:-1] in known
 
 
+def learn_context(cards: list[dict], pairs: list[dict], vocabulary: list[str], known: set[str]) -> tuple[set[str], list[str]]:
+    """Allow known language only in exact, adjacent introductions of a new question.
+
+    Authoring metadata binds both lines and their order. The response may use
+    only earlier language; an unreviewed edit cannot inherit the allowance.
+    This metadata does not change client playback or add a lesson-specific rule.
+    """
+    allowed, errors = set(), []
+    positions = {card.get("slide_id"): index for index, card in enumerate(cards)}
+    for pair in pairs:
+        question_id, answer_id = pair.get("question_slide_id"), pair.get("answer_slide_id")
+        target = pair.get("target")
+        qi, ai = positions.get(question_id), positions.get(answer_id)
+        if qi is None or ai != qi + 1 or target not in vocabulary:
+            errors.append(f"{question_id}/{answer_id}: needs adjacent cards and a declared new target")
+            continue
+        question, answer = cards[qi], cards[ai]
+        pattern = term_pattern(target)
+        if (question.get("stage") != "Learn" or answer.get("stage") != "Learn"
+                or question.get("prompt") != pair.get("question")
+                or answer.get("prompt") != pair.get("answer")
+                or not str(pair.get("question", "")).endswith("?")
+                or not pattern or not pattern.search(card_evidence(question))
+                or {question_id, answer_id} & allowed):
+            errors.append(f"{question_id}/{answer_id}: stale or overlapping question/answer context")
+            continue
+        question_known = known | term_words(target)
+        if (any(not is_known(word, question_known) for word in WORD.findall(card_language(question)))
+                or any(not is_known(word, known) for word in WORD.findall(card_language(answer)))):
+            errors.append(f"{question_id}/{answer_id}: context uses language not taught earlier")
+            continue
+        allowed.update((question_id, answer_id))
+    return allowed, errors
+
+
 def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
     findings: list[Finding] = []
     final_units = sorted({lesson.unit for lesson in catalog})[-standards["later_reuse_exempt_final_units"]:]
@@ -132,11 +167,16 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
         # Learn holds only this lesson's new vocabulary (approved 2026-09-24): a
         # standard lesson's Learn card never re-teaches a known frame such as "It is".
         if lesson.role == "standard":
+            contextual, context_errors = learn_context(cards, lesson.data.get("learn_context_pairs", []), vocabulary, known)
+            findings.extend(Finding("learn-context", lesson.number, str(index), error)
+                            for index, error in enumerate(context_errors))
             allowed = {word for item in vocabulary for word in term_words(item)}
             # A person's name is not language being taught: "My name is Ana." re-teaches nothing.
             allowed |= set(standards.get("learn_frame_words", ())) | set(standards["proper_names"])
             for card in cards:
                 if card.get("stage") != "Learn":
+                    continue
+                if card.get("slide_id") in contextual:
                     continue
                 language = card_language(card, phrases)
                 card_allowed = set(allowed)

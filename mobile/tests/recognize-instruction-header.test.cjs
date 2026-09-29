@@ -37,14 +37,16 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  392, // 2026-09-25: the engine-built Unit 3 gives its 12 teaching lessons sentence-choice cards;
+  387, // 2026-09-29: 3.3 replaces five empty prompts with questions and audio-choice instructions.
+  // 2026-09-25: the engine-built Unit 3 gives its 12 teaching lessons sentence-choice cards;
   // 2026-09-26: the engine-built Unit 4 does the same for its ten (+30), and Unit 5 for its ten;
   // 2026-09-27: the engine-built Units 6 and 7 for their eight each
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
   affectedLessons.size,
-  73, // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;
+  72, // 3.3 now uses explicit questions and audio-choice instructions instead of an empty prompt.
+  // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;
   // the Unit 3 rebuild adds its four new lessons and 3.2; the Unit 4 rebuild adds the new 4.8 and 4.10;
   // the Unit 5 rebuild adds the new 5.3 and 5.10
   'The shared rule must cover every standard lesson that contains this interaction.',

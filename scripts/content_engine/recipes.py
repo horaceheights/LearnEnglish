@@ -32,13 +32,14 @@ def choice(spec: dict) -> dict:
     """Recognize and Listen choices between two to four options."""
     correct = _correct(spec)
     images = _image_options(spec)
-    listening = spec["stage"] == "Listen"
+    listening = spec["stage"] == "Listen" or spec.get("input_modality") == "audio"
     kind = ("a2i" if images else "a2t") if listening else ("t2i" if images else "i2t")
     label = correct.get("label")
     derived = {"interaction_type": f"{kind}{len(spec['options'])}", "correct_option_id": correct["id"],
-               "prompt_image_url": ""}
+               "prompt_image_url": spec.get("prompt_image_url", "")}
     if listening:
-        derived.update(prompt=LISTEN_PROMPT, answer_audio_text=None)
+        derived.update(prompt="¡Escucha y elige!" if spec["stage"] == "Recognize" else LISTEN_PROMPT,
+                       answer_audio_text=None)
         # Caption-free pictures carry no label, so the spoken cue is authored.
         if label is not None:
             derived["audio_text"] = label

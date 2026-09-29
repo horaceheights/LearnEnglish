@@ -113,7 +113,8 @@ export function lessonPromptText(lessonId: string, prompt: string) {
 }
 
 export function usesCompactListenInstruction(stage: string, prompt: string) {
-  return stage === 'Listen' && prompt.trim() === LISTEN_AND_CHOOSE_PROMPT;
+  return (stage === 'Listen' && prompt.trim() === LISTEN_AND_CHOOSE_PROMPT)
+    || (stage === 'Recognize' && prompt.trim() === '¡Escucha y elige!');
 }
 
 export function listeningChoiceInstruction(options: readonly { image_url?: string | null }[]) {

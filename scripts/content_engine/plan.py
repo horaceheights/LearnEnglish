@@ -13,7 +13,7 @@ from scripts.content_engine.recipes import RECIPES, recipe_for
 
 PLAN_VERSION = 1
 ABSENT = {"$absent": True}
-PLAN_KEYS = ("recipe", "exceptions", "answer", "mirror_translation", "field_order", "cue_speakers", "formatted")
+PLAN_KEYS = ("recipe", "exceptions", "answer", "mirror_translation", "field_order", "cue_speakers", "formatted", "input_modality")
 # The standard field order for a card. A live card written in another order
 # keeps that order in its plan so reinstalling it changes no bytes.
 FIELD_ORDER = (
