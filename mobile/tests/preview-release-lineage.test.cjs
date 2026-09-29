@@ -114,7 +114,7 @@ test('the versioned manifest locks the complete recovery baseline and release id
   // 2026-09-26: 81 lessons; the engine-built Unit 5 adds 5.3 Drinks and 5.10 Can I Have...? (12 lessons).
   // 2026-09-28: Lesson 7.1 body-photo replacement preserves all 81 lessons and their language.
   // 2026-09-29: explicit objects and corrected In/On takes in Lesson 4.3; all 81 lessons remain.
-  // Eight question/answer pairs per stage in Lesson 3.3 preserve the current location fix.
+  // Eight alternating question/answer slides per stage in 3.3 preserve the location fix.
   assert.equal(integrityManifest.catalog.expectedGitBlob, '75d69586410c0e6ccd219e499bdb826aac7b99e4');
   assert.equal(integrityManifest.catalog.lessonCount, 81);
   assert.equal(integrityManifest.catalog.unitCount, 7);
@@ -139,6 +139,19 @@ test('the real repository preserves the pinned course and reviewed release ident
 
 test('a complete 70-lesson, seven-unit fixture passes integrity verification', (t) => {
   const fixture = createFixture(t);
+  assert.doesNotThrow(() => verifyFixture(fixture.repositoryRoot));
+});
+
+test('approved catalog growth has no fixed lesson or unit cap', (t) => {
+  const fixture = createFixture(t);
+  const lessons = Array.from({ length: 9 }, (_, unit) => Array.from({ length: 13 }, (_, lesson) => ({
+    id: `${unit + 1}.${lesson + 1}`, unit_id: `unit-${unit + 1}`,
+  }))).flat();
+  const content = `${JSON.stringify(lessons, null, 2)}\n`;
+  Object.assign(fixture.manifest.catalog, { expectedGitBlob: gitBlobId(content), lessonCount: 117, unitCount: 9,
+    lessonsByUnit: Object.fromEntries(Array.from({ length: 9 }, (_, unit) => [`unit-${unit + 1}`, 13])) });
+  writeFile(fixture.repositoryRoot, fixture.manifest.catalog.path, content);
+  writeManifest(fixture.repositoryRoot, fixture.manifest);
   assert.doesNotThrow(() => verifyFixture(fixture.repositoryRoot));
 });
 
