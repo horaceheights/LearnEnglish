@@ -80,7 +80,7 @@ assert.match(
 );
 assert.match(
   instructionSource,
-  /export function usesCompactListenInstruction\(stage: string, prompt: string\)\s*\{\s*return stage === 'Listen' && prompt\.trim\(\) === LISTEN_AND_CHOOSE_PROMPT;/,
+  /export function usesCompactListenInstruction\(stage: string, prompt: string\)\s*\{\s*return \(stage === 'Listen' && prompt\.trim\(\) === LISTEN_AND_CHOOSE_PROMPT\)\s*\|\| \(stage === 'Recognize' && prompt\.trim\(\) === '¡Escucha y elige!'\);/,
   'Compact styling must be selected by stage and authored prompt rather than lesson or card identity.',
 );
 assert.match(

@@ -43,7 +43,7 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             if card['stage'] not in ('Recognize', 'Listen') or int(re.sub(r'\D', '', card['slide_id'])) % 2 == 0:
                 continue
             self.assertTrue(card['interaction_type'].startswith('a2t'))
-            self.assertEqual(card['prompt'], 'Listen and choose.')
+            self.assertEqual(card['prompt'], '¡Escucha y elige!' if card['stage'] == 'Recognize' else 'Listen and choose.')
             self.assertIsNone(card['answer_audio_text'])
             self.assertTrue(all(not option['image_url'] for option in card['options']))
 
