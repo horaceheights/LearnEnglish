@@ -5,7 +5,15 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "2026-09-25 Unit 3 rebuild: Learn holds only What are you doing?. Practice asks it on the four speaker stills and contrasts is and are on Unit 1 photos with one variable per choice: the same action with one child or two (He is eating. / They are eating.) and The baby is / The babies are.",
+  "note": "Approved 2026-09-29: eight Learn slides, question then answer for you/she/he/they. Every following section alternates the same four question forms with their responses and varies familiar actions. Explicit stage sequences preserve this conversational order; known answers contextualize the new question rather than introducing standalone Doing.",
+  "sources": [
+    "docs/product/course-design-a1.md#unit-3-me-and-other-people",
+    "docs/product/project-guardrails.md#learn"
+  ],
+  "asset_tools": {
+    "new_images": "ChatGPT built-in image generation",
+    "new_audio": "Existing pinned ElevenLabs voices"
+  },
   "target": "backend/lessons/unit_3/lesson-3-3-am-is-and-are.yaml",
   "lesson": {
     "id": "lesson-3-3-am-is-and-are",
@@ -18,7 +26,7 @@
     "lesson_title": "Unit 3: Me and Other People",
     "sub_lesson_id": "3.3",
     "sub_lesson_title": "Am, Is, and Are",
-    "goal": "Choose am, is or are for I, he, she and they with known actions, then ask and answer What are you doing? with a known action.",
+    "goal": "Ask what you, she, he and they are doing, and follow each question with an answer using a familiar action.",
     "vocabulary": [
       "doing",
       "What are you doing?"
@@ -33,237 +41,631 @@
       "am",
       "is",
       "are",
+      "what",
       "reading",
       "writing",
       "eating",
+      "drinking",
+      "running",
+      "swimming",
       "sitting",
-      "baby",
-      "babies",
-      "the"
+      "sleeping",
+      "playing",
+      "studying",
+      "working",
+      "cooking",
+      "talking"
     ],
-    "grammar_function": "I am; he/she is; they are, affirmative. What are you doing? / I am + a known -ing action, kept distinct from the occupation question What is your job?; do/does is not generalized.",
+    "grammar_function": "What are you doing? / I am ...; What is she doing? / She is ...; What is he doing? / He is ...; What are they doing? / They are ... . Complete present-progressive exchanges using familiar Unit 1 actions; do/does is not generalized.",
     "prerequisite": "3.2 I/you/we frames plus Unit 1 he/she/they, is/are, actions, baby and babies.",
-    "speaking_outcome": "Say is and are sentences about known people and complete the What are you doing? exchange.",
-    "content_revision": 2
+    "speaking_outcome": "Say all four current-action questions and their matching answers in separate consecutive turns.",
+    "content_revision": 3,
+    "learn_context_pairs": [
+      {
+        "question_slide_id": "L1",
+        "answer_slide_id": "L2",
+        "target": "doing",
+        "question": "What are you doing?",
+        "answer": "I am writing."
+      },
+      {
+        "question_slide_id": "L3",
+        "answer_slide_id": "L4",
+        "target": "doing",
+        "question": "What is she doing?",
+        "answer": "She is reading."
+      },
+      {
+        "question_slide_id": "L5",
+        "answer_slide_id": "L6",
+        "target": "doing",
+        "question": "What is he doing?",
+        "answer": "He is eating."
+      },
+      {
+        "question_slide_id": "L7",
+        "answer_slide_id": "L8",
+        "target": "doing",
+        "question": "What are they doing?",
+        "answer": "They are playing."
+      }
+    ]
   },
   "layout": {
-    "Recognize": 12,
-    "Listen": 10,
-    "Speak": 9,
-    "Use": 9
+    "Recognize": 8,
+    "Listen": 8,
+    "Speak": 8,
+    "Use": 8
   },
   "items": [
     {
+      "id": "learn-you-q",
       "text": "What are you doing?",
       "es": "¿Qué estás haciendo?",
-      "image": "a1_u3_l33_v1_reading_question.webp",
-      "kind": "doing-question",
-      "speaker": "luis",
-      "choices": false
-    },
-    {
-      "text": "Doing",
-      "es": "Haciendo",
-      "image": "a1_u3_l33_v1_writing_answer.webp",
-      "kind": "doing-word",
-      "choices": false
-    },
-    {
-      "text": "What are you doing? I am reading.",
-      "es": "¿Qué estás haciendo? Estoy leyendo.",
-      "image": "a1_u3_l33_v1_reading_question.webp",
-      "kind": "doing-exchange",
-      "learn": false,
-      "accepts": {
-        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
-      },
-      "turns": [
-        {
-          "text": "What are you doing?",
-          "speaker": "luis",
-          "image": "a1_u3_l33_v1_reading_question.webp"
-        },
-        {
-          "text": "I am reading.",
-          "speaker": "ana",
-          "image": "a1_u3_l33_v1_reading_answer.webp"
-        }
-      ]
-    },
-    {
-      "text": "What are you doing? I am writing.",
-      "es": "¿Qué estás haciendo? Estoy escribiendo.",
       "image": "a1_u3_l33_v1_writing_question.webp",
-      "kind": "doing-exchange",
+      "kind": "current-action-question",
       "learn": false,
-      "accepts": {
-        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
-      },
-      "turns": [
-        {
-          "text": "What are you doing?",
-          "speaker": "ana",
-          "image": "a1_u3_l33_v1_writing_question.webp"
-        },
-        {
-          "text": "I am writing.",
-          "speaker": "luis",
-          "image": "a1_u3_l33_v1_writing_answer.webp"
-        }
-      ]
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false,
+      "speaker": "ana"
     },
     {
-      "text": "I am reading.",
-      "es": "Estoy leyendo.",
-      "image": "a1_u3_l33_v1_reading_answer.webp",
-      "kind": "doing-reply",
-      "speaker": "ana",
-      "learn": false,
-      "accepts": {
-        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
-      },
-      "question": "What are you doing?",
-      "question_es": "¿Qué estás haciendo?",
-      "question_speaker": "luis"
-    },
-    {
+      "id": "learn-you-a",
       "text": "I am writing.",
       "es": "Estoy escribiendo.",
       "image": "a1_u3_l33_v1_writing_answer.webp",
-      "kind": "doing-reply",
-      "speaker": "luis",
+      "kind": "current-action-answer-you",
       "learn": false,
+      "four_card": false,
       "accepts": {
-        "subject-variety": "The learner answers What are you doing? as the speaker, so every option starts with I am and only the action changes."
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
       },
+      "speaker": "luis",
       "question": "What are you doing?",
       "question_es": "¿Qué estás haciendo?",
       "question_speaker": "ana"
     },
     {
-      "text": "He is eating.",
-      "es": "Él está comiendo.",
-      "image": "/lesson-assets/boy_is_eating.webp",
-      "kind": "is-are",
+      "id": "learn-she-q",
+      "text": "What is she doing?",
+      "es": "¿Qué está haciendo ella?",
+      "image": "girl_is_reading.webp",
+      "kind": "current-action-question",
       "learn": false,
-      "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
-      },
-      "prefer": [
-        "They are eating."
-      ]
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
     },
     {
-      "text": "They are eating.",
-      "es": "Ellos están comiendo.",
-      "image": "/lesson-assets/they_boy_girl_are_eating.webp",
-      "kind": "is-are",
-      "learn": false,
-      "four_card": false,
-      "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
-        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
-      },
-      "prefer": [
-        "They are reading.",
-        "They are writing."
-      ],
-      "avoid": [
-        "He is eating."
-      ]
-    },
-    {
+      "id": "learn-she-a",
       "text": "She is reading.",
       "es": "Ella está leyendo.",
-      "image": "/lesson-assets/girl_is_reading.webp",
-      "kind": "is-are",
-      "learn": false,
-      "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
-      },
-      "prefer": [
-        "They are reading."
-      ]
-    },
-    {
-      "text": "They are reading.",
-      "es": "Ellos están leyendo.",
-      "image": "/lesson-assets/they_boy_girl_are_reading.webp",
-      "kind": "is-are",
+      "image": "girl_is_reading.webp",
+      "kind": "current-action-answer-she",
       "learn": false,
       "four_card": false,
       "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
-        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
       },
-      "prefer": [
-        "They are writing.",
-        "They are eating."
-      ],
-      "avoid": [
-        "She is reading.",
-        "He is eating."
-      ]
+      "question": "What is she doing?",
+      "question_es": "¿Qué está haciendo ella?"
     },
     {
-      "text": "She is writing.",
-      "es": "Ella está escribiendo.",
-      "image": "/lesson-assets/girl_is_writing.webp",
-      "kind": "is-are",
+      "id": "learn-he-q",
+      "text": "What is he doing?",
+      "es": "¿Qué está haciendo él?",
+      "image": "boy_is_eating.webp",
+      "kind": "current-action-question",
       "learn": false,
-      "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
-      },
-      "prefer": [
-        "They are writing."
-      ]
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
     },
     {
-      "text": "They are writing.",
-      "es": "Ellos están escribiendo.",
-      "image": "/lesson-assets/they_boy_girl_are_writing.webp",
-      "kind": "is-are",
+      "id": "learn-he-a",
+      "text": "He is eating.",
+      "es": "Él está comiendo.",
+      "image": "boy_is_eating.webp",
+      "kind": "current-action-answer-he",
       "learn": false,
       "four_card": false,
       "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes.",
-        "subject-variety": "Both pictures show the same two children, so the subject stays They and only the action changes; a single child's sentence would also be true of them."
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
       },
-      "prefer": [
-        "They are reading.",
-        "They are eating."
-      ],
-      "avoid": [
-        "She is writing.",
-        "He is eating."
-      ]
+      "question": "What is he doing?",
+      "question_es": "¿Qué está haciendo él?"
     },
     {
-      "text": "The baby is sitting.",
-      "es": "El bebé está sentado.",
-      "image": "/lesson-assets/family_baby.webp",
-      "kind": "baby-sitting",
+      "id": "learn-they-q",
+      "text": "What are they doing?",
+      "es": "¿Qué están haciendo ellos?",
+      "image": "family_children_playing.webp",
+      "kind": "current-action-question",
       "learn": false,
-      "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
-      },
-      "prefer": [
-        "The babies are sitting."
-      ]
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
     },
     {
-      "text": "The babies are sitting.",
-      "es": "Los bebés están sentados.",
-      "image": "/lesson-assets/family_babies.webp",
-      "kind": "baby-sitting",
+      "id": "learn-they-a",
+      "text": "They are playing.",
+      "es": "Ellos están jugando.",
+      "image": "family_children_playing.webp",
+      "kind": "current-action-answer-they",
       "learn": false,
+      "four_card": false,
       "accepts": {
-        "action-variety": "The bank tests is against are for one person or several, so the action stays the same and only the subject changes."
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
       },
-      "prefer": [
-        "The baby is sitting."
-      ]
+      "question": "What are they doing?",
+      "question_es": "¿Qué están haciendo ellos?"
+    },
+    {
+      "id": "recognize-you-q",
+      "text": "What are you doing?",
+      "es": "¿Qué estás haciendo?",
+      "image": "a1_u3_l33_v1_reading_question.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "recognize-you-a",
+      "text": "I am reading.",
+      "es": "Estoy leyendo.",
+      "image": "a1_u3_l33_v1_reading_answer.webp",
+      "kind": "current-action-answer-you",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "speaker": "ana",
+      "question": "What are you doing?",
+      "question_es": "¿Qué estás haciendo?",
+      "question_speaker": "luis"
+    },
+    {
+      "id": "recognize-she-q",
+      "text": "What is she doing?",
+      "es": "¿Qué está haciendo ella?",
+      "image": "family_mother_cooking.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "recognize-she-a",
+      "text": "She is cooking.",
+      "es": "Ella está cocinando.",
+      "image": "family_mother_cooking.webp",
+      "kind": "current-action-answer-she",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is she doing?",
+      "question_es": "¿Qué está haciendo ella?"
+    },
+    {
+      "id": "recognize-he-q",
+      "text": "What is he doing?",
+      "es": "¿Qué está haciendo él?",
+      "image": "boy_is_sleeping.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "recognize-he-a",
+      "text": "He is sleeping.",
+      "es": "Él está durmiendo.",
+      "image": "boy_is_sleeping.webp",
+      "kind": "current-action-answer-he",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is he doing?",
+      "question_es": "¿Qué está haciendo él?"
+    },
+    {
+      "id": "recognize-they-q",
+      "text": "What are they doing?",
+      "es": "¿Qué están haciendo ellos?",
+      "image": "they_boy_girl_are_running.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "recognize-they-a",
+      "text": "They are running.",
+      "es": "Ellos están corriendo.",
+      "image": "they_boy_girl_are_running.webp",
+      "kind": "current-action-answer-they",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What are they doing?",
+      "question_es": "¿Qué están haciendo ellos?"
+    },
+    {
+      "id": "listen-you-q",
+      "text": "What are you doing?",
+      "es": "¿Qué estás haciendo?",
+      "image": "a1_u3_l33_cooking_question_v1.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "listen-you-a",
+      "text": "I am cooking.",
+      "es": "Estoy cocinando.",
+      "image": "a1_u3_l33_cooking_answer_v1.webp",
+      "kind": "current-action-answer-you",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "speaker": "luis",
+      "question": "What are you doing?",
+      "question_es": "¿Qué estás haciendo?",
+      "question_speaker": "ana"
+    },
+    {
+      "id": "listen-she-q",
+      "text": "What is she doing?",
+      "es": "¿Qué está haciendo ella?",
+      "image": "girl_is_drinking.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "listen-she-a",
+      "text": "She is drinking.",
+      "es": "Ella está bebiendo.",
+      "image": "girl_is_drinking.webp",
+      "kind": "current-action-answer-she",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is she doing?",
+      "question_es": "¿Qué está haciendo ella?"
+    },
+    {
+      "id": "listen-he-q",
+      "text": "What is he doing?",
+      "es": "¿Qué está haciendo él?",
+      "image": "family_father_working.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "listen-he-a",
+      "text": "He is working.",
+      "es": "Él está trabajando.",
+      "image": "family_father_working.webp",
+      "kind": "current-action-answer-he",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is he doing?",
+      "question_es": "¿Qué está haciendo él?"
+    },
+    {
+      "id": "listen-they-q",
+      "text": "What are they doing?",
+      "es": "¿Qué están haciendo ellos?",
+      "image": "family_grandparents_talking.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "listen-they-a",
+      "text": "They are talking.",
+      "es": "Ellos están hablando.",
+      "image": "family_grandparents_talking.webp",
+      "kind": "current-action-answer-they",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What are they doing?",
+      "question_es": "¿Qué están haciendo ellos?"
+    },
+    {
+      "id": "speak-you-q",
+      "text": "What are you doing?",
+      "es": "¿Qué estás haciendo?",
+      "image": "a1_u3_l33_cooking_question_v1.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "speak-you-a",
+      "text": "I am cooking.",
+      "es": "Estoy cocinando.",
+      "image": "a1_u3_l33_cooking_answer_v1.webp",
+      "kind": "current-action-answer-you",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "speaker": "luis",
+      "question": "What are you doing?",
+      "question_es": "¿Qué estás haciendo?",
+      "question_speaker": "ana"
+    },
+    {
+      "id": "speak-she-q",
+      "text": "What is she doing?",
+      "es": "¿Qué está haciendo ella?",
+      "image": "girl_is_sleeping.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "speak-she-a",
+      "text": "She is sleeping.",
+      "es": "Ella está durmiendo.",
+      "image": "girl_is_sleeping.webp",
+      "kind": "current-action-answer-she",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is she doing?",
+      "question_es": "¿Qué está haciendo ella?"
+    },
+    {
+      "id": "speak-he-q",
+      "text": "What is he doing?",
+      "es": "¿Qué está haciendo él?",
+      "image": "boy_is_swimming.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "speak-he-a",
+      "text": "He is swimming.",
+      "es": "Él está nadando.",
+      "image": "boy_is_swimming.webp",
+      "kind": "current-action-answer-he",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is he doing?",
+      "question_es": "¿Qué está haciendo él?"
+    },
+    {
+      "id": "speak-they-q",
+      "text": "What are they doing?",
+      "es": "¿Qué están haciendo ellos?",
+      "image": "family_children_studying.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "speak-they-a",
+      "text": "They are studying.",
+      "es": "Ellos están estudiando.",
+      "image": "family_children_studying.webp",
+      "kind": "current-action-answer-they",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What are they doing?",
+      "question_es": "¿Qué están haciendo ellos?"
+    },
+    {
+      "id": "use-you-q",
+      "text": "What are you doing?",
+      "es": "¿Qué estás haciendo?",
+      "image": "a1_u3_l33_cooking_question_v1.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "use-you-a",
+      "text": "I am cooking.",
+      "es": "Estoy cocinando.",
+      "image": "a1_u3_l33_cooking_answer_v1.webp",
+      "kind": "current-action-answer-you",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "speaker": "luis",
+      "question": "What are you doing?",
+      "question_es": "¿Qué estás haciendo?",
+      "question_speaker": "ana"
+    },
+    {
+      "id": "use-she-q",
+      "text": "What is she doing?",
+      "es": "¿Qué está haciendo ella?",
+      "image": "girl_is_running.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "use-she-a",
+      "text": "She is running.",
+      "es": "Ella está corriendo.",
+      "image": "girl_is_running.webp",
+      "kind": "current-action-answer-she",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is she doing?",
+      "question_es": "¿Qué está haciendo ella?"
+    },
+    {
+      "id": "use-he-q",
+      "text": "What is he doing?",
+      "es": "¿Qué está haciendo él?",
+      "image": "boy_is_drinking.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "use-he-a",
+      "text": "He is drinking.",
+      "es": "Él está bebiendo.",
+      "image": "boy_is_drinking.webp",
+      "kind": "current-action-answer-he",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What is he doing?",
+      "question_es": "¿Qué está haciendo él?"
+    },
+    {
+      "id": "use-they-q",
+      "text": "What are they doing?",
+      "es": "¿Qué están haciendo ellos?",
+      "image": "family_grandparents_sitting.webp",
+      "kind": "current-action-question",
+      "learn": false,
+      "image_choices": false,
+      "choice_input": "audio",
+      "four_card": false
+    },
+    {
+      "id": "use-they-a",
+      "text": "They are sitting.",
+      "es": "Ellos están sentados.",
+      "image": "family_grandparents_sitting.webp",
+      "kind": "current-action-answer-they",
+      "learn": false,
+      "four_card": false,
+      "accepts": {
+        "subject-variety": "The question establishes the person or group. The response alternatives preserve that subject and assess only the visible or heard action."
+      },
+      "question": "What are they doing?",
+      "question_es": "¿Qué están haciendo ellos?"
     }
   ],
-  "pool": []
+  "pool": [],
+  "stage_sequences": {
+    "Learn": [
+      "learn-you-q",
+      "learn-you-a",
+      "learn-she-q",
+      "learn-she-a",
+      "learn-he-q",
+      "learn-he-a",
+      "learn-they-q",
+      "learn-they-a"
+    ],
+    "Recognize": [
+      "recognize-you-q",
+      "recognize-you-a",
+      "recognize-she-q",
+      "recognize-she-a",
+      "recognize-he-q",
+      "recognize-he-a",
+      "recognize-they-q",
+      "recognize-they-a"
+    ],
+    "Listen": [
+      "listen-you-q",
+      "listen-you-a",
+      "listen-she-q",
+      "listen-she-a",
+      "listen-he-q",
+      "listen-he-a",
+      "listen-they-q",
+      "listen-they-a"
+    ],
+    "Speak": [
+      "speak-you-q",
+      "speak-you-a",
+      "speak-she-q",
+      "speak-she-a",
+      "speak-he-q",
+      "speak-he-a",
+      "speak-they-q",
+      "speak-they-a"
+    ],
+    "Use": [
+      "use-you-q",
+      "use-you-a",
+      "use-she-q",
+      "use-she-a",
+      "use-he-q",
+      "use-he-a",
+      "use-they-q",
+      "use-they-a"
+    ]
+  },
+  "replaces_sha256": "97b3432456d54bb89b461faa2e723a2c06378caa2afef09dc7cce7594be54e5d"
 }

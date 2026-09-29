@@ -11,6 +11,8 @@
 
 # Content creation
 
+- Do not impose fixed limits on the number of units or lessons. Let curriculum coverage determine those counts, while keeping standard lessons at a similar length (currently 40–42 cards; reviews and missions follow their own approved contracts). Release manifests record the complete approved catalog for integrity, not a maximum course size.
+
 - For new or substantially revised lessons and units, follow `docs/product/new-content-engine.md`.
 - Derive the content brief from the applicable course-design documents and approved guardrails; for current A1 work, use `docs/product/course-design-a1.md` and its relevant unit/lesson requirements. Use the requested unit/lesson; for next-content requests, follow the documented course sequence and prerequisites within the authorized scope. Keep `docs/planning/roadmap.md` for product priorities and the content-scaling gate. Do not ask the user to provide a separate content brief.
 - Ask only which tools to use for audio and image generation when those choices have not already been supplied for the task. Reuse existing choices without reconfirmation; derive the remaining authoring inputs from the project documents.
@@ -33,7 +35,7 @@
 - Never publish Expo Preview or Production directly from a task branch, local checkout, temporary worktree, or stale branch. In particular, never invoke `eas update`, `npx eas-cli update`, `mobile/scripts/publish-preview.ps1`, or `mobile/scripts/promote-preview.ps1` as a local fallback.
 - `origin/main` is the sole mobile release authority. The shared Preview and Production channels may be changed only by their protected GitHub Actions workflows from the exact remote head of protected `main`; no release branch is created or retained.
 - Treat a successful CI Preview publication as the default final step. If the protected workflow, environment, or CI credential is unavailable, stop after pushing the verified task branch and report the blocked release; do not bypass the release authority.
-- Release checks must fail closed unless the exact `main` candidate preserves the versioned course fingerprint, the exact lesson and per-unit counts pinned by `mobile/release-integrity.json` (currently 81 lessons in seven units; confirmed 2026-09-28), and the release-commit label. The published EAS update commit must be verified against the GitHub commit after publication.
+- Release checks must fail closed unless the exact `main` candidate matches the versioned course fingerprint, the complete approved catalog recorded by `mobile/release-integrity.json`, and the release-commit label. Unit and lesson counts have no fixed cap; update the manifest deliberately when approved curriculum changes those counts. Preserve all existing lessons during a scoped correction. The published EAS update commit must be verified against the GitHub commit after publication.
 - Never publish or promote to Production without explicit user approval after testing the exact same commit in Preview. Production republishes that immutable tested Preview group rather than building different local content.
 - Preserve unrelated working-tree changes. If they prevent the clean-tree release guard from passing, publish from a clean temporary worktree at the pushed commit.
 - Native dependency, Expo configuration, permission, native-module, or app-version changes require a new Preview build instead of an OTA update.

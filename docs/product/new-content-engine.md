@@ -74,6 +74,8 @@ For current A1, preserve the standard `Learn → Recognize → Listen → Speak 
 
 ### B. Compose through supported activities
 
+When exact conversational order matters, a brief may name unique item `id`s and provide `stage_sequences`, mapping each stage to its ordered item IDs. The engine retains that sequence instead of selecting or sorting by exposure counts. A question item may use `choice_input: "audio"` to recognize its heard form without displaying the correct text or pretending that a general question has one unique action picture. `learn_context_pairs` in lesson authoring metadata bind adjacent question/answer Learn slides to a declared new target and exact lines; the shared practice audit checks that the surrounding language, including the answer, was taught earlier. This supports new question patterns without weakening ordinary vocabulary introductions.
+
 Use existing schemas and shared authoring patterns. Author unambiguous answers, coherent distractors, contextual help, and feedback that explains the actual mistake. Avoid answer leakage before assessment. Treat images, audio, and all answer options as teaching content subject to the same language boundary.
 
 Declare mission behavior through supported metadata, never a lesson-ID condition. If an activity or teaching explanation lacks shared support, identify the engine gap. Within an authorized implementation task, solve it once in the shared layer; otherwise return the blocked portion and continue independent work. Do not hide the gap inside another unit-specific builder.

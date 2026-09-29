@@ -217,12 +217,19 @@ class ContentEngineAuthorTests(unittest.TestCase):
 
     def test_named_speakers_and_exchanges_voice_every_card_that_plays_them(self):
         brief = json.loads((ROOT / "docs/product/content-briefs/unit-3/3.3-am-is-and-are.json").read_text(encoding="utf-8"))
+        first = brief["items"][0]
+        first["turns"] = [{"text": first["text"], "speaker": first["speaker"], "image": first["image"]}]
         items = {item["text"]: item for item in brief["items"]}
+        by_id = {item["id"]: item for item in brief["items"]}
+        offsets = {}
         lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
-        self.assertEqual(lesson["cards"][0]["audio_speaker"], "luis")
+        self.assertEqual(lesson["cards"][0]["audio_turns"][0]["speaker_role"], first["speaker"])
         for card in lesson["cards"]:
             answer = card.get("answer_audio_text") or card.get("audio_text")
-            item = items.get(answer)
+            stage = card["stage"]
+            offset = offsets.get(stage, 0)
+            offsets[stage] = offset + 1
+            item = by_id[brief["stage_sequences"][stage][offset]]
             if item is None:
                 continue
             with self.subTest(slide=card["slide_id"]):
@@ -232,7 +239,7 @@ class ContentEngineAuthorTests(unittest.TestCase):
                     self.assertEqual([turn["speaker_role"] for turn in turns],
                                      [turn["speaker"] for turn in item["turns"]])
                     self.assertEqual(" ".join(turn["text"] for turn in turns), item["text"])
-                elif item.get("question") and card.get("prompt") == item["question"]:
+                elif item.get("question_speaker") and card.get("prompt") == item["question"]:
                     self.assertEqual((card["audio_speaker"], card["answer_audio_speaker"]),
                                      (item["question_speaker"], item["speaker"]))
                 elif item.get("speaker"):

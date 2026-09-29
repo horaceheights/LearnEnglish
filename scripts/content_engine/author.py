@@ -173,7 +173,8 @@ def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *,
     spec = {"recipe": "choice", "slide_id": slide, "stage": stage,
             "options": [_option(each, image=image, suffix=slide.lower(), captions=captions) for each in options],
             "answer": options.index(item)}
-    if stage == "Listen":
+    if stage == "Listen" or item.get("choice_input") == "audio":
+        spec["input_modality"] = "audio"
         spec["spanish_translation"] = instructions["listen"]
         if image and not captions:
             spec["audio_text"] = item["text"]  # caption-free pictures: the spoken cue is authored
@@ -289,7 +290,20 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         if item.get("turns") and " ".join(turn["text"] for turn in item["turns"]) != item["text"]:
             raise BriefError(f"The turns of {item['text']!r} must say exactly its text.")
     layout = {**DEFAULT_LAYOUT, **brief.get("layout", {})}
+    sequences = brief.get("stage_sequences", {})
+    by_id = {item.get("id", item["text"]): item for item in items}
+    if sequences and len(by_id) != len(items):
+        raise BriefError("Explicit stage sequences need unique item IDs.")
+    for stage, identifiers in sequences.items():
+        if stage not in ("Learn", *DEFAULT_LAYOUT) or not identifiers:
+            raise BriefError(f"Invalid or empty stage sequence: {stage}.")
+        if any(identifier not in by_id for identifier in identifiers):
+            raise BriefError(f"Unknown item in the {stage} sequence.")
+        if stage != "Learn":
+            layout[stage] = len(identifiers)
     taught = [item for item in items if item.get("learn", True) is not False]
+    if "Learn" in sequences:
+        taught = [by_id[identifier] for identifier in sequences["Learn"]]
     if len(taught) < 2:
         # The app introduces contextual help on the second card when both opening cards are Learn.
         raise BriefError("A lesson needs at least two new items to introduce on Learn cards.")
@@ -348,6 +362,14 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
             ranked.append((passes[item["text"]], item["_order"], item))
         return [item for _, _, item in sorted(ranked, key=lambda entry: entry[:2])]
 
+    def section(stage: str, eligible: list[dict]) -> list[dict]:
+        if stage not in sequences:
+            return pick(eligible, layout[stage])
+        selected = [by_id[identifier] for identifier in sequences[stage]]
+        if any(item not in eligible for item in selected):
+            raise BriefError(f"The {stage} sequence contains an ineligible item.")
+        return selected
+
     cards, banks = [], []
     for index, item in enumerate(taught):
         practised(item)
@@ -364,27 +386,31 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     # A `"choices": false` item (a question such as "Which one?") has no wrong option of
     # its own; it is heard as the prompt of its reply cards and practised in Speak.
     choosable = [item for item in items if item.get("choices", True) is not False]
-    for index, item in enumerate(pick(choosable, layout["Recognize"])):
+    for index, item in enumerate(section("Recognize", choosable)):
         practised(item)
         # `"image_choices": false`: its pictures differ in more than the tested word
         # (a red bus against a blue bike), so it is only offered as text choices.
         # `"text_choices": false`: its word reads as another form in text (the noun
         # "cook" reads as the verb), so it is only offered as pictures.
         image = (index % 2 == 0 or item.get("text_choices", True) is False) and item.get("image_choices", True) is not False
+        if item.get("choice_input") == "audio":
+            image = False
         count = option_count(item, image, early=index < layout["Recognize"] // 2)
         spec, bank = _choice(f"R{index + 1}", "Recognize", item, pool, count, image=image,
                              instructions=instructions, rejected=rejected, captions=captions)
         cards.append(spec)
         banks.append(bank)
-    for index, item in enumerate(pick(choosable, layout["Listen"])):
+    for index, item in enumerate(section("Listen", choosable)):
         practised(item)
         image = (index % 3 != 2 or item.get("text_choices", True) is False) and item.get("image_choices", True) is not False
+        if item.get("image_choices") is False:
+            image = False
         count = option_count(item, image, early=index < layout["Listen"] // 2)
         spec, bank = _choice(f"A{index + 1}", "Listen", item, pool, count, image=image,
                              instructions=instructions, rejected=rejected, captions=captions)
         cards.append(spec)
         banks.append(bank)
-    for index, item in enumerate(pick(sentences, layout["Speak"])):
+    for index, item in enumerate(section("Speak", sentences)):
         practised(item)
         cards.append(_voice({"recipe": "speak", "slide_id": f"S{index + 1}", "stage": "Speak",
                              "options": [_option(item, image=True, suffix="speak")],
@@ -394,7 +420,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     # An exchange (`turns`) has no single voice to build, and `"use": false` opts an item out.
     buildable = [item for item in sentences if not item.get("turns") and item.get("use", True) is not False]
     use_pool = [item for item in buildable if len(words(item["text"])) >= 3] or buildable
-    for index, item in enumerate(pick(use_pool, layout["Use"])):
+    for index, item in enumerate(section("Use", use_pool)):
         practised(item)
         build = index >= layout["Use"] - CONSTRUCTIONS or len(words(item["text"])) < 3
         cards.append((_construction if build else _completion)(f"U{index + 1}", item))
