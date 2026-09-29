@@ -197,9 +197,6 @@ function teachClause(text: string): ClausePlan {
     'sorry no': 'Para rechazar con cortesía, primero “Sorry” (lo siento) y después “no”: “Sorry, no”.',
     'no thank you': 'Para rechazar con cortesía, primero “No” y después agradecemos con “thank you”: “No, thank you”.',
     'yes thank you': 'Para aceptar con cortesía, primero “Yes” y después agradecemos con “thank you”: “Yes, thank you”.',
-    // Lesson 3.3 teaches this current-action question as a fixed chunk; it does
-    // not introduce generative do/does.
-    'what are you doing': 'Para preguntar qué está haciendo alguien ahora decimos “What are you doing?”: primero “What”, luego “are”, después “you” y al final “doing”. Es una pregunta fija.',
     // Lesson 2.10 asks which of two things someone means before "The red one."
     'which one': 'Para preguntar cuál de varias cosas decimos “Which one?”: primero “Which” y después “one”.',
     // Unit 3 short answers: "Yes." or "No." comes first, then the subject and its be.
@@ -268,6 +265,13 @@ function teachClause(text: string): ClausePlan {
     teach(keys.length - 1, keys.length, '“Please” va al final, después de lo que pedimos, para pedirlo con cortesía.');
     const supported = nominal(3, keys.length - 1);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
+  // Current-action questions keep the same word order with the taught subjects.
+  if (/^what (?:are (?:you|they)|is (?:he|she)) doing$/.test(joined) && text.trim().endsWith('?')) {
+    teach(0, keys.length, `Para preguntar por la acción actual, primero “What”, luego ${quote(tokens[1])}, después ${quote(tokens[2])} y al final “doing”.`);
+    teach(1, 3, `En esta pregunta usamos ${quote(tokens[1])} con ${quote(tokens[2])}; el auxiliar va antes de la persona: ${quote(phrase(1, 3))}.`);
+    relations.push({ start: 2, end: 4, explanation: `${quote(tokens[2])} indica por quién preguntamos y va antes de “doing”, la acción que queremos conocer.` });
+    return { explanations, relations, supported: true };
   }
   const question = /^(who|what number|what color|what time|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {

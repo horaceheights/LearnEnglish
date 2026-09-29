@@ -33,6 +33,19 @@ function hint(target, a, b) {
 // Reviewed grammar oracle, deliberately independent of the resolver's role tables.
 const progressiveVerbs = ['eating', 'drinking', 'reading', 'writing', 'running', 'walking', 'swimming', 'sitting', 'sleeping', 'playing', 'studying', 'working', 'cooking', 'talking', 'watching', 'listening'];
 
+test('current-action questions teach the auxiliary, person and doing in every swapped position', () => {
+  for (const target of ['What are you doing?', 'What is she doing?', 'What is he doing?', 'What are they doing?']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+    for (let a = 0; a < 4; a++) for (let b = a + 1; b < 4; b++) {
+      const explanation = hint(target, a, b);
+      assert.ok(explanation && explanation.length <= 230, `${target}/${a}/${b}: ${explanation}`);
+    }
+    assert.match(hint(target, 1, 2), /auxiliar va antes/);
+    assert.match(hint(target, 2, 3), /va antes de “doing”/);
+  }
+  assert.equal(constructionTeachingPlan(construction('What are she doing?')).supported, false);
+});
+
 test('She sleeping is teaches auxiliary + main verb, not a subject description', () => {
   const result = hint('She is sleeping.', 1, 2);
   assert.equal(result, 'Pusiste “sleeping” donde va “is”. “is” es el auxiliar y va antes del verbo “sleeping”: “is sleeping”.');

@@ -695,6 +695,8 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 
 ## Lesson results and recoverable scores (2026-09-20)
 
+- 2026-09-29 media review: `boy_is_drinking`, `boy_is_sleeping` and `girl_is_drinking` use their original photographs. Their legacy v2 videos contain blurred side panels and must not be remapped without replacement footage passing the existing full-bleed review.
+
 - On web and mobile, show the integer percentage instead of a correct/total count. Floor the display percentage; use the original fraction for the inclusive 80% pass threshold. Ungraded activities keep the result pending and never grant a pass.
 - Passing shows the approved squirrel, two brief playful hops, finite confetti and one static celebration tune, then Continuar (next canonical lesson across unit boundaries), Volver a las lecciones and Salir. The last lesson returns to the course menu. A restored result does not replay celebration. Respect mute, reduced motion and app backgrounding; decorations never block actions.
 - Below 80%, show encouraging copy, ¿Qué quieres hacer?, Reintentar toda la lección, Repasar solo los errores (Recomendado), and Salir. Error review covers only unresolved original activities. Each evaluated correction adds one point at most, with the original total as denominator. Continue past 80% until the review ends; permit further review through 100%. Coached speech that did not actually pass cannot recover a point.

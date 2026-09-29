@@ -881,7 +881,6 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'girl_3x2.webp': require('../assets/lesson-assets/girl_3x2.webp'),
   'girl_is_drinking.webp': require('../assets/lesson-assets/girl_is_drinking.webp'),
   'girl_is_reading.webp': require('../assets/lesson-assets/girl_is_reading.webp'),
-  'girl_is_running.webp': require('../assets/lesson-assets/girl_is_running.webp'),
   'girl_is_sleeping-two-card-poster-v3.webp': require('../assets/lesson-assets/girl_is_sleeping-two-card-poster-v3.webp'),
   'girl_is_sleeping.webp': require('../assets/lesson-assets/girl_is_sleeping.webp'),
   'girl_is_walking-two-card-poster.webp': require('../assets/lesson-assets/girl_is_walking-two-card-poster.webp'),
@@ -926,6 +925,7 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'unit2_six_white_bags.webp': require('../assets/lesson-assets/unit2_six_white_bags.webp'),
   'woman.webp': require('../assets/lesson-assets/woman.webp'),
   'woman_3x2.webp': require('../assets/lesson-assets/woman_3x2.webp'),
+  'woman_is_running.webp': require('../assets/lesson-assets/woman_is_running.webp'),
   'woman_is_writing.webp': require('../assets/lesson-assets/woman_is_writing.webp'),
 };
 

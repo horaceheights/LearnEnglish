@@ -32,6 +32,8 @@ Generation inputs, source/runtime hashes and observations are recorded in `docs/
 
 This is agent inspection, not human semantic approval. New/changed runtime contracts remain pending for Preview review. Actual Android/iOS playback and final human framing review must be performed on the published Preview; Production was not requested.
 
+The first/middle/final frames of the previously unused boy-drinking, boy-sleeping and girl-drinking v2 clips were inspected. Cast/action continuity matched, but all three contained blurred side panels. Their unused web/native video mappings were removed so the clear original photographs render instead. The files remain preserved; a regression check prevents these rejected mappings from returning.
+
 ## Verification
 
 Focused tests cover exact alternation, all four question forms, action diversity, hidden question text, explicit sequence errors, contextual introduction boundaries, shared engine reconstruction, image evidence, and configurable course sizes. Whole-course practice and Preview content validation must pass, followed by the complete backend suite and `npm run verify:preview`. Unrelated course payloads must remain identical to the task base. Protected CI and exact-main Preview publication remain required.

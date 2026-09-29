@@ -63,7 +63,7 @@ En GitHub Actions, ejecuta **Publish SpanGlish Preview** desde `main` e incluye 
 El workflow:
 
 1. Comprueba que el commit sea exactamente el head remoto protegido de `main`.
-2. Valida el manifiesto de integridad, 70 lecciones, siete unidades de diez y la identidad visible del commit.
+2. Valida el manifiesto de integridad, el catálogo completo declarado y la identidad visible del commit. No hay un límite fijo de unidades o lecciones: conserva las existentes y actualiza el manifiesto cuando se aprueba nuevo contenido, manteniendo una duración similar por lección.
 3. Ejecuta el preflight completo de contenido, backend, TypeScript y bundle Android.
 4. Espera a que el backend compartido informe ese mismo commit de `main`, el SHA-256 y la cantidad exactos del catálogo candidato, con cero audios faltantes, inválidos o con error.
 5. Publica en el canal `preview` sin permitir dos publicaciones simultáneas.
@@ -117,7 +117,7 @@ Para un build nativo, ejecuta **Publish SpanGlish Preview** desde el head proteg
 
 No lo publiques en Production. Corrige el problema, integra otro pull request en `main` y publica otro Preview. Si un problema ya llegó a Production, usa el panel de Expo o `eas update:rollback` para regresar al update anterior.
 
-Si Preview muestra menos de siete unidades, no muestra el commit o apunta a un commit distinto al workflow, detén las pruebas. No intentes corregirlo publicando desde otra rama: restaura el último grupo aprobado mediante el flujo protegido y registra el incidente.
+Si Preview no muestra todas las unidades declaradas en el manifiesto, no muestra el commit o apunta a un commit distinto al workflow, detén las pruebas. No intentes corregirlo publicando desde otra rama: restaura el último grupo aprobado mediante el flujo protegido y registra el incidente.
 
 ## Separación futura del backend
 

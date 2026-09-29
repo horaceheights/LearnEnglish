@@ -47,6 +47,13 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             self.assertIsNone(card['answer_audio_text'])
             self.assertTrue(all(not option['image_url'] for option in card['options']))
 
+    def test_reused_stills_do_not_activate_legacy_videos_with_blurred_side_panels(self):
+        from scripts.audit_action_video_bindings import video_map
+        for source in ('frontend/components/LessonPlayer.js', 'mobile/src/actionVideos.ts'):
+            mapping = video_map((ROOT / source).read_text('utf-8'))
+            for key in ('boy_is_drinking', 'boy_is_sleeping', 'girl_is_drinking'):
+                self.assertNotIn(key, mapping, source)
+
     def test_explicit_sequence_rejects_unknown_or_ineligible_items(self):
         changed = copy.deepcopy(self.brief)
         changed['stage_sequences']['Learn'][0] = 'missing'
