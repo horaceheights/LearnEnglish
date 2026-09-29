@@ -179,7 +179,23 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
                 if card.get("slide_id") in contextual:
                     continue
                 language = card_language(card, phrases)
-                extra = sorted({word for word in WORD.findall(language) if not is_known(word, allowed)})
+                card_allowed = set(allowed)
+                # A declared new question frame can retrieve an already-taught
+                # object, without treating the noun as new vocabulary. Every
+                # spoken/visible line must fit the exact configured template.
+                for frame, template in standards.get("learn_question_frames", {}).items():
+                    if frame not in vocabulary or template.count("{object}") != 1:
+                        continue
+                    pattern = re.compile(re.escape(template).replace(
+                        re.escape("{object}"), r"[a-z]+(?: [a-z]+){0,2}"), re.I)
+                    lines = [card.get(key) for key in ("prompt", "audio_text", "answer_audio_text")]
+                    lines += [option.get("label") for option in card.get("options") or []]
+                    lines += [turn.get("text") for field in ("audio_turns", "answer_audio_turns")
+                              for turn in card.get(field) or []]
+                    lines = [line for line in lines if line]
+                    if lines and all(pattern.fullmatch(line.strip()) for line in lines):
+                        card_allowed |= known
+                extra = sorted({word for word in WORD.findall(language) if not is_known(word, card_allowed)})
                 if extra:
                     label = next((option.get("label") for option in card.get("options") or [] if option.get("label")),
                                  None) or card.get("prompt") or card.get("slide_id")

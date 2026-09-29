@@ -313,7 +313,8 @@ class PersistentCardAudioTests(unittest.TestCase):
         self.assertEqual(670, len(selected))
         self.assertEqual(139, len(jobs))
         self.assertEqual(139, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(2384, sum(job.estimated_character_cost() for job in jobs))
+        # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
+        self.assertEqual(2391, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},

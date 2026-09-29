@@ -81,6 +81,25 @@ class ContentPracticeTests(unittest.TestCase):
         self.assertEqual(a1["min_stages_per_new_item"], 4)
         self.assertEqual(a1["min_later_lessons_per_new_item"], 2)
 
+    def test_new_question_frame_reuses_only_previously_taught_object_words(self):
+        standards = {**STANDARDS, "learn_frame_words": ["the"],
+                     "learn_question_frames": {"Where is": "Where is the {object}?"}}
+        prior = lesson("1.1", ["blue", "book", "phone"], [], role="review")
+        for text, new_vocabulary, rejected in [
+            ("Where is the phone?", ["Where is"], False),
+            ("Where is the blue book?", ["Where is"], False),
+            ("Where is the telescope?", ["Where is"], True),
+            ("The phone is blue.", ["Where is"], True),
+            ("Where is the phone?", ["under"], True),
+            ("Where is the phone? It is blue.", ["Where is"], True),
+        ]:
+            with self.subTest(text=text, vocabulary=new_vocabulary):
+                current = lesson("2.1", new_vocabulary, [card("Learn", text, text)])
+                findings = audit([prior, current], standards)
+                self.assertEqual(bool(rules(findings, "learn-new-only")), rejected)
+                if "telescope" in text:
+                    self.assertIn(("2.1", "telescope"), rules(findings, "untaught-word"))
+
 
 if __name__ == "__main__":
     unittest.main()
