@@ -253,8 +253,7 @@ export function getCourseAudioUrl({
   variant = "default",
 }) {
   if (assetId) {
-    const params = new URLSearchParams({ key: APP_API_KEY });
-    return `${getApiBaseUrl()}/api/audio/assets/${encodeURIComponent(assetId)}.mp3?${params.toString()}`;
+    return mediaUrl(`/course-audio/elevenlabs-v2/${encodeURIComponent(assetId)}.mp3`);
   }
   if (hasVisualAudioPlaceholder(text)) {
     completionAudioFields(text, fullText, blankText);

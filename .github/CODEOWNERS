@@ -7,6 +7,9 @@
 /docs/product/project-guardrails.md @horaceheights
 /docs/maintenance/repository-hygiene.md @horaceheights
 /docs/operations/persistent-course-audio.md @horaceheights
+/docs/operations/cloudflare-course-media.md @horaceheights
+/docs/product/course-audio-upload-manifest.json @horaceheights
+/docs/product/media-upload-manifest.json @horaceheights
 /mobile/RELEASE.md @horaceheights
 
 /mobile/app.json @horaceheights
@@ -17,6 +20,9 @@
 /scripts/validate_lesson_cards.py @horaceheights
 /scripts/audit-repository-hygiene.ps1 @horaceheights
 /scripts/export_persistent_audio_catalog.py @horaceheights
+/scripts/sync_course_audio_to_r2.py @horaceheights
+/scripts/sync_media_to_r2.py @horaceheights
+/scripts/verify_cloudflare_media.py @horaceheights
 /mobile/scripts/promote-preview.ps1 @horaceheights
 /mobile/scripts/publish-preview.ps1 @horaceheights
 /mobile/scripts/release-guard.ps1 @horaceheights
@@ -26,6 +32,9 @@
 /mobile/src/updates.ts @horaceheights
 /backend/app/main.py @horaceheights
 /backend/app/persistent_audio_assets.py @horaceheights
+/backend/app/cloudflare_media.py @horaceheights
+/backend/tests/test_cloudflare_media.py @horaceheights
+/backend/tests/test_cloudflare_audio_publisher.py @horaceheights
 /backend/tests/test_release_status.py @horaceheights
 /mobile/src/screens/CourseScreen.tsx @horaceheights
 /mobile/tests/four-card-media-review.test.cjs @horaceheights

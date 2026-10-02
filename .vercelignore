@@ -19,7 +19,7 @@
 # these anchored.
 
 # Lesson authoring material: source stills, video renders, and slide decks.
-# The assets actually served live in frontend/public/lesson-assets.
+# Published course media is served from Cloudflare R2.
 /Lessons/
 
 # Expo app media. mobile/src/ is deliberately kept whole: it is small, and the
@@ -40,21 +40,10 @@ mobile/tests/
 /docs/
 /scripts/
 
-# Lesson stills that ship but are never requested from this origin. The web app
-# resolves images through lessonImageSrc (frontend/components/LessonPlayer.js),
-# which prefixes getApiBaseUrl(), so every .webp and .png here is fetched from
-# the Render backend's /lesson-assets mount instead. These 303 MB were pure
-# duplicate weight in the build artifact.
-#
-# Only the negated poster pattern and the videos below it are served from here,
-# so the exclusions are by file extension rather than by directory -- a
-# directory exclusion cannot be undone by a later negation.
+# Course stills resolve through mediaUrl to Cloudflare. Keep application UI
+# assets available while excluding duplicate course files by extension.
 frontend/public/lesson-assets/*.webp
 frontend/public/lesson-assets/*.png
-# Videos (*.mp4) are not excluded: mobile's VIDEO_BASE_URL still points here.
-# The two-card posters used to be negated back in for lessonTwoCardActionPosterSrc;
-# that call site now resolves through mediaUrl, so they are excluded below with
-# the rest of the media this origin no longer serves.
 
 # Superseded copy. No code anywhere in the repository references this directory;
 # the posters actually used live in lesson-assets under the same names.
@@ -64,17 +53,17 @@ frontend/public/lesson-video-posters/
 # resolves to the object store, so this origin no longer serves media at all --
 # these were shipping in every build and being fetched from nowhere.
 #
-# *.mp4 is the exception and stays: mobile/src/config.ts hardcodes VIDEO_BASE_URL
-# to this origin, and installed apps keep asking for it until those versions age
-# out. spanglish-logo.* stays too, being the one asset still referenced
-# root-relative rather than through the resolver.
+# Installed apps' old media URLs redirect to Cloudflare in next.config.mjs,
+# including videos. The compatibility URLs remain without duplicate media
+# files in the web deployment. spanglish-logo.* remains an application UI asset.
 #
-# The cost of removing these is the rollback: with NEXT_PUBLIC_MEDIA_BASE_URL
-# unset, mediaUrl falls back to root-relative paths that will now 404. Unsetting
-# it is no longer a complete undo -- restoring these three lines is part of it.
+# An unset media-origin override still uses Cloudflare; there is no local or
+# Render storage fallback.
 frontend/public/audio-cache/
 frontend/public/sfx/
 frontend/public/lesson-assets/*-two-card-poster.webp
+frontend/public/lesson-assets/*.mp4
+frontend/public/lesson-assets/*.webm
 
 # Local generated output. Neither is tracked, so a Git-integrated build never
 # sees them, but `vercel deploy` from a workstation uploads the working

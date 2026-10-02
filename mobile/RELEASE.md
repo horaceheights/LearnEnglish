@@ -9,6 +9,8 @@ SpanGlish tiene dos destinos de actualización:
 
 Un push a una rama de trabajo no publica una actualización móvil. Preview y Production se publican únicamente mediante sus workflows protegidos de GitHub Actions, desde el head remoto exacto de `main`. Por ahora, ambas apps usan el mismo backend Render desplegado desde `main`.
 
+Cloudflare R2 (`https://cdn.learnspanglish.app`) es el origen predeterminado para imágenes, videos, efectos y audio inmutable. Render conserva el API, sin disco de medios. Los workflows protegidos validan todos los bytes y recibos publicados contra los inventarios versionados antes de subir a Expo. Consulta [la publicación de medios](../docs/operations/cloudflare-course-media.md).
+
 ## Backend compartido actual
 
 No cambies la rama del servicio Render: debe seguir desplegando `main`. Cuando un cambio modifica lecciones, rutas o audio que dependen del backend, intégralo primero en `main` y espera el despliegue completo. Antes de subir a Expo, el publicador comprueba que el backend corresponda al mismo commit y que el catálogo de audio sea idéntico y esté listo.

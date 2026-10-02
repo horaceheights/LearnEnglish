@@ -21,6 +21,7 @@ Durable project knowledge is organized by purpose. Application and tool-specific
 ## Operations
 
 - [Web/backend deployment](operations/deploy.md): Vercel and backend deployment notes.
+- [Cloudflare course media](operations/cloudflare-course-media.md): default R2 publication, immutable audio validation and Render storage migration.
 - [Mobile release workflow](../mobile/RELEASE.md): Preview and Production controls for Expo updates and builds.
 - [Mobile Sentry setup](../mobile/SENTRY_SETUP.md): crash reporting and tracing configuration.
 

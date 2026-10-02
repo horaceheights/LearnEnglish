@@ -53,14 +53,7 @@ AZURE_SPEECH_LOCALE=en-US
 PRONUNCIATION_PEDAGOGICAL_SCORING=true
 ```
 
-10. Add the OpenAI key for course audio. This lets the backend generate and cache natural lesson prompts instead of relying on browser voices:
-
-```text
-OPENAI_API_KEY=your-openai-api-key
-OPENAI_TTS_MODEL=gpt-4o-mini-tts
-OPENAI_TTS_VOICE=coral
-OPENAI_TTS_FORMAT=mp3
-```
+10. Publish approved course recordings to Cloudflare through the procedure below. The hosted backend reads the versioned inventory and verifies existing objects; it does not generate or cache course speech. Speech-provider credentials belong in the bounded offline authoring environment.
 
 11. Add Sentry performance tracing for backend latency and mobile-to-server
 trace correlation:
@@ -113,57 +106,24 @@ Also verify:
 
 ```text
 https://your-api-name.onrender.com/api/audio/health
-https://your-api-name.onrender.com/api/audio/course?text=The%20boy&mode=prompt&lang=en-US
+https://your-api-name.onrender.com/api/release/status
 ```
 
-The audio health endpoint should return `"openai_audio_configured": true`, and the course audio URL should return a playable audio file.
+The audio health endpoint reports Cloudflare's validated immutable inventory. Learner requests do not generate speech. Keep paid provider credentials in the bounded offline authoring environment.
 
 ## Shipping Pregenerated Course Audio
 
-### Persistent immutable audio migration
+Cloudflare R2 at `https://cdn.learnspanglish.app` is the default for images, videos, posters, SFX, static legacy audio and immutable course recordings. Render hosts API compute only, with no course-audio disk dependency. Follow [Cloudflare course media](cloudflare-course-media.md) for the complete upload and verification procedure.
 
-The current mobile Preview requests `/api/audio/assets/{asset_id}.mp3`. Before publishing any such client:
+1. Export the immutable catalog from the intended content commit and approve the registry and content-addressed MP3 takes.
+2. Publish media with `scripts/sync_media_to_r2.py --apply` and audio/receipts with `scripts/sync_course_audio_to_r2.py --apply`, using the existing operator credentials or explicit `--env-file`.
+3. Commit both upload inventories and run `scripts/verify_cloudflare_media.py`. Upload tools never generate audio; missing recordings require the existing bounded offline renderer and approval.
+4. Integrate into fresh `main` and deploy the backend. Its read-only startup verifier must report `storage_provider=cloudflare-r2`, the exact candidate catalog and zero missing/invalid/error counts.
+5. Publish through the protected Preview workflow, which independently verifies all CDN bytes before Expo upload.
 
-1. Export the immutable catalog from the exact intended Preview commit.
-2. Commit the reviewed registry and content-addressed MP3 takes.
-3. Attach the 1 GB Render SSD at `/var/data/course-audio` and set `COURSE_AUDIO_STORAGE_DIR` to that path.
-4. Deploy the compatible backend while retaining legacy course-audio routes for the already-shipped Production app.
-5. Wait for `/api/admin/audio/assets` to report the complete expected total with `missing == 0` and `invalid == 0`.
-6. Only then publish the mobile Preview through the protected release workflow.
+Already-shipped clients retain their API asset and lesson-image routes as redirects to R2. Legacy text/completion audio routes are frozen read-only compatibility; a miss never calls paid TTS. Persistent clients never use these routes as a fallback. Keep compatibility until Production is separately approved and migrated.
 
-Persistent clients never fall back to live TTS or device speech. The shared backend's legacy routes are temporary Production compatibility and may be removed only after Production is explicitly migrated.
-
-For the legacy web and Production delivery path, generated course audio can be shipped with the frontend from `frontend/public/audio-cache/*.mp3`. Those legacy clients use `frontend/lib/courseAudioManifest.json` to play static Vercel files first, then use the compatibility Render route when a clip is missing. Persistent clients do not use that fallback. This avoids mobile audio lag from Render and avoids paying OpenAI again for the same lesson prompts after each deploy.
-
-Backend cache files in `backend/storage/audio-cache/*.mp3` can still be kept as the source cache for generation, but the mobile app should prefer the frontend static files.
-
-This works because the cache filename is deterministic from:
-
-- text
-- mode
-- language
-- variant
-- `OPENAI_TTS_MODEL`
-- `OPENAI_TTS_VOICE`
-- `OPENAI_TTS_FORMAT`
-
-Keep the Render audio settings the same as local, especially:
-
-```text
-OPENAI_TTS_MODEL=gpt-4o-mini-tts
-OPENAI_TTS_VOICE=coral
-OPENAI_TTS_FORMAT=mp3
-```
-
-If any of those values change, the backend will create new cache filenames and regenerate audio. After generating new clips, rebuild the frontend audio manifest and copy the MP3s into `frontend/public/audio-cache` before pushing. Do not commit learner database files or other runtime storage.
-
-From the repo root:
-
-```bash
-python scripts/build_frontend_audio_manifest.py
-```
-
-The script should report `"missing_expected": 0` before pushing if you want every known lesson clip served statically by Vercel.
+The retired Render disk is preserved in a checksum-verified R2 archive before deletion. Do not reattach a course-media disk or reintroduce startup provider generation. Local repository MP3s and bundled offline assets remain authoring/offline sources, and learner database files must never be published to the media bucket.
 
 Without `DATABASE_URL`, the backend falls back to a local SQLite file. That is fine for local development, but hosted services can replace that file during deploys, which means learner profiles and results may disappear.
 

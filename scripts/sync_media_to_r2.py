@@ -33,6 +33,7 @@ import mimetypes
 import os
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -116,10 +117,14 @@ def collect() -> list[tuple[Path, str]]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true", help="perform the upload")
+    parser.add_argument("--env-file", type=Path, default=ENV_PATH)
+    parser.add_argument("--workers", type=int, default=16)
     parser.add_argument("--force", action="store_true", help="re-upload even when the digest matches")
     args = parser.parse_args()
+    if not 1 <= args.workers <= 64:
+        parser.error('--workers must be between 1 and 64')
 
-    env = load_env(ENV_PATH)
+    env = load_env(args.env_file)
     bucket = env["R2_BUCKET"]
 
     try:
@@ -134,7 +139,7 @@ def main() -> int:
         endpoint_url=f"https://{env['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
         aws_access_key_id=env["R2_ACCESS_KEY_ID"],
         aws_secret_access_key=env["R2_SECRET_ACCESS_KEY"],
-        config=Config(signature_version="s3v4", region_name="auto"),
+        config=Config(signature_version="s3v4", region_name="auto", max_pool_connections=args.workers),
     )
 
     items = collect()
@@ -147,27 +152,23 @@ def main() -> int:
     uploaded_bytes = 0
     manifest: dict[str, dict[str, object]] = {}
 
-    for index, (path, key) in enumerate(items, start=1):
+    def upload(item):
+        path, key = item
         digest = sha256_of(path)
         size = path.stat().st_size
-        manifest[key] = {"sha256": digest, "bytes": size}
+        entry = {"sha256": digest, "bytes": size}
 
         if not args.force:
             try:
                 head = client.head_object(Bucket=bucket, Key=key)
                 if head.get("Metadata", {}).get("sha256") == digest:
-                    skipped += 1
-                    manifest[key]["state"] = "present"
-                    continue
+                    return key, entry, "present", size
             except ClientError as error:
                 if error.response["Error"]["Code"] not in ("404", "NoSuchKey", "NotFound"):
                     raise
 
         if not args.apply:
-            manifest[key]["state"] = "would-upload"
-            uploaded += 1
-            uploaded_bytes += size
-            continue
+            return key, entry, "would-upload", size
 
         try:
             client.put_object(
@@ -178,16 +179,23 @@ def main() -> int:
                 CacheControl=CACHE_CONTROL,
                 Metadata={"sha256": digest},
             )
-            uploaded += 1
-            uploaded_bytes += size
-            manifest[key]["state"] = "uploaded"
+            return key, entry, "uploaded", size
         except ClientError as error:
-            failed += 1
-            manifest[key]["state"] = "failed"
             print(f"  FAILED {key}: {error.response['Error'].get('Message')}")
+            return key, entry, "failed", size
 
-        if index % 100 == 0:
-            print(f"  {index}/{len(items)}...")
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
+        for index, (key, entry, state, size) in enumerate(pool.map(upload, items), 1):
+            manifest[key] = entry
+            if state == "present":
+                skipped += 1
+            elif state == "failed":
+                failed += 1
+            else:
+                uploaded += 1
+                uploaded_bytes += size
+            if index % 500 == 0:
+                print(f"  {index}/{len(items)} checked", flush=True)
 
     verb = "would upload" if not args.apply else "uploaded"
     print(f"\n{verb}: {uploaded} files, {uploaded_bytes / 1048576:.2f} MB")

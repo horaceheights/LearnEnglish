@@ -1190,13 +1190,12 @@ class PersistentCardAudioTests(unittest.TestCase):
                 read_asset(asset_id, LESSONS)
             self.assertEqual(503, raised.exception.status_code)
 
-    def test_render_blueprint_mounts_the_paid_persistent_audio_disk(self):
+    def test_render_blueprint_uses_cloudflare_without_a_course_media_disk(self):
         blueprint = yaml.safe_load((ROOT_DIR / "render.yaml").read_text(encoding="utf-8"))
         service = blueprint["services"][0]
-        self.assertEqual("/var/data/course-audio", service["disk"]["mountPath"])
-        self.assertEqual(1, service["disk"]["sizeGB"])
+        self.assertNotIn("disk", service)
         env = {item["key"]: item.get("value") for item in service["envVars"]}
-        self.assertEqual("/var/data/course-audio", env["COURSE_AUDIO_STORAGE_DIR"])
+        self.assertNotIn("COURSE_AUDIO_STORAGE_DIR", env)
 
     def test_legacy_production_routes_remain_during_preview_migration(self):
         from backend.app import main

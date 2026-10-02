@@ -127,15 +127,14 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
         self.assertIn("/api/audio/course.mp3", paths)
         self.assertIn("/api/audio/course-completion.mp3", paths)
 
-    def test_render_blueprint_mounts_one_gigabyte_audio_disk(self):
+    def test_render_blueprint_has_no_course_media_disk_dependency(self):
         blueprint = yaml.safe_load((ROOT / "render.yaml").read_text(encoding="utf-8"))
         service = blueprint["services"][0]
         self.assertEqual("main", service["branch"])
-        self.assertEqual("/var/data/course-audio", service["disk"]["mountPath"])
-        self.assertEqual(1, service["disk"]["sizeGB"])
+        self.assertNotIn("disk", service)
         env = {item["key"]: item.get("value") for item in service["envVars"]}
         self.assertEqual("production", env["APP_ENVIRONMENT"])
-        self.assertEqual("/var/data/course-audio", env["COURSE_AUDIO_STORAGE_DIR"])
+        self.assertNotIn("COURSE_AUDIO_STORAGE_DIR", env)
 
     def test_elevenlabs_assets_use_a_cache_busted_subdirectory(self):
         with patch.dict(os.environ, {"COURSE_AUDIO_STORAGE_DIR": "/var/data/course-audio"}):

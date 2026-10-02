@@ -7,14 +7,12 @@
  * its own string with its own cache-bust constant, which is why the two origins
  * drifted apart without anyone noticing.
  *
- * `NEXT_PUBLIC_MEDIA_BASE_URL` points at the object store. When it is unset the
- * caller's `fallbackBase` decides, so an unconfigured environment behaves
- * exactly as it did before this file existed -- that is the rollback, and it is
- * why the fallback is a required thought at each call site rather than a single
- * global default.
+ * Cloudflare is the default in every environment. An explicit media-origin
+ * override is available for authoring; an unset value never falls back to the
+ * API host or the frontend deployment.
  */
 
-const MEDIA_BASE_URL = (process.env.NEXT_PUBLIC_MEDIA_BASE_URL || "").replace(/\/$/, "");
+const MEDIA_BASE_URL = (process.env.NEXT_PUBLIC_MEDIA_BASE_URL || "https://cdn.learnspanglish.app").replace(/\/$/, "");
 
 export function hasMediaBaseUrl() {
   return MEDIA_BASE_URL !== "";
@@ -24,8 +22,8 @@ export function hasMediaBaseUrl() {
  * @param {string} path        root-relative, e.g. "/lesson-assets/boy.webp".
  *                             An absolute http(s) URL is passed through.
  * @param {string} [version]   cache-bust value appended as ?v=
- * @param {string} [fallbackBase] origin to use when the media base is unset.
- *                             "" means root-relative.
+ * @param {string} [fallbackBase] retained for existing callers; never selects
+ *                             a storage fallback.
  */
 export function mediaUrl(path, version, fallbackBase = "") {
   if (!path) {
@@ -33,7 +31,7 @@ export function mediaUrl(path, version, fallbackBase = "") {
   }
 
   const absolute = /^https?:\/\//i.test(path);
-  const base = absolute ? "" : MEDIA_BASE_URL || fallbackBase.replace(/\/$/, "");
+  const base = absolute ? "" : MEDIA_BASE_URL;
 
   return withVersion(`${base}${path}`, version);
 }

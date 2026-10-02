@@ -1,4 +1,3 @@
-import asyncio
 import os
 import threading
 import time
@@ -7,31 +6,13 @@ import random
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse, Response
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, JSONResponse, Response, RedirectResponse
 
 from .api_auth import api_request_is_authorized
 from .diagnostics import initialize_diagnostics
-from .course_audio import (
-    audio_debug,
-    get_course_audio,
-    get_course_completion_audio,
-    ready_cue_wav,
-)
-from .persistent_audio_assets import (
-    elevenlabs_seed_status as persistent_elevenlabs_seed_status,
-    elevenlabs_release_status as persistent_elevenlabs_release_status,
-    elevenlabs_storage_dir as persistent_elevenlabs_storage_dir,
-    elevenlabs_storage_status as persistent_elevenlabs_storage_status,
-    read_asset as read_persistent_audio_asset,
-    read_elevenlabs_asset as read_persistent_elevenlabs_asset,
-    seed_elevenlabs_assets as seed_persistent_elevenlabs_assets,
-    seed_static_assets as seed_persistent_audio_assets,
-    seed_status as persistent_audio_seed_status,
-    storage_dir as persistent_audio_storage_dir,
-    storage_status as persistent_audio_storage_status,
-)
-from .data import LESSONS, LESSON_IMAGE_DIR
+from .course_audio import audio_debug, ready_cue_wav
+from . import cloudflare_media
+from .data import LESSONS
 from .legal import account_deletion_html, privacy_policy_html
 from .schemas import AzureAssessmentInterpretRequest, Lesson, LessonCard
 from .pronunciation import (
@@ -85,27 +66,21 @@ if not ADMIN_API_KEY:
 
 @app.on_event("startup")
 def prepare_persistent_course_audio() -> None:
-    if not os.getenv("COURSE_AUDIO_STORAGE_DIR", "").strip():
-        print("Persistent course-audio startup seed skipped: COURSE_AUDIO_STORAGE_DIR is unset.")
+    # Local authoring/tests remain offline. Deployment never seeds a disk.
+    if not os.getenv("RENDER_GIT_COMMIT") and os.getenv("APP_ENVIRONMENT") != "production":
         return
-
     def seed_in_background() -> None:
         try:
-            status = seed_persistent_audio_assets()
-            print(f"Persistent course audio ready at {persistent_audio_storage_dir()}: {status}")
-            elevenlabs_status = asyncio.run(seed_persistent_elevenlabs_assets())
-            print(
-                "Persistent ElevenLabs course audio ready at "
-                f"{persistent_elevenlabs_storage_dir()}: {elevenlabs_status}"
-            )
+            status = cloudflare_media.verify_inventory()
+            print(f"Cloudflare course-audio verification: {status}")
         except Exception as error:
             # Keep the already-shipped Production client online on the shared
             # backend while health reports that persistent assets are unready.
-            print(f"Persistent course-audio seed failed: {error!r}")
+            print(f"Cloudflare course-audio verification failed: {error!r}")
 
     threading.Thread(
         target=seed_in_background,
-        name="persistent-course-audio-seed",
+        name="cloudflare-course-audio-verification",
         daemon=True,
     ).start()
 
@@ -214,8 +189,15 @@ async def guard_api_requests(request: Request, call_next):
     return await call_next(request)
 
 
-if LESSON_IMAGE_DIR.exists():
-    app.mount("/lesson-assets", StaticFiles(directory=str(LESSON_IMAGE_DIR)), name="lesson-assets")
+@app.get("/lesson-assets/{name:path}")
+def legacy_lesson_media(name: str, request: Request = None):
+    try:
+        url = cloudflare_media.object_url(f"lesson-assets/{name}")
+    except ValueError as error:
+        raise HTTPException(404, "Lesson media not found.") from error
+    if request is not None and request.url.query:
+        url += f"?{request.url.query}"
+    return RedirectResponse(url, status_code=307)
 
 
 def copy_model(model, update: dict):
@@ -302,10 +284,9 @@ async def pronunciation_token():
 def audio_health():
     return {
         **audio_debug(),
-        "persistent_assets": persistent_audio_seed_status(),
-        "persistent_asset_dir": str(persistent_audio_storage_dir()),
-        "persistent_elevenlabs_assets": persistent_elevenlabs_seed_status(),
-        "persistent_elevenlabs_asset_dir": str(persistent_elevenlabs_storage_dir()),
+        "persistent_assets": cloudflare_media.release_status(),
+        "persistent_elevenlabs_assets": cloudflare_media.release_status(),
+        "media_base_url": cloudflare_media.MEDIA_BASE_URL,
         # The already-shipped Production client still uses the legacy routes.
         # Persistent clients never use them as a cache-miss fallback.
         "legacy_production_audio_enabled": True,
@@ -329,7 +310,7 @@ def release_status():
         "git_branch": branch or None,
         "git_commit": os.getenv("RENDER_GIT_COMMIT", "").strip().lower() or None,
         "service_name": os.getenv("RENDER_SERVICE_NAME", "").strip() or None,
-        "audio": persistent_elevenlabs_release_status(),
+        "audio": cloudflare_media.release_status(),
     }
 
 
@@ -343,7 +324,7 @@ async def read_course_audio(
     provider: str = "openai",
     narrator: str = "female-teacher",
 ):
-    return await get_course_audio(
+    return cloudflare_media.legacy_course_audio(
         text=text,
         mode=mode,
         lang=lang,
@@ -365,7 +346,7 @@ async def read_course_completion_audio(
     provider: str = "elevenlabs-premium",
     narrator: str = "female-teacher",
 ):
-    return await get_course_completion_audio(
+    return cloudflare_media.legacy_completion_audio(
         visual_prompt=visual_prompt,
         full_text=full_text,
         blank_text=blank_text,
@@ -379,19 +360,19 @@ async def read_course_completion_audio(
 
 @app.get("/api/audio/assets/{asset_id}.mp3")
 def read_course_audio_asset(asset_id: str):
-    return read_persistent_audio_asset(asset_id)
+    return cloudflare_media.read_asset(asset_id)
 
 
 @app.get("/api/audio/assets-v2/{asset_id}.mp3")
 def read_course_audio_asset_v2(asset_id: str):
-    return read_persistent_elevenlabs_asset(asset_id)
+    return cloudflare_media.read_asset(asset_id)
 
 
 @app.get("/api/admin/audio/assets")
 def read_course_audio_asset_inventory():
     return {
-        "legacy": persistent_audio_storage_status(),
-        "elevenlabs_v2": persistent_elevenlabs_storage_status(),
+        "legacy": cloudflare_media.release_status(),
+        "elevenlabs_v2": cloudflare_media.release_status(),
     }
 
 
@@ -621,4 +602,3 @@ def conversation_turn(payload: ConversationTurnRequest):
 def conversation_web_page():
     html_path = Path(__file__).parent / "conversation_web.html"
     return HTMLResponse(content=html_path.read_text(encoding="utf-8"))
-
