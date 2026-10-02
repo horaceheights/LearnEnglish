@@ -18,19 +18,19 @@
     "Friday",
     "Saturday",
     "Sunday",
-    "today"
+    "What day is it today?"
   ],
   "review_vocabulary": [
     "what",
-    "day",
     "is",
     "it",
     "I",
-    "study English",
-    "on"
+    "on",
+    "study",
+    "Do you...?"
   ],
   "grammar_function": "What day is it today? Today is + day. I study English on + day.",
-  "prerequisite": "4.3 on; 4.6 study English; 4.7 every day.",
+  "prerequisite": "4.6 sequencing; 4.8 study and auxiliary Do; familiar school and park contexts.",
   "speaking_outcome": "Say all seven days in Today is ... sentences.",
   "purposeful_review_slides": [
     "R3",
@@ -63,47 +63,96 @@
   ],
   "cards": [
     {
+      "slide_id": "L0",
+      "interaction_type": "teach",
+      "prompt": "What day is it today?",
+      "stage": "Learn",
+      "correct_option_id": "l0-what-day-is-it-today",
+      "options": [
+        {
+          "id": "l0-what-day-is-it-today",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "label": "What day is it today?"
+        }
+      ],
+      "audio_text": "What day is it today?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
+      "pedagogy_note": "Introduce the complete day question, including day and today, before it is assessed.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-8-days-and-time-c001-prompt-0ce470b64ffdf4a9d9f6",
+          "purpose": "prompt",
+          "text": "What day is it today?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c001-answer-d0331e515c3fe77738df",
+          "purpose": "answer",
+          "text": "What day is it today?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
       "slide_id": "L1",
       "interaction_type": "teach",
       "prompt": "Monday",
       "stage": "Learn",
-      "correct_option_id": "monday-learn",
+      "correct_option_id": "monday",
       "options": [
         {
-          "id": "monday-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "id": "monday",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_monday_v2_v1.webp",
           "label": "Monday"
         }
       ],
       "audio_text": "Monday",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Lunes",
-      "pedagogy_note": "Story beat 01: Monday",
+      "spanish_translation": "lunes",
+      "pedagogy_note": "Locate Monday in a complete dated weekly planner; not an isolated word-only day sheet.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c001-prompt-e82d5867f8168104fc3a",
+          "id": "lesson-4-8-days-and-time-c002-prompt-95525ae15286e38e9493",
           "purpose": "prompt",
           "text": "Monday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_monday_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c001-answer-e66fd1ece107a72d52a1",
+          "id": "lesson-4-8-days-and-time-c002-answer-a340ea3262b65a8901fa",
           "purpose": "answer",
           "text": "Monday",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_monday_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -116,45 +165,45 @@
       "interaction_type": "teach",
       "prompt": "Tuesday",
       "stage": "Learn",
-      "correct_option_id": "tuesday-learn",
+      "correct_option_id": "tuesday",
       "options": [
         {
-          "id": "tuesday-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_day_tuesday_v1.webp",
+          "id": "tuesday",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_tuesday_v2_v1.webp",
           "label": "Tuesday"
         }
       ],
       "audio_text": "Tuesday",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Martes",
-      "pedagogy_note": "Story beat 02: Tuesday",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "martes",
+      "pedagogy_note": "Locate Tuesday in a complete dated weekly planner; not an isolated word-only day sheet.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c002-prompt-225f824ff620308bcfad",
+          "id": "lesson-4-8-days-and-time-c003-prompt-0a5ab4d93f9ea99bf588",
           "purpose": "prompt",
           "text": "Tuesday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_tuesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_tuesday_v2_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c002-answer-46608fb0f7397ec512c3",
+          "id": "lesson-4-8-days-and-time-c003-answer-0ef30da5b0a15d8b8ac7",
           "purpose": "answer",
           "text": "Tuesday",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_tuesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_tuesday_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -165,43 +214,43 @@
       "interaction_type": "teach",
       "prompt": "Wednesday",
       "stage": "Learn",
-      "correct_option_id": "wednesday-learn",
+      "correct_option_id": "wednesday",
       "options": [
         {
-          "id": "wednesday-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "id": "wednesday",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_wednesday_v2_v1.webp",
           "label": "Wednesday"
         }
       ],
       "audio_text": "Wednesday",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Mi\u00e9rcoles",
-      "pedagogy_note": "Story beat 03: Wednesday",
+      "spanish_translation": "mi\u00e9rcoles",
+      "pedagogy_note": "Locate Wednesday in a complete dated weekly planner; not an isolated word-only day sheet.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c003-prompt-b1c0d803605f222f7d71",
+          "id": "lesson-4-8-days-and-time-c004-prompt-2a2f5655f29dc370cecc",
           "purpose": "prompt",
           "text": "Wednesday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_wednesday_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c003-answer-d277966dd90a56fd6e1d",
+          "id": "lesson-4-8-days-and-time-c004-answer-a4f9b1a71ed3b82d80c0",
           "purpose": "answer",
           "text": "Wednesday",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_wednesday_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -214,45 +263,45 @@
       "interaction_type": "teach",
       "prompt": "Thursday",
       "stage": "Learn",
-      "correct_option_id": "thursday-learn",
+      "correct_option_id": "thursday",
       "options": [
         {
-          "id": "thursday-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "id": "thursday",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_thursday_v2_v1.webp",
           "label": "Thursday"
         }
       ],
       "audio_text": "Thursday",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Jueves",
-      "pedagogy_note": "Story beat 04: Thursday",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "jueves",
+      "pedagogy_note": "Locate Thursday in a complete dated weekly planner; not an isolated word-only day sheet.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c004-prompt-680bf669cd9e39879a85",
+          "id": "lesson-4-8-days-and-time-c005-prompt-d5615390966fe6d93f87",
           "purpose": "prompt",
           "text": "Thursday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_thursday_v2_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c004-answer-fc4396a8723ad79fe7ce",
+          "id": "lesson-4-8-days-and-time-c005-answer-9ef853d4b5be2bd90b06",
           "purpose": "answer",
           "text": "Thursday",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_thursday_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -263,43 +312,43 @@
       "interaction_type": "teach",
       "prompt": "Friday",
       "stage": "Learn",
-      "correct_option_id": "friday-learn",
+      "correct_option_id": "friday",
       "options": [
         {
-          "id": "friday-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "id": "friday",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_friday_v2_v1.webp",
           "label": "Friday"
         }
       ],
       "audio_text": "Friday",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Viernes",
-      "pedagogy_note": "Story beat 05: Friday",
+      "spanish_translation": "viernes",
+      "pedagogy_note": "Locate Friday in a complete dated weekly planner; not an isolated word-only day sheet.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c005-prompt-c644191d74d27da477d3",
+          "id": "lesson-4-8-days-and-time-c006-prompt-2299c678cf82cf9c87c3",
           "purpose": "prompt",
           "text": "Friday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_friday_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c005-answer-4786b2ee650e87ea3779",
+          "id": "lesson-4-8-days-and-time-c006-answer-84f97d97ed5b436a4328",
           "purpose": "answer",
           "text": "Friday",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_friday_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -312,45 +361,45 @@
       "interaction_type": "teach",
       "prompt": "Saturday",
       "stage": "Learn",
-      "correct_option_id": "saturday-learn",
+      "correct_option_id": "saturday",
       "options": [
         {
-          "id": "saturday-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "id": "saturday",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_saturday_v2_v1.webp",
           "label": "Saturday"
         }
       ],
       "audio_text": "Saturday",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "S\u00e1bado",
-      "pedagogy_note": "Story beat 06: Saturday",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "s\u00e1bado",
+      "pedagogy_note": "Locate Saturday in a complete dated weekly planner; not an isolated word-only day sheet.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c006-prompt-03855ce8ab37165fd109",
+          "id": "lesson-4-8-days-and-time-c007-prompt-f7038ba7175f727ebb7a",
           "purpose": "prompt",
           "text": "Saturday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_saturday_v2_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c006-answer-35dcacccba1e93280214",
+          "id": "lesson-4-8-days-and-time-c007-answer-f9db850b528f1a2e6f25",
           "purpose": "answer",
           "text": "Saturday",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_saturday_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -361,94 +410,45 @@
       "interaction_type": "teach",
       "prompt": "Sunday",
       "stage": "Learn",
-      "correct_option_id": "sunday-learn",
+      "correct_option_id": "sunday",
       "options": [
         {
-          "id": "sunday-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "id": "sunday",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_sunday_v2_v1.webp",
           "label": "Sunday"
         }
       ],
       "audio_text": "Sunday",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Domingo",
-      "pedagogy_note": "Story beat 07: Sunday",
+      "spanish_translation": "domingo",
+      "pedagogy_note": "Locate Sunday in a complete dated weekly planner; not an isolated word-only day sheet.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c007-prompt-773c50b5363a58e8d370",
+          "id": "lesson-4-8-days-and-time-c008-prompt-7e5f8f482ca8611c82a8",
           "purpose": "prompt",
           "text": "Sunday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_sunday_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c007-answer-f385431d1b7de786e610",
+          "id": "lesson-4-8-days-and-time-c008-answer-3be7b8f263d67138ceb6",
           "purpose": "answer",
           "text": "Sunday",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_sunday_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L8",
-      "interaction_type": "teach",
-      "prompt": "Today",
-      "stage": "Learn",
-      "correct_option_id": "today-learn",
-      "options": [
-        {
-          "id": "today-learn",
-          "image_url": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
-          "label": "Today"
-        }
-      ],
-      "audio_text": "Today",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hoy",
-      "pedagogy_note": "Story beat 08: Today",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-8-days-and-time-c008-prompt-e07d5b18089636e670ab",
-          "purpose": "prompt",
-          "text": "Today",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-8-days-and-time-c008-answer-c60bbc1576ce7430e438",
-          "purpose": "answer",
-          "text": "Today",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -456,53 +456,48 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "Tuesday",
+      "interaction_type": "a2t2",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "tuesday-r1",
       "options": [
         {
-          "id": "monday-r1",
-          "image_url": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
-          "label": null
+          "id": "tuesday-r1",
+          "image_url": "",
+          "label": "Tuesday"
         },
         {
-          "id": "tuesday-r1",
-          "image_url": "/lesson-assets/a1_photo_u4_day_tuesday_v1.webp",
-          "label": null
+          "id": "wednesday-r1",
+          "image_url": "",
+          "label": "Wednesday"
         }
       ],
       "audio_text": "Tuesday",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Martes",
-      "pedagogy_note": "Story beat 01: Tuesday",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Tuesday",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Tuesday",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c009-prompt-585117660c4e40bf0efb",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c009-prompt-turn-1-141aae7614bfc5d1fce7",
+          "purpose": "prompt-turn-1",
           "text": "Tuesday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_tuesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-8-days-and-time-c009-answer-f07a2af791f5f4d8f425",
-          "purpose": "answer",
-          "text": "Tuesday",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_tuesday_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -510,15 +505,15 @@
     },
     {
       "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "a2t2",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "wednesday-r2",
       "options": [
         {
-          "id": "tuesday-r2",
+          "id": "thursday-r2",
           "image_url": "",
-          "label": "Tuesday"
+          "label": "Thursday"
         },
         {
           "id": "wednesday-r2",
@@ -526,25 +521,32 @@
           "label": "Wednesday"
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Wednesday",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 02: Wednesday",
+      "audio_text": "Wednesday",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Wednesday",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Wednesday",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c010-answer-3939907637a3abcaa10e",
-          "purpose": "answer",
+          "id": "lesson-4-8-days-and-time-c010-prompt-turn-1-9921e9b41934b233a808",
+          "purpose": "prompt-turn-1",
           "text": "Wednesday",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -552,51 +554,80 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "Today is Monday.",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "today-is-monday-r3",
       "options": [
         {
-          "id": "today-is-monday-r3",
-          "image_url": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
-          "label": null
+          "id": "today-is-friday-r3",
+          "image_url": "",
+          "label": "Today is Friday."
         },
         {
-          "id": "today-is-sunday-r3",
-          "image_url": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
-          "label": null
+          "id": "today-is-monday-r3",
+          "image_url": "",
+          "label": "Today is Monday."
+        },
+        {
+          "id": "today-is-wednesday-r3",
+          "image_url": "",
+          "label": "Today is Wednesday."
         }
       ],
-      "audio_text": "Today is Monday.",
+      "audio_text": "What day is it today? Today is Monday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es lunes.",
-      "pedagogy_note": "Story beat 03: Today is Monday.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Monday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c011-prompt-5f0a4e83d8e1b2d89294",
-          "purpose": "prompt",
-          "text": "Today is Monday.",
+          "id": "lesson-4-8-days-and-time-c011-prompt-turn-1-2eebc7f66d287b44150b",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c011-answer-d619560e9f38a857a38d",
+          "id": "lesson-4-8-days-and-time-c011-prompt-turn-2-dbc652fd0d94eb354476",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Monday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c011-answer-5ba8b912c38baf9a63e6",
           "purpose": "answer",
           "text": "Today is Monday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -606,53 +637,82 @@
     },
     {
       "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "What day is it today?",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "today-is-tuesday-r4",
       "options": [
+        {
+          "id": "today-is-tuesday-r4",
+          "image_url": "",
+          "label": "Today is Tuesday."
+        },
         {
           "id": "today-is-thursday-r4",
           "image_url": "",
           "label": "Today is Thursday."
         },
         {
-          "id": "today-is-tuesday-r4",
+          "id": "today-is-saturday-r4",
           "image_url": "",
-          "label": "Today is Tuesday."
+          "label": "Today is Saturday."
         }
       ],
-      "audio_text": "What day is it today?",
-      "answer_audio_text": "Today is Tuesday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
-      "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
-      "pedagogy_note": "Story beat 04: Today is Tuesday.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "What day is it today? Today is Tuesday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Hoy es martes.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Tuesday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c012-prompt-4c18cf4d7e0496accf6e",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c012-prompt-turn-1-60cb0e9bcf10a6037df3",
+          "purpose": "prompt-turn-1",
           "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "question",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c012-answer-a8531bba46bc2e389986",
+          "id": "lesson-4-8-days-and-time-c012-prompt-turn-2-34db595afcee83b21dd9",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Tuesday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c012-answer-6013848d1d092cf3977f",
           "purpose": "answer",
           "text": "Today is Tuesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -660,51 +720,80 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "Today is Wednesday.",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "today-is-wednesday-r5",
       "options": [
         {
-          "id": "today-is-tuesday-r5",
-          "image_url": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
-          "label": null
+          "id": "today-is-friday-r5",
+          "image_url": "",
+          "label": "Today is Friday."
+        },
+        {
+          "id": "today-is-sunday-r5",
+          "image_url": "",
+          "label": "Today is Sunday."
         },
         {
           "id": "today-is-wednesday-r5",
-          "image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Today is Wednesday."
         }
       ],
-      "audio_text": "Today is Wednesday.",
+      "audio_text": "What day is it today? Today is Wednesday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es mi\u00e9rcoles.",
-      "pedagogy_note": "Story beat 05: Today is Wednesday.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Wednesday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c013-prompt-7f526cac85a5bb4bf65c",
-          "purpose": "prompt",
-          "text": "Today is Wednesday.",
+          "id": "lesson-4-8-days-and-time-c013-prompt-turn-1-cf0db21a484577a5332a",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c013-answer-7ec00dd14c6ea001dc47",
+          "id": "lesson-4-8-days-and-time-c013-prompt-turn-2-60111eb4a0600746feb1",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Wednesday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c013-answer-b8d13915ca43af12ad32",
           "purpose": "answer",
           "text": "Today is Wednesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -714,15 +803,15 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "i2t3",
-      "prompt": "What day is it today?",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "today-is-thursday-r6",
       "options": [
         {
-          "id": "today-is-wednesday-r6",
+          "id": "today-is-monday-r6",
           "image_url": "",
-          "label": "Today is Wednesday."
+          "label": "Today is Monday."
         },
         {
           "id": "today-is-thursday-r6",
@@ -730,42 +819,66 @@
           "label": "Today is Thursday."
         },
         {
-          "id": "today-is-tuesday-r6",
+          "id": "today-is-saturday-r6",
           "image_url": "",
-          "label": "Today is Tuesday."
+          "label": "Today is Saturday."
         }
       ],
-      "audio_text": "What day is it today?",
-      "answer_audio_text": "Today is Thursday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-      "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
-      "pedagogy_note": "Story beat 06: Today is Thursday.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "What day is it today? Today is Thursday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Hoy es jueves.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Thursday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c014-prompt-98807e93c6a05195799b",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c014-prompt-turn-1-61f72401b3fb8ec0ac97",
+          "purpose": "prompt-turn-1",
           "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "question",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c014-answer-eea18da63e9c06099283",
+          "id": "lesson-4-8-days-and-time-c014-prompt-turn-2-22ab04994c0414357031",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Thursday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c014-answer-5e8850b4cd8b86689abf",
           "purpose": "answer",
           "text": "Today is Thursday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -773,61 +886,80 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "Today is Friday.",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "today-is-friday-r7",
       "options": [
         {
-          "id": "today-is-thursday-r7",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "label": null
-        },
-        {
-          "id": "today-is-wednesday-r7",
-          "image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "label": null
-        },
-        {
           "id": "today-is-friday-r7",
-          "image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Today is Friday."
         },
         {
-          "id": "today-is-saturday-r7",
-          "image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
-          "label": null
+          "id": "today-is-sunday-r7",
+          "image_url": "",
+          "label": "Today is Sunday."
+        },
+        {
+          "id": "today-is-tuesday-r7",
+          "image_url": "",
+          "label": "Today is Tuesday."
         }
       ],
-      "audio_text": "Today is Friday.",
+      "audio_text": "What day is it today? Today is Friday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es viernes.",
-      "pedagogy_note": "Story beat 07: Today is Friday.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Friday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c015-prompt-e03abb282acd725749cd",
-          "purpose": "prompt",
-          "text": "Today is Friday.",
+          "id": "lesson-4-8-days-and-time-c015-prompt-turn-1-dc1db525d99ee6f50eb7",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c015-answer-5005b383b0dd7ff1e1ad",
+          "id": "lesson-4-8-days-and-time-c015-prompt-turn-2-6ca84925e4343a392cf2",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Friday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c015-answer-35d8dab11a425f1355cd",
           "purpose": "answer",
           "text": "Today is Friday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -837,58 +969,82 @@
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "What day is it today?",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "today-is-saturday-r8",
       "options": [
         {
-          "id": "today-is-friday-r8",
+          "id": "today-is-monday-r8",
           "image_url": "",
-          "label": "Today is Friday."
+          "label": "Today is Monday."
+        },
+        {
+          "id": "today-is-wednesday-r8",
+          "image_url": "",
+          "label": "Today is Wednesday."
         },
         {
           "id": "today-is-saturday-r8",
           "image_url": "",
           "label": "Today is Saturday."
-        },
-        {
-          "id": "today-is-sunday-r8",
-          "image_url": "",
-          "label": "Today is Sunday."
         }
       ],
-      "audio_text": "What day is it today?",
-      "answer_audio_text": "Today is Saturday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
-      "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
-      "pedagogy_note": "Story beat 08: Today is Saturday.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "What day is it today? Today is Saturday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Hoy es s\u00e1bado.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Saturday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c016-prompt-452aa94d2132cca017e8",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c016-prompt-turn-1-f4931a59daf34907bc82",
+          "purpose": "prompt-turn-1",
           "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "question",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c016-answer-f0b9adc2882ef31c75e5",
+          "id": "lesson-4-8-days-and-time-c016-prompt-turn-2-2ffdfa22d72da0700b99",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Saturday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c016-answer-dcd2a14868e381d675ee",
           "purpose": "answer",
           "text": "Today is Saturday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -896,61 +1052,80 @@
     },
     {
       "slide_id": "R9",
-      "interaction_type": "t2i4",
-      "prompt": "Today is Sunday.",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "today-is-sunday-r9",
       "options": [
         {
-          "id": "today-is-friday-r9",
-          "image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
-          "label": null
-        },
-        {
           "id": "today-is-thursday-r9",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Today is Thursday."
         },
         {
           "id": "today-is-sunday-r9",
-          "image_url": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Today is Sunday."
         },
         {
-          "id": "today-is-saturday-r9",
-          "image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
-          "label": null
+          "id": "today-is-tuesday-r9",
+          "image_url": "",
+          "label": "Today is Tuesday."
         }
       ],
-      "audio_text": "Today is Sunday.",
+      "audio_text": "What day is it today? Today is Sunday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es domingo.",
-      "pedagogy_note": "Story beat 09: Today is Sunday.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Sunday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c017-prompt-3d41f10173900622a06d",
-          "purpose": "prompt",
-          "text": "Today is Sunday.",
+          "id": "lesson-4-8-days-and-time-c017-prompt-turn-1-9f1345d964623a8b9e71",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c017-answer-7268be9417873646a429",
+          "id": "lesson-4-8-days-and-time-c017-prompt-turn-2-918bdc6b214ea7bb0bed",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Sunday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c017-answer-5c2cb120f24590db3532",
           "purpose": "answer",
           "text": "Today is Sunday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -960,46 +1135,53 @@
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "a2t3",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
-      "correct_option_id": "i-study-english-on-monday-r10",
+      "correct_option_id": "i-study-on-monday-r10",
       "options": [
         {
-          "id": "i-study-english-on-monday-r10",
+          "id": "i-study-on-monday-r10",
           "image_url": "",
-          "label": "I study English on Monday."
+          "label": "I study on Monday."
         },
         {
-          "id": "i-study-english-on-sunday-r10",
+          "id": "i-study-on-sunday-r10",
           "image_url": "",
-          "label": "I study English on Sunday."
+          "label": "I study on Sunday."
         },
         {
-          "id": "i-study-english-on-friday-r10",
+          "id": "i-study-on-friday-r10",
           "image_url": "",
-          "label": "I study English on Friday."
+          "label": "I study on Friday."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I study English on Monday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_study_monday_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: I study English on Monday.",
+      "audio_text": "I study on Monday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Estudio los lunes.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
-      "answer_audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "I study on Monday.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c018-answer-39466e862458e890c4ed",
-          "purpose": "answer",
-          "text": "I study English on Monday.",
+          "id": "lesson-4-8-days-and-time-c018-prompt-turn-1-c5118c778c519e50349d",
+          "purpose": "prompt-turn-1",
+          "text": "I study on Monday.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_study_monday_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1007,53 +1189,48 @@
     },
     {
       "slide_id": "A1",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "monday-a1",
       "options": [
         {
           "id": "monday-a1",
-          "image_url": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Monday"
         },
         {
           "id": "tuesday-a1",
-          "image_url": "/lesson-assets/a1_photo_u4_day_tuesday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Tuesday"
         }
       ],
       "audio_text": "Monday",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Monday",
-      "audio_speaker": "co-teacher",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Monday",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Monday",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c019-prompt-82beb61f1b5591ea321e",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c019-prompt-turn-1-5e4a6bed685de23d4707",
+          "purpose": "prompt-turn-1",
           "text": "Monday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-8-days-and-time-c019-answer-54dcf28074c09f5ccd69",
-          "purpose": "answer",
-          "text": "Monday",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1061,53 +1238,48 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "thursday-a2",
       "options": [
         {
-          "id": "thursday-a2",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "label": null
+          "id": "friday-a2",
+          "image_url": "",
+          "label": "Friday"
         },
         {
-          "id": "wednesday-a2",
-          "image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "label": null
+          "id": "thursday-a2",
+          "image_url": "",
+          "label": "Thursday"
         }
       ],
       "audio_text": "Thursday",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Thursday",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Thursday",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Thursday",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c020-prompt-e2c5dec8aa5975e6f95b",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c020-prompt-turn-1-6f19d2b242535ecee668",
+          "purpose": "prompt-turn-1",
           "text": "Thursday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-8-days-and-time-c020-answer-c5a4e08781953aa562ee",
-          "purpose": "answer",
-          "text": "Thursday",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1126,42 +1298,37 @@
           "label": "Friday"
         },
         {
-          "id": "thursday-a3",
+          "id": "saturday-a3",
           "image_url": "",
-          "label": "Thursday"
+          "label": "Saturday"
         }
       ],
       "audio_text": "Friday",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Friday",
-      "audio_speaker": "co-teacher",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Friday",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Friday",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c021-prompt-bb977e6e184b0b376428",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c021-prompt-turn-1-ee6dde07f90c55d00dbf",
+          "purpose": "prompt-turn-1",
           "text": "Friday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:fabcf6514fe776fcf150",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-8-days-and-time-c021-answer-92496f723f14db8b57ed",
-          "purpose": "answer",
-          "text": "Friday",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:fabcf6514fe776fcf150",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1169,53 +1336,48 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "saturday-a4",
       "options": [
         {
-          "id": "friday-a4",
-          "image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
-          "label": null
+          "id": "sunday-a4",
+          "image_url": "",
+          "label": "Sunday"
         },
         {
           "id": "saturday-a4",
-          "image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Saturday"
         }
       ],
       "audio_text": "Saturday",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: Saturday",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Saturday",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Saturday",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c022-prompt-cf7fb003a64006889fcc",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c022-prompt-turn-1-20a279ab66402951ad09",
+          "purpose": "prompt-turn-1",
           "text": "Saturday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-8-days-and-time-c022-answer-894e9833072581a9a4d1",
-          "purpose": "answer",
-          "text": "Saturday",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1223,63 +1385,48 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "sunday-a5",
       "options": [
         {
-          "id": "friday-a5",
-          "image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
-          "label": null
-        },
-        {
-          "id": "thursday-a5",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "label": null
-        },
-        {
           "id": "sunday-a5",
-          "image_url": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Sunday"
         },
         {
-          "id": "saturday-a5",
-          "image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
-          "label": null
+          "id": "monday-a5",
+          "image_url": "",
+          "label": "Monday"
         }
       ],
       "audio_text": "Sunday",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Sunday",
-      "audio_speaker": "co-teacher",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Sunday",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Sunday",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c023-prompt-ee7b81320ae1cda93da7",
-          "purpose": "prompt",
+          "id": "lesson-4-8-days-and-time-c023-prompt-turn-1-7d592d0beb3aa37df3ae",
+          "purpose": "prompt-turn-1",
           "text": "Sunday",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-8-days-and-time-c023-answer-76f7cc16eefa77867786",
-          "purpose": "answer",
-          "text": "Sunday",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1293,6 +1440,11 @@
       "correct_option_id": "today-is-tuesday-a6",
       "options": [
         {
+          "id": "today-is-saturday-a6",
+          "image_url": "",
+          "label": "Today is Saturday."
+        },
+        {
           "id": "today-is-tuesday-a6",
           "image_url": "",
           "label": "Today is Tuesday."
@@ -1301,42 +1453,61 @@
           "id": "today-is-thursday-a6",
           "image_url": "",
           "label": "Today is Thursday."
-        },
-        {
-          "id": "today-is-monday-a6",
-          "image_url": "",
-          "label": "Today is Monday."
         }
       ],
-      "audio_text": "Today is Tuesday.",
+      "audio_text": "What day is it today? Today is Tuesday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: Today is Tuesday.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Hoy es martes.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Tuesday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c024-prompt-8cf816a8162c1818d797",
-          "purpose": "prompt",
-          "text": "Today is Tuesday.",
+          "id": "lesson-4-8-days-and-time-c024-prompt-turn-1-5edb312df1aedd0a18e3",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:193ce696dd854224277f",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c024-answer-edfcd2746210e2f871d8",
+          "id": "lesson-4-8-days-and-time-c024-prompt-turn-2-8c9aa2db53d58c27e6ab",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Tuesday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c024-answer-b0175d34e374402e1339",
           "purpose": "answer",
           "text": "Today is Tuesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:193ce696dd854224277f",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1346,63 +1517,82 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "today-is-wednesday-a7",
       "options": [
         {
-          "id": "today-is-monday-a7",
-          "image_url": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
-          "label": null
-        },
-        {
           "id": "today-is-wednesday-a7",
-          "image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Today is Wednesday."
         },
         {
-          "id": "today-is-tuesday-a7",
-          "image_url": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
-          "label": null
+          "id": "today-is-friday-a7",
+          "image_url": "",
+          "label": "Today is Friday."
         },
         {
-          "id": "today-is-thursday-a7",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "label": null
+          "id": "today-is-sunday-a7",
+          "image_url": "",
+          "label": "Today is Sunday."
         }
       ],
-      "audio_text": "Today is Wednesday.",
+      "audio_text": "What day is it today? Today is Wednesday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: Today is Wednesday.",
-      "audio_speaker": "co-teacher",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Hoy es mi\u00e9rcoles.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Wednesday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c025-prompt-6ce5c9e713d6ce44194d",
-          "purpose": "prompt",
-          "text": "Today is Wednesday.",
+          "id": "lesson-4-8-days-and-time-c025-prompt-turn-1-0ea0ca70609973ccec80",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c025-answer-4a7cbea6c0f7600befff",
+          "id": "lesson-4-8-days-and-time-c025-prompt-turn-2-4405c3d9139296b5a87b",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Wednesday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c025-answer-39df6c7e2b52bc5992c3",
           "purpose": "answer",
           "text": "Today is Wednesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1410,61 +1600,80 @@
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "today-is-thursday-a8",
       "options": [
         {
-          "id": "today-is-friday-a8",
-          "image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
-          "label": null
+          "id": "today-is-saturday-a8",
+          "image_url": "",
+          "label": "Today is Saturday."
+        },
+        {
+          "id": "today-is-monday-a8",
+          "image_url": "",
+          "label": "Today is Monday."
         },
         {
           "id": "today-is-thursday-a8",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "label": null
-        },
-        {
-          "id": "today-is-tuesday-a8",
-          "image_url": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
-          "label": null
-        },
-        {
-          "id": "today-is-wednesday-a8",
-          "image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
-          "label": null
+          "image_url": "",
+          "label": "Today is Thursday."
         }
       ],
-      "audio_text": "Today is Thursday.",
+      "audio_text": "What day is it today? Today is Thursday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: Today is Thursday.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Hoy es jueves.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Thursday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c026-prompt-30852033cc2da3906fc9",
-          "purpose": "prompt",
-          "text": "Today is Thursday.",
+          "id": "lesson-4-8-days-and-time-c026-prompt-turn-1-98ac97dac4d205d823f2",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c026-answer-4e52e777664b527831de",
+          "id": "lesson-4-8-days-and-time-c026-prompt-turn-2-adfab05cec3835d5215a",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Thursday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c026-answer-dd9ef9e9bd202f86b67f",
           "purpose": "answer",
           "text": "Today is Thursday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1477,55 +1686,79 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "today-is-friday-a9",
+      "correct_option_id": "today-is-sunday-a9",
       "options": [
-        {
-          "id": "today-is-saturday-a9",
-          "image_url": "",
-          "label": "Today is Saturday."
-        },
         {
           "id": "today-is-thursday-a9",
           "image_url": "",
           "label": "Today is Thursday."
         },
         {
-          "id": "today-is-friday-a9",
+          "id": "today-is-sunday-a9",
           "image_url": "",
-          "label": "Today is Friday."
+          "label": "Today is Sunday."
+        },
+        {
+          "id": "today-is-tuesday-a9",
+          "image_url": "",
+          "label": "Today is Tuesday."
         }
       ],
-      "audio_text": "Today is Friday.",
+      "audio_text": "What day is it today? Today is Sunday.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Today is Friday.",
-      "audio_speaker": "co-teacher",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "Hoy es domingo.",
+      "pedagogy_note": "Hear the explicit weekday or day reply; neutral weekly planner has no answer highlight.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        },
+        {
+          "text": "Today is Sunday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c027-prompt-51c8102a44c482500e66",
-          "purpose": "prompt",
-          "text": "Today is Friday.",
+          "id": "lesson-4-8-days-and-time-c027-prompt-turn-1-d1511305ee025c0b661e",
+          "purpose": "prompt-turn-1",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:bac2ad7508af124e4b7e",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c027-answer-97d6d3b54dcde6896789",
+          "id": "lesson-4-8-days-and-time-c027-prompt-turn-2-4056fde8147857b35217",
+          "purpose": "prompt-turn-2",
+          "text": "Today is Sunday.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-8-days-and-time-c027-answer-edd8cba8c4ab6a75127f",
           "purpose": "answer",
-          "text": "Today is Friday.",
+          "text": "Today is Sunday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:bac2ad7508af124e4b7e",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1540,7 +1773,7 @@
       "options": [
         {
           "id": "today-is-monday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "label": "Today is Monday."
         }
       ],
@@ -1555,24 +1788,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c028-prompt-84eddbc1b96506852ec2",
+          "id": "lesson-4-8-days-and-time-c028-prompt-71416955acbb39ab385d",
           "purpose": "prompt",
           "text": "Today is Monday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c028-answer-f6abad076bc843fada3f",
+          "id": "lesson-4-8-days-and-time-c028-answer-3edecf99482726e3f19b",
           "purpose": "answer",
           "text": "Today is Monday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1589,7 +1822,7 @@
       "options": [
         {
           "id": "today-is-tuesday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "label": "Today is Tuesday."
         }
       ],
@@ -1604,24 +1837,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c029-prompt-67895c8aa52a118f0bc9",
+          "id": "lesson-4-8-days-and-time-c029-prompt-82d718848dd1dd1552ea",
           "purpose": "prompt",
           "text": "Today is Tuesday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c029-answer-8d871c14283eaf893fd5",
+          "id": "lesson-4-8-days-and-time-c029-answer-355fd6b8d733e1b50a32",
           "purpose": "answer",
           "text": "Today is Tuesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1638,7 +1871,7 @@
       "options": [
         {
           "id": "today-is-wednesday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "label": "Today is Wednesday."
         }
       ],
@@ -1653,24 +1886,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c030-prompt-a2aa818a21409bdd28bb",
+          "id": "lesson-4-8-days-and-time-c030-prompt-2c89b79686dea86824bd",
           "purpose": "prompt",
           "text": "Today is Wednesday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c030-answer-fd24a713e0c97cf697cc",
+          "id": "lesson-4-8-days-and-time-c030-answer-2d474a6c66f6d7e324d1",
           "purpose": "answer",
           "text": "Today is Wednesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1687,7 +1920,7 @@
       "options": [
         {
           "id": "today-is-thursday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "label": "Today is Thursday."
         }
       ],
@@ -1702,24 +1935,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c031-prompt-ff2074345cbb58e6e68c",
+          "id": "lesson-4-8-days-and-time-c031-prompt-1b24894f02cea54b80cb",
           "purpose": "prompt",
           "text": "Today is Thursday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c031-answer-53fe381f3282e7db936c",
+          "id": "lesson-4-8-days-and-time-c031-answer-fff0956370f8e8200a23",
           "purpose": "answer",
           "text": "Today is Thursday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1736,7 +1969,7 @@
       "options": [
         {
           "id": "today-is-friday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "label": "Today is Friday."
         }
       ],
@@ -1751,24 +1984,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c032-prompt-b89afaee8ed126c6728b",
+          "id": "lesson-4-8-days-and-time-c032-prompt-5c93842b33fc64b83718",
           "purpose": "prompt",
           "text": "Today is Friday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c032-answer-902a2c595805c274d014",
+          "id": "lesson-4-8-days-and-time-c032-answer-200e56766b7921c01d1b",
           "purpose": "answer",
           "text": "Today is Friday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1785,7 +2018,7 @@
       "options": [
         {
           "id": "today-is-saturday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "label": "Today is Saturday."
         }
       ],
@@ -1800,24 +2033,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c033-prompt-53d516d106917f96d2c1",
+          "id": "lesson-4-8-days-and-time-c033-prompt-d9869b4657d4d8685729",
           "purpose": "prompt",
           "text": "Today is Saturday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c033-answer-0fc7625bc28fb15d4019",
+          "id": "lesson-4-8-days-and-time-c033-answer-9e78615803a0dfc6db24",
           "purpose": "answer",
           "text": "Today is Saturday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1834,7 +2067,7 @@
       "options": [
         {
           "id": "today-is-sunday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "label": "Today is Sunday."
         }
       ],
@@ -1849,24 +2082,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c034-prompt-e2d66a3969abb0f250d9",
+          "id": "lesson-4-8-days-and-time-c034-prompt-14aa10292664384e4f57",
           "purpose": "prompt",
           "text": "Today is Sunday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c034-answer-47848962b50079a233e0",
+          "id": "lesson-4-8-days-and-time-c034-answer-6a7e80350f80dd5dfc65",
           "purpose": "answer",
           "text": "Today is Sunday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1877,45 +2110,45 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I study English on Monday.",
+      "prompt": "What day is it today?",
       "stage": "Speak",
       "correct_option_id": "i-study-english-on-monday-speak",
       "options": [
         {
           "id": "i-study-english-on-monday-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_study_monday_v1.webp",
-          "label": "I study English on Monday."
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "label": "What day is it today?"
         }
       ],
-      "audio_text": "I study English on Monday.",
+      "audio_text": "What day is it today?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estudio ingl\u00e9s el lunes.",
-      "pedagogy_note": "Story beat 08: I study English on Monday.",
+      "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
+      "pedagogy_note": "Story beat 08: I study on Monday.",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c035-prompt-3c37394603a51a604dd4",
+          "id": "lesson-4-8-days-and-time-c035-prompt-fc8fe2fde4b57dda3efd",
           "purpose": "prompt",
-          "text": "I study English on Monday.",
+          "text": "What day is it today?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_study_monday_v1.webp",
-          "semantic_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c035-answer-66d43438c62ab2a0f23f",
+          "id": "lesson-4-8-days-and-time-c035-answer-af4b11aaff5c2eeac040",
           "purpose": "answer",
-          "text": "I study English on Monday.",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_study_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1947,7 +2180,7 @@
       ],
       "audio_text": "Today is Monday.",
       "answer_audio_text": "Today is Monday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es lunes.",
       "pedagogy_note": "Story beat 01: Today is Monday.",
       "audio_speaker": "co-teacher",
@@ -1956,24 +2189,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c036-prompt-9847201d3503dab6d6bb",
+          "id": "lesson-4-8-days-and-time-c036-prompt-83d86dfce1d01e4ff330",
           "purpose": "prompt",
           "text": "Today is Monday.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c036-answer-2eeeb52015fb2790f43a",
+          "id": "lesson-4-8-days-and-time-c036-answer-801a476953ac21c80fd3",
           "purpose": "answer",
           "text": "Today is Monday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_monday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2005,7 +2238,7 @@
       ],
       "audio_text": "Today is Tuesday.",
       "answer_audio_text": "Today is Tuesday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es martes.",
       "pedagogy_note": "Story beat 02: Today is Tuesday.",
       "audio_speaker": null,
@@ -2014,24 +2247,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c037-prompt-23239cc65de56283cff6",
+          "id": "lesson-4-8-days-and-time-c037-prompt-2b6409983f03f9008ed2",
           "purpose": "prompt",
           "text": "Today is Tuesday.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c037-answer-dc710c4ad5529a4b7886",
+          "id": "lesson-4-8-days-and-time-c037-answer-21a51ce44425c922dabe",
           "purpose": "answer",
           "text": "Today is Tuesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_today_note_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2063,7 +2296,7 @@
       ],
       "audio_text": "Today is Wednesday.",
       "answer_audio_text": "Today is Wednesday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es mi\u00e9rcoles.",
       "pedagogy_note": "Story beat 03: Today is Wednesday.",
       "audio_speaker": "co-teacher",
@@ -2072,24 +2305,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c038-prompt-7afc4f3c5de98288dfbe",
+          "id": "lesson-4-8-days-and-time-c038-prompt-0cd18c57c9b7fa8582b1",
           "purpose": "prompt",
           "text": "Today is Wednesday.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c038-answer-e58b6311df7bb4d23bf4",
+          "id": "lesson-4-8-days-and-time-c038-answer-6f5eb83cce62d1a6ba7d",
           "purpose": "answer",
           "text": "Today is Wednesday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_wednesday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2127,7 +2360,7 @@
       ],
       "audio_text": "Today is Thursday.",
       "answer_audio_text": "Today is Thursday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es jueves.",
       "pedagogy_note": "Story beat 04: Today is Thursday.",
       "audio_speaker": null,
@@ -2136,24 +2369,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c039-prompt-2e816242732ff57f3ff9",
+          "id": "lesson-4-8-days-and-time-c039-prompt-fe75cb7a86cdd30b1814",
           "purpose": "prompt",
           "text": "Today is Thursday.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c039-answer-45719e21d37618522226",
+          "id": "lesson-4-8-days-and-time-c039-answer-38e1d85d7844a3458766",
           "purpose": "answer",
           "text": "Today is Thursday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_thursday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2191,7 +2424,7 @@
       ],
       "audio_text": "Today is Friday.",
       "answer_audio_text": "Today is Friday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es viernes.",
       "pedagogy_note": "Story beat 05: Today is Friday.",
       "audio_speaker": "co-teacher",
@@ -2200,24 +2433,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c040-prompt-dbcd785c49f0ecafc207",
+          "id": "lesson-4-8-days-and-time-c040-prompt-3fdfcb46902de8128cd6",
           "purpose": "prompt",
           "text": "Today is Friday.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c040-answer-7ef0606a773a97d19df9",
+          "id": "lesson-4-8-days-and-time-c040-answer-7b31b9bfcc74cc0a70af",
           "purpose": "answer",
           "text": "Today is Friday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_friday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2255,7 +2488,7 @@
       ],
       "audio_text": "Today is Saturday.",
       "answer_audio_text": "Today is Saturday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
       "spanish_translation": "Hoy es s\u00e1bado.",
       "pedagogy_note": "Story beat 06: Today is Saturday.",
       "audio_speaker": null,
@@ -2264,24 +2497,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c041-prompt-1a5bed0b82e9b45e6ccf",
+          "id": "lesson-4-8-days-and-time-c041-prompt-5bf66b6043d38ead2ba3",
           "purpose": "prompt",
           "text": "Today is Saturday.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c041-answer-10be1d66b1b19b2206ce",
+          "id": "lesson-4-8-days-and-time-c041-answer-670964d6e5287585f2db",
           "purpose": "answer",
           "text": "Today is Saturday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_saturday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2292,62 +2525,74 @@
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___?",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
+        "word-3",
+        "word-4",
+        "word-5"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
+          "label": "day"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "it"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Today"
+          "label": "What"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "Sunday"
+          "label": "is"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "today"
         }
       ],
-      "audio_text": "Today is Sunday.",
-      "answer_audio_text": "Today is Sunday.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
-      "spanish_translation": "Hoy es domingo.",
-      "pedagogy_note": "Story beat 07: Today is Sunday.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "What day is it today?",
+      "answer_audio_text": "What day is it today?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+      "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
+      "pedagogy_note": "Use: What day is it today?",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-8-days-and-time-c042-prompt-6222ecb68190fca5e4ee",
+          "id": "lesson-4-8-days-and-time-c042-prompt-c97fdebb91f849367ca3",
           "purpose": "prompt",
-          "text": "Today is Sunday.",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-8-days-and-time-c042-answer-0537e6fe63d98c13738f",
+          "id": "lesson-4-8-days-and-time-c042-answer-5509dcf3bdcdef19d488",
           "purpose": "answer",
-          "text": "Today is Sunday.",
+          "text": "What day is it today?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u4_day_sunday_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

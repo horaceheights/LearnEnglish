@@ -45,11 +45,11 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // 595 since 2026-09-27: the engine-built Unit 6 (nine Speak cards in each teaching lesson, one more in the review).
 // 618 since 2026-09-27: the engine-built Unit 7 (8-9 Speak cards in each teaching lesson, one more in the review).
 // 2026-09-29: 3.3 uses eight alternating questions and answers instead of nine old drills.
-assert.equal(speakCards.length, 617, 'The Speak inventory preserves every lesson and mission gate, with eight current-action cards in 3.3.');
+assert.equal(speakCards.length, 619, 'The Speak inventory preserves every lesson and mission gate, with eight current-action cards in 3.3.');
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
 // The Unit 3 mission gained a fifth gate, Is it yours?, on 2026-09-25.
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 5);
-assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-10-my-day-mission').length, 4);
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-10-my-day-mission').length, 9);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-5-10-cafe-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-6-10-town-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-7-10-a1-final-mission').length, 4);

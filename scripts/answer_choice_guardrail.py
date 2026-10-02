@@ -71,6 +71,8 @@ def segments(text):
 
 
 def segment_form(text):
+    # Sentence connectors do not turn the following complete clause into a phrase.
+    text = re.sub(r"^(?:first|then|after that|finally),?\s+", "", text)
     words = TOKEN.findall(text)
     plain = " ".join(words)
     if plain in UTTERANCES or plain.endswith(" please") or IMPERATIVE.match(text):
@@ -154,7 +156,7 @@ def analyze_bank(card):
             # other functions; diversity applies to descriptive activity banks.
             if segment_form(segment) == "utterances" or re.match(r"^(?:who|what|where|how|do|does|can)\b", segment):
                 continue
-            match = ACTION_CLAUSE.match(re.sub(r"^(?:first|then),?\s+", "", segment))
+            match = ACTION_CLAUSE.match(re.sub(r"^(?:first|then|after that|finally),?\s+", "", segment))
             if match and ACTION[match['action']] not in {'have', 'like', 'want', 'need', 'understand'}:
                 subject = match['subject'].strip()
                 subject = identities.get(subject, subject)

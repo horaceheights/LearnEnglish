@@ -15,6 +15,16 @@ def option(identifier, label=None, image=""):
 
 
 class ContentEnginePlanTests(unittest.TestCase):
+    def test_heard_context_keeps_its_authored_picture_on_import(self):
+        card = {"slide_id": "A1", "stage": "Listen", "interaction_type": "a2t2",
+                "prompt": "Listen and choose.", "prompt_image_url": "conversation.webp",
+                "options": [option("yes", "Yes, I do."), option("no", "No, I do not.")],
+                "correct_option_id": "yes", "audio_text": "Do you work? Yes, I do.",
+                "answer_audio_text": None,
+                "audio_turns": [{"text": "Do you work?", "speaker_role": "luis", "image_url": "conversation.webp"},
+                                {"text": "Yes, I do.", "speaker_role": "ana", "image_url": "conversation.webp"}]}
+        self.assertEqual(compose_lesson(import_lesson({"id": "example", "cards": [card]}))["cards"], [card])
+
     def test_every_live_lesson_rebuilds_exactly_from_its_plan(self):
         catalog = load_catalog(ROOT, load_standards(ROOT, "a1"))
         self.assertTrue(catalog)

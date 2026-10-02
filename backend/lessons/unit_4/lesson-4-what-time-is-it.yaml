@@ -31,12 +31,12 @@
     "in the morning",
     "I",
     "wake up",
-    "sleep"
+    "study"
   ],
   "grammar_function": "What time is it? It is + number + o'clock. in the morning / in the afternoon / at night; at + time.",
-  "prerequisite": "2.6-2.7 and 3.5 numbers (eleven, twelve); 4.5 in the morning; 4.5-4.6 wake up and sleep.",
+  "prerequisite": "4.5 wake up and morning; 4.8 study; 4.9 day question; Unit 3 numbers.",
   "speaking_outcome": "Ask the time and say whole-hour times and parts of the day.",
-  "content_revision": 1,
+  "content_revision": 2,
   "purposeful_review_slides": [
     "R3",
     "R4",
@@ -423,28 +423,36 @@
     },
     {
       "slide_id": "R11",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "a2t2",
+      "prompt": "¡Escucha y elige!",
       "stage": "Recognize",
-      "correct_option_id": "i-sleep-at-night-r11",
+      "correct_option_id": "i-study-at-night-r11",
       "options": [
         {
-          "id": "i-sleep-in-the-afternoon-r11",
+          "id": "i-study-in-the-afternoon-r11",
           "image_url": "",
-          "label": "I sleep in the afternoon."
+          "label": "I study in the afternoon."
         },
         {
-          "id": "i-sleep-at-night-r11",
+          "id": "i-study-at-night-r11",
           "image_url": "",
-          "label": "I sleep at night."
+          "label": "I study at night."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I sleep at night.",
-      "prompt_image_url": "a1_scene_sleep-night_192fa33.webp",
+      "audio_text": "I study at night.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
+      "audio_turns": [
+        {
+          "text": "I study at night.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp"
+        }
+      ],
       "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 11: I sleep at night."
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 11: I study at night.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "A1",
@@ -687,25 +695,26 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-sleep-at-night-a10",
+      "correct_option_id": "i-study-at-night-a10",
       "options": [
         {
-          "id": "i-sleep-in-the-afternoon-a10",
+          "id": "i-study-in-the-afternoon-a10",
           "image_url": "",
-          "label": "I sleep in the afternoon."
+          "label": "I study in the afternoon."
         },
         {
-          "id": "i-sleep-at-night-a10",
+          "id": "i-study-at-night-a10",
           "image_url": "",
-          "label": "I sleep at night."
+          "label": "I study at night."
         }
       ],
-      "audio_text": "I sleep at night.",
+      "audio_text": "I study at night.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: I sleep at night.",
-      "audio_speaker": "ana"
+      "pedagogy_note": "Story beat 10: I study at night.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character"
     },
     {
       "slide_id": "S1",
@@ -867,22 +876,23 @@
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "I sleep at night.",
+      "prompt": "I study at night.",
       "stage": "Speak",
-      "correct_option_id": "i-sleep-at-night-speak",
+      "correct_option_id": "i-study-at-night-speak",
       "options": [
         {
-          "id": "i-sleep-at-night-speak",
-          "image_url": "a1_scene_sleep-night_192fa33.webp",
-          "label": "I sleep at night."
+          "id": "i-study-at-night-speak",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
+          "label": "I study at night."
         }
       ],
-      "audio_text": "I sleep at night.",
+      "audio_text": "I study at night.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Duermo por la noche.",
-      "pedagogy_note": "Story beat 09: I sleep at night.",
-      "audio_speaker": "ana"
+      "spanish_translation": "Estudio por la noche.",
+      "pedagogy_note": "Story beat 09: I study at night.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character"
     },
     {
       "slide_id": "U1",
@@ -1183,7 +1193,7 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "sleep"
+          "label": "study"
         },
         {
           "id": "word-4",
@@ -1201,20 +1211,20 @@
           "label": "at"
         }
       ],
-      "audio_text": "I sleep at night.",
-      "answer_audio_text": "I sleep at night.",
-      "prompt_image_url": "a1_scene_sleep-night_192fa33.webp",
-      "spanish_translation": "Duermo por la noche.",
-      "translation": "Duermo por la noche.",
+      "audio_text": "I study at night.",
+      "answer_audio_text": "I study at night.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
+      "spanish_translation": "Estudio por la noche.",
+      "translation": "Estudio por la noche.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 08: I sleep at night.",
-      "audio_speaker": "ana"
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 08: I study at night.",
+      "audio_speaker": "male-character"
     }
   ]
 }

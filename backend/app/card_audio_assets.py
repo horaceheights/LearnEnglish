@@ -301,7 +301,7 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
     if is_pronunciation:
         for option_index, option in enumerate(card.options):
             option_text = (option.label or "").strip()
-            if not option_text or option_text == raw_prompt:
+            if not option_text or " ".join(option_text.split()) == " ".join(raw_prompt.split()):
                 continue
             purpose = f"pronunciation-option-{option_index + 1}"
             semantic_role = _semantic_role(purpose, option_text)

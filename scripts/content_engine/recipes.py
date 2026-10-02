@@ -40,8 +40,11 @@ def choice(spec: dict) -> dict:
     if listening:
         derived.update(prompt="¡Escucha y elige!" if spec["stage"] == "Recognize" else LISTEN_PROMPT,
                        answer_audio_text=None)
+        # Ordered turns are the heard prompt, even when the choices are short replies.
+        if spec.get("audio_turns"):
+            derived["audio_text"] = " ".join(turn["text"] for turn in spec["audio_turns"])
         # Caption-free pictures carry no label, so the spoken cue is authored.
-        if label is not None:
+        elif label is not None:
             derived["audio_text"] = label
     elif images:
         derived["answer_audio_text"] = None

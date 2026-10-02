@@ -76,11 +76,16 @@ For current A1, preserve the standard `Learn → Recognize → Listen → Speak 
 
 When exact conversational order matters, a brief may name unique item `id`s and provide `stage_sequences`, mapping each stage to its ordered item IDs. The engine retains that sequence instead of selecting or sorting by exposure counts. A question item may use `choice_input: "audio"` to recognize its heard form without displaying the correct text or pretending that a general question has one unique action picture. `learn_context_pairs` in lesson authoring metadata bind adjacent question/answer Learn slides to a declared new target and exact lines; the shared practice audit checks that the surrounding language, including the answer, was taught earlier. This supports new question patterns without weakening ordinary vocabulary introductions.
 
+A reply item may supply `listening_turns` with the same text/speaker/image shape as `turns`. The final turn begins with the exact reply and may expand it using already-taught words. Listen plays that full context; answer options remain the short reply. Recognize still asks the item's `question` before selecting the pictured response. This avoids repeated context-free Yes/No listening cards and avoids making an entire dialogue the answer option. Explicit Use sequences can include a complete two-word sentence such as `I sleep.` in the full-construction half.
+
 Use existing schemas and shared authoring patterns. Author unambiguous answers, coherent distractors, contextual help, and feedback that explains the actual mistake. Avoid answer leakage before assessment. Treat images, audio, and all answer options as teaching content subject to the same language boundary.
 
 Reuse known object names and meaningful attributes while practising a new relationship: `Where is the blue book? The blue book is in the bag.` Do not replace the target nouns with repeated, unanchored `it` across a lesson. Questions, answers, distractors, audio and constructions keep the intended object explicit; pronouns remain appropriate for deliberate pronoun practice or a clear conversational antecedent. A declared new question frame may embed an already-taught object under the narrow `learn_question_frames` course setting; this does not make that object new vocabulary or permit an unrelated repeated statement on Learn.
 
 Declare mission behavior through supported metadata, never a lesson-ID condition. If an activity or teaching explanation lacks shared support, identify the engine gap. Within an authorized implementation task, solve it once in the shared layer; otherwise return the blocked portion and continue independent work. Do not hide the gap inside another unit-specific builder.
+
+
+Exact `learn_context_groups` support approved sequence-marker models and coupled question/action/reply introductions. Each binding declares adjacent slide IDs, exact lines, a sequence/exchange kind and the new targets it actually models. The shared audit rejects stale bindings, unknown context, overlap and targets without a model. This is not a vocabulary-introduction exemption.
 
 ### C. Prepare and review media/audio
 

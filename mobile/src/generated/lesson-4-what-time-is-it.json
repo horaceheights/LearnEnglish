@@ -31,10 +31,10 @@
     "in the morning",
     "I",
     "wake up",
-    "sleep"
+    "study"
   ],
   "grammar_function": "What time is it? It is + number + o'clock. in the morning / in the afternoon / at night; at + time.",
-  "prerequisite": "2.6-2.7 and 3.5 numbers (eleven, twelve); 4.5 in the morning; 4.5-4.6 wake up and sleep.",
+  "prerequisite": "4.5 wake up and morning; 4.8 study; 4.9 day question; Unit 3 numbers.",
   "speaking_outcome": "Ask the time and say whole-hour times and parts of the day.",
   "purposeful_review_slides": [
     "R3",
@@ -798,41 +798,48 @@
     },
     {
       "slide_id": "R11",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "a2t2",
+      "prompt": "\u00a1Escucha y elige!",
       "stage": "Recognize",
-      "correct_option_id": "i-sleep-at-night-r11",
+      "correct_option_id": "i-study-at-night-r11",
       "options": [
         {
-          "id": "i-sleep-in-the-afternoon-r11",
+          "id": "i-study-in-the-afternoon-r11",
           "image_url": "",
-          "label": "I sleep in the afternoon."
+          "label": "I study in the afternoon."
         },
         {
-          "id": "i-sleep-at-night-r11",
+          "id": "i-study-at-night-r11",
           "image_url": "",
-          "label": "I sleep at night."
+          "label": "I study at night."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I sleep at night.",
-      "prompt_image_url": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
+      "audio_text": "I study at night.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 11: I sleep at night.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 11: I study at night.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "I study at night.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-what-time-is-it-c015-answer-0268d900a1f1b01fbdcd",
-          "purpose": "answer",
-          "text": "I sleep at night.",
+          "id": "lesson-4-what-time-is-it-c015-prompt-turn-1-5ad1b13f5d77fd6d3e91",
+          "purpose": "prompt-turn-1",
+          "text": "I study at night.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1344,50 +1351,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-sleep-at-night-a10",
+      "correct_option_id": "i-study-at-night-a10",
       "options": [
         {
-          "id": "i-sleep-in-the-afternoon-a10",
+          "id": "i-study-in-the-afternoon-a10",
           "image_url": "",
-          "label": "I sleep in the afternoon."
+          "label": "I study in the afternoon."
         },
         {
-          "id": "i-sleep-at-night-a10",
+          "id": "i-study-at-night-a10",
           "image_url": "",
-          "label": "I sleep at night."
+          "label": "I study at night."
         }
       ],
-      "audio_text": "I sleep at night.",
+      "audio_text": "I study at night.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: I sleep at night.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "pedagogy_note": "Story beat 10: I study at night.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-what-time-is-it-c025-prompt-1adb20a9e140e7024393",
+          "id": "lesson-4-what-time-is-it-c025-prompt-93a8403c816934b6875d",
           "purpose": "prompt",
-          "text": "I sleep at night.",
+          "text": "I study at night.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:cb2d3750b2ffcd73550a",
+          "image_ref": "text-only:180cc9998b53206be16a",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-what-time-is-it-c025-answer-cf41a88e5517a13a406b",
+          "id": "lesson-4-what-time-is-it-c025-answer-5a1721a81222da56d1a3",
           "purpose": "answer",
-          "text": "I sleep at night.",
+          "text": "I study at night.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:cb2d3750b2ffcd73550a",
+          "image_ref": "text-only:180cc9998b53206be16a",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1788,47 +1795,47 @@
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "I sleep at night.",
+      "prompt": "I study at night.",
       "stage": "Speak",
-      "correct_option_id": "i-sleep-at-night-speak",
+      "correct_option_id": "i-study-at-night-speak",
       "options": [
         {
-          "id": "i-sleep-at-night-speak",
-          "image_url": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
-          "label": "I sleep at night."
+          "id": "i-study-at-night-speak",
+          "image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
+          "label": "I study at night."
         }
       ],
-      "audio_text": "I sleep at night.",
+      "audio_text": "I study at night.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Duermo por la noche.",
-      "pedagogy_note": "Story beat 09: I sleep at night.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "spanish_translation": "Estudio por la noche.",
+      "pedagogy_note": "Story beat 09: I study at night.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-what-time-is-it-c034-prompt-50359fcdf5b0fad6dbfe",
+          "id": "lesson-4-what-time-is-it-c034-prompt-32090cf06edcd2fd063f",
           "purpose": "prompt",
-          "text": "I sleep at night.",
+          "text": "I study at night.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-what-time-is-it-c034-answer-3599a63bce66a65d8cc8",
+          "id": "lesson-4-what-time-is-it-c034-answer-e8d185266eed11263390",
           "purpose": "answer",
-          "text": "I sleep at night.",
+          "text": "I study at night.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2334,7 +2341,7 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "sleep"
+          "label": "study"
         },
         {
           "id": "word-4",
@@ -2352,37 +2359,37 @@
           "label": "at"
         }
       ],
-      "audio_text": "I sleep at night.",
-      "answer_audio_text": "I sleep at night.",
-      "prompt_image_url": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
-      "spanish_translation": "Duermo por la noche.",
-      "pedagogy_note": "Story beat 08: I sleep at night.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": "ana",
+      "audio_text": "I study at night.",
+      "answer_audio_text": "I study at night.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
+      "spanish_translation": "Estudio por la noche.",
+      "pedagogy_note": "Story beat 08: I study at night.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-what-time-is-it-c042-prompt-ef70f6955ccc879092de",
+          "id": "lesson-4-what-time-is-it-c042-prompt-fcc57be5467fd2290d0e",
           "purpose": "prompt",
-          "text": "I sleep at night.",
+          "text": "I study at night.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-what-time-is-it-c042-answer-a98644b9678bd2c87f42",
+          "id": "lesson-4-what-time-is-it-c042-answer-14e3fc1300b3a173fc2a",
           "purpose": "answer",
-          "text": "I sleep at night.",
+          "text": "I study at night.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_sleep-night_192fa33.webp",
+          "image_ref": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

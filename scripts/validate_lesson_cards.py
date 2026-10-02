@@ -225,7 +225,7 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
 MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
     "lesson-3-10-introduction-mission": 14,
-    "lesson-4-10-my-day-mission": 13,
+    "lesson-4-10-my-day-mission": 17,
     "lesson-5-10-cafe-mission": 13,
     "lesson-6-10-town-mission": 13,
 }
@@ -260,9 +260,8 @@ MISSION_HERO_PREFIXES = {
     "lesson-10-family-mission": "a1_u1_reunion_",
     # The 2026-09-25 rebuild added the Is it yours? gate on two a1_u3_dinner_v2_ edits.
     "lesson-3-10-introduction-mission": ("a1_u3_dinner_v1_", "a1_u3_dinner_v2_"),
-    # Every rebuilt beat uses the a1_u4_home_v1_ namespace; the six-o'clock answer view is the
-    # mission-only still this gate already owned.
-    "lesson-4-10-my-day-mission": ("a1_u4_home_v1_", "a1_u4_mission_clock_six_v3.webp"),
+    # Approved family-visit reconstruction owns fresh mission-only v2 views.
+    "lesson-4-10-my-day-mission": "a1_u4_home_v2_",
     "lesson-5-10-cafe-mission": "a1_u5_market_v1_",
     "lesson-6-10-town-mission": "a1_u6_town_v1_",
 }
@@ -320,9 +319,9 @@ MISSION_KIND_SEQUENCE = {
         "voice-gate", "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-4-10-my-day-mission": [
-        "guided-search", "crowd-search", "crowd-search",
-        "contrast-hunt", "action-hunt", "action-hunt",
-        "crowd-search", "crowd-search", "crowd-search",
+        "guided-search", "crowd-search", "contrast-hunt", "crowd-search",
+        "action-hunt", "action-hunt", "action-hunt", "contrast-hunt",
+        "voice-gate", "voice-gate", "voice-gate", "voice-gate", "voice-gate",
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-5-10-cafe-mission": [
@@ -350,7 +349,7 @@ MISSION_CHAPTER_SEQUENCE = {
         ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["table-talk"] * 5
     ),
     "lesson-4-10-my-day-mission": (
-        ["cuartos"] * 3 + ["objetos"] + ["rutina"] * 3 + ["casa"] * 2 + ["confirma"] * 4
+        ["home"] * 4 + ["morning"] * 2 + ["help"] * 2 + ["welcome"] * 9
     ),
     "lesson-5-10-cafe-mission": (
         ["mercado"] * 3 + ["gustos"] + ["pide"] * 2 + ["comidas"] * 2 + ["cafe"] * 5
@@ -754,7 +753,7 @@ def validate_mission_contracts(lessons=None) -> list[str]:
         expected_kinds = MISSION_KIND_SEQUENCE.get(lesson.id)
         if expected_kinds is not None and mission_kinds != expected_kinds:
             errors.append(
-                f"{lesson.id} mission game kinds must follow the approved 22-beat flow; "
+                f"{lesson.id} mission game kinds must follow the approved {len(expected_kinds)}-beat flow; "
                 f"found {mission_kinds}."
             )
 

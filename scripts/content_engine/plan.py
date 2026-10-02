@@ -46,7 +46,11 @@ def import_card(card: dict) -> dict:
     derived = RECIPES[name](spec)
     exceptions, formatted = {}, {}
     for field, value in derived.items():
-        spec.pop(field, None)
+        # A context picture is authored input to the choice recipe. Retain it
+        # when its predicted value depends on that same input, so re-importing
+        # a heard conversation does not silently erase the picture.
+        if field != "prompt_image_url" or not spec.get(field):
+            spec.pop(field, None)
         actual = card.get(field, ABSENT)
         if actual != value:
             exceptions[field] = actual

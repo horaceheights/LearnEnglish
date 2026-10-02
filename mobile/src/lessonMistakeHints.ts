@@ -72,7 +72,8 @@ const MEANINGS: Record<string, string> = {
   'wake up': 'despertarse', 'get dressed': 'vestirse', 'wash my face': 'lavarme la cara',
   'brush my teeth': 'cepillarme los dientes', 'eat breakfast': 'desayunar', 'go to school': 'ir a la escuela',
   'go to work': 'ir al trabajo', 'come home': 'volver a casa', 'study english': 'estudiar inglés',
-  sleep: 'dormir', work: 'trabajar',
+  sleep: 'dormir', work: 'trabajar', open: 'abrir', close: 'cerrar', clean: 'limpiar', clothes: 'ropa',
+  'after that': 'después de eso', finally: 'por último',
   apple: 'manzana', apples: 'manzanas', banana: 'plátano', grapes: 'uvas', strawberry: 'fresa',
   bread: 'pan', egg: 'huevo', eggs: 'huevos', rice: 'arroz', milk: 'leche', fish: 'pescado',
   juice: 'jugo', water: 'agua', breakfast: 'desayuno', lunch: 'almuerzo', dinner: 'cena',
@@ -110,14 +111,14 @@ const MEANINGS: Record<string, string> = {
   our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', have: 'tener', has: 'tiene',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
-  study: 'estudiar', goes: 'va', walks: 'camina', likes: 'le gusta',
+  study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',
   '1': 'uno', '2': 'dos', '3': 'tres', '4': 'cuatro', '5': 'cinco',
-  '6': 'seis', '7': 'siete', '8': 'ocho', '9': 'nueve', '10': 'diez',
+  '6': 'seis', '7': 'siete', '8': 'ocho', '9': 'nueve', '10': 'diez', '11': 'once', '12': 'doce',
   mon: 'lunes', tue: 'martes', wed: 'miércoles', thu: 'jueves',
   fri: 'viernes', sat: 'sábado', sun: 'domingo',
   night: 'noche', pair: 'dos personas', only: 'sin girar', then: 'después',
   crossing: 'cruce', crosses: 'cruza', stops: 'se detiene',
-  allowed: 'permitido', blocked: 'bloqueado', open: 'abierto',
+  allowed: 'permitido', blocked: 'bloqueado',
   accepts: 'acepta', declines: 'rechaza', request: 'pedido', handoff: 'entrega',
   invites: 'invita', tv: 'televisión',
   rain: 'lluvia', next: 'al lado',
@@ -563,6 +564,14 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
     [correct, wrong] = [correctExchange[1], wrongExchange[1]];
   }
   if (!correct || !wrong || correct === wrong) return '';
+  const expectedSteps = correct.split(' then ');
+  const wrongSteps = wrong.split(' then ');
+  if (expectedSteps.length === 2 && wrongSteps.length === 2
+      && expectedSteps[0] === wrongSteps[1] && expectedSteps[1] === wrongSteps[0]) {
+    const first = phraseMeaning(expectedSteps[0]);
+    const next = phraseMeaning(expectedSteps[1]);
+    if (first && next) return `La frase pide primero ${first} y después ${next}; elegiste la secuencia inversa.`;
+  }
   if (IMAGE_CHOICE_MEANINGS[correct] && IMAGE_CHOICE_MEANINGS[wrong]) {
     const cue = /listen/i.test(card.stage) ? 'la frase escuchada' : 'la frase';
     return `Elegiste “${IMAGE_CHOICE_MEANINGS[wrong]}”; ${cue} pide “${IMAGE_CHOICE_MEANINGS[correct]}”.`;

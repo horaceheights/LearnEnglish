@@ -647,6 +647,7 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
                 self.assertTrue(all(
                     (not card.audio_text and card.answer_audio_text)
+                    or (card.interaction_type.startswith("a2t") and card.audio_text)
                     or (card.prompt and card.audio_text == card.prompt)
                     or (card.audio_text and card.answer_audio_text)
                     for card in image_to_text
@@ -1384,7 +1385,7 @@ class LessonStructureTests(unittest.TestCase):
             cards = [card for card in lesson.cards if card.stage == "Speak"]
             with self.subTest(lesson=lesson.id):
                 self.assertTrue(cards)
-                self.assertTrue(all(card.prompt and card.audio_text == card.prompt for card in cards))
+                self.assertTrue(all(card.prompt and " ".join(card.audio_text.split()) == " ".join(card.prompt.split()) for card in cards))
                 self.assertTrue(all(len(card.options) == 1 for card in cards))
                 self.assertTrue(all(card.options[0].image_url for card in cards))
 
