@@ -71,6 +71,8 @@ export function MissionVoicePresentation({
   const micPop = useRef(new Animated.Value(1)).current;
   const imageWidth = Math.max(0, Math.min(slot.width - 4, (slot.height - 4) * 1.5));
   const accepted = stage === 'passed';
+  const compactAnswer = slot.width > 0 && slot.width < 320
+    && (answer?.reduce((length, segment) => length + segment.text.length, 0) || 0) > 32;
 
   // The shared ready cue announces that the microphone is opening; the badge
   // pops at the same moment so the change is visible as well as audible.
@@ -130,7 +132,7 @@ export function MissionVoicePresentation({
           {liveSignal ? <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">{signal}</View> : null}
         </View>
         {answer && !unavailable ? <Text accessibilityLiveRegion="polite" adjustsFontSizeToFit minimumFontScale={0.8}
-          numberOfLines={2} style={styles.answer}>
+          numberOfLines={2} style={[styles.answer, compactAnswer ? styles.answerCompact : null]}>
           {answer.map((segment, index) => (
             <Text key={`${index}-${segment.text}`} style={segmentStyle(segment.state)}>{segment.text}</Text>
           ))}
@@ -181,6 +183,7 @@ const styles = StyleSheet.create({
   message: { color: '#35574a', fontSize: 13, lineHeight: 17 },
   messageCelebrate: { color: '#17623f', fontWeight: '900' },
   answer: { alignSelf: 'stretch', color: '#214c45', fontSize: 22, lineHeight: 27, fontWeight: '900', textAlign: 'center' },
+  answerCompact: { fontSize: 20, lineHeight: 25 },
   answerPending: { color: '#7b8b85' },
   answerHeard: { color: '#17623f', backgroundColor: '#c9eed8' },
   answerGood: { color: '#17623f', backgroundColor: '#dff4e7' },

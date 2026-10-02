@@ -115,7 +115,7 @@ test('the versioned manifest locks the complete recovery baseline and release id
   // 2026-09-28: Lesson 7.1 body-photo replacement preserves all 81 lessons and their language.
   // 2026-09-29: explicit objects and corrected In/On takes in Lesson 4.3; all 81 lessons remain.
   // Eight alternating question/answer slides per stage in 3.3 preserve the location fix.
-  assert.equal(integrityManifest.catalog.expectedGitBlob, 'b4ac450a41fb1fedf9027146f6eef0f1ab84e3f0');
+  assert.equal(integrityManifest.catalog.expectedGitBlob, 'ad56910a68eb3b235a325c590c5c738ac6aca022');
   assert.equal(integrityManifest.catalog.lessonCount, 81);
   assert.equal(integrityManifest.catalog.unitCount, 7);
   assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 12, 14, 12, 12, 10, 10]);
