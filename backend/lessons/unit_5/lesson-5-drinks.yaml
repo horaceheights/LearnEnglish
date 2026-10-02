@@ -32,16 +32,15 @@
     "children",
     "drinking",
     "I",
-    "every day",
-    "in the morning",
     "Do you...?",
     "Yes, I do.",
-    "No, I do not."
+    "No, I do not.",
+    "in the morning"
   ],
-  "grammar_function": "The grandmother is drinking tea. I drink water every day. Do you drink coffee? Yes, I do.",
-  "prerequisite": "1.2 drinking; 1.4-1.6 family words; 4.5-4.8 every day, in the morning and Do you...?; 5.2 food.",
-  "speaking_outcome": "Name a drink and say what I drink every day.",
-  "content_revision": 1,
+  "grammar_function": "The grandmother is drinking tea. I drink water in the morning. Do you drink coffee? Yes, I do.",
+  "prerequisite": "1.2 drinking; 1.4–1.6 family; 4.5 in the morning; 4.8 Do questions/replies; 5.2 food.",
+  "speaking_outcome": "Name a drink and say what I drink in the morning.",
+  "content_revision": 2,
   "purposeful_review_slides": [
     "R2",
     "R3",
@@ -406,33 +405,40 @@
     },
     {
       "slide_id": "R9",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "a2t3",
+      "prompt": "¡Escucha y elige!",
       "stage": "Recognize",
       "correct_option_id": "i-drink-water-every-day-r9",
       "options": [
         {
           "id": "i-drink-juice-every-day-r9",
           "image_url": "",
-          "label": "I drink juice every day."
+          "label": "I drink juice in the morning."
         },
         {
           "id": "i-drink-water-every-day-r9",
           "image_url": "",
-          "label": "I drink water every day."
+          "label": "I drink water in the morning."
         },
         {
           "id": "i-drink-milk-every-day-r9",
           "image_url": "",
-          "label": "I drink milk every day."
+          "label": "I drink milk in the morning."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I drink water every day.",
+      "audio_text": "I drink water in the morning.",
+      "answer_audio_text": null,
       "prompt_image_url": "a1_photo_u5_woman_drinking_water_v1.webp",
+      "audio_turns": [
+        {
+          "text": "I drink water in the morning.",
+          "speaker_role": "female-character",
+          "image_url": "a1_photo_u5_woman_drinking_water_v1.webp"
+        }
+      ],
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 09: I drink water every day."
+      "pedagogy_note": "Story beat 09: I drink water in the morning."
     },
     {
       "slide_id": "R10",
@@ -877,21 +883,21 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "I drink water every day.",
+      "prompt": "I drink water in the morning.",
       "stage": "Speak",
       "correct_option_id": "i-drink-water-every-day-speak",
       "options": [
         {
           "id": "i-drink-water-every-day-speak",
           "image_url": "a1_photo_u5_woman_drinking_water_v1.webp",
-          "label": "I drink water every day."
+          "label": "I drink water in the morning."
         }
       ],
-      "audio_text": "I drink water every day.",
+      "audio_text": "I drink water in the morning.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tomo agua todos los días.",
-      "pedagogy_note": "Story beat 07: I drink water every day.",
+      "spanish_translation": "Tomo agua por la mañana.",
+      "pedagogy_note": "Story beat 07: I drink water in the morning.",
       "audio_speaker": "female-character"
     },
     {
@@ -1133,7 +1139,7 @@
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
@@ -1145,7 +1151,12 @@
         {
           "id": "word-4",
           "image_url": "",
-          "label": "every"
+          "label": "in"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "morning"
         },
         {
           "id": "word-1",
@@ -1160,23 +1171,24 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "day"
+          "label": "the"
         }
       ],
-      "audio_text": "I drink water every day.",
-      "answer_audio_text": "I drink water every day.",
+      "audio_text": "I drink water in the morning.",
+      "answer_audio_text": "I drink water in the morning.",
       "prompt_image_url": "a1_photo_u5_woman_drinking_water_v1.webp",
-      "spanish_translation": "Tomo agua todos los días.",
-      "translation": "Tomo agua todos los días.",
+      "spanish_translation": "Bebo agua por la mañana.",
+      "translation": "Bebo agua por la mañana.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4",
-        "word-5"
+        "word-5",
+        "word-6"
       ],
       "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 07: I drink water every day.",
+      "pedagogy_note": "Use: I drink water in the morning.",
       "audio_speaker": "female-character"
     },
     {

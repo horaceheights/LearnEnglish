@@ -89,10 +89,15 @@ class PhotoReuseTests(unittest.TestCase):
     def test_scoped_proof_requires_fresh_review_and_keeps_missions_out(self):
         proof=json.loads((ROOT/'docs/qa/course-photo-reuse-v1.json').read_text(encoding='utf-8'))
         current=lessons(ROOT)
+        changes=json.loads((ROOT/'docs/product/course-media-change-plans.json').read_text(encoding='utf-8'))['changes']
+        retired={(c['lesson_id'],c['old_filename']) for c in changes if c.get('issue')=='lesson-rebuild-retires-use'}
         for record in proof['assets']:
             self.assertEqual(record['human_approval'],'pending')
             for scope in record['scopes']:
                 lesson=current[scope['lesson_id']]
+                if (scope['lesson_id'],record['old_filename']) in retired:
+                    self.assertNotIn(record['old_filename'],images(lesson))
+                    continue
                 self.assertFalse(is_mission(lesson))
                 if is_review(lesson):self.assertIn('generation',record)
                 parent,key=pointer_parent(lesson,scope['pointer'])
@@ -151,7 +156,13 @@ class PhotoReuseTests(unittest.TestCase):
         row=json.loads(proof_path.read_text())['assets'][0]
         plan={'lesson_id':row['lesson_id'],'old_filename':row['old_filename'],'new_filename':row['candidate_filename'],
               'old_sha256':row['old_sha256'],'evidence_file':'docs/qa/course-mission-still-reuse-v1.json'}
-        current=lessons(ROOT);validate_mission_still_plan(plan,current,ROOT)
+        current=lessons(ROOT)
+        changes=json.loads((ROOT/'docs/product/course-media-change-plans.json').read_text(encoding='utf-8'))['changes']
+        if any(c['lesson_id']==row['lesson_id'] and c['old_filename']==row['old_filename'] and c.get('issue')=='lesson-rebuild-retires-use' for c in changes):
+            self.assertNotIn(row['candidate_filename'],images(current[row['lesson_id']]))
+            with self.assertRaises(ValueError):validate_mission_still_plan(plan,current,ROOT)
+            return
+        validate_mission_still_plan(plan,current,ROOT)
         card=next(c for c in current[row['lesson_id']]['cards'] if c['slide_id']==row['slide_id'])
         card['mission_game']['kind']='listen-targets'
         with self.assertRaises(ValueError):validate_mission_still_plan(plan,current,ROOT)

@@ -11,7 +11,7 @@ const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
 for (const noun of words('spain diego states')) NOUNS.add(noun);
-for (const noun of words('home window')) NOUNS.add(noun);
+for (const noun of words('home window clothes')) NOUNS.add(noun);
 // Unit 5 (2026-09-26): fruit and food words that its constructions name.
 for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
 // Unit 7 (2026-09-27): the body word its constructions name.
@@ -19,7 +19,7 @@ NOUNS.add('ears');
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 const OWNERS = set('mine yours');
 const PRONOUNS = set('i you he she it we they this that these those there');
-const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives');
+const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening');
 const BE = set('am is are');
 
@@ -273,18 +273,24 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: 2, end: 4, explanation: `${quote(tokens[2])} indica por quién preguntamos y va antes de “doing”, la acción que queremos conocer.` });
     return { explanations, relations, supported: true };
   }
-  const question = /^(who|what number|what color|what time|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
+  const question = /^(who|what number|what color|what time|what day|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {
     const verbIndex = words(question[1]).length;
-    const subjectEnd = keys[keys.length - 1] === 'from' ? keys.length - 1 : keys.length;
+    const dayToday = keys[0] === 'what' && keys[1] === 'day' && keys[keys.length - 1] === 'today';
+    const subjectEnd = keys[keys.length - 1] === 'from' || dayToday ? keys.length - 1 : keys.length;
     teach(0, keys.length, `En esta pregunta, primero ${quote(phrase(0, verbIndex))}, luego ${quote(tokens[verbIndex])} y después ${quote(phrase(verbIndex + 1, subjectEnd))}. El verbo va antes de quien preguntamos.`);
     if (verbIndex === 2 && keys[0] === 'what') {
-      const asks = keys[1] === 'color' ? 'de qué color es' : keys[1] === 'time' ? 'qué hora es' : 'qué número es';
+      const asks = keys[1] === 'color' ? 'de qué color es' : keys[1] === 'time' ? 'qué hora es' : keys[1] === 'day' ? 'qué día es' : 'qué número es';
       teach(0, 2, `“What ${keys[1]}” pregunta ${asks}: “What” va antes de “${keys[1]}” y las dos palabras abren la pregunta.`);
     }
     else if (verbIndex === 2) teach(0, 2, `“How ${tokens[1]}” pregunta ${keys[1] === 'old' ? 'la edad' : 'el precio'}: “How” va antes de ${quote(tokens[1])} y las dos palabras abren la pregunta.`);
     const supported = subject(verbIndex + 1, subjectEnd);
-    if (subjectEnd < keys.length) teach(subjectEnd, keys.length, 'En “Where are you from?”, “Where” pregunta el lugar y “from” cierra la pregunta para indicar el origen.');
+    if (dayToday) {
+      const closing = '“Today” significa hoy y cierra esta pregunta, después de “it”: preguntamos qué día es hoy.';
+      teach(subjectEnd, keys.length, closing);
+      relations.push({ start: subjectEnd - 1, end: keys.length, explanation: closing });
+    }
+    else if (subjectEnd < keys.length) teach(subjectEnd, keys.length, 'En “Where are you from?”, “Where” pregunta el lugar y “from” cierra la pregunta para indicar el origen.');
     return { explanations, relations, supported };
   }
   // Lesson 4.8 asks about a routine with "Do you ...?": "Do" opens the question and the
@@ -318,8 +324,12 @@ function teachClause(text: string): ClausePlan {
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   let start = 0;
-  if (['first', 'then'].includes(keys[0])) {
-    teach(0, 1, `${quote(tokens[0])} indica ${keys[0] === 'first' ? 'qué ocurre primero' : 'qué ocurre después'} y abre esta frase, antes de quien realiza la acción.`);
+  if (keys[0] === 'after' && keys[1] === 'that') {
+    teach(0, 2, '“After that” significa después de eso: “after” va antes de “that”. El grupo abre esta frase y conecta la acción con el paso anterior.');
+    start = 2;
+  } else if (['first', 'then', 'finally'].includes(keys[0])) {
+    const order = keys[0] === 'first' ? 'qué ocurre primero' : keys[0] === 'finally' ? 'el último paso' : 'qué ocurre después';
+    teach(0, 1, `${quote(tokens[0])} indica ${order} y abre esta frase, antes de quien realiza la acción.`);
     start = 1;
   }
   const verbIndex = keys.findIndex((key, index) => index > start && VERBS.has(key));

@@ -24,6 +24,13 @@ def contract_for(lesson, exceptions=None):
 
 
 class AnswerChoiceContractTests(unittest.TestCase):
+    def test_sequence_connector_keeps_complete_clause_and_cannot_hide_fragment(self):
+        complete = lesson_with(['After that, I get dressed.', 'After that, I brush my teeth.'])
+        self.assertEqual('sentences', analyze_bank(complete['cards'][0])[0])
+        self.assertEqual([], analyze_bank(complete['cards'][0])[1])
+        broken = lesson_with(['Finally, I go to school.', 'After that, breakfast.'])
+        self.assertTrue(analyze_bank(broken['cards'][0])[1])
+
     def test_mixed_forms_cannot_be_waived_even_with_matching_contract(self):
         sentences = ["The children play.", "The children played.", "They're playing.",
                      "They’re playing.", "The boy's playing.", "She won't play.",

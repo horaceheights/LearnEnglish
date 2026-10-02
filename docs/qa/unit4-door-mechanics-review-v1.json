@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-01",
+  "reviewer": "Codex agent",
+  "human_semantic_status": "pending",
+  "reason": "User flagged right-side hinges appearing in open view and a centrally placed handle in matching review scene.",
+  "mechanics": "Left hinges in both states; handle near right free edge of moving leaf; no frame handle. Full 3:2 panels, no answer text.",
+  "rejected_runtime_filenames": [
+    "a1_photo_u4_rebuild_review_open_we_v2_v1.webp",
+    "a1_photo_u4_rebuild_review_open_you_v1.webp",
+    "a1_photo_u4_rebuild_review_close_we_v1.webp",
+    "a1_photo_u4_rebuild_review_door_group_sequence_v1.webp"
+  ],
+  "bindings": [
+    {
+      "id": "review_open_we_v3",
+      "runtime_filename": "a1_photo_u4_rebuild_review_open_we_v3_v1.webp",
+      "runtime_sha256": "f7e712c599c80c943ac1a5fea575b458814cd0240303a3e4dfc9cb84ff1ece51",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/unit4-rebuild-v1/review_open_we_v3.png",
+      "source_sha256": "331cedc9e3ddaa5fa90f2138195f34c5553ba636450d8816b319a916734512c9",
+      "agent_review": "Both panels retain left hinges; knob lies near right free latch edge; boy grips knob and father touches moving leaf. Closed-left/open-right."
+    },
+    {
+      "id": "review_open_you_v2",
+      "runtime_filename": "a1_photo_u4_rebuild_review_open_you_v2_v1.webp",
+      "runtime_sha256": "901281178fb9833a4d56402859d44d0ea2457600c2cacf18bd94af3736ba67a9",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/unit4-rebuild-v1/review_open_you_v2.png",
+      "source_sha256": "095e440ef053f84593f1ac526e63b0a49294476cc3c0ef0790a6b9f5d33ec54a",
+      "agent_review": "Mother watches/gestures without touching door; boy operates near-free-edge knob. Same left hinges and door across closed/open panels."
+    },
+    {
+      "id": "review_close_we_v2",
+      "runtime_filename": "a1_photo_u4_rebuild_review_close_we_v2_v1.webp",
+      "runtime_sha256": "ec84a39c1db4ac40668da32930bfc00a01f1a64c0bb87b3fe4a4eeedd3b22f37",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/unit4-rebuild-v1/review_close_we_v2.png",
+      "source_sha256": "8273ce8670a980f243d9823a75adc6e7700542411ebe5d2ed0c61d5899b98f28",
+      "agent_review": "Opening source panels exchanged: open-left/closed-right. Left hinges unchanged, father and boy operate moving leaf."
+    },
+    {
+      "id": "review_door_group_sequence_v2",
+      "runtime_filename": "a1_photo_u4_rebuild_review_door_group_sequence_v2_v1.webp",
+      "runtime_sha256": "89b1884aa81aa5b334f076f203255dcc2af8b4fe664d3f30a474ef6af507861f",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/unit4-rebuild-v1/review_door_group_sequence_v2.png",
+      "source_sha256": "77e9ffe61126c04ad3de4c335553ff6303a11105a1f474a8d71104205f32dfca",
+      "agent_review": "Left: father presses moving leaf while boy grips knob, both open. Right: mother gestures apart from door, boy alone holds closed leaf. Identical left hinge/free-edge hardware."
+    }
+  ],
+  "reused_audio_bindings": [
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c013-answer-aca1890e102cb7b9daa8",
+      "asset_id": "lesson-4-9-unit-4-review-c013-answer-a35e9414e791edc9d45d",
+      "take_id": "64e6a1b0362b13c4e72745042199800811af5c87bf085ec18075ecf624c7e52d",
+      "text": "You open the door.",
+      "voice": "female-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_open_you_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_open_you_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c014-prompt-4161739d62c1c7beb08a",
+      "asset_id": "lesson-4-9-unit-4-review-c014-prompt-444d0c66486a4db7ef04",
+      "take_id": "e862b41792dcfb9e5ead2f3352568914c89fbefa4c5c73bee1e031b6ec2df4aa",
+      "text": "We close the door.",
+      "voice": "male-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c014-answer-5b95356e45104841d18a",
+      "asset_id": "lesson-4-9-unit-4-review-c014-answer-aede329a15ef176d8250",
+      "take_id": "e862b41792dcfb9e5ead2f3352568914c89fbefa4c5c73bee1e031b6ec2df4aa",
+      "text": "We close the door.",
+      "voice": "male-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c041-prompt-turn-1-a8c9138ce9f8369f1939",
+      "asset_id": "lesson-4-9-unit-4-review-c041-prompt-turn-1-e26db51c0aa58613d1e4",
+      "take_id": "dddcd6c74f214acdc2569552d5897c77cd75c59619da3a2ca278c35b9bb7e112",
+      "text": "We open the door.",
+      "voice": "male-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_door_group_sequence_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_door_group_sequence_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c041-prompt-turn-2-2f03c22f4c298f72d479",
+      "asset_id": "lesson-4-9-unit-4-review-c041-prompt-turn-2-8a804751bd842a7ef6ef",
+      "take_id": "9dde4fded725ac35e17cf5167583843df8aa72c613cb1ecdf5c4ac4002726724",
+      "text": "You close the door.",
+      "voice": "female-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_door_group_sequence_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_door_group_sequence_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c051-prompt-98454f5d337f2fc66083",
+      "asset_id": "lesson-4-9-unit-4-review-c051-prompt-b860b299eb98a2a349e0",
+      "take_id": "64e6a1b0362b13c4e72745042199800811af5c87bf085ec18075ecf624c7e52d",
+      "text": "You open the door.",
+      "voice": "female-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_open_you_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_open_you_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c051-answer-bc48c132d8f282f9495f",
+      "asset_id": "lesson-4-9-unit-4-review-c051-answer-34ae34db435a886fb41d",
+      "take_id": "64e6a1b0362b13c4e72745042199800811af5c87bf085ec18075ecf624c7e52d",
+      "text": "You open the door.",
+      "voice": "female-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_open_you_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_open_you_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c052-prompt-d177db6975904be96524",
+      "asset_id": "lesson-4-9-unit-4-review-c052-prompt-3b850c494ff461ca596f",
+      "take_id": "e862b41792dcfb9e5ead2f3352568914c89fbefa4c5c73bee1e031b6ec2df4aa",
+      "text": "We close the door.",
+      "voice": "male-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    },
+    {
+      "previous_asset_id": "lesson-4-9-unit-4-review-c052-answer-9d2db19513052d53b9ef",
+      "asset_id": "lesson-4-9-unit-4-review-c052-answer-541c72efafd343a4c8fe",
+      "take_id": "e862b41792dcfb9e5ead2f3352568914c89fbefa4c5c73bee1e031b6ec2df4aa",
+      "text": "We close the door.",
+      "voice": "male-character",
+      "previous_image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v1.webp",
+      "image_ref": "/lesson-assets/a1_photo_u4_rebuild_review_close_we_v2_v1.webp",
+      "reason": "Reuse unchanged inspected voice/text take; only corrected picture identity changed. No provider request. Prior binding preserved as history."
+    }
+  ]
+}

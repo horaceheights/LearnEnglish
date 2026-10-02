@@ -124,6 +124,20 @@ def copied_asset(asset: CourseAudioAsset, **updates: object) -> CourseAudioAsset
 
 
 class PersistentCardAudioTests(unittest.TestCase):
+    def test_formatted_spoken_exchange_keeps_two_voices_without_a_single_voice_duplicate(self):
+        card = LessonCard(slide_id="S1", stage="Speak", interaction_type="speak",
+                          prompt="Do you work?\nYes, I do.", audio_text="Do you work? Yes, I do.",
+                          answer_audio_text="Do you work? Yes, I do.", correct_option_id="exchange",
+                          options=[ChoiceOption(id="exchange", label="Do you work?\nYes, I do.", image_url="conversation.webp")],
+                          audio_turns=[{"text": "Do you work?", "speaker_role": "female-character", "image_url": "conversation.webp"},
+                                       {"text": "Yes, I do.", "speaker_role": "male-character", "image_url": "conversation.webp"}])
+        assets = assets_for_card("example", 0, card)
+        self.assertEqual([asset.text for asset in assets], ["Do you work?", "Yes, I do."])
+        self.assertEqual([asset.speaker_role for asset in assets], ["female-character", "male-character"])
+        changed = card.model_copy(deep=True)
+        changed.options[0].label = "No, I do not."
+        self.assertTrue(any(asset.purpose.startswith("pronunciation-option-") for asset in assets_for_card("example", 0, changed)))
+
     def test_mission_onboarding_and_english_cues_use_immutable_audio_contracts(self):
         mission = LESSONS["lesson-10-family-mission"]
         first_card = mission.cards[0]
@@ -305,16 +319,17 @@ class PersistentCardAudioTests(unittest.TestCase):
         # and the pictured men and boys of its review keep their voices (+38 net).
         # 2026-09-26: the engine-built Unit 5 gives Luis his cafe and How many? lines, and the
         # pictured men, male customers and servers keep their voices (+55 net).
+        # 2026-10-01: approved school/home/do rebuild; authored English only.
         self.assertEqual(
-            Counter({"male-character": 431, "luis": 223, "diego": 16}),
+            Counter({"male-character": 572, "luis": 221, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
-        self.assertEqual(670, len(selected))
-        self.assertEqual(139, len(jobs))
-        self.assertEqual(139, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(809, len(selected))
+        self.assertEqual(165, len(jobs))
+        self.assertEqual(165, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
-        self.assertEqual(2391, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(3336, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},

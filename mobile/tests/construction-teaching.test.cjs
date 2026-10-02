@@ -194,6 +194,24 @@ test('a wrong construction waits for explicit retry while listening and missions
   assert.match(mobile, /<SentenceHelpOverlay[\s\S]*lessonHelpText\(currentCard, promptInteractionMode\)/);
 });
 
+test('ordered routines, household verbs and the complete day question keep their grammar roles', () => {
+  const targets = ['After that, I get dressed.', 'Finally, I go to school.', 'We wash our clothes.',
+    'You open the door.', 'They close the door.', 'We clean the table.', 'Do you run in the park?',
+    'What day is it today?'];
+  for (const target of targets) {
+    const card = construction(target);
+    assert.ok(constructionTeachingPlan(card).supported, target);
+    for (let a = 0; a < card.options.length; a++) for (let b = a + 1; b < card.options.length; b++) {
+      assert.ok(constructionMistakeHint(card, swap(card, a, b)).startsWith('Pusiste'), `${target}: ${a}/${b}`);
+    }
+  }
+  assert.match(hint('After that, I get dressed.', 0, 1), /“after” va antes de “that”/);
+  assert.match(hint('Finally, I go to school.', 0, 1), /último paso/);
+  assert.match(hint('What day is it today?', 0, 1), /qué día es/);
+  assert.match(hint('What day is it today?', 3, 4), /hoy/);
+  assert.match(hint('We wash our clothes.', 2, 3), /de quién es/);
+});
+
 test('every generated construction has explanations for every slot and every legal two-word swap', () => {
   const directory = path.join(__dirname, '../src/generated');
   const files = fs.readdirSync(directory).filter(file => /^lesson-.*\.json$/.test(file));

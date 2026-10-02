@@ -8,98 +8,602 @@
     "2": {
       "outcome": "Identify the meeting place and transport, find the right objects, distinguish near/far, then confirm counts and colors.",
       "functions": [
-        {"id": "places", "taught_in": "2.1", "patterns": ["\\b(?:a|the) (?:park|school|store|house|restaurant|hospital)\\b"]},
-        {"id": "transport", "taught_in": "2.2", "patterns": ["\\b(?:bus|car|bike)\\b"]},
-        {"id": "objects", "taught_in": "2.3", "patterns": ["\\b(?:book|pen|phone|bag|chair|table)\\b"]},
-        {"id": "what-exchange", "taught_in": "2.4", "patterns": ["\\bwhat is it\\b", "\\bit is (?:a|an)\\b"]},
-        {"id": "near-far", "taught_in": "2.5", "patterns": ["\\bthis is\\b", "\\bthat is\\b"]},
-        {"id": "counting", "taught_in": "2.6", "patterns": ["\\b(?:one|two|three|four|five)\\b"]},
-        {"id": "counting-6-10", "taught_in": "2.7", "patterns": ["\\b(?:six|seven|eight|nine|ten)\\b"]},
-        {"id": "colors", "taught_in": "2.8", "patterns": ["\\bred\\b", "\\bblue\\b", "\\bgreen\\b", "\\byellow\\b", "\\bblack\\b", "\\bwhite\\b"]},
-        {"id": "composed-description", "taught_in": "2.9", "patterns": ["\\bone (?:red|blue|green|yellow|black|white) (?:car|book|pen|phone|bag)\\b", "\\b(?:two|three|four|five|six|seven|eight|nine|ten) (?:red|blue|green|yellow|black|white) (?:cars|books|pens|phones|bags)\\b"]},
-        {"id": "these-those", "taught_in": "2.10", "patterns": ["\\bthese are\\b", "\\bthose are\\b"]},
-        {"id": "which-one", "taught_in": "2.10", "patterns": ["\\bwhich one\\b"]}
+        {
+          "id": "places",
+          "taught_in": "2.1",
+          "patterns": [
+            "\\b(?:a|the) (?:park|school|store|house|restaurant|hospital)\\b"
+          ]
+        },
+        {
+          "id": "transport",
+          "taught_in": "2.2",
+          "patterns": [
+            "\\b(?:bus|car|bike)\\b"
+          ]
+        },
+        {
+          "id": "objects",
+          "taught_in": "2.3",
+          "patterns": [
+            "\\b(?:book|pen|phone|bag|chair|table)\\b"
+          ]
+        },
+        {
+          "id": "what-exchange",
+          "taught_in": "2.4",
+          "patterns": [
+            "\\bwhat is it\\b",
+            "\\bit is (?:a|an)\\b"
+          ]
+        },
+        {
+          "id": "near-far",
+          "taught_in": "2.5",
+          "patterns": [
+            "\\bthis is\\b",
+            "\\bthat is\\b"
+          ]
+        },
+        {
+          "id": "counting",
+          "taught_in": "2.6",
+          "patterns": [
+            "\\b(?:one|two|three|four|five)\\b"
+          ]
+        },
+        {
+          "id": "counting-6-10",
+          "taught_in": "2.7",
+          "patterns": [
+            "\\b(?:six|seven|eight|nine|ten)\\b"
+          ]
+        },
+        {
+          "id": "colors",
+          "taught_in": "2.8",
+          "patterns": [
+            "\\bred\\b",
+            "\\bblue\\b",
+            "\\bgreen\\b",
+            "\\byellow\\b",
+            "\\bblack\\b",
+            "\\bwhite\\b"
+          ]
+        },
+        {
+          "id": "composed-description",
+          "taught_in": "2.9",
+          "patterns": [
+            "\\bone (?:red|blue|green|yellow|black|white) (?:car|book|pen|phone|bag)\\b",
+            "\\b(?:two|three|four|five|six|seven|eight|nine|ten) (?:red|blue|green|yellow|black|white) (?:cars|books|pens|phones|bags)\\b"
+          ]
+        },
+        {
+          "id": "these-those",
+          "taught_in": "2.10",
+          "patterns": [
+            "\\bthese are\\b",
+            "\\bthose are\\b"
+          ]
+        },
+        {
+          "id": "which-one",
+          "taught_in": "2.10",
+          "patterns": [
+            "\\bwhich one\\b"
+          ]
+        }
       ]
     },
     "3": {
       "outcome": "Meet people, exchange personal information established in dialogue, ask and answer yes/no questions with be, describe ownership, and ask about the current action.",
       "functions": [
-        {"id": "greetings-names", "taught_in": "3.1", "patterns": ["\\bhello\\b", "\\bgood morning\\b", "\\bgoodbye\\b", "\\bwhat is your name\\b", "\\bmy name is\\b"]},
-        {"id": "speaker-perspective", "taught_in": "3.2", "patterns": ["\\bi am\\b", "\\byou are\\b", "\\bwe are\\b"]},
-        {"id": "be-agreement", "taught_in": "3.3", "patterns": ["\\b(?:he|she|it) is\\b", "\\bthey are\\b"]},
-        {"id": "current-action-question", "taught_in": "3.3", "requires_introduction": true, "introduction_patterns": ["\\bwhat are you doing\\b"], "patterns": ["\\bwhat are you doing\\b", "\\bi am (?:reading|writing|talking|cooking|working|playing)\\b"]},
-        {"id": "yes-no-questions", "taught_in": "3.4", "patterns": ["^(?:is|are) (?:he|she|it|you|they)\\b", "\\byes (?:i am|he is|she is|it is|they are)\\b"]},
-        {"id": "age", "taught_in": "3.5", "patterns": ["\\bhow old are you\\b", "\\bi am (?:eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty) years old\\b"]},
-        {"id": "age-16-20", "taught_in": "3.6", "patterns": ["\\b(?:sixteen|seventeen|eighteen|nineteen|twenty) years old\\b"]},
-        {"id": "origin", "taught_in": "3.7", "patterns": ["\\bwhere are you from\\b", "\\bi am from (?:mexico|canada|spain|the united states)\\b", "\\bi am (?:mexican|canadian|spanish|american)\\b"]},
-        {"id": "canada-spain", "taught_in": "3.8", "patterns": ["\\b(?:canada|canadian|spain|spanish)\\b"]},
-        {"id": "profession", "taught_in": "3.9", "patterns": ["\\bwhat is your job\\b", "\\b(?:i am|he is|she is) a (?:teacher|doctor|cook|driver|farmer|nurse)\\b"]},
-        {"id": "possession", "taught_in": "3.10", "patterns": ["\\bmy (?:book|phone|bag)\\b", "\\byour (?:book|phone|bag)\\b", "\\bhis (?:name|book|phone|bag)\\b", "\\bher (?:name|book|phone|bag|car)\\b"]},
-        {"id": "our-their-possessive-s", "taught_in": "3.11", "patterns": ["\\b(?:our|their)\\b", "\\b[a-z]+ s (?:book|phone|bag|car)\\b"]},
-        {"id": "have-has", "taught_in": "3.12", "patterns": ["\\b(?:i|you|we|they) have\\b", "\\b(?:he|she) has\\b"]},
-        {"id": "mine-yours", "taught_in": "3.12", "patterns": ["\\b(?:mine|yours)\\b"]}
+        {
+          "id": "greetings-names",
+          "taught_in": "3.1",
+          "patterns": [
+            "\\bhello\\b",
+            "\\bgood morning\\b",
+            "\\bgoodbye\\b",
+            "\\bwhat is your name\\b",
+            "\\bmy name is\\b"
+          ]
+        },
+        {
+          "id": "speaker-perspective",
+          "taught_in": "3.2",
+          "patterns": [
+            "\\bi am\\b",
+            "\\byou are\\b",
+            "\\bwe are\\b"
+          ]
+        },
+        {
+          "id": "be-agreement",
+          "taught_in": "3.3",
+          "patterns": [
+            "\\b(?:he|she|it) is\\b",
+            "\\bthey are\\b"
+          ]
+        },
+        {
+          "id": "current-action-question",
+          "taught_in": "3.3",
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bwhat are you doing\\b"
+          ],
+          "patterns": [
+            "\\bwhat are you doing\\b",
+            "\\bi am (?:reading|writing|talking|cooking|working|playing)\\b"
+          ]
+        },
+        {
+          "id": "yes-no-questions",
+          "taught_in": "3.4",
+          "patterns": [
+            "^(?:is|are) (?:he|she|it|you|they)\\b",
+            "\\byes (?:i am|he is|she is|it is|they are)\\b"
+          ]
+        },
+        {
+          "id": "age",
+          "taught_in": "3.5",
+          "patterns": [
+            "\\bhow old are you\\b",
+            "\\bi am (?:eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty) years old\\b"
+          ]
+        },
+        {
+          "id": "age-16-20",
+          "taught_in": "3.6",
+          "patterns": [
+            "\\b(?:sixteen|seventeen|eighteen|nineteen|twenty) years old\\b"
+          ]
+        },
+        {
+          "id": "origin",
+          "taught_in": "3.7",
+          "patterns": [
+            "\\bwhere are you from\\b",
+            "\\bi am from (?:mexico|canada|spain|the united states)\\b",
+            "\\bi am (?:mexican|canadian|spanish|american)\\b"
+          ]
+        },
+        {
+          "id": "canada-spain",
+          "taught_in": "3.8",
+          "patterns": [
+            "\\b(?:canada|canadian|spain|spanish)\\b"
+          ]
+        },
+        {
+          "id": "profession",
+          "taught_in": "3.9",
+          "patterns": [
+            "\\bwhat is your job\\b",
+            "\\b(?:i am|he is|she is) a (?:teacher|doctor|cook|driver|farmer|nurse)\\b"
+          ]
+        },
+        {
+          "id": "possession",
+          "taught_in": "3.10",
+          "patterns": [
+            "\\bmy (?:book|phone|bag)\\b",
+            "\\byour (?:book|phone|bag)\\b",
+            "\\bhis (?:name|book|phone|bag)\\b",
+            "\\bher (?:name|book|phone|bag|car)\\b"
+          ]
+        },
+        {
+          "id": "our-their-possessive-s",
+          "taught_in": "3.11",
+          "patterns": [
+            "\\b(?:our|their)\\b",
+            "\\b[a-z]+ s (?:book|phone|bag|car)\\b"
+          ]
+        },
+        {
+          "id": "have-has",
+          "taught_in": "3.12",
+          "patterns": [
+            "\\b(?:i|you|we|they) have\\b",
+            "\\b(?:he|she) has\\b"
+          ]
+        },
+        {
+          "id": "mine-yours",
+          "taught_in": "3.12",
+          "patterns": [
+            "\\b(?:mine|yours)\\b"
+          ]
+        }
       ]
     },
     "4": {
       "outcome": "Prepare a day at home: find who is in each room, locate belongings, follow a routine, answer Do you...? questions, and confirm the day and the time.",
       "functions": [
-        {"id": "rooms", "taught_in": "4.1", "patterns": ["\\bkitchen\\b", "\\bbedroom\\b", "\\bbathroom\\b", "\\bliving room\\b", "\\bdining room\\b"]},
-        {"id": "furniture", "taught_in": "4.2", "patterns": ["\\bbed\\b", "\\bsofa\\b", "\\blamp\\b", "\\bdoor\\b", "\\bwindow\\b", "\\bcomputer\\b"]},
-        {"id": "object-location", "taught_in": "4.3", "patterns": ["\\bwhere is\\b", "\\bin the\\b", "\\bon the\\b", "\\bunder the\\b", "\\bnext to\\b"]},
-        {"id": "existence", "taught_in": "4.4", "patterns": ["\\bthere is\\b", "\\bthere are\\b"]},
-        {"id": "morning-routine", "taught_in": "4.5", "patterns": ["\\bi wake up\\b", "\\bi brush my teeth\\b", "\\bi eat breakfast\\b"]},
-        {"id": "daily-actions", "taught_in": "4.6", "patterns": ["\\b(?:go to school|go to work|study english)\\b", "\\bcome home\\b", "\\bsleep\\b"]},
-        {"id": "routine-sequence", "taught_in": "4.7", "patterns": ["\\bevery day\\b", "\\bfirst\\b", "\\bthen\\b"]},
-        {"id": "do-you-questions", "taught_in": "4.8", "patterns": ["^do you\\b", "\\byes i do\\b"]},
-        {"id": "days", "taught_in": "4.9", "patterns": ["\\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\b", "\\btoday is\\b"]},
-        {"id": "time", "taught_in": "4.10", "patterns": ["\\bwhat time is it\\b", "\\bit is (?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) o clock\\b", "\\bin the morning\\b", "\\b(?:in the afternoon|at night)\\b"]}
+        {
+          "id": "rooms",
+          "taught_in": "4.1",
+          "patterns": [
+            "\\bkitchen\\b",
+            "\\bbedroom\\b",
+            "\\bbathroom\\b",
+            "\\bliving room\\b",
+            "\\bdining room\\b"
+          ]
+        },
+        {
+          "id": "furniture",
+          "taught_in": "4.2",
+          "patterns": [
+            "\\bbed\\b",
+            "\\bsofa\\b",
+            "\\blamp\\b",
+            "\\bdoor\\b",
+            "\\bwindow\\b",
+            "\\bcomputer\\b"
+          ]
+        },
+        {
+          "id": "object-location",
+          "taught_in": "4.3",
+          "patterns": [
+            "\\bwhere is\\b",
+            "\\bin the\\b",
+            "\\bon the\\b",
+            "\\bunder the\\b",
+            "\\bnext to\\b"
+          ]
+        },
+        {
+          "id": "existence",
+          "taught_in": "4.4",
+          "patterns": [
+            "\\bthere is\\b",
+            "\\bthere are\\b"
+          ]
+        },
+        {
+          "id": "morning-routine",
+          "taught_in": "4.5",
+          "patterns": [
+            "\\bi wake up\\b",
+            "\\bi brush my teeth\\b",
+            "\\bi eat breakfast\\b"
+          ]
+        },
+        {
+          "id": "school-preparation-sequence",
+          "taught_in": "4.6",
+          "patterns": [
+            "\\bfirst\\b",
+            "\\bthen\\b",
+            "\\bafter that\\b",
+            "\\bfinally\\b",
+            "\\bgo to school\\b"
+          ]
+        },
+        {
+          "id": "home-help",
+          "taught_in": "4.7",
+          "patterns": [
+            "\\bopen the door\\b",
+            "\\bclose the door\\b",
+            "\\bwash (?:my|your|our|their) clothes\\b",
+            "\\bclean the table\\b"
+          ]
+        },
+        {
+          "id": "do-you-questions",
+          "taught_in": "4.8",
+          "patterns": [
+            "^do you\\b",
+            "\\byes i do\\b",
+            "\\bno i do not\\b"
+          ]
+        },
+        {
+          "id": "days",
+          "taught_in": "4.9",
+          "patterns": [
+            "\\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\b",
+            "\\btoday is\\b"
+          ]
+        },
+        {
+          "id": "time",
+          "taught_in": "4.10",
+          "patterns": [
+            "\\bwhat time is it\\b",
+            "\\bit is (?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) o clock\\b",
+            "\\bin the morning\\b",
+            "\\b(?:in the afternoon|at night)\\b"
+          ]
+        }
       ]
     },
     "5": {
       "outcome": "Complete a day of food shopping: find fruit, food and drinks, count them, say what people like, want and need, check the price, and ask politely at the cafe.",
       "functions": [
-        {"id": "fruit", "taught_in": "5.1", "patterns": ["\\b(?:apple|apples)\\b", "\\b(?:banana|bananas|orange|oranges|grapes|strawberry|pear)\\b"]},
-        {"id": "food", "taught_in": "5.2", "patterns": ["\\b(?:bread|rice|egg|eggs|chicken|fish)\\b"]},
-        {"id": "drinks", "taught_in": "5.3", "patterns": ["\\bwater\\b", "\\bmilk\\b", "\\bjuice\\b", "\\bcoffee\\b"]},
-        {"id": "quantities", "taught_in": "5.4", "patterns": ["\\bhow many\\b", "\\bsome (?:rice|water)\\b"]},
-        {"id": "preferences", "taught_in": "5.5", "patterns": ["\\bi like\\b", "\\bi do not like\\b"]},
-        {"id": "wants-needs", "taught_in": "5.6", "patterns": ["\\b(?:want|wants)\\b", "\\b(?:need|needs)\\b"]},
-        {"id": "meals", "taught_in": "5.7", "patterns": ["\\bfor breakfast\\b", "\\b(?:for lunch|for dinner)\\b"]},
-        {"id": "price", "taught_in": "5.8", "patterns": ["\\bhow much is it\\b", "\\b(?:one dollar|two dollars|three dollars|four dollars|five dollars)\\b"]},
-        {"id": "polite-order", "taught_in": "5.9", "patterns": ["\\b(?:water|juice|milk|coffee|tea) please\\b", "\\bhere you are\\b", "\\bthank you\\b"]},
-        {"id": "polite-request", "taught_in": "5.10", "patterns": ["\\bcan i have\\b", "\\byes please\\b", "\\bno thank you\\b"]}
+        {
+          "id": "fruit",
+          "taught_in": "5.1",
+          "patterns": [
+            "\\b(?:apple|apples)\\b",
+            "\\b(?:banana|bananas|orange|oranges|grapes|strawberry|pear)\\b"
+          ]
+        },
+        {
+          "id": "food",
+          "taught_in": "5.2",
+          "patterns": [
+            "\\b(?:bread|rice|egg|eggs|chicken|fish)\\b"
+          ]
+        },
+        {
+          "id": "drinks",
+          "taught_in": "5.3",
+          "patterns": [
+            "\\bwater\\b",
+            "\\bmilk\\b",
+            "\\bjuice\\b",
+            "\\bcoffee\\b"
+          ]
+        },
+        {
+          "id": "quantities",
+          "taught_in": "5.4",
+          "patterns": [
+            "\\bhow many\\b",
+            "\\bsome (?:rice|water)\\b"
+          ]
+        },
+        {
+          "id": "preferences",
+          "taught_in": "5.5",
+          "patterns": [
+            "\\bi like\\b",
+            "\\bi do not like\\b"
+          ]
+        },
+        {
+          "id": "wants-needs",
+          "taught_in": "5.6",
+          "patterns": [
+            "\\b(?:want|wants)\\b",
+            "\\b(?:need|needs)\\b"
+          ]
+        },
+        {
+          "id": "meals",
+          "taught_in": "5.7",
+          "patterns": [
+            "\\bfor breakfast\\b",
+            "\\b(?:for lunch|for dinner)\\b"
+          ]
+        },
+        {
+          "id": "price",
+          "taught_in": "5.8",
+          "patterns": [
+            "\\bhow much is it\\b",
+            "\\b(?:one dollar|two dollars|three dollars|four dollars|five dollars)\\b"
+          ]
+        },
+        {
+          "id": "polite-order",
+          "taught_in": "5.9",
+          "patterns": [
+            "\\b(?:water|juice|milk|coffee|tea) please\\b",
+            "\\bhere you are\\b",
+            "\\bthank you\\b"
+          ]
+        },
+        {
+          "id": "polite-request",
+          "taught_in": "5.10",
+          "patterns": [
+            "\\bcan i have\\b",
+            "\\byes please\\b",
+            "\\bno thank you\\b"
+          ]
+        }
       ]
     },
     "6": {
       "outcome": "Reach a destination: choose a place and a way to travel, say where places are, follow directions, decide whether you can cross, ask for help, and read a real schedule.",
       "functions": [
-        {"id": "services", "taught_in": "6.1", "patterns": ["\\bbank\\b", "\\bpharmacy\\b", "\\blibrary\\b", "\\bstation\\b"]},
-        {"id": "travel", "taught_in": "6.2", "patterns": ["\\bby (?:bus|train|car|bike|taxi)\\b", "\\bi walk\\b"]},
-        {"id": "near-far", "taught_in": "6.3", "patterns": ["\\bnear\\b", "\\bfar from\\b"]},
-        {"id": "left-right", "taught_in": "6.4", "patterns": ["\\bon the left\\b", "\\bon the right\\b"]},
-        {"id": "directions", "taught_in": "6.5", "patterns": ["\\bgo straight\\b", "\\bturn left\\b", "\\bturn right\\b", "\\bcross the street\\b", "\\bstop\\b"]},
-        {"id": "permission", "taught_in": "6.6", "patterns": ["\\byou can cross the street\\b", "\\byou cannot cross the street\\b"]},
-        {"id": "help-exchange", "taught_in": "6.7", "patterns": ["\\bexcuse me\\b", "\\bcan you help me\\b", "\\bwhere is the\\b", "\\bthank you\\b"]},
-        {"id": "schedule", "taught_in": "6.8", "patterns": ["\\b(?:bus|train) leaves at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b", "\\b(?:bus|train) arrives at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b"]}
+        {
+          "id": "services",
+          "taught_in": "6.1",
+          "patterns": [
+            "\\bbank\\b",
+            "\\bpharmacy\\b",
+            "\\blibrary\\b",
+            "\\bstation\\b"
+          ]
+        },
+        {
+          "id": "travel",
+          "taught_in": "6.2",
+          "patterns": [
+            "\\bby (?:bus|train|car|bike|taxi)\\b",
+            "\\bi walk\\b"
+          ]
+        },
+        {
+          "id": "near-far",
+          "taught_in": "6.3",
+          "patterns": [
+            "\\bnear\\b",
+            "\\bfar from\\b"
+          ]
+        },
+        {
+          "id": "left-right",
+          "taught_in": "6.4",
+          "patterns": [
+            "\\bon the left\\b",
+            "\\bon the right\\b"
+          ]
+        },
+        {
+          "id": "directions",
+          "taught_in": "6.5",
+          "patterns": [
+            "\\bgo straight\\b",
+            "\\bturn left\\b",
+            "\\bturn right\\b",
+            "\\bcross the street\\b",
+            "\\bstop\\b"
+          ]
+        },
+        {
+          "id": "permission",
+          "taught_in": "6.6",
+          "patterns": [
+            "\\byou can cross the street\\b",
+            "\\byou cannot cross the street\\b"
+          ]
+        },
+        {
+          "id": "help-exchange",
+          "taught_in": "6.7",
+          "patterns": [
+            "\\bexcuse me\\b",
+            "\\bcan you help me\\b",
+            "\\bwhere is the\\b",
+            "\\bthank you\\b"
+          ]
+        },
+        {
+          "id": "schedule",
+          "taught_in": "6.8",
+          "patterns": [
+            "\\b(?:bus|train) leaves at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b",
+            "\\b(?:bus|train) arrives at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b"
+          ]
+        }
       ]
     },
     "7": {
       "outcome": "Handle a complete outing: personal information, weather and clothing, food and travel, an invitation, and a useful request for repetition or help.",
       "functions": [
-        {"id": "body", "taught_in": "7.1", "patterns": ["\\bmy (?:head|eyes|ears|mouth)\\b", "\\bmy (?:arms|hands|legs|feet)\\b"]},
-        {"id": "feelings-needs", "taught_in": "7.2", "patterns": ["\\bhow are you\\b", "\\bi am (?:happy|sad|tired|hungry|thirsty)\\b"]},
-        {"id": "clothes", "taught_in": "7.3", "patterns": ["\\b(?:shirt|pants|dress|jacket)\\b", "\\b(?:shoes|hat|socks|skirt)\\b"]},
-        {"id": "weather", "taught_in": "7.4", "patterns": ["\\bit is (?:sunny|rainy|windy|cloudy)\\b", "\\bit is (?:hot|cold)\\b"]},
-        {"id": "weather-needs", "taught_in": "7.5", "patterns": ["\\bi need (?:a jacket|an umbrella|boots|a hat|a shirt)\\b"]},
-        {"id": "hobbies", "taught_in": "7.6", "patterns": ["\\bi like (?:reading|playing|watching tv|listening to music)\\b", "\\bi do not like (?:reading|playing|watching tv|listening to music)\\b"]},
-        {"id": "invitation", "taught_in": "7.7", "patterns": ["\\bdo you want to (?:watch tv|listen to music|read|play)\\b", "\\blet s (?:read|play|watch tv|listen to music)\\b", "\\byes thank you\\b", "\\bsorry no\\b"]},
-        {"id": "communication-repair", "taught_in": "7.8", "patterns": ["\\bi need help\\b", "\\bi do not understand\\b", "\\bplease repeat\\b", "\\bplease speak slowly\\b", "\\bwhere is the bathroom\\b"]},
-        {"id": "prior-identity", "taught_in": "1.8", "patterns": ["\\bwho (?:is he|is she|are they)\\b"]},
-        {"id": "prior-description", "taught_in": "2.8", "patterns": ["\\b(?:one|two|three|four|five|six|seven|eight|nine|ten) (?:red|blue|green|yellow|black|white)\\b"]},
-        {"id": "prior-introduction", "taught_in": "3.1", "patterns": ["\\bwhat is your name\\b", "\\bmy name is\\b"]},
-        {"id": "prior-time", "taught_in": "4.8", "patterns": ["\\bo clock\\b"]},
-        {"id": "prior-purchase", "taught_in": "5.8", "patterns": ["\\bhow much is it\\b", "\\b(?:water|juice|milk|coffee|tea) please\\b"]},
-        {"id": "prior-directions", "taught_in": "6.5", "patterns": ["\\b(?:go straight|turn left|turn right)\\b"]}
+        {
+          "id": "body",
+          "taught_in": "7.1",
+          "patterns": [
+            "\\bmy (?:head|eyes|ears|mouth)\\b",
+            "\\bmy (?:arms|hands|legs|feet)\\b"
+          ]
+        },
+        {
+          "id": "feelings-needs",
+          "taught_in": "7.2",
+          "patterns": [
+            "\\bhow are you\\b",
+            "\\bi am (?:happy|sad|tired|hungry|thirsty)\\b"
+          ]
+        },
+        {
+          "id": "clothes",
+          "taught_in": "7.3",
+          "patterns": [
+            "\\b(?:shirt|pants|dress|jacket)\\b",
+            "\\b(?:shoes|hat|socks|skirt)\\b"
+          ]
+        },
+        {
+          "id": "weather",
+          "taught_in": "7.4",
+          "patterns": [
+            "\\bit is (?:sunny|rainy|windy|cloudy)\\b",
+            "\\bit is (?:hot|cold)\\b"
+          ]
+        },
+        {
+          "id": "weather-needs",
+          "taught_in": "7.5",
+          "patterns": [
+            "\\bi need (?:a jacket|an umbrella|boots|a hat|a shirt)\\b"
+          ]
+        },
+        {
+          "id": "hobbies",
+          "taught_in": "7.6",
+          "patterns": [
+            "\\bi like (?:reading|playing|watching tv|listening to music)\\b",
+            "\\bi do not like (?:reading|playing|watching tv|listening to music)\\b"
+          ]
+        },
+        {
+          "id": "invitation",
+          "taught_in": "7.7",
+          "patterns": [
+            "\\bdo you want to (?:watch tv|listen to music|read|play)\\b",
+            "\\blet s (?:read|play|watch tv|listen to music)\\b",
+            "\\byes thank you\\b",
+            "\\bsorry no\\b"
+          ]
+        },
+        {
+          "id": "communication-repair",
+          "taught_in": "7.8",
+          "patterns": [
+            "\\bi need help\\b",
+            "\\bi do not understand\\b",
+            "\\bplease repeat\\b",
+            "\\bplease speak slowly\\b",
+            "\\bwhere is the bathroom\\b"
+          ]
+        },
+        {
+          "id": "prior-identity",
+          "taught_in": "1.8",
+          "patterns": [
+            "\\bwho (?:is he|is she|are they)\\b"
+          ]
+        },
+        {
+          "id": "prior-description",
+          "taught_in": "2.8",
+          "patterns": [
+            "\\b(?:one|two|three|four|five|six|seven|eight|nine|ten) (?:red|blue|green|yellow|black|white)\\b"
+          ]
+        },
+        {
+          "id": "prior-introduction",
+          "taught_in": "3.1",
+          "patterns": [
+            "\\bwhat is your name\\b",
+            "\\bmy name is\\b"
+          ]
+        },
+        {
+          "id": "prior-time",
+          "taught_in": "4.8",
+          "patterns": [
+            "\\bo clock\\b"
+          ]
+        },
+        {
+          "id": "prior-purchase",
+          "taught_in": "5.8",
+          "patterns": [
+            "\\bhow much is it\\b",
+            "\\b(?:water|juice|milk|coffee|tea) please\\b"
+          ]
+        },
+        {
+          "id": "prior-directions",
+          "taught_in": "6.5",
+          "patterns": [
+            "\\b(?:go straight|turn left|turn right)\\b"
+          ]
+        }
       ]
     }
   }

@@ -122,6 +122,57 @@ def learn_context(cards: list[dict], pairs: list[dict], vocabulary: list[str], k
     return allowed, errors
 
 
+
+def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list[str], known: set[str], anchors: set[str]) -> tuple[set[str], list[str]]:
+    """Validate exact introductions of new sequence markers or coupled exchanges.
+
+    Each group names adjacent Learn models, exact English and its declared
+    targets. Every model must introduce a target and may retrieve only earlier
+    language. Stale lines, unknown surrounding words and overlapping bindings
+    fail closed. This does not permit arbitrary known-language Learn cards.
+    """
+    allowed, errors = set(), []
+    positions = {card.get("slide_id"): index for index, card in enumerate(cards)}
+    for gi, group in enumerate(groups):
+        models, targets = group.get("models") or [], group.get("targets") or []
+        ids = [model.get("slide_id") for model in models]
+        indices = [positions.get(slide) for slide in ids]
+        if (group.get("kind") not in ("sequence", "exchange") or len(models) < 1
+                or not targets or not set(targets).issubset(vocabulary) or not set(targets) & anchors
+                or len(ids) != len(set(ids)) or set(ids) & allowed
+                or any(index is None for index in indices)
+                or indices != list(range(indices[0], indices[0] + len(indices)))):
+            errors.append(f"group {gi}: requires adjacent unique models and declared new targets")
+            continue
+        group_known = known | {word for target in targets for word in term_words(target)}
+        patterns = [term_pattern(target) for target in targets]
+        anchor_patterns = [term_pattern(target) for target in targets if target in anchors]
+        bound = [cards[index] for index in indices]
+        def exact_model(card, model):
+            lines = [card.get(key) for key in ("prompt", "audio_text", "answer_audio_text")]
+            lines += [option.get("label") for option in card.get("options") or []]
+            lines += [turn.get("text") for field in ("audio_turns", "answer_audio_turns")
+                      for turn in card.get(field) or []]
+            return all(line == model.get("text") for line in lines if line)
+
+        if any(not exact_model(card, model) or card.get("stage") != "Learn" or card.get("prompt") != model.get("text")
+               or card.get("audio_text") != model.get("text")
+               or any(not is_known(word, group_known) for word in WORD.findall(card_language(card)))
+               or not any(pattern and pattern.search(card_evidence(card)) for pattern in anchor_patterns)
+               for card, model in zip(bound, models)):
+            errors.append(f"group {gi}: stale model, missing target or untaught context")
+            continue
+        if any(not pattern or not any(pattern.search(card_evidence(card)) for card in bound)
+               for pattern in patterns):
+            errors.append(f"group {gi}: each declared target needs a real model")
+            continue
+        if group.get("kind") == "exchange" and (len(models) != 2 or
+                not models[0]["text"].endswith("?") or models[1]["text"].endswith("?")):
+            errors.append(f"group {gi}: question must immediately precede its reply")
+            continue
+        allowed.update(ids)
+    return allowed, errors
+
 def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
     findings: list[Finding] = []
     final_units = sorted({lesson.unit for lesson in catalog})[-standards["later_reuse_exempt_final_units"]:]
@@ -168,6 +219,11 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
         # standard lesson's Learn card never re-teaches a known frame such as "It is".
         if lesson.role == "standard":
             contextual, context_errors = learn_context(cards, lesson.data.get("learn_context_pairs", []), vocabulary, known)
+            grouped, group_errors = learn_context_groups(cards, lesson.data.get("learn_context_groups", []), vocabulary, known, set(standards.get("learn_context_anchor_targets", [])))
+            if contextual & grouped:
+                group_errors.append("context groups overlap an existing question/answer pair")
+            contextual |= grouped
+            context_errors += group_errors
             findings.extend(Finding("learn-context", lesson.number, str(index), error)
                             for index, error in enumerate(context_errors))
             allowed = {word for item in vocabulary for word in term_words(item)}

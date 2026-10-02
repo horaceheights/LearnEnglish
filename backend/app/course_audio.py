@@ -212,6 +212,13 @@ COURSE_SYLLABLES = {
 # the CMU Pronouncing Dictionary and reviewed for the course's names and café
 # label so pacing remains deterministic for every canonical lesson prompt.
 COURSE_SYLLABLES.update({
+    "after": 2,
+    "clean": 1,
+    "close": 1,
+    "clothes": 1,
+    "finally": 3,
+    "open": 2,
+    "run": 1,
     "afternoon": 3,
     "alex": 2,
     "am": 1,

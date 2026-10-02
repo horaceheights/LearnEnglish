@@ -179,6 +179,12 @@ def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *,
         if image and not captions:
             spec["audio_text"] = item["text"]  # caption-free pictures: the spoken cue is authored
         _voice(spec, item)
+        if stage == "Listen" and item.get("listening_turns"):
+            spec.pop("audio_speaker", None)  # an exchange has per-turn voices
+            spec["audio_turns"] = [
+                {"text": turn["text"], "speaker_role": turn["speaker"], "image_url": turn["image"]}
+                for turn in item["listening_turns"]]
+            spec["audio_text"] = " ".join(turn["text"] for turn in item["listening_turns"])
     elif image:
         spec["spanish_translation"] = item["es"]
         if not captions:
@@ -289,6 +295,11 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
                 raise BriefError(f"Each turn of {item['text']!r} needs its text, speaker and image.")
         if item.get("turns") and " ".join(turn["text"] for turn in item["turns"]) != item["text"]:
             raise BriefError(f"The turns of {item['text']!r} must say exactly its text.")
+        if item.get("listening_turns"):
+            turns = item["listening_turns"]
+            if (not all(all(turn.get(field) for field in ("text", "speaker", "image")) for turn in turns)
+                    or not turns[-1]["text"].startswith(item["text"])):
+                raise BriefError("Listening context must end with the item's explicit spoken reply.")
     layout = {**DEFAULT_LAYOUT, **brief.get("layout", {})}
     sequences = brief.get("stage_sequences", {})
     by_id = {item.get("id", item["text"]): item for item in items}
@@ -416,10 +427,12 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
                              "options": [_option(item, image=True, suffix="speak")],
                              "spanish_translation": item["es"], "pedagogy_note": note("Speak", item)}, item))
     # Completa progression: guided completion first, whole-sentence construction in the last four.
-    # Use works with whole sentences (three words or more) and keeps story order.
+    # Use works with whole sentences and keeps the authored story order.
     # An exchange (`turns`) has no single voice to build, and `"use": false` opts an item out.
     buildable = [item for item in sentences if not item.get("turns") and item.get("use", True) is not False]
-    use_pool = [item for item in buildable if len(words(item["text"])) >= 3] or buildable
+    # Explicit sequences may place a complete two-word sentence (I sleep.)
+    # in the full-construction half; automatic selection still prefers longer models.
+    use_pool = buildable if "Use" in sequences else ([item for item in buildable if len(words(item["text"])) >= 3] or buildable)
     for index, item in enumerate(section("Use", use_pool)):
         practised(item)
         build = index >= layout["Use"] - CONSTRUCTIONS or len(words(item["text"])) < 3

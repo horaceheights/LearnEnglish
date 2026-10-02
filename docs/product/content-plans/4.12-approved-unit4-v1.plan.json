@@ -1,0 +1,2043 @@
+{
+  "plan_version": 1,
+  "draft": false,
+  "source": {
+    "path": "backend/lessons/unit_4/lesson-4-10-my-day-mission.yaml",
+    "sha256": "f57e4c30c99c9e35242e555d09b29394a6cf38c3b7c11ccbaa9ef2ee9daea45a"
+  },
+  "lesson": {
+    "id": "lesson-4-10-my-day-mission",
+    "title": "4.12 Un día en casa — A family visit",
+    "level": "Beginner A1",
+    "unit_id": "unit-4",
+    "unit_title": "Unit 4: Home and Daily Life",
+    "unit_outcome": "Say where people and things are at home, describe a short daily routine, ask and answer Do you...? questions, and say the day and the time.",
+    "lesson_id": "lesson-4",
+    "lesson_title": "Unit 4: Home and Daily Life",
+    "sub_lesson_id": "4.12",
+    "sub_lesson_title": "Un día en casa — A family visit",
+    "experience_type": "mission",
+    "content_revision": 5,
+    "mission": {
+      "label": "MISIÓN FINAL · UNIDAD 4",
+      "title": "Un día en casa — A family visit",
+      "briefing": "Tu familia recibe una visita esta tarde. Ayuda a encontrar las cosas, organizar las tareas y confirmar el día y la hora. Escucha cada frase y toca lo que indica. Al final, lee las respuestas en voz alta para recibir a la familia.",
+      "kickoff_image_url": "/lesson-assets/a1_u4_home_v2_mission_kickoff.webp",
+      "objectives": [
+        "Encuentra los espacios y las cosas",
+        "Sigue la mañana y prepara la casa",
+        "Confirma los planes y recibe a la familia"
+      ],
+      "completion_title": "¡La casa está lista para la visita!",
+      "completion_message": "Encontraste las cosas, seguiste los preparativos, confirmaste los planes y recibiste a la familia.",
+      "chapters": [
+        {
+          "id": "home",
+          "title": "Conoce la casa",
+          "objective": "Escucha y sigue la historia."
+        },
+        {
+          "id": "morning",
+          "title": "La mañana de escuela",
+          "objective": "Escucha y sigue la historia."
+        },
+        {
+          "id": "help",
+          "title": "Prepara la visita",
+          "objective": "Escucha y sigue la historia."
+        },
+        {
+          "id": "welcome",
+          "title": "Conversa y recibe a la familia",
+          "objective": "Escucha y sigue la historia."
+        }
+      ],
+      "voice_heading": "RECIBE A LA FAMILIA",
+      "voice_instruction": "Escucha la pregunta y lee la respuesta en voz alta.",
+      "voice_success_label": "RESPUESTA CONFIRMADA"
+    },
+    "goal": "Help the family get their home ready for a visit: find rooms and belongings, follow the school morning, wash clothes and clean the table, talk with the helpers, confirm the day and time, then open and close the door to welcome everyone.",
+    "vocabulary": [],
+    "review_vocabulary": [
+      "home",
+      "kitchen",
+      "bedroom",
+      "bathroom",
+      "living room",
+      "dining room",
+      "bed",
+      "sofa",
+      "lamp",
+      "door",
+      "window",
+      "computer",
+      "in",
+      "on",
+      "under",
+      "next to",
+      "Where is",
+      "there is",
+      "there are",
+      "wake up",
+      "wash my face",
+      "brush my teeth",
+      "eat breakfast",
+      "get dressed",
+      "in the morning",
+      "What time is it?",
+      "o'clock",
+      "afternoon",
+      "night",
+      "at",
+      "first",
+      "then",
+      "after that",
+      "finally",
+      "go to school",
+      "open",
+      "close",
+      "clothes",
+      "clean",
+      "Do you...?",
+      "Yes, I do.",
+      "No, I do not.",
+      "work",
+      "study",
+      "play",
+      "run",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+      "What day is it today?",
+      "What time is it?",
+      "o'clock",
+      "afternoon",
+      "night",
+      "at"
+    ],
+    "grammar_function": "Known home/location, school sequence and household action language; auxiliary Do with both short replies; weekday and whole-hour time.",
+    "prerequisite": "Lessons 4.1-4.11 completed.",
+    "speaking_outcome": "Pronounce nine supported role responses about helpers, tasks, the visit day/time, the blue book, and welcoming the family.",
+    "purposeful_review_slides": [
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M09",
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M16",
+      "M17"
+    ]
+  },
+  "cards": [
+    {
+      "recipe": "mission",
+      "slide_id": "M01",
+      "stage": "Listen",
+      "mission_chapter_id": "home",
+      "prompt": "This is the kitchen in our home. This is the bathroom. This is the bedroom. This is the living room.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_01_rooms.webp",
+      "spanish_translation": "Cocina Baño Dormitorio Sala",
+      "pedagogy_note": "Mission beat 01/17: 1. Find your way around the home\nThe visit will happen at this home. Find the spaces needed to prepare it.\nA fresh, legible view of four familiar home spaces. Each room has enough visible furnishings to be identifiable; no room-word labels or four indistinguishable doors. Use existing room hotspots rather than turning this into family identification.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: kitchen | bathroom | bedroom | living room",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y explora los espacios de la casa.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m01-1",
+            "label_es": "Cocina",
+            "accepted_option_ids": [
+              "m01-1"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0.0,
+              "width": 0.495,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.2475,
+                "y": 0.01
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m01-2",
+            "label_es": "Baño",
+            "accepted_option_ids": [
+              "m01-2"
+            ],
+            "rect": {
+              "x": 0.505,
+              "y": 0.0,
+              "width": 0.495,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.7525,
+                "y": 0.01
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m01-3",
+            "label_es": "Dormitorio",
+            "accepted_option_ids": [
+              "m01-3"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0.51,
+              "width": 0.495,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.2475,
+                "y": 0.52
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m01-4",
+            "label_es": "Sala",
+            "accepted_option_ids": [
+              "m01-4"
+            ],
+            "rect": {
+              "x": 0.505,
+              "y": 0.51,
+              "width": 0.495,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.7525,
+                "y": 0.52
+              }
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m01-1",
+            "text": "This is the kitchen in our home.",
+            "answer_text": "This is the kitchen in our home.",
+            "target_id": "m01-1",
+            "option_id": "m01-1"
+          },
+          {
+            "id": "cue-m01-2",
+            "text": "This is the bathroom.",
+            "answer_text": "This is the bathroom.",
+            "target_id": "m01-2",
+            "option_id": "m01-2"
+          },
+          {
+            "id": "cue-m01-3",
+            "text": "This is the bedroom.",
+            "answer_text": "This is the bedroom.",
+            "target_id": "m01-3",
+            "option_id": "m01-3"
+          },
+          {
+            "id": "cue-m01-4",
+            "text": "This is the living room.",
+            "answer_text": "This is the living room.",
+            "target_id": "m01-4",
+            "option_id": "m01-4"
+          }
+        ],
+        "tutorial_mode": "guided-no-fail"
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M02",
+      "stage": "Listen",
+      "mission_chapter_id": "home",
+      "prompt": "This is the sofa. This is the lamp. This is the door. This is the window.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_02_furniture.webp",
+      "spanish_translation": "Sofá Lámpara Puerta Ventana",
+      "pedagogy_note": "Mission beat 02/17: 2. Check the living room\nLocate the furnishings around the place where everyone will meet.\nContinue inside the living room; four clearly separated furnishing targets. The door leads to the outside and will be used at the finale. Object markers stay off the answer-defining surfaces.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: sofa | lamp | door | window",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha y encuentra lo que se describe.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m02-1",
+            "label_es": "Sofá",
+            "accepted_option_ids": [
+              "m02-1"
+            ],
+            "rect": {
+              "x": 0.215,
+              "y": 0.46,
+              "width": 0.49,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.45999999999999996,
+                "y": 0.47000000000000003
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m02-2",
+            "label_es": "Lámpara",
+            "accepted_option_ids": [
+              "m02-2"
+            ],
+            "rect": {
+              "x": 0.686,
+              "y": 0.287,
+              "width": 0.12,
+              "height": 0.44
+            },
+            "head_anchors": [
+              {
+                "x": 0.746,
+                "y": 0.297
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m02-3",
+            "label_es": "Puerta",
+            "accepted_option_ids": [
+              "m02-3"
+            ],
+            "rect": {
+              "x": 0.024,
+              "y": 0.16,
+              "width": 0.144,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.096,
+                "y": 0.17
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m02-4",
+            "label_es": "Ventana",
+            "accepted_option_ids": [
+              "m02-4"
+            ],
+            "rect": {
+              "x": 0.851,
+              "y": 0.041,
+              "width": 0.14,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.921,
+                "y": 0.051000000000000004
+              }
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m02-1",
+            "text": "This is the sofa.",
+            "answer_text": "This is the sofa.",
+            "target_id": "m02-1",
+            "option_id": "m02-1"
+          },
+          {
+            "id": "cue-m02-2",
+            "text": "This is the lamp.",
+            "answer_text": "This is the lamp.",
+            "target_id": "m02-2",
+            "option_id": "m02-2"
+          },
+          {
+            "id": "cue-m02-3",
+            "text": "This is the door.",
+            "answer_text": "This is the door.",
+            "target_id": "m02-3",
+            "option_id": "m02-3"
+          },
+          {
+            "id": "cue-m02-4",
+            "text": "This is the window.",
+            "answer_text": "This is the window.",
+            "target_id": "m02-4",
+            "option_id": "m02-4"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M03",
+      "stage": "Listen",
+      "mission_chapter_id": "home",
+      "prompt": "The blue book is on the table. The green bag is under the chair. The phone is in the blue bag. The lamp is next to the sofa.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_03_belongings.webp",
+      "spanish_translation": "Libro azul Mochila verde Teléfono Lámpara",
+      "pedagogy_note": "Mission beat 03/17: 3. Find the belongings\nFind the book and belongings so the family knows where everything is before the visit.\nOne fresh room arrangement: blue book on table, green bag beneath chair, phone visibly inside a separate blue bag, lamp beside sofa. Keep the two bags visibly different and phone/bag touch targets apart. Every clue names its object.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: blue book on table | green bag under chair | phone inside a separate blue bag | lamp beside sofa",
+      "mission_game": {
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha y encuentra las cosas.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m03-1",
+            "label_es": "Libro azul",
+            "accepted_option_ids": [
+              "m03-1"
+            ],
+            "rect": {
+              "x": 0.04,
+              "y": 0.375,
+              "width": 0.16,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.12,
+                "y": 0.385
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m03-2",
+            "label_es": "Mochila verde",
+            "accepted_option_ids": [
+              "m03-2"
+            ],
+            "rect": {
+              "x": 0.325,
+              "y": 0.511,
+              "width": 0.16,
+              "height": 0.3
+            },
+            "head_anchors": [
+              {
+                "x": 0.405,
+                "y": 0.521
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m03-3",
+            "label_es": "Teléfono",
+            "accepted_option_ids": [
+              "m03-3"
+            ],
+            "rect": {
+              "x": 0.574,
+              "y": 0.59,
+              "width": 0.19,
+              "height": 0.23
+            },
+            "head_anchors": [
+              {
+                "x": 0.6689999999999999,
+                "y": 0.6
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m03-4",
+            "label_es": "Lámpara",
+            "accepted_option_ids": [
+              "m03-4"
+            ],
+            "rect": {
+              "x": 0.721,
+              "y": 0.025,
+              "width": 0.18,
+              "height": 0.715
+            },
+            "head_anchors": [
+              {
+                "x": 0.8109999999999999,
+                "y": 0.035
+              }
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m03-1",
+            "text": "The blue book is on the table.",
+            "answer_text": "The blue book is on the table.",
+            "target_id": "m03-1",
+            "option_id": "m03-1"
+          },
+          {
+            "id": "cue-m03-2",
+            "text": "The green bag is under the chair.",
+            "answer_text": "The green bag is under the chair.",
+            "target_id": "m03-2",
+            "option_id": "m03-2"
+          },
+          {
+            "id": "cue-m03-3",
+            "text": "The phone is in the blue bag.",
+            "answer_text": "The phone is in the blue bag.",
+            "target_id": "m03-3",
+            "option_id": "m03-3"
+          },
+          {
+            "id": "cue-m03-4",
+            "text": "The lamp is next to the sofa.",
+            "answer_text": "The lamp is next to the sofa.",
+            "target_id": "m03-4",
+            "option_id": "m03-4"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M04",
+      "stage": "Listen",
+      "mission_chapter_id": "home",
+      "prompt": "There is a bed in the bedroom. There is a computer on the table. There are two chairs next to the bed. There are three books under the window.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_04_bedroom.webp",
+      "spanish_translation": "Cama Computadora Dos sillas Tres libros",
+      "pedagogy_note": "Mission beat 04/17: 4. Check the bedroom\nCheck the bedroom inventory before the school morning begins.\nA coherent bedroom contains one bed, one computer on a table, two countable chairs beside the bed and three countable books below the window. Avoid occluded counts. Individual and group scopes must remain distinct and fully selectable.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: bed | computer | two-chair group | three-book group",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha y revisa el cuarto.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m04-1",
+            "label_es": "Cama",
+            "accepted_option_ids": [
+              "m04-1"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0.365,
+              "width": 0.3,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.375
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m04-2",
+            "label_es": "Computadora",
+            "accepted_option_ids": [
+              "m04-2"
+            ],
+            "rect": {
+              "x": 0.34,
+              "y": 0.346,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "head_anchors": [
+              {
+                "x": 0.42500000000000004,
+                "y": 0.356
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m04-3",
+            "label_es": "Dos sillas",
+            "accepted_option_ids": [
+              "m04-3"
+            ],
+            "rect": {
+              "x": 0.55,
+              "y": 0.426,
+              "width": 0.255,
+              "height": 0.314
+            },
+            "head_anchors": [
+              {
+                "x": 0.6775,
+                "y": 0.436
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m04-4",
+            "label_es": "Tres libros",
+            "accepted_option_ids": [
+              "m04-4"
+            ],
+            "rect": {
+              "x": 0.855,
+              "y": 0.524,
+              "width": 0.135,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.9225,
+                "y": 0.534
+              }
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m04-1",
+            "text": "There is a bed in the bedroom.",
+            "answer_text": "There is a bed in the bedroom.",
+            "target_id": "m04-1",
+            "option_id": "m04-1"
+          },
+          {
+            "id": "cue-m04-2",
+            "text": "There is a computer on the table.",
+            "answer_text": "There is a computer on the table.",
+            "target_id": "m04-2",
+            "option_id": "m04-2"
+          },
+          {
+            "id": "cue-m04-3",
+            "text": "There are two chairs next to the bed.",
+            "answer_text": "There are two chairs next to the bed.",
+            "target_id": "m04-3",
+            "option_id": "m04-3"
+          },
+          {
+            "id": "cue-m04-4",
+            "text": "There are three books under the window.",
+            "answer_text": "There are three books under the window.",
+            "target_id": "m04-4",
+            "option_id": "m04-4"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M05",
+      "stage": "Listen",
+      "mission_chapter_id": "morning",
+      "prompt": "I wake up in the morning. I wash my face in the bathroom. I get dressed in the bedroom. I eat breakfast in the kitchen.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_05_morning.webp",
+      "spanish_translation": "Al despertar En el baño Al vestirse En la cocina",
+      "pedagogy_note": "Mission beat 05/17: 5. Follow the first part of the school morning\nThe boy prepares for school before helping the family later. The authored moment order stays fixed even when audio cues shuffle.\nOne fresh four-moment photographic hero follows the same boy: waking → face-washing → dressing → breakfast. Each region shows a real action, not a label or posed person. Maintain his identity, pajamas before dressing and school clothes afterward. Four event hotspots use existing scene selection; no drag or ordering puzzle. Inspect real phone legibility before approving this composite.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: boy waking | boy washing face | boy dressing | boy eating breakfast",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Sigue la mañana de escuela: escucha y toca.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m05-1",
+            "label_es": "Al despertar",
+            "accepted_option_ids": [
+              "m05-1"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.26,
+                "y": 0.079
+              }
+            ]
+          },
+          {
+            "id": "m05-2",
+            "label_es": "En el baño",
+            "accepted_option_ids": [
+              "m05-2"
+            ],
+            "rect": {
+              "x": 0.51,
+              "y": 0,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.766,
+                "y": 0.0
+              }
+            ]
+          },
+          {
+            "id": "m05-3",
+            "label_es": "Al vestirse",
+            "accepted_option_ids": [
+              "m05-3"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0.51,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.258,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "id": "m05-4",
+            "label_es": "En la cocina",
+            "accepted_option_ids": [
+              "m05-4"
+            ],
+            "rect": {
+              "x": 0.51,
+              "y": 0.51,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.758,
+                "y": 0.51
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m05-1",
+            "text": "I wake up in the morning.",
+            "answer_text": "I wake up in the morning.",
+            "target_id": "m05-1",
+            "option_id": "m05-1"
+          },
+          {
+            "id": "cue-m05-2",
+            "text": "I wash my face in the bathroom.",
+            "answer_text": "I wash my face in the bathroom.",
+            "target_id": "m05-2",
+            "option_id": "m05-2"
+          },
+          {
+            "id": "cue-m05-3",
+            "text": "I get dressed in the bedroom.",
+            "answer_text": "I get dressed in the bedroom.",
+            "target_id": "m05-3",
+            "option_id": "m05-3"
+          },
+          {
+            "id": "cue-m05-4",
+            "text": "I eat breakfast in the kitchen.",
+            "answer_text": "I eat breakfast in the kitchen.",
+            "target_id": "m05-4",
+            "option_id": "m05-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "male-character",
+        "male-character",
+        "male-character",
+        "male-character"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M06",
+      "stage": "Listen",
+      "mission_chapter_id": "morning",
+      "prompt": "I brush my teeth in the bathroom. I go to school. The blue book is in the bag. The green bag is on the chair.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_06_departure.webp",
+      "spanish_translation": "En el baño En la escuela Libro en la mochila Mochila en la silla",
+      "pedagogy_note": "Mission beat 06/17: 6. Finish getting ready and leave for school\nFinish the last preparation and school departure. A concise visible Spanish transition then establishes the afternoon return, without assessing untaught come-home or past-tense English.\nA new four-region photographic hero completes that same morning: clear tooth-brushing, clear movement into school, an identifying view of the book inside the school bag and the bag previously resting on a chair. Distinct event/object scopes and visible motion direction are required; a person posing at an education-center door is insufficient. These are fresh mission shots, not the approved lesson pictures.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: boy brushing teeth | boy visibly entering school | blue book visibly inside bag | green bag resting on chair",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Escucha y termina de preparar la mañana.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m06-1",
+            "label_es": "En el baño",
+            "accepted_option_ids": [
+              "m06-1"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.28,
+                "y": 0.009
+              }
+            ]
+          },
+          {
+            "id": "m06-2",
+            "label_es": "En la escuela",
+            "accepted_option_ids": [
+              "m06-2"
+            ],
+            "rect": {
+              "x": 0.51,
+              "y": 0,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.755,
+                "y": 0.045
+              }
+            ]
+          },
+          {
+            "id": "m06-3",
+            "label_es": "Libro en la mochila",
+            "accepted_option_ids": [
+              "m06-3"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0.51,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.245,
+                "y": 0.52
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m06-4",
+            "label_es": "Mochila en la silla",
+            "accepted_option_ids": [
+              "m06-4"
+            ],
+            "rect": {
+              "x": 0.51,
+              "y": 0.51,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.755,
+                "y": 0.52
+              }
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m06-1",
+            "text": "I brush my teeth in the bathroom.",
+            "answer_text": "I brush my teeth in the bathroom.",
+            "target_id": "m06-1",
+            "option_id": "m06-1"
+          },
+          {
+            "id": "cue-m06-2",
+            "text": "I go to school.",
+            "answer_text": "I go to school.",
+            "target_id": "m06-2",
+            "option_id": "m06-2"
+          },
+          {
+            "id": "cue-m06-3",
+            "text": "The blue book is in the bag.",
+            "answer_text": "The blue book is in the bag.",
+            "target_id": "m06-3",
+            "option_id": "m06-3"
+          },
+          {
+            "id": "cue-m06-4",
+            "text": "The green bag is on the chair.",
+            "answer_text": "The green bag is on the chair.",
+            "target_id": "m06-4",
+            "option_id": "m06-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "male-character",
+        "male-character",
+        "teacher",
+        "co-teacher"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M07",
+      "stage": "Listen",
+      "mission_chapter_id": "help",
+      "prompt": "We wash our clothes in the bathroom. You clean the table in the dining room. The clothes are on the green chair. The blue book is under the table.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_07_help.webp",
+      "spanish_translation": "Lavado de ropa Limpieza de la mesa Ropa en la silla Libro azul",
+      "pedagogy_note": "Mission beat 07/17: 7. Prepare the home\nThe helpers return to the home and start the washing and cleaning tasks. Find the remaining belongings during that work.\nA new mission-only home composition shows two legible spaces: two helpers visibly hand-wash their shirts with soap and water in the bathroom; a different addressed helper actively wipes the dining table; other garments rest on a separate green chair in that dining room; the blue book is now clearly under the table. The visible speaker belongs to the washing group and addresses the cleaner. Washing garments and washing a face cannot share ambiguous evidence. The new book position is visible in this scene; guidance only says preparation continues and never translates its location or introduces put-in/take-out English. Check that both rooms and all four targets remain recognizable on the actual phone image.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: two helpers hand-washing garments | addressed helper wiping table | garments on separate green chair | blue book beneath table",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Ya es por la tarde. Escucha y sigue los preparativos.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m07-1",
+            "label_es": "Lavado de ropa",
+            "accepted_option_ids": [
+              "m07-1"
+            ],
+            "rect": {
+              "x": 0.065,
+              "y": 0.105,
+              "width": 0.375,
+              "height": 0.68
+            },
+            "head_anchors": [
+              {
+                "x": 0.17,
+                "y": 0.107
+              },
+              {
+                "x": 0.35,
+                "y": 0.248
+              }
+            ]
+          },
+          {
+            "id": "m07-2",
+            "label_es": "Limpieza de la mesa",
+            "accepted_option_ids": [
+              "m07-2"
+            ],
+            "rect": {
+              "x": 0.668,
+              "y": 0.075,
+              "width": 0.22,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.78,
+                "y": 0.078
+              }
+            ]
+          },
+          {
+            "id": "m07-3",
+            "label_es": "Ropa en la silla",
+            "accepted_option_ids": [
+              "m07-3"
+            ],
+            "rect": {
+              "x": 0.87,
+              "y": 0.625,
+              "width": 0.13,
+              "height": 0.17
+            },
+            "head_anchors": [
+              {
+                "x": 0.935,
+                "y": 0.635
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m07-4",
+            "label_es": "Libro azul",
+            "accepted_option_ids": [
+              "m07-4"
+            ],
+            "rect": {
+              "x": 0.71,
+              "y": 0.78,
+              "width": 0.14,
+              "height": 0.18
+            },
+            "head_anchors": [
+              {
+                "x": 0.78,
+                "y": 0.79
+              }
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m07-1",
+            "text": "We wash our clothes in the bathroom.",
+            "answer_text": "We wash our clothes in the bathroom.",
+            "target_id": "m07-1",
+            "option_id": "m07-1"
+          },
+          {
+            "id": "cue-m07-2",
+            "text": "You clean the table in the dining room.",
+            "answer_text": "You clean the table in the dining room.",
+            "target_id": "m07-2",
+            "option_id": "m07-2"
+          },
+          {
+            "id": "cue-m07-3",
+            "text": "The clothes are on the green chair.",
+            "answer_text": "The clothes are on the green chair.",
+            "target_id": "m07-3",
+            "option_id": "m07-3"
+          },
+          {
+            "id": "cue-m07-4",
+            "text": "The blue book is under the table.",
+            "answer_text": "The blue book is under the table.",
+            "target_id": "m07-4",
+            "option_id": "m07-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "female-character",
+        "female-character",
+        "teacher",
+        "co-teacher"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M08",
+      "stage": "Listen",
+      "mission_chapter_id": "help",
+      "prompt": "I go to school at seven o'clock in the morning on Tuesday. I run in the park at three o'clock in the afternoon on Wednesday. We clean the table at six o'clock in the afternoon on Friday. I study at eight o'clock at night on Sunday.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp",
+      "spanish_translation": "Escuela Parque Tareas de casa Estudio",
+      "pedagogy_note": "Mission beat 08/17: Check the dated household week before confirming today's visit. Four separate scheduled moments: school Tuesday 6 at 7am, park Wednesday 7 at 3pm, home help Friday 9 at 6pm, study Sunday 11 at 8pm. Clock/date/activity cues only; no weekday or English answer labels. The visit today remains Thursday 8 at 6pm.",
+      "mission_game": {
+        "kind": "contrast-hunt",
+        "instruction_es": "Revisa los planes de la semana: escucha y toca.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "m08-1",
+            "label_es": "Escuela",
+            "accepted_option_ids": [
+              "m08-1"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.245,
+                "y": 0.01
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m08-2",
+            "label_es": "Parque",
+            "accepted_option_ids": [
+              "m08-2"
+            ],
+            "rect": {
+              "x": 0.51,
+              "y": 0,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.755,
+                "y": 0.01
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m08-3",
+            "label_es": "Tareas de casa",
+            "accepted_option_ids": [
+              "m08-3"
+            ],
+            "rect": {
+              "x": 0,
+              "y": 0.51,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.245,
+                "y": 0.52
+              }
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "m08-4",
+            "label_es": "Estudio",
+            "accepted_option_ids": [
+              "m08-4"
+            ],
+            "rect": {
+              "x": 0.51,
+              "y": 0.51,
+              "width": 0.49,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.755,
+                "y": 0.52
+              }
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m08-1",
+            "text": "I go to school at seven o'clock in the morning on Tuesday.",
+            "answer_text": "I go to school at seven o'clock in the morning on Tuesday.",
+            "target_id": "m08-1",
+            "option_id": "m08-1"
+          },
+          {
+            "id": "cue-m08-2",
+            "text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+            "answer_text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+            "target_id": "m08-2",
+            "option_id": "m08-2"
+          },
+          {
+            "id": "cue-m08-3",
+            "text": "We clean the table at six o'clock in the afternoon on Friday.",
+            "answer_text": "We clean the table at six o'clock in the afternoon on Friday.",
+            "target_id": "m08-3",
+            "option_id": "m08-3"
+          },
+          {
+            "id": "cue-m08-4",
+            "text": "I study at eight o'clock at night on Sunday.",
+            "answer_text": "I study at eight o'clock at night on Sunday.",
+            "target_id": "m08-4",
+            "option_id": "m08-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "male-character",
+        "male-character",
+        "female-character",
+        "male-character"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M09",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-09",
+          "label": "Yes, I do. I work and I study.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_09_response.webp"
+        }
+      ],
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Do you work?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_mother_to_father.webp"
+        }
+      ],
+      "spanish_translation": "Sí. Trabajo y estudio.",
+      "pedagogy_note": "Mission beat 09/17: 9. Talk with a helper\nStart the closing conversation with the people helping at home. Ask about the adult’s activities before confirming the household tasks; known and connects the two statements without introducing a new verb form.\nThe asker greets an established adult helper at home. The response view shows that same adult; a laptop and book may provide incidental context, but no picture is asked to distinguish work from study. The authored role response explicitly states both activities. Practise the complete positive reply plus the two familiar base forms.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you work?",
+        "targets": [
+          {
+            "id": "voice-09",
+            "label_es": "Sí. Trabajo y estudio.",
+            "accepted_option_ids": [
+              "voice-09"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-09",
+            "text": "Do you work?",
+            "answer_text": "Yes, I do. I work and I study.",
+            "target_id": "voice-09",
+            "option_id": "voice-09"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M10",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-10",
+          "label": "Yes, I do. I play and I run in the park.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_10_response.webp"
+        }
+      ],
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Do you play in the park?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_mother_to_boy.webp"
+        }
+      ],
+      "spanish_translation": "Sí. Juego y corro en el parque.",
+      "pedagogy_note": "Mission beat 10/17: 10. Talk with another helper\nContinue the same conversation about the family’s day before the visit. This is a brief social exchange, not a park detour or a picture-guessing task.\nA different established family member answers the park question. Keep the person’s identity across question/answer views and a familiar park visible in the setting or shared memory photo. The complete written role response establishes play and run; never infer yes from this photograph.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you play in the park?",
+        "targets": [
+          {
+            "id": "voice-10",
+            "label_es": "Sí. Juego y corro en el parque.",
+            "accepted_option_ids": [
+              "voice-10"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-10",
+            "text": "Do you play in the park?",
+            "answer_text": "Yes, I do. I play and I run in the park.",
+            "target_id": "voice-10",
+            "option_id": "voice-10"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M11",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-11",
+          "label": "Yes, I do. First, we wash our clothes.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_11_response.webp"
+        }
+      ],
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Do you wash your clothes?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_father_to_mother_bathroom.webp"
+        }
+      ],
+      "spanish_translation": "Sí. Primero, lavamos nuestra ropa.",
+      "pedagogy_note": "Mission beat 11/17: 11. Confirm the first home task\nBegin one connected closing conversation about preparing the visit. First refers to the home-help sequence, distinct from the earlier school-morning sequence.\nThe visitor/asker addresses one washing-group member; the respondent view shows that same person with the second helper washing their garments. The written yes is explicit, and we names the visible group.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you wash your clothes?",
+        "targets": [
+          {
+            "id": "voice-11",
+            "label_es": "Sí. Primero, lavamos nuestra ropa.",
+            "accepted_option_ids": [
+              "voice-11"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-11",
+            "text": "Do you wash your clothes?",
+            "answer_text": "Yes, I do. First, we wash our clothes.",
+            "target_id": "voice-11",
+            "option_id": "voice-11"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M12",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-12",
+          "label": "No, I do not. Then, they clean the table.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_12_response.webp"
+        }
+      ],
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Do you clean the table?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_father_to_mother.webp"
+        }
+      ],
+      "spanish_translation": "No. Luego, ellos limpian la mesa.",
+      "pedagogy_note": "Mission beat 12/17: 12. Confirm who cleans\nThe respondent clarifies that another group handles the next task; then links it to the washing step.\nThe same asker addresses a helper who is not the cleaner. The response view shows this respondent gesturing toward two established people actively wiping the table. No is supplied in the authored written response, not inferred from their photo or role.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you clean the table?",
+        "targets": [
+          {
+            "id": "voice-12",
+            "label_es": "No. Luego, ellos limpian la mesa.",
+            "accepted_option_ids": [
+              "voice-12"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-12",
+            "text": "Do you clean the table?",
+            "answer_text": "No, I do not. Then, they clean the table.",
+            "target_id": "voice-12",
+            "option_id": "voice-12"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M13",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-13",
+          "label": "Today is Thursday.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_13_response.webp"
+        }
+      ],
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "What day is it today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_father_to_mother.webp"
+        }
+      ],
+      "spanish_translation": "Hoy es jueves.",
+      "pedagogy_note": "Mission beat 13/17: 13. Confirm the visit day\nConfirm the planned family-visit day before welcoming anyone. Keep the same Thursday from the school morning through the afternoon visit; no arbitrary day change or unexplained flashback.\nA real dated household calendar remains incidental to a conversation; no isolated Thursday sheet. The asker asks the familiar day question. The written role answer explicitly supplies Thursday for pronunciation, so no unspoken calendar inference is required.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "What day is it today?",
+        "targets": [
+          {
+            "id": "voice-13",
+            "label_es": "Hoy es jueves.",
+            "accepted_option_ids": [
+              "voice-13"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-13",
+            "text": "What day is it today?",
+            "answer_text": "Today is Thursday.",
+            "target_id": "voice-13",
+            "option_id": "voice-13"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M14",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-14",
+          "label": "It is six o'clock in the afternoon.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_14_response.webp"
+        }
+      ],
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_mother_to_father_clock.webp"
+        }
+      ],
+      "spanish_translation": "Son las seis en punto de la tarde.",
+      "pedagogy_note": "Mission beat 14/17: 14. Confirm the arrival time\nThe clock now reaches the visit time shown in the timetable; the family is arriving.\nThe same home at 6pm with a clearly readable real 6:00 clock. Ask first, then show the respondent and written whole-hour answer.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "What time is it?",
+        "targets": [
+          {
+            "id": "voice-14",
+            "label_es": "Son las seis en punto de la tarde.",
+            "accepted_option_ids": [
+              "voice-14"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-14",
+            "text": "What time is it?",
+            "answer_text": "It is six o'clock in the afternoon.",
+            "target_id": "voice-14",
+            "option_id": "voice-14"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M15",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-15",
+          "label": "The blue book is under the table.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_15_response.webp"
+        }
+      ],
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Where is the blue book?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_father_to_boy.webp"
+        }
+      ],
+      "spanish_translation": "El libro azul está debajo de la mesa.",
+      "pedagogy_note": "Mission beat 15/17: 15. Tell the family where the book is\nGive the arriving family the location of the familiar book before welcoming them into the room.\nThe asker addresses a helper at the same table. Cut to a closer response view that preserves the blue book beneath it. The question and answer both name the book, with no repeated it placeholder.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Where is the blue book?",
+        "targets": [
+          {
+            "id": "voice-15",
+            "label_es": "El libro azul está debajo de la mesa.",
+            "accepted_option_ids": [
+              "voice-15"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-15",
+            "text": "Where is the blue book?",
+            "answer_text": "The blue book is under the table.",
+            "target_id": "voice-15",
+            "option_id": "voice-15"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M16",
+      "stage": "Speak",
+      "interaction_type": "mission-speak",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-16",
+          "label": "Yes, I do. After that, I open the door.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_16_response.webp"
+        }
+      ],
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Do you open the door?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_door_closed_arrival_v2.webp"
+        }
+      ],
+      "spanish_translation": "Sí. Después, abro la puerta.",
+      "pedagogy_note": "Mission beat 16/17: 16. Welcome the arriving family\nAfter the home tasks and checks, the host opens the door to welcome the family. After that connects the established preparation to this action.\nQuestion view: the host is inside beside the closed front door, with family visible outside. Response view: the same host has opened that door and the family enters. This existing two-view cut supplies closed → open evidence; no posed still is claimed to prove opening and no upfront answer audio is played.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you open the door?",
+        "targets": [
+          {
+            "id": "voice-16",
+            "label_es": "Sí. Después, abro la puerta.",
+            "accepted_option_ids": [
+              "voice-16"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-16",
+            "text": "Do you open the door?",
+            "answer_text": "Yes, I do. After that, I open the door.",
+            "target_id": "voice-16",
+            "option_id": "voice-16"
+          }
+        ]
+      }
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M17",
+      "stage": "Speak",
+      "interaction_type": "mission-finale",
+      "mission_chapter_id": "welcome",
+      "options": [
+        {
+          "id": "voice-17",
+          "label": "Yes, I do. Finally, I close the door.",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_17_response.webp"
+        }
+      ],
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Do you close the door?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_door_open_inside.webp"
+        }
+      ],
+      "spanish_translation": "Sí. Por último, cierro la puerta.",
+      "pedagogy_note": "Mission beat 17/17: 17. Finish the welcome\nClose the door after everyone enters. Finally resolves the home-help sequence and the visit goal; use unit-specific success copy rather than another unit’s celebration.\nQuestion view: everyone has entered, and the host stands at the open door. Response view: the same host closes it, with the family safely inside. Preserve open → closed evidence, the opposite of the preceding gate. The final wide scene shows the family together in the prepared home.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you close the door?",
+        "targets": [
+          {
+            "id": "voice-17",
+            "label_es": "Sí. Por último, cierro la puerta.",
+            "accepted_option_ids": [
+              "voice-17"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-voice-17",
+            "text": "Do you close the door?",
+            "answer_text": "Yes, I do. Finally, I close the door.",
+            "target_id": "voice-17",
+            "option_id": "voice-17"
+          }
+        ]
+      }
+    }
+  ],
+  "authoring": {
+    "approved_editorial_source": "output/school-day-drafts/4.12.concept.json",
+    "approval": "User execute all 2026-10-01; visual cues without written answers confirmed.",
+    "rows": [
+      {
+        "id": "M1",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "This is the kitchen in our home.\nThis is the bathroom.\nThis is the bedroom.\nThis is the living room.",
+        "activity": "1. Find your way around the home\nThe visit will happen at this home. Find the spaces needed to prepare it.\nA fresh, legible view of four familiar home spaces. Each room has enough visible furnishings to be identifiable; no room-word labels or four indistinguishable doors. Use existing room hotspots rather than turning this into family identification.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: kitchen | bathroom | bedroom | living room",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M1-1",
+            "text": "This is the kitchen in our home.",
+            "target": "kitchen"
+          },
+          {
+            "id": "M1-2",
+            "text": "This is the bathroom.",
+            "target": "bathroom"
+          },
+          {
+            "id": "M1-3",
+            "text": "This is the bedroom.",
+            "target": "bedroom"
+          },
+          {
+            "id": "M1-4",
+            "text": "This is the living room.",
+            "target": "living room"
+          }
+        ]
+      },
+      {
+        "id": "M2",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "This is the sofa.\nThis is the lamp.\nThis is the door.\nThis is the window.",
+        "activity": "2. Check the living room\nLocate the furnishings around the place where everyone will meet.\nContinue inside the living room; four clearly separated furnishing targets. The door leads to the outside and will be used at the finale. Object markers stay off the answer-defining surfaces.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: sofa | lamp | door | window",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M2-1",
+            "text": "This is the sofa.",
+            "target": "sofa"
+          },
+          {
+            "id": "M2-2",
+            "text": "This is the lamp.",
+            "target": "lamp"
+          },
+          {
+            "id": "M2-3",
+            "text": "This is the door.",
+            "target": "door"
+          },
+          {
+            "id": "M2-4",
+            "text": "This is the window.",
+            "target": "window"
+          }
+        ]
+      },
+      {
+        "id": "M3",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "The blue book is on the table.\nThe green bag is under the chair.\nThe phone is in the blue bag.\nThe lamp is next to the sofa.",
+        "activity": "3. Find the belongings\nFind the book and belongings so the family knows where everything is before the visit.\nOne fresh room arrangement: blue book on table, green bag beneath chair, phone visibly inside a separate blue bag, lamp beside sofa. Keep the two bags visibly different and phone/bag touch targets apart. Every clue names its object.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: blue book on table | green bag under chair | phone inside a separate blue bag | lamp beside sofa",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M3-1",
+            "text": "The blue book is on the table.",
+            "target": "blue book on table"
+          },
+          {
+            "id": "M3-2",
+            "text": "The green bag is under the chair.",
+            "target": "green bag under chair"
+          },
+          {
+            "id": "M3-3",
+            "text": "The phone is in the blue bag.",
+            "target": "phone inside a separate blue bag"
+          },
+          {
+            "id": "M3-4",
+            "text": "The lamp is next to the sofa.",
+            "target": "lamp beside sofa"
+          }
+        ]
+      },
+      {
+        "id": "M4",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "There is a bed in the bedroom.\nThere is a computer on the table.\nThere are two chairs next to the bed.\nThere are three books under the window.",
+        "activity": "4. Check the bedroom\nCheck the bedroom inventory before the school morning begins.\nA coherent bedroom contains one bed, one computer on a table, two countable chairs beside the bed and three countable books below the window. Avoid occluded counts. Individual and group scopes must remain distinct and fully selectable.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: bed | computer | two-chair group | three-book group",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M4-1",
+            "text": "There is a bed in the bedroom.",
+            "target": "bed"
+          },
+          {
+            "id": "M4-2",
+            "text": "There is a computer on the table.",
+            "target": "computer"
+          },
+          {
+            "id": "M4-3",
+            "text": "There are two chairs next to the bed.",
+            "target": "two-chair group"
+          },
+          {
+            "id": "M4-4",
+            "text": "There are three books under the window.",
+            "target": "three-book group"
+          }
+        ]
+      },
+      {
+        "id": "M5",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "I wake up in the morning.\nI wash my face in the bathroom.\nI get dressed in the bedroom.\nI eat breakfast in the kitchen.",
+        "activity": "5. Follow the first part of the school morning\nThe boy prepares for school before helping the family later. The authored moment order stays fixed even when audio cues shuffle.\nOne fresh four-moment photographic hero follows the same boy: waking → face-washing → dressing → breakfast. Each region shows a real action, not a label or posed person. Maintain his identity, pajamas before dressing and school clothes afterward. Four event hotspots use existing scene selection; no drag or ordering puzzle. Inspect real phone legibility before approving this composite.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: boy waking | boy washing face | boy dressing | boy eating breakfast",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M5-1",
+            "text": "I wake up in the morning.",
+            "target": "boy waking"
+          },
+          {
+            "id": "M5-2",
+            "text": "I wash my face in the bathroom.",
+            "target": "boy washing face"
+          },
+          {
+            "id": "M5-3",
+            "text": "I get dressed in the bedroom.",
+            "target": "boy dressing"
+          },
+          {
+            "id": "M5-4",
+            "text": "I eat breakfast in the kitchen.",
+            "target": "boy eating breakfast"
+          }
+        ]
+      },
+      {
+        "id": "M6",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "I brush my teeth in the bathroom.\nI go to school.\nThe blue book is in the bag.\nThe green bag is on the chair.",
+        "activity": "6. Finish getting ready and leave for school\nFinish the last preparation and school departure. A concise visible Spanish transition then establishes the afternoon return, without assessing untaught come-home or past-tense English.\nA new four-region photographic hero completes that same morning: clear tooth-brushing, clear movement into school, an identifying view of the book inside the school bag and the bag previously resting on a chair. Distinct event/object scopes and visible motion direction are required; a person posing at an education-center door is insufficient. These are fresh mission shots, not the approved lesson pictures.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: boy brushing teeth | boy visibly entering school | blue book visibly inside bag | green bag resting on chair",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M6-1",
+            "text": "I brush my teeth in the bathroom.",
+            "target": "boy brushing teeth"
+          },
+          {
+            "id": "M6-2",
+            "text": "I go to school.",
+            "target": "boy visibly entering school"
+          },
+          {
+            "id": "M6-3",
+            "text": "The blue book is in the bag.",
+            "target": "blue book visibly inside bag"
+          },
+          {
+            "id": "M6-4",
+            "text": "The green bag is on the chair.",
+            "target": "green bag resting on chair"
+          }
+        ]
+      },
+      {
+        "id": "M7",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "We wash our clothes in the bathroom.\nYou clean the table in the dining room.\nThe clothes are on the green chair.\nThe blue book is under the table.",
+        "activity": "7. Prepare the home\nThe helpers return to the home and start the washing and cleaning tasks. Find the remaining belongings during that work.\nA new mission-only home composition shows two legible spaces: two helpers visibly hand-wash their shirts with soap and water in the bathroom; a different addressed helper actively wipes the dining table; other garments rest on a separate green chair in that dining room; the blue book is now clearly under the table. The visible speaker belongs to the washing group and addresses the cleaner. Washing garments and washing a face cannot share ambiguous evidence. The new book position is visible in this scene; guidance only says preparation continues and never translates its location or introduces put-in/take-out English. Check that both rooms and all four targets remain recognizable on the actual phone image.\nFour large, neutral selectable targets in one new mission-only 3:2 hero. Each receives exactly one complete English cue; no captioned answer bank. Play the whole cue before enabling touch, shuffle cues within this scene and freeze that order across retries/rotation. Every cue must have one unique visible target; verify actual crop, object/group anchors and 48dp hit areas before installing.\nTargets: two helpers hand-washing garments | addressed helper wiping table | garments on separate green chair | blue book beneath table",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M7-1",
+            "text": "We wash our clothes in the bathroom.",
+            "target": "two helpers hand-washing garments"
+          },
+          {
+            "id": "M7-2",
+            "text": "You clean the table in the dining room.",
+            "target": "addressed helper wiping table"
+          },
+          {
+            "id": "M7-3",
+            "text": "The clothes are on the green chair.",
+            "target": "garments on separate green chair"
+          },
+          {
+            "id": "M7-4",
+            "text": "The blue book is under the table.",
+            "target": "blue book beneath table"
+          }
+        ]
+      },
+      {
+        "id": "M8",
+        "stage": "Mission",
+        "modality": "Listen",
+        "wording": "I go to school at seven o'clock in the morning on Tuesday.\nI run in the park at three o'clock in the afternoon on Wednesday.\nWe clean the table at six o'clock in the afternoon on Friday.\nI study at eight o'clock at night on Sunday.",
+        "activity": "Check the dated household week before confirming today's visit. Four separate scheduled moments: school Tuesday 6 at 7am, park Wednesday 7 at 3pm, home help Friday 9 at 6pm, study Sunday 11 at 8pm. Clock/date/activity cues only; no weekday or English answer labels. The visit today remains Thursday 8 at 6pm.",
+        "proposal": "",
+        "cues": [
+          {
+            "id": "M8-1",
+            "text": "I go to school at seven o'clock in the morning on Tuesday.",
+            "target": "morning clock 7:00"
+          },
+          {
+            "id": "M8-2",
+            "text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+            "target": "afternoon clock 3:00"
+          },
+          {
+            "id": "M8-3",
+            "text": "We clean the table at six o'clock in the afternoon on Friday.",
+            "target": "visit clock 6:00"
+          },
+          {
+            "id": "M8-4",
+            "text": "I study at eight o'clock at night on Sunday.",
+            "target": "night clock 8:00"
+          }
+        ]
+      },
+      {
+        "id": "M9",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "Do you work?\nYes, I do. I work and I study.",
+        "activity": "9. Talk with a helper\nStart the closing conversation with the people helping at home. Ask about the adult’s activities before confirming the household tasks; known and connects the two statements without introducing a new verb form.\nThe asker greets an established adult helper at home. The response view shows that same adult; a laptop and book may provide incidental context, but no picture is asked to distinguish work from study. The authored role response explicitly states both activities. Practise the complete positive reply plus the two familiar base forms.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "Do you work?",
+        "written_answer": "Yes, I do. I work and I study.",
+        "heard_lines": [
+          "Do you work?"
+        ]
+      },
+      {
+        "id": "M10",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "Do you play in the park?\nYes, I do. I play and I run in the park.",
+        "activity": "10. Talk with another helper\nContinue the same conversation about the family’s day before the visit. This is a brief social exchange, not a park detour or a picture-guessing task.\nA different established family member answers the park question. Keep the person’s identity across question/answer views and a familiar park visible in the setting or shared memory photo. The complete written role response establishes play and run; never infer yes from this photograph.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "Do you play in the park?",
+        "written_answer": "Yes, I do. I play and I run in the park.",
+        "heard_lines": [
+          "Do you play in the park?"
+        ]
+      },
+      {
+        "id": "M11",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "Do you wash your clothes?\nYes, I do. First, we wash our clothes.",
+        "activity": "11. Confirm the first home task\nBegin one connected closing conversation about preparing the visit. First refers to the home-help sequence, distinct from the earlier school-morning sequence.\nThe visitor/asker addresses one washing-group member; the respondent view shows that same person with the second helper washing their garments. The written yes is explicit, and we names the visible group.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "Do you wash your clothes?",
+        "written_answer": "Yes, I do. First, we wash our clothes.",
+        "heard_lines": [
+          "Do you wash your clothes?"
+        ]
+      },
+      {
+        "id": "M12",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "Do you clean the table?\nNo, I do not. Then, they clean the table.",
+        "activity": "12. Confirm who cleans\nThe respondent clarifies that another group handles the next task; then links it to the washing step.\nThe same asker addresses a helper who is not the cleaner. The response view shows this respondent gesturing toward two established people actively wiping the table. No is supplied in the authored written response, not inferred from their photo or role.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "Do you clean the table?",
+        "written_answer": "No, I do not. Then, they clean the table.",
+        "heard_lines": [
+          "Do you clean the table?"
+        ]
+      },
+      {
+        "id": "M13",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "What day is it today?\nToday is Thursday.",
+        "activity": "13. Confirm the visit day\nConfirm the planned family-visit day before welcoming anyone. Keep the same Thursday from the school morning through the afternoon visit; no arbitrary day change or unexplained flashback.\nA real dated household calendar remains incidental to a conversation; no isolated Thursday sheet. The asker asks the familiar day question. The written role answer explicitly supplies Thursday for pronunciation, so no unspoken calendar inference is required.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "What day is it today?",
+        "written_answer": "Today is Thursday.",
+        "heard_lines": [
+          "What day is it today?"
+        ]
+      },
+      {
+        "id": "M14",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "What time is it?\nIt is six o'clock in the afternoon.",
+        "activity": "14. Confirm the arrival time\nThe clock now reaches the visit time shown in the timetable; the family is arriving.\nThe same home at 6pm with a clearly readable real 6:00 clock. Ask first, then show the respondent and written whole-hour answer.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "What time is it?",
+        "written_answer": "It is six o'clock in the afternoon.",
+        "heard_lines": [
+          "What time is it?"
+        ]
+      },
+      {
+        "id": "M15",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "Where is the blue book?\nThe blue book is under the table.",
+        "activity": "15. Tell the family where the book is\nGive the arriving family the location of the familiar book before welcoming them into the room.\nThe asker addresses a helper at the same table. Cut to a closer response view that preserves the blue book beneath it. The question and answer both name the book, with no repeated it placeholder.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "Where is the blue book?",
+        "written_answer": "The blue book is under the table.",
+        "heard_lines": [
+          "Where is the blue book?"
+        ]
+      },
+      {
+        "id": "M16",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "Do you open the door?\nYes, I do. After that, I open the door.",
+        "activity": "16. Welcome the arriving family\nAfter the home tasks and checks, the host opens the door to welcome the family. After that connects the established preparation to this action.\nQuestion view: the host is inside beside the closed front door, with family visible outside. Response view: the same host has opened that door and the family enters. This existing two-view cut supplies closed → open evidence; no posed still is claimed to prove opening and no upfront answer audio is played.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "Do you open the door?",
+        "written_answer": "Yes, I do. After that, I open the door.",
+        "heard_lines": [
+          "Do you open the door?"
+        ]
+      },
+      {
+        "id": "M17",
+        "stage": "Mission",
+        "modality": "Speak",
+        "wording": "Do you close the door?\nYes, I do. Finally, I close the door.",
+        "activity": "17. Finish the welcome\nClose the door after everyone enters. Finally resolves the home-help sequence and the visit goal; use unit-specific success copy rather than another unit’s celebration.\nQuestion view: everyone has entered, and the host stands at the open door. Response view: the same host closes it, with the family safely inside. Preserve open → closed evidence, the opposite of the preceding gate. The final wide scene shows the family together in the prepared home.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+        "proposal": "",
+        "question": "Do you close the door?",
+        "written_answer": "Yes, I do. Finally, I close the door.",
+        "heard_lines": [
+          "Do you close the door?"
+        ]
+      }
+    ],
+    "geometry_status": "Agent inspected all eight exact heroes and mapped target rectangles/head anchors. Runtime geometry passed 48 portrait/landscape frames: uncropped 3:2 image, 48dp controls, bounds and non-overlap. Human device review remains pending for Preview."
+  }
+}
