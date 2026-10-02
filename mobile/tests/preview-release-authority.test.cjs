@@ -196,8 +196,8 @@ test('the publisher fails closed outside the exact GitHub release authority', ()
   assert.match(releaseGuardSource, /merge-base --is-ancestor \$ObservedCommit \$CandidateCommit/);
   assert.match(
     releaseGuardSource,
-    /diff --quiet \$ObservedCommit \$CandidateCommit -- backend/,
-    'An earlier backend deploy is only acceptable when backend/ is byte-identical.',
+    /diff --quiet \$ObservedCommit \$CandidateCommit -- backend docs\/product\/course-audio-upload-manifest\.json/,
+    'An earlier deploy is only acceptable when the backend and its pinned Cloudflare inventory are byte-identical.',
   );
   assert.match(
     releaseGuardSource,
@@ -400,6 +400,11 @@ test('CODEOWNERS protects the complete mobile release trust boundary', () => {
     '/mobile/scripts/verify-release-integrity.cjs',
     '/backend/app/main.py',
     '/backend/app/persistent_audio_assets.py',
+    '/backend/app/cloudflare_media.py',
+    '/backend/tests/test_cloudflare_media.py',
+    '/docs/product/course-audio-upload-manifest.json',
+    '/docs/product/media-upload-manifest.json',
+    '/scripts/verify_cloudflare_media.py',
     '/backend/tests/test_release_status.py',
     '/mobile/tests/four-card-media-review.test.cjs',
     '/mobile/tests/preview-release-authority.test.cjs',

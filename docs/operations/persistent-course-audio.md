@@ -1,6 +1,6 @@
 # Persistent Course Audio
 
-Learner playback for persistent-audio clients is read-only. Render mounts the paid persistent disk at `/var/data/course-audio`, and verified ElevenLabs clients request only immutable IDs from `/api/audio/assets-v2/{asset_id}.mp3`. They never fall back to a text-to-speech route on a cache miss.
+Learner playback is read-only. Cloudflare R2 is the default for course audio and every other course-media type. Clients request `https://cdn.learnspanglish.app/course-audio/elevenlabs-v2/{asset_id}.mp3` directly. Render runs API compute and redirects already-shipped asset URLs to R2; it has no course-media disk dependency. See [Cloudflare publication and migration](cloudflare-course-media.md).
 
 The shared Render backend temporarily retains the legacy course-audio routes solely for the already-shipped Production app. This is a migration compatibility window, not a fallback for Preview: Preview uses immutable assets, while Production continues using its established routes until a separately approved Production release migrates it. Remove the legacy routes only after every active Production client has moved to immutable IDs.
 
@@ -25,9 +25,9 @@ The approved A1 cast is conservative:
 
 Provider voice IDs and exact request settings remain in the versioned audio profile, not in lesson content. Lesson authoring records only the semantic speaker role.
 
-## Runtime seeding and validation
+## Runtime verification
 
-At service startup, the shared backend validates its exact versioned catalog and idempotently installs reviewed takes onto the persistent disk in a background worker. It may still import eligible reviewed legacy-manifest audio for neutral, non-completion assets. Named-character audio and completion prompts may never claim voice-unknown legacy provenance. Existing immutable disk files are never replaced.
+At service startup, the shared backend validates its exact versioned catalog against the committed Cloudflare inventory in a background worker. It checks remote receipt hashes and canonical provenance plus MP3 sizes and ETags; it never copies or generates audio. Protected release CI downloads and checks every active MP3 checksum and media probe too. Provider-unknown legacy files cannot enter the verified inventory. Existing immutable objects are never replaced.
 
 The catalog is exported from the exact `main` release candidate, rather than from the live Production lesson loader. While Preview and Production share the backend on `main`, that exact `main` head must be fully deployed before a mobile update is published. Historical superseded registry bindings remain audit history but are not active catalog assets.
 
@@ -35,7 +35,7 @@ The cache-busted `elevenlabs-v2` catalog reuses exact approved ElevenLabs takes 
 
 Each installed MP3 has an immutable JSON receipt beside it. The receipt binds the audio SHA-256 and byte count to the canonical asset ID, profile, semantic and speaker roles, revision, purpose, text, mode, variant, image reference, provider/model/voice settings, stored-media probe, processing history, timestamps, approval, and any available provider request, trace, and character-cost metadata. A missing receipt, undecodable MP3, checksum mismatch, profile mismatch, registry mismatch, or canonical-contract mismatch makes the asset invalid rather than available.
 
-Render makes a persistent disk available only at runtime, not during build or pre-deploy, so seeding belongs in application startup. See [Render persistent disks](https://render.com/docs/disks) and the [Blueprint disk fields](https://render.com/docs/blueprint-spec).
+Storage publication is operator-only through `scripts/sync_course_audio_to_r2.py`; it reuses previously published validated recordings and installs new approved repository takes. Missing audio stops publication without calling a provider.
 
 ## Inventory and reviewed repository source
 
@@ -59,10 +59,10 @@ Never overwrite an installed asset. Increase that card's audio revision (or deli
 
 A mobile release is blocked until the shared backend reports `environment=production`, branch `main`, the exact current `origin/main` commit, the exact candidate catalog SHA-256 after normalizing CRLF to LF and its declared asset count, `missing == 0`, `invalid == 0`, provider errors empty, and receipts matching the current profile and revisions. Regenerated mobile payloads must contain the same IDs as the backend. Do not publish a mobile client that requests `/api/audio/assets-v2/` before this backend gate passes.
 
-If a dedicated Preview backend is introduced later, seed its disk by copying already validated immutable audio and receipts; do not regenerate an existing catalog merely to populate a second environment.
+If a dedicated Preview backend is introduced later, it reads the same immutable Cloudflare objects with paid TTS disabled; do not regenerate an existing catalog merely to populate a second environment.
 
 Do not publish from a task branch. After inventory coverage is complete and the task is merged, use the protected Preview or Production GitHub Actions workflow from the exact `origin/main` head described in the release guardrails.
 
 ### Locating the existing operator credential path
 
-The existing ElevenLabs credential is configured on the Render backend at `https://learnenglish-fxki.onrender.com`. Do not conclude that generation is unavailable merely because a new local worktree, process, or `backend/.env` lacks `ELEVENLABS_API_KEY`. Check the read-only `/api/audio/health` configuration and the existing receipt provenance first. While the documented compatibility window remains active, the existing bounded operator renderer supports `--legacy-backend-base-url` to capture the pinned profile and persist immutable bytes/receipts, as used for Lesson 1.8 on 2026-09-03. This is operator-only; learner Preview playback remains immutable and read-only. Never retrieve or print the hosted key, bypass a retired endpoint, or restore a removed compatibility route. If that route is retired, use the direct offline credential workflow.
+Use the direct bounded offline credential workflow for new paid recordings. Hosted legacy learner routes are frozen redirects and no longer provide generation, including the renderer's old `--legacy-backend-base-url` migration path. Reuse approved repository takes and validated Cloudflare objects first. Never retrieve or print hosted credentials, restore paid learner routes, or regenerate audio merely to move storage.

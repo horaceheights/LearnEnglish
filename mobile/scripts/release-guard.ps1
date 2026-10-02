@@ -143,7 +143,7 @@ function Assert-SharedBackendRelease {
     & git -C $RepositoryRoot merge-base --is-ancestor $ObservedCommit $CandidateCommit
     if ($LASTEXITCODE -ne 0) { return $false }
 
-    & git -C $RepositoryRoot diff --quiet $ObservedCommit $CandidateCommit -- backend
+    & git -C $RepositoryRoot diff --quiet $ObservedCommit $CandidateCommit -- backend docs/product/course-audio-upload-manifest.json
     return ($LASTEXITCODE -eq 0)
   }
 
@@ -185,6 +185,8 @@ function Assert-SharedBackendRelease {
           [System.StringComparison]::OrdinalIgnoreCase
         ) -and
         [int]$audio.catalog_asset_count -eq $expectedAssetCount -and
+        [string]$audio.storage_provider -ceq 'cloudflare-r2' -and
+        [string]$audio.base_url -ceq 'https://cdn.learnspanglish.app' -and
         [bool]$audio.ready -and
         [int]$audio.missing -eq 0 -and
         [int]$audio.invalid -eq 0 -and

@@ -16,7 +16,7 @@ const {
 } = require(path.resolve(compiledAudioSourcesPath));
 
 const assetId = 'lesson-test-c001-prompt-1234567890abcdef';
-const expectedPath = `/api/audio/assets-v2/${assetId}.mp3`;
+const expectedPath = `/course-audio/elevenlabs-v2/${assetId}.mp3`;
 const persistentSource = courseAudioSource(
   'Hello',
   'pronunciation_slow',
@@ -25,6 +25,7 @@ const persistentSource = courseAudioSource(
   `asset:${assetId}`,
 );
 assert.equal(new URL(persistentSource).pathname, expectedPath);
+assert.equal(new URL(persistentSource).origin, 'https://cdn.learnspanglish.app');
 assert.equal(
   new URL(courseAudioAssetSource({ id: assetId })).pathname,
   expectedPath,
@@ -70,7 +71,7 @@ assert.equal(
 );
 assert.equal(
   new URL(completionPromptAudioSource(card)).pathname,
-  `/api/audio/assets-v2/${completionAsset.id}.mp3`,
+  `/course-audio/elevenlabs-v2/${completionAsset.id}.mp3`,
   'Completion playback must resolve its pre-rendered masked clip.',
 );
 

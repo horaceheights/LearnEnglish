@@ -81,7 +81,7 @@ class ReleaseStatusTests(unittest.TestCase):
         with TestClient(main.app) as client, patch.object(
             main, "APP_API_KEY", "preview-app-key"
         ), patch.dict(os.environ, render_environment, clear=False), patch.object(
-            main, "persistent_elevenlabs_release_status", return_value=ready_audio
+            main.cloudflare_media, "release_status", return_value=ready_audio
         ):
             response = client.get("/api/release/status")
 

@@ -4,7 +4,8 @@ export const API_BASE_URL = 'https://learnenglish-fxki.onrender.com';
 // compiled app like any client-embedded key -- but it stops opportunistic
 // abuse of the paid speech/audio endpoints and of learner data endpoints.
 export const APP_API_KEY = 'Lka_Ecgoda6om-OagWcyG0AK-zrmiD1c';
-export const VIDEO_BASE_URL = 'https://learn-english-orcin.vercel.app';
+export const MEDIA_BASE_URL = 'https://cdn.learnspanglish.app';
+export const VIDEO_BASE_URL = MEDIA_BASE_URL;
 export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
 export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
@@ -13,7 +14,7 @@ export type CourseAudioVoice = `asset:${string}`;
 
 export function absoluteMediaUrl(path: string): string {
   if (!path) return '';
-  return path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
+  return path.startsWith('http') ? path : `${MEDIA_BASE_URL}${path}`;
 }
 
 const LESSON_VIDEO_CACHE_VERSION = '20260920-action-continuity-v3';
@@ -27,8 +28,7 @@ export function hasVisualAudioPlaceholder(text: string): boolean {
 }
 
 export function courseAudioAssetUrl(assetId: string): string {
-  const query = new URLSearchParams({ key: APP_API_KEY });
-  return `${API_BASE_URL}/api/audio/assets-v2/${encodeURIComponent(assetId)}.mp3?${query.toString()}`;
+  return `${MEDIA_BASE_URL}/course-audio/elevenlabs-v2/${encodeURIComponent(assetId)}.mp3`;
 }
 
 export function courseAudioAssetVoice(assetId: string): CourseAudioVoice {
