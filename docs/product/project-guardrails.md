@@ -157,6 +157,8 @@ The following bullets record the earlier, now-superseded proposal:
 
 - Door-photo correction (user-approved 2026-10-01): keep the handle on the moving door slab and a visible grip. For closing, reverse the same two opening views, open on the left and closed on the right. Do not mirror the scene or invent new poses to reverse the action. The boy opening pair was explicitly accepted with “yes now looks good”.
 
+- Door-mechanics continuity (2026-10-01): the same hinge edge must remain fixed across before/after panels and matching opening/closing scenes. The handle and latch stay near the opposite free edge of the moving leaf, never its centre or fixed frame. Inspect the hinge, latch edge, knob grip and who actually moves the leaf in both views; preserve I/you/we action evidence. Supersede rejected uses with versioned assets and retain original bytes.
+
 ### Learn
 
 - Current-action exchanges (approved 2026-09-29): Lesson 3.3 has exactly eight Learn slides, alternating a complete question and its separate answer for `you`, `she`, `he`, and `they`, in that order. Never introduce `Doing` alone with an arbitrary action picture. Each following section preserves question/answer alternation and those four perspectives, while varying already taught actions broadly; keep people, action and setting consistent within each pair. The lesson has eight cards per stage, 40 total. Question recognition uses an English audio cue with hidden question text and neutral text alternatives; a generic action question must not ask learners to guess between several equally plausible action pictures.
