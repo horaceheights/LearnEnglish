@@ -164,6 +164,17 @@ def release_status() -> dict:
                 "profile_id": COURSE_AUDIO_PROFILE_ID, **_status}
 
 
+def read_legacy_asset(asset_id: str) -> RedirectResponse:
+    """Keep the original bytes behind shipped v1 immutable URLs."""
+    if not ASSET_ID_PATTERN.fullmatch(asset_id):
+        raise HTTPException(404, "Course audio asset not found.")
+    key = f"course-audio/{asset_id}.mp3"
+    if key not in inventory().get("historical_objects", {}):
+        raise HTTPException(404, "Course audio asset not found.")
+    return RedirectResponse(object_url(key), status_code=307,
+                            headers={"Cache-Control": "public, max-age=31536000, immutable"})
+
+
 def read_asset(asset_id: str) -> RedirectResponse:
     if not ASSET_ID_PATTERN.fullmatch(asset_id):
         raise HTTPException(404, "Course audio asset not found.")

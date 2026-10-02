@@ -18,6 +18,8 @@ The URL trees are `lesson-assets/`, `audio-cache/`, `sfx/`, and `course-audio/el
 
 Web and mobile default directly to the CDN. Bundled offline images and corrections keep their established behavior. The API's older `/api/audio/assets/`, `/api/audio/assets-v2/` and `/lesson-assets/` URLs redirect to Cloudflare for shipped clients. The web host also redirects its legacy media trees, including the Vercel video URLs hardcoded in older Production apps; those files are excluded from new web deployments. Legacy text/completion routes are frozen read-only compatibility routes; they never generate on a miss. Retain these until a separately approved Production migration has reached all active clients.
 
+The unversioned asset route keeps its original v1 recording at `course-audio/<asset-id>.mp3`; the v2 route keeps its ElevenLabs recording at `course-audio/elevenlabs-v2/<asset-id>.mp3`. Those recordings can have the same logical ID and different bytes. Each redirect preserves its own version, and an absent v1 object returns 404 even when v2 exists.
+
 ## Render migration preservation
 
 The initial transfer preserves the complete Render course-audio disk plus its shipped Production audio cache in `migration-archives/render-course-audio-3a9aea0-20261002.tar.gz`. Archive SHA-256: `e228f20c3d4e0132664e51b82b62f99241f5e5939b800feb1a23d96b5b3080d3`. A scoped temporary upload URL moved this archive without adding R2 credentials to Render. A local operator copy was downloaded, checksum-verified and safely extracted.

@@ -477,6 +477,7 @@ The user approved these measurable standards so that learners can predict how lo
 - Any future Preview backend reads the same validated immutable R2 audio and receipts with paid TTS disabled; do not regenerate a catalog to populate a new environment. Paid rendering remains a separately approved, bounded authoring operation only for genuinely new contracts.
 - During migration on the shared backend, retain legacy course-audio routes only for already-shipped Production clients as read-only redirects to the preserved Cloudflare cache or known approved assets. Missing ordinary clips fail closed; missing completion clips return deterministic silence without speaking the answer. Persistent Preview clients must never use legacy routes as a cache-miss fallback. Remove compatibility routes only after a separately approved Production release has migrated to immutable assets.
 - Preserve older clients' web-hosted video and static media URLs as redirects to Cloudflare before removing duplicate files from web deployments. A storage migration must keep active Production clients working without requiring an unapproved Production update.
+- Preserve the original recording behind each versioned immutable audio URL. `/api/audio/assets/` redirects to its preserved v1 bytes; `/api/audio/assets-v2/` redirects to its ElevenLabs v2 bytes. Equal card IDs or spoken text do not authorize replacing one version with the other. A missing version fails closed instead of rebinding its URL to another recording.
 
 ## 8. Feedback and Interaction
 
