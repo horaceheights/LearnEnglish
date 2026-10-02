@@ -53,14 +53,7 @@ AZURE_SPEECH_LOCALE=en-US
 PRONUNCIATION_PEDAGOGICAL_SCORING=true
 ```
 
-10. Add the OpenAI key for course audio. This lets the backend generate and cache natural lesson prompts instead of relying on browser voices:
-
-```text
-OPENAI_API_KEY=your-openai-api-key
-OPENAI_TTS_MODEL=gpt-4o-mini-tts
-OPENAI_TTS_VOICE=coral
-OPENAI_TTS_FORMAT=mp3
-```
+10. Publish approved course recordings to Cloudflare through the procedure below. The hosted backend reads the versioned inventory and verifies existing objects; it does not generate or cache course speech. Speech-provider credentials belong in the bounded offline authoring environment.
 
 11. Add Sentry performance tracing for backend latency and mobile-to-server
 trace correlation:
@@ -113,7 +106,7 @@ Also verify:
 
 ```text
 https://your-api-name.onrender.com/api/audio/health
-https://your-api-name.onrender.com/api/audio/course?text=The%20boy&mode=prompt&lang=en-US
+https://your-api-name.onrender.com/api/release/status
 ```
 
 The audio health endpoint reports Cloudflare's validated immutable inventory. Learner requests do not generate speech. Keep paid provider credentials in the bounded offline authoring environment.
