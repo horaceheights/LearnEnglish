@@ -20,7 +20,7 @@ from backend.app.course_audio_registry import load_approved_take_registry, resol
 from backend.app.course_audio_receipts import validate_stored_asset, sha256_file
 from backend.app.cloudflare_media import MEDIA_BASE_URL, MANIFEST_PATH, catalog_sha256
 from backend.app.course_audio_profile import COURSE_AUDIO_PROFILE_ID
-from sync_media_to_r2 import load_env, content_type_for, CACHE_CONTROL
+from scripts.sync_media_to_r2 import load_env, content_type_for, CACHE_CONTROL
 
 
 def descriptor(path):
@@ -29,6 +29,17 @@ def descriptor(path):
         for chunk in iter(lambda: stream.read(1048576), b''):
             digest.update(chunk)
     return {'sha256': sha256_file(path), 'bytes': path.stat().st_size, 'etag': digest.hexdigest()}
+
+
+def restore_published_pair(client, bucket, path, entry):
+    """Resume missing files only and verify the previously committed ownership."""
+    for suffix, kind in (('.mp3', 'audio'), ('.json', 'receipt')):
+        target = path.with_suffix(suffix)
+        if not target.exists():
+            client.download_file(bucket, entry['key'].removesuffix('.mp3') + suffix, str(target))
+        expected = entry[kind]
+        if target.stat().st_size != expected['bytes'] or sha256_file(target) != expected['sha256']:
+            raise RuntimeError(f'Published immutable {kind} checksum mismatch: {path.stem}')
 
 
 def main():
@@ -56,14 +67,13 @@ def main():
     destination = args.source / 'elevenlabs-v2'
     destination.mkdir(parents=True, exist_ok=True)
     recovered = installed = 0
+    recoveries = []
     for asset in indexed.values():
         path = destination / f'{asset.id}.mp3'
-        if not path.exists():
-            prior = previous.get('assets', {}).get(asset.id)
+        prior = previous.get('assets', {}).get(asset.id)
+        if not path.exists() or not path.with_suffix('.json').exists():
             if prior:
-                for suffix in ('.mp3', '.json'):
-                    key = prior['key'].removesuffix('.mp3') + suffix
-                    client.download_file(env['R2_BUCKET'], key, str(path.with_suffix(suffix)))
+                recoveries.append((path, prior))
                 recovered += 1
             else:
                 take = resolve_approved_take(asset, registry)
@@ -71,6 +81,13 @@ def main():
                     raise RuntimeError(f'No verified recording for {asset.id}; offline approval required')
                 install_asset_once(asset, take.payload, take.provenance, destination=destination)
                 installed += 1
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
+        list(pool.map(lambda item: restore_published_pair(client, env['R2_BUCKET'], *item), recoveries))
+    for asset in indexed.values():
+        path = destination / f'{asset.id}.mp3'
+        prior = previous.get('assets', {}).get(asset.id)
+        if prior:
+            restore_published_pair(client, env['R2_BUCKET'], path, prior)
         valid, reason, _ = validate_stored_asset(asset, path)
         if not valid:
             raise RuntimeError(f'{asset.id}: {reason}; immutable audio cannot be replaced')
