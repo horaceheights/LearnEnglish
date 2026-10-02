@@ -53,12 +53,24 @@ class CloudflareMediaTests(unittest.TestCase):
                 media.read_asset(self.asset.id)
             self.assertEqual(503,error.exception.status_code)
 
-    def test_current_and_shipped_immutable_routes_redirect_to_same_r2_clip(self):
+    def test_v1_and_v2_routes_preserve_different_original_recordings(self):
+        legacy_key = f'course-audio/{self.asset.id}.mp3'
+        self.inventory['historical_objects'][legacy_key] = {'sha256':'0'*64}
         with patch.object(media,'inventory',return_value=self.inventory), patch.object(media,'_available',{self.asset.id}):
-            for route in (main.read_course_audio_asset, main.read_course_audio_asset_v2):
-                result = route(self.asset.id)
-                self.assertEqual(307,result.status_code)
-                self.assertEqual(media.object_url(self.entry['key']),result.headers['location'])
+            original = main.read_course_audio_asset(self.asset.id)
+            current = main.read_course_audio_asset_v2(self.asset.id)
+            self.assertEqual(307, original.status_code)
+            self.assertEqual(307, current.status_code)
+            self.assertEqual(media.object_url(legacy_key), original.headers['location'])
+            self.assertEqual(media.object_url(self.entry['key']), current.headers['location'])
+            self.assertNotEqual(original.headers['location'], current.headers['location'])
+
+    def test_missing_v1_recording_does_not_rebind_to_existing_v2(self):
+        with patch.object(media,'inventory',return_value=self.inventory), patch.object(media,'_available',{self.asset.id}):
+            with self.assertRaises(HTTPException) as error:
+                main.read_course_audio_asset(self.asset.id)
+            self.assertEqual(404, error.exception.status_code)
+            self.assertEqual(307, main.read_course_audio_asset_v2(self.asset.id).status_code)
 
     def test_legacy_miss_cannot_generate_paid_audio(self):
         with patch.object(media,'inventory',return_value=self.inventory), patch('backend.app.course_audio._provider_audio') as provider:

@@ -360,7 +360,7 @@ async def read_course_completion_audio(
 
 @app.get("/api/audio/assets/{asset_id}.mp3")
 def read_course_audio_asset(asset_id: str):
-    return cloudflare_media.read_asset(asset_id)
+    return cloudflare_media.read_legacy_asset(asset_id)
 
 
 @app.get("/api/audio/assets-v2/{asset_id}.mp3")
