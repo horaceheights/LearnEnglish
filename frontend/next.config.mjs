@@ -9,6 +9,14 @@ const nextConfig = {
     NEXT_PUBLIC_APP_VERSION: version,
     NEXT_PUBLIC_RELEASE_COMMIT: process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_RELEASE_COMMIT || "",
   },
+  async redirects() {
+    // Preserve installed clients' old media URLs before static-file lookup.
+    return ["lesson-assets", "audio-cache", "sfx", "course-audio"].map((tree) => ({
+      source: `/${tree}/:path*`,
+      destination: `https://cdn.learnspanglish.app/${tree}/:path*`,
+      permanent: false,
+    }));
+  },
   async headers() {
     return [
       {

@@ -1,6 +1,16 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
+import config from '../next.config.mjs';
+
+test('shipped web/video media URLs redirect to the same Cloudflare trees', async () => {
+  const redirects = await config.redirects();
+  for (const tree of ['lesson-assets','audio-cache','sfx','course-audio']) {
+    const route = redirects.find(route => route.source === `/${tree}/:path*`);
+    assert.equal(route.destination,`https://cdn.learnspanglish.app/${tree}/:path*`);
+    assert.equal(route.permanent,false);
+  }
+});
 
 test('unconfigured web media always resolves through Cloudflare', async () => {
   const source = await readFile(new URL('../lib/mediaUrl.js',import.meta.url),'utf8');

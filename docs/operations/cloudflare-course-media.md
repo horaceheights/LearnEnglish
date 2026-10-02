@@ -16,7 +16,7 @@ The publisher reads existing operator credentials (`R2_ACCOUNT_ID`, `R2_ACCESS_K
 
 The URL trees are `lesson-assets/`, `audio-cache/`, `sfx/`, and `course-audio/elevenlabs-v2/<immutable-asset-id>.mp3`. Each MP3 has its original `.json` receipt beside it. Audio keys are immutable. The committed inventory pins each MP3 and receipt's SHA-256, byte count and single-part S3 ETag. Operator upload validates full MP3/receipt bytes; startup verifies remote receipts and audio ETags/sizes against that pinned inventory; protected release CI independently downloads and validates the complete active inventory.
 
-Web and mobile default directly to the CDN. Bundled offline images and corrections keep their established behavior. The API's older `/api/audio/assets/`, `/api/audio/assets-v2/` and `/lesson-assets/` URLs redirect to Cloudflare for shipped clients. Legacy text/completion routes are frozen read-only compatibility routes; they never generate on a miss. Retain these until a separately approved Production migration has reached all active clients.
+Web and mobile default directly to the CDN. Bundled offline images and corrections keep their established behavior. The API's older `/api/audio/assets/`, `/api/audio/assets-v2/` and `/lesson-assets/` URLs redirect to Cloudflare for shipped clients. The web host also redirects its legacy media trees, including the Vercel video URLs hardcoded in older Production apps; those files are excluded from new web deployments. Legacy text/completion routes are frozen read-only compatibility routes; they never generate on a miss. Retain these until a separately approved Production migration has reached all active clients.
 
 ## Render migration preservation
 
