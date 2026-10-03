@@ -3,7 +3,7 @@
   "lesson_id": "lesson-4-8-days-and-time",
   "source_filename": "a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
   "source_preservation": "Original neutral and tiny-ring images retained byte-for-byte.",
-  "agent_visual_review": "All seven 3:2 images inspected; full planner and correct upper day box retained. Phone-size marker visibility checked separately by pixel guardrail.",
+  "agent_visual_review": "All seven full 3:2 images and 380px-wide phone previews inspected: one large dark-blue irregular pen loop encloses the correct date and activity box; all seven planner columns remain visible. Pixel guardrails verify marker extent and contrast, and identical mobile/web bytes.",
   "human_device_review": "pending",
   "assets": [
     {
@@ -69,5 +69,7 @@
       "generation_tool": "built-in image_gen",
       "prompt": "Preserve the complete dated seven-day planner photo. Add one visible dark-blue irregular freehand pen loop around the upper sunday box, date 11 and activity drawing, with uneven pressure and overlapping end stroke. No perfect circle, tiny numeral ring, weekday words, new objects or crop."
     }
-  ]
+  ],
+  "phone_review_artifact": "docs/qa/weekday-calendar-markers-v2-phone.png",
+  "audio_preservation": "81 image-rebound audio contracts reuse checksum-validated exact predecessor MP3 bytes and provenance; no speech was generated."
 }
