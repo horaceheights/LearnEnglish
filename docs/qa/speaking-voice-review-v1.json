@@ -1,2912 +1,2909 @@
 {
- "schema_version": 1,
- "rule": "Every line a pictured person says plays in a voice that matches that person: male for a man or boy, female for a woman or girl. The neutral narrator is a woman, so off-camera askers and narration are recorded as female. docs/product/project-guardrails.md (Audio) holds the rule; scripts/review_speaking_voices.py and backend/tests/test_speaking_voice_review.py enforce it.",
- "how_to_review": "When a new card or a replaced picture puts a spoken line over a picture nobody has reviewed, run `python scripts/review_speaking_voices.py --sheets <dir>`, look at each picture, fix the card's speaker role if the voice is wrong, then record who says the line with --record.",
- "provenance": "Seeded 2026-09-19 from the 2026-09-18 image-by-image review of every picture behind a spoken line (contact sheets inspected; every mismatch was recast in PR #162). Adding this check found one more: Luis asks \"How old are you?\" over a1_scene_age-question-ana, so 3.4 U1 and U3 now use his voice.",
- "reviewed": [
-  {
-   "image": "a1_ana.webp",
-   "text": "My name is Ana.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_door.webp",
-   "text": "Is it a door? Yes, it is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_door.webp",
-   "text": "Is it a window? No, it is not.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_hungry.webp",
-   "text": "I am hungry. I need food.",
-   "voice": "female",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_lamp.webp",
-   "text": "Is it a lamp? Yes, it is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_listening_music.webp",
-   "text": "I like listening to music.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_luis.webp",
-   "text": "I am eighteen years old.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_dislikes_fish_crop_v1.webp",
-   "text": "I do not like fish.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_likes_apples_v1.webp",
-   "text": "I like apples.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u3_age_12_girl_v1.webp",
-   "text": "How old are you?",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_age_12_girl_v1.webp",
-   "text": "I am twelve years old.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_age_14_girl_v1.webp",
-   "text": "I am fourteen years old.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_age_15_boy_v1.webp",
-   "text": "How old are you?",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_age_15_boy_v1.webp",
-   "text": "I am fifteen years old.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_age_16_girl_v1.webp",
-   "text": "Is she sixteen? Yes, she is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_is_it_yours_v1.webp",
-   "text": "Is it yours?",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_mine_v1.webp",
-   "text": "It is mine.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_mine_v1.webp",
-   "text": "Mine",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_mine_v1.webp",
-   "text": "Yes, it is mine.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_no_v1.webp",
-   "text": "No.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_our_car_v1.webp",
-   "text": "Our",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_our_car_v1.webp",
-   "text": "This is our car.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_our_grandchildren_v1.webp",
-   "text": "They are our grandchildren.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_yes_v1.webp",
-   "text": "Yes.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_yours_v1.webp",
-   "text": "It is yours.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u3_yours_v1.webp",
-   "text": "Yours",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you drink coffee?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you drink milk?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you like coffee?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you like milk?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you play in the park?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you run in the park?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you study in the park?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you study?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_do_you_question_v1.webp",
-   "text": "Do you work?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u4_no_i_do_not_v1.webp",
-   "text": "No, I do not.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u4_rebuild_days_week_context_v2_v1.webp",
-   "text": "I study on Monday.",
-   "voice": "narrator",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "f8fbfaa4a55161c8c2d9972108d057d55735ec0ad3b3cd0926511a07adeeb487",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_clean_kitchen_v1.webp",
-   "text": "We clean the table in the kitchen.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "cae19d5f036ac9e2941c45f87f1fab2af1a4fdc1c7285ac25bd6a38974c731dc",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_clean_kitchen_v1.webp",
-   "text": "We clean the table.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "cae19d5f036ac9e2941c45f87f1fab2af1a4fdc1c7285ac25bd6a38974c731dc",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_clean_single_v1.webp",
-   "text": "I clean the table.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a8c053b9a0612c626c1c8c0c7e4186291d0616b5c13e925bbdd424485cc22a04",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_clean_you_v1.webp",
-   "text": "You clean the table.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "ea63c6133622a29d1cb1e9408aef2313b33f95394bb87a708ba0bdbaeda8f232",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_close_boy_swap_v1.webp",
-   "text": "You close the door.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "da7d6195610b0e69abacbcd32ead1f57444e5c168f310ede2c4c6328441b93cc",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_open_corrected_v1.webp",
-   "text": "I open the door.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "82ae57ad9d4a6b69144970f37b2257c3f59555483ae036df07f58973473a0648",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_wash_pair_v1.webp",
-   "text": "We wash our clothes.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "6e144caf92ce36efbe7e678517302c8621e3073464dfcbee92b48a690a6b9f44",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_wash_single_v1.webp",
-   "text": "I wash my clothes.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "13c4f497ab5058c2640a8e2ae35f28c8a14c37e946dc28f80df37af8c3161fa0",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_home_wash_you_v1.webp",
-   "text": "You wash your clothes.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "27b1c93b5b906badf4cfda5fe3ce69a36c28a552140a96fe16c5fd9606e5a007",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_morning_breakfast_v1.webp",
-   "text": "Then, I eat breakfast.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a5db26903ccf743a58ebc76fb1b20c4bc0114197b74af8763f8647fbce13fdc5",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_morning_dress_v1.webp",
-   "text": "After that, I get dressed.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "f9b5fa2ca46c9d04013abf904b19abdde8c105c0191121a1794b2cb681ede674",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_morning_school_v2_v1.webp",
-   "text": "Finally, I go to school.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "32cc3e7fe988a0cd939cbe17e0532efa3eeb68d0a1837484b734c9180ad070a3",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_morning_teeth_v1.webp",
-   "text": "After that, I brush my teeth.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "fe7687e6be0ac881b62c55be93e84c6a1a28808944ddede2cc5c03144540f206",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_morning_wake_v1.webp",
-   "text": "First, I wake up.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a7628ab93f7eb85b9869949dcf36b42e9c1590d7f189091115c30a543a7bc4d4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_morning_wash_face_v1.webp",
-   "text": "Then, I wash my face.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "0a21ef8161421af6c94b298fff8fb0d538ee5a8f7d43c87d1d6e133ed2420006",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_breakfast_teeth_v1.webp",
-   "text": "Then, I eat breakfast. After that, I brush my teeth.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "5a035df8c85c5e8b03e37d9cad69d43df7cc80a8aa315251b560d5f08a7ee326",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_breakfast_v1.webp",
-   "text": "I eat breakfast in the kitchen.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "be2ae074a2e10a831437a7a12ef0fb56a44f5e346f4f003d2a9f22dfa90d0e2b",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_close_we_v2_v1.webp",
-   "text": "We close the door.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "ec84a39c1db4ac40668da32930bfc00a01f1a64c0bb87b3fe4a4eeedd3b22f37",
-   "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
-   "text": "Do you play in the park?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
-   "text": "Do you run in the park?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
-   "text": "Do you study in the park?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
-   "text": "Do you study?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
-   "text": "Do you wash your clothes?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
-   "text": "No, I do not.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_question_v1.webp",
-   "text": "Do you run in the park?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "607b20ce7fb297af12764fecbd583e9c5f9478a1521b1612f3f01b42380b1ab5",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_question_v1.webp",
-   "text": "Do you work?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "607b20ce7fb297af12764fecbd583e9c5f9478a1521b1612f3f01b42380b1ab5",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
-   "text": "Do you clean the table?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
-   "text": "Do you play in the park?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
-   "text": "Do you study in the park?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
-   "text": "Do you work in the park?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
-   "text": "No, I do not.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
-   "text": "Yes, I do.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_door_group_sequence_v2_v1.webp",
-   "text": "We open the door.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "89b1884aa81aa5b334f076f203255dcc2af8b4fe664d3f30a474ef6af507861f",
-   "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_door_group_sequence_v2_v1.webp",
-   "text": "You close the door.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "89b1884aa81aa5b334f076f203255dcc2af8b4fe664d3f30a474ef6af507861f",
-   "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_dress_v1.webp",
-   "text": "I get dressed in the bedroom.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "35bb8d8b50b72ca3a9486592c33f07d88d63f2c0ad879d155f1a93a0c4644eb4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_home_exterior_v1.webp",
-   "text": "This is our home.",
-   "voice": "narrator",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "ab4738d439a897e24a3c1007baa7df372a59049d46d3c70445ba7e52707e0ccf",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_open_you_v2_v1.webp",
-   "text": "You open the door.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "901281178fb9833a4d56402859d44d0ea2457600c2cacf18bd94af3736ba67a9",
-   "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_teeth_school_forward_v1.webp",
-   "text": "After that, I brush my teeth. Finally, I go to school.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "5fcbcd1d3a6b11bcc349b3cbc6df1b95b6811c106c1b19354d8292f175b127b4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_wake_wash_v1.webp",
-   "text": "First, I wake up in the morning. Then, I wash my face.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "5d79fa14017a240a7db15f01ac18e5ad31119c6fc230171eb942c2bcb2d251e5",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_wash_pair_v1.webp",
-   "text": "We wash our clothes in the bathroom.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "4be35fff24e6d229dfc6498a5d6831a8cf83f1cdc14fd03189e0a05834941dd9",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_review_wash_pair_v1.webp",
-   "text": "We wash our clothes.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "4be35fff24e6d229dfc6498a5d6831a8cf83f1cdc14fd03189e0a05834941dd9",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_1_forward_v1.webp",
-   "text": "First, I wake up. Then, I wash my face.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "b233dd156a95c9b8d9e9ecbf0e194fe3da60743aad8948687ee6692fb662d2c4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_1_forward_v1.webp",
-   "text": "Then, I wash my face.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "b233dd156a95c9b8d9e9ecbf0e194fe3da60743aad8948687ee6692fb662d2c4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_2_forward_v1.webp",
-   "text": "After that, I get dressed.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "c61e5bb1569aa1f6c862cb9ba5456c4a37b4782ddc440cd9d5750815c27b2b26",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_2_forward_v1.webp",
-   "text": "I wash my face. After that, I get dressed.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "c61e5bb1569aa1f6c862cb9ba5456c4a37b4782ddc440cd9d5750815c27b2b26",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_3_forward_v1.webp",
-   "text": "I get dressed. Then, I eat breakfast.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "15b3c993774bef3b6dbb524de2d6966da38d8ab431ca7306bd43bcedb8f1d9d4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_3_forward_v1.webp",
-   "text": "Then, I eat breakfast.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "15b3c993774bef3b6dbb524de2d6966da38d8ab431ca7306bd43bcedb8f1d9d4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_4_forward_v1.webp",
-   "text": "After that, I brush my teeth.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "de17e55250961f1edd9c05800f44cffbb44c79857d025a1d64f2057d0c22f63c",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_4_forward_v1.webp",
-   "text": "I eat breakfast. After that, I brush my teeth.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "de17e55250961f1edd9c05800f44cffbb44c79857d025a1d64f2057d0c22f63c",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_5_forward_v1.webp",
-   "text": "Finally, I go to school.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "6c768241894f683befeaa359853e2aeb5393c9b9ead8389149fd6326e0051eea",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_rebuild_sequence_5_forward_v1.webp",
-   "text": "I brush my teeth. Finally, I go to school.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "6c768241894f683befeaa359853e2aeb5393c9b9ead8389149fd6326e0051eea",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u4_yes_i_do_v1.webp",
-   "text": "Yes, I do.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_ana_likes_coffee_v1.webp",
-   "text": "I like coffee.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_ana_no_thank_you_v1.webp",
-   "text": "No, thank you.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_ana_yes_please_v1.webp",
-   "text": "Yes, please.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_coffee_breakfast_v1.webp",
-   "text": "I drink coffee for breakfast.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u5_coffee_breakfast_v1.webp",
-   "text": "I drink coffee in the morning.",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_eggs_breakfast_v1.webp",
-   "text": "I eat eggs for breakfast.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u5_eggs_dinner_v1.webp",
-   "text": "I eat eggs for dinner.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_luis_me_too_v1.webp",
-   "text": "I like coffee.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_luis_me_too_v1.webp",
-   "text": "Me too.",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_one_egg_breakfast_v1.webp",
-   "text": "I eat an egg for breakfast.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_request_water_v1.webp",
-   "text": "Please",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_review_eggs_breakfast_v1.webp",
-   "text": "I eat eggs for breakfast.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u5_review_rice_lunch_v1.webp",
-   "text": "We eat rice for lunch.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u5_review_tea_breakfast_v1.webp",
-   "text": "I drink tea for breakfast.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u5_review_water_v1.webp",
-   "text": "I need water.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_photo_u5_rice_lunch_v1.webp",
-   "text": "I eat rice for lunch.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_rice_lunch_v1.webp",
-   "text": "Me too.",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_server_offers_tea_v1.webp",
-   "text": "Do you want tea?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_stall_banana_request_v1.webp",
-   "text": "Can I have a banana, please?",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_stall_orange_request_v1.webp",
-   "text": "Can I have an orange, please?",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_stall_pear_request_v1.webp",
-   "text": "Can I have a pear, please?",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_photo_u5_tea_breakfast_v1.webp",
-   "text": "I drink tea for breakfast.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u5_woman_drinking_water_v1.webp",
-   "text": "I drink water in the morning.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "1f505b50ba6ca54aa35b1e70693ff438d17a9e55d336bc0e0f184f765d82cea6",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_photo_u6_man_boards_train_v1.webp",
-   "text": "I go by train.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u6_man_boards_train_v1.webp",
-   "text": "I go to work by train.",
-   "voice": "male",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_photo_u6_review_man_boards_train_v1.webp",
-   "text": "I go by train.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u7_body_arms_v1.webp",
-   "text": "I have two arms.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_body_ears_v1.webp",
-   "text": "I have two ears.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_body_eyes_v1.webp",
-   "text": "I have two eyes.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_body_feet_v1.webp",
-   "text": "I have two feet.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_body_hands_v1.webp",
-   "text": "I have two hands.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_body_head_v1.webp",
-   "text": "This is my head.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_body_legs_v1.webp",
-   "text": "I have two legs.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_body_mouth_v1.webp",
-   "text": "This is my mouth.",
-   "voice": "male",
-   "reviewed_on": "2026-09-28",
-   "reviewer": "Codex agent",
-   "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
-  },
-  {
-   "image": "a1_photo_u7_cold_jacket_v1.webp",
-   "text": "It is cold. I need a jacket.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u7_dislikes_reading_v2.webp",
-   "text": "I do not like reading.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u7_hot_shirt_v1.webp",
-   "text": "It is hot. I need a shirt.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u7_likes_reading_v1.webp",
-   "text": "I like reading.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u7_likes_tv_v3.webp",
-   "text": "I like watching TV.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u7_rain_umbrella_v1.webp",
-   "text": "It is rainy. I need an umbrella.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_photo_u7_windy_jacket_v1.webp",
-   "text": "It is windy. I need a jacket.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
-   "text": "How old are you?",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
-   "text": "I am twenty years old.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_age-luis-answers-18_27d08d5.webp",
-   "text": "I am eighteen years old.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_age-luis-asks-ana_132f348.webp",
-   "text": "How old are you?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-badge_785def3.webp",
-   "text": "I am Ana.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_ana-badge_785def3.webp",
-   "text": "My name is Ana.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-breakfast_e7fbea5.webp",
-   "text": "I eat breakfast in the kitchen.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_ana-breakfast_e7fbea5.webp",
-   "text": "I eat breakfast.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
-   "text": "Brush my teeth",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
-   "text": "I brush my teeth in the bathroom.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
-   "text": "I brush my teeth.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-dressed_5135d82.webp",
-   "text": "I get dressed in the bedroom.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_ana-dressed_5135d82.webp",
-   "text": "I get dressed.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-mexican_1fca9cc.webp",
-   "text": "I am Mexican.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-mexican_1fca9cc.webp",
-   "text": "Is she Mexican? Yes, she is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_ana-wake_d91086e.webp",
-   "text": "I wake up.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-wash-face_4ea6c79.webp",
-   "text": "I wash my face.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana-wash-face_4ea6c79.webp",
-   "text": "Wash my face",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana_mexico.webp",
-   "text": "I am from Mexico.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_ana_mexico.webp",
-   "text": "Where are you from?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
-   "text": "Can you help me?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
-   "text": "Excuse me. Can you help me?",
-   "voice": "female",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
-   "text": "Yes.",
-   "voice": "male",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_asks-to-slow-down_dafb5f0.webp",
-   "text": "Please speak slowly. Thank you.",
-   "voice": "female",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_breakfast-morning_e501f0d.webp",
-   "text": "I eat breakfast in the morning.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_bus-female-help-question_571febf.webp",
-   "text": "Can you help me?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_can-you-help-me_eb476e5.webp",
-   "text": "Can you help me?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_diego-spanish_5d1c02d.webp",
-   "text": "I am Spanish.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_diego-spanish_5d1c02d.webp",
-   "text": "I am from Spain.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_diego-spanish_5d1c02d.webp",
-   "text": "Is he Canadian? No, he is not.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_do-you-want-to-listen-to-music_e280002.webp",
-   "text": "Do you want to listen to music?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_do-you-want-to-play_416ec92.webp",
-   "text": "Do you want to play?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_do-you-want-to-read_2214c2e.webp",
-   "text": "Do you want to read?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
-   "text": "Do you want to watch TV?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_doctor-diego_1c7ef5a.webp",
-   "text": "Is he a driver? No, he is not.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_does-not-like-bread_cce412b.webp",
-   "text": "I do not like bread.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_does-not-understand_6ad015b.webp",
-   "text": "I do not understand. Please repeat.",
-   "voice": "male",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_driver-luis_111aa43.webp",
-   "text": "I am a driver.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_excuse-me-i-need-help_02700a5.webp",
-   "text": "Excuse me. I need help.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_excuse-me_91c6a04.webp",
-   "text": "Excuse me.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
-   "text": "Goodbye, Ana.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
-   "text": "Goodbye.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_hello-ana-speaker_591cb45.webp",
-   "text": "Hello, Luis.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_hello-ana-speaker_591cb45.webp",
-   "text": "Hello.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_here-you-are_4ab9749.webp",
-   "text": "Here you are.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_here-you-are_4ab9749.webp",
-   "text": "Juice, please.",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_how-are-you_be4c34b.webp",
-   "text": "How are you?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_how-are-you_be4c34b.webp",
-   "text": "I am happy.",
-   "voice": "female",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_i-am-tired-i-need-help_788b204.webp",
-   "text": "I am tired. I need help.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-ana_8c940c9.webp",
-   "text": "I",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-can-walk-there_716a3c1.webp",
-   "text": "I can walk there.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-cannot-walk-there_4e028b8.webp",
-   "text": "I cannot walk there.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-do-not-like-milk_f3786e9.webp",
-   "text": "I do not like milk.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-do-not-like-watching-tv_d06b3e7.webp",
-   "text": "I do not like watching TV.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-do-not-understand_d56b045.webp",
-   "text": "I do not understand.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-go-by-bike_fb5d9bc.webp",
-   "text": "I go by bike.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-go-by-bus_a31fe3d.webp",
-   "text": "I go by bus.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-go-by-car_6e60b4d.webp",
-   "text": "I go by car.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
-   "text": "I go by taxi.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-like-apples-water-please_0c2bcf0.webp",
-   "text": "I like apples. Water, please.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-like-juice_b1740dd.webp",
-   "text": "I like juice.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-need-help_93277f0.webp",
-   "text": "I need help.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-need-water_3031cd6.webp",
-   "text": "I need water.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-reading_941304e.webp",
-   "text": "I am reading.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-wake-up-in-the-morning_8586957.webp",
-   "text": "I wake up in the morning.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-walk_b4cf763.webp",
-   "text": "I walk.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_i-want-juice_9e02e22.webp",
-   "text": "I want juice.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
-   "text": "I need an umbrella.",
-   "voice": "female",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
-   "text": "It is rainy. I need boots.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
-   "text": "It is sunny. I need a hat.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_job-dialogue-driver_acd1aee.webp",
-   "text": "What is your job?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_job-dialogue-teacher_be7d927.webp",
-   "text": "What is your job?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_juice-please_ee4b773.webp",
-   "text": "Can I have juice, please?",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_juice-please_ee4b773.webp",
-   "text": "Juice, please.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_likes-rice_1dce2b8.webp",
-   "text": "I like rice.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_luis-american_5a29f49.webp",
-   "text": "I am American.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_luis-american_5a29f49.webp",
-   "text": "I am from the United States.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_luis-american_5a29f49.webp",
-   "text": "Is he Mexican? No, he is not.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_luis-american_5a29f49.webp",
-   "text": "Where are you from?",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_luis-badge_80bb288.webp",
-   "text": "My name is Luis.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_morning-ana-speaker_716da9f.webp",
-   "text": "Good morning.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_my-book-ana_7f764c0.webp",
-   "text": "I have a book.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_my-book-ana_7f764c0.webp",
-   "text": "My",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_my-book-ana_7f764c0.webp",
-   "text": "This is my book.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_my-name-ana_bbf315f.webp",
-   "text": "My name is Ana.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_my-name-my-day_d5d5c59.webp",
-   "text": "My name. My day.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_name-dialogue-ana_04d12f0.webp",
-   "text": "What is your name?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_name-dialogue-luis_8ac00a9.webp",
-   "text": "What is your name?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_nurse-sofia_63f2a9c.webp",
-   "text": "Is she a nurse? Yes, she is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_orders-coffee_3164cd2.webp",
-   "text": "Can I have coffee, please?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_orders-coffee_3164cd2.webp",
-   "text": "Coffee, please.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_orders-milk_6835950.webp",
-   "text": "Can I have milk, please?",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_orders-milk_6835950.webp",
-   "text": "Milk, please.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_orders-tea_14f7d45.webp",
-   "text": "Can I have tea, please?",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_orders-tea_14f7d45.webp",
-   "text": "Tea, please.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_orders-water_37bb622.webp",
-   "text": "Can I have water, please?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_orders-water_37bb622.webp",
-   "text": "Water, please.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_origin-ana-asks-diego_ac9e717.webp",
-   "text": "Where are you from?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_origin-ana-asks-sofia_1c3c0bc.webp",
-   "text": "Where are you from?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_origin-sofia_83856b9.webp",
-   "text": "I am from Canada.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_please-repeat_50ab734.webp",
-   "text": "Please repeat.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_please-speak-slowly_f0a8349.webp",
-   "text": "Please speak slowly.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_rain-boots_c3ee514.webp",
-   "text": "I need boots.",
-   "voice": "male",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_sofia-canadian_adf798e.webp",
-   "text": "I am Canadian.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_sofia-canadian_adf798e.webp",
-   "text": "Is she Canadian? Yes, she is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_sorry-no-response_6649851.webp",
-   "text": "Can you help me?",
-   "voice": "female",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_scene_sorry-no-response_6649851.webp",
-   "text": "Sorry, no.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_sorry-no_0ecf515.webp",
-   "text": "Sorry, no.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_teacher-ana_0e983a0.webp",
-   "text": "I am a teacher.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_thank-you_a6f59e1.webp",
-   "text": "Here you are.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_scene_thank-you_a6f59e1.webp",
-   "text": "Thank you.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_we-ana-luis_d8d7dd2.webp",
-   "text": "We",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_we-have-books_190a845.webp",
-   "text": "We have two books.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_we-talking_dcb733a.webp",
-   "text": "We are talking.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_yes-thank-you_95534e3.webp",
-   "text": "Do you want to play?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_yes-thank-you_95534e3.webp",
-   "text": "Yes, thank you.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_you-can-cross-the-street_15d25f7.webp",
-   "text": "You can cross the street.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
-   "text": "You cannot cross the street.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_you-luis_016338a.webp",
-   "text": "You",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_you-luis_016338a.webp",
-   "text": "You are Luis.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_you-writing_36b614d.webp",
-   "text": "You are writing.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_your-name-luis_c10ecc5.webp",
-   "text": "Your name is Luis.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_your-phone-luis_e8f060b.webp",
-   "text": "This is your phone.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_scene_your-phone-luis_e8f060b.webp",
-   "text": "You have a phone.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_scene_your-phone-luis_e8f060b.webp",
-   "text": "Your",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_thirsty.webp",
-   "text": "I am thirsty. I need water.",
-   "voice": "female",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_u3_dinner_v1_age_question.webp",
-   "text": "How old are you?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_ages.webp",
-   "text": "I am fifteen years old.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_ages.webp",
-   "text": "I am seventeen years old.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_ages.webp",
-   "text": "I am thirteen years old.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_ages.webp",
-   "text": "I am twelve years old.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_courtyard.webp",
-   "text": "Good morning.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_courtyard.webp",
-   "text": "Goodbye.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_courtyard.webp",
-   "text": "I am playing.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_courtyard.webp",
-   "text": "I am reading.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_doing_question_v2.webp",
-   "text": "What are you doing?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_flags.webp",
-   "text": "I am American.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_flags.webp",
-   "text": "I am Canadian.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_flags.webp",
-   "text": "I am from Mexico.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_flags.webp",
-   "text": "I am from Spain.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_handoffs.webp",
-   "text": "I have a bike.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_handoffs.webp",
-   "text": "These are our books.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_dinner_v1_handoffs.webp",
-   "text": "This is my book.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_handoffs.webp",
-   "text": "This is your phone.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_job_question.webp",
-   "text": "What is your job?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_jobs_v2.webp",
-   "text": "I am a doctor.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_jobs_v2.webp",
-   "text": "I am a driver.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_jobs_v2.webp",
-   "text": "I am a farmer.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_jobs_v2.webp",
-   "text": "I am a nurse.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_kitchen.webp",
-   "text": "I am cooking.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_kitchen.webp",
-   "text": "I am writing.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_kitchen.webp",
-   "text": "We are playing.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_kitchen.webp",
-   "text": "You are writing.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_origin_question.webp",
-   "text": "Where are you from?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_registration.webp",
-   "text": "Hello.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_registration.webp",
-   "text": "My name is Diego.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_registration.webp",
-   "text": "We are talking.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v1_registration.webp",
-   "text": "What is your name?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_dinner_v2_voice_yours_question.webp",
-   "text": "Is it yours?",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_l33_cooking_answer_v1.webp",
-   "text": "I am cooking.",
-   "voice": "male",
-   "reviewed_on": "2026-09-29"
-  },
-  {
-   "image": "a1_u3_l33_cooking_question_v1.webp",
-   "text": "What are you doing?",
-   "voice": "female",
-   "reviewed_on": "2026-09-29"
-  },
-  {
-   "image": "a1_u3_l33_v1_reading_answer.webp",
-   "text": "I am reading.",
-   "voice": "female",
-   "reviewed_on": "2026-09-29"
-  },
-  {
-   "image": "a1_u3_l33_v1_reading_answer.webp",
-   "text": "What are you doing?",
-   "voice": "male",
-   "reviewed_on": "2026-09-29"
-  },
-  {
-   "image": "a1_u3_l33_v1_reading_answer.webp",
-   "text": "Yes, I am.",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_l33_v1_reading_question.webp",
-   "text": "Are you reading?",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_l33_v1_writing_answer.webp",
-   "text": "I am writing.",
-   "voice": "male",
-   "reviewed_on": "2026-09-29"
-  },
-  {
-   "image": "a1_u3_l33_v1_writing_answer.webp",
-   "text": "No, I am not.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_l33_v1_writing_question.webp",
-   "text": "Are you reading?",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_l33_v1_writing_question.webp",
-   "text": "Are you writing?",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_l33_v1_writing_question.webp",
-   "text": "What are you doing?",
-   "voice": "female",
-   "reviewed_on": "2026-09-29"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_age.webp",
-   "text": "I am twenty years old.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_mexico.webp",
-   "text": "I am Mexican.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_mexico.webp",
-   "text": "I am from Mexico. I am Mexican.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_mexico.webp",
-   "text": "Where are you from?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_name.webp",
-   "text": "My name is Ana.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_name.webp",
-   "text": "What is your name?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_teacher.webp",
-   "text": "I am a teacher. I have a book.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_ana_teacher.webp",
-   "text": "I have a book.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_good_morning.webp",
-   "text": "Good morning.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_goodbye.webp",
-   "text": "Goodbye.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_hello.webp",
-   "text": "Hello.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_luis_age.webp",
-   "text": "How old are you?",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_luis_age.webp",
-   "text": "I am eighteen years old.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_luis_driver.webp",
-   "text": "I am a driver.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_we_talking.webp",
-   "text": "We are talking.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_working.webp",
-   "text": "I am working.",
-   "voice": "female",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v1_working.webp",
-   "text": "What are you doing?",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "a1_u3_review_v2_our_house.webp",
-   "text": "This is our house.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_review_v2_she_cooking.webp",
-   "text": "Is she cooking? Yes, she is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_review_v2_sofia_yours.webp",
-   "text": "Is it yours?",
-   "voice": "female",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u3_review_v2_sofia_yours.webp",
-   "text": "Yes, it is mine.",
-   "voice": "male",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "a1_u4_home_v2_mission_01_rooms.webp",
-   "text": "This is the kitchen in our home.",
-   "voice": "narrator",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "eb1468328e675e816c5a000d57fcd534424a7e2f4031d8dc567082713c08d8a9",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_05_morning.webp",
-   "text": "I eat breakfast in the kitchen.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_05_morning.webp",
-   "text": "I get dressed in the bedroom.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_05_morning.webp",
-   "text": "I wake up in the morning.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_05_morning.webp",
-   "text": "I wash my face in the bathroom.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_06_departure.webp",
-   "text": "I brush my teeth in the bathroom.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "984f0703a4054a39e00d9c0e6152046af53fe67e714ff3660b8a6b4ffa1f42c6",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_06_departure.webp",
-   "text": "I go to school.",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "984f0703a4054a39e00d9c0e6152046af53fe67e714ff3660b8a6b4ffa1f42c6",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_07_help.webp",
-   "text": "We wash our clothes in the bathroom.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "e780adcf121aafd6cf176c4fed6bf874cc30d70accd7d51b3e45020b02b7d47c",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_07_help.webp",
-   "text": "You clean the table in the dining room.",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "e780adcf121aafd6cf176c4fed6bf874cc30d70accd7d51b3e45020b02b7d47c",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_08_timetable.webp",
-   "text": "It is eight o'clock at night. Today is Sunday. I study.",
-   "voice": "male",
-   "reviewed_on": "2026-10-03",
-   "reviewer": "Codex agent inspection",
-   "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_08_timetable.webp",
-   "text": "It is seven a.m. Today is Tuesday. I go to school.",
-   "voice": "male",
-   "reviewed_on": "2026-10-03",
-   "reviewer": "Codex agent inspection",
-   "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_08_timetable.webp",
-   "text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
-   "voice": "female",
-   "reviewed_on": "2026-10-03",
-   "reviewer": "Codex agent inspection",
-   "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_08_timetable.webp",
-   "text": "It is three p.m. Today is Wednesday. I run in the park.",
-   "voice": "male",
-   "reviewed_on": "2026-10-03",
-   "reviewer": "Codex agent inspection",
-   "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_question_door_closed_arrival_v2.webp",
-   "text": "Do you open the door?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "437a0ed9314e55eefc036dfc1691ec5e1a8767a45c0b886fb4f512f7a4057446",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_question_door_open_inside.webp",
-   "text": "Do you close the door?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "3ebb74dfe2dee0c053fdc1751860ecbf305307e70ee191d3199a7048857a390c",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_question_father_to_mother.webp",
-   "text": "Do you clean the table?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "1f933b4030d59cc13facb7bac7ab81d3bf7edcbc4a643641717e37662f6747d4",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_question_father_to_mother_bathroom.webp",
-   "text": "Do you wash your clothes?",
-   "voice": "male",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "06143883826768b00b150b351a1174c085a9bd5fb36b8c77effd81a06b29acab",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_question_mother_to_boy.webp",
-   "text": "Do you play in the park?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "f0835f7a7ee64581f3dbf7e51c51b30005bf9bcd954f0ce64f36bf41257a34e5",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u4_home_v2_mission_question_mother_to_father.webp",
-   "text": "Do you work?",
-   "voice": "female",
-   "reviewed_on": "2026-10-01",
-   "reviewer": "Codex agent",
-   "image_sha256": "1fc07009063db05d0cb8283f725e1361f3fc039b251cf1fe9abe4d61c2c5dcdc",
-   "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
-  },
-  {
-   "image": "a1_u5_market_v1_cafe_counter.webp",
-   "text": "Can I have water, please?",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_u5_market_v1_cafe_counter.webp",
-   "text": "No, thank you.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_cafe_counter.webp",
-   "text": "Tea, please.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_cafe_counter.webp",
-   "text": "Yes, please.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_likes_table.webp",
-   "text": "I do not like fish.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_likes_table.webp",
-   "text": "I do not like milk.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_likes_table.webp",
-   "text": "I like chicken.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_likes_table.webp",
-   "text": "I like fish.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_meals_table.webp",
-   "text": "I drink tea for breakfast.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_meals_table.webp",
-   "text": "I eat chicken for dinner.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_meals_table.webp",
-   "text": "I eat eggs for breakfast.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_meals_table.webp",
-   "text": "I eat rice for lunch.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_needs_list.webp",
-   "text": "I need bread.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_needs_list.webp",
-   "text": "I need eggs.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_needs_list.webp",
-   "text": "I need milk.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_order_question.webp",
-   "text": "Hello.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_serve_question.webp",
-   "text": "Juice, please.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_thanks_question.webp",
-   "text": "Here you are.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_wants_counter.webp",
-   "text": "I want some rice.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_wants_counter.webp",
-   "text": "I want three apples.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_market_v1_wants_counter.webp",
-   "text": "I want two eggs.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_review_v1_cafe_order.webp",
-   "text": "Coffee, please. Thank you.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_review_v1_cafe_order.webp",
-   "text": "Here you are.",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_u5_review_v1_cafe_order.webp",
-   "text": "Thank you.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_review_v1_dislikes_fish.webp",
-   "text": "I do not like fish.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_review_v1_dislikes_milk.webp",
-   "text": "I do not like milk.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_review_v1_likes_fish.webp",
-   "text": "I like fish.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_review_v1_yes_please.webp",
-   "text": "Yes, please.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u5_review_v2_can_i_have_bread.webp",
-   "text": "Can I have bread, please?",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_u5_review_v2_me_too_juice.webp",
-   "text": "I like juice.",
-   "voice": "female",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_u5_review_v2_me_too_juice.webp",
-   "text": "Me too.",
-   "voice": "male",
-   "reviewed_on": "2026-09-26"
-  },
-  {
-   "image": "a1_u6_review_v1_by_taxi.webp",
-   "text": "I go by taxi.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_review_v1_can_cross.webp",
-   "text": "You can cross the street.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_review_v1_cannot_cross.webp",
-   "text": "You cannot cross the street.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_review_v1_help_question.webp",
-   "text": "Can you help me?",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_review_v1_help_question.webp",
-   "text": "Excuse me. Can you help me?",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_review_v1_thank_you.webp",
-   "text": "Thank you.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_review_v2_cannot_cross.webp",
-   "text": "You cannot cross the street.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_u6_review_v2_walk_to_work.webp",
-   "text": "I walk to work.",
-   "voice": "male",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_u6_town_v1_crossing_corner.webp",
-   "text": "You can cross the street.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_crossing_corner.webp",
-   "text": "You cannot cross the street.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_help_exchange.webp",
-   "text": "Can you help me?",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_help_exchange.webp",
-   "text": "Excuse me.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_help_exchange.webp",
-   "text": "Sorry, no.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_help_exchange.webp",
-   "text": "Yes.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_help_question.webp",
-   "text": "Excuse me. Can you help me?",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_transport_stop.webp",
-   "text": "I go by bus.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_transport_stop.webp",
-   "text": "I go by taxi.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_transport_stop.webp",
-   "text": "I go by train.",
-   "voice": "male",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u6_town_v1_transport_stop.webp",
-   "text": "I walk.",
-   "voice": "female",
-   "reviewed_on": "2026-09-21"
-  },
-  {
-   "image": "a1_u7_outing_v1_bathroom_question.webp",
-   "text": "Excuse me. Where is the bathroom?",
-   "voice": "male",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_body_health.webp",
-   "text": "My eyes and ears.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_body_health.webp",
-   "text": "My hands and arms.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_body_health.webp",
-   "text": "My head.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_body_health.webp",
-   "text": "My legs and feet.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_communication_help.webp",
-   "text": "I do not understand.",
-   "voice": "male",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_communication_help.webp",
-   "text": "I need help.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_communication_help.webp",
-   "text": "Please repeat.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_communication_help.webp",
-   "text": "Please speak slowly.",
-   "voice": "male",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_feelings.webp",
-   "text": "I am happy.",
-   "voice": "female",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_feelings.webp",
-   "text": "I am hungry.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_feelings.webp",
-   "text": "I am thirsty.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_feelings.webp",
-   "text": "I am tired.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_feelings_question.webp",
-   "text": "What is your name? How are you?",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_hobbies.webp",
-   "text": "I do not like watching TV.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_hobbies.webp",
-   "text": "I like listening to music.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_hobbies.webp",
-   "text": "I like playing.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_hobbies.webp",
-   "text": "I like reading.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_invitation_question.webp",
-   "text": "Do you want to listen to music?",
-   "voice": "male",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_invitations.webp",
-   "text": "Do you want to play?",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_invitations.webp",
-   "text": "Sorry, no.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_invitations.webp",
-   "text": "Yes, thank you.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_purchase_question.webp",
-   "text": "Hello. How are you?",
-   "voice": "female",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_table_refreshments.webp",
-   "text": "Water, please.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_weather_prep.webp",
-   "text": "It is cloudy. I need boots.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_weather_prep.webp",
-   "text": "It is rainy. I need an umbrella.",
-   "voice": "female",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_outing_v1_weather_prep.webp",
-   "text": "It is sunny. It is hot. I need a hat.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_outing_v1_weather_prep.webp",
-   "text": "It is windy. It is cold. I need a jacket.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_cold_windy_jacket.webp",
-   "text": "I need a jacket.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_happy_person.webp",
-   "text": "I am happy, not sad.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_happy_person.webp",
-   "text": "I am happy.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_head_arms_hands.webp",
-   "text": "My arms and hands.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_head_arms_hands.webp",
-   "text": "My head, my eyes, and my ears.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_head_arms_hands.webp",
-   "text": "My head, my mouth, and my feet.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_hobbies_music.webp",
-   "text": "Do you want to listen to music?",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_hobbies_music.webp",
-   "text": "I like listening to music.",
-   "voice": "male",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_hobbies_music.webp",
-   "text": "I like music.",
-   "voice": "male",
-   "reviewed_on": "2026-09-23"
-  },
-  {
-   "image": "a1_u7_review_v1_hungry_person.webp",
-   "text": "I am hungry and thirsty.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_hungry_person.webp",
-   "text": "I am hungry.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_please_repeat.webp",
-   "text": "Please repeat.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_rainy_umbrella_boots.webp",
-   "text": "I need an umbrella.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_thirsty_person.webp",
-   "text": "How are you?",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_thirsty_person.webp",
-   "text": "I am happy and thirsty.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_thirsty_person.webp",
-   "text": "I am thirsty.",
-   "voice": "female",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v1_tired_person.webp",
-   "text": "I am tired.",
-   "voice": "male",
-   "reviewed_on": "2026-09-22"
-  },
-  {
-   "image": "a1_u7_review_v2_cold_hat.webp",
-   "text": "It is cold. I need a hat.",
-   "voice": "male",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "a1_u7_review_v2_does_not_understand.webp",
-   "text": "I do not understand.",
-   "voice": "male",
-   "reviewed_on": "2026-09-27"
-  },
-  {
-   "image": "boy_is_eating.webp",
-   "text": "Is he eating? Yes, he is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "boy_is_swimming.webp",
-   "text": "I like swimming.",
-   "voice": "male",
-   "reviewed_on": "2026-09-18"
-  },
-  {
-   "image": "boy_is_swimming.webp",
-   "text": "Is he eating? No, he is not.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "family_babies.webp",
-   "text": "Are the babies sleeping? No, they are not.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "family_grandparents_talking.webp",
-   "text": "Are the grandparents talking? Yes, they are.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "girl_is_reading.webp",
-   "text": "Is she sleeping? No, she is not.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  },
-  {
-   "image": "girl_is_sleeping.webp",
-   "text": "Is she sleeping? Yes, she is.",
-   "voice": "narrator",
-   "reviewed_on": "2026-09-25"
-  }
- ]
+  "how_to_review": "When a new card or a replaced picture puts a spoken line over a picture nobody has reviewed, run `python scripts/review_speaking_voices.py --sheets <dir>`, look at each picture, fix the card's speaker role if the voice is wrong, then record who says the line with --record.",
+  "provenance": "Seeded 2026-09-19 from the 2026-09-18 image-by-image review of every picture behind a spoken line (contact sheets inspected; every mismatch was recast in PR #162). Adding this check found one more: Luis asks \"How old are you?\" over a1_scene_age-question-ana, so 3.4 U1 and U3 now use his voice.",
+  "reviewed": [
+    {
+      "image": "a1_ana.webp",
+      "text": "My name is Ana.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_door.webp",
+      "text": "Is it a door? Yes, it is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_door.webp",
+      "text": "Is it a window? No, it is not.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_hungry.webp",
+      "text": "I am hungry. I need food.",
+      "voice": "female",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_lamp.webp",
+      "text": "Is it a lamp? Yes, it is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_listening_music.webp",
+      "text": "I like listening to music.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_luis.webp",
+      "text": "I am eighteen years old.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_dislikes_fish_crop_v1.webp",
+      "text": "I do not like fish.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_likes_apples_v1.webp",
+      "text": "I like apples.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u3_age_12_girl_v1.webp",
+      "text": "How old are you?",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_age_12_girl_v1.webp",
+      "text": "I am twelve years old.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_age_14_girl_v1.webp",
+      "text": "I am fourteen years old.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_age_15_boy_v1.webp",
+      "text": "How old are you?",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_age_15_boy_v1.webp",
+      "text": "I am fifteen years old.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_age_16_girl_v1.webp",
+      "text": "Is she sixteen? Yes, she is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_is_it_yours_v1.webp",
+      "text": "Is it yours?",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_mine_v1.webp",
+      "text": "It is mine.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_mine_v1.webp",
+      "text": "Mine",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_mine_v1.webp",
+      "text": "Yes, it is mine.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_no_v1.webp",
+      "text": "No.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_our_car_v1.webp",
+      "text": "Our",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_our_car_v1.webp",
+      "text": "This is our car.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_our_grandchildren_v1.webp",
+      "text": "They are our grandchildren.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_yes_v1.webp",
+      "text": "Yes.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_yours_v1.webp",
+      "text": "It is yours.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u3_yours_v1.webp",
+      "text": "Yours",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you drink coffee?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you drink milk?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you like coffee?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you like milk?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you play in the park?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you run in the park?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you study in the park?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you study?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "03baa2140df565d05d8cc3b1a9dea8ffcb19241ac15936b8eae40d2ffc4e43b6",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_do_you_question_v1.webp",
+      "text": "Do you work?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u4_no_i_do_not_v1.webp",
+      "text": "No, I do not.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_clean_kitchen_v1.webp",
+      "text": "We clean the table in the kitchen.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "cae19d5f036ac9e2941c45f87f1fab2af1a4fdc1c7285ac25bd6a38974c731dc",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_clean_kitchen_v1.webp",
+      "text": "We clean the table.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "cae19d5f036ac9e2941c45f87f1fab2af1a4fdc1c7285ac25bd6a38974c731dc",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "text": "I clean the table.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a8c053b9a0612c626c1c8c0c7e4186291d0616b5c13e925bbdd424485cc22a04",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_clean_you_v1.webp",
+      "text": "You clean the table.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "ea63c6133622a29d1cb1e9408aef2313b33f95394bb87a708ba0bdbaeda8f232",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_close_boy_swap_v1.webp",
+      "text": "You close the door.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "da7d6195610b0e69abacbcd32ead1f57444e5c168f310ede2c4c6328441b93cc",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_open_corrected_v1.webp",
+      "text": "I open the door.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "82ae57ad9d4a6b69144970f37b2257c3f59555483ae036df07f58973473a0648",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_wash_pair_v1.webp",
+      "text": "We wash our clothes.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "6e144caf92ce36efbe7e678517302c8621e3073464dfcbee92b48a690a6b9f44",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_wash_single_v1.webp",
+      "text": "I wash my clothes.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "13c4f497ab5058c2640a8e2ae35f28c8a14c37e946dc28f80df37af8c3161fa0",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_home_wash_you_v1.webp",
+      "text": "You wash your clothes.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "27b1c93b5b906badf4cfda5fe3ce69a36c28a552140a96fe16c5fd9606e5a007",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_morning_breakfast_v1.webp",
+      "text": "Then, I eat breakfast.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a5db26903ccf743a58ebc76fb1b20c4bc0114197b74af8763f8647fbce13fdc5",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_morning_dress_v1.webp",
+      "text": "After that, I get dressed.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "f9b5fa2ca46c9d04013abf904b19abdde8c105c0191121a1794b2cb681ede674",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_morning_school_v2_v1.webp",
+      "text": "Finally, I go to school.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "32cc3e7fe988a0cd939cbe17e0532efa3eeb68d0a1837484b734c9180ad070a3",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_morning_teeth_v1.webp",
+      "text": "After that, I brush my teeth.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "fe7687e6be0ac881b62c55be93e84c6a1a28808944ddede2cc5c03144540f206",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_morning_wake_v1.webp",
+      "text": "First, I wake up.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a7628ab93f7eb85b9869949dcf36b42e9c1590d7f189091115c30a543a7bc4d4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_morning_wash_face_v1.webp",
+      "text": "Then, I wash my face.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "0a21ef8161421af6c94b298fff8fb0d538ee5a8f7d43c87d1d6e133ed2420006",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_breakfast_teeth_v1.webp",
+      "text": "Then, I eat breakfast. After that, I brush my teeth.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "5a035df8c85c5e8b03e37d9cad69d43df7cc80a8aa315251b560d5f08a7ee326",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_breakfast_v1.webp",
+      "text": "I eat breakfast in the kitchen.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "be2ae074a2e10a831437a7a12ef0fb56a44f5e346f4f003d2a9f22dfa90d0e2b",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_close_we_v2_v1.webp",
+      "text": "We close the door.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "ec84a39c1db4ac40668da32930bfc00a01f1a64c0bb87b3fe4a4eeedd3b22f37",
+      "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
+      "text": "Do you play in the park?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
+      "text": "Do you run in the park?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
+      "text": "Do you study in the park?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
+      "text": "Do you study?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
+      "text": "Do you wash your clothes?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_no_v1.webp",
+      "text": "No, I do not.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "83bafa028f597affedd00e3ab197c1d514f70afd3a1171f8ad98af8f399aa5b4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_question_v1.webp",
+      "text": "Do you run in the park?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "607b20ce7fb297af12764fecbd583e9c5f9478a1521b1612f3f01b42380b1ab5",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_question_v1.webp",
+      "text": "Do you work?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "607b20ce7fb297af12764fecbd583e9c5f9478a1521b1612f3f01b42380b1ab5",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
+      "text": "Do you clean the table?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
+      "text": "Do you play in the park?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
+      "text": "Do you study in the park?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
+      "text": "Do you work in the park?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
+      "text": "No, I do not.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
+      "text": "Yes, I do.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "a69bb751863f965264b476f92a17c0cdf68e72cdc1980c9b37f6aa8ff7bee3f2",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_door_group_sequence_v2_v1.webp",
+      "text": "We open the door.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "89b1884aa81aa5b334f076f203255dcc2af8b4fe664d3f30a474ef6af507861f",
+      "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_door_group_sequence_v2_v1.webp",
+      "text": "You close the door.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "89b1884aa81aa5b334f076f203255dcc2af8b4fe664d3f30a474ef6af507861f",
+      "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_dress_v1.webp",
+      "text": "I get dressed in the bedroom.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "35bb8d8b50b72ca3a9486592c33f07d88d63f2c0ad879d155f1a93a0c4644eb4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_home_exterior_v1.webp",
+      "text": "This is our home.",
+      "voice": "narrator",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "ab4738d439a897e24a3c1007baa7df372a59049d46d3c70445ba7e52707e0ccf",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_open_you_v2_v1.webp",
+      "text": "You open the door.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "901281178fb9833a4d56402859d44d0ea2457600c2cacf18bd94af3736ba67a9",
+      "review_basis": "Corrected door pair inspected; same father/boy male or mother-addressing-boy female perspective. Both hinge states and active hands checked. Human media approval remains pending."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_teeth_school_forward_v1.webp",
+      "text": "After that, I brush my teeth. Finally, I go to school.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "5fcbcd1d3a6b11bcc349b3cbc6df1b95b6811c106c1b19354d8292f175b127b4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_wake_wash_v1.webp",
+      "text": "First, I wake up in the morning. Then, I wash my face.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "5d79fa14017a240a7db15f01ac18e5ad31119c6fc230171eb942c2bcb2d251e5",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_wash_pair_v1.webp",
+      "text": "We wash our clothes in the bathroom.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "4be35fff24e6d229dfc6498a5d6831a8cf83f1cdc14fd03189e0a05834941dd9",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_review_wash_pair_v1.webp",
+      "text": "We wash our clothes.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "4be35fff24e6d229dfc6498a5d6831a8cf83f1cdc14fd03189e0a05834941dd9",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_1_forward_v1.webp",
+      "text": "First, I wake up. Then, I wash my face.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "b233dd156a95c9b8d9e9ecbf0e194fe3da60743aad8948687ee6692fb662d2c4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_1_forward_v1.webp",
+      "text": "Then, I wash my face.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "b233dd156a95c9b8d9e9ecbf0e194fe3da60743aad8948687ee6692fb662d2c4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_2_forward_v1.webp",
+      "text": "After that, I get dressed.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "c61e5bb1569aa1f6c862cb9ba5456c4a37b4782ddc440cd9d5750815c27b2b26",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_2_forward_v1.webp",
+      "text": "I wash my face. After that, I get dressed.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "c61e5bb1569aa1f6c862cb9ba5456c4a37b4782ddc440cd9d5750815c27b2b26",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_3_forward_v1.webp",
+      "text": "I get dressed. Then, I eat breakfast.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "15b3c993774bef3b6dbb524de2d6966da38d8ab431ca7306bd43bcedb8f1d9d4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_3_forward_v1.webp",
+      "text": "Then, I eat breakfast.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "15b3c993774bef3b6dbb524de2d6966da38d8ab431ca7306bd43bcedb8f1d9d4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_4_forward_v1.webp",
+      "text": "After that, I brush my teeth.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "de17e55250961f1edd9c05800f44cffbb44c79857d025a1d64f2057d0c22f63c",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_4_forward_v1.webp",
+      "text": "I eat breakfast. After that, I brush my teeth.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "de17e55250961f1edd9c05800f44cffbb44c79857d025a1d64f2057d0c22f63c",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_5_forward_v1.webp",
+      "text": "Finally, I go to school.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "6c768241894f683befeaa359853e2aeb5393c9b9ead8389149fd6326e0051eea",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_rebuild_sequence_5_forward_v1.webp",
+      "text": "I brush my teeth. Finally, I go to school.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "6c768241894f683befeaa359853e2aeb5393c9b9ead8389149fd6326e0051eea",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u4_yes_i_do_v1.webp",
+      "text": "Yes, I do.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_ana_likes_coffee_v1.webp",
+      "text": "I like coffee.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_ana_no_thank_you_v1.webp",
+      "text": "No, thank you.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_ana_yes_please_v1.webp",
+      "text": "Yes, please.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_coffee_breakfast_v1.webp",
+      "text": "I drink coffee for breakfast.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u5_coffee_breakfast_v1.webp",
+      "text": "I drink coffee in the morning.",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_eggs_breakfast_v1.webp",
+      "text": "I eat eggs for breakfast.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u5_eggs_dinner_v1.webp",
+      "text": "I eat eggs for dinner.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_luis_me_too_v1.webp",
+      "text": "I like coffee.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_luis_me_too_v1.webp",
+      "text": "Me too.",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_one_egg_breakfast_v1.webp",
+      "text": "I eat an egg for breakfast.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_request_water_v1.webp",
+      "text": "Please",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_review_eggs_breakfast_v1.webp",
+      "text": "I eat eggs for breakfast.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u5_review_rice_lunch_v1.webp",
+      "text": "We eat rice for lunch.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u5_review_tea_breakfast_v1.webp",
+      "text": "I drink tea for breakfast.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u5_review_water_v1.webp",
+      "text": "I need water.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_photo_u5_rice_lunch_v1.webp",
+      "text": "I eat rice for lunch.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_rice_lunch_v1.webp",
+      "text": "Me too.",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_server_offers_tea_v1.webp",
+      "text": "Do you want tea?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_stall_banana_request_v1.webp",
+      "text": "Can I have a banana, please?",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_stall_orange_request_v1.webp",
+      "text": "Can I have an orange, please?",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_stall_pear_request_v1.webp",
+      "text": "Can I have a pear, please?",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_photo_u5_tea_breakfast_v1.webp",
+      "text": "I drink tea for breakfast.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u5_woman_drinking_water_v1.webp",
+      "text": "I drink water in the morning.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "1f505b50ba6ca54aa35b1e70693ff438d17a9e55d336bc0e0f184f765d82cea6",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_photo_u6_man_boards_train_v1.webp",
+      "text": "I go by train.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u6_man_boards_train_v1.webp",
+      "text": "I go to work by train.",
+      "voice": "male",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_photo_u6_review_man_boards_train_v1.webp",
+      "text": "I go by train.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u7_body_arms_v1.webp",
+      "text": "I have two arms.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_body_ears_v1.webp",
+      "text": "I have two ears.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_body_eyes_v1.webp",
+      "text": "I have two eyes.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_body_feet_v1.webp",
+      "text": "I have two feet.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_body_hands_v1.webp",
+      "text": "I have two hands.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_body_head_v1.webp",
+      "text": "This is my head.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_body_legs_v1.webp",
+      "text": "I have two legs.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_body_mouth_v1.webp",
+      "text": "This is my mouth.",
+      "voice": "male",
+      "reviewed_on": "2026-09-28",
+      "reviewer": "Codex agent",
+      "note": "Inspected the same adult male across the natural-pointing/body close-up series; retains the pre-change male character recording."
+    },
+    {
+      "image": "a1_photo_u7_cold_jacket_v1.webp",
+      "text": "It is cold. I need a jacket.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u7_dislikes_reading_v2.webp",
+      "text": "I do not like reading.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u7_hot_shirt_v1.webp",
+      "text": "It is hot. I need a shirt.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u7_likes_reading_v1.webp",
+      "text": "I like reading.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u7_likes_tv_v3.webp",
+      "text": "I like watching TV.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u7_rain_umbrella_v1.webp",
+      "text": "It is rainy. I need an umbrella.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_photo_u7_windy_jacket_v1.webp",
+      "text": "It is windy. I need a jacket.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
+      "text": "How old are you?",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
+      "text": "I am twenty years old.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_age-luis-answers-18_27d08d5.webp",
+      "text": "I am eighteen years old.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_age-luis-asks-ana_132f348.webp",
+      "text": "How old are you?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-badge_785def3.webp",
+      "text": "I am Ana.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_ana-badge_785def3.webp",
+      "text": "My name is Ana.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-breakfast_e7fbea5.webp",
+      "text": "I eat breakfast in the kitchen.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_ana-breakfast_e7fbea5.webp",
+      "text": "I eat breakfast.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "text": "Brush my teeth",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "text": "I brush my teeth in the bathroom.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+      "text": "I brush my teeth.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-dressed_5135d82.webp",
+      "text": "I get dressed in the bedroom.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_ana-dressed_5135d82.webp",
+      "text": "I get dressed.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-mexican_1fca9cc.webp",
+      "text": "I am Mexican.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-mexican_1fca9cc.webp",
+      "text": "Is she Mexican? Yes, she is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_ana-wake_d91086e.webp",
+      "text": "I wake up.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-wash-face_4ea6c79.webp",
+      "text": "I wash my face.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana-wash-face_4ea6c79.webp",
+      "text": "Wash my face",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana_mexico.webp",
+      "text": "I am from Mexico.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_ana_mexico.webp",
+      "text": "Where are you from?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "text": "Can you help me?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "text": "Excuse me. Can you help me?",
+      "voice": "female",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
+      "text": "Yes.",
+      "voice": "male",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+      "text": "Please speak slowly. Thank you.",
+      "voice": "female",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_breakfast-morning_e501f0d.webp",
+      "text": "I eat breakfast in the morning.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_bus-female-help-question_571febf.webp",
+      "text": "Can you help me?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_can-you-help-me_eb476e5.webp",
+      "text": "Can you help me?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_diego-spanish_5d1c02d.webp",
+      "text": "I am Spanish.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_diego-spanish_5d1c02d.webp",
+      "text": "I am from Spain.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_diego-spanish_5d1c02d.webp",
+      "text": "Is he Canadian? No, he is not.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_do-you-want-to-listen-to-music_e280002.webp",
+      "text": "Do you want to listen to music?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_do-you-want-to-play_416ec92.webp",
+      "text": "Do you want to play?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_do-you-want-to-read_2214c2e.webp",
+      "text": "Do you want to read?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
+      "text": "Do you want to watch TV?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_doctor-diego_1c7ef5a.webp",
+      "text": "Is he a driver? No, he is not.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_does-not-like-bread_cce412b.webp",
+      "text": "I do not like bread.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_does-not-understand_6ad015b.webp",
+      "text": "I do not understand. Please repeat.",
+      "voice": "male",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_driver-luis_111aa43.webp",
+      "text": "I am a driver.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_excuse-me-i-need-help_02700a5.webp",
+      "text": "Excuse me. I need help.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_excuse-me_91c6a04.webp",
+      "text": "Excuse me.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
+      "text": "Goodbye, Ana.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
+      "text": "Goodbye.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_hello-ana-speaker_591cb45.webp",
+      "text": "Hello, Luis.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_hello-ana-speaker_591cb45.webp",
+      "text": "Hello.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_here-you-are_4ab9749.webp",
+      "text": "Here you are.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_here-you-are_4ab9749.webp",
+      "text": "Juice, please.",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_how-are-you_be4c34b.webp",
+      "text": "How are you?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_how-are-you_be4c34b.webp",
+      "text": "I am happy.",
+      "voice": "female",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_i-am-tired-i-need-help_788b204.webp",
+      "text": "I am tired. I need help.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-ana_8c940c9.webp",
+      "text": "I",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-can-walk-there_716a3c1.webp",
+      "text": "I can walk there.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-cannot-walk-there_4e028b8.webp",
+      "text": "I cannot walk there.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-do-not-like-milk_f3786e9.webp",
+      "text": "I do not like milk.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-do-not-like-watching-tv_d06b3e7.webp",
+      "text": "I do not like watching TV.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-do-not-understand_d56b045.webp",
+      "text": "I do not understand.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-go-by-bike_fb5d9bc.webp",
+      "text": "I go by bike.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-go-by-bus_a31fe3d.webp",
+      "text": "I go by bus.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-go-by-car_6e60b4d.webp",
+      "text": "I go by car.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
+      "text": "I go by taxi.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-like-apples-water-please_0c2bcf0.webp",
+      "text": "I like apples. Water, please.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-like-juice_b1740dd.webp",
+      "text": "I like juice.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-need-help_93277f0.webp",
+      "text": "I need help.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-need-water_3031cd6.webp",
+      "text": "I need water.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-reading_941304e.webp",
+      "text": "I am reading.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-wake-up-in-the-morning_8586957.webp",
+      "text": "I wake up in the morning.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-walk_b4cf763.webp",
+      "text": "I walk.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_i-want-juice_9e02e22.webp",
+      "text": "I want juice.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
+      "text": "I need an umbrella.",
+      "voice": "female",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+      "text": "It is rainy. I need boots.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+      "text": "It is sunny. I need a hat.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_job-dialogue-driver_acd1aee.webp",
+      "text": "What is your job?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_job-dialogue-teacher_be7d927.webp",
+      "text": "What is your job?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_juice-please_ee4b773.webp",
+      "text": "Can I have juice, please?",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_juice-please_ee4b773.webp",
+      "text": "Juice, please.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_likes-rice_1dce2b8.webp",
+      "text": "I like rice.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "text": "I am American.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "text": "I am from the United States.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "text": "Is he Mexican? No, he is not.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_luis-american_5a29f49.webp",
+      "text": "Where are you from?",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_luis-badge_80bb288.webp",
+      "text": "My name is Luis.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_morning-ana-speaker_716da9f.webp",
+      "text": "Good morning.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_my-book-ana_7f764c0.webp",
+      "text": "I have a book.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_my-book-ana_7f764c0.webp",
+      "text": "My",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_my-book-ana_7f764c0.webp",
+      "text": "This is my book.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_my-name-ana_bbf315f.webp",
+      "text": "My name is Ana.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_my-name-my-day_d5d5c59.webp",
+      "text": "My name. My day.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_name-dialogue-ana_04d12f0.webp",
+      "text": "What is your name?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_name-dialogue-luis_8ac00a9.webp",
+      "text": "What is your name?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_nurse-sofia_63f2a9c.webp",
+      "text": "Is she a nurse? Yes, she is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_orders-coffee_3164cd2.webp",
+      "text": "Can I have coffee, please?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_orders-coffee_3164cd2.webp",
+      "text": "Coffee, please.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_orders-milk_6835950.webp",
+      "text": "Can I have milk, please?",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_orders-milk_6835950.webp",
+      "text": "Milk, please.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_orders-tea_14f7d45.webp",
+      "text": "Can I have tea, please?",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_orders-tea_14f7d45.webp",
+      "text": "Tea, please.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_orders-water_37bb622.webp",
+      "text": "Can I have water, please?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_orders-water_37bb622.webp",
+      "text": "Water, please.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_origin-ana-asks-diego_ac9e717.webp",
+      "text": "Where are you from?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_origin-ana-asks-sofia_1c3c0bc.webp",
+      "text": "Where are you from?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_origin-sofia_83856b9.webp",
+      "text": "I am from Canada.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_please-repeat_50ab734.webp",
+      "text": "Please repeat.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_please-speak-slowly_f0a8349.webp",
+      "text": "Please speak slowly.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_rain-boots_c3ee514.webp",
+      "text": "I need boots.",
+      "voice": "male",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_sofia-canadian_adf798e.webp",
+      "text": "I am Canadian.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_sofia-canadian_adf798e.webp",
+      "text": "Is she Canadian? Yes, she is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_sorry-no-response_6649851.webp",
+      "text": "Can you help me?",
+      "voice": "female",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_scene_sorry-no-response_6649851.webp",
+      "text": "Sorry, no.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_sorry-no_0ecf515.webp",
+      "text": "Sorry, no.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_teacher-ana_0e983a0.webp",
+      "text": "I am a teacher.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_thank-you_a6f59e1.webp",
+      "text": "Here you are.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_scene_thank-you_a6f59e1.webp",
+      "text": "Thank you.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_we-ana-luis_d8d7dd2.webp",
+      "text": "We",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_we-have-books_190a845.webp",
+      "text": "We have two books.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_we-talking_dcb733a.webp",
+      "text": "We are talking.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_yes-thank-you_95534e3.webp",
+      "text": "Do you want to play?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_yes-thank-you_95534e3.webp",
+      "text": "Yes, thank you.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_you-can-cross-the-street_15d25f7.webp",
+      "text": "You can cross the street.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
+      "text": "You cannot cross the street.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_you-luis_016338a.webp",
+      "text": "You",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_you-luis_016338a.webp",
+      "text": "You are Luis.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_you-writing_36b614d.webp",
+      "text": "You are writing.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_your-name-luis_c10ecc5.webp",
+      "text": "Your name is Luis.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_your-phone-luis_e8f060b.webp",
+      "text": "This is your phone.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_scene_your-phone-luis_e8f060b.webp",
+      "text": "You have a phone.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_scene_your-phone-luis_e8f060b.webp",
+      "text": "Your",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_thirsty.webp",
+      "text": "I am thirsty. I need water.",
+      "voice": "female",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_u3_dinner_v1_age_question.webp",
+      "text": "How old are you?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_ages.webp",
+      "text": "I am fifteen years old.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_ages.webp",
+      "text": "I am seventeen years old.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_ages.webp",
+      "text": "I am thirteen years old.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_ages.webp",
+      "text": "I am twelve years old.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_courtyard.webp",
+      "text": "Good morning.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_courtyard.webp",
+      "text": "Goodbye.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_courtyard.webp",
+      "text": "I am playing.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_courtyard.webp",
+      "text": "I am reading.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_doing_question_v2.webp",
+      "text": "What are you doing?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_flags.webp",
+      "text": "I am American.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_flags.webp",
+      "text": "I am Canadian.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_flags.webp",
+      "text": "I am from Mexico.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_flags.webp",
+      "text": "I am from Spain.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_handoffs.webp",
+      "text": "I have a bike.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_handoffs.webp",
+      "text": "These are our books.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_dinner_v1_handoffs.webp",
+      "text": "This is my book.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_handoffs.webp",
+      "text": "This is your phone.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_job_question.webp",
+      "text": "What is your job?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_jobs_v2.webp",
+      "text": "I am a doctor.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_jobs_v2.webp",
+      "text": "I am a driver.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_jobs_v2.webp",
+      "text": "I am a farmer.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_jobs_v2.webp",
+      "text": "I am a nurse.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_kitchen.webp",
+      "text": "I am cooking.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_kitchen.webp",
+      "text": "I am writing.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_kitchen.webp",
+      "text": "We are playing.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_kitchen.webp",
+      "text": "You are writing.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_origin_question.webp",
+      "text": "Where are you from?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_registration.webp",
+      "text": "Hello.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_registration.webp",
+      "text": "My name is Diego.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_registration.webp",
+      "text": "We are talking.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v1_registration.webp",
+      "text": "What is your name?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_dinner_v2_voice_yours_question.webp",
+      "text": "Is it yours?",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_l33_cooking_answer_v1.webp",
+      "text": "I am cooking.",
+      "voice": "male",
+      "reviewed_on": "2026-09-29"
+    },
+    {
+      "image": "a1_u3_l33_cooking_question_v1.webp",
+      "text": "What are you doing?",
+      "voice": "female",
+      "reviewed_on": "2026-09-29"
+    },
+    {
+      "image": "a1_u3_l33_v1_reading_answer.webp",
+      "text": "I am reading.",
+      "voice": "female",
+      "reviewed_on": "2026-09-29"
+    },
+    {
+      "image": "a1_u3_l33_v1_reading_answer.webp",
+      "text": "What are you doing?",
+      "voice": "male",
+      "reviewed_on": "2026-09-29"
+    },
+    {
+      "image": "a1_u3_l33_v1_reading_answer.webp",
+      "text": "Yes, I am.",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_l33_v1_reading_question.webp",
+      "text": "Are you reading?",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_l33_v1_writing_answer.webp",
+      "text": "I am writing.",
+      "voice": "male",
+      "reviewed_on": "2026-09-29"
+    },
+    {
+      "image": "a1_u3_l33_v1_writing_answer.webp",
+      "text": "No, I am not.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_l33_v1_writing_question.webp",
+      "text": "Are you reading?",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_l33_v1_writing_question.webp",
+      "text": "Are you writing?",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_l33_v1_writing_question.webp",
+      "text": "What are you doing?",
+      "voice": "female",
+      "reviewed_on": "2026-09-29"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_age.webp",
+      "text": "I am twenty years old.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_mexico.webp",
+      "text": "I am Mexican.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_mexico.webp",
+      "text": "I am from Mexico. I am Mexican.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_mexico.webp",
+      "text": "Where are you from?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_name.webp",
+      "text": "My name is Ana.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_name.webp",
+      "text": "What is your name?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_teacher.webp",
+      "text": "I am a teacher. I have a book.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_ana_teacher.webp",
+      "text": "I have a book.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_good_morning.webp",
+      "text": "Good morning.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_goodbye.webp",
+      "text": "Goodbye.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_hello.webp",
+      "text": "Hello.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_luis_age.webp",
+      "text": "How old are you?",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_luis_age.webp",
+      "text": "I am eighteen years old.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_luis_driver.webp",
+      "text": "I am a driver.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_we_talking.webp",
+      "text": "We are talking.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_working.webp",
+      "text": "I am working.",
+      "voice": "female",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v1_working.webp",
+      "text": "What are you doing?",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "a1_u3_review_v2_our_house.webp",
+      "text": "This is our house.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_review_v2_she_cooking.webp",
+      "text": "Is she cooking? Yes, she is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_review_v2_sofia_yours.webp",
+      "text": "Is it yours?",
+      "voice": "female",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u3_review_v2_sofia_yours.webp",
+      "text": "Yes, it is mine.",
+      "voice": "male",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_u4_home_v2_mission_01_rooms.webp",
+      "text": "This is the kitchen in our home.",
+      "voice": "narrator",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "eb1468328e675e816c5a000d57fcd534424a7e2f4031d8dc567082713c08d8a9",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_05_morning.webp",
+      "text": "I eat breakfast in the kitchen.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_05_morning.webp",
+      "text": "I get dressed in the bedroom.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_05_morning.webp",
+      "text": "I wake up in the morning.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_05_morning.webp",
+      "text": "I wash my face in the bathroom.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "2702ca62fd9952e872159668ef513ec295223248a647a7a38de9d33d2afa0b56",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_06_departure.webp",
+      "text": "I brush my teeth in the bathroom.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "984f0703a4054a39e00d9c0e6152046af53fe67e714ff3660b8a6b4ffa1f42c6",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_06_departure.webp",
+      "text": "I go to school.",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "984f0703a4054a39e00d9c0e6152046af53fe67e714ff3660b8a6b4ffa1f42c6",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_07_help.webp",
+      "text": "We wash our clothes in the bathroom.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "e780adcf121aafd6cf176c4fed6bf874cc30d70accd7d51b3e45020b02b7d47c",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_07_help.webp",
+      "text": "You clean the table in the dining room.",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "e780adcf121aafd6cf176c4fed6bf874cc30d70accd7d51b3e45020b02b7d47c",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_08_timetable.webp",
+      "text": "It is eight o'clock at night. Today is Sunday. I study.",
+      "voice": "male",
+      "reviewed_on": "2026-10-03",
+      "reviewer": "Codex agent inspection",
+      "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_08_timetable.webp",
+      "text": "It is seven a.m. Today is Tuesday. I go to school.",
+      "voice": "male",
+      "reviewed_on": "2026-10-03",
+      "reviewer": "Codex agent inspection",
+      "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_08_timetable.webp",
+      "text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
+      "voice": "female",
+      "reviewed_on": "2026-10-03",
+      "reviewer": "Codex agent inspection",
+      "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_08_timetable.webp",
+      "text": "It is three p.m. Today is Wednesday. I run in the park.",
+      "voice": "male",
+      "reviewed_on": "2026-10-03",
+      "reviewer": "Codex agent inspection",
+      "observation": "Inspected the unchanged timetable: boy school/run and father study are voiced male; mother with boy cleaning is voiced female. No human image approval implied."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_question_door_closed_arrival_v2.webp",
+      "text": "Do you open the door?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "437a0ed9314e55eefc036dfc1691ec5e1a8767a45c0b886fb4f512f7a4057446",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_question_door_open_inside.webp",
+      "text": "Do you close the door?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "3ebb74dfe2dee0c053fdc1751860ecbf305307e70ee191d3199a7048857a390c",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_question_father_to_mother.webp",
+      "text": "Do you clean the table?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "1f933b4030d59cc13facb7bac7ab81d3bf7edcbc4a643641717e37662f6747d4",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_question_father_to_mother_bathroom.webp",
+      "text": "Do you wash your clothes?",
+      "voice": "male",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "06143883826768b00b150b351a1174c085a9bd5fb36b8c77effd81a06b29acab",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_question_mother_to_boy.webp",
+      "text": "Do you play in the park?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "f0835f7a7ee64581f3dbf7e51c51b30005bf9bcd954f0ce64f36bf41257a34e5",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u4_home_v2_mission_question_mother_to_father.webp",
+      "text": "Do you work?",
+      "voice": "female",
+      "reviewed_on": "2026-10-01",
+      "reviewer": "Codex agent",
+      "image_sha256": "1fc07009063db05d0cb8283f725e1361f3fc039b251cf1fe9abe4d61c2c5dcdc",
+      "review_basis": "Actual generated scene inspected; known boy/father/mother and addressed/group perspective checked. Functional object-only context is narration. Human media approval is tracked separately."
+    },
+    {
+      "image": "a1_u5_market_v1_cafe_counter.webp",
+      "text": "Can I have water, please?",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_u5_market_v1_cafe_counter.webp",
+      "text": "No, thank you.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_cafe_counter.webp",
+      "text": "Tea, please.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_cafe_counter.webp",
+      "text": "Yes, please.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_likes_table.webp",
+      "text": "I do not like fish.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_likes_table.webp",
+      "text": "I do not like milk.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_likes_table.webp",
+      "text": "I like chicken.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_likes_table.webp",
+      "text": "I like fish.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_meals_table.webp",
+      "text": "I drink tea for breakfast.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_meals_table.webp",
+      "text": "I eat chicken for dinner.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_meals_table.webp",
+      "text": "I eat eggs for breakfast.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_meals_table.webp",
+      "text": "I eat rice for lunch.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_needs_list.webp",
+      "text": "I need bread.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_needs_list.webp",
+      "text": "I need eggs.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_needs_list.webp",
+      "text": "I need milk.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_order_question.webp",
+      "text": "Hello.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_serve_question.webp",
+      "text": "Juice, please.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_thanks_question.webp",
+      "text": "Here you are.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_wants_counter.webp",
+      "text": "I want some rice.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_wants_counter.webp",
+      "text": "I want three apples.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_market_v1_wants_counter.webp",
+      "text": "I want two eggs.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_review_v1_cafe_order.webp",
+      "text": "Coffee, please. Thank you.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_review_v1_cafe_order.webp",
+      "text": "Here you are.",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_u5_review_v1_cafe_order.webp",
+      "text": "Thank you.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_review_v1_dislikes_fish.webp",
+      "text": "I do not like fish.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_review_v1_dislikes_milk.webp",
+      "text": "I do not like milk.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_review_v1_likes_fish.webp",
+      "text": "I like fish.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_review_v1_yes_please.webp",
+      "text": "Yes, please.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u5_review_v2_can_i_have_bread.webp",
+      "text": "Can I have bread, please?",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_u5_review_v2_me_too_juice.webp",
+      "text": "I like juice.",
+      "voice": "female",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_u5_review_v2_me_too_juice.webp",
+      "text": "Me too.",
+      "voice": "male",
+      "reviewed_on": "2026-09-26"
+    },
+    {
+      "image": "a1_u6_review_v1_by_taxi.webp",
+      "text": "I go by taxi.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_review_v1_can_cross.webp",
+      "text": "You can cross the street.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_review_v1_cannot_cross.webp",
+      "text": "You cannot cross the street.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_review_v1_help_question.webp",
+      "text": "Can you help me?",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_review_v1_help_question.webp",
+      "text": "Excuse me. Can you help me?",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_review_v1_thank_you.webp",
+      "text": "Thank you.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_review_v2_cannot_cross.webp",
+      "text": "You cannot cross the street.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_u6_review_v2_walk_to_work.webp",
+      "text": "I walk to work.",
+      "voice": "male",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_u6_town_v1_crossing_corner.webp",
+      "text": "You can cross the street.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_crossing_corner.webp",
+      "text": "You cannot cross the street.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_help_exchange.webp",
+      "text": "Can you help me?",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_help_exchange.webp",
+      "text": "Excuse me.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_help_exchange.webp",
+      "text": "Sorry, no.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_help_exchange.webp",
+      "text": "Yes.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_help_question.webp",
+      "text": "Excuse me. Can you help me?",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_transport_stop.webp",
+      "text": "I go by bus.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_transport_stop.webp",
+      "text": "I go by taxi.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_transport_stop.webp",
+      "text": "I go by train.",
+      "voice": "male",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u6_town_v1_transport_stop.webp",
+      "text": "I walk.",
+      "voice": "female",
+      "reviewed_on": "2026-09-21"
+    },
+    {
+      "image": "a1_u7_outing_v1_bathroom_question.webp",
+      "text": "Excuse me. Where is the bathroom?",
+      "voice": "male",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_body_health.webp",
+      "text": "My eyes and ears.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_body_health.webp",
+      "text": "My hands and arms.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_body_health.webp",
+      "text": "My head.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_body_health.webp",
+      "text": "My legs and feet.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_communication_help.webp",
+      "text": "I do not understand.",
+      "voice": "male",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_communication_help.webp",
+      "text": "I need help.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_communication_help.webp",
+      "text": "Please repeat.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_communication_help.webp",
+      "text": "Please speak slowly.",
+      "voice": "male",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_feelings.webp",
+      "text": "I am happy.",
+      "voice": "female",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_feelings.webp",
+      "text": "I am hungry.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_feelings.webp",
+      "text": "I am thirsty.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_feelings.webp",
+      "text": "I am tired.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_feelings_question.webp",
+      "text": "What is your name? How are you?",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_hobbies.webp",
+      "text": "I do not like watching TV.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_hobbies.webp",
+      "text": "I like listening to music.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_hobbies.webp",
+      "text": "I like playing.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_hobbies.webp",
+      "text": "I like reading.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_invitation_question.webp",
+      "text": "Do you want to listen to music?",
+      "voice": "male",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_invitations.webp",
+      "text": "Do you want to play?",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_invitations.webp",
+      "text": "Sorry, no.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_invitations.webp",
+      "text": "Yes, thank you.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_purchase_question.webp",
+      "text": "Hello. How are you?",
+      "voice": "female",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_table_refreshments.webp",
+      "text": "Water, please.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_weather_prep.webp",
+      "text": "It is cloudy. I need boots.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_weather_prep.webp",
+      "text": "It is rainy. I need an umbrella.",
+      "voice": "female",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_outing_v1_weather_prep.webp",
+      "text": "It is sunny. It is hot. I need a hat.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_outing_v1_weather_prep.webp",
+      "text": "It is windy. It is cold. I need a jacket.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_cold_windy_jacket.webp",
+      "text": "I need a jacket.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_happy_person.webp",
+      "text": "I am happy, not sad.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_happy_person.webp",
+      "text": "I am happy.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_head_arms_hands.webp",
+      "text": "My arms and hands.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_head_arms_hands.webp",
+      "text": "My head, my eyes, and my ears.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_head_arms_hands.webp",
+      "text": "My head, my mouth, and my feet.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_hobbies_music.webp",
+      "text": "Do you want to listen to music?",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_hobbies_music.webp",
+      "text": "I like listening to music.",
+      "voice": "male",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_hobbies_music.webp",
+      "text": "I like music.",
+      "voice": "male",
+      "reviewed_on": "2026-09-23"
+    },
+    {
+      "image": "a1_u7_review_v1_hungry_person.webp",
+      "text": "I am hungry and thirsty.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_hungry_person.webp",
+      "text": "I am hungry.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_please_repeat.webp",
+      "text": "Please repeat.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_rainy_umbrella_boots.webp",
+      "text": "I need an umbrella.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_thirsty_person.webp",
+      "text": "How are you?",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_thirsty_person.webp",
+      "text": "I am happy and thirsty.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_thirsty_person.webp",
+      "text": "I am thirsty.",
+      "voice": "female",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v1_tired_person.webp",
+      "text": "I am tired.",
+      "voice": "male",
+      "reviewed_on": "2026-09-22"
+    },
+    {
+      "image": "a1_u7_review_v2_cold_hat.webp",
+      "text": "It is cold. I need a hat.",
+      "voice": "male",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "a1_u7_review_v2_does_not_understand.webp",
+      "text": "I do not understand.",
+      "voice": "male",
+      "reviewed_on": "2026-09-27"
+    },
+    {
+      "image": "boy_is_eating.webp",
+      "text": "Is he eating? Yes, he is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "boy_is_swimming.webp",
+      "text": "I like swimming.",
+      "voice": "male",
+      "reviewed_on": "2026-09-18"
+    },
+    {
+      "image": "boy_is_swimming.webp",
+      "text": "Is he eating? No, he is not.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "family_babies.webp",
+      "text": "Are the babies sleeping? No, they are not.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "family_grandparents_talking.webp",
+      "text": "Are the grandparents talking? Yes, they are.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "girl_is_reading.webp",
+      "text": "Is she sleeping? No, she is not.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "girl_is_sleeping.webp",
+      "text": "Is she sleeping? Yes, she is.",
+      "voice": "narrator",
+      "reviewed_on": "2026-09-25"
+    },
+    {
+      "image": "a1_photo_u4_days_week_monday_handdrawn_v2.webp",
+      "text": "I study on Monday.",
+      "voice": "narrator",
+      "reviewed_on": "2026-10-03"
+    }
+  ],
+  "rule": "Every line a pictured person says plays in a voice that matches that person: male for a man or boy, female for a woman or girl. The neutral narrator is a woman, so off-camera askers and narration are recorded as female. docs/product/project-guardrails.md (Audio) holds the rule; scripts/review_speaking_voices.py and backend/tests/test_speaking_voice_review.py enforce it.",
+  "schema_version": 1
 }

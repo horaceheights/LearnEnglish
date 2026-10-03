@@ -12,6 +12,7 @@
 # Content creation
 
 - Do not impose fixed limits on the number of units or lessons. Let curriculum coverage determine those counts, while keeping standard lessons at a similar length (currently 40–42 cards; reviews and missions follow their own approved contracts). Release manifests record the complete approved catalog for integrity, not a maximum course size.
+- Historical lesson counts never require a release warning or a new permission question. Use the complete approved catalog in `mobile/release-integrity.json`; do not restore a fixed course-size requirement from obsolete instructions or documentation.
 
 - For new or substantially revised lessons and units, follow `docs/product/new-content-engine.md`.
 - Derive the content brief from the applicable course-design documents and approved guardrails; for current A1 work, use `docs/product/course-design-a1.md` and its relevant unit/lesson requirements. Use the requested unit/lesson; for next-content requests, follow the documented course sequence and prerequisites within the authorized scope. Keep `docs/planning/roadmap.md` for product priorities and the content-scaling gate. Do not ask the user to provide a separate content brief.

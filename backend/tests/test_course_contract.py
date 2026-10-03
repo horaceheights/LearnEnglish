@@ -18,6 +18,13 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class CourseContractTests(unittest.TestCase):
+    def test_agent_release_instructions_use_the_manifest_without_a_fixed_cap(self):
+        instructions = (ROOT / 'AGENTS.md').read_text(encoding='utf-8')
+        self.assertIn('counts have no fixed cap', instructions)
+        self.assertIn('Historical lesson counts never require a release warning', instructions)
+        self.assertNotIn('exactly 70 lessons', instructions)
+        self.assertNotIn('seven units of ten', instructions)
+
     def test_counts_can_grow_with_an_approved_catalog_without_a_hardcoded_cap(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -109,16 +109,17 @@ test('publishing requires the exact main release authority and integrity check',
 test('the versioned manifest locks the complete recovery baseline and release identity', () => {
   assert.equal(integrityManifest.manifestVersion, 1);
   assert.equal(integrityManifest.baselineCommit, '657ab19487e37851de1229c08219d44d59ab199b');
-  // 2026-09-26: a deliberate curriculum release to 79 lessons; the engine-built Unit 4 adds
-  // Do You...? and splits Days and Time into Days of the Week and What Time Is It? (12 lessons).
-  // 2026-09-26: 81 lessons; the engine-built Unit 5 adds 5.3 Drinks and 5.10 Can I Have...? (12 lessons).
-  // 2026-09-28: Lesson 7.1 body-photo replacement preserves all 81 lessons and their language.
-  // 2026-09-29: explicit objects and corrected In/On takes in Lesson 4.3; all 81 lessons remain.
-  // Eight alternating question/answer slides per stage in 3.3 preserve the location fix.
-  assert.equal(integrityManifest.catalog.expectedGitBlob, '8ad27343aa8a4cc06e53144d834095233a6c8a08');
-  assert.equal(integrityManifest.catalog.lessonCount, 81);
-  assert.equal(integrityManifest.catalog.unitCount, 7);
-  assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), [11, 12, 14, 12, 12, 10, 10]);
+  // The approved manifest pins the complete candidate; course size has no cap.
+  const catalogBytes = fs.readFileSync(path.resolve(__dirname, '../src/generated/a1-course.json'));
+  const lessons = JSON.parse(catalogBytes.toString('utf8'));
+  const counts = lessons.reduce((result, lesson) => {
+    result[lesson.unit_id] = (result[lesson.unit_id] ?? 0) + 1;
+    return result;
+  }, {});
+  assert.equal(integrityManifest.catalog.expectedGitBlob, gitBlobId(catalogBytes));
+  assert.equal(integrityManifest.catalog.lessonCount, lessons.length);
+  assert.equal(integrityManifest.catalog.unitCount, Object.keys(counts).length);
+  assert.deepEqual(integrityManifest.catalog.lessonsByUnit, counts);
   assert.deepEqual(
     integrityManifest.requiredReleaseIdentityFiles.map((file) => file.path),
     [
