@@ -1,4 +1,5 @@
 import json
+import hashlib
 import re
 import unittest
 from pathlib import Path
@@ -10,6 +11,22 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class TimeLessonContractTests(unittest.TestCase):
+    def test_teaching_clock_photographs_keep_the_inspected_source_and_identical_copies(self):
+        report = json.loads((ROOT / 'docs/product/time-photograph-assets-v4.json').read_text(encoding='utf-8'))
+        source = report['source']
+        self.assertEqual(source['license'], 'CC0-1.0')
+        self.assertEqual(hashlib.sha256((ROOT / source['path']).read_bytes()).hexdigest(), source['sha256'])
+        self.assertEqual({a['hour'] for a in report['assets']}, set(range(1, 13)))
+        for asset in report['assets']:
+            for folder in ['Lessons/Lesson1/images', 'frontend/public/lesson-assets', 'mobile/assets/lesson-assets']:
+                payload = (ROOT / folder / asset['filename']).read_bytes()
+                self.assertEqual(len(payload), asset['bytes'])
+                self.assertEqual(hashlib.sha256(payload).hexdigest(), asset['sha256'])
+        lesson = json.loads((ROOT / 'backend/lessons/unit_4/lesson-4-what-time-is-it.yaml').read_text(encoding='utf-8'))
+        clock_options = [o['image_url'] for c in lesson['cards'] if c['stage'] in ['Recognize', 'Listen'] for o in c['options'] if o.get('image_url')]
+        self.assertTrue(clock_options)
+        self.assertTrue(all(Path(url).name.startswith('a1_time_photo_clock_') for url in clock_options))
+
     def test_approved_plan_teaches_time_in_complete_exchanges_and_preserves_identity(self):
         plan = json.loads((ROOT / 'docs/product/content-plans/4.10-time-exchanges-v1.plan.json').read_text(encoding='utf-8'))
         lesson = compose_lesson(plan)

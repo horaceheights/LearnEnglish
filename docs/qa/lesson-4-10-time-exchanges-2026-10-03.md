@@ -34,8 +34,13 @@ This proposal check is not an installed-app test.
 Automated content practice audit: 91 existing findings, none new. The revised
 lesson meets its vocabulary and retrieval requirements. Scoped backend tests,
 cast validation, speaking-image voice review, and media preservation passed.
-Final complete-course backend, mobile Preview preflight, remote byte verification,
-and protected CI results are recorded when complete.
+Final local verification passed: all 490 backend tests; complete mobile Preview
+preflight, including TypeScript, all interaction suites and Android bundle export;
+and release-integrity validation for the complete 81-lesson catalog. Remote byte
+verification passed for all 6,357 audio contracts and 2,770 media objects, with
+zero missing or invalid objects. The final scoped audio plan reuses all 119 takes
+and requires no provider requests. Protected GitHub CI is the remaining release
+gate before merge and Preview publication.
 
 Pending: installed Android portrait/landscape review, audible a.m./p.m.
 comparison, microphone permission/retry and pronunciation feedback, and an
