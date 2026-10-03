@@ -10,7 +10,7 @@
   "sub_lesson_id": "4.12",
   "sub_lesson_title": "Un día en casa — A family visit",
   "experience_type": "mission",
-  "content_revision": 5,
+  "content_revision": 6,
   "mission": {
     "label": "MISIÓN FINAL · UNIDAD 4",
     "title": "Un día en casa — A family visit",
@@ -110,7 +110,10 @@
     "o'clock",
     "afternoon",
     "night",
-    "at"
+    "at",
+    "evening",
+    "a.m.",
+    "p.m."
   ],
   "grammar_function": "Known home/location, school sequence and household action language; auxiliary Do with both short replies; weekday and whole-hour time.",
   "prerequisite": "Lessons 4.1-4.11 completed.",
@@ -1395,7 +1398,7 @@
     {
       "slide_id": "M08",
       "interaction_type": "mission-game",
-      "prompt": "I go to school at seven o'clock in the morning on Tuesday. I run in the park at three o'clock in the afternoon on Wednesday. We clean the table at six o'clock in the afternoon on Friday. I study at eight o'clock at night on Sunday.",
+      "prompt": "It is seven a.m. Today is Tuesday. I go to school. It is three p.m. Today is Wednesday. I run in the park. It is six o'clock in the afternoon. Today is Friday. We clean the table. It is eight o'clock at night. Today is Sunday. I study.",
       "mission_chapter_id": "help",
       "stage": "Listen",
       "correct_option_id": "m08-1",
@@ -1403,45 +1406,45 @@
         {
           "id": "m08-1",
           "image_url": "",
-          "label": "I go to school at seven o'clock in the morning on Tuesday."
+          "label": "It is seven a.m. Today is Tuesday. I go to school."
         },
         {
           "id": "m08-2",
           "image_url": "",
-          "label": "I run in the park at three o'clock in the afternoon on Wednesday."
+          "label": "It is three p.m. Today is Wednesday. I run in the park."
         },
         {
           "id": "m08-3",
           "image_url": "",
-          "label": "We clean the table at six o'clock in the afternoon on Friday."
+          "label": "It is six o'clock in the afternoon. Today is Friday. We clean the table."
         },
         {
           "id": "m08-4",
           "image_url": "",
-          "label": "I study at eight o'clock at night on Sunday."
+          "label": "It is eight o'clock at night. Today is Sunday. I study."
         }
       ],
-      "audio_text": "I go to school at seven o'clock in the morning on Tuesday. I run in the park at three o'clock in the afternoon on Wednesday. We clean the table at six o'clock in the afternoon on Friday. I study at eight o'clock at night on Sunday.",
+      "audio_text": "It is seven a.m. Today is Tuesday. I go to school. It is three p.m. Today is Wednesday. I run in the park. It is six o'clock in the afternoon. Today is Friday. We clean the table. It is eight o'clock at night. Today is Sunday. I study.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp",
       "audio_turns": [
         {
-          "text": "I go to school at seven o'clock in the morning on Tuesday.",
+          "text": "It is seven a.m. Today is Tuesday. I go to school.",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         },
         {
-          "text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+          "text": "It is three p.m. Today is Wednesday. I run in the park.",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         },
         {
-          "text": "We clean the table at six o'clock in the afternoon on Friday.",
+          "text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         },
         {
-          "text": "I study at eight o'clock at night on Sunday.",
+          "text": "It is eight o'clock at night. Today is Sunday. I study.",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         }
@@ -1453,7 +1456,7 @@
         "m08-3",
         "m08-4"
       ],
-      "pedagogy_note": "Mission beat 08/17: Check the dated household week before confirming today's visit. Four separate scheduled moments: school Tuesday 6 at 7am, park Wednesday 7 at 3pm, home help Friday 9 at 6pm, study Sunday 11 at 8pm. Clock/date/activity cues only; no weekday or English answer labels. The visit today remains Thursday 8 at 6pm.",
+      "pedagogy_note": "Mission beat 08/17: Retrieve the time, weekday and known activity as separate statements. Activity-at-time grammar is deferred to the later meals/schedules lesson; no new mission language or target geometry.",
       "mission_game": {
         "kind": "contrast-hunt",
         "instruction_es": "Revisa los planes de la semana: escucha y toca.",
@@ -1543,29 +1546,29 @@
         "cues": [
           {
             "id": "cue-m08-1",
-            "text": "I go to school at seven o'clock in the morning on Tuesday.",
-            "answer_text": "I go to school at seven o'clock in the morning on Tuesday.",
+            "text": "It is seven a.m. Today is Tuesday. I go to school.",
+            "answer_text": "It is seven a.m. Today is Tuesday. I go to school.",
             "target_id": "m08-1",
             "option_id": "m08-1"
           },
           {
             "id": "cue-m08-2",
-            "text": "I run in the park at three o'clock in the afternoon on Wednesday.",
-            "answer_text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+            "text": "It is three p.m. Today is Wednesday. I run in the park.",
+            "answer_text": "It is three p.m. Today is Wednesday. I run in the park.",
             "target_id": "m08-2",
             "option_id": "m08-2"
           },
           {
             "id": "cue-m08-3",
-            "text": "We clean the table at six o'clock in the afternoon on Friday.",
-            "answer_text": "We clean the table at six o'clock in the afternoon on Friday.",
+            "text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
+            "answer_text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
             "target_id": "m08-3",
             "option_id": "m08-3"
           },
           {
             "id": "cue-m08-4",
-            "text": "I study at eight o'clock at night on Sunday.",
-            "answer_text": "I study at eight o'clock at night on Sunday.",
+            "text": "It is eight o'clock at night. Today is Sunday. I study.",
+            "answer_text": "It is eight o'clock at night. Today is Sunday. I study.",
             "target_id": "m08-4",
             "option_id": "m08-4"
           }
@@ -1870,18 +1873,18 @@
     {
       "slide_id": "M14",
       "interaction_type": "mission-speak",
-      "prompt": "It is six o'clock in the afternoon.",
+      "prompt": "It is six o'clock in the evening.",
       "mission_chapter_id": "welcome",
       "stage": "Speak",
       "correct_option_id": "voice-14",
       "options": [
         {
           "id": "voice-14",
-          "label": "It is six o'clock in the afternoon.",
+          "label": "It is six o'clock in the evening.",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_14_response.webp"
         }
       ],
-      "audio_text": "It is six o'clock in the afternoon.",
+      "audio_text": "It is six o'clock in the evening.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
@@ -1891,9 +1894,9 @@
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_question_mother_to_father_clock.webp"
         }
       ],
-      "spanish_translation": "Son las seis en punto de la tarde.",
+      "spanish_translation": "Son las seis de la tarde/noche.",
       "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Mission beat 14/17: 14. Confirm the arrival time\nThe clock now reaches the visit time shown in the timetable; the family is arriving.\nThe same home at 6pm with a clearly readable real 6:00 clock. Ask first, then show the respondent and written whole-hour answer.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and “Lee la frase en voz alta.” Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "pedagogy_note": "Mission beat 14/17: Retrieve evening in the established six-p.m. home arrival context. Preserve the mother asking and father answering, clock evidence and voice-gate geometry.",
       "audio_speaker": "female-character",
       "mission_game": {
         "kind": "voice-gate",
@@ -1919,7 +1922,7 @@
           {
             "id": "cue-voice-14",
             "text": "What time is it?",
-            "answer_text": "It is six o'clock in the afternoon.",
+            "answer_text": "It is six o'clock in the evening.",
             "target_id": "voice-14",
             "option_id": "voice-14"
           }

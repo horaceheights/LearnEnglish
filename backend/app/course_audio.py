@@ -90,6 +90,9 @@ class CompletionSequenceContract:
 # syllable counts explicit makes pacing deterministic instead of treating
 # "woman" and "boy" as if they took the same teaching time.
 COURSE_SYLLABLES = {
+    "evening": 2,
+    "m": 1,  # Letter names in a.m./p.m.
+    "p": 1,
     "a": 1,
     "adult": 2,
     "adults": 2,
@@ -491,6 +494,7 @@ COURSE_SYLLABLES.update({
 })
 
 ING_PRONUNCIATION_NOTES = {
+    "evening": "'evening' /ˈiːv.nɪŋ/; stress the first syllable, keep the ending brief",
     "building": "'building' /ˈbɪl.dɪŋ/",
     "cooking": "'cooking' /ˈkʊk.ɪŋ/",
     "crossing": "'crossing' /ˈkrɔs.ɪŋ/",

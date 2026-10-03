@@ -181,10 +181,10 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
     for index, lesson in enumerate(catalog):
         cards = lesson.data.get("cards") or []
         limits = {"standard": standards["standard_lesson_cards"], "review": standards["review_lesson_cards"]}
-        if lesson.role in limits and not limits[lesson.role]["min"] <= len(cards) <= limits[lesson.role]["max"]:
-            bounds = limits[lesson.role]
+        bounds = standards.get("approved_lesson_card_limits", {}).get(lesson.data.get("id"), limits.get(lesson.role))
+        if bounds and not bounds["min"] <= len(cards) <= bounds["max"]:
             findings.append(Finding("lesson-length", lesson.number, lesson.role,
-                                    f"{len(cards)} cards; {lesson.role} lessons need {bounds['min']}-{bounds['max']}"))
+                                    f"{len(cards)} cards; this {lesson.role} lesson needs {bounds['min']}-{bounds['max']}"))
 
         vocabulary = [str(item) for item in lesson.data.get("vocabulary") or []]
         if len(vocabulary) > standards["max_new_items_per_lesson"]:

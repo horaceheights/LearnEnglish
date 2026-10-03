@@ -24,6 +24,12 @@ def contract_for(lesson, exceptions=None):
 
 
 class AnswerChoiceContractTests(unittest.TestCase):
+    def test_dotted_time_notation_does_not_create_word_sentence_mixtures(self):
+        lesson = lesson_with(['It is three a.m.', 'It is three p.m.'])
+        self.assertEqual([], validate_banks([lesson], contract_for(lesson)))
+        lesson = lesson_with(['It is three a.m. It is four p.m.', 'It is three p.m.'])
+        self.assertTrue(any('different numbers' in error for error in validate_banks([lesson], contract_for(lesson))))
+
     def test_sequence_connector_keeps_complete_clause_and_cannot_hide_fragment(self):
         complete = lesson_with(['After that, I get dressed.', 'After that, I brush my teeth.'])
         self.assertEqual('sentences', analyze_bank(complete['cards'][0])[0])

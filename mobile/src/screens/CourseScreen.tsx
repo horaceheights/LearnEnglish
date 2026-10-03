@@ -265,8 +265,8 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-4-what-time-is-it': {
-    image: 'a1_scene_clock7_598dfdb.webp',
-    description: 'La hora en punto, la tarde y la noche.',
+    image: 'a1_time_photo_clock_07_v4.webp',
+    description: 'Pregunta la hora y distingue las partes del día.',
     color: '#f1e4fa',
   },
   'lesson-4-9-unit-4-review': {

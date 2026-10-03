@@ -81,6 +81,18 @@ class ContentPracticeTests(unittest.TestCase):
         self.assertEqual(a1["min_stages_per_new_item"], 4)
         self.assertEqual(a1["min_later_lessons_per_new_item"], 2)
 
+    def test_approved_pacing_is_scoped_to_the_named_lesson(self):
+        settings = {**STANDARDS, "standard_lesson_cards": {"min": 3, "max": 3},
+                    "approved_lesson_card_limits": {"approved": {"min": 4, "max": 4}}}
+        current = lesson("7.1", [], [card("Speak", "") for _ in range(4)])
+        current.data["id"] = "approved"
+        self.assertFalse(rules(audit([current], settings), "lesson-length"))
+        current.data["id"] = "other"
+        self.assertTrue(rules(audit([current], settings), "lesson-length"))
+        current.data["id"] = "approved"
+        current.data["cards"].pop()
+        self.assertTrue(rules(audit([current], settings), "lesson-length"))
+
     def test_new_question_frame_reuses_only_previously_taught_object_words(self):
         standards = {**STANDARDS, "learn_frame_words": ["the"],
                      "learn_question_frames": {"Where is": "Where is the {object}?"}}

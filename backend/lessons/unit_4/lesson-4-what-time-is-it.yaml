@@ -9,67 +9,175 @@
   "lesson_title": "Unit 4: Home and Daily Life",
   "sub_lesson_id": "4.10",
   "sub_lesson_title": "What Time Is It?",
-  "goal": "Ask What time is it?, say whole-hour times, and say the afternoon and night parts of the day.",
+  "goal": "Ask and answer the time, read whole hours, and distinguish morning, afternoon, evening and night using a.m./p.m. context.",
   "vocabulary": [
     "What time is it?",
     "o'clock",
     "afternoon",
+    "evening",
     "night",
-    "at"
+    "at",
+    "a.m.",
+    "p.m."
   ],
   "review_vocabulary": [
     "it",
     "is",
+    "in",
+    "the",
+    "morning",
+    "one",
     "two",
     "three",
+    "four",
+    "five",
+    "six",
     "seven",
     "eight",
     "nine",
+    "ten",
     "eleven",
-    "twelve",
-    "morning",
-    "in the morning",
-    "I",
-    "wake up",
-    "study"
+    "twelve"
   ],
-  "grammar_function": "What time is it? It is + number + o'clock. in the morning / in the afternoon / at night; at + time.",
-  "prerequisite": "4.5 wake up and morning; 4.8 study; 4.9 day question; Unit 3 numbers.",
-  "speaking_outcome": "Ask the time and say whole-hour times and parts of the day.",
-  "content_revision": 2,
+  "grammar_function": "What time is it? It is + number + o'clock; in the morning / in the afternoon / in the evening / at night; It is + number + a.m./p.m. No routines or activity-at-time statements.",
+  "prerequisite": "Units 2â€“3 numbers 1â€“12, it/is; 4.3 in/the; 4.5 in the morning. No routine verbs are required.",
+  "speaking_outcome": "Take both roles in a time exchange and give a clear whole-hour answer with its day period.",
+  "content_revision": 3,
   "purposeful_review_slides": [
+    "R2",
     "R3",
-    "R4",
     "R5",
     "R6",
-    "R7",
-    "R8",
-    "R9",
-    "R10",
-    "R11",
+    "A1",
+    "A2",
     "A3",
     "A4",
-    "A5",
-    "A6",
-    "A7",
-    "A8",
-    "A9",
-    "A10",
-    "S2",
-    "S3",
-    "S4",
-    "S5",
-    "S6",
-    "S7",
-    "S8",
-    "S9",
-    "U2",
-    "U3",
-    "U4",
-    "U5",
-    "U6",
-    "U7",
-    "U8"
+    "A5"
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time is it?",
+        "o'clock"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "What time is it?"
+        },
+        {
+          "slide_id": "L2",
+          "text": "It is seven o'clock."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time is it?",
+        "o'clock"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "What time is it?"
+        },
+        {
+          "slide_id": "L4",
+          "text": "It is seven o'clock in the morning."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time is it?",
+        "o'clock",
+        "afternoon"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "What time is it?"
+        },
+        {
+          "slide_id": "L6",
+          "text": "It is three o'clock in the afternoon."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time is it?",
+        "o'clock",
+        "evening"
+      ],
+      "models": [
+        {
+          "slide_id": "L7",
+          "text": "What time is it?"
+        },
+        {
+          "slide_id": "L8",
+          "text": "It is seven o'clock in the evening."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time is it?",
+        "o'clock",
+        "at",
+        "night"
+      ],
+      "models": [
+        {
+          "slide_id": "L9",
+          "text": "What time is it?"
+        },
+        {
+          "slide_id": "L10",
+          "text": "It is nine o'clock at night."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time is it?",
+        "a.m."
+      ],
+      "models": [
+        {
+          "slide_id": "L11",
+          "text": "What time is it?"
+        },
+        {
+          "slide_id": "L12",
+          "text": "It is three a.m."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time is it?",
+        "p.m."
+      ],
+      "models": [
+        {
+          "slide_id": "L13",
+          "text": "What time is it?"
+        },
+        {
+          "slide_id": "L14",
+          "text": "It is three p.m."
+        }
+      ]
+    }
   ],
   "cards": [
     {
@@ -77,10 +185,10 @@
       "interaction_type": "teach",
       "prompt": "What time is it?",
       "stage": "Learn",
-      "correct_option_id": "what-time-is-it-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "what-time-is-it-learn",
+          "id": "l1-model",
           "image_url": "a1_photo_u4_what_time_luis_v1.webp",
           "label": "What time is it?"
         }
@@ -88,643 +196,39 @@
       "audio_text": "What time is it?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Qué hora es?",
-      "pedagogy_note": "Story beat 01: What time is it?",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
       "audio_speaker": "luis"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "O'clock",
+      "prompt": "It is seven o'clock.",
       "stage": "Learn",
-      "correct_option_id": "o'clock-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "o'clock-learn",
-          "image_url": "a1_scene_clock7_598dfdb.webp",
-          "label": "O'clock"
-        }
-      ],
-      "audio_text": "O'clock",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "En punto",
-      "pedagogy_note": "Story beat 02: O'clock"
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
-      "prompt": "Afternoon",
-      "stage": "Learn",
-      "correct_option_id": "afternoon-learn",
-      "options": [
-        {
-          "id": "afternoon-learn",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": "Afternoon"
-        }
-      ],
-      "audio_text": "Afternoon",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La tarde",
-      "pedagogy_note": "Story beat 03: Afternoon",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "Night",
-      "stage": "Learn",
-      "correct_option_id": "night-learn",
-      "options": [
-        {
-          "id": "night-learn",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": "Night"
-        }
-      ],
-      "audio_text": "Night",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La noche",
-      "pedagogy_note": "Story beat 04: Night"
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "Afternoon",
-      "stage": "Recognize",
-      "correct_option_id": "afternoon-r1",
-      "options": [
-        {
-          "id": "night-r1",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": null
-        },
-        {
-          "id": "afternoon-r1",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Afternoon",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La tarde",
-      "pedagogy_note": "Story beat 01: Afternoon",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "night-r2",
-      "options": [
-        {
-          "id": "afternoon-r2",
-          "image_url": "",
-          "label": "Afternoon"
-        },
-        {
-          "id": "night-r2",
-          "image_url": "",
-          "label": "Night"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Night",
-      "prompt_image_url": "a1_scene_night_1be2a44.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 02: Night"
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "It is three o'clock.",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-three-o'clock-r3",
-      "options": [
-        {
-          "id": "it-is-three-o'clock-r3",
-          "image_url": "a1_scene_clock3_3cd344f.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-eight-o'clock-r3",
-          "image_url": "a1_photo_u4_clock_eight_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is three o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las tres.",
-      "pedagogy_note": "Story beat 03: It is three o'clock.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "What time is it?",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-seven-o'clock-r4",
-      "options": [
-        {
-          "id": "it-is-eleven-o'clock-r4",
-          "image_url": "",
-          "label": "It is eleven o'clock."
-        },
-        {
-          "id": "it-is-seven-o'clock-r4",
-          "image_url": "",
+          "id": "l2-model",
+          "image_url": "a1_time_photo_clock_07_v4.webp",
           "label": "It is seven o'clock."
-        }
-      ],
-      "audio_text": "What time is it?",
-      "answer_audio_text": "It is seven o'clock.",
-      "prompt_image_url": "a1_scene_clock7_598dfdb.webp",
-      "spanish_translation": "¿Qué hora es?",
-      "pedagogy_note": "Story beat 04: It is seven o'clock."
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "It is eight o'clock.",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-eight-o'clock-r5",
-      "options": [
-        {
-          "id": "it-is-three-o'clock-r5",
-          "image_url": "a1_scene_clock3_3cd344f.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-eight-o'clock-r5",
-          "image_url": "a1_photo_u4_clock_eight_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is eight o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las ocho.",
-      "pedagogy_note": "Story beat 05: It is eight o'clock.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "i2t3",
-      "prompt": "What time is it?",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-nine-o'clock-r6",
-      "options": [
-        {
-          "id": "it-is-eight-o'clock-r6",
-          "image_url": "",
-          "label": "It is eight o'clock."
-        },
-        {
-          "id": "it-is-nine-o'clock-r6",
-          "image_url": "",
-          "label": "It is nine o'clock."
-        },
-        {
-          "id": "it-is-eleven-o'clock-r6",
-          "image_url": "",
-          "label": "It is eleven o'clock."
-        }
-      ],
-      "audio_text": "What time is it?",
-      "answer_audio_text": "It is nine o'clock.",
-      "prompt_image_url": "a1_scene_clock9_fdd3b54.webp",
-      "spanish_translation": "¿Qué hora es?",
-      "pedagogy_note": "Story beat 06: It is nine o'clock."
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "It is eleven o'clock.",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-eleven-o'clock-r7",
-      "options": [
-        {
-          "id": "it-is-nine-o'clock-r7",
-          "image_url": "a1_scene_clock9_fdd3b54.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-twelve-o'clock-r7",
-          "image_url": "a1_photo_u4_clock_twelve_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-eleven-o'clock-r7",
-          "image_url": "a1_photo_u4_clock_eleven_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-seven-o'clock-r7",
-          "image_url": "a1_scene_clock7_598dfdb.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is eleven o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las once.",
-      "pedagogy_note": "Story beat 07: It is eleven o'clock.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-three-o'clock-in-the-afternoon-r8",
-      "options": [
-        {
-          "id": "it-is-seven-o'clock-in-the-morning-r8",
-          "image_url": "",
-          "label": "It is seven o'clock in the morning."
-        },
-        {
-          "id": "it-is-three-o'clock-in-the-afternoon-r8",
-          "image_url": "",
-          "label": "It is three o'clock in the afternoon."
-        },
-        {
-          "id": "it-is-three-o'clock-in-the-morning-r8",
-          "image_url": "",
-          "label": "It is three o'clock in the morning."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "It is three o'clock in the afternoon.",
-      "prompt_image_url": "a1_scene_afternoon_7a10f39.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: It is three o'clock in the afternoon."
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "t2i3",
-      "prompt": "It is nine o'clock at night.",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-nine-o'clock-at-night-r9",
-      "options": [
-        {
-          "id": "it-is-seven-o'clock-in-the-morning-r9",
-          "image_url": "a1_scene_morning_45a21e4.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-nine-o'clock-at-night-r9",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-three-o'clock-in-the-afternoon-r9",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is nine o'clock at night.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las nueve de la noche.",
-      "pedagogy_note": "Story beat 09: It is nine o'clock at night.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-wake-up-at-seven-o'clock-r10",
-      "options": [
-        {
-          "id": "i-wake-up-at-seven-o'clock-r10",
-          "image_url": "",
-          "label": "I wake up at seven o'clock."
-        },
-        {
-          "id": "i-wake-up-at-nine-o'clock-r10",
-          "image_url": "",
-          "label": "I wake up at nine o'clock."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I wake up at seven o'clock.",
-      "prompt_image_url": "a1_photo_u4_wake_at_seven_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 10: I wake up at seven o'clock."
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
-      "stage": "Recognize",
-      "correct_option_id": "i-study-at-night-r11",
-      "options": [
-        {
-          "id": "i-study-in-the-afternoon-r11",
-          "image_url": "",
-          "label": "I study in the afternoon."
-        },
-        {
-          "id": "i-study-at-night-r11",
-          "image_url": "",
-          "label": "I study at night."
-        }
-      ],
-      "audio_text": "I study at night.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
-      "audio_turns": [
-        {
-          "text": "I study at night.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp"
-        }
-      ],
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 11: I study at night.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "afternoon-a1",
-      "options": [
-        {
-          "id": "afternoon-a1",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": null
-        },
-        {
-          "id": "night-a1",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Afternoon",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Afternoon"
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "night-a2",
-      "options": [
-        {
-          "id": "night-a2",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": null
-        },
-        {
-          "id": "afternoon-a2",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Night",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Night",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-three-o'clock-a3",
-      "options": [
-        {
-          "id": "it-is-three-o'clock-a3",
-          "image_url": "",
-          "label": "It is three o'clock."
-        },
-        {
-          "id": "it-is-eight-o'clock-a3",
-          "image_url": "",
-          "label": "It is eight o'clock."
-        }
-      ],
-      "audio_text": "It is three o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: It is three o'clock."
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-seven-o'clock-a4",
-      "options": [
-        {
-          "id": "it-is-eleven-o'clock-a4",
-          "image_url": "a1_photo_u4_clock_eleven_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-seven-o'clock-a4",
-          "image_url": "a1_scene_clock7_598dfdb.webp",
-          "label": null
         }
       ],
       "audio_text": "It is seven o'clock.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: It is seven o'clock.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Son las 7.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "A5",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-twelve-o'clock-a5",
-      "options": [
-        {
-          "id": "it-is-twelve-o'clock-a5",
-          "image_url": "a1_photo_u4_clock_twelve_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-eleven-o'clock-a5",
-          "image_url": "a1_photo_u4_clock_eleven_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is twelve o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: It is twelve o'clock."
-    },
-    {
-      "slide_id": "A6",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-seven-o'clock-in-the-morning-a6",
-      "options": [
-        {
-          "id": "it-is-seven-o'clock-in-the-morning-a6",
-          "image_url": "",
-          "label": "It is seven o'clock in the morning."
-        },
-        {
-          "id": "it-is-seven-o'clock-at-night-a6",
-          "image_url": "",
-          "label": "It is seven o'clock at night."
-        },
-        {
-          "id": "it-is-three-o'clock-in-the-afternoon-a6",
-          "image_url": "",
-          "label": "It is three o'clock in the afternoon."
-        }
-      ],
-      "audio_text": "It is seven o'clock in the morning.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: It is seven o'clock in the morning.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "A7",
-      "interaction_type": "a2i3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-three-o'clock-in-the-afternoon-a7",
-      "options": [
-        {
-          "id": "it-is-three-o'clock-in-the-afternoon-a7",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-seven-o'clock-in-the-morning-a7",
-          "image_url": "a1_scene_morning_45a21e4.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-nine-o'clock-at-night-a7",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is three o'clock in the afternoon.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: It is three o'clock in the afternoon."
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2i3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-nine-o'clock-at-night-a8",
-      "options": [
-        {
-          "id": "it-is-nine-o'clock-at-night-a8",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-three-o'clock-in-the-afternoon-a8",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-seven-o'clock-in-the-morning-a8",
-          "image_url": "a1_scene_morning_45a21e4.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is nine o'clock at night.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: It is nine o'clock at night.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "A9",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-wake-up-at-seven-o'clock-a9",
-      "options": [
-        {
-          "id": "i-wake-up-at-nine-o'clock-a9",
-          "image_url": "",
-          "label": "I wake up at nine o'clock."
-        },
-        {
-          "id": "i-wake-up-at-seven-o'clock-a9",
-          "image_url": "",
-          "label": "I wake up at seven o'clock."
-        }
-      ],
-      "audio_text": "I wake up at seven o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: I wake up at seven o'clock.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "A10",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-study-at-night-a10",
-      "options": [
-        {
-          "id": "i-study-in-the-afternoon-a10",
-          "image_url": "",
-          "label": "I study in the afternoon."
-        },
-        {
-          "id": "i-study-at-night-a10",
-          "image_url": "",
-          "label": "I study at night."
-        }
-      ],
-      "audio_text": "I study at night.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: I study at night.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "speak",
+      "slide_id": "L3",
+      "interaction_type": "teach",
       "prompt": "What time is it?",
-      "stage": "Speak",
-      "correct_option_id": "what-time-is-it-speak",
+      "stage": "Learn",
+      "correct_option_id": "l3-model",
       "options": [
         {
-          "id": "what-time-is-it-speak",
+          "id": "l3-model",
           "image_url": "a1_photo_u4_what_time_luis_v1.webp",
           "label": "What time is it?"
         }
@@ -732,290 +236,1122 @@
       "audio_text": "What time is it?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Qué hora es?",
-      "pedagogy_note": "Story beat 01: What time is it?",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
       "audio_speaker": "luis"
     },
     {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "It is eight o'clock.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-eight-o'clock-speak",
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "It is seven o'clock in the morning.",
+      "stage": "Learn",
+      "correct_option_id": "l4-model",
       "options": [
         {
-          "id": "it-is-eight-o'clock-speak",
-          "image_url": "a1_photo_u4_clock_eight_v1.webp",
-          "label": "It is eight o'clock."
+          "id": "l4-model",
+          "image_url": "a1_time_photo_clock_07_am_v4.webp",
+          "label": "It is seven o'clock in the morning."
         }
       ],
-      "audio_text": "It is eight o'clock.",
+      "audio_text": "It is seven o'clock in the morning.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Son las ocho.",
-      "pedagogy_note": "Story beat 02: It is eight o'clock."
+      "spanish_translation": "Son las 7 de la maÃ±ana.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "It is nine o'clock.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-nine-o'clock-speak",
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "What time is it?",
+      "stage": "Learn",
+      "correct_option_id": "l5-model",
       "options": [
         {
-          "id": "it-is-nine-o'clock-speak",
-          "image_url": "a1_scene_clock9_fdd3b54.webp",
-          "label": "It is nine o'clock."
+          "id": "l5-model",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp",
+          "label": "What time is it?"
         }
       ],
-      "audio_text": "It is nine o'clock.",
+      "audio_text": "What time is it?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Son las nueve.",
-      "pedagogy_note": "Story beat 03: It is nine o'clock.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "luis"
     },
     {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "It is eleven o'clock.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-eleven-o'clock-speak",
-      "options": [
-        {
-          "id": "it-is-eleven-o'clock-speak",
-          "image_url": "a1_photo_u4_clock_eleven_v1.webp",
-          "label": "It is eleven o'clock."
-        }
-      ],
-      "audio_text": "It is eleven o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las once.",
-      "pedagogy_note": "Story beat 04: It is eleven o'clock."
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "speak",
-      "prompt": "It is twelve o'clock.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-twelve-o'clock-speak",
-      "options": [
-        {
-          "id": "it-is-twelve-o'clock-speak",
-          "image_url": "a1_photo_u4_clock_twelve_v1.webp",
-          "label": "It is twelve o'clock."
-        }
-      ],
-      "audio_text": "It is twelve o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las doce.",
-      "pedagogy_note": "Story beat 05: It is twelve o'clock.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
+      "slide_id": "L6",
+      "interaction_type": "teach",
       "prompt": "It is three o'clock in the afternoon.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-three-o'clock-in-the-afternoon-speak",
+      "stage": "Learn",
+      "correct_option_id": "l6-model",
       "options": [
         {
-          "id": "it-is-three-o'clock-in-the-afternoon-speak",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
+          "id": "l6-model",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp",
           "label": "It is three o'clock in the afternoon."
         }
       ],
       "audio_text": "It is three o'clock in the afternoon.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Son las tres de la tarde.",
-      "pedagogy_note": "Story beat 06: It is three o'clock in the afternoon."
+      "spanish_translation": "Son las 3 de la tarde.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "S7",
-      "interaction_type": "speak",
-      "prompt": "It is nine o'clock at night.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-nine-o'clock-at-night-speak",
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "What time is it?",
+      "stage": "Learn",
+      "correct_option_id": "l7-model",
       "options": [
         {
-          "id": "it-is-nine-o'clock-at-night-speak",
-          "image_url": "a1_scene_night_1be2a44.webp",
+          "id": "l7-model",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp",
+          "label": "What time is it?"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "L8",
+      "interaction_type": "teach",
+      "prompt": "It is seven o'clock in the evening.",
+      "stage": "Learn",
+      "correct_option_id": "l8-model",
+      "options": [
+        {
+          "id": "l8-model",
+          "image_url": "a1_time_photo_clock_07_pm_v4.webp",
+          "label": "It is seven o'clock in the evening."
+        }
+      ],
+      "audio_text": "It is seven o'clock in the evening.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 7 de la tarde/noche.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "L9",
+      "interaction_type": "teach",
+      "prompt": "What time is it?",
+      "stage": "Learn",
+      "correct_option_id": "l9-model",
+      "options": [
+        {
+          "id": "l9-model",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp",
+          "label": "What time is it?"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "L10",
+      "interaction_type": "teach",
+      "prompt": "It is nine o'clock at night.",
+      "stage": "Learn",
+      "correct_option_id": "l10-model",
+      "options": [
+        {
+          "id": "l10-model",
+          "image_url": "a1_time_photo_clock_09_pm_v4.webp",
           "label": "It is nine o'clock at night."
         }
       ],
       "audio_text": "It is nine o'clock at night.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Son las nueve de la noche.",
-      "pedagogy_note": "Story beat 07: It is nine o'clock at night.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Son las 9 de la noche.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "L11",
+      "interaction_type": "teach",
+      "prompt": "What time is it?",
+      "stage": "Learn",
+      "correct_option_id": "l11-model",
+      "options": [
+        {
+          "id": "l11-model",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp",
+          "label": "What time is it?"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "L12",
+      "interaction_type": "teach",
+      "prompt": "It is three a.m.",
+      "stage": "Learn",
+      "correct_option_id": "l12-model",
+      "options": [
+        {
+          "id": "l12-model",
+          "image_url": "a1_time_photo_clock_03_am_v4.webp",
+          "label": "It is three a.m."
+        }
+      ],
+      "audio_text": "It is three a.m.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 3 de la maÃ±ana.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "L13",
+      "interaction_type": "teach",
+      "prompt": "What time is it?",
+      "stage": "Learn",
+      "correct_option_id": "l13-model",
+      "options": [
+        {
+          "id": "l13-model",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp",
+          "label": "What time is it?"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "L14",
+      "interaction_type": "teach",
+      "prompt": "It is three p.m.",
+      "stage": "Learn",
+      "correct_option_id": "l14-model",
+      "options": [
+        {
+          "id": "l14-model",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp",
+          "label": "It is three p.m."
+        }
+      ],
+      "audio_text": "It is three p.m.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 3 despuÃ©s del mediodÃ­a.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Recognize",
+      "correct_option_id": "r1-time",
+      "options": [
+        {
+          "id": "r1-day",
+          "image_url": "",
+          "label": "What day is it today?"
+        },
+        {
+          "id": "r1-time",
+          "image_url": "",
+          "label": "What time is it?"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-one-oclock-r2",
+      "options": [
+        {
+          "id": "it-is-two-oclock-r2",
+          "image_url": "",
+          "label": "It is two o'clock."
+        },
+        {
+          "id": "it-is-one-oclock-r2",
+          "image_url": "",
+          "label": "It is one o'clock."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is one o'clock.",
+      "prompt_image_url": "a1_time_photo_clock_01_v4.webp",
+      "spanish_translation": "Es la una.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-two-oclock-r3",
+      "options": [
+        {
+          "id": "it-is-one-oclock-r3",
+          "image_url": "",
+          "label": "It is one o'clock."
+        },
+        {
+          "id": "it-is-two-oclock-r3",
+          "image_url": "",
+          "label": "It is two o'clock."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is two o'clock.",
+      "prompt_image_url": "a1_time_photo_clock_02_v4.webp",
+      "spanish_translation": "Son las 2.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-three-oclock-in-the-afternoon-r4",
+      "options": [
+        {
+          "id": "it-is-three-oclock-in-the-morning-r4",
+          "image_url": "",
+          "label": "It is three o'clock in the morning."
+        },
+        {
+          "id": "it-is-three-oclock-in-the-afternoon-r4",
+          "image_url": "",
+          "label": "It is three o'clock in the afternoon."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is three o'clock in the afternoon.",
+      "prompt_image_url": "a1_time_photo_clock_03_pm_v4.webp",
+      "spanish_translation": "Son las 3 de la tarde.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-four-oclock-r5",
+      "options": [
+        {
+          "id": "it-is-one-oclock-r5",
+          "image_url": "",
+          "label": "It is one o'clock."
+        },
+        {
+          "id": "it-is-four-oclock-r5",
+          "image_url": "",
+          "label": "It is four o'clock."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is four o'clock.",
+      "prompt_image_url": "a1_time_photo_clock_04_v4.webp",
+      "spanish_translation": "Son las 4.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-five-oclock-r6",
+      "options": [
+        {
+          "id": "it-is-one-oclock-r6",
+          "image_url": "",
+          "label": "It is one o'clock."
+        },
+        {
+          "id": "it-is-five-oclock-r6",
+          "image_url": "",
+          "label": "It is five o'clock."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is five o'clock.",
+      "prompt_image_url": "a1_time_photo_clock_05_v4.webp",
+      "spanish_translation": "Son las 5.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-seven-oclock-in-the-evening-r7",
+      "options": [
+        {
+          "id": "it-is-seven-oclock-in-the-morning-r7",
+          "image_url": "",
+          "label": "It is seven o'clock in the morning."
+        },
+        {
+          "id": "it-is-seven-oclock-in-the-evening-r7",
+          "image_url": "",
+          "label": "It is seven o'clock in the evening."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is seven o'clock in the evening.",
+      "prompt_image_url": "a1_time_photo_clock_07_pm_v4.webp",
+      "spanish_translation": "Son las 7 de la tarde/noche.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-nine-oclock-at-night-r8",
+      "options": [
+        {
+          "id": "it-is-nine-oclock-in-the-morning-r8",
+          "image_url": "",
+          "label": "It is nine o'clock in the morning."
+        },
+        {
+          "id": "it-is-nine-oclock-at-night-r8",
+          "image_url": "",
+          "label": "It is nine o'clock at night."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is nine o'clock at night.",
+      "prompt_image_url": "a1_time_photo_clock_09_pm_v4.webp",
+      "spanish_translation": "Son las 9 de la noche.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-three-am-r9",
+      "options": [
+        {
+          "id": "it-is-three-pm-r9",
+          "image_url": "",
+          "label": "It is three p.m."
+        },
+        {
+          "id": "it-is-three-am-r9",
+          "image_url": "",
+          "label": "It is three a.m."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is three a.m.",
+      "prompt_image_url": "a1_time_photo_clock_03_am_v4.webp",
+      "spanish_translation": "Son las 3 de la maÃ±ana.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "What time is it?",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-three-pm-r10",
+      "options": [
+        {
+          "id": "it-is-three-am-r10",
+          "image_url": "",
+          "label": "It is three a.m."
+        },
+        {
+          "id": "it-is-three-pm-r10",
+          "image_url": "",
+          "label": "It is three p.m."
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "It is three p.m.",
+      "prompt_image_url": "a1_time_photo_clock_03_pm_v4.webp",
+      "spanish_translation": "Son las 3 despuÃ©s del mediodÃ­a.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-six-oclock-a1",
+      "options": [
+        {
+          "id": "it-is-three-oclock-a1",
+          "image_url": "a1_time_photo_clock_03_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-six-oclock-a1",
+          "image_url": "a1_time_photo_clock_06_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is six o'clock.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 6.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-eight-oclock-a2",
+      "options": [
+        {
+          "id": "it-is-three-oclock-a2",
+          "image_url": "a1_time_photo_clock_03_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-eight-oclock-a2",
+          "image_url": "a1_time_photo_clock_08_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is eight o'clock.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 8.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-ten-oclock-a3",
+      "options": [
+        {
+          "id": "it-is-three-oclock-a3",
+          "image_url": "a1_time_photo_clock_03_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-ten-oclock-a3",
+          "image_url": "a1_time_photo_clock_10_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is ten o'clock.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 10.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-eleven-oclock-a4",
+      "options": [
+        {
+          "id": "it-is-three-oclock-a4",
+          "image_url": "a1_time_photo_clock_03_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-eleven-oclock-a4",
+          "image_url": "a1_time_photo_clock_11_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is eleven o'clock.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 11.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-twelve-oclock-a5",
+      "options": [
+        {
+          "id": "it-is-three-oclock-a5",
+          "image_url": "a1_time_photo_clock_03_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-twelve-oclock-a5",
+          "image_url": "a1_time_photo_clock_12_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is twelve o'clock.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 12.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-three-oclock-in-the-afternoon-a6",
+      "options": [
+        {
+          "id": "it-is-three-oclock-in-the-morning-a6",
+          "image_url": "a1_time_photo_clock_03_am_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-three-oclock-in-the-afternoon-a6",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What time is it? It is three o'clock in the afternoon.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "luis",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp"
+        },
+        {
+          "text": "It is three o'clock in the afternoon.",
+          "speaker_role": "female-character",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp"
+        }
+      ],
+      "spanish_translation": "Son las 3 de la tarde.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity."
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-seven-oclock-in-the-evening-a7",
+      "options": [
+        {
+          "id": "it-is-seven-oclock-in-the-morning-a7",
+          "image_url": "a1_time_photo_clock_07_am_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-seven-oclock-in-the-evening-a7",
+          "image_url": "a1_time_photo_clock_07_pm_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What time is it? It is seven o'clock in the evening.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "luis",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp"
+        },
+        {
+          "text": "It is seven o'clock in the evening.",
+          "speaker_role": "female-character",
+          "image_url": "a1_time_photo_clock_07_pm_v4.webp"
+        }
+      ],
+      "spanish_translation": "Son las 7 de la tarde/noche.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity."
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-nine-oclock-at-night-a8",
+      "options": [
+        {
+          "id": "it-is-nine-oclock-in-the-morning-a8",
+          "image_url": "a1_time_photo_clock_09_am_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-nine-oclock-at-night-a8",
+          "image_url": "a1_time_photo_clock_09_pm_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What time is it? It is nine o'clock at night.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "luis",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp"
+        },
+        {
+          "text": "It is nine o'clock at night.",
+          "speaker_role": "female-character",
+          "image_url": "a1_time_photo_clock_09_pm_v4.webp"
+        }
+      ],
+      "spanish_translation": "Son las 9 de la noche.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity."
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-three-am-a9",
+      "options": [
+        {
+          "id": "it-is-three-pm-a9",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-three-am-a9",
+          "image_url": "a1_time_photo_clock_03_am_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What time is it? It is three a.m.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "luis",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp"
+        },
+        {
+          "text": "It is three a.m.",
+          "speaker_role": "female-character",
+          "image_url": "a1_time_photo_clock_03_am_v4.webp"
+        }
+      ],
+      "spanish_translation": "Son las 3 de la maÃ±ana.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity."
+    },
+    {
+      "slide_id": "A10",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "it-is-three-pm-a10",
+      "options": [
+        {
+          "id": "it-is-three-am-a10",
+          "image_url": "a1_time_photo_clock_03_am_v4.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-three-pm-a10",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What time is it? It is three p.m.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "luis",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp"
+        },
+        {
+          "text": "It is three p.m.",
+          "speaker_role": "female-character",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp"
+        }
+      ],
+      "spanish_translation": "Son las 3 despuÃ©s del mediodÃ­a.",
+      "pedagogy_note": "Time-only task. Distractors change the hour or a.m./p.m.; no same-period evening/night ambiguity."
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "What time is it?",
+      "stage": "Speak",
+      "correct_option_id": "s1-model",
+      "options": [
+        {
+          "id": "s1-model",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp",
+          "label": "What time is it?"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "It is seven o'clock in the morning.",
+      "stage": "Speak",
+      "correct_option_id": "s2-model",
+      "options": [
+        {
+          "id": "s2-model",
+          "image_url": "a1_time_photo_clock_07_am_v4.webp",
+          "label": "It is seven o'clock in the morning."
+        }
+      ],
+      "audio_text": "It is seven o'clock in the morning.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 7 de la maÃ±ana.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "What time is it?",
+      "stage": "Speak",
+      "correct_option_id": "s3-model",
+      "options": [
+        {
+          "id": "s3-model",
+          "image_url": "a1_photo_u4_what_time_luis_v1.webp",
+          "label": "What time is it?"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "It is three o'clock in the afternoon.",
+      "stage": "Speak",
+      "correct_option_id": "s4-model",
+      "options": [
+        {
+          "id": "s4-model",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp",
+          "label": "It is three o'clock in the afternoon."
+        }
+      ],
+      "audio_text": "It is three o'clock in the afternoon.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 3 de la tarde.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "It is seven o'clock in the evening.",
+      "stage": "Speak",
+      "correct_option_id": "s5-model",
+      "options": [
+        {
+          "id": "s5-model",
+          "image_url": "a1_time_photo_clock_07_pm_v4.webp",
+          "label": "It is seven o'clock in the evening."
+        }
+      ],
+      "audio_text": "It is seven o'clock in the evening.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 7 de la tarde/noche.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "It is nine o'clock at night.",
+      "stage": "Speak",
+      "correct_option_id": "s6-model",
+      "options": [
+        {
+          "id": "s6-model",
+          "image_url": "a1_time_photo_clock_09_pm_v4.webp",
+          "label": "It is nine o'clock at night."
+        }
+      ],
+      "audio_text": "It is nine o'clock at night.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 9 de la noche.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "It is three a.m.",
+      "stage": "Speak",
+      "correct_option_id": "s7-model",
+      "options": [
+        {
+          "id": "s7-model",
+          "image_url": "a1_time_photo_clock_03_am_v4.webp",
+          "label": "It is three a.m."
+        }
+      ],
+      "audio_text": "It is three a.m.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las 3 de la maÃ±ana.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I wake up at seven o'clock.",
+      "prompt": "It is three p.m.",
       "stage": "Speak",
-      "correct_option_id": "i-wake-up-at-seven-o'clock-speak",
+      "correct_option_id": "s8-model",
       "options": [
         {
-          "id": "i-wake-up-at-seven-o'clock-speak",
-          "image_url": "a1_photo_u4_wake_at_seven_v1.webp",
-          "label": "I wake up at seven o'clock."
+          "id": "s8-model",
+          "image_url": "a1_time_photo_clock_03_pm_v4.webp",
+          "label": "It is three p.m."
         }
       ],
-      "audio_text": "I wake up at seven o'clock.",
+      "audio_text": "It is three p.m.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me despierto a las siete.",
-      "pedagogy_note": "Story beat 08: I wake up at seven o'clock.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "S9",
-      "interaction_type": "speak",
-      "prompt": "I study at night.",
-      "stage": "Speak",
-      "correct_option_id": "i-study-at-night-speak",
-      "options": [
-        {
-          "id": "i-study-at-night-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
-          "label": "I study at night."
-        }
-      ],
-      "audio_text": "I study at night.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Estudio por la noche.",
-      "pedagogy_note": "Story beat 09: I study at night.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character"
+      "spanish_translation": "Son las 3 despuÃ©s del mediodÃ­a.",
+      "pedagogy_note": "Time exchange: the asking and answering roles are explicit. A clock close-up supplies the response evidence.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
       "prompt": "What time ___ ___?",
       "stage": "Use",
-      "correct_option_id": "is",
+      "correct_option_id": "word-3",
       "options": [
         {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "it",
+          "id": "word-4",
           "image_url": "",
           "label": "it"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
         }
       ],
       "audio_text": "What time is it?",
       "answer_audio_text": "What time is it?",
       "prompt_image_url": "a1_photo_u4_what_time_luis_v1.webp",
-      "spanish_translation": "¿Qué hora es?",
-      "translation": "¿Qué hora es?",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "translation": "Â¿QuÃ© hora es?",
       "correct_option_ids": [
-        "is",
-        "it"
+        "word-3",
+        "word-4"
       ],
       "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 01: What time is it?",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
       "audio_speaker": "luis"
     },
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
+      "prompt": "It is ___ ___ in the morning.",
       "stage": "Use",
-      "correct_option_id": "three",
+      "correct_option_id": "word-3",
       "options": [
         {
-          "id": "three",
-          "image_url": "",
-          "label": "three"
-        },
-        {
-          "id": "o'clock",
+          "id": "word-4",
           "image_url": "",
           "label": "o'clock"
-        }
-      ],
-      "audio_text": "It is three o'clock.",
-      "answer_audio_text": "It is three o'clock.",
-      "prompt_image_url": "a1_scene_clock3_3cd344f.webp",
-      "spanish_translation": "Son las tres.",
-      "translation": "Son las tres.",
-      "correct_option_ids": [
-        "three",
-        "o'clock"
-      ],
-      "pedagogy_note": "Story beat 02: It is three o'clock."
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "seven",
-      "options": [
+        },
         {
-          "id": "seven",
+          "id": "word-3",
           "image_url": "",
           "label": "seven"
-        },
-        {
-          "id": "o'clock",
-          "image_url": "",
-          "label": "o'clock"
-        }
-      ],
-      "audio_text": "It is seven o'clock.",
-      "answer_audio_text": "It is seven o'clock.",
-      "prompt_image_url": "a1_scene_clock7_598dfdb.webp",
-      "spanish_translation": "Son las siete.",
-      "translation": "Son las siete.",
-      "correct_option_ids": [
-        "seven",
-        "o'clock"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 03: It is seven o'clock.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "It is seven o'clock in ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "the",
-      "options": [
-        {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "morning",
-          "image_url": "",
-          "label": "morning"
         }
       ],
       "audio_text": "It is seven o'clock in the morning.",
       "answer_audio_text": "It is seven o'clock in the morning.",
-      "prompt_image_url": "a1_scene_morning_45a21e4.webp",
-      "spanish_translation": "Son las siete de la mañana.",
-      "translation": "Son las siete de la mañana.",
+      "prompt_image_url": "a1_time_photo_clock_07_am_v4.webp",
+      "spanish_translation": "Son las 7 de la maÃ±ana.",
+      "translation": "Son las 7 de la maÃ±ana.",
       "correct_option_ids": [
-        "the",
-        "morning"
+        "word-3",
+        "word-4"
       ],
-      "pedagogy_note": "Story beat 04: It is seven o'clock in the morning."
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "It is seven o'clock in ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-6",
+      "options": [
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "evening"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "It is seven o'clock in the evening.",
+      "answer_audio_text": "It is seven o'clock in the evening.",
+      "prompt_image_url": "a1_time_photo_clock_07_pm_v4.webp",
+      "spanish_translation": "Son las 7 de la tarde/noche.",
+      "translation": "Son las 7 de la tarde/noche.",
+      "correct_option_ids": [
+        "word-6",
+        "word-7"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "It is nine o'clock ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-5",
+      "options": [
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "night"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "at"
+        }
+      ],
+      "audio_text": "It is nine o'clock at night.",
+      "answer_audio_text": "It is nine o'clock at night.",
+      "prompt_image_url": "a1_time_photo_clock_09_pm_v4.webp",
+      "spanish_translation": "Son las 9 de la noche.",
+      "translation": "Son las 9 de la noche.",
+      "correct_option_ids": [
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "time"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "it"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "What"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "What time is it?",
+      "answer_audio_text": "What time is it?",
+      "prompt_image_url": "a1_photo_u4_what_time_luis_v1.webp",
+      "spanish_translation": "Â¿QuÃ© hora es?",
+      "translation": "Â¿QuÃ© hora es?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -1059,9 +1395,9 @@
       ],
       "audio_text": "It is three o'clock in the afternoon.",
       "answer_audio_text": "It is three o'clock in the afternoon.",
-      "prompt_image_url": "a1_scene_afternoon_7a10f39.webp",
-      "spanish_translation": "Son las tres de la tarde.",
-      "translation": "Son las tres de la tarde.",
+      "prompt_image_url": "a1_time_photo_clock_03_pm_v4.webp",
+      "spanish_translation": "Son las 3 de la tarde.",
+      "translation": "Son las 3 de la tarde.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1071,14 +1407,14 @@
         "word-6",
         "word-7"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 05: It is three o'clock in the afternoon.",
-      "audio_speaker": "co-teacher"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
+      "audio_speaker": "female-character"
     },
     {
-      "slide_id": "U6",
+      "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
@@ -1090,12 +1426,7 @@
         {
           "id": "word-4",
           "image_url": "",
-          "label": "o'clock"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "night"
+          "label": "a.m."
         },
         {
           "id": "word-1",
@@ -1105,126 +1436,66 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "nine"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "at"
+          "label": "three"
         }
       ],
-      "audio_text": "It is nine o'clock at night.",
-      "answer_audio_text": "It is nine o'clock at night.",
-      "prompt_image_url": "a1_scene_night_1be2a44.webp",
-      "spanish_translation": "Son las nueve de la noche.",
-      "translation": "Son las nueve de la noche.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ],
-      "pedagogy_note": "Story beat 06: It is nine o'clock at night."
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "wake"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "o'clock"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "up"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "seven"
-        }
-      ],
-      "audio_text": "I wake up at seven o'clock.",
-      "answer_audio_text": "I wake up at seven o'clock.",
-      "prompt_image_url": "a1_photo_u4_wake_at_seven_v1.webp",
-      "spanish_translation": "Me despierto a las siete.",
-      "translation": "Me despierto a las siete.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 07: I wake up at seven o'clock.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "study"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "night"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "at"
-        }
-      ],
-      "audio_text": "I study at night.",
-      "answer_audio_text": "I study at night.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_time_study_night_v1.webp",
-      "spanish_translation": "Estudio por la noche.",
-      "translation": "Estudio por la noche.",
+      "audio_text": "It is three a.m.",
+      "answer_audio_text": "It is three a.m.",
+      "prompt_image_url": "a1_time_photo_clock_03_am_v4.webp",
+      "spanish_translation": "Son las 3 de la maÃ±ana.",
+      "translation": "Son las 3 de la maÃ±ana.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 08: I study at night.",
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
+      "audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "p.m."
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "three"
+        }
+      ],
+      "audio_text": "It is three p.m.",
+      "answer_audio_text": "It is three p.m.",
+      "prompt_image_url": "a1_time_photo_clock_03_pm_v4.webp",
+      "spanish_translation": "Son las 3 despuÃ©s del mediodÃ­a.",
+      "translation": "Son las 3 despuÃ©s del mediodÃ­a.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Construct the exact time question or answer. No routine or activity-at-time language.",
+      "audio_speaker": "female-character"
     }
   ]
 }

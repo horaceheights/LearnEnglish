@@ -64,7 +64,7 @@ Plan within the approved practice and pacing standards (2026-09-23). The thresho
 
 | Standard | A1 value |
 |---|---|
-| Standard lesson length | 40–42 cards; reviews 48–54 |
+| Standard lesson length | 40–42 cards; reviews 48–54; separately approved lesson allocations are pinned in `approved_lesson_card_limits` |
 | New items per lesson | at most 8; split large sets across lessons |
 | Practice per new item | at least 5 exposures across 4 stages, including Listen or Speak |
 | Later reuse | the successful path of at least 2 later lessons (final unit exempt) |

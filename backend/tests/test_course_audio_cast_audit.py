@@ -75,9 +75,9 @@ EXACT_ROLE_CHANGES = {
 # The 2026-09-26 Unit 5 rebuild does the same for its ten teaching lessons (Ana, Luis, the
 # servers and every pictured customer keep their voices) and the six new review cards (+321 net).
 # The 2026-09-29 action-question correction adds four explicit assignments in 3.3.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1829
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1857
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "95075b665b25601f599845189683f595c3d7ae07eac245b7daaffed034e25057"
+    "3420012f91dba38447329897153a1db2ea4856026ceabc36868a49020e43f28f"
 )
 
 
