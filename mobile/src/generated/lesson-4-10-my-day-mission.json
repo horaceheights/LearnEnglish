@@ -70,7 +70,10 @@
     "o'clock",
     "afternoon",
     "night",
-    "at"
+    "at",
+    "evening",
+    "a.m.",
+    "p.m."
   ],
   "grammar_function": "Known home/location, school sequence and household action language; auxiliary Do with both short replies; weekday and whole-hour time.",
   "prerequisite": "Lessons 4.1-4.11 completed.",
@@ -162,7 +165,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c001-mission-intro-07d89e4591edcfc3c838",
+          "id": "lesson-4-10-my-day-mission-c001-mission-intro-994528983639eaaf0d6a",
           "purpose": "mission-intro",
           "text": "Tu familia recibe una visita esta tarde. Ayuda a encontrar las cosas, organizar las tareas y confirmar el d\u00eda y la hora. Escucha cada frase y toca lo que indica. Al final, lee las respuestas en voz alta para recibir a la familia.",
           "mode": "prompt",
@@ -171,7 +174,7 @@
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c001-prompt-turn-1-9b97401c091c8ccdbd79",
@@ -1786,7 +1789,7 @@
     {
       "slide_id": "M08",
       "interaction_type": "mission-game",
-      "prompt": "I go to school at seven o'clock in the morning on Tuesday. I run in the park at three o'clock in the afternoon on Wednesday. We clean the table at six o'clock in the afternoon on Friday. I study at eight o'clock at night on Sunday.",
+      "prompt": "It is seven a.m. Today is Tuesday. I go to school. It is three p.m. Today is Wednesday. I run in the park. It is six o'clock in the afternoon. Today is Friday. We clean the table. It is eight o'clock at night. Today is Sunday. I study.",
       "stage": "Listen",
       "correct_option_id": "m08-1",
       "correct_option_ids": [
@@ -1799,49 +1802,49 @@
         {
           "id": "m08-1",
           "image_url": "",
-          "label": "I go to school at seven o'clock in the morning on Tuesday."
+          "label": "It is seven a.m. Today is Tuesday. I go to school."
         },
         {
           "id": "m08-2",
           "image_url": "",
-          "label": "I run in the park at three o'clock in the afternoon on Wednesday."
+          "label": "It is three p.m. Today is Wednesday. I run in the park."
         },
         {
           "id": "m08-3",
           "image_url": "",
-          "label": "We clean the table at six o'clock in the afternoon on Friday."
+          "label": "It is six o'clock in the afternoon. Today is Friday. We clean the table."
         },
         {
           "id": "m08-4",
           "image_url": "",
-          "label": "I study at eight o'clock at night on Sunday."
+          "label": "It is eight o'clock at night. Today is Sunday. I study."
         }
       ],
-      "audio_text": "I go to school at seven o'clock in the morning on Tuesday. I run in the park at three o'clock in the afternoon on Wednesday. We clean the table at six o'clock in the afternoon on Friday. I study at eight o'clock at night on Sunday.",
+      "audio_text": "It is seven a.m. Today is Tuesday. I go to school. It is three p.m. Today is Wednesday. I run in the park. It is six o'clock in the afternoon. Today is Friday. We clean the table. It is eight o'clock at night. Today is Sunday. I study.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp",
       "spanish_translation": "Escuela Parque Tareas de casa Estudio",
-      "pedagogy_note": "Mission beat 08/17: Check the dated household week before confirming today's visit. Four separate scheduled moments: school Tuesday 6 at 7am, park Wednesday 7 at 3pm, home help Friday 9 at 6pm, study Sunday 11 at 8pm. Clock/date/activity cues only; no weekday or English answer labels. The visit today remains Thursday 8 at 6pm.",
+      "pedagogy_note": "Mission beat 08/17: Retrieve the time, weekday and known activity as separate statements. Activity-at-time grammar is deferred to the later meals/schedules lesson; no new mission language or target geometry.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "I go to school at seven o'clock in the morning on Tuesday.",
+          "text": "It is seven a.m. Today is Tuesday. I go to school.",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         },
         {
-          "text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+          "text": "It is three p.m. Today is Wednesday. I run in the park.",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         },
         {
-          "text": "We clean the table at six o'clock in the afternoon on Friday.",
+          "text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         },
         {
-          "text": "I study at eight o'clock at night on Sunday.",
+          "text": "It is eight o'clock at night. Today is Sunday. I study.",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp"
         }
@@ -1850,9 +1853,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-1-db10984d30eac4186f15",
+          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-1-59733d2a440a7fea913f",
           "purpose": "prompt-turn-1",
-          "text": "I go to school at seven o'clock in the morning on Tuesday.",
+          "text": "It is seven a.m. Today is Tuesday. I go to school.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp",
@@ -1862,9 +1865,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-2-c780a9f5bfe21d443ae7",
+          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-2-efe5413fd45ea5659ad2",
           "purpose": "prompt-turn-2",
-          "text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+          "text": "It is three p.m. Today is Wednesday. I run in the park.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp",
@@ -1874,9 +1877,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-3-8b0bb3f501a6e8b36fb4",
+          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-3-1a10b2e988604c08fe04",
           "purpose": "prompt-turn-3",
-          "text": "We clean the table at six o'clock in the afternoon on Friday.",
+          "text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp",
@@ -1886,9 +1889,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-4-964bf3c9439a82e51185",
+          "id": "lesson-4-10-my-day-mission-c008-prompt-turn-4-c844ad96a70db6ec30d2",
           "purpose": "prompt-turn-4",
-          "text": "I study at eight o'clock at night on Sunday.",
+          "text": "It is eight o'clock at night. Today is Sunday. I study.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u4_home_v2_mission_08_timetable.webp",
@@ -1992,29 +1995,29 @@
         "cues": [
           {
             "id": "cue-m08-1",
-            "text": "I go to school at seven o'clock in the morning on Tuesday.",
-            "answer_text": "I go to school at seven o'clock in the morning on Tuesday.",
+            "text": "It is seven a.m. Today is Tuesday. I go to school.",
+            "answer_text": "It is seven a.m. Today is Tuesday. I go to school.",
             "target_id": "m08-1",
             "option_id": "m08-1"
           },
           {
             "id": "cue-m08-2",
-            "text": "I run in the park at three o'clock in the afternoon on Wednesday.",
-            "answer_text": "I run in the park at three o'clock in the afternoon on Wednesday.",
+            "text": "It is three p.m. Today is Wednesday. I run in the park.",
+            "answer_text": "It is three p.m. Today is Wednesday. I run in the park.",
             "target_id": "m08-2",
             "option_id": "m08-2"
           },
           {
             "id": "cue-m08-3",
-            "text": "We clean the table at six o'clock in the afternoon on Friday.",
-            "answer_text": "We clean the table at six o'clock in the afternoon on Friday.",
+            "text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
+            "answer_text": "It is six o'clock in the afternoon. Today is Friday. We clean the table.",
             "target_id": "m08-3",
             "option_id": "m08-3"
           },
           {
             "id": "cue-m08-4",
-            "text": "I study at eight o'clock at night on Sunday.",
-            "answer_text": "I study at eight o'clock at night on Sunday.",
+            "text": "It is eight o'clock at night. Today is Sunday. I study.",
+            "answer_text": "It is eight o'clock at night. Today is Sunday. I study.",
             "target_id": "m08-4",
             "option_id": "m08-4"
           }
@@ -2054,7 +2057,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c009-mission-cue-8ff9985dff42e5206fd2",
+          "id": "lesson-4-10-my-day-mission-c009-mission-cue-37df64ca9c5fde7f3078",
           "purpose": "mission-cue",
           "text": "Do you work?",
           "mode": "prompt",
@@ -2063,7 +2066,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c009-prompt-turn-1-8da1931bcd2d5d753b17",
@@ -2144,7 +2147,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c010-mission-cue-5ade470d6ca328be29c8",
+          "id": "lesson-4-10-my-day-mission-c010-mission-cue-1ead4df963f4b792ea77",
           "purpose": "mission-cue",
           "text": "Do you play in the park?",
           "mode": "prompt",
@@ -2153,7 +2156,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c010-prompt-turn-1-da98b1cc934eda9ca19f",
@@ -2234,7 +2237,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c011-mission-cue-eca054fa6d74301c5fe1",
+          "id": "lesson-4-10-my-day-mission-c011-mission-cue-c139036e5adf9fe68182",
           "purpose": "mission-cue",
           "text": "Do you wash your clothes?",
           "mode": "prompt",
@@ -2243,7 +2246,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c011-prompt-turn-1-2e0067536f4850f64f56",
@@ -2324,7 +2327,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c012-mission-cue-c0c29a66f84133a40e4f",
+          "id": "lesson-4-10-my-day-mission-c012-mission-cue-3a096ecefdd3b7cd75f7",
           "purpose": "mission-cue",
           "text": "Do you clean the table?",
           "mode": "prompt",
@@ -2333,7 +2336,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c012-prompt-turn-1-13282d293865aa379122",
@@ -2414,7 +2417,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c013-mission-cue-5320aef26d06719a2359",
+          "id": "lesson-4-10-my-day-mission-c013-mission-cue-e20f74bd49345bea3cc6",
           "purpose": "mission-cue",
           "text": "What day is it today?",
           "mode": "prompt",
@@ -2423,7 +2426,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c013-prompt-turn-1-ff02ed5137b7625c05da",
@@ -2476,21 +2479,21 @@
     {
       "slide_id": "M14",
       "interaction_type": "mission-speak",
-      "prompt": "It is six o'clock in the afternoon.",
+      "prompt": "It is six o'clock in the evening.",
       "stage": "Speak",
       "correct_option_id": "voice-14",
       "options": [
         {
           "id": "voice-14",
           "image_url": "/lesson-assets/a1_u4_home_v2_mission_14_response.webp",
-          "label": "It is six o'clock in the afternoon."
+          "label": "It is six o'clock in the evening."
         }
       ],
-      "audio_text": "It is six o'clock in the afternoon.",
+      "audio_text": "It is six o'clock in the evening.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Son las seis en punto de la tarde.",
-      "pedagogy_note": "Mission beat 14/17: 14. Confirm the arrival time\nThe clock now reaches the visit time shown in the timetable; the family is arriving.\nThe same home at 6pm with a clearly readable real 6:00 clock. Ask first, then show the respondent and written whole-hour answer.\nShared voice gate: play only the English question in its question view. Cut to the matching respondent view, show the complete written answer and \u201cLee la frase en voz alta.\u201d Keep it visible while recording/scoring; no upfront answer audio and no free personal answer. The learner pronounces this authored role response. Preserve speaker identity, scene meaning, retry state and immediate graded feedback.",
+      "spanish_translation": "Son las seis de la tarde/noche.",
+      "pedagogy_note": "Mission beat 14/17: Retrieve evening in the established six-p.m. home arrival context. Preserve the mother asking and father answering, clock evidence and voice-gate geometry.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "male-character",
       "audio_turns": [
@@ -2504,7 +2507,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c014-mission-cue-2bb559b2c0f8ccf58134",
+          "id": "lesson-4-10-my-day-mission-c014-mission-cue-9b320156db8882a39f0f",
           "purpose": "mission-cue",
           "text": "What time is it?",
           "mode": "prompt",
@@ -2513,7 +2516,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c014-prompt-turn-1-663421bd23f9e7c968fa",
@@ -2554,7 +2557,7 @@
           {
             "id": "cue-voice-14",
             "text": "What time is it?",
-            "answer_text": "It is six o'clock in the afternoon.",
+            "answer_text": "It is six o'clock in the evening.",
             "target_id": "voice-14",
             "option_id": "voice-14"
           }
@@ -2594,7 +2597,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c015-mission-cue-278456cea3eefccd9696",
+          "id": "lesson-4-10-my-day-mission-c015-mission-cue-b0a91b5ebc08eb1c269d",
           "purpose": "mission-cue",
           "text": "Where is the blue book?",
           "mode": "prompt",
@@ -2603,7 +2606,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c015-prompt-turn-1-0471e9249823eeeca583",
@@ -2684,7 +2687,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c016-mission-cue-d67988ace815793b5279",
+          "id": "lesson-4-10-my-day-mission-c016-mission-cue-8d9b01e225e770d6001a",
           "purpose": "mission-cue",
           "text": "Do you open the door?",
           "mode": "prompt",
@@ -2693,7 +2696,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c016-prompt-turn-1-dd273989e21be7153ca1",
@@ -2774,7 +2777,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c017-mission-cue-6ae8af19737a8a179ebc",
+          "id": "lesson-4-10-my-day-mission-c017-mission-cue-9f94747927dd8b3f1f24",
           "purpose": "mission-cue",
           "text": "Do you close the door?",
           "mode": "prompt",
@@ -2783,7 +2786,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 5
+          "revision": 6
         },
         {
           "id": "lesson-4-10-my-day-mission-c017-prompt-turn-1-539aad6a05ce942853e1",
@@ -2835,7 +2838,7 @@
     }
   ],
   "experience_type": "mission",
-  "content_revision": 5,
+  "content_revision": 6,
   "mission": {
     "label": "MISI\u00d3N FINAL \u00b7 UNIDAD 4",
     "title": "Un d\u00eda en casa \u2014 A family visit",

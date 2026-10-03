@@ -94,6 +94,7 @@ const MEANINGS: Record<string, string> = {
   home: 'hogar', sofa: 'sofá', window: 'ventana', library: 'biblioteca', bank: 'banco',
   orange: 'naranja', pear: 'pera', cloudy: 'nublado', shoes: 'zapatos', skirt: 'falda',
   near: 'cerca', far: 'lejos', hello: 'hola', goodbye: 'adiós', morning: 'mañana',
+  evening: 'tarde/noche', pm: 'después del mediodía',
   under: 'debajo', on: 'encima', in: 'dentro', yes: 'sí', no: 'no',
   monday: 'lunes', tuesday: 'martes', wednesday: 'miércoles', thursday: 'jueves',
   friday: 'viernes', saturday: 'sábado', sunday: 'domingo',
@@ -102,7 +103,7 @@ const MEANINGS: Record<string, string> = {
   dressed: 'vestido', wake: 'despertarse',
   'thank you': 'gracias', 'here you are': 'aquí tienes',
   'good morning': 'buenos días', 'how much': 'cuánto cuesta',
-  what: 'qué', where: 'dónde', who: 'quién',
+  what: 'qué', where: 'dónde', who: 'quién', time: 'hora', day: 'día', today: 'hoy',
   'next to': 'al lado de', 'far from': 'lejos de',
   'need': 'necesitar', 'needs': 'necesita', 'want': 'querer', 'wants': 'quiere',
   'can': 'puede', 'cannot': 'no puede',
@@ -453,7 +454,7 @@ function pronounChoiceHint(correct: string, wrong: string, card: LessonCard): st
 
 /** Taught multi-word phrases whose alternatives have a different word count. */
 const PHRASE_MEANINGS: Record<string, string> = {
-  'in the morning': 'en la mañana', 'in the afternoon': 'en la tarde', 'at night': 'en la noche',
+  'in the morning': 'en la mañana', 'in the afternoon': 'en la tarde', 'in the evening': 'al final de la tarde o al comienzo de la noche', 'at night': 'en la noche',
   'wake up': 'despertarme', 'wash my face': 'lavarme la cara', 'brush my teeth': 'lavarme los dientes',
   'get dressed': 'vestirme', 'eat breakfast': 'desayunar', 'go to school': 'ir a la escuela',
   'go to work': 'ir al trabajo', 'come home': 'regresar a casa', 'study english': 'estudiar inglés',
@@ -469,6 +470,14 @@ function phraseMeaning(text: string) {
 
 function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boolean): string {
   if (!correct || !wrong || normalized(correct) === normalized(wrong)) return '';
+  const timeNotation = /\b([ap])\.?m\.?$/i;
+  const rightPeriod = timeNotation.exec(correct)?.[1].toLowerCase();
+  const wrongPeriod = timeNotation.exec(wrong)?.[1].toLowerCase();
+  if (rightPeriod && wrongPeriod && rightPeriod !== wrongPeriod) {
+    const expected = rightPeriod === 'a' ? 'antes del mediodía' : 'después del mediodía';
+    const selected = wrongPeriod === 'a' ? 'antes del mediodía' : 'después del mediodía';
+    return `“${wrongPeriod}.m.” indica ${selected}; ${isAudioChoice ? 'escuchaste' : 'la imagen muestra'} una hora ${expected}, indicada con “${rightPeriod}.m.”.`;
+  }
   const correctWords = normalized(correct).replace(/[?.!,]/g, '').split(/\s+/);
   const wrongWords = normalized(wrong).replace(/[?.!,]/g, '').split(/\s+/);
   while (correctWords.length && wrongWords.length && correctWords[0] === wrongWords[0]) {
@@ -557,6 +566,9 @@ function phraseChoiceContrast(correct: string, wrong: string, isAudioChoice: boo
 function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: string): string {
   let correct = imageOptionConcept(correctId);
   let wrong = imageOptionConcept(wrongId);
+  if (/\b[ap]m$/.test(correct) && /\b[ap]m$/.test(wrong) && correct.slice(-2) !== wrong.slice(-2)) {
+    return wordChoiceContrast(correct, wrong, /listen/i.test(card.stage));
+  }
   // A yes/no exchange ("do you work no i do not") is told apart by its question: the short answer is not in the picture.
   const exchange = /^(.+?) (?:yes|no) (?:i|he|she|it|we|they|you) (?:am|is|are|do)(?: not)?$/;
   const [correctExchange, wrongExchange] = [exchange.exec(correct), exchange.exec(wrong)];

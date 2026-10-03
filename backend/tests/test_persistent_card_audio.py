@@ -321,15 +321,15 @@ class PersistentCardAudioTests(unittest.TestCase):
         # pictured men, male customers and servers keep their voices (+55 net).
         # 2026-10-01: approved school/home/do rebuild; authored English only.
         self.assertEqual(
-            Counter({"male-character": 572, "luis": 221, "diego": 16}),
+            Counter({"male-character": 565, "luis": 253, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
-        self.assertEqual(809, len(selected))
-        self.assertEqual(165, len(jobs))
-        self.assertEqual(165, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(834, len(selected))
+        self.assertEqual(164, len(jobs))
+        self.assertEqual(164, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
-        self.assertEqual(3336, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(3312, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},

@@ -30,6 +30,27 @@ function hint(target, a, b) {
   return constructionMistakeHint(card, swap(card, a, b));
 }
 
+test('a.m. and p.m. keep their internal dots in one tile and teach number before period', () => {
+  for (const period of ['a.m.', 'p.m.']) {
+    const target = `It is three ${period}`;
+    const labels = ['It', 'is', 'three', period];
+    const card = { stage: 'Use', interaction_type: 'complete-sentence', prompt: '___ ___ ___ ___',
+      options: labels.map((label, index) => ({ id: String(index), label, image_url: '' })),
+      correct_option_id: '0', correct_option_ids: ['0', '1', '2', '3'], audio_text: target, answer_audio_text: target };
+    const plan = constructionTeachingPlan(card);
+    assert.equal(plan.supported, true);
+    assert.equal(plan.explanations.length, 4);
+    const result = constructionMistakeHint(card, swap(card, 2, 3));
+    assert.match(result, /primero va el número/);
+    assert.match(result, /antes del mediodía/);
+    assert.ok(result.length <= 230, result);
+    const choice = { stage: 'Recognize', prompt: 'What time is it?', correct_option_id: 'right',
+      options: [{ id: 'right', label: target }, { id: 'wrong', label: `It is three ${period === 'a.m.' ? 'p.m.' : 'a.m.'}` }] };
+    assert.match(lessonMistakeHint(choice, ['wrong']), /mediodía/);
+    assert.ok(lessonMistakeHint(choice, ['wrong']).length <= 140);
+  }
+});
+
 // Reviewed grammar oracle, deliberately independent of the resolver's role tables.
 const progressiveVerbs = ['eating', 'drinking', 'reading', 'writing', 'running', 'walking', 'swimming', 'sitting', 'sleeping', 'playing', 'studying', 'working', 'cooking', 'talking', 'watching', 'listening'];
 

@@ -179,14 +179,10 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'male-character', 'L0'),
     ],
     "lesson-4-what-time-is-it": [
-        ('answer_audio_speaker', 'ana', 'R10 U7'),
-        ('answer_audio_speaker', 'co-teacher', 'U3 U5'),
-        ('answer_audio_speaker', 'luis', 'U1'),
-        ('answer_audio_speaker', 'male-character', 'R11 A10 S9 U8'),
-        ('audio_speaker', 'ana', 'A9 S8 U7'),
-        ('audio_speaker', 'co-teacher', 'L3 R1 R3 R5 R7 R9 A2 A4 A6 A8 S3 S5 S7 U3 U5'),
-        ('audio_speaker', 'luis', 'L1 S1 U1'),
-        ('audio_speaker', 'male-character', 'R11 A10 S9 U8'),
+        ('answer_audio_speaker', 'female-character', 'R2 R3 R4 R5 R6 R7 R8 R9 R10 U2 U3 U4 U6 U7 U8'),
+        ('answer_audio_speaker', 'luis', 'U1 U5'),
+        ('audio_speaker', 'female-character', 'L2 L4 L6 L8 L10 L12 L14 A1 A2 A3 A4 A5 S2 S4 S5 S6 S7 S8 U2 U3 U4 U6 U7 U8'),
+        ('audio_speaker', 'luis', 'L1 L3 L5 L7 L9 L11 L13 R1 R2 R3 R4 R5 R6 R7 R8 R9 R10 S1 S3 U1 U5'),
     ],
     "lesson-4-9-unit-4-review": [
         ('answer_audio_speaker', 'female-character', 'L7 R5 R8 A13 A15 S4 U3 U5 U7'),

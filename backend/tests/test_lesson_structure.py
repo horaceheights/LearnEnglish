@@ -231,7 +231,9 @@ class LessonStructureTests(unittest.TestCase):
                     self.assertEqual(len(lesson.cards), 54 if lesson.unit_id in ("unit-3", "unit-4", "unit-5", "unit-6", "unit-7") else 48)
                 else:
                     # 40-42 is the 2026-09-23 standard; units not yet rebuilt stay shorter.
-                    self.assertLessEqual(len(lesson.cards), 42)
+                    standards = json.loads((Path(__file__).resolve().parents[2] / 'docs/product/content-standards.json').read_text(encoding='utf-8'))['courses']['a1']
+                    bounds = standards.get('approved_lesson_card_limits', {}).get(lesson.id, standards['standard_lesson_cards'])
+                    self.assertLessEqual(len(lesson.cards), bounds['max'])
                 self.assertTrue(lesson.unit_outcome)
                 self.assertTrue(lesson.grammar_function)
                 self.assertTrue(lesson.speaking_outcome)

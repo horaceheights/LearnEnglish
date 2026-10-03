@@ -81,7 +81,8 @@ class LessonCard(BaseModel):
                 or len(ids) != len(set(ids)) or len(ordered) != len(ids)
                 or set(ordered) != set(ids) or self.correct_option_id != ordered[0]):
             raise ValueError("Sentence construction needs exactly its ordered word tiles in Use.")
-        if any(option.image_url or not re.fullmatch(r"[A-Za-z]+(?:'[A-Za-z]+)?", option.label or "") for option in self.options):
+        # Time abbreviations are one movable token; internal dots are not slots.
+        if any(option.image_url or not re.fullmatch(r"(?:[A-Za-z]+(?:'[A-Za-z]+)?|[aApP]\.m\.)", option.label or "") for option in self.options):
             raise ValueError("Sentence construction tiles must contain one word each.")
         if re.sub(r"___|[\s.!?,]", "", self.prompt) or self.prompt.count("___") != len(ids):
             raise ValueError("Sentence construction must hide every word behind its own blank.")

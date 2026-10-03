@@ -3,7 +3,7 @@ import type { LessonCard } from './types';
 // These are teaching patterns, not guesses based on a word appearing in a card.
 // Every word of a generated construction must belong to a supported pattern.
 // The course-wide hint gate rejects new patterns until their explanation is added.
-const words = (value: string) => value.toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g) || [];
+const words = (value: string) => value.toLowerCase().replace(/\b([ap])\.m\./g, '$1m').match(/[a-z]+(?:'[a-z]+)?/g) || [];
 const set = (value: string) => new Set(value.split(' '));
 const DETERMINERS = set('a an the my your his her our their');
 const NUMBERS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty');
@@ -117,6 +117,11 @@ function teachClause(text: string): ClausePlan {
       teach(start, start + 2, `Para decir la hora, el número va antes de “o'clock”: ${quote(phrase(start, start + 2))}.`);
       // A part of the day may follow the time: "seven o'clock in the morning", "nine o'clock at night".
       return end - start === 2 || complement(start + 2, end, phrase(start, start + 2));
+    }
+    if (end - start === 2 && NUMBERS.has(keys[start]) && ['am', 'pm'].includes(keys[start + 1])) {
+      const notation = keys[start + 1] === 'am' ? 'a.m.' : 'p.m.';
+      teach(start, end, `Para decir la hora, primero va el número y después “${notation}”: ${quote(tokens[start] + ' ' + notation)}. “a.m.” indica antes del mediodía; “p.m.”, después.`);
+      return true;
     }
     if (end - start === 2 && keys[start] === 'number' && NUMBERS.has(keys[start + 1]) && BE.has(anchor.toLowerCase())) {
       teach(start, end, `Para decir qué número es, después de ${quote(anchor)} va “number” y luego el número: ${quote(original)}.`);
@@ -403,7 +408,8 @@ export function constructionTeachingPlan(card: LessonCard) {
   }).join('');
   // A comma can join two complete statements, but does not split “No, thank
   // you”, a noun contrast, or the introductory “First,” / “Then,”.
-  const clauses = target.replace(/,\s*(?=(?:he|she|it|they|we|you|i)\s+(?:am|is|are)\b)/gi, '. ').match(/[^.!?]+[.!?]?/g) || [];
+  // Periods inside a.m./p.m. belong to one time token, not three clauses.
+  const clauses = target.replace(/\b([ap])\.m\./gi, '$1m').replace(/,\s*(?=(?:he|she|it|they|we|you|i)\s+(?:am|is|are)\b)/gi, '. ').match(/[^.!?]+[.!?]?/g) || [];
   const plans = clauses.map(teachClause);
   const explanations = plans.flatMap(plan => plan.explanations);
   let offset = 0;

@@ -54,7 +54,11 @@ def value(item, key, default=None):
 
 
 def normalized(text):
-    text = str(text or "").strip().lower().replace("’", "'").replace("‘", "'")
+    text = str(text or "").strip().replace("’", "'").replace("‘", "'")
+    # Internal abbreviation dots are not extra fragments; retain a sentence
+    # boundary at the end or before the next capitalized sentence.
+    text = re.sub(r"\b([aApP])\.m\.(?=\s+[A-Z]|$)", r"\1m.", text)
+    text = re.sub(r"\b([aApP])\.m\.", r"\1m", text).lower()
     text = re.sub(r"\b(can)'t\b", "cannot", text)
     text = re.sub(r"\b(won)'t\b", "will not", text)
     text = re.sub(r"n't\b", " not", text)

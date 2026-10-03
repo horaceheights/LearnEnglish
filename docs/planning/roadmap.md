@@ -41,6 +41,8 @@ Recent delivery: the approved Lesson 1.1 Completa progression extends to 28 elig
 
 ## Engine-first strategy
 
+Lesson 4.10 correction (2026-10-03): complete asking/telling-time exchanges replace isolated “o'clock” and routine-at-time practice. Whole hours, day periods and a.m./p.m. use locally prepared photographs without image-generation services. Later review and mission retrieval follow the revised scope. Installed-device review remains pending. See `docs/qa/lesson-4-10-time-exchanges-2026-10-03.md`.
+
 Phone viewport correction (2026-09-17): shared portrait image grids size from the remaining safe-area height, including feedback; standard phone landscape uses a navigation/prompt rail beside the activity. Wide phones, phrase answers, constructions, ordinary pronunciation states, and rotation have native Yoga coverage enforced by release preflight. Contextual Help for portrait image banks uses the options sheet. Actual Android review remains pending. See `docs/qa/phone-viewport-fit-2026-09-17.md`.
 
 Contextual-help correction (2026-09-17): partial and full Completa now explain the submitted word-order relationship through one shared web/mobile resolver. Wrong constructions wait for an explicit `Reintentar` button; listening help states the ear-training goal and the real replay control. A release-enforced generation guardrail covers every construction slot and reachable swaps across all 70 lessons, rejecting unsupported teaching patterns. Installed-device review of the hints, Retry button and listening popup remains pending. See `docs/qa/contextual-help-2026-09-17.md`.
