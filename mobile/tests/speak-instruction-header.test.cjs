@@ -46,8 +46,20 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // 618 since 2026-09-27: the engine-built Unit 7 (8-9 Speak cards in each teaching lesson, one more in the review).
 // 2026-09-29: 3.3 uses eight alternating questions and answers instead of nine old drills.
 // 2026-10-03: 4.10 uses eight time-exchange cards instead of nine routine drills.
-assert.equal(speakCards.length, 618, 'The Speak inventory preserves every lesson and mission gate, including the approved eight time-exchange cards in 4.10.');
-assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-what-time-is-it').length, 8);
+// 2026-10-05: four day foundations precede the preserved eight time-exchange cards in 4.10.
+assert.equal(speakCards.length, 622, 'The Speak inventory preserves every lesson and mission gate, including the four day foundations and eight time-exchange cards in 4.10.');
+const timeSpeakCards = speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-what-time-is-it');
+assert.equal(timeSpeakCards.length, 12);
+assert.deepEqual(
+  timeSpeakCards.slice(0, 4).map(({ card }) => [card.slide_id, card.prompt]),
+  [
+    ['DS1', 'It is morning.'],
+    ['DS2', 'It is afternoon.'],
+    ['DS3', 'It is evening.'],
+    ['DS4', 'It is night.'],
+  ],
+  'Clock-free day foundations precede the existing time-exchange pronunciation models.',
+);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
 // The Unit 3 mission gained a fifth gate, Is it yours?, on 2026-09-25.
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 5);

@@ -158,3 +158,53 @@ Browser/device verification, audio listening, immutable storage verification,
 required CI, backend readiness and publication are recorded by the integrating
 task after final media is available. None is implied by the answer-bank or cast
 observations in this note.
+
+## Implementation checkpoint
+
+The independent day-foundation implementation is preserved in an isolated task
+branch. The full 81-lesson mobile catalog was exported and compared with
+`origin/main`: only 4.10 differs. Its aggregate Git blob is
+`843905e820d6f5ad3df072b12281ddc538974991`; the release manifest preserves all
+seven units and 81 lessons. The immutable audio catalog references the authored
+course snapshot `2f29291df1847db89315faef85704d973a140297`.
+
+Four missing recordings were prepared with the existing ElevenLabs settings;
+17 approved takes were reused. Publishing installed 126 new immutable bindings
+and preserved all 63,547 previously recorded historical object descriptors.
+The media publication added only the four day images and preserved every prior
+media object. Actual CDN downloads matched SHA-256 and byte lengths for all 136
+active 4.10 audio/receipt pairs and the four day images. These byte/provenance
+checks do not claim human listening review.
+
+The local web app was inspected at 390 by 844 and 844 by 390. Morning,
+afternoon, evening and night appear in that order, each with a distinct loaded
+clock-free image and full sentence. All four images loaded at 1536 by 1024.
+Landscape retained a vertical scroll surface with no horizontal overflow.
+This is browser observation, not installed-device certification.
+
+Completed automated checks at this checkpoint:
+
+- All 498 backend tests, source-plan parity, practice ratchet and Preview card
+  validation pass.
+- All 1,565 answer-bank contracts pass; cast and persistent audio validation
+  pass for the complete course.
+- Preservation audit passes for 981 protected assets with no errors.
+- Release integrity passes for the complete 81-lesson, seven-unit catalog.
+- Mobile TypeScript, the Android production bundle export and all 20 frontend
+  tests pass.
+- The full mobile Preview interaction suite passes, including native viewport
+  and rotation tests, 584 ordered constructions, 4,022 reachable construction
+  mistakes and the four configured introductory word choices.
+
+The universal construction audit retains its existing ordered-card checks.
+Only the four exact approved introductory targets are allowed through
+`approved_use_choice_targets`; their blanks, competing words, completed
+sentences and concrete wrong-choice explanations are checked separately.
+
+The two-person pointing photographs, exact source-clock close-ups, final
+conversation background cues and corresponding provenance checks remain
+required. No existing source supplies that shot. The earlier user instruction
+prohibits image services; automatic approval review also rejected opening an
+external stock-photo page for that reason. No image-generation service was
+used. The work remains a draft; these passing engineering checks do not make
+the incomplete two-shot media ready for merge or Preview publication.

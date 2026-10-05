@@ -30,6 +30,28 @@ function hint(target, a, b) {
   return constructionMistakeHint(card, swap(card, a, b));
 }
 
+function reviewSingleBlankCompletion(card, context) {
+  assert.equal(card.interaction_type, 'complete', context);
+  assert.equal(card.correct_option_ids?.length || 0, 0, context);
+  assert.equal((card.prompt.match(/_{2,}|\[blank\]|\{blank\}/gi) || []).length, 1, context);
+  assert.ok(card.options.length >= 2, context);
+  const correct = card.options.find(option => option.id === card.correct_option_id);
+  assert.ok(correct, context);
+  assert.ok(card.options.every(option => /^[a-z]+(?:'[a-z]+)?$/i.test(option.label || '')), context);
+  assert.equal(new Set(card.options.map(option => option.label.toLowerCase())).size, card.options.length, context);
+  const completed = card.prompt.replace(/_{2,}|\[blank\]|\{blank\}/gi, correct.label);
+  assert.equal(completed, card.answer_audio_text, context);
+  const mistakes = card.options.filter(option => option.id !== correct.id);
+  for (const option of mistakes) {
+    const explanation = lessonMistakeHint(card, [option.id]);
+    assert.ok(explanation.includes(option.label), `${context}: explain the selected word ${option.label}`);
+    assert.ok(explanation.includes(correct.label), `${context}: explain why ${correct.label} fits`);
+    assert.doesNotMatch(explanation, /Escucha otra vez\. La palabra|undefined|_{2,}|\[(?:blank|pausa)\]/, context);
+    assert.ok(explanation.length <= 140, `${context}: ${explanation.length} characters`);
+  }
+  return mistakes.length;
+}
+
 test('a.m. and p.m. keep their internal dots in one tile and teach number before period', () => {
   for (const period of ['a.m.', 'p.m.']) {
     const target = `It is three ${period}`;
@@ -233,15 +255,47 @@ test('ordered routines, household verbs and the complete day question keep their
   assert.match(hint('We wash our clothes.', 2, 3), /de quién es/);
 });
 
-test('every generated construction has explanations for every slot and every legal two-word swap', () => {
+test('single-blank day choices explain the actual competing meanings without requiring word order', () => {
+  const pairs = [
+    ['morning', 'evening', /mañana/, /tarde\/noche/],
+    ['afternoon', 'morning', /tarde/, /mañana/],
+    ['evening', 'afternoon', /tarde\/noche/, /tarde/],
+    ['night', 'evening', /noche/, /tarde\/noche/],
+  ];
+  for (const [expected, selected, expectedMeaning, selectedMeaning] of pairs) {
+    const card = { stage: 'Use', interaction_type: 'complete', prompt: 'It is ___.',
+      correct_option_id: 'right', answer_audio_text: `It is ${expected}.`,
+      options: [{ id: 'wrong', label: selected }, { id: 'right', label: expected }] };
+    assert.equal(isOrderedCompletion(card), false);
+    assert.equal(reviewSingleBlankCompletion(card, card.answer_audio_text), 1);
+    const explanation = lessonMistakeHint(card, ['wrong']);
+    assert.match(explanation, expectedMeaning);
+    assert.match(explanation, selectedMeaning);
+    assert.throws(() => reviewSingleBlankCompletion({ ...card, prompt: 'It ___ ___.' }, 'two blanks'));
+    assert.throws(() => reviewSingleBlankCompletion({ ...card, answer_audio_text: 'It is something else.' }, 'stale answer'));
+  }
+});
+
+test('every generated Use card retains its reviewed completion or construction checks', () => {
   const directory = path.join(__dirname, '../src/generated');
   const files = fs.readdirSync(directory).filter(file => /^lesson-.*\.json$/.test(file));
-  let cards = 0, attempts = 0, progressiveChecks = 0;
+  const standards = JSON.parse(fs.readFileSync(path.join(__dirname, '../../docs/product/content-standards.json'), 'utf8')).courses.a1;
+  let cards = 0, attempts = 0, progressiveChecks = 0, singleBlanks = 0, choiceMistakes = 0;
   for (const file of files) {
     const lesson = JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'));
-    for (const card of lesson.cards.filter(c => c.stage === 'Use' && !c.mission_game)) {
+    const useCards = lesson.cards.filter(c => c.stage === 'Use' && !c.mission_game);
+    const approvedChoices = standards.approved_use_choice_targets?.[lesson.id] || [];
+    let approvedIndex = 0;
+    for (const [useIndex, card] of useCards.entries()) {
       const context = `${file}/${card.slide_id}: ${card.answer_audio_text}`;
-      assert.ok(isOrderedCompletion(card), context);
+      if (!isOrderedCompletion(card)) {
+        assert.equal(useIndex, approvedIndex, `${context}: approved word choices precede ordered constructions`);
+        assert.equal(card.answer_audio_text, approvedChoices[approvedIndex], `${context}: single-word Use requires an exact course approval`);
+        choiceMistakes += reviewSingleBlankCompletion(card, context);
+        approvedIndex++;
+        singleBlanks++;
+        continue;
+      }
       const plan = constructionTeachingPlan(card);
       assert.ok(plan.supported, `Add a reviewed teaching pattern before publishing ${context}`);
       assert.equal(plan.explanations.length, card.correct_option_ids.length, context);
@@ -277,9 +331,10 @@ test('every generated construction has explanations for every slot and every leg
       verify([...card.correct_option_ids].reverse());
       verify([...card.correct_option_ids.slice(1), card.correct_option_ids[0]]);
     }
+    assert.equal(approvedIndex, approvedChoices.length, `${file}: preserve every approved introductory Use choice`);
   }
   assert.equal(files.length, courseContract.lessonCount);
   assert.ok(cards >= 459, 'Do not silently reduce the course audit.');
   assert.ok(progressiveChecks > 0, 'The course must exercise progressive grammar semantics.');
-  console.log(`Teaching guardrail checked ${cards} constructions, ${attempts} reachable wrong attempts and ${progressiveChecks} progressive verb pairs across ${files.length} lessons.`);
+  console.log(`Teaching guardrail checked ${cards} constructions, ${attempts} reachable wrong attempts, ${progressiveChecks} progressive verb pairs and ${singleBlanks} single-blank completions with ${choiceMistakes} wrong choices across ${files.length} lessons.`);
 });
