@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-09-09
+Last reviewed: 2026-10-05
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -619,6 +619,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 
 ## 12. Decision Log
 
+- 2026-10-05: The user explicitly closed P0 after judging the accumulated implementation and testing sufficient, with missed edge cases to be fixed as regressions rather than keeping the phase open. This product-acceptance closure does not claim that every remaining physical-device matrix case was individually observed. Any newly found crash, lost progress, or unreliable learning feedback still blocks current work at P0 severity. Active work moves to P1 guided, curriculum-bounded conversations using already-learned language and the existing lesson audio, pronunciation, retry, progress, interruption, and offline contracts; adaptive open-ended AI conversation remains P8.
 - 2026-09-19: Lesson headers became Spanish in every unit, as in Lesson 1.1. The section names (Reconoce, Completa, …) no longer depend on a Unit 1 lesson list, the web header uses the same shared names and instructions, and 137 Recognize cards in 50 lessons dropped the English `Choose the …` prompt and its spoken audio in favour of the Spanish instruction (`palabra` for single-word choices).
 - 2026-09-19: Numbers are introduced with the numeral itself. Lesson 2.6, the Unit 3 number reviews (3.3 R8, 3.4 R8 and N6), the 2.6 course-browser thumbnail and the web Unit 2 card were rebound to the restored registration numeral cards, which are the exact photos those contracts describe and PR #148 had overwritten in place. The counted-object photos stay byte-for-byte and wait for a lesson that teaches their nouns, which for the fruit is Lesson 5.1; notebooks, pencils, mugs and blocks have no lesson yet.
 - 2026-09-19: Gender-matched voices gained an automated guard. Each spoken line is keyed by its exact picture and words; the 336 pairs from the 2026-09-18 image-by-image review are recorded, and any unreviewed pair, contradicting voice or stale record fails the backend suite. Adding it caught one more miss: Luis asks "How old are you?" in 3.4 U1 and U3.

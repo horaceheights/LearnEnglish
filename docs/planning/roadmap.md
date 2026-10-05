@@ -1,6 +1,6 @@
 # SpanGlish Product Roadmap
 
-Last reviewed: 2026-09-17
+Last reviewed: 2026-10-05
 
 This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit and move its Jira item to
@@ -14,9 +14,10 @@ When asked "what is next?", take the highest-ranked unblocked Jira item. New
 work gets a line here first, then its Jira item. If the two disagree, this file
 wins; correct the Jira item.
 
-Statuses reflect checked-in implementation, automated guardrails, and recorded
-QA. Do not mark a physical-device or manual test complete based only on code or
-an automated test.
+Statuses normally reflect checked-in implementation, automated guardrails, and
+recorded QA. A phase may also close through explicit product acceptance when
+the remaining manual coverage moves to ongoing regression work. Record that
+decision without presenting an unperformed check as observed evidence.
 
 ## Product vision
 
@@ -140,29 +141,42 @@ A1+ and later levels wait until that path is proven.
 Nothing moves ahead of a serious defect that prevents lesson completion,
 corrupts progress, or produces unreliable learning feedback.
 
-- [ ] Run every card in every lesson on a physical Android phone
-- [~] Use the internal Engine QA hub to complete [`../qa/engine-qa-checklist.md`](../qa/engine-qa-checklist.md)
-- [~] Verify correct, incorrect, retry, help, audio, and completion paths
-- [~] Test leaving during playback, recording, grading, and animation
-- [~] Screen lock, app switching, ordinary exit, force-close, and airplane-mode checkpoint recovery passed on Android; test calls and backend cold starts remain
-- [ ] Test small, medium, and large Android landscape dimensions
+P0 closed by explicit product acceptance on 2026-10-05. Current coverage is
+sufficient to move forward. Any missed crash, lost-progress path, or unreliable
+feedback remains a P0-severity regression and is fixed when found rather than
+keeping this phase open indefinitely.
+
+- [x] Accept the current physical Android coverage across the lesson catalog for P0; continue card-by-card checks as regression coverage
+- [x] Accept the current internal Engine QA hub coverage for P0; retain [`../qa/engine-qa-checklist.md`](../qa/engine-qa-checklist.md) for regression work
+- [x] Accept the current correct, incorrect, retry, help, audio, and completion-path coverage for P0
+- [x] Accept the current leaving-during-playback, recording, grading, and animation coverage for P0
+- [x] Accept the tested screen-lock, app-switch, ordinary-exit, force-close, and airplane-mode checkpoint recovery coverage for P0; keep calls and backend cold starts in ongoing regression coverage
+- [x] Accept the current small, medium, and large Android landscape coverage for P0; continue the device matrix as regression coverage
 - [x] Add production crash reporting and structured diagnostics
 - [x] Show an in-app error screen instead of an unexplained blank screen
 - [x] Persist and restore the active card, scoring state, and pending completion locally across ordinary and airplane-mode interruption
-- [~] Silently cache every immutable audio clip for a started lesson and continue offline without blocking; the pronunciation-only local listen-back fallback is implemented and awaits physical-device verification
+- [x] Silently cache every immutable audio clip for a started lesson and continue offline without blocking; accept the pronunciation-only local listen-back fallback for P0 and keep device edge cases in ongoing regression coverage
 - [x] Create a repeatable pre-release checklist
 - [x] Remove the temporary standalone pronunciation test lesson and keep pronunciation inside each lesson's Speak stage
-- [x] Enforce the 70-lesson catalog, course fingerprint, release identity, and canonical Preview ancestry before publication
+- [x] Enforce the complete manifest-pinned catalog, course fingerprint, release identity, and exact protected-main authority before publication
 
 ### P0 exit criteria
 
-- Every current lesson completes without a known crash
-- Interruptions do not unexpectedly lose completed work
-- Every runtime failure identifies app version, lesson, card, and operation
+- [x] Every current lesson completes without a known crash
+- [x] Interruptions do not unexpectedly lose completed work
+- [x] Every runtime failure identifies app version, lesson, card, and operation
 
 ---
 
-## P1 — Complete learning foundation
+## P1 — Guided conversation and learning foundation
+
+Conversation work is the active P1 focus.
+
+### Conversation foundation
+
+- [ ] Add short, curriculum-bounded conversational response activities using already-learned vocabulary
+- [ ] Reuse the shared lesson audio, pronunciation, retry, progress, interruption, and offline contracts rather than creating a second player
+- [ ] Begin with guided exchanges; adaptive open-ended AI conversation remains P8 work
 
 ### Accounts and progress
 
@@ -215,7 +229,6 @@ Build each interaction once, then create future lessons mostly through content.
 - [~] Add measured responsive tile layout with drag clamping, tap alternatives, visible recovery controls, and automated minimum-target checks; keyboard, screen-reader movement, and the complete phone/tablet/web physical viewport matrix still require verification
 - [x] Produce and review the versioned ElevenLabs opening, confirmation, act-transition, correction, and finale cues for `¡Todos a la celebración!`; ship static assets only and preserve visible equivalents
 - [x] Pronunciation activities
-- [ ] Short conversational response activities
 - [x] Announce every section change with a derived briefing carrying the finished section's summary and the next section's task, plus a visible countdown on automatic cards and a one-time explanation of the first full construction
 - [x] Animate a placed construction word from the bank into its slot without delaying validation
 - [~] Shared animation, sound, help, scoring, analytics, and offline contracts; haptics remain unimplemented
@@ -368,16 +381,14 @@ internal-mouth model rather than claiming the camera alone can diagnose it.
 
 ## Recommended immediate sequence
 
-1. Complete the P0 physical-device lesson audit.
-2. Verify whole-lesson cached audio, the Speak-only offline warning/listen-back path, and offline completion notice on a physical Android phone.
-3. Complete the remaining P0 backend cold-start and phone-call interruption audit.
-4. Complete the Android viewport and accessibility matrix.
-5. Finalize the permanent course/activity hierarchy and post-Preview mastery policy.
-6. Queue progress and analytics locally, then synchronize safely after reconnecting.
-7. Build reusable drag-and-drop sentence construction.
-8. Add tap-any-word audio.
-9. Add actual microphone-volume visualization.
-10. Begin vocabulary and grammar mastery tracking.
+1. Begin P1 short, curriculum-bounded conversational responses using already-learned vocabulary.
+2. Build the conversation flow through the shared lesson engine and verify turn-taking, speaker-correct audio, pronunciation, retry, progress, interruption, and offline behavior.
+3. Finalize the permanent course/activity hierarchy and post-Preview mastery policy.
+4. Queue progress and analytics locally, then synchronize safely after reconnecting.
+5. Build reusable drag-and-drop sentence construction.
+6. Add tap-any-word audio.
+7. Add actual microphone-volume visualization.
+8. Begin vocabulary and grammar mastery tracking.
 
 ## Product rule
 
