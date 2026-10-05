@@ -179,6 +179,10 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'male-character', 'L0'),
     ],
     "lesson-4-what-time-is-it": [
+        ('answer_audio_speaker', 'teacher', 'DR1 DR3 DU1 DU3'),
+        ('answer_audio_speaker', 'co-teacher', 'DR2 DR4 DU2 DU4'),
+        ('audio_speaker', 'teacher', 'DL1 DL3 DA1 DA3 DS1 DS3 DU1 DU3'),
+        ('audio_speaker', 'co-teacher', 'DL2 DL4 DA2 DA4 DS2 DS4 DU2 DU4'),
         ('answer_audio_speaker', 'female-character', 'R2 R3 R4 R5 R6 R7 R8 R9 R10 U2 U3 U4 U6 U7 U8'),
         ('answer_audio_speaker', 'luis', 'U1 U5'),
         ('audio_speaker', 'female-character', 'L2 L4 L6 L8 L10 L12 L14 A1 A2 A3 A4 A5 S2 S4 S5 S6 S7 S8 U2 U3 U4 U6 U7 U8'),

@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "purpose": "Lesson 4.10 clock-free day-part introductions, approved HTML rework",
+  "scope": "Only new derived day-part assets; protected source bytes and unrelated bindings remain unchanged. No image API or generation service.",
+  "recipe": {
+    "operation": "crop-resize-encode",
+    "crop_coordinates": "source pixels, left/top inclusive and right/bottom exclusive",
+    "crop_ratio": [
+      3,
+      2
+    ],
+    "output_dimensions": [
+      1536,
+      1024
+    ],
+    "color_mode": "RGB",
+    "resample": "LANCZOS",
+    "encoding": {
+      "format": "WEBP",
+      "quality": 90,
+      "method": 6
+    },
+    "pillow_version": "12.1.0",
+    "webp_version": "1.6.0"
+  },
+  "recipe_sha256": "0ba38edf73843b8c70a6c6a31e5b78049648329163ec63cf222feb73e9a7be53",
+  "assets": [
+    {
+      "day_part": "morning",
+      "filename": "a1_photo_u4_day_morning_v1.webp",
+      "source": {
+        "path": "Lessons/Lesson1/images/a1_scene_morning_45a21e4.webp",
+        "sha256": "7ae01da400643ae88ad7be93ac7ab9b9b39c57228a6a59f1e8b0bd555b76b523",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "provenance": "existing-course-asset; original provider not inferred"
+      },
+      "crop_box": [
+        580,
+        0,
+        1534,
+        636
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "recipe_sha256": "0ba38edf73843b8c70a6c6a31e5b78049648329163ec63cf222feb73e9a7be53",
+      "sha256": "c79cf27518cbc33ec3a2d1153c8a0397733a5e6aa6d093509d4d08c2f43f40d0",
+      "bytes": 58310,
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_u4_day_morning_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_u4_day_morning_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_u4_day_morning_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      },
+      "agent_visual_inspection": {
+        "status": "inspected-final-pixels",
+        "reviewer_role": "agent",
+        "asset_sha256": "c79cf27518cbc33ec3a2d1153c8a0397733a5e6aa6d093509d4d08c2f43f40d0",
+        "observations": {
+          "full_frame": "Low golden sun at the mountain horizon, rays across trees and warm sky; only a narrow window/bed edge remains at the bottom. No clock, watch, dial, numerals or printed words.",
+          "centered_4_5": "Low sun, mountains, trees and golden sky remain visible. No clock or time readout.",
+          "limits": "A single low-sun still cannot physically prove rising rather than setting; this is the user-approved morning teaching convention from the existing morning scene."
+        },
+        "frames": [
+          {
+            "profile": "complete-3:2",
+            "dimensions": [
+              1536,
+              1024
+            ]
+          },
+          {
+            "profile": "centered-4:5-review-aid",
+            "preview_dimensions": [
+              160,
+              200
+            ],
+            "fit": "cover",
+            "focal_position": [
+              0.5,
+              0.5
+            ],
+            "effective_source_crop_box": [
+              358.4,
+              0,
+              1177.6,
+              1024
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "day_part": "afternoon",
+      "filename": "a1_photo_u4_day_afternoon_v1.webp",
+      "source": {
+        "path": "Lessons/Lesson1/images/a1_scene_afternoon_7a10f39.webp",
+        "sha256": "15556d341aa3d1f094cc74667f75916741cb5804fc961363043016d024b45ce3",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "provenance": "existing-course-asset; original provider not inferred"
+      },
+      "crop_box": [
+        500,
+        0,
+        1535,
+        690
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "recipe_sha256": "0ba38edf73843b8c70a6c6a31e5b78049648329163ec63cf222feb73e9a7be53",
+      "sha256": "56f3abb562d960865a417966f712824b1e4e88a1fe41cd1bfa8d3249800a90cc",
+      "bytes": 77330,
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_u4_day_afternoon_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_u4_day_afternoon_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_u4_day_afternoon_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      },
+      "agent_visual_inspection": {
+        "status": "inspected-final-pixels",
+        "reviewer_role": "agent",
+        "asset_sha256": "56f3abb562d960865a417966f712824b1e4e88a1fe41cd1bfa8d3249800a90cc",
+        "observations": {
+          "full_frame": "Bright high sun, blue sky, white clouds and trees at the lower corners. No clock, dial, numerals or printed words.",
+          "centered_4_5": "High sun and bright blue sky survive the crop; the trees are mostly outside it. No clock or time readout.",
+          "limits": "The daylight image establishes a daytime cue; the taught label and later full time expression establish afternoon."
+        },
+        "frames": [
+          {
+            "profile": "complete-3:2",
+            "dimensions": [
+              1536,
+              1024
+            ]
+          },
+          {
+            "profile": "centered-4:5-review-aid",
+            "preview_dimensions": [
+              160,
+              200
+            ],
+            "fit": "cover",
+            "focal_position": [
+              0.5,
+              0.5
+            ],
+            "effective_source_crop_box": [
+              358.4,
+              0,
+              1177.6,
+              1024
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "day_part": "evening",
+      "filename": "a1_photo_u4_day_evening_v1.webp",
+      "source": {
+        "path": "Lessons/Lesson1/images/a1_u3_dinner_v1_evening.webp",
+        "sha256": "654a20bbc1c4b0786443e42e6a647261934d9de773b0d3113d0abac9584dfaea",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "provenance": "existing-course-asset; original provider not inferred"
+      },
+      "crop_box": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "recipe_sha256": "0ba38edf73843b8c70a6c6a31e5b78049648329163ec63cf222feb73e9a7be53",
+      "sha256": "d0fe09405053dcd0d64618b8ca497ed68af5f79e1ad20c76a8ccc496fab10bdd",
+      "bytes": 342526,
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_u4_day_evening_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_u4_day_evening_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_u4_day_evening_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      },
+      "agent_visual_inspection": {
+        "status": "inspected-final-pixels",
+        "reviewer_role": "agent",
+        "asset_sha256": "d0fe09405053dcd0d64618b8ca497ed68af5f79e1ad20c76a8ccc496fab10bdd",
+        "observations": {
+          "full_frame": "Purple/pink dusk sky, outdoor street and decorative lamps lit, warm building lights, people gathered outside. No clock, watch dial, time readout or printed answer.",
+          "centered_4_5": "Purple dusk sky above trees, glowing outdoor lights and warm entrance lighting remain; several people remain visible. No clock or time readout.",
+          "limits": "The image teaches evening through the fading sky and illuminated surroundings; no pictured activity is assessed."
+        },
+        "frames": [
+          {
+            "profile": "complete-3:2",
+            "dimensions": [
+              1536,
+              1024
+            ]
+          },
+          {
+            "profile": "centered-4:5-review-aid",
+            "preview_dimensions": [
+              160,
+              200
+            ],
+            "fit": "cover",
+            "focal_position": [
+              0.5,
+              0.5
+            ],
+            "effective_source_crop_box": [
+              358.4,
+              0,
+              1177.6,
+              1024
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "day_part": "night",
+      "filename": "a1_photo_u4_day_night_v1.webp",
+      "source": {
+        "path": "Lessons/Lesson1/images/a1_scene_night_1be2a44.webp",
+        "sha256": "2dfc065642b47489660069f5fccfdf6951c33f1b88c394ac9d5b085acdcfb8a2",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "provenance": "existing-course-asset; original provider not inferred"
+      },
+      "crop_box": [
+        0,
+        0,
+        465,
+        310
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "recipe_sha256": "0ba38edf73843b8c70a6c6a31e5b78049648329163ec63cf222feb73e9a7be53",
+      "sha256": "bcf79a7e6d6cc1914f817b2773c873fe960d969ba285265063983d7f8df7957c",
+      "bytes": 37862,
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_u4_day_night_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_u4_day_night_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_u4_day_night_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      },
+      "agent_visual_inspection": {
+        "status": "inspected-final-pixels",
+        "reviewer_role": "agent",
+        "asset_sha256": "bcf79a7e6d6cc1914f817b2773c873fe960d969ba285265063983d7f8df7957c",
+        "observations": {
+          "full_frame": "A large moon and sparse stars against a dark blue/black sky. No clock, dial, numerals or printed words.",
+          "centered_4_5": "Dark sky and a clearly recognizable moon remain; the extreme left edge of the moon is slightly cropped. No clock or time readout.",
+          "limits": "A dark night sky alone cannot distinguish a.m. from p.m.; explicit notation is needed later."
+        },
+        "frames": [
+          {
+            "profile": "complete-3:2",
+            "dimensions": [
+              1536,
+              1024
+            ]
+          },
+          {
+            "profile": "centered-4:5-review-aid",
+            "preview_dimensions": [
+              160,
+              200
+            ],
+            "fit": "cover",
+            "focal_position": [
+              0.5,
+              0.5
+            ],
+            "effective_source_crop_box": [
+              358.4,
+              0,
+              1177.6,
+              1024
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "review_policy": "Agent pixel inspection is engineering evidence; human semantic decisions remain pending. Derived crops do not inherit source approval.",
+  "agent_visual_review_aid": "Local inspection aid: time-day-context-v1-inspection.jpg in the approved proposal artifact directory; not a human approval record."
+}
