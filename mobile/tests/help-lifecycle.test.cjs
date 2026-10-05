@@ -93,8 +93,14 @@ function harness(saved = null, delayedRead = null) {
   const screen = fs.readFileSync(path.resolve(__dirname, '../src/screens/LessonScreen.tsx'), 'utf8');
   const web = fs.readFileSync(path.resolve(__dirname, '../../frontend/components/LessonPlayer.js'), 'utf8');
   const helpSource = fs.readFileSync(path.resolve(__dirname, '../src/lessonHelp.ts'), 'utf8');
+  const promptSource = fs.readFileSync(path.resolve(__dirname, '../src/lessonPromptPresentation.ts'), 'utf8');
+  const promptModule = {};
+  new Function('exports', ts.transpileModule(promptSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(promptModule);
   const helpModule = {};
-  new Function('exports', ts.transpileModule(helpSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(helpModule);
+  new Function('exports', 'require', ts.transpileModule(helpSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(helpModule, id => {
+    assert.equal(id, './lessonPromptPresentation');
+    return promptModule;
+  });
   const course = require('../src/generated/a1-course.json');
   assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 1)).length,
     course.filter(lesson => lesson.experience_type !== 'mission').length,

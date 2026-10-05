@@ -39,7 +39,7 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /if \(useCompactHeaderInstruction \|\| !visiblePromptAudio\.trim\(\)\) return;[\s\S]*?openSentenceTranslation\(\);/,
+  /if \(useCompactHeaderInstruction \|\| !visiblePromptText\.trim\(\)\) return;[\s\S]*?openSentenceTranslation\(\);/,
   'Authored English content must translate on one tap while visual instructions remain inert.',
 );
 assert.match(
@@ -49,7 +49,7 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /useCompactRecognizeInstruction && result === 'correct'[\s\S]*?currentCard\.correct_option_id[\s\S]*?correctRecognizeReplayText \|\| promptAudio\.trim\(\)[\s\S]*?if \(useCompactRecognizeInstruction && correctRecognizeReplayText\) \{\s*playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/,
+  /recognizeAnswerReplayText\(currentCard, result === 'correct'\)[\s\S]*?correctRecognizeReplayText \|\| \(useCompactRecognizeInstruction[\s\S]*?promptAudio\.trim\(\)[\s\S]*?if \(correctRecognizeReplayText\) \{\s*playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/,
   'Empty-prompt Recognize replay stays locked until correct (a reply choice may replay the line it answers) and then plays the correct English choice.',
 );
 assert.match(

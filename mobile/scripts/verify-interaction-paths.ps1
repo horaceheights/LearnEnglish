@@ -26,6 +26,9 @@ try {
   & node tests/help-lifecycle.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de duración de la ayuda.' }
 
+  & node --test tests/silent-recognize-prompt.test.cjs tests/silent-recognize-native.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Silent written recognition and answer replay checks failed.' }
+
   & node tests/lesson-progress.test.cjs (Join-Path $outputDirectory 'lessonProgress.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de puntuación e intentos.' }
 

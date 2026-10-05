@@ -320,12 +320,15 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-09-26: the engine-built Unit 5 gives Luis his cafe and How many? lines, and the
         # pictured men, male customers and servers keep their voices (+55 net).
         # 2026-10-01: approved school/home/do rebuild; authored English only.
+        # 2026-10-05: 4.9 Reconoce becomes silent visual reading; seven male question
+        # turns retire, with their existing question take still used elsewhere.
+        # Its aligned Listen section adds the standalone opening question (+1).
         self.assertEqual(
-            Counter({"male-character": 565, "luis": 253, "diego": 16}),
+            Counter({"male-character": 559, "luis": 253, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
-        self.assertEqual(834, len(selected))
+        self.assertEqual(828, len(selected))
         self.assertEqual(164, len(jobs))
         self.assertEqual(164, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
