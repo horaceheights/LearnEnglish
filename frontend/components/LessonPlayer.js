@@ -28,6 +28,7 @@ import {
   usesCompactListenInstruction,
   usesCompactRecognizeInstruction,
 } from "../../mobile/src/lessonInstructions";
+import { isSilentWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
@@ -2340,6 +2341,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       ? currentCard.prompt
       : currentCard.audio_text ?? currentCard.prompt
     : "";
+  const correctRecognizeReplayText = recognizeAnswerReplayText(currentCard, lastResult === "correct");
+  const cardReplayText = correctRecognizeReplayText || cardPromptText;
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
   const isUseStage = currentCard?.stage === "Use";
   const cardPromptHasVisualBlank = !isSentenceCard && !isUseStage && (authoredCardPromptHasVisualBlank
@@ -2690,6 +2693,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           : "clamp(1.65rem, 2.35vw, 2.32rem)",
     lineHeight: 1.12,
     letterSpacing: 0,
+    whiteSpace: "pre-line",
   };
   const newWordHighlightStyle = {
     display: "inline-block",
@@ -4718,6 +4722,19 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       playPronunciationModel(activePronunciationPrompt);
       return;
     }
+    if (correctRecognizeReplayText) {
+      const answerTurns = cardAudioTurnSequence(currentCard, "answer");
+      if (currentCard.answer_audio_turns?.length) {
+        if (answerTurns) playCourseTurnSequence(answerTurns, { voiceMode: "answer" });
+        else console.info("Course answer audio turn contract rejected", currentCard.prompt);
+      } else {
+        speakText(correctRecognizeReplayText, {
+          audioAssetId: cardAudioAsset(currentCard, { purpose: "answer", text: correctRecognizeReplayText })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+          voiceMode: "answer",
+        });
+      }
+      return;
+    }
     if (!cardPromptText.trim()) return;
     const turns = cardAudioTurnSequence(currentCard, "prompt");
     if (currentCard.audio_turns?.length) {
@@ -5488,6 +5505,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             ) : !compactPracticeHeader && !isSentenceCard ? (
               <button
                 type="button"
+                disabled={!isPronunciationCard && !cardReplayText.trim()}
                 onClick={playCurrentCardPrompt}
                 style={{
                   border: 0,
@@ -5495,13 +5513,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   color: "var(--text)",
                   padding: 0,
                   margin: 0,
-                  cursor: isPronunciationCard || cardPromptText.trim() ? "pointer" : "default",
+                  cursor: isPronunciationCard || cardReplayText.trim() ? "pointer" : "default",
                   width: "100%",
                 }}
                 aria-label={
-                  isPronunciationCard || cardPromptText.trim()
-                    ? `Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`
-                    : lessonStageLabel(activeLesson.id, currentCard.stage)
+                  isPronunciationCard || cardReplayText.trim()
+                    ? `Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : cardReplayText}`
+                    : currentCard.prompt?.trim() || lessonStageLabel(activeLesson.id, currentCard.stage)
                 }
               >
                 <div
@@ -5985,6 +6003,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             <div style={{ marginTop: 20 }}>
               {lastResult === "correct" ? (
                 <div style={{ ...styles.feedback, background: "var(--green-soft)", color: "var(--green)" }}>
+                  {isSilentWrittenRecognize(currentCard) && correctRecognizeReplayText
+                    ? <div>{correctRecognizeReplayText}</div> : null}
                   Correcto. Vamos a la siguiente tarjeta...
                 </div>
               ) : null}

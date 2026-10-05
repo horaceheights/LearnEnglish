@@ -646,7 +646,16 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(unit=unit):
                 self.assertTrue(text_to_image)
                 self.assertTrue(image_to_text)
-                self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
+                self.assertTrue(all(
+                    card.audio_text == card.prompt
+                    # An explicitly silent written task still needs its visible
+                    # English target and authored post-correct confirmation.
+                    or (card.audio_text == "" and card.prompt.strip()
+                        and (card.answer_audio_text or "").strip()
+                        and not card.audio_turns
+                        and not any(asset.purpose == "prompt" for asset in card.audio_assets))
+                    for card in text_to_image
+                ))
                 self.assertTrue(all(
                     (not card.audio_text and card.answer_audio_text)
                     or (card.interaction_type.startswith("a2t") and card.audio_text)
