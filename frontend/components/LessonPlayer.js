@@ -5988,7 +5988,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           background: "linear-gradient(135deg, #fffdf9, #fff4df)",
                           border: "1px solid rgba(218, 178, 119, 0.56)",
                           color: "var(--text)",
-                          fontSize: compactWrittenRecognitionChoices ? 24 : isMissionTileCard
+                          fontSize: compactWrittenRecognitionChoices ? "clamp(20px, 6vw, 24px)" : isMissionTileCard
                             ? isMobile
                               ? "clamp(0.88rem, 4.2vw, 1.05rem)"
                               : "clamp(1rem, 2.2vw, 1.35rem)"
