@@ -1,12 +1,13 @@
-"""Acceptance contract for the approved 4.9 Recognize worked example.
+"""Acceptance contract for the approved 4.9 question-first worked example.
 
 The wider engine rollout is separate. These checks protect this reviewed
-sequence, silent pre-answer evidence, and its repeatable authoring source.
+sequence in every stage, silent recognition evidence, and its authoring source.
 """
 import calendar
 import hashlib
 import json
 from pathlib import Path
+import re
 import unittest
 
 from PIL import Image
@@ -34,14 +35,11 @@ SEQUENCE = (
     ("Saturday", "text", ("Saturday", "Friday", "Sunday")),
     ("Sunday", "text", ("Sunday", "Saturday", "Monday")),
 )
-# Reviewed canonical stage data at 33a5e1d0, before this Recognize-only change.
-# Future approved changes to these stages must deliberately update this scope
-# contract; re-importing a changed lesson must not silently erase the boundary.
-UNCHANGED_STAGE_DIGESTS = {
+# Learn and the approved Reconoce are preserved by the subsequent alignment of
+# Listen, Speak and Use. Re-importing a plan cannot silently change these cards.
+PRESERVED_STAGE_DIGESTS = {
     "Learn": "63778398168d91775d279dc9cb221b6ca6cd9869cf94a2ad721fabb773d3ebea",
-    "Listen": "c9deb6a8c2533f4dcb21ac417ef61c2f371682555ae4297d354a2383c6ce8d51",
-    "Speak": "47de7a0147cc5485742001922dc55bd81079ebce7bd9db4a428c128a4369c884",
-    "Use": "7481f4868e5d4cd6823826cf0ad7a73d4cde25731b8e55bb728cabd39685e818",
+    "Recognize": "c8c5f6df3578cc930520e87fb462d136f5b2a172f2d24945451433326dd6dbfc",
 }
 
 
@@ -126,12 +124,72 @@ class WeekdayRecognizeSequenceTests(unittest.TestCase):
         for card, (day, direction, _) in zip(self.cards, SEQUENCE):
             expected = f"{QUESTION_ES}\n{words_es[day]}" if direction == "image" else QUESTION_ES
             self.assertEqual(card["spanish_translation"], expected, card["slide_id"])
+            # Independent code points prevent a corrupted copied constant from
+            # making mojibake appear correct in both content and expectations.
+            self.assertEqual([ord(char) for char in card["spanish_translation"][:9]],
+                             [0xBF, 0x51, 0x75, 0xE9, 0x20, 0x64, 0xED, 0x61, 0x20])
 
-    def test_other_stages_keep_their_approved_content_media_and_audio(self):
-        for stage, expected_digest in UNCHANGED_STAGE_DIGESTS.items():
+    def test_learn_and_recognize_keep_their_approved_content_media_and_audio(self):
+        for stage, expected_digest in PRESERVED_STAGE_DIGESTS.items():
             cards = [card for card in self.lesson["cards"] if card["stage"] == stage]
             serialized = json.dumps(cards, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
             self.assertEqual(hashlib.sha256(serialized.encode("utf-8")).hexdigest(), expected_digest, stage)
+
+    def test_listen_opens_with_the_question_then_practises_every_day_in_order(self):
+        cards = [card for card in self.lesson["cards"] if card["stage"] == "Listen"]
+        days = list(dict.fromkeys(day for day, _, _ in SEQUENCE))
+        expected_audio = [QUESTION] + days[:3] + [f"{QUESTION} Today is {day}." for day in days[3:]]
+        self.assertEqual(len(cards), 8)
+        self.assertEqual([card["slide_id"] for card in cards], [f"A{i}" for i in range(1, 9)])
+        self.assertEqual([card["audio_text"] for card in cards], expected_audio)
+        self.assertEqual([option["label"] for option in cards[0]["options"]], [QUESTION, "What is your name?"])
+        self.assertEqual([card["interaction_type"] for card in cards], ["a2t2"] + ["a2i2"] * 3 + ["a2t3"] * 4)
+        for card in cards:
+            self.assertEqual(card["prompt"], "Listen and choose.", "Keep the spoken target transcript out of the prompt.")
+            self.assertEqual(card["prompt_image_url"], "", "The target calendar must not reveal an audio-only answer.")
+            self.assertEqual(" ".join(turn["text"] for turn in card["audio_turns"]), card["audio_text"])
+        for card, day in zip(cards[1:4], days[:3]):
+            self.assertEqual(card["prompt_image_url"], "", "Do not reveal the correct picture above the image choices.")
+            self.assertTrue(all(option["image_url"] and option["label"] is None for option in card["options"]))
+            correct = next(option for option in card["options"] if option["id"] == card["correct_option_id"])
+            self.assertEqual(correct["image_url"], f"/lesson-assets/a1_photo_u4_days_week_{day.lower()}_handdrawn_v2.webp")
+        for card, day in zip(cards[4:], days[3:]):
+            correct = next(option for option in card["options"] if option["id"] == card["correct_option_id"])
+            self.assertEqual(correct["label"], f"Today is {day}.")
+            self.assertTrue(all(not option["image_url"] and option["label"].startswith("Today is ") for option in card["options"]))
+
+    def test_speak_pronounces_the_question_before_all_seven_replies(self):
+        cards = [card for card in self.lesson["cards"] if card["stage"] == "Speak"]
+        days = list(dict.fromkeys(day for day, _, _ in SEQUENCE))
+        targets = [QUESTION] + [f"Today is {day}." for day in days]
+        self.assertEqual([card["slide_id"] for card in cards], [f"S{i}" for i in range(1, 9)])
+        self.assertEqual([card["prompt"] for card in cards], targets)
+        self.assertEqual([card["audio_text"] for card in cards], targets)
+        self.assertTrue(all(card["interaction_type"] == "speak" and len(card["options"]) == 1 for card in cards))
+        self.assertEqual([card["options"][0]["label"] for card in cards], targets)
+        self.assertEqual([card.get("audio_speaker") for card in cards],
+                         ["ana", None, "co-teacher", None, "co-teacher", None, "co-teacher", None],
+                         "Retain the existing voice attached to each target after reordering.")
+
+    def test_use_keeps_question_first_weekday_order_and_four_guided_then_four_full(self):
+        cards = [card for card in self.lesson["cards"] if card["stage"] == "Use"]
+        days = list(dict.fromkeys(day for day, _, _ in SEQUENCE))
+        targets = [QUESTION] + [f"Today is {day}." for day in days]
+        self.assertEqual(len(self.lesson["cards"]), 42)
+        self.assertEqual([card["slide_id"] for card in cards], [f"U{i}" for i in range(1, 9)])
+        self.assertEqual([card["audio_text"] for card in cards], targets)
+        self.assertEqual([card["answer_audio_text"] for card in cards], targets)
+        self.assertEqual([card["interaction_type"] for card in cards], ["complete2"] * 4 + ["complete-sentence"] * 4)
+        self.assertEqual(cards[0]["prompt"], "What day ___ ___ today?")
+        for index, card in enumerate(cards):
+            by_id = {option["id"]: option["label"] for option in card["options"]}
+            ordered = [by_id[identifier] for identifier in card["correct_option_ids"]]
+            self.assertEqual(len(ordered), 2 if index < 4 else 3)
+            self.assertEqual(len(card["options"]), len(ordered), "Use only the exact required tiles.")
+            words = iter(ordered)
+            completed = re.sub("___", lambda _: next(words), card["prompt"])
+            self.assertEqual(completed, targets[index])
+            self.assertEqual(card["spanish_translation"], card["translation"])
 
     def test_approved_authoring_plan_rebuilds_current_canonical_content_exactly(self):
         plan = json.loads(PLAN_PATH.read_text(encoding="utf-8"))

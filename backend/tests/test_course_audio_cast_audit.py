@@ -79,7 +79,7 @@ EXACT_ROLE_CHANGES = {
 # assignments, alternating teacher and co-teacher while the visible task is silent.
 EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1867
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "f4909a187ca7cc6c9fa1e3ea37b8cf2095c1d9ee616cf038125d740db2f22ac9"
+    "8b9fb85c002daee4c9cd4b47951334b27241e7ee1cf7cd5310d4d2ecf2abd7a0"
 )
 
 

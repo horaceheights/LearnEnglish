@@ -21,7 +21,7 @@ class WeekdayCalendarMarkersTests(unittest.TestCase):
             answer = " ".join(next(o["label"] or "" for o in card["options"] if o["id"] == key) for key in answer_ids)
             # Caption-free reverse recognition cards name the selected day in
             # their post-correct narration rather than inside the picture.
-            answer = answer.strip() or card.get("answer_audio_text") or ""
+            answer = answer.strip() or card.get("answer_audio_text") or card.get("audio_text") or ""
             days = re.findall(r"\b(" + "|".join(DAYS) + r")\b", answer.lower())
             if not days:
                 continue
