@@ -14,7 +14,7 @@
     "lesson_title": "Unit 4: Home and Daily Life",
     "sub_lesson_id": "4.10",
     "sub_lesson_title": "What Time Is It?",
-    "goal": "Ask and answer the time, read whole hours, and distinguish morning, afternoon, evening and night using a.m./p.m. context.",
+    "goal": "Identify morning, afternoon, evening and night from contextual scenes, then ask and answer the time, read whole hours and distinguish a.m. from p.m.",
     "vocabulary": [
       "What time is it?",
       "o'clock",
@@ -44,10 +44,10 @@
       "eleven",
       "twelve"
     ],
-    "grammar_function": "What time is it? It is + number + o'clock; in the morning / in the afternoon / in the evening / at night; It is + number + a.m./p.m. No routines or activity-at-time statements.",
-    "prerequisite": "Units 2â€“3 numbers 1â€“12, it/is; 4.3 in/the; 4.5 in the morning. No routine verbs are required.",
-    "speaking_outcome": "Take both roles in a time exchange and give a clear whole-hour answer with its day period.",
-    "content_revision": 3,
+    "grammar_function": "It is morning/afternoon/evening/night; What time is it? It is + number + o'clock; in the morning / in the afternoon / in the evening / at night; It is + number + a.m./p.m. No routines or activity-at-time statements.",
+    "prerequisite": "Units 2–3 numbers 1–12, it/is; 4.3 in/the; 4.5 in the morning. No routine verbs are required.",
+    "speaking_outcome": "Name the part of the day, take both roles in a time exchange and give a clear whole-hour answer with its day period.",
+    "content_revision": 4,
     "purposeful_review_slides": [
       "R2",
       "R3",
@@ -60,6 +60,35 @@
       "A5"
     ],
     "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "afternoon",
+          "evening",
+          "night"
+        ],
+        "support_targets": [
+          "morning"
+        ],
+        "models": [
+          {
+            "slide_id": "DL1",
+            "text": "It is morning."
+          },
+          {
+            "slide_id": "DL2",
+            "text": "It is afternoon."
+          },
+          {
+            "slide_id": "DL3",
+            "text": "It is evening."
+          },
+          {
+            "slide_id": "DL4",
+            "text": "It is night."
+          }
+        ]
+      },
       {
         "kind": "exchange",
         "targets": [
@@ -187,9 +216,45 @@
   },
   "items": [
     {
+      "id": "DL1",
+      "text": "It is morning.",
+      "es": "Es por la mañana.",
+      "image": "a1_photo_u4_day_morning_v1.webp",
+      "speaker": "teacher",
+      "kind": "day-part",
+      "four_card": false
+    },
+    {
+      "id": "DL2",
+      "text": "It is afternoon.",
+      "es": "Es por la tarde.",
+      "image": "a1_photo_u4_day_afternoon_v1.webp",
+      "speaker": "co-teacher",
+      "kind": "day-part",
+      "four_card": false
+    },
+    {
+      "id": "DL3",
+      "text": "It is evening.",
+      "es": "Es el atardecer / el principio de la noche.",
+      "image": "a1_photo_u4_day_evening_v1.webp",
+      "speaker": "teacher",
+      "kind": "day-part",
+      "four_card": false
+    },
+    {
+      "id": "DL4",
+      "text": "It is night.",
+      "es": "Es de noche.",
+      "image": "a1_photo_u4_day_night_v1.webp",
+      "speaker": "co-teacher",
+      "kind": "day-part",
+      "four_card": false
+    },
+    {
       "id": "L1",
       "text": "What time is it?",
-      "es": "Â¿QuÃ© hora es?",
+      "es": "¿Qué hora es?",
       "image": "a1_photo_u4_what_time_luis_v1.webp",
       "speaker": "luis",
       "kind": "time-question",
@@ -206,7 +271,7 @@
     {
       "id": "L3",
       "text": "What time is it?",
-      "es": "Â¿QuÃ© hora es?",
+      "es": "¿Qué hora es?",
       "image": "a1_photo_u4_what_time_luis_v1.webp",
       "speaker": "luis",
       "kind": "time-question",
@@ -215,15 +280,15 @@
     {
       "id": "L4",
       "text": "It is seven o'clock in the morning.",
-      "es": "Son las 7 de la maÃ±ana.",
-      "image": "a1_time_photo_clock_07_am_v4.webp",
+      "es": "Son las 7 de la mañana.",
+      "image": "a1_scene_morning_45a21e4.webp",
       "speaker": "female-character",
       "kind": "time-answer"
     },
     {
       "id": "L5",
       "text": "What time is it?",
-      "es": "Â¿QuÃ© hora es?",
+      "es": "¿Qué hora es?",
       "image": "a1_photo_u4_what_time_luis_v1.webp",
       "speaker": "luis",
       "kind": "time-question",
@@ -233,14 +298,14 @@
       "id": "L6",
       "text": "It is three o'clock in the afternoon.",
       "es": "Son las 3 de la tarde.",
-      "image": "a1_time_photo_clock_03_pm_v4.webp",
+      "image": "a1_scene_afternoon_7a10f39.webp",
       "speaker": "female-character",
       "kind": "time-answer"
     },
     {
       "id": "L7",
       "text": "What time is it?",
-      "es": "Â¿QuÃ© hora es?",
+      "es": "¿Qué hora es?",
       "image": "a1_photo_u4_what_time_luis_v1.webp",
       "speaker": "luis",
       "kind": "time-question",
@@ -257,7 +322,7 @@
     {
       "id": "L9",
       "text": "What time is it?",
-      "es": "Â¿QuÃ© hora es?",
+      "es": "¿Qué hora es?",
       "image": "a1_photo_u4_what_time_luis_v1.webp",
       "speaker": "luis",
       "kind": "time-question",
@@ -267,14 +332,14 @@
       "id": "L10",
       "text": "It is nine o'clock at night.",
       "es": "Son las 9 de la noche.",
-      "image": "a1_time_photo_clock_09_pm_v4.webp",
+      "image": "a1_scene_night_1be2a44.webp",
       "speaker": "female-character",
       "kind": "time-answer"
     },
     {
       "id": "L11",
       "text": "What time is it?",
-      "es": "Â¿QuÃ© hora es?",
+      "es": "¿Qué hora es?",
       "image": "a1_photo_u4_what_time_luis_v1.webp",
       "speaker": "luis",
       "kind": "time-question",
@@ -283,7 +348,7 @@
     {
       "id": "L12",
       "text": "It is three a.m.",
-      "es": "Son las 3 de la maÃ±ana.",
+      "es": "Son las 3 de la mañana.",
       "image": "a1_time_photo_clock_03_am_v4.webp",
       "speaker": "female-character",
       "kind": "time-answer"
@@ -291,7 +356,7 @@
     {
       "id": "L13",
       "text": "What time is it?",
-      "es": "Â¿QuÃ© hora es?",
+      "es": "¿Qué hora es?",
       "image": "a1_photo_u4_what_time_luis_v1.webp",
       "speaker": "luis",
       "kind": "time-question",
@@ -300,20 +365,22 @@
     {
       "id": "L14",
       "text": "It is three p.m.",
-      "es": "Son las 3 despuÃ©s del mediodÃ­a.",
-      "image": "a1_time_photo_clock_03_pm_v4.webp",
+      "es": "Son las 3 después del mediodía.",
+      "image": "a1_scene_afternoon_7a10f39.webp",
       "speaker": "female-character",
       "kind": "time-answer"
     }
   ],
   "scope": "Only asking/telling time and day periods. No routine activities.",
-  "images": "Camera-sourced clock photos, locally prepared without an image API; existing inspected dialogue photograph retained.",
+  "images": "Dedicated clock-free morning/afternoon/evening/night photographs first; preserved sunrise/7:00, bright-afternoon/3:00 and moonlit/9:00 originals restored for combined times. Existing camera clock sources remain. Every question/answer exchange requires a wider two-person pointing photo and a close-up of that exact clock in the same day context. Existing asking image is temporary pending that missing photographic shot. No image generation API or service.",
   "audio": "Existing documented ElevenLabs cast and bounded offline immutable-audio renderer; compatible takes reused first.",
   "coverage": {
-    "hours": "1â€“12 on the successful Recognize/Listen path",
+    "hours": "All hours 1–12 retained on the successful Recognize/Listen path.",
     "both_roles": "Question plus full answers in Learn/Speak/Use",
-    "day_periods": "Morning/afternoon/evening/night across all five stages",
+    "day_periods": "Dedicated clock-free It is morning/afternoon/evening/night foundation at the start of all five stages, then complete day-period time answers. Morning retrieves previously taught language.",
     "notation": "Full a.m./p.m. answers across all five stages",
-    "later_retrieval": "4.11 and 4.12 time beats; no unrelated lesson rewrite."
-  }
+    "later_retrieval": "Existing 4.11 and 4.12 time retrieval remains unchanged.",
+    "allocation": "70 cards: 18 Learn / 14 Recognize / 14 Listen / 12 Speak / 12 Use. Four purposeful day foundations added to every stage; existing time-card IDs preserved."
+  },
+  "media_gate": "Do not mark same-clock two-person continuity complete until the required inspected photos replace every temporary asking binding and the matching close-ups."
 }

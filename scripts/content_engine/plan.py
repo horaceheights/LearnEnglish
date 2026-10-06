@@ -32,7 +32,8 @@ def standard_order(fields) -> list[str]:
 def import_card(card: dict) -> dict:
     name = recipe_for(card)
     spec = dict(card)
-    if "correct_option_id" in card and name in ("teach", "speak", "choice"):
+    if "correct_option_id" in card and (name in ("teach", "speak", "choice") or
+            (name == "complete" and not card.get("correct_option_ids"))):
         ids = [option["id"] for option in card["options"]]
         if card["correct_option_id"] in ids and ids.index(card["correct_option_id"]):
             spec["answer"] = ids.index(card["correct_option_id"])

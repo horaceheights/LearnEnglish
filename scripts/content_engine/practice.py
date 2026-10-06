@@ -127,7 +127,9 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
     """Validate exact introductions of new sequence markers or coupled exchanges.
 
     Each group names adjacent Learn models, exact English and its declared
-    targets. Every model must introduce a target and may retrieve only earlier
+    targets. A sequence may explicitly bind already-taught support targets to
+    establish a contrast with its new targets. Every model must contain a new
+    anchor or an exact declared support target and may retrieve only earlier
     language. Stale lines, unknown surrounding words and overlapping bindings
     fail closed. This does not permit arbitrary known-language Learn cards.
     """
@@ -135,6 +137,7 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
     positions = {card.get("slide_id"): index for index, card in enumerate(cards)}
     for gi, group in enumerate(groups):
         models, targets = group.get("models") or [], group.get("targets") or []
+        support = group.get("support_targets") or []
         ids = [model.get("slide_id") for model in models]
         indices = [positions.get(slide) for slide in ids]
         if (group.get("kind") not in ("sequence", "exchange") or len(models) < 1
@@ -144,9 +147,17 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
                 or indices != list(range(indices[0], indices[0] + len(indices)))):
             errors.append(f"group {gi}: requires adjacent unique models and declared new targets")
             continue
+        if support and (group.get("kind") != "sequence" or len(support) != len(set(support))
+                        or set(support) & set(vocabulary)
+                        or any(not term_words(target) or
+                               any(not is_known(word, known) for word in term_words(target))
+                               for target in support)):
+            errors.append(f"group {gi}: support targets must be distinct earlier language in a sequence")
+            continue
         group_known = known | {word for target in targets for word in term_words(target)}
-        patterns = [term_pattern(target) for target in targets]
+        patterns = [term_pattern(target) for target in targets + support]
         anchor_patterns = [term_pattern(target) for target in targets if target in anchors]
+        anchor_patterns += [term_pattern(target) for target in support]
         bound = [cards[index] for index in indices]
         def exact_model(card, model):
             lines = [card.get(key) for key in ("prompt", "audio_text", "answer_audio_text")]
