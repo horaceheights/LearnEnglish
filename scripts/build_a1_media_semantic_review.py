@@ -240,8 +240,8 @@ def main() -> int:
         "--allow-stale-render-signatures",
         action="store_true",
         help=(
-            "Allow Preview-only synchronization while unchanged manifest rows still "
-            "carry older renderer signatures; Production validation remains strict."
+            "Preserve older renderer signatures while synchronizing unchanged rows. "
+            "This never records individual image or Preview approval."
         ),
     )
     args = parser.parse_args()
@@ -278,7 +278,7 @@ def main() -> int:
         f"{approved} approved, {pending} pending, {rejected} rejected."
     )
     if pending or rejected:
-        print("Release remains blocked until every contract is visually approved.")
+        print("Image review advisories remain; promotion requires explicit approval of the exact tested Preview.")
     return 0
 
 

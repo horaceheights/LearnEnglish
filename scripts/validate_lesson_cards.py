@@ -2628,13 +2628,11 @@ def semantic_review_decision_findings(
             f"A1 media semantic review has {len(pending_contracts)} pending contracts: "
             f"{_summarize_contracts(pending_contracts)}."
         )
-        if review_policy == "preview":
-            warnings.append(
-                f"Preview-only advisory: {message} Human approval is still required "
-                "before Production."
-            )
-        else:
-            errors.append(message)
+        warnings.append(
+            f"Review advisory ({review_policy}): {message} Promotion requires "
+            "user testing and explicit approval of the exact Preview group; "
+            "this advisory does not approve or rewrite individual review records."
+        )
     if rejected_contracts:
         errors.append(
             f"A1 media semantic review has {len(rejected_contracts)} rejected contracts: "
@@ -2647,14 +2645,14 @@ def validate_a1_media_semantic_approvals(
     review_policy: str = "production",
     warnings: list[str] | None = None,
 ) -> list[str]:
-    """Validate contracts strictly, allowing review-state drift in Preview.
+    """Validate content integrity; exact Preview approval controls promotion.
 
     Approval binds the full semantic contract and exact canonical image bytes.
     Canonical, mobile, and frontend copies are all required and byte-identical.
     Missing assets, malformed contracts, asset/hash mismatches, orphaned rows,
     and rejected records always fail. Pending decisions and renderer-source
-    signature drift are warnings only under the explicit Preview policy and
-    remain release blockers under the default Production policy.
+    signature drift are visible advisories in both channels. The protected
+    Production publisher separately requires approval of the exact tested group.
     """
 
     if review_policy not in {"preview", "production"}:
@@ -2728,7 +2726,7 @@ def validate_a1_media_semantic_approvals(
         try:
             contract = semantic_contract(
                 asset,
-                allow_stale_render_signatures=review_policy == "preview",
+                allow_stale_render_signatures=True,
             )
         except ValueError as exc:
             errors.append(f"A1 media manifest asset {index} is invalid: {exc}.")
@@ -2748,7 +2746,7 @@ def validate_a1_media_semantic_approvals(
                 _context_counter_key(
                     contract["filename"],
                     review_context,
-                    ignore_render_signature=review_policy == "preview",
+                    ignore_render_signature=True,
                 )
             ] += 1
 
@@ -2782,7 +2780,7 @@ def validate_a1_media_semantic_approvals(
 
     try:
         runtime_context_counts = _runtime_media_context_counts(
-            ignore_render_signature=review_policy == "preview",
+            ignore_render_signature=True,
         )
     except ValueError as exc:
         errors.append(f"Runtime semantic media inventory is invalid: {exc}.")
@@ -2835,7 +2833,7 @@ def validate_a1_media_semantic_approvals(
         try:
             row_contract = semantic_contract(
                 row,
-                allow_stale_render_signatures=review_policy == "preview",
+                allow_stale_render_signatures=True,
             )
         except ValueError as exc:
             errors.append(f"A1 media semantic approval row {index} is invalid: {exc}.")
@@ -2913,23 +2911,23 @@ def validate_a1_media_semantic_approvals(
         review_policy,
     )
     errors.extend(decision_errors)
-    if decision_warnings and warnings is None:
-        errors.append(
-            "Preview semantic-review warnings were not surfaced by the caller; "
-            "refusing to pass silently."
-        )
-    else:
-        warning_sink.extend(decision_warnings)
-    if stale_render_profiles and review_policy == "preview":
+    warning_sink.extend(decision_warnings)
+    if stale_render_profiles:
         profile_summary = ", ".join(
             f"{profile} ({count})"
             for profile, count in sorted(stale_render_profiles.items())
         )
         warning_sink.append(
-            "Preview-only advisory: renderer-source changes made "
-            f"{sum(stale_render_profiles.values())} semantic review contexts pending "
+            "Review advisory: renderer-source signatures differ for "
+            f"{sum(stale_render_profiles.values())} semantic review contexts "
             f"across {profile_summary}. Review the exact runtime framing in Preview; "
-            "Production remains blocked until current signatures are reviewed."
+            "Promotion requires explicit user approval of that exact Preview; "
+            "saved image decisions and signatures remain unchanged."
+        )
+    if warning_sink and warnings is None:
+        errors.append(
+            "Semantic-review advisories were not surfaced by the caller; "
+            "refusing to pass silently."
         )
     return errors
 
@@ -3026,9 +3024,9 @@ def main(argv: list[str] | None = None) -> int:
         choices=("preview", "production"),
         default="production",
         help=(
-            "Preview reports pending human semantic approvals and stale renderer "
-            "signatures as warnings; "
-            "Production (the default) requires every approval to be current."
+            "Both channels report pending image reviews and renderer-signature "
+            "drift as advisories. Production promotion separately requires "
+            "explicit user approval of the exact tested Preview group."
         ),
     )
     arguments = parser.parse_args(argv)

@@ -123,9 +123,9 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Falló la prueba global de imágenes 3:2 en opciones.' }
 
   $fourCardReviewArguments = @('tests/four-card-media-review.test.cjs')
-  if ($ReviewPolicy -eq 'Preview') {
-    $fourCardReviewArguments += '--allow-pending-review'
-  }
+  # User approval of the exact Preview is the promotion review decision.
+  # Structural checks and canonical/mobile/web byte parity still fail closed.
+  $fourCardReviewArguments += '--allow-pending-review'
   & node @fourCardReviewArguments
   if ($LASTEXITCODE -ne 0) { throw 'Falló la revisión semántica de imágenes para la cuadrícula 2x2.' }
 

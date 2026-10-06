@@ -127,24 +127,31 @@ COURSE_BROWSER_ROLES = {
     "continue_thumbnail",
 }
 
-# Approval is intentionally conservative: changing either client's lesson-card
-# renderer invalidates every lesson-card approval, even when the final image file
-# itself is unchanged. This binds crop, fit, focal-position, and viewport behavior
-# to the reviewed result instead of trusting a filename or pixel hash alone.
-LESSON_RENDER_FILES = (
+# Keep shared crop, fit, viewport and image-selection dependencies conservative,
+# but bind pronunciation and construction renderers only to the views using them.
+# Changing a Speak-only component must not invalidate ordinary image choices.
+SHARED_LESSON_RENDER_FILES = (
     "mobile/src/actionVideos.ts",
     "mobile/src/components/LessonMediaFrame.tsx",
     "mobile/src/components/OptionMediaImage.tsx",
     "mobile/src/components/LessonCardView.tsx",
     "mobile/src/components/LessonLandscapeRail.tsx",
     "mobile/src/lessonViewportLayout.ts",
-    "mobile/src/components/PronunciationPractice.tsx",
-    "mobile/src/components/MissionVoicePresentation.tsx",
+    "mobile/src/promptChoiceLayout.ts",
+    "mobile/src/lessonImageSources.ts",
+    "mobile/src/lessonTurnImages.ts",
     "frontend/components/LessonPlayer.js",
+    "frontend/lib/mediaUrl.js",
+)
+CONSTRUCTION_RENDER_FILES = (
     "frontend/components/SentenceConstruction.js",
     "frontend/components/SentenceConstruction.module.css",
     "mobile/src/components/SentenceConstruction.tsx",
     "mobile/src/sentenceConstruction.ts",
+)
+SPEAK_RENDER_FILES = (
+    "mobile/src/components/PronunciationPractice.tsx",
+    "mobile/src/components/MissionVoicePresentation.tsx",
 )
 RENDER_PROFILE_SPECS = {
     "lesson-prompt-3x2-v1": {
@@ -208,12 +215,19 @@ RENDER_PROFILE_SPECS = {
     },
 }
 RENDER_PROFILE_FILES = {
-    profile: (
-        ("mobile/src/screens/CourseScreen.tsx",)
+    "lesson-prompt-3x2-v1": SHARED_LESSON_RENDER_FILES + CONSTRUCTION_RENDER_FILES,
+    "lesson-speak-model-3x2-v1": SHARED_LESSON_RENDER_FILES + SPEAK_RENDER_FILES,
+    "lesson-option-1to3-3x2-v1": SHARED_LESSON_RENDER_FILES,
+    "lesson-option-four-mobile-4x5-web-3x2-v1": SHARED_LESSON_RENDER_FILES,
+    "two-card-action-poster-3x2-v1": SHARED_LESSON_RENDER_FILES,
+    **{
+        profile: (
+            "mobile/src/screens/CourseScreen.tsx",
+            "mobile/src/lessonImageSources.ts",
+        )
+        for profile in RENDER_PROFILE_SPECS
         if profile.startswith("course-browser-")
-        else LESSON_RENDER_FILES
-    )
-    for profile in RENDER_PROFILE_SPECS
+    },
 }
 MEDIA_CONTRACT_IGNORE_START = b"// media-contract-ignore-start:"
 MEDIA_CONTRACT_IGNORE_END = b"// media-contract-ignore-end:"

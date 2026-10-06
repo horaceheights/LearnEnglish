@@ -228,8 +228,10 @@ Assert-CleanReleaseCommit
 $mobileRoot = Split-Path -Parent $PSScriptRoot
 Push-Location $mobileRoot
 try {
-  Write-Host 'Ejecutando la validación estricta de Production...' -ForegroundColor Cyan
-  Invoke-CheckedCommand -FailureMessage 'Promoción bloqueada. Faltan aprobaciones humanas vigentes o falló el preflight de Production.' -Command {
+  # Bind the approval to immutable Expo records before running the preflight.
+  Assert-TestedPreviewGroup -ExpectedGroup $GroupId -ExpectedCommit $authority.Commit
+  Write-Host 'Verificando integridad de Production; la aprobación corresponde al Preview exacto...' -ForegroundColor Cyan
+  Invoke-CheckedCommand -FailureMessage 'Promoción bloqueada. Falló la integridad de contenido o el preflight de Production.' -Command {
     & npm run verify:production
   }
 

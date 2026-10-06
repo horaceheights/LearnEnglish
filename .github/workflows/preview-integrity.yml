@@ -64,3 +64,16 @@ jobs:
         working-directory: mobile
         shell: pwsh
         run: npm run verify:preview
+
+      - name: Report Production readiness and affected image reviews
+        if: ${{ !cancelled() }}
+        shell: pwsh
+        run: python scripts/report_release_readiness.py --output-directory "${{ runner.temp }}/release-readiness" --summary "$env:GITHUB_STEP_SUMMARY" --verification-status "${{ job.status }}"
+
+      - name: Save release readiness inventory
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: release-readiness
+          path: ${{ runner.temp }}/release-readiness
+          if-no-files-found: ignore
