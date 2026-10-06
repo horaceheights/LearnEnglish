@@ -30,7 +30,7 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
 - Both approved mobile callback URLs are saved in Clerk Development and
   Production. Native API was already enabled; no paid plan was selected.
 - All five production Clerk CNAME records are DNS-only in Cloudflare and verified
-  by Clerk. Certificate issuance was still pending at the last observation.
+  by Clerk. Clerk reports both production SSL certificates issued.
 - Matching production Clerk keys are configured in Vercel Production, Render
   and EAS Preview. Render also has the issuer, exact browser-origin allowlist,
   preserved CORS origins plus the owned apex/www origins, and webhook secret.
