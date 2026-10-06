@@ -70,7 +70,7 @@ Plan within the approved practice and pacing standards (2026-09-23). The thresho
 | Later reuse | the successful path of at least 2 later lessons (final unit exempt) |
 | Language boundary | no word on any card, including distractors, before it is declared |
 
-For current A1, preserve the standard `Learn → Recognize → Listen → Speak → Use` progression and its continuous concept/story order. Lessons 1–8 build richer uses of language; lesson 9 retrieves the required coverage through fresh material; lesson 10 resolves one coherent mission. Follow the linked curriculum and [unit parity contracts](a1-unit-parity-contracts.json) for exact requirements. Do not inflate card counts with repetition or assess untaught language.
+For current A1, preserve the standard `Learn → Recognize → Listen → Speak → Use` progression and its continuous concept/story order. However many forward-building lessons the unit needs build richer uses of language; the penultimate lesson retrieves the required coverage through fresh material; the final lesson resolves one coherent mission. Follow the linked curriculum and [unit parity contracts](a1-unit-parity-contracts.json) for exact requirements. Do not inflate card counts with repetition or assess untaught language.
 
 ### B. Compose through supported activities
 
@@ -95,7 +95,7 @@ Inspect the actual image and final crop against the intended meaning. Check the 
 
 ### D. Compile and export safely
 
-Preflight the complete affected output before installing it. Preserve existing identities and learner progress; review any identity, ordering, or revision change that affects progress or audio bindings. Keep source, canonical content, assets, and generated client exports synchronized.
+Preflight the complete affected output before installing it. Preserve the permanent `Course -> Unit -> Lesson -> Stage/Chapter -> Card` hierarchy: keep the manifest `courseId`, `unit_id`, and `Lesson.id` stable; give every card a lesson-unique nonblank `slide_id`; and treat a card index as order, never identity. Every lesson has a positive `content_revision`, which must increase when changed learner-visible content, order, or behavior could otherwise reconnect saved progress or results to a different card. Keep source, canonical content, assets, and generated client exports synchronized.
 
 Compilation/export from identical accepted inputs must be repeatable without regenerating assets or making paid calls. Review the resulting changes for unrelated lesson or asset modifications. Preserve the complete catalog: a scoped lesson export must not accidentally replace the global course index with a subset.
 

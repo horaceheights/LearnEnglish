@@ -46,11 +46,11 @@ Lesson 4.10 correction (2026-10-03): complete asking/telling-time exchanges repl
 
 Phone viewport correction (2026-09-17): shared portrait image grids size from the remaining safe-area height, including feedback; standard phone landscape uses a navigation/prompt rail beside the activity. Wide phones, phrase answers, constructions, ordinary pronunciation states, and rotation have native Yoga coverage enforced by release preflight. Contextual Help for portrait image banks uses the options sheet. Actual Android review remains pending. See `docs/qa/phone-viewport-fit-2026-09-17.md`.
 
-Contextual-help correction (2026-09-17): partial and full Completa now explain the submitted word-order relationship through one shared web/mobile resolver. Wrong constructions wait for an explicit `Reintentar` button; listening help states the ear-training goal and the real replay control. A release-enforced generation guardrail covers every construction slot and reachable swaps across all 70 lessons, rejecting unsupported teaching patterns. Installed-device review of the hints, Retry button and listening popup remains pending. See `docs/qa/contextual-help-2026-09-17.md`.
+Contextual-help correction (2026-09-17): partial and full Completa now explain the submitted word-order relationship through one shared web/mobile resolver. Wrong constructions wait for an explicit `Reintentar` button; listening help states the ear-training goal and the real replay control. A release-enforced generation guardrail covers every construction slot and reachable swap across the complete manifest-pinned course, rejecting unsupported teaching patterns. Installed-device review of the hints, Retry button and listening popup remains pending. See `docs/qa/contextual-help-2026-09-17.md`.
 
 Current media correction: PR #155 rebinds 153 Use prompts to relevant sentence imagery, including four new GPT photorealistic replacements for inadequate composites. Existing Gemini images and original asset bytes remain preserved. The four new images have agent pixel review and receipt/hash tests; human and installed-device review remains pending. Known sentence/image contradictions now block Preview as well as Production. See `docs/qa/use-photoreal-repairs-2026-09-17.md` for scope, costs, and remaining review.
 
-The complete 70-lesson A1 curriculum is now authored and serves as the engine's
+The complete manifest-pinned A1 curriculum is now authored and serves as the engine's
 verification catalog. Do not begin another mass content expansion until the
 reusable learning engine is robust; otherwise new content would multiply
 inconsistent interactions, incomplete analytics, and future migration work.
@@ -123,7 +123,7 @@ A1+ and later levels wait until that path is proven.
 - Visible app version and seven-character release commit in update surfaces
 - Render-hosted backend with automatic deployment
 - Unit-first course browser with progress states for the current and completed lessons
-- Complete A1 curriculum: 70 lessons in seven units of ten; standard lessons use Learn -> Recognize -> Listen -> Speak -> Use and declared mission lessons use one continuous chaptered challenge
+- Complete A1 curriculum: currently 81 lessons across seven content-sized units; standard and comprehensive-review lessons use Learn -> Recognize -> Listen -> Speak -> Use, while declared mission lessons use one continuous chaptered challenge
 - Canonical YAML lessons plus an embedded mobile catalog bound to fail-closed release-integrity checks
 - Shared automatic pronunciation flow with Azure scoring
 - Local in-progress lesson resume with first-attempt state preserved
@@ -131,7 +131,7 @@ A1+ and later levels wait until that path is proven.
 - Grammar answers animate toward sentence blanks and repeat the completed sentence
 - Completion prompts synthesize only the visible prefix and suffix fragments, stitched around at least 550 ms of digital silence; the missing answer never enters prompt TTS
 - In-app error boundary replaces unexplained blank screens
-- Internal Engine QA hub can jump directly to all 70 lessons, stages, and cards through a compact unit-first navigator that restores the last QA location
+- Internal Engine QA hub can jump directly to every manifest-pinned lesson, stage/chapter, and card through a compact unit-first navigator that restores the last QA location
 - Persistent QA checklist: [`../qa/engine-qa-checklist.md`](../qa/engine-qa-checklist.md)
 
 ---
@@ -184,7 +184,7 @@ Conversation work is the active P1 focus.
 - [~] Synchronize learner profile and session data
 - [x] Save lesson completion and first-attempt scores
 - [x] Resume unfinished lessons from local state after force-close, screen lock, app switching, ordinary exit, and airplane-mode interruption
-- [~] Show completed lessons and current-unit progress; add a clear total-course progress summary
+- [~] Show cleared lessons and current-unit progress; add a clear total-course progress summary using the manifest-pinned denominator
 - [~] Store attempt history and session timestamps; expose learner-facing learning-time history
 
 ### Learner controls
@@ -197,14 +197,14 @@ Conversation work is the active P1 focus.
 
 ### Content architecture
 
-- [ ] Finalize Course → Unit → Lesson → Sublesson → Activity → Card hierarchy
+- [x] Finalize the permanent Course → Unit → Lesson → Stage/Chapter → Card hierarchy, stable IDs, and progression-versus-mastery meanings
 - [x] Make lesson content data-driven and reusable through canonical YAML and shared schemas
 - [x] Validate lesson structure, answers, translations, media, and embedded snapshots automatically before deployment
 - [x] Keep QA on the production lesson catalog while isolating QA sessions and analytics
-- [x] Implement the complete 70-lesson A1 dependency chain across seven units of ten
-- [x] Encode intentional curriculum growth through richer constructions in lessons 1-8, fresh-scenario comprehensive reviews in lesson 9, and distinct applied missions in lesson 10
-- [~] Complete the approved Unit 1 restructuring with learner review checkpoints: Lessons 1.1-1.9 establish the forward-building and fresh-review pattern, while the active Lesson 1.10 replacement is the 22-beat `¡Todos a la celebración!` adventure covering all 46 Unit 1 targets
-- [x] Present the seven-unit hierarchy without flattening all 70 lessons into the initial menu
+- [x] Implement the complete manifest-pinned A1 dependency chain, currently 81 lessons across seven content-sized units
+- [x] Encode intentional curriculum growth through however many forward-building lessons a unit needs, followed by one fresh-scenario comprehensive review and one distinct applied mission
+- [~] Complete the approved Unit 1 restructuring with learner review checkpoints: Lessons 1.1-1.9 build forward, Lesson 1.10 is the fresh comprehensive review, and Lesson 1.11 is the 22-beat `¡Todos a la celebración!` adventure covering all 46 Unit 1 targets
+- [x] Present the seven-unit hierarchy without flattening the complete lesson catalog into the initial menu
 
 ---
 
@@ -383,12 +383,11 @@ internal-mouth model rather than claiming the camera alone can diagnose it.
 
 1. Begin P1 short, curriculum-bounded conversational responses using already-learned vocabulary.
 2. Build the conversation flow through the shared lesson engine and verify turn-taking, speaker-correct audio, pronunciation, retry, progress, interruption, and offline behavior.
-3. Finalize the permanent course/activity hierarchy and post-Preview mastery policy.
-4. Queue progress and analytics locally, then synchronize safely after reconnecting.
-5. Build reusable drag-and-drop sentence construction.
-6. Add tap-any-word audio.
-7. Add actual microphone-volume visualization.
-8. Begin vocabulary and grammar mastery tracking.
+3. Queue progress and analytics locally, then synchronize safely after reconnecting.
+4. Build reusable drag-and-drop sentence construction.
+5. Add tap-any-word audio.
+6. Add actual microphone-volume visualization.
+7. Begin vocabulary and grammar mastery tracking from stable evidence; legacy results remain unknown.
 
 ## Product rule
 

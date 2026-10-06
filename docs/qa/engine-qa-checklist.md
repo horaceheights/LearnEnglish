@@ -11,7 +11,7 @@ lesson player but does not create learner sessions or card-attempt records.
 - **Auto OFF** may pause transitions for inspection, but it must not substitute an older lesson flow.
 - Every learner-facing change is incomplete until it is verified in both the normal lesson entry and Engine QA.
 - Any new `qaMode` condition must be justified as a testing control or persistence safeguard, never as a separate UI implementation.
-- The QA hub must expose the full course through a compact Unit → Lesson → Stage/Chapter → Card navigator. Standard lessons expose stages; declared mission lessons expose their ordered mission chapters and never fake a five-stage learner journey. It shows only the selected unit's ten lessons and must not put all 70 lessons before the card list.
+- The QA hub must expose the full course through a compact Unit → Lesson → Stage/Chapter → Card navigator. Standard and comprehensive-review lessons expose stages; declared mission lessons expose their ordered mission chapters and never fake a five-stage learner journey. It shows only the selected unit's manifest-pinned lessons and must not put the complete course before the card list.
 - The last QA lesson, stage/chapter, and card are QA-only local state. Returning from the lesson player or reopening Engine QA restores that location without touching learner progress.
 
 ## Completion answer typography regression
@@ -49,7 +49,7 @@ For every defect, capture:
 - [ ] `QA test` opens Engine QA in one tap from the mobile course header, without opening the account menu; it is absent for accounts without QA access
 - [ ] The course header keeps QA and account controls readable and reachable on narrow phones and with enlarged text; the account popup no longer duplicates QA
 - [ ] All seven unit buttons are reachable without vertical scrolling
-- [ ] Selecting a unit shows exactly its ten lesson buttons
+- [ ] Selecting a unit shows exactly its manifest-pinned lesson buttons
 - [ ] Lesson selection loads the correct lesson
 - [ ] Standard-lesson stage filters and mission chapter filters show the expected cards
 - [ ] A selected card opens directly
@@ -168,7 +168,7 @@ Run every declared mission from briefing through resolution without using direct
 
 - [ ] The unit mastery map identifies the first teaching slide for every content word, article, pronoun, form of `be`, preposition, place/object noun, and other function word used later
 - [ ] No prompt, answer, distractor, audio line, speaking target, or mission step uses a word or structure before its intentional introduction
-- [ ] When vocabulary or grammar moves between lessons 1-8 of one unit, every prerequisite, review target, downstream lesson, and Lesson 9 coverage calculation is updated with it; no later-unit target moves forward without explicit approval
+- [ ] When vocabulary or grammar moves between forward-building lessons of one unit, every prerequisite, review target, downstream lesson, and comprehensive-review coverage calculation is updated with it; no later-unit target moves forward without explicit approval
 - [ ] Longer sentences grow through small meaningful additions of already introduced language instead of appearing fully formed; Unit 1 can reach `girl` → `the girl` → `running` → `The girl is running.`, while `park` → `in the park` → `The girl is running in the park.` waits for Unit 2
 - [ ] Each cumulative sentence remains visually literal, continues the established scene or story, and gives the learner more communicative power rather than merely adding length
 

@@ -1,4 +1,4 @@
-// The course's expected shape, from the versioned release-integrity manifest.
+// The course's stable identity and expected shape, from the versioned release-integrity manifest.
 // Unit size follows content (approved 2026-09-23): tests read the pinned counts
 // here instead of assuming 70 lessons or ten lessons per unit.
 const fs = require('node:fs');
@@ -8,6 +8,7 @@ const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'relea
 const lessonsByUnit = Object.freeze({ ...manifest.catalog.lessonsByUnit });
 
 module.exports = Object.freeze({
+  courseId: manifest.catalog.courseId,
   lessonCount: manifest.catalog.lessonCount,
   unitCount: manifest.catalog.unitCount,
   lessonsByUnit,

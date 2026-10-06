@@ -6,7 +6,9 @@ from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import urlparse
 
-from backend.app.data import LESSON_IMAGE_DIR, LESSONS
+import yaml
+
+from backend.app.data import LESSON_IMAGE_DIR, LESSONS, LESSONS_DIR
 from scripts.course_contract import expected_lessons_by_unit, is_foundation, is_mission, is_review
 from scripts.validate_lesson_cards import (
     MISSION_COMPLETION_INTERACTIONS,
@@ -134,6 +136,19 @@ def lesson_payload(lesson):
 
 
 class LessonStructureTests(unittest.TestCase):
+    def test_every_lesson_has_stable_revisioned_card_identity(self):
+        authored_ids = [
+            yaml.safe_load(path.read_text(encoding="utf-8"))["id"]
+            for path in sorted(LESSONS_DIR.glob("unit_*/*.yaml"))
+        ]
+        self.assertEqual(len(authored_ids), len(set(authored_ids)))
+        for lesson in LESSONS.values():
+            with self.subTest(lesson=lesson.id):
+                self.assertGreaterEqual(lesson.content_revision, 1)
+                card_ids = [card.slide_id for card in lesson.cards]
+                self.assertTrue(all(card_ids))
+                self.assertEqual(len(card_ids), len(set(card_ids)))
+
     @staticmethod
     def _semantic_option(option_id, label, image_url=""):
         return SimpleNamespace(id=option_id, label=label, image_url=image_url)

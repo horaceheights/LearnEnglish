@@ -68,6 +68,7 @@ function createFixture(t) {
     manifestVersion: 1,
     baselineCommit: '657ab19487e37851de1229c08219d44d59ab199b',
     catalog: {
+      courseId: 'a1',
       path: 'mobile/src/generated/a1-course.json',
       expectedGitBlob: gitBlobId(catalogContent),
       lessonCount: 70,
@@ -109,6 +110,7 @@ test('publishing requires the exact main release authority and integrity check',
 test('the versioned manifest locks the complete recovery baseline and release identity', () => {
   assert.equal(integrityManifest.manifestVersion, 1);
   assert.equal(integrityManifest.baselineCommit, '657ab19487e37851de1229c08219d44d59ab199b');
+  assert.equal(integrityManifest.catalog.courseId, 'a1');
   // The approved manifest pins the complete candidate; course size has no cap.
   const catalogBytes = fs.readFileSync(path.resolve(__dirname, '../src/generated/a1-course.json'));
   const lessons = JSON.parse(catalogBytes.toString('utf8'));
@@ -141,6 +143,13 @@ test('the real repository preserves the pinned course and reviewed release ident
 test('a complete 70-lesson, seven-unit fixture passes integrity verification', (t) => {
   const fixture = createFixture(t);
   assert.doesNotThrow(() => verifyFixture(fixture.repositoryRoot));
+});
+
+test('a missing stable course identity is blocked', (t) => {
+  const fixture = createFixture(t);
+  delete fixture.manifest.catalog.courseId;
+  writeManifest(fixture.repositoryRoot, fixture.manifest);
+  assert.throws(() => verifyFixture(fixture.repositoryRoot), /courseId estable/u);
 });
 
 test('approved catalog growth has no fixed lesson or unit cap', (t) => {
