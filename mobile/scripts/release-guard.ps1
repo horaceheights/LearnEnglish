@@ -1,6 +1,31 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+function Assert-NativePreviewBuilds {
+  param(
+    [Parameter(Mandatory = $true)][AllowEmptyCollection()][object[]]$Builds,
+    [Parameter(Mandatory = $true)][string]$ExpectedCommit,
+    [Parameter(Mandatory = $true)][string]$ExpectedVersion,
+    [ValidateSet('all', 'android')][string]$NativePlatform = 'all'
+  )
+
+  $expectedPlatforms = @('ANDROID', 'IOS')
+  if ($NativePlatform -eq 'android') { $expectedPlatforms = @('ANDROID') }
+  foreach ($build in $Builds) {
+    if ($build.status -cne 'FINISHED' -or $build.gitCommitHash -cne $ExpectedCommit -or
+        $build.channel -cne 'preview' -or $build.buildProfile -cne 'preview' -or
+        $build.distribution -cne 'INTERNAL' -or $build.appVersion -cne $ExpectedVersion -or
+        $build.runtimeVersion -cne $ExpectedVersion -or $build.platform -cnotin $expectedPlatforms) {
+      throw 'El build nativo no coincide con el commit, perfil y plataformas autorizados de Preview.'
+    }
+  }
+  foreach ($platform in $expectedPlatforms) {
+    if (@($Builds | Where-Object { $_.platform -ceq $platform }).Count -ne 1) {
+      throw "Preview requiere exactamente un build verificado para $platform."
+    }
+  }
+}
+
 function Get-ReleaseRepositoryRoot {
   $repositoryRoot = (& git rev-parse --show-toplevel 2>$null)
   if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($repositoryRoot)) {

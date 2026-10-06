@@ -36,6 +36,9 @@ module.exports = ({ config }) => {
             ...(arm64Only ? { buildArchs: ['arm64-v8a'] } : {}),
             enableMinifyInReleaseBuilds: true,
             enableShrinkResourcesInReleaseBuilds: true,
+            // Clerk keeps Expo's Kotlin stdlib; kotlinx.io carries this binary-only
+            // Kotlin 2.3 compiler annotation. It is not needed at runtime.
+            extraProguardRules: '-dontwarn kotlin.MustUseReturnValues',
           },
         },
       ],

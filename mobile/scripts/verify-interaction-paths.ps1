@@ -180,6 +180,9 @@ try {
   & node tests/preview-release-authority.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la autoridad protegida de publicación de Preview.' }
 
+  & node --test tests/android-release-config.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Android native release compatibility and shrinking configuration failed.' }
+
   & node tests/video-media-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de video unificado.' }
 

@@ -14,6 +14,13 @@ on:
         options:
           - update
           - native-build
+      native_platform:
+        description: Platforms for a native build; Android can be tested before iOS signing is configured
+        type: choice
+        default: all
+        options:
+          - all
+          - android
 
 permissions:
   contents: read
@@ -117,6 +124,7 @@ jobs:
         env:
           RELEASE_MESSAGE: ${{ inputs.message }}
           RELEASE_DELIVERY: ${{ inputs.delivery }}
+          RELEASE_NATIVE_PLATFORM: ${{ inputs.native_platform }}
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           SHARED_BACKEND_STATUS_URL: https://learnenglish-fxki.onrender.com/api/release/status
-        run: .\scripts\publish-preview.ps1 -Message $env:RELEASE_MESSAGE -Delivery $env:RELEASE_DELIVERY
+        run: .\scripts\publish-preview.ps1 -Message $env:RELEASE_MESSAGE -Delivery $env:RELEASE_DELIVERY -NativePlatform $env:RELEASE_NATIVE_PLATFORM
