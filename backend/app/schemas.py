@@ -403,12 +403,24 @@ class Lesson(BaseModel):
     prerequisite: str = ""
     speaking_outcome: str = ""
     purposeful_review_slides: list[str] = Field(default_factory=list)
+    content_revision: int = Field(ge=1)
     cards: list[LessonCard]
+
+    @model_validator(mode="after")
+    def require_stable_card_ids(self):
+        card_ids = [card.slide_id for card in self.cards]
+        if any(
+            card_id is None or not card_id.strip() or card_id != card_id.strip()
+            for card_id in card_ids
+        ):
+            raise ValueError("Every lesson card must declare an exact nonblank slide_id.")
+        if len(card_ids) != len(set(card_ids)):
+            raise ValueError("Lesson card slide_ids must be unique within a lesson.")
+        return self
 
 
 class MissionLesson(Lesson):
     experience_type: Literal["mission"]
-    content_revision: int = Field(ge=1)
     mission: MissionPresentation
     cards: list[MissionLessonCard]
 

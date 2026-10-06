@@ -19,6 +19,15 @@ def card_sequence(lesson):
 
 
 class LessonDeliveryTests(unittest.TestCase):
+    def test_lesson_summaries_expose_the_revision_contract(self):
+        summaries = main.list_lessons()
+
+        self.assertEqual(set(LESSONS), {summary["id"] for summary in summaries})
+        for summary in summaries:
+            with self.subTest(lesson=summary["id"]):
+                lesson = LESSONS[summary["id"]]
+                self.assertEqual(lesson.content_revision, summary["content_revision"])
+
     def test_delivery_preserves_authored_card_order_and_only_shuffles_options(self):
         source_option_orders = {
             lesson.id: [[option.id for option in card.options] for card in lesson.cards]
@@ -45,6 +54,12 @@ class LessonDeliveryTests(unittest.TestCase):
             },
             "Delivery must not mutate the canonical authored lessons.",
         )
+
+    def test_delivery_preserves_the_revision_for_every_lesson(self):
+        for lesson in LESSONS.values():
+            with self.subTest(lesson=lesson.id):
+                delivered = main.lesson_for_delivery(lesson)
+                self.assertEqual(lesson.content_revision, delivered.content_revision)
 
     def test_delivery_preserves_the_mission_subclass_and_metadata(self):
         mission = LESSONS["lesson-10-family-mission"]

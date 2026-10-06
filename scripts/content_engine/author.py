@@ -278,6 +278,9 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     `rejected_pairs` holds (answer, wrong option) pairs that must not be proposed,
     for example because the app's mistake hints cannot explain the contrast.
     """
+    content_revision = brief.get("lesson", {}).get("content_revision")
+    if isinstance(content_revision, bool) or not isinstance(content_revision, int) or content_revision < 1:
+        raise BriefError("A lesson brief needs a positive integer content_revision.")
     rejected = frozenset(rejected_pairs)
     captions = brief.get("captions", True)  # Units 2-7 show caption-free pictures
     items = [{**item, "_order": index} for index, item in enumerate(brief["items"])]

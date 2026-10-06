@@ -47,6 +47,9 @@ function assertManifestShape(manifest) {
   if (!manifest.catalog || typeof manifest.catalog !== 'object') {
     throw new Error('El manifiesto de integridad no contiene el catálogo agregado.');
   }
+  if (!/^[a-z0-9][a-z0-9-]*$/u.test(manifest.catalog.courseId || '')) {
+    throw new Error('El manifiesto de integridad no contiene un courseId estable.');
+  }
   if (!Array.isArray(manifest.requiredReleaseIdentityFiles) || manifest.requiredReleaseIdentityFiles.length === 0) {
     throw new Error('El manifiesto no protege los archivos de identidad de versión y commit.');
   }

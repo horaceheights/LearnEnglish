@@ -23,8 +23,10 @@ def standard_lesson_payload() -> dict:
         "sub_lesson_title": "People",
         "goal": "Identify a person.",
         "vocabulary": ["a man"],
+        "content_revision": 2,
         "cards": [
             {
+                "slide_id": "L01",
                 "prompt": "A man",
                 "stage": "Learn",
                 "correct_option_id": "man",
@@ -128,12 +130,33 @@ def mission_lesson_payload() -> dict:
 
 
 class MissionSchemaTests(unittest.TestCase):
-    def test_standard_lessons_keep_the_existing_serialized_shape(self):
+    def test_standard_lessons_serialize_common_revision_metadata(self):
         lesson = Lesson(**standard_lesson_payload())
 
         self.assertNotIn("experience_type", lesson.model_dump())
-        self.assertNotIn("content_revision", lesson.model_dump())
+        self.assertEqual(lesson.model_dump()["content_revision"], 2)
         self.assertNotIn("mission", lesson.model_dump())
+
+    def test_every_lesson_requires_a_positive_content_revision(self):
+        payload = standard_lesson_payload()
+        del payload["content_revision"]
+        with self.assertRaisesRegex(ValidationError, "content_revision"):
+            Lesson(**payload)
+
+        payload["content_revision"] = 0
+        with self.assertRaisesRegex(ValidationError, "greater than or equal to 1"):
+            Lesson(**payload)
+
+    def test_every_lesson_requires_unique_nonblank_card_ids(self):
+        payload = standard_lesson_payload()
+        payload["cards"][0]["slide_id"] = " "
+        with self.assertRaisesRegex(ValidationError, "exact nonblank slide_id"):
+            Lesson(**payload)
+
+        payload = standard_lesson_payload()
+        payload["cards"].append({**payload["cards"][0]})
+        with self.assertRaisesRegex(ValidationError, "slide_ids must be unique"):
+            Lesson(**payload)
 
     def test_mission_lessons_require_and_serialize_presentation_metadata(self):
         lesson = MissionLesson(**mission_lesson_payload())

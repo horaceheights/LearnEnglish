@@ -131,12 +131,12 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Lessons 1 through 8 are forward-building lessons, not mixed review decks/,
-  'Lessons 1-8 must reuse earlier vocabulary only through forward construction.',
+  /Every lesson before a unit's final review and mission is a forward-building lesson, not a mixed review deck/,
+  'Every content-sized unit must reuse earlier vocabulary only through forward construction.',
 );
 assert.match(
   guardrails,
-  /Vocabulary and grammar allocations across lessons 1 through 8 of the same unit are movable/,
+  /Vocabulary and grammar allocations across the forward-building lessons of the same unit are movable/,
   'Lesson boundaries must not block the approved cumulative story progression.',
 );
 assert.match(
@@ -156,18 +156,18 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Lesson 9 is a comprehensive, no-new-language review[\s\S]*?at least 70 percent/,
-  'Lesson 9 must own comprehensive unit review and meet the approved coverage floor.',
+  /The penultimate lesson is a comprehensive, no-new-language review[\s\S]*?at least 70 percent/,
+  'The penultimate lesson must own comprehensive unit review and meet the approved coverage floor.',
 );
 assert.match(
   guardrails,
-  /Lesson 10 is not a second review/,
-  'Lesson 10 must remain an applied mission rather than another review deck.',
+  /The final lesson is not a second review/,
+  'The final lesson must remain an applied mission rather than another review deck.',
 );
 assert.match(
   guardrails,
   /act directly on the story through purposeful finding, connecting, sorting, tracing, listening, correcting, speaking, or construction mechanics/,
-  'Lesson 10 gamification must be purposeful and driven by the mission story.',
+  'Final-mission gamification must be purposeful and driven by the story.',
 );
 assert.match(
   guardrails,
