@@ -128,6 +128,7 @@ test('the versioned manifest locks the complete recovery baseline and release id
       'mobile/src/updates.ts',
       'mobile/src/screens/CourseScreen.tsx',
       'mobile/scripts/publish-preview.ps1',
+      'mobile/scripts/export-native-preview.cjs',
       'mobile/scripts/release-guard.ps1',
     ],
   );
