@@ -211,3 +211,33 @@ day-part foundations and restored contextual time practice may proceed to
 protected Preview while the connected two-shot media remains a recorded
 follow-up. Existing question photographs are temporary, and neither passing
 engineering checks nor Preview publication marks that media requirement complete.
+
+
+## 2026-10-06 current-main integration checkpoint
+
+Combined `origin/main` at `6db2519ab37a8d054e4aa97c9a0b0a87e701c856`,
+including the account import popup, learner accounts and lesson 4.9 corrections.
+The authored merge commit is `f6b9b2f65005cab06758d9793d595ce2d32d7113`;
+the immutable audio catalog now references that source snapshot. The aggregate
+fingerprint is `7172ee6204651a4f7debe088d1ae1876cc27f731`.
+
+Independent preservation review found that only 4.10 differs among all 81
+aggregate lessons. All unrelated canonical lessons, plans, briefs, individual
+snapshots, account popup/auth files and 4.9 outputs match current main exactly.
+All 3,572 unrelated media contracts and semantic records, unrelated answer
+banks, 13,858 existing audio bindings and 2,717 existing takes are unchanged.
+The media inventory retains all 2,778 prior descriptors plus four day photos;
+all 64,009 historical audio descriptors are preserved. The combined cast audit
+pins 1,901 assignments, preserving the 4.9 corrections and 24 day-part roles.
+
+Focused backend/cast checks, 31 content-engine tests, Preview content validation,
+the complete mobile interaction and native layout suite, TypeScript and all
+23 frontend tests passed. The current audio sync verified 6,393 active contracts,
+recovered 87 existing files, installed no new takes and found all 12,960 cached
+objects already present. Remaining full-suite/Android export and protected CI
+results are recorded in the associated pull request and workflow.
+
+The user's apply decision advances this verified lesson foundation into Preview.
+The requested wider visible-clock conversation photographs and exact matching
+close-ups remain a media follow-up. No external image service was used, and
+publication does not mark the temporary question photograph as complete.
