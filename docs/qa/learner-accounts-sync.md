@@ -66,6 +66,13 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
   export and CDN checks. EAS uploaded the Android candidate, then the workflow
   failed because iOS had no suitable internal-distribution signing credentials.
   This is not a successful native Preview publication.
+- That submitted Android build (`85f46e8e-bdce-42c7-b3e9-241c2194b978`)
+  subsequently failed during R8 release minification: `kotlinx.io.RawSink`
+  references Kotlin 2.3's binary-only `kotlin.MustUseReturnValues` annotation,
+  while Clerk intentionally retains Expo's older Kotlin stdlib. The follow-up
+  supplies a narrowly scoped ProGuard exception through Expo's build-properties
+  plugin. Its regression check runs the real native-file writer twice and
+  verifies existing rules, minification and resource shrinking remain enabled.
 - The user approved Android Preview first. The follow-up adds an explicit
   `native_platform: android` choice to the same protected workflow. The default
   still requires Android and iOS. Executable release checks reject stale,
