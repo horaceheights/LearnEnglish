@@ -8,6 +8,7 @@ from backend.app import cloudflare_media as media, main
 from backend.app.persistent_audio_assets import asset_index
 from backend.app.course_audio_registry import load_approved_take_registry, resolve_approved_take
 from backend.app.course_audio_receipts import build_receipt
+from scripts.verify_cloudflare_media import verify_media_object
 
 
 class CloudflareMediaTests(unittest.TestCase):
@@ -64,6 +65,86 @@ class CloudflareMediaTests(unittest.TestCase):
             self.assertEqual(media.object_url(legacy_key), original.headers['location'])
             self.assertEqual(media.object_url(self.entry['key']), current.headers['location'])
             self.assertNotEqual(original.headers['location'], current.headers['location'])
+
+    def test_runtime_and_full_inventory_recover_transient_reads(self):
+        for full in (False, True):
+            for failure in ('timeout', 'disconnect', 'gateway'):
+                with self.subTest(full=full, failure=failure):
+                    calls = []
+                    def respond(request):
+                        calls.append(request)
+                        if len(calls) == 1:
+                            if failure == 'timeout':
+                                raise httpx.ReadTimeout('temporary timeout', request=request)
+                            if failure == 'disconnect':
+                                raise httpx.RemoteProtocolError('temporary disconnect', request=request)
+                            return httpx.Response(502, request=request)
+                        receipt = request.url.path.endswith('.json')
+                        payload = self.receipt_bytes if receipt else self.take.payload
+                        descriptor = self.entry['receipt' if receipt else 'audio']
+                        return httpx.Response(200, headers={'ETag':descriptor['etag'], 'Content-Length':str(len(payload))}, content=payload)
+                    client = httpx.Client(transport=httpx.MockTransport(respond))
+                    with patch.object(media, 'asset_index', return_value={self.asset.id:self.asset}), patch.object(media, 'inventory', return_value=self.inventory), patch.object(media.httpx, 'Client', return_value=client), patch.object(media.time, 'sleep') as wait:
+                        result = media.verify_inventory(full=full)
+                    self.assertTrue(result['ready'])
+                    self.assertEqual([], result['errors'])
+                    self.assertEqual(3, len(calls))
+                    wait.assert_called_once_with(0.5)
+
+    def test_transient_reads_stop_after_three_attempts_and_leave_inventory_unready(self):
+        request = httpx.Request('GET', media.object_url(self.entry['key']))
+        client = MagicMock()
+        client.__enter__.return_value = client
+        client.get.side_effect = httpx.ReadTimeout('still unavailable', request=request)
+        with patch.object(media, 'asset_index', return_value={self.asset.id:self.asset}), patch.object(media, 'inventory', return_value=self.inventory), patch.object(media.httpx, 'Client', return_value=client), patch.object(media.time, 'sleep') as wait:
+            result = media.verify_inventory(full=True)
+        self.assertFalse(result['ready'])
+        self.assertEqual(1, result['invalid'])
+        self.assertEqual(3, client.get.call_count)
+        self.assertEqual([0.5, 1.0], [call.args[0] for call in wait.call_args_list])
+
+    def test_http_retries_are_limited_to_transient_statuses(self):
+        request = httpx.Request('GET', 'https://cdn.learnspanglish.app/asset')
+        for status in (429, 500, 502, 503, 504, 400, 401, 403, 404):
+            with self.subTest(status=status):
+                operation = MagicMock(side_effect=httpx.HTTPStatusError('unavailable', request=request, response=httpx.Response(status, request=request)))
+                with patch.object(media.time, 'sleep'), self.assertRaises(httpx.HTTPStatusError):
+                    media.retry_transient_cdn_read(operation)
+                self.assertEqual(3 if status in (429, 500, 502, 503, 504) else 1, operation.call_count)
+        operation = MagicMock(side_effect=ValueError('checksum/size mismatch'))
+        with self.assertRaises(ValueError):
+            media.retry_transient_cdn_read(operation)
+        self.assertEqual(1, operation.call_count)
+
+    def test_stream_retry_discards_partial_bytes_and_revalidates_complete_media(self):
+        payload = b'complete media bytes'
+        descriptor = {'bytes':len(payload), 'sha256':hashlib.sha256(payload).hexdigest()}
+        class InterruptedStream(httpx.SyncByteStream):
+            def __iter__(self):
+                yield b'partial'
+                raise httpx.ReadError('stream disconnected')
+        calls = []
+        def respond(request):
+            calls.append(request)
+            if len(calls) == 1:
+                return httpx.Response(200, stream=InterruptedStream())
+            return httpx.Response(200, content=payload)
+        with httpx.Client(transport=httpx.MockTransport(respond)) as client, patch.object(media.time, 'sleep'):
+            verify_media_object(client, 'lesson-assets/test.webp', descriptor)
+        self.assertEqual(2, len(calls))
+
+    def test_corrupt_or_missing_media_is_not_retried(self):
+        for status, payload in ((200, b'bad bytes'), (404, b'')):
+            with self.subTest(status=status):
+                requests = []
+                def respond(request):
+                    requests.append(request)
+                    return httpx.Response(status, content=payload)
+                with httpx.Client(transport=httpx.MockTransport(respond)) as client, patch.object(media.time, 'sleep') as wait:
+                    with self.assertRaises((ValueError, httpx.HTTPStatusError)):
+                        verify_media_object(client, 'lesson-assets/test.webp', {'bytes':10, 'sha256':'0'*64})
+                self.assertEqual(1, len(requests))
+                wait.assert_not_called()
 
     def test_missing_v1_recording_does_not_rebind_to_existing_v2(self):
         with patch.object(media,'inventory',return_value=self.inventory), patch.object(media,'_available',{self.asset.id}):

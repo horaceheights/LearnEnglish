@@ -20,6 +20,8 @@ Web and mobile default directly to the CDN. Bundled offline images and correctio
 
 The unversioned asset route keeps its original v1 recording at `course-audio/<asset-id>.mp3`; the v2 route keeps its ElevenLabs recording at `course-audio/elevenlabs-v2/<asset-id>.mp3`. Those recordings can have the same logical ID and different bytes. Each redirect preserves its own version, and an absent v1 object returns 404 even when v2 exists.
 
+Verification makes at most three read attempts for a transient connection/timeout failure or HTTP 429/500/502/503/504, with 0.5 and 1 second waits. Each attempt revalidates the complete immutable object. A partial media stream starts again with a fresh checksum. Missing objects, checksum/size/ETag errors, invalid receipts and MP3 provenance/media errors fail immediately; exhausted network retries still block readiness and publication. These read retries never upload, overwrite or generate recordings.
+
 ## Render migration preservation
 
 The initial transfer preserves the complete Render course-audio disk plus its shipped Production audio cache in `migration-archives/render-course-audio-3a9aea0-20261002.tar.gz`. Archive SHA-256: `e228f20c3d4e0132664e51b82b62f99241f5e5939b800feb1a23d96b5b3080d3`. A scoped temporary upload URL moved this archive without adding R2 credentials to Render. A local operator copy was downloaded, checksum-verified and safely extracted.
