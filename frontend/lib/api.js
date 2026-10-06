@@ -1,5 +1,6 @@
 import courseAudioManifest from "./courseAudioManifest.json";
 import { mediaUrl } from "./mediaUrl";
+import { accountHeaders, getAccountSession, setAccountSession } from '../../mobile/src/accountSession';
 
 // Identifies this (internal, testing-only) frontend to the backend so a
 // stranger's script can't call the API directly. Not a per-user secret.
@@ -35,12 +36,14 @@ async function apiRequest(path, options = {}) {
       "X-App-Key": APP_API_KEY,
       "X-App-Version": process.env.NEXT_PUBLIC_APP_VERSION || "",
       "X-Release-Commit": process.env.NEXT_PUBLIC_RELEASE_COMMIT || "",
+      ...(await accountHeaders()),
       ...(options.headers || {}),
     },
   });
 
   if (!response.ok) {
-    throw new Error(`API request failed at ${apiBaseUrl}${path}: ${response.status}`);
+    const payload = await response.json().catch(() => ({}));
+    throw Object.assign(new Error(typeof payload.detail === 'string' ? payload.detail : `No pudimos sincronizar (${response.status}).`), { detail: payload.detail, status: response.status });
   }
 
   return response.json();
@@ -67,6 +70,8 @@ export async function getLessons() {
   return response.json();
 }
 
+export const deleteLearnerAccount = () => apiRequest('/api/account', { method: 'DELETE' });
+
 export async function getLesson(lessonId) {
   const apiBaseUrl = getApiBaseUrl();
   let response;
@@ -89,12 +94,27 @@ export async function getLesson(lessonId) {
 }
 
 export async function saveLearnerProfile(profile) {
+  const account = getAccountSession();
+  if (account) {
+    const snapshot = await apiRequest('/api/account/profile', {
+      method: 'PUT', body: JSON.stringify({ display_name: profile.displayName, profile, version: account.profileVersion }),
+    });
+    setAccountSession({ userId: snapshot.user.id, generation: snapshot.generation, profileVersion: snapshot.profileVersion });
+    return snapshot.user;
+  }
   const userId = profile?.userId;
   const displayName = profile?.displayName || "Student";
   const payload = { display_name: displayName, profile };
   return apiRequest(userId ? `/api/users/${userId}` : "/api/users", {
     method: userId ? "PUT" : "POST",
     body: JSON.stringify(payload),
+  });
+}
+
+export function getAccountSnapshot() { return apiRequest('/api/account', { cache: 'no-store' }); }
+export function syncAccountCheckpoint(checkpoint) {
+  return apiRequest(`/api/account/checkpoints/${encodeURIComponent(checkpoint.lessonId)}`, {
+    method: 'PUT', body: JSON.stringify({ revision: checkpoint.revision, run: checkpoint.run }),
   });
 }
 
@@ -164,7 +184,7 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
   const response = await fetch(`${apiBaseUrl}/api/pronunciation/score`, {
     method: "POST",
     body: formData,
-    headers: { "X-App-Key": APP_API_KEY },
+    headers: { "X-App-Key": APP_API_KEY, ...(await accountHeaders()) },
   });
   const payload = await response.json();
 
@@ -197,7 +217,7 @@ export async function getPronunciationStreamingToken() {
   const apiBaseUrl = getApiBaseUrl();
   const response = await fetch(`${apiBaseUrl}/api/pronunciation/token`, {
     cache: "no-store",
-    headers: { "X-App-Key": APP_API_KEY },
+    headers: { "X-App-Key": APP_API_KEY, ...(await accountHeaders()) },
   });
   const payload = await response.json();
 

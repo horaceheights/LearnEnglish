@@ -11,6 +11,7 @@ export type LessonResult = {
   recoveredCards: number[];
   completedAt: string;
   reviewAvailable?: boolean;
+  serverOrder?: number;
 };
 
 export function newLessonRunId(): string {
@@ -70,7 +71,14 @@ export function recoverLessonCard(result: LessonResult, cardIndex: number): Less
 export function mergeLessonResult(previous: LessonResult, incoming: LessonResult): LessonResult {
   const baseline = (result: LessonResult) => resultSignature({ ...result, recoveredCards: [] });
   if (baseline(previous) !== baseline(incoming)) throw new Error('El resultado inicial no puede cambiar.');
-  return { ...previous, recoveredCards: uniqueCardIndexes([...previous.recoveredCards, ...incoming.recoveredCards], previous.totalCards) };
+  return { ...previous, ...(incoming.serverOrder ? { serverOrder: incoming.serverOrder } : {}),
+    recoveredCards: uniqueCardIndexes([...previous.recoveredCards, ...incoming.recoveredCards], previous.totalCards) };
+}
+
+export function compareLessonResults(left: LessonResult, right: LessonResult) {
+  if (left.serverOrder && right.serverOrder) return left.serverOrder - right.serverOrder;
+  if (left.serverOrder || right.serverOrder) return left.serverOrder ? -1 : 1;
+  return left.completedAt.localeCompare(right.completedAt);
 }
 
 export function resultSignature(result: LessonResult): string {
@@ -87,26 +95,29 @@ export function nextCourseLesson<T extends { id: string }>(lessons: readonly T[]
 export function localResultProgress(results: readonly LessonResult[]) {
   const progress: Record<string, {
     lesson_id: string; completed: true; passed: boolean; score: number; initial_score: number;
-    total_cards: number; percentage: number; completed_at: string;
+    total_cards: number; percentage: number; completed_at: string; finished_order?: number;
   }> = {};
-  for (const result of [...results].sort((left, right) => left.completedAt.localeCompare(right.completedAt))) {
+  for (const result of [...results].sort(compareLessonResults)) {
     const summary = resultSummary(result);
     const previous = progress[result.lessonId];
     progress[result.lessonId] = {
       lesson_id: result.lessonId, completed: true, passed: Boolean(previous?.passed || summary.passed),
       score: summary.score, initial_score: result.initialScore, total_cards: result.totalCards,
       percentage: summary.percentage, completed_at: result.completedAt,
+      ...(result.serverOrder ? { finished_order: result.serverOrder } : {}),
     };
   }
   return progress;
 }
 
-export function mergeCourseProgress<T extends { lesson_id: string; passed: boolean; completed_at: string }>(remote: readonly T[], local: Record<string, T>): Record<string, T> {
+export function mergeCourseProgress<T extends { lesson_id: string; passed: boolean; completed_at: string; finished_order?: number }>(remote: readonly T[], local: Record<string, T>): Record<string, T> {
   const merged = Object.fromEntries(remote.map((progress) => [progress.lesson_id, progress]));
   for (const [id, progress] of Object.entries(local)) {
     const server = merged[id];
     merged[id] = !server ? progress : {
-      ...(server.completed_at > progress.completed_at ? server : progress),
+      ...((server.finished_order && progress.finished_order
+        ? server.finished_order > progress.finished_order
+        : !server.finished_order && !progress.finished_order && server.completed_at > progress.completed_at) ? server : progress),
       passed: server.passed || progress.passed,
     };
   }

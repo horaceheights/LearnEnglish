@@ -77,9 +77,12 @@ EXACT_ROLE_CHANGES = {
 # The 2026-09-29 action-question correction adds four explicit assignments in 3.3.
 # The 2026-10-05 day foundations add 24 reviewed teacher/co-teacher narration
 # fields in 4.10. The question and off-camera reply cast remains unchanged.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1881
+# The 2026-10-05 4.9 Reconoce correction adds ten post-correct neutral narrator
+# assignments, alternating teacher and co-teacher. The follow-up restores ten
+# matching upfront prompt-speaker assignments beside the preserved written cues.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1901
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "7f43fe6b6be26a1748068efc4eacb1aa56c875422e753f54e3ab7b7fd90a58b0"
+    "3a207e2b1892f901ad87a7892c25af94b3489cb1244bad4b6eeb9b0a7391a82c"
 )
 
 

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { syncLessonResult } from './api';
-import { createLessonResultStore } from './lessonResultStore';
+import { createScopedLessonResults } from './scopedLessonResults';
 
-export const lessonResults = createLessonResultStore(AsyncStorage);
+export const lessonResults = createScopedLessonResults(AsyncStorage);
 export const syncLocalLessonResults = (userId: string) => lessonResults.sync(userId, syncLessonResult);

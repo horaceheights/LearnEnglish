@@ -6,7 +6,9 @@ from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import urlparse
 
-from backend.app.data import LESSON_IMAGE_DIR, LESSONS
+import yaml
+
+from backend.app.data import LESSON_IMAGE_DIR, LESSONS, LESSONS_DIR
 from scripts.course_contract import expected_lessons_by_unit, is_foundation, is_mission, is_review
 from scripts.validate_lesson_cards import (
     MISSION_COMPLETION_INTERACTIONS,
@@ -134,6 +136,19 @@ def lesson_payload(lesson):
 
 
 class LessonStructureTests(unittest.TestCase):
+    def test_every_lesson_has_stable_revisioned_card_identity(self):
+        authored_ids = [
+            yaml.safe_load(path.read_text(encoding="utf-8"))["id"]
+            for path in sorted(LESSONS_DIR.glob("unit_*/*.yaml"))
+        ]
+        self.assertEqual(len(authored_ids), len(set(authored_ids)))
+        for lesson in LESSONS.values():
+            with self.subTest(lesson=lesson.id):
+                self.assertGreaterEqual(lesson.content_revision, 1)
+                card_ids = [card.slide_id for card in lesson.cards]
+                self.assertTrue(all(card_ids))
+                self.assertEqual(len(card_ids), len(set(card_ids)))
+
     @staticmethod
     def _semantic_option(option_id, label, image_url=""):
         return SimpleNamespace(id=option_id, label=label, image_url=image_url)
@@ -646,7 +661,21 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(unit=unit):
                 self.assertTrue(text_to_image)
                 self.assertTrue(image_to_text)
-                self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
+                self.assertTrue(all(
+                    card.audio_text == card.prompt
+                    # Written line breaks preserve reading layout. A spoken
+                    # multi-turn cue must still pronounce all the same words.
+                    or (card.prompt_presentation == "written" and card.audio_turns
+                        and " ".join(card.audio_text.split()) == " ".join(card.prompt.split())
+                        and " ".join(turn.text for turn in card.audio_turns) == card.audio_text)
+                    # An explicitly silent written task still needs its visible
+                    # English target and authored post-correct confirmation.
+                    or (card.audio_text == "" and card.prompt.strip()
+                        and (card.answer_audio_text or "").strip()
+                        and not card.audio_turns
+                        and not any(asset.purpose == "prompt" for asset in card.audio_assets))
+                    for card in text_to_image
+                ))
                 self.assertTrue(all(
                     (not card.audio_text and card.answer_audio_text)
                     or (card.interaction_type.startswith("a2t") and card.audio_text)

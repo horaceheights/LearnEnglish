@@ -28,6 +28,7 @@ import {
   usesCompactListenInstruction,
   usesCompactRecognizeInstruction,
 } from "../../mobile/src/lessonInstructions";
+import { isWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
@@ -40,6 +41,8 @@ import MissionCompletion from "./MissionCompletion";
 import LessonResultScreen, { LessonGoodbye } from "./LessonResultScreen";
 import { newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCards, resultSummary } from "../../mobile/src/lessonResult";
 import { parseSavedLessonRun } from "../../mobile/src/lessonResume";
+import { accountCheckpoints, loadAccountCheckpoint, scheduleAccountSync } from '../lib/accountSync';
+import { progressScope } from '../../mobile/src/accountSession';
 import { lessonResults, syncLocalLessonResults } from "../lib/localLessonResults";
 import MissionJourney from "./MissionJourney";
 import SentenceConstruction from "./SentenceConstruction";
@@ -1478,17 +1481,27 @@ function useSpeech() {
   );
 }
 
-function useViewportWidth() {
-  const [viewportWidth, setViewportWidth] = useState(1280);
+function useViewportSize() {
+  const [viewport, setViewport] = useState({ width: 1280, height: 800 });
 
   useEffect(() => {
-    const updateWidth = () => setViewportWidth(window.innerWidth);
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
+    const updateSize = () => setViewport({ width: window.innerWidth, height: window.innerHeight });
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  return viewportWidth;
+  return viewport;
+}
+
+// Spend the space left by the actual header, choices, feedback and footer on
+// the full pictures. A narrow phone may need smaller pictures after text wraps.
+function writtenRecognitionMediaHeight(viewportHeight, contentHeight, pagePadding, mediaHeights, mediaWidths) {
+  if (!mediaHeights.length) return null;
+  const usedHeight = contentHeight + pagePadding - mediaHeights.reduce((sum, height) => sum + height, 0);
+  const remainingPerImage = (viewportHeight - usedHeight - 2) / mediaHeights.length;
+  const naturalHeight = Math.min(...mediaWidths.map(width => width * 2 / 3));
+  return Math.max(100, Math.floor(Math.min(naturalHeight, remainingPerImage)));
 }
 
 function getOption(stepId, optionId) {
@@ -2207,17 +2220,17 @@ function getPronunciationOutcome(summary, level, result = null) {
   };
 }
 
-export default function LessonPlayer({ lesson, lessons, testMode = false }) {
+export default function LessonPlayer({ lesson, lessons, testMode = false, accountProfile = null }) {
   const [activeLesson, setActiveLesson] = useState(lesson);
   const [started, setStarted] = useState(testMode);
-  const [profileLoaded, setProfileLoaded] = useState(testMode);
+  const [profileLoaded, setProfileLoaded] = useState(testMode || Boolean(accountProfile));
   const [profile, setProfile] = useState(
     testMode
       ? {
           ...DEFAULT_PROFILE,
           displayName: "Pronunciation Test",
         }
-      : null
+      : accountProfile
   );
   const [isCreatingProfile, setIsCreatingProfile] = useState(false);
   const [loginName, setLoginName] = useState("");
@@ -2305,7 +2318,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     },
     onFinish: stopUiSfx,
   });
-  const viewportWidth = useViewportWidth();
+  const { width: viewportWidth, height: viewportHeight } = useViewportSize();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
   const playReadyCue = useCallback(async () => {
@@ -2340,6 +2353,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       ? currentCard.prompt
       : currentCard.audio_text ?? currentCard.prompt
     : "";
+  const correctRecognizeReplayText = recognizeAnswerReplayText(currentCard, lastResult === "correct");
+  const cardReplayText = correctRecognizeReplayText || cardPromptText;
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
   const isUseStage = currentCard?.stage === "Use";
   const cardPromptHasVisualBlank = !isSentenceCard && !isUseStage && (authoredCardPromptHasVisualBlank
@@ -2355,7 +2370,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     : "";
   const isRecognitionLesson = activeLesson.unit_id === "unit-1";
   const helpCardKey = `${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
-  const hasPromptAutoplay = (isRecognitionLesson || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
+  const hasPromptAutoplay = (isRecognitionLesson || isWrittenRecognize(currentCard) || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
     && Boolean(cardPromptText.trim());
   const introduceHelp = !testMode && isFirstSectionHelpIntroduction(activeLesson, cardIndex);
   const help = useContextualHelp({
@@ -2484,6 +2499,37 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
   const isSingleOptionCard = optionCount === 1;
+  const fitWrittenRecognition = isMobile && viewportHeight >= viewportWidth
+    && isWrittenRecognize(currentCard) && optionCount > 0 && optionCount <= 3;
+  const compactWrittenRecognitionChoices = fitWrittenRecognition
+    && currentCard.options.every(option => !option.image_url);
+  const writtenRecognitionPageRef = useRef(null);
+  const [writtenMediaHeight, setWrittenMediaHeight] = useState(null);
+  useLayoutEffect(() => {
+    if (!fitWrittenRecognition || !started || isComplete) {
+      setWrittenMediaHeight(null);
+      return;
+    }
+    const page = writtenRecognitionPageRef.current;
+    const main = page?.querySelector("main");
+    if (!main) return;
+    const measure = () => {
+      const images = [...main.querySelectorAll("[data-written-recognition-media]")];
+      const pageStyle = window.getComputedStyle(page);
+      const next = writtenRecognitionMediaHeight(
+        viewportHeight,
+        main.getBoundingClientRect().height,
+        parseFloat(pageStyle.paddingTop) + parseFloat(pageStyle.paddingBottom),
+        images.map(image => image.getBoundingClientRect().height),
+        images.map(image => image.getBoundingClientRect().width),
+      );
+      setWrittenMediaHeight(previous => previous === next ? previous : next);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(main);
+    return () => observer.disconnect();
+  }, [fitWrittenRecognition, helpCardKey, isComplete, started, viewportHeight, viewportWidth]);
   const useCompactCompletionTiles = cardPromptHasVisualBlank
     && isThreeOptionCard
     && currentCard.options.every((option) => (
@@ -2618,7 +2664,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           ? "1fr"
           : styles.choiceGrid.gridTemplateColumns,
     justifyContent: isSingleOptionCard ? "center" : undefined,
-    gap: useCompactCompletionTiles
+    gap: compactWrittenRecognitionChoices ? "8px" : useCompactCompletionTiles
       ? (isMobile ? "8px" : "12px")
       : isPronunciationCard && isMobile
         ? "10px"
@@ -2666,10 +2712,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     ...(useThreeByTwoOptionMedia
       ? { aspectRatio: "3 / 2", objectFit: "cover" }
       : {}),
+    ...(fitWrittenRecognition && writtenMediaHeight !== null
+      ? { height: writtenMediaHeight, aspectRatio: "auto", objectFit: "contain" }
+      : {}),
   };
   const correctContrastPrompt =
     lastResult === "correct" &&
     currentCard?.stage === "Recognize" &&
+    !isWrittenRecognize(currentCard) &&
     Boolean(currentCard?.answer_audio_text?.trim()) &&
     currentCard?.answer_audio_text?.trim() !== cardPromptText.trim() &&
     /\b(?:is|are) not\b/i.test(cardPromptText)
@@ -2690,6 +2740,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           : "clamp(1.65rem, 2.35vw, 2.32rem)",
     lineHeight: 1.12,
     letterSpacing: 0,
+    whiteSpace: "pre-line",
   };
   const newWordHighlightStyle = {
     display: "inline-block",
@@ -3240,6 +3291,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     try {
+      if (accountProfile) {
+        setDraftProfile(accountProfile); setLoginName(accountProfile.displayName || '');
+        setProfileLoaded(true); return;
+      }
       const storedProfile = window.localStorage.getItem(PROFILE_STORAGE_KEY);
       if (storedProfile) {
         const parsedProfile = JSON.parse(storedProfile);
@@ -3251,7 +3306,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     } finally {
       setProfileLoaded(true);
     }
-  }, [testMode]);
+  }, [testMode, accountProfile]);
 
   useEffect(() => {
     setActiveLesson(lesson);
@@ -3323,7 +3378,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
   }, [cardIndex, pronunciationOutcome.accepted, pronunciationResult, started, wrongAttempts]);
 
-  const resumeKey = `spanglish-lesson-resume-v1:${profile?.userId || profile?.displayName}:${activeLesson.id}`;
+  const resumeKey = `spanglish-lesson-resume-v1:${progressScope(profile?.userId || profile?.displayName || 'qa')}:${activeLesson.id}`;
   useEffect(() => {
     if (testMode || !started || !lessonSessionId) return;
     try {
@@ -3335,6 +3390,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         wrongCards: Object.keys(wrongAttempts).filter((key) => wrongAttempts[key]).map(Number),
         ...(reviewQueue.length ? { reviewQueue, resultId: lessonResultRef.current?.id } : {}),
       }));
+      if (accountProfile) void accountCheckpoints.save(progressScope(profile.userId), activeLesson.id,
+        JSON.parse(window.localStorage.getItem(resumeKey))).then(() => scheduleAccountSync())
+        .catch(() => setResultError('No pudimos guardar tu progreso. Inténtalo otra vez.'));
     } catch { setResultError("No pudimos guardar tu progreso en este navegador."); }
   }, [activeLesson, cardIndex, isComplete, lessonSessionId, resumeKey, reviewQueue, score, started, testMode, wrongAttempts]);
 
@@ -3588,7 +3646,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   useEffect(() => {
     if (
-      (!isRecognitionLesson && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
+      (!isRecognitionLesson && !isWrittenRecognize(currentCard) && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
       || isMissionGameExperience
       || isPageTurning
@@ -4476,7 +4534,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     let storedResult = null;
     if (!testMode && !fresh) {
       try {
-        saved = parseSavedLessonRun(window.localStorage.getItem(`spanglish-lesson-resume-v1:${userId}:${lessonToStart.id}`), lessonToStart.cards.length, lessonToStart.content_revision);
+        const key = `spanglish-lesson-resume-v1:${progressScope(userId)}:${lessonToStart.id}`;
+        if (accountProfile) await loadAccountCheckpoint(userId, lessonToStart.id, key);
+        saved = parseSavedLessonRun(window.localStorage.getItem(key), lessonToStart.cards.length, lessonToStart.content_revision);
         storedResult = await lessonResults.latest(userId, lessonToStart.id, lessonToStart.cards.length, lessonToStart.content_revision, saved?.sessionId || undefined);
       } catch { setLessonLoadError("No pudimos leer tu progreso guardado. Inténtalo otra vez."); return; }
     }
@@ -4716,6 +4776,19 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setHelpAudioReadyKey("");
     if (isPronunciationCard) {
       playPronunciationModel(activePronunciationPrompt);
+      return;
+    }
+    if (correctRecognizeReplayText) {
+      const answerTurns = cardAudioTurnSequence(currentCard, "answer");
+      if (currentCard.answer_audio_turns?.length) {
+        if (answerTurns) playCourseTurnSequence(answerTurns, { voiceMode: "answer" });
+        else console.info("Course answer audio turn contract rejected", currentCard.prompt);
+      } else {
+        speakText(correctRecognizeReplayText, {
+          audioAssetId: cardAudioAsset(currentCard, { purpose: "answer", text: correctRecognizeReplayText })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+          voiceMode: "answer",
+        });
+      }
       return;
     }
     if (!cardPromptText.trim()) return;
@@ -5373,7 +5446,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   return (
     <div onPointerDownCapture={help.touchStart} onPointerUpCapture={help.touchEnd}
       onPointerCancelCapture={help.touchEnd} onKeyDownCapture={help.interact}
-      inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
+      inert={isPageTurning} ref={writtenRecognitionPageRef} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
       {helpPopup}
       <div style={shellStyle}>
           <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
@@ -5488,22 +5561,33 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             ) : !compactPracticeHeader && !isSentenceCard ? (
               <button
                 type="button"
+                disabled={!isPronunciationCard && !cardReplayText.trim()}
                 onClick={playCurrentCardPrompt}
                 style={{
                   border: 0,
                   background: "transparent",
                   color: "var(--text)",
-                  padding: 0,
+                  padding: isWrittenRecognize(currentCard) ? "0 36px" : 0,
                   margin: 0,
-                  cursor: isPronunciationCard || cardPromptText.trim() ? "pointer" : "default",
+                  position: isWrittenRecognize(currentCard) ? "relative" : undefined,
+                  cursor: isPronunciationCard || cardReplayText.trim() ? "pointer" : "default",
                   width: "100%",
                 }}
                 aria-label={
-                  isPronunciationCard || cardPromptText.trim()
-                    ? `Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`
-                    : lessonStageLabel(activeLesson.id, currentCard.stage)
+                  isPronunciationCard || cardReplayText.trim()
+                    ? `Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : cardReplayText}`
+                    : currentCard.prompt?.trim() || lessonStageLabel(activeLesson.id, currentCard.stage)
                 }
               >
+                {isWrittenRecognize(currentCard) && cardReplayText.trim() ? (
+                  <span aria-hidden="true" data-written-prompt-speaker style={{ position: "absolute", right: -8, top: "50%", transform: "translateY(-50%)", width: 44, height: 44, display: "grid", placeItems: "center" }}>
+                    <svg viewBox="0 0 28 28" width="28" height="28">
+                      <circle cx="14" cy="14" r="14" fill="#278d70" />
+                      <path d="M7 11h3l4-3v12l-4-3H7z" fill="white" />
+                      <path d="M17 10q4 4 0 8m3-10q6 6 0 12" fill="none" stroke="white" strokeWidth="1.4" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                ) : null}
                 <div
                   style={{
                     color: "#8b765d",
@@ -5569,6 +5653,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 <img
                   src={lessonOptionImageSrc(activeTurnImageUrl || currentCard.prompt_image_url)}
                   alt={currentCard.prompt || (isMissionExperience ? `Escena visual del reto ${cardIndex + 1}` : "")}
+                  data-written-recognition-media={fitWrittenRecognition ? true : undefined}
                   style={{
                     display: "block",
                     width: "100%",
@@ -5577,6 +5662,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     objectFit: "cover",
                     objectPosition: "center",
                     transform: isLockedMissionFinale ? "scale(1.04)" : "none",
+                    ...(fitWrittenRecognition && writtenMediaHeight !== null
+                      ? { height: writtenMediaHeight, aspectRatio: "auto", objectFit: "contain" }
+                      : {}),
                   }}
                 />
                 {isLockedMissionFinale ? (
@@ -5905,14 +5993,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           videoName={actionVideoName}
                         />
                       ) : (
-                        <img src={actionPosterSrc || lessonOptionImageSrc(option.image_url)} alt={optionLabel} style={optionImageStyle} />
+                        <img src={actionPosterSrc || lessonOptionImageSrc(option.image_url)} alt={optionLabel}
+                          data-written-recognition-media={fitWrittenRecognition ? true : undefined} style={optionImageStyle} />
                       )
                     ) : (
                       <div
                         style={{
                           boxSizing: "border-box",
                           height: "100%",
-                          minHeight: isMissionTileCard
+                          minHeight: compactWrittenRecognitionChoices ? 44 : isMissionTileCard
                             ? (isMobile ? 72 : 88)
                             : useCompactCompletionTiles ? (isMobile ? 64 : 82) : isMobile ? 116 : 172,
                           display: "grid",
@@ -5921,7 +6010,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           background: "linear-gradient(135deg, #fffdf9, #fff4df)",
                           border: "1px solid rgba(218, 178, 119, 0.56)",
                           color: "var(--text)",
-                          fontSize: isMissionTileCard
+                          fontSize: compactWrittenRecognitionChoices ? "clamp(20px, 6vw, 24px)" : isMissionTileCard
                             ? isMobile
                               ? "clamp(0.88rem, 4.2vw, 1.05rem)"
                               : "clamp(1rem, 2.2vw, 1.35rem)"
@@ -5930,7 +6019,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           lineHeight: 1.12,
                           overflowWrap: isMissionTileCard ? "anywhere" : undefined,
                           textAlign: "center",
-                          padding: isMissionTileCard
+                          padding: compactWrittenRecognitionChoices ? "8px 12px" : isMissionTileCard
                             ? (isMobile ? "12px 9px" : "15px 12px")
                             : isMobile ? "18px 14px" : "28px 20px",
                         }}
@@ -5982,14 +6071,16 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               </div>
             ) : null}
 
-            <div style={{ marginTop: 20 }}>
+            <div style={{ marginTop: fitWrittenRecognition ? 8 : 20, minHeight: fitWrittenRecognition ? 88 : undefined }}>
               {lastResult === "correct" ? (
-                <div style={{ ...styles.feedback, background: "var(--green-soft)", color: "var(--green)" }}>
+                <div style={{ ...styles.feedback, ...(fitWrittenRecognition ? { padding: "8px 10px" } : {}), background: "var(--green-soft)", color: "var(--green)" }}>
+                  {isWrittenRecognize(currentCard) && currentCard.answer_audio_text?.trim()
+                    ? <div>{currentCard.answer_audio_text}</div> : null}
                   Correcto. Vamos a la siguiente tarjeta...
                 </div>
               ) : null}
               {lastResult === "wrong" ? (
-                <div style={{ ...styles.feedback, background: "var(--red-soft)", color: "var(--red)" }}>
+                <div style={{ ...styles.feedback, ...(fitWrittenRecognition ? { padding: "8px 10px" } : {}), background: "var(--red-soft)", color: "var(--red)" }}>
                   <div>{WRONG_FEEDBACK}</div>
                   <div
                     style={{

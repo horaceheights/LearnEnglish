@@ -1,7 +1,9 @@
 param(
   [string]$Message,
   [ValidateSet('update', 'native-build')]
-  [string]$Delivery = 'update'
+  [string]$Delivery = 'update',
+  [ValidateSet('all', 'android')]
+  [string]$NativePlatform = 'all'
 )
 
 Set-StrictMode -Version Latest
@@ -226,28 +228,18 @@ try {
 
   if ($Delivery -eq 'native-build') {
     # Keep Git metadata: the root .easignore packages only mobile/ while the
-    # builder records and exposes the exact GitHub commit in both native apps.
-    $buildLines = @(& eas build --profile preview --platform all --non-interactive --wait --json --message $Message)
+    # builder records and exposes the exact GitHub commit in each requested app.
+    $buildLines = @(& eas build --profile preview --platform $NativePlatform --non-interactive --wait --json --message $Message)
     if ($LASTEXITCODE -ne 0) { throw 'Expo no pudo completar los builds nativos de Preview.' }
     $null = Assert-GitHubPreviewPublishAuthority
     $builds = @(($buildLines -join [Environment]::NewLine) | ConvertFrom-Json)
     $expectedVersion = (Get-Content -Raw -LiteralPath (Join-Path $mobileRoot 'app.json') | ConvertFrom-Json).expo.version
-    $platforms = @()
+    Assert-NativePreviewBuilds -Builds $builds -ExpectedCommit $releaseCommit -ExpectedVersion $expectedVersion -NativePlatform $NativePlatform
     foreach ($build in $builds) {
-      if ($build.status -cne 'FINISHED' -or $build.gitCommitHash -cne $releaseCommit -or
-          $build.channel -cne 'preview' -or $build.buildProfile -cne 'preview' -or
-          $build.distribution -cne 'INTERNAL' -or $build.appVersion -cne $expectedVersion -or
-          $build.runtimeVersion -cne $expectedVersion) {
-        throw 'El build nativo no coincide con el commit y perfil autorizados de Preview.'
-      }
-      $platforms += $build.platform
       Write-Host "Preview nativo verificado: $($build.platform), $releaseCommit, $($build.id)"
       if ($env:GITHUB_STEP_SUMMARY) {
         Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY -Value "- $($build.platform): $($build.artifacts.buildUrl) (commit $releaseCommit)"
       }
-    }
-    if ($platforms -notcontains 'ANDROID' -or $platforms -notcontains 'IOS') {
-      throw 'Falta una plataforma en los builds de Preview.'
     }
     Write-Host 'Instala estos nuevos builds de Preview para probar la dependencia nativa.' -ForegroundColor Green
     return

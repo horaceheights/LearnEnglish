@@ -206,5 +206,8 @@ conversation background cues and corresponding provenance checks remain
 required. No existing source supplies that shot. The earlier user instruction
 prohibits image services; automatic approval review also rejected opening an
 external stock-photo page for that reason. No image-generation service was
-used. The work remains a draft; these passing engineering checks do not make
-the incomplete two-shot media ready for merge or Preview publication.
+used. On 2026-10-06 the user requested applying the approved lesson rework. The
+day-part foundations and restored contextual time practice may proceed to
+protected Preview while the connected two-shot media remains a recorded
+follow-up. Existing question photographs are temporary, and neither passing
+engineering checks nor Preview publication marks that media requirement complete.

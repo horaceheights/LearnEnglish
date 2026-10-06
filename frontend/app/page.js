@@ -1,12 +1,13 @@
-import LessonPlayer from "../components/LessonPlayer";
+import LearnerApp from "../components/LearnerApp";
 import { getLesson, getLessons } from "../lib/api";
 
 export default async function HomePage() {
+  if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) return <main style={{ padding: 32 }}>El acceso a cuentas todavía no está disponible. Inténtalo más tarde.</main>;
   try {
     const lessons = await getLessons();
     const lesson = await getLesson("lesson-1-people-actions");
 
-    return <LessonPlayer lesson={lesson} lessons={lessons} />;
+    return <LearnerApp lesson={lesson} lessons={lessons} />;
   } catch (error) {
     return (
       <main

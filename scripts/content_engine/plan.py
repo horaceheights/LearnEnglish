@@ -17,7 +17,7 @@ PLAN_KEYS = ("recipe", "exceptions", "answer", "mirror_translation", "field_orde
 # The standard field order for a card. A live card written in another order
 # keeps that order in its plan so reinstalling it changes no bytes.
 FIELD_ORDER = (
-    "slide_id", "interaction_type", "prompt", "mission_chapter_id", "stage", "correct_option_id", "options",
+    "slide_id", "interaction_type", "prompt", "prompt_presentation", "mission_chapter_id", "stage", "correct_option_id", "options",
     "audio_text", "answer_audio_text", "answer_audio_turns", "prompt_image_url", "audio_turns",
     "spanish_translation", "translation", "correct_option_ids", "audio_revision", "answer_audio_speaker",
     "pedagogy_note", "audio_speaker", "answer_audio_revision", "mission_game",

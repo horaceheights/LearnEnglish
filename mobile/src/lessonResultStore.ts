@@ -1,14 +1,14 @@
-import { mergeLessonResult, parseLessonResult, resultSignature, type LessonResult } from './lessonResult';
+import { compareLessonResults, mergeLessonResult, parseLessonResult, resultSignature, type LessonResult } from './lessonResult';
 
 type Storage = { getItem(key: string): Promise<string | null>; setItem(key: string, value: string): Promise<void> };
 type Entry = { result: LessonResult; synced: boolean };
 const PREFIX = 'spanglish-lesson-results-v1:';
 
 /** Serialized durable outbox. A delayed acknowledgement cannot clear a newer correction. */
-export function createLessonResultStore(storage: Storage) {
+export function createLessonResultStore(storage: Storage, namespace = (userId: string) => userId) {
   let writing: Promise<unknown> = Promise.resolve();
   const syncing = new Map<string, Promise<void>>();
-  const key = (userId: string) => PREFIX + userId;
+  const key = (userId: string) => PREFIX + namespace(userId);
   const read = async (userId: string): Promise<Entry[]> => {
     const raw = await storage.getItem(key(userId));
     if (!raw) return [];
@@ -40,12 +40,24 @@ export function createLessonResultStore(storage: Storage) {
   });
   return {
     save,
+    importRemote(userId: string, results: LessonResult[]) { return change(async () => {
+      const entries = await read(userId);
+      for (const remote of results) {
+        const validated = parseLessonResult(remote);
+        if (!validated || validated.userId !== userId) throw new Error('El progreso recibido no pertenece a tu cuenta.');
+        const entry = entries.find(item => item.result.id === validated.id);
+        const merged = entry ? mergeLessonResult(entry.result, validated) : validated;
+        if (entry) { entry.result = merged; entry.synced = resultSignature(merged) === resultSignature(validated); }
+        else entries.push({ result: merged, synced: true });
+      }
+      await storage.setItem(key(userId), JSON.stringify(entries));
+    }); },
     async list(userId: string) { await writing; return (await read(userId)).map((entry) => entry.result); },
     async latest(userId: string, lessonId: string, totalCards: number, contentRevision?: number, runId?: string) {
       await writing;
       return (await read(userId)).map((entry) => entry.result).filter((result) => result.lessonId === lessonId
         && result.totalCards === totalCards && result.contentRevision === contentRevision && (!runId || result.id === runId))
-        .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0] ?? null;
+        .sort((left, right) => compareLessonResults(right, left))[0] ?? null;
     },
     flush: () => writing.then(() => undefined),
     sync(userId: string, send: (result: LessonResult) => Promise<LessonResult>): Promise<void> {

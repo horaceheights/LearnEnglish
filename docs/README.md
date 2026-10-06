@@ -17,10 +17,12 @@ Durable project knowledge is organized by purpose. Application and tool-specific
 
 - [Engine QA checklist](qa/engine-qa-checklist.md): internal parity, activity, device, and release checks.
 - [Tester guide (Spanish)](qa/guia-pruebas-testers-es.md): concise instructions for external testers.
+- [Learner accounts QA](qa/learner-accounts-sync.md): Clerk, cross-device progress and offline/reset verification.
 
 ## Operations
 
 - [Web/backend deployment](operations/deploy.md): Vercel and backend deployment notes.
+- [Clerk account setup](operations/learner-accounts.md): identity keys, hosted environments, callbacks and deletion webhook.
 - [Cloudflare course media](operations/cloudflare-course-media.md): default R2 publication, immutable audio validation and Render storage migration.
 - [Mobile release workflow](../mobile/RELEASE.md): Preview and Production controls for Expo updates and builds.
 - [Mobile Sentry setup](../mobile/SENTRY_SETUP.md): crash reporting and tracing configuration.

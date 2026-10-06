@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response, RedirectResponse
 
 from .api_auth import api_request_is_authorized
+from . import accounts, account_routes, clerk_webhooks
 from .diagnostics import initialize_diagnostics
 from .course_audio import audio_debug, ready_cue_wav
 from . import cloudflare_media
@@ -55,6 +56,9 @@ from .tracking import (
 initialize_diagnostics()
 app = FastAPI(title="Learn English API", version="0.1.0")
 init_db()
+accounts.init_account_db()
+app.include_router(account_routes.router)
+app.add_api_route('/api/webhooks/clerk', clerk_webhooks.receive, methods=['POST'])
 
 APP_API_KEY = os.getenv("APP_API_KEY", "").strip()
 ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "").strip()
@@ -101,16 +105,6 @@ def allowed_origin_regex() -> str | None:
         return None
 
     return r"^https?://(localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2}):3000$"
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=allowed_origins(),
-    allow_origin_regex=allowed_origin_regex(),
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 # Per-path request ceilings for the endpoints that call metered, paid
 # providers (Azure pronunciation, OpenAI/ElevenLabs TTS). Generous enough
@@ -186,7 +180,35 @@ async def guard_api_requests(request: Request, call_next):
             content={"detail": "Demasiadas solicitudes. Espera un momento e intentalo de nuevo."},
         )
 
-    return await call_next(request)
+    context_token = None
+    operator_token = None
+    try:
+        import hmac
+        admin_authorized = bool(ADMIN_API_KEY and hmac.compare_digest(ADMIN_API_KEY, request.headers.get("x-admin-key", "")))
+        operator_token = accounts.operator_access.set(admin_authorized)
+        context = await account_routes.guard_learner_request(request, admin_authorized)
+        if context:
+            context_token = accounts.write_account.set(context)
+        return await call_next(request)
+    except HTTPException as error:
+        return JSONResponse(status_code=error.status_code, content={"detail": error.detail})
+    finally:
+        if context_token is not None:
+            accounts.write_account.reset(context_token)
+        if operator_token is not None:
+            accounts.operator_access.reset(operator_token)
+
+
+# CORS must wrap authentication: browsers send preflight without credentials,
+# and authenticated failures also need CORS headers so clients can read them.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins(),
+    allow_origin_regex=allowed_origin_regex(),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/lesson-assets/{name:path}")
@@ -388,6 +410,7 @@ def read_ready_cue():
 
 @app.post("/api/pronunciation/score")
 async def score_pronunciation_practice(
+    request: Request,
     text: str = Form(...),
     audio: UploadFile = File(...),
     user_id: str | None = Form(None),
@@ -396,6 +419,11 @@ async def score_pronunciation_practice(
     level: str | None = Form(None),
     exercise_type: str | None = Form(None),
 ):
+    if user_id:
+        bound = accounts.account_for_user(user_id)
+        identity = getattr(request.state, "identity", None)
+        if (bound and (not identity or bound["issuer"] != identity.issuer or bound["subject"] != identity.subject or bound["deleted"])):
+            raise HTTPException(403, "Esta información pertenece a otra cuenta.")
     return await score_pronunciation(
         text=text,
         audio_file=audio,
@@ -424,7 +452,7 @@ def read_admin_storage():
 
 
 @app.get("/api/lessons")
-def list_lessons() -> list[dict[str, str]]:
+def list_lessons() -> list[dict[str, str | int]]:
     return [
         {
             "id": lesson.id,
@@ -436,6 +464,7 @@ def list_lessons() -> list[dict[str, str]]:
             "lesson_title": lesson.lesson_title,
             "sub_lesson_id": lesson.sub_lesson_id,
             "sub_lesson_title": lesson.sub_lesson_title,
+            "content_revision": lesson.content_revision,
         }
         for lesson in LESSONS.values()
     ]

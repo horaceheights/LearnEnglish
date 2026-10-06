@@ -83,11 +83,14 @@ import {
   usesCompactRecognizeInstruction,
   usesCompactSpeakInstruction,
 } from '../lessonInstructions';
+import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import {
   createLessonResumePersistence,
   parseSavedLessonRun,
   type SavedLessonRun,
 } from '../lessonResume';
+import { accountCheckpoints, loadAccountCheckpoint, scheduleAccountSync } from '../accountSync';
+import { progressScope } from '../accountSession';
 import { lessonStageColorForCard } from '../lessonStageTheme';
 import { sectionBriefingForBoundary, type SectionBriefing } from '../lessonSectionBriefing';
 import { LessonSectionBriefing } from '../components/LessonSectionBriefing';
@@ -391,32 +394,40 @@ export function LessonScreen({
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
-  const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
+  const lessonProgressScope = progressScope(profile.userId || profile.displayName.trim().toLowerCase());
+  const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${lessonProgressScope}:${lessonId}`;
   const lessonResumePersistence = useMemo(
     () => createLessonResumePersistence(AsyncStorage, lessonResumeStorageKey),
     [lessonResumeStorageKey],
   );
   const saveLessonResume = useCallback((savedRun: SavedLessonRun) => {
     latestLessonResumeRef.current = savedRun;
-    return lessonResumePersistence.save(savedRun).catch((saveError) => {
+    return lessonResumePersistence.save(savedRun).then(async () => {
+      if (!qaMode && profile.userId) {
+        await accountCheckpoints.save(lessonProgressScope, lessonId, savedRun);
+        scheduleAccountSync();
+      }
+    }).catch((saveError) => {
       captureDiagnosticError(saveError, 'save_lesson_resume', { lesson_id: lessonId }, 'warning');
     });
-  }, [lessonId, lessonResumePersistence]);
+  }, [lessonId, lessonResumePersistence, lessonProgressScope, profile.userId, qaMode]);
   const flushLessonResume = useCallback(() => {
     const latestRun = latestLessonResumeRef.current;
     const persistence = latestRun
-      ? lessonResumePersistence.save(latestRun)
+      ? saveLessonResume(latestRun)
       : lessonResumePersistence.flush();
     return persistence.catch((saveError) => {
       captureDiagnosticError(saveError, 'flush_lesson_resume', { lesson_id: lessonId }, 'warning');
     });
-  }, [lessonId, lessonResumePersistence]);
+  }, [lessonId, lessonResumePersistence, saveLessonResume]);
   const clearLessonResume = useCallback(() => {
     latestLessonResumeRef.current = null;
-    return lessonResumePersistence.clear().catch((saveError) => {
+    return lessonResumePersistence.clear().then(async () => {
+      if (!qaMode && profile.userId) { await accountCheckpoints.save(lessonProgressScope, lessonId, null); scheduleAccountSync(); }
+    }).catch((saveError) => {
       captureDiagnosticError(saveError, 'clear_lesson_resume', { lesson_id: lessonId }, 'warning');
     });
-  }, [lessonId, lessonResumePersistence]);
+  }, [lessonId, lessonResumePersistence, lessonProgressScope, profile.userId, qaMode]);
   const missionExperience = isMissionLesson(lesson);
   const { playMissionSound, stopMissionSound } = useMissionSoundEffects({
     enabled: true,
@@ -868,6 +879,7 @@ export function LessonScreen({
     setReviewStageBounds(null);
     try {
       const nextLesson = await getLesson(lessonId);
+      if (!qaMode && profile.userId) await loadAccountCheckpoint(profile.userId, lessonId, lessonResumeStorageKey);
       const savedRun = qaMode
         ? null
         : parseSavedLessonRun(
@@ -1181,12 +1193,16 @@ export function LessonScreen({
   const correctContrastPrompt =
     result === 'correct'
     && currentCard?.stage === 'Recognize'
+    && !isWrittenRecognize(currentCard)
     && Boolean(contrastAnswerAudio)
     && contrastAnswerAudio !== promptAudio.trim()
     && /\b(?:is|are) not\b/i.test(promptAudio)
       ? contrastAnswerAudio
       : '';
   const visiblePromptAudio = correctContrastPrompt || promptAudio;
+  const writtenRecognize = isWrittenRecognize(currentCard);
+  const visiblePromptText = writtenRecognize ? currentCard?.prompt || '' : visiblePromptAudio || currentCard?.prompt || '';
+  const silentWrittenRecognize = isSilentWrittenRecognize(currentCard);
   const isUseStage = currentCard?.stage === 'Use';
   const promptHasVisualBlank = !isSentenceCard && !isUseStage && (authoredPromptHasVisualBlank
     || hasVisualAudioPlaceholder(promptAudio));
@@ -1206,19 +1222,17 @@ export function LessonScreen({
     if (turn) setActiveTurnImageUrl(turn.turn.image_url);
   }, [activeAudioSequence, audioPlaylistStatus.currentIndex]);
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
-    isGrammar ? (isUseStage ? promptAudio : currentCard?.prompt ?? '') : promptAudio,
+    isGrammar ? (isUseStage ? promptAudio : currentCard?.prompt ?? '') : visiblePromptText,
   );
   const visibleSentenceTranslation = isTheyTranslationCard
     ? 'Ellos / Ellas'
     : sentenceTranslation;
-  const correctRecognizeReplayText = useCompactRecognizeInstruction && result === 'correct'
-    ? currentCard?.options.find((option) => option.id === currentCard.correct_option_id)?.label?.trim() ?? ''
-    : '';
+  const correctRecognizeReplayText = recognizeAnswerReplayText(currentCard, result === 'correct');
   // A reply choice plays the line it answers ("Here you are."), so the speaker
   // replays that line until the correct reply is chosen, then the reply itself.
-  const phraseReplayText = useCompactRecognizeInstruction
-    ? correctRecognizeReplayText || promptAudio.trim()
-    : visiblePromptAudio.trim();
+  const phraseReplayText = correctRecognizeReplayText || (useCompactRecognizeInstruction
+    ? promptAudio.trim()
+    : visiblePromptAudio.trim());
   const phraseReplayAvailable = isPronunciation
     ? pronunciationReplayAvailable
     : Boolean(phraseReplayText);
@@ -1515,10 +1529,10 @@ export function LessonScreen({
   }, [translationOpacity]);
 
   const handlePromptPress = useCallback(() => {
-    if (useCompactHeaderInstruction || !visiblePromptAudio.trim()) return;
+    if (useCompactHeaderInstruction || !visiblePromptText.trim()) return;
     help.interact();
     openSentenceTranslation();
-  }, [help.interact, openSentenceTranslation, useCompactHeaderInstruction, visiblePromptAudio]);
+  }, [help.interact, openSentenceTranslation, useCompactHeaderInstruction, visiblePromptText]);
 
   const handleReplayButtonPress = useCallback(() => {
     if (!phraseReplayAvailable) return;
@@ -1527,12 +1541,12 @@ export function LessonScreen({
       setPronunciationReplayRequestId((current) => current + 1);
       return;
     }
-    if (useCompactRecognizeInstruction && correctRecognizeReplayText) {
+    if (correctRecognizeReplayText) {
       playAudio(correctRecognizeReplayText, 'prompt', 'answer');
       return;
     }
     replayPrompt();
-  }, [correctRecognizeReplayText, help.interact, isPronunciation, phraseReplayAvailable, playAudio, replayPrompt, useCompactRecognizeInstruction]);
+  }, [correctRecognizeReplayText, help.interact, isPronunciation, phraseReplayAvailable, playAudio, replayPrompt]);
 
   useEffect(() => {
     if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
@@ -1622,7 +1636,7 @@ export function LessonScreen({
       || result !== null
       || (missionExperience && Boolean(currentCard.mission_game))
     ) return undefined;
-    if (promptHasVisualBlank && !completionPromptSource && !promptTurnSequence) {
+    if ((!promptAudio.trim() || promptHasVisualBlank) && !completionPromptSource && !promptTurnSequence) {
       promptAutoplayAwaitingRef.current = false;
       promptAutoplayWasPlayingRef.current = false;
       setPromptAutoplayFinished(true);
@@ -3031,7 +3045,7 @@ export function LessonScreen({
           </View>
         ) : null;
   const wideLandscapePrompt = usesLessonPhoneLandscape && !useCompactHeaderInstruction && !isSentenceCard
-    && landscapePromptIsWide(visiblePromptAudio, lessonBodyWidth || viewportWidth - 56);
+    && landscapePromptIsWide(visiblePromptText, lessonBodyWidth || viewportWidth - 56);
   const lessonPromptHeader = (
 !isMissionGameCard && !isSentenceCard ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
           styles.contentHeader,
@@ -3059,8 +3073,8 @@ export function LessonScreen({
                     : useCompactSpeakInstruction
                       ? 'Instrucción: Escucha y repite'
                   : promptHasVisualBlank
-                    ? `Frase para completar: ${visiblePromptAudio}`
-                    : `Mostrar traducción de ${visiblePromptAudio}`}
+                    ? `Frase para completar: ${visiblePromptText}`
+                    : `Mostrar traducción de ${visiblePromptText}`}
               accessibilityActions={useCompactHeaderInstruction
                 ? []
                 : [{ label: 'Mostrar traducción', name: 'translate' }]}
@@ -3070,7 +3084,7 @@ export function LessonScreen({
                     ? 'Toca una vez para ver la traducción de la parte visible.'
                     : 'Toca una vez para ver la traducción en español.'}
               accessibilityRole={useCompactHeaderInstruction ? 'text' : 'button'}
-              disabled={useCompactHeaderInstruction || !visiblePromptAudio.trim()}
+              disabled={useCompactHeaderInstruction || !visiblePromptText.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
                 if (nativeEvent.actionName === 'translate') {
                   help.interact();
@@ -3085,13 +3099,14 @@ export function LessonScreen({
               style={[
                 styles.promptTapTarget,
                 styles.promptTapTargetPhraseBox,
+                silentWrittenRecognize ? styles.promptTapTargetSilentRecognition : null,
                 usesLessonPhoneLandscape ? styles.promptTapTargetRail : null,
               ]}
             >
               <Text
                 maxFontSizeMultiplier={usesLessonPhoneLandscape ? 1.3 : undefined}
                 adjustsFontSizeToFit={!useCompactHeaderInstruction}
-                minimumFontScale={useCompactHeaderInstruction ? undefined : usesLessonPhoneLandscape ? 16 / (24 * Math.min(fontScale, 1.3)) : 0.45}
+                minimumFontScale={useCompactHeaderInstruction ? undefined : usesLessonPhoneLandscape ? 16 / (24 * Math.min(fontScale, 1.3)) : writtenRecognize ? 16 / (promptFontSize * fontScale) : 0.45}
                 numberOfLines={usesLessonPhoneLandscape ? 4 : 2}
                 style={[
                   styles.prompt,
@@ -3100,7 +3115,7 @@ export function LessonScreen({
                   {
                     height: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 44 : 80) : undefined,
                     fontSize: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 14 : 24) : promptFontSize,
-                    lineHeight: usesLessonPhoneLandscape ? undefined : promptLineHeight,
+                    lineHeight: usesLessonPhoneLandscape || writtenRecognize ? undefined : promptLineHeight,
                   },
                 ]}
               >
@@ -3118,7 +3133,7 @@ export function LessonScreen({
                 </Animated.Text>
               ) : null}
             </Pressable>
-            <Pressable
+            {!silentWrittenRecognize || phraseReplayAvailable ? <Pressable
               accessibilityHint={useCompactRecognizeInstruction && !phraseReplayAvailable
                 ? 'Disponible después de elegir la frase correcta.'
                 : 'Reproduce la frase en inglés otra vez.'}
@@ -3143,7 +3158,7 @@ export function LessonScreen({
               ]}>
                 <Ionicons color="#fff" name="volume-high" size={16} />
               </View>
-            </Pressable>
+            </Pressable> : null}
           </View>
         </View> : null
   );
@@ -3679,6 +3694,7 @@ const styles = StyleSheet.create({
   promptRowPhraseBox: { minHeight: 64, overflow: 'visible' },
   promptRowPhraseBoxCompact: { minHeight: 50 },
   promptTapTargetPhraseBox: { paddingHorizontal: 44 },
+  promptTapTargetSilentRecognition: { paddingHorizontal: 28 },
   promptPhraseBox: { color: '#24333a', fontWeight: '800' },
   phraseReplayButton: {
     alignItems: 'center',

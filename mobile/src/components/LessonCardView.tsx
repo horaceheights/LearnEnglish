@@ -9,6 +9,7 @@ import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { COMPLETION_RETRY_HELP, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
+import { isWrittenRecognize } from '../lessonPromptPresentation';
 import { awaitingConstructionRetry } from '../constructionTeaching';
 import { IMAGE_CHOICE_INSET, imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
@@ -474,11 +475,18 @@ export function LessonCardView({
           maxHeight={hasSidePrompt ? availableCardHeight - cardVerticalChrome - feedbackReservedHeight : promptImageHeight}
         >
           <OptionMediaImage
-            accessibilityLabel={card.answer_audio_text || card.prompt}
+            accessibilityLabel={isWrittenRecognize(card) && result !== 'correct'
+              ? card.prompt
+              : card.answer_audio_text || card.prompt}
             imageUrl={activeTurnImageUrl || card.prompt_image_url}
           />
         </LessonMediaFrame>
       ) : null);
+  const writtenRecognitionAnswer = result === 'correct' && isWrittenRecognize(card)
+    ? card.answer_audio_text?.trim() || '' : '';
+  const correctChoiceFeedback = writtenRecognitionAnswer
+    ? `${writtenRecognitionAnswer}\nCorrecto. Vamos a la siguiente tarjeta…`
+    : 'Correcto. Vamos a la siguiente tarjeta…';
   const answerFeedback = (result ? (
             <View
               accessible={!awaitingRetry}
@@ -497,7 +505,7 @@ export function LessonCardView({
                 result === 'correct' ? styles.correctText : styles.wrongText,
               ]}>
                 {result === 'correct'
-                  ? 'Correcto. Vamos a la siguiente tarjeta…'
+                  ? correctChoiceFeedback
                   : 'Cuando te equivocas, también aprendes.'}
               </Text>
               {result === 'wrong' && mistakeHint ? (

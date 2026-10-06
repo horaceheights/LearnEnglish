@@ -30,6 +30,14 @@ class ContentEngineAuthorTests(unittest.TestCase):
         self.assertEqual([stage for index, stage in enumerate(stages) if index == 0 or stages[index - 1] != stage],
                          ["Learn", "Recognize", "Listen", "Speak", "Use"])
 
+    def test_a_brief_requires_a_positive_content_revision(self):
+        lesson = {key: value for key, value in self.brief["lesson"].items() if key != "content_revision"}
+        with self.assertRaisesRegex(BriefError, "positive integer content_revision"):
+            propose_lesson({**self.brief, "lesson": lesson}, self.standards)
+
+        with self.assertRaisesRegex(BriefError, "positive integer content_revision"):
+            propose_lesson({**self.brief, "lesson": {**lesson, "content_revision": 0}}, self.standards)
+
     def test_proposals_are_drafts_that_cannot_be_installed(self):
         # Install into a scratch root: a test must never write into the real course.
         with tempfile.TemporaryDirectory() as directory:

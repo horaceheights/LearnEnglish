@@ -1,7 +1,7 @@
 """The course's expected shape, from the versioned release-integrity manifest.
 
 `mobile/release-integrity.json` is the fail-closed release contract: it pins
-the exact catalog plus its lesson and unit counts, and changes only in a
+the stable course identity, exact catalog, lesson count, and unit counts, and changes only in a
 deliberate curriculum release. Tests and scripts read the expected course size
 here instead of assuming 70 lessons or ten lessons per unit (unit size follows
 content, approved 2026-09-23).
@@ -21,6 +21,10 @@ MANIFEST = Path("mobile/release-integrity.json")
 
 def release_catalog(root: Path = ROOT) -> dict:
     return json.loads((root / MANIFEST).read_text(encoding="utf-8"))["catalog"]
+
+
+def course_id(root: Path = ROOT) -> str:
+    return str(release_catalog(root)["courseId"])
 
 
 def expected_lesson_count(root: Path = ROOT) -> int:

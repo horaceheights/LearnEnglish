@@ -60,9 +60,10 @@ export type MissionGame = {
 };
 
 export type LessonCard = {
-  slide_id?: string | null;
+  slide_id: string;
   interaction_type?: string | null;
   prompt: string;
+  prompt_presentation?: 'written' | null;
   stage: string;
   correct_option_id: string;
   correct_option_ids?: string[];
@@ -122,7 +123,7 @@ export type Lesson = {
   speaking_outcome?: string;
   purposeful_review_slides?: string[];
   experience_type?: 'mission';
-  content_revision?: number;
+  content_revision: number;
   mission?: MissionPresentation;
   cards: LessonCard[];
 };
@@ -147,6 +148,7 @@ export type LessonProgress = {
 };
 
 export type LearnerProfile = {
+  qaAccess?: boolean;
   userId?: string;
   displayName: string;
   level: string;

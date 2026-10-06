@@ -18,13 +18,16 @@ class WeekdayCalendarMarkersTests(unittest.TestCase):
         for card in lesson["cards"]:
             correct = next(option for option in card["options"] if option["id"] == card["correct_option_id"])
             answer_ids = card.get("correct_option_ids") or [card["correct_option_id"]]
-            answer = " ".join(next(o["label"] for o in card["options"] if o["id"] == key) for key in answer_ids)
+            answer = " ".join(next(o["label"] or "" for o in card["options"] if o["id"] == key) for key in answer_ids)
+            # Caption-free reverse recognition cards name the selected day in
+            # their post-correct narration rather than inside the picture.
+            answer = answer.strip() or card.get("answer_audio_text") or card.get("audio_text") or ""
             days = re.findall(r"\b(" + "|".join(DAYS) + r")\b", answer.lower())
             if not days:
                 continue
             self.assertEqual(len(set(days)), 1, card["slide_id"])
             day = days[0]
-            filename = f"a1_photo_u4_days_week_{day}_handdrawn_v2.webp"
+            filename = f"a1_photo_u4_days_week_board_{day}_v1.webp"
             expected = f"/lesson-assets/{filename}"
             seen.add((card["stage"], day))
             if card["prompt_image_url"]:
@@ -33,7 +36,10 @@ class WeekdayCalendarMarkersTests(unittest.TestCase):
                 self.assertEqual(correct["image_url"], expected, card["slide_id"])
             for field in ("audio_turns", "answer_audio_turns"):
                 for turn in card.get(field, []):
-                    self.assertEqual(turn["image_url"], expected, (card["slide_id"], field))
+                    self.assertEqual(turn["image_url"],
+                                     "/lesson-assets/a1_photo_u4_days_week_board_unmarked_v1.webp"
+                                     if turn["text"] == "What day is it today?" else expected,
+                                     (card["slide_id"], field))
         for stage in ("Learn", "Recognize", "Listen", "Speak", "Use"):
             self.assertTrue(any(s == stage for s, _ in seen), stage)
         self.assertEqual({day for _, day in seen}, set(DAYS))

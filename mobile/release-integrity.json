@@ -2,8 +2,9 @@
   "manifestVersion": 1,
   "baselineCommit": "657ab19487e37851de1229c08219d44d59ab199b",
   "catalog": {
+    "courseId": "a1",
     "path": "mobile/src/generated/a1-course.json",
-    "expectedGitBlob": "843905e820d6f5ad3df072b12281ddc538974991",
+    "expectedGitBlob": "7172ee6204651a4f7debe088d1ae1876cc27f731",
     "lessonCount": 81,
     "unitCount": 7,
     "lessonsByUnit": {
@@ -28,7 +29,7 @@
     },
     {
       "path": "mobile/src/screens/CourseScreen.tsx",
-      "expectedGitBlob": "002b25774b9180c9a0593eea59e5f9b52e772674",
+      "expectedGitBlob": "40535472d2e59c173f3683903bb5feff5aed2117",
       "requiredMarkers": [
         "releaseVersionLabel(currentVersion)",
         "<Text style={styles.menuVersion}>"
@@ -36,13 +37,23 @@
     },
     {
       "path": "mobile/scripts/publish-preview.ps1",
-      "expectedGitBlob": "bf69092b3ade2353da21c6a383e42b3c7958817e",
+      "expectedGitBlob": "6b61a10b4cbc1b86ed8f4d5bb9cebe3f70c67ebe",
       "requiredMarkers": [
         "Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_SHA'",
         "EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA",
         "PSObject.Properties['gitCommitHash']",
-        "$build.gitCommitHash -cne $releaseCommit",
-        "$build.runtimeVersion -cne $expectedVersion"
+        "Assert-NativePreviewBuilds -Builds $builds",
+        "-NativePlatform $NativePlatform"
+      ]
+    },
+    {
+      "path": "mobile/scripts/release-guard.ps1",
+      "expectedGitBlob": "b4b56dafb13bf849619ec37403c9e89d6409ddea",
+      "requiredMarkers": [
+        "function Assert-NativePreviewBuilds",
+        "$build.gitCommitHash -cne $ExpectedCommit",
+        "$build.runtimeVersion -cne $ExpectedVersion",
+        "$build.platform -cnotin $expectedPlatforms"
       ]
     }
   ]

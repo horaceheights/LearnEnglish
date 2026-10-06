@@ -70,15 +70,21 @@ const pinnedActions = {
   expo: 'eab7a230208c952974db8c3245cfd78402c7b385',
 };
 
-test('native Preview uses the same protected publisher and verifies both exact-commit builds', () => {
+test('native Preview verifies the requested platforms through the same protected publisher', () => {
   assert.match(publishWorkflowSource, /delivery:[\s\S]*?native-build/);
+  assert.match(publishWorkflowSource, /native_platform:[\s\S]*?default: all[\s\S]*?- all[\s\S]*?- android/);
+  assert.match(publishWorkflowSource, /RELEASE_NATIVE_PLATFORM: \$\{\{ inputs\.native_platform \}\}/);
+  assert.match(publishWorkflowSource, /-NativePlatform \$env:RELEASE_NATIVE_PLATFORM/);
   assert.match(publishScriptSource, /ValidateSet\('update', 'native-build'\)/);
+  assert.match(publishScriptSource, /ValidateSet\('all', 'android'\)/);
+  assert.match(publishScriptSource, /\$NativePlatform = 'all'/);
   const build = publishScriptSource.slice(publishScriptSource.indexOf("if ($Delivery -eq 'native-build')"));
-  assert.match(build, /eas build --profile preview --platform all --non-interactive --wait --json/);
-  assert.match(build, /\$build\.gitCommitHash -cne \$releaseCommit/);
-  assert.match(build, /\$build\.status -cne 'FINISHED'/);
-  assert.match(build, /\$build\.channel -cne 'preview'/);
-  assert.match(build, /\$platforms -notcontains 'ANDROID' -or \$platforms -notcontains 'IOS'/);
+  assert.match(build, /eas build --profile preview --platform \$NativePlatform --non-interactive --wait --json/);
+  assert.match(build, /Assert-NativePreviewBuilds -Builds \$builds[\s\S]*?-NativePlatform \$NativePlatform/);
+  assert.match(releaseGuardSource, /\$build\.gitCommitHash -cne \$ExpectedCommit/);
+  assert.match(releaseGuardSource, /\$build\.status -cne 'FINISHED'/);
+  assert.match(releaseGuardSource, /\$build\.channel -cne 'preview'/);
+  assert.match(projectGuardrailsSource, /Approved Android-first Preview/);
   assert.ok(publishScriptSource.indexOf('Assert-SharedBackendRelease `') < publishScriptSource.indexOf("if ($Delivery -eq 'native-build')"));
   assert.doesNotMatch(build, /EAS_NO_VCS/);
   const ignore = require('ignore')().add(fs.readFileSync(path.join(repositoryRoot, '.easignore'), 'utf8'));
@@ -93,6 +99,44 @@ test('native Preview uses the same protected publisher and verifies both exact-c
   for (const included of ['mobile', 'mobile/src', 'mobile/assets']) {
     assert.equal(ignore.ignores(included), false, included);
   }
+});
+
+test('native metadata rejects incomplete, stale, duplicate and unexpected platform results', () => {
+  const commit = 'a'.repeat(40);
+  const android = { platform: 'ANDROID', status: 'FINISHED', gitCommitHash: commit,
+    channel: 'preview', buildProfile: 'preview', distribution: 'INTERNAL',
+    appVersion: '1.8.0', runtimeVersion: '1.8.0' };
+  const ios = { ...android, platform: 'IOS' };
+  const cases = [
+    { name: 'Android first', platform: 'android', builds: [android], accepted: true },
+    { name: 'both platforms', platform: 'all', builds: [android, ios], accepted: true },
+    { name: 'missing Android', platform: 'android', builds: [], accepted: false },
+    { name: 'missing iOS', platform: 'all', builds: [android], accepted: false },
+    { name: 'duplicate Android', platform: 'android', builds: [android, android], accepted: false },
+    { name: 'unexpected iOS', platform: 'android', builds: [android, ios], accepted: false },
+    { name: 'wrong platform', platform: 'android', builds: [ios], accepted: false },
+    ...Object.entries({ status: 'IN_PROGRESS', gitCommitHash: 'b'.repeat(40),
+      channel: 'production', buildProfile: 'production', distribution: 'STORE',
+      appVersion: '1.7.0', runtimeVersion: '1.7.0' }).map(([field, value]) => ({
+      name: `wrong ${field}`, platform: 'android', builds: [{ ...android, [field]: value }], accepted: false,
+    })),
+  ];
+  const result = spawnSync('powershell.exe', ['-NoProfile', '-Command', `
+    . $env:NATIVE_PREVIEW_GUARD_PATH
+    $cases = [Console]::In.ReadToEnd() | ConvertFrom-Json
+    $results = foreach ($case in $cases) {
+      try {
+        Assert-NativePreviewBuilds -Builds @($case.builds) -ExpectedCommit $env:NATIVE_PREVIEW_TEST_COMMIT -ExpectedVersion '1.8.0' -NativePlatform $case.platform
+        $accepted = $true
+      } catch { $accepted = $false }
+      [pscustomobject]@{ name = $case.name; accepted = $accepted }
+    }
+    ConvertTo-Json -InputObject @($results) -Compress
+  `], { encoding: 'utf8', input: JSON.stringify(cases), env: { ...process.env,
+    NATIVE_PREVIEW_GUARD_PATH: path.join(repositoryRoot, 'mobile/scripts/release-guard.ps1'),
+    NATIVE_PREVIEW_TEST_COMMIT: commit } });
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout), cases.map(({ name, accepted }) => ({ name, accepted })));
 });
 
 test('main runs full integrity checks on pull requests and pushes', () => {
