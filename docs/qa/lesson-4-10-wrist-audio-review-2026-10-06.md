@@ -72,7 +72,12 @@ No physical device was connected; regression results are not device confirmation
 
 ## Release checkpoint
 
-Local content/audio integration is complete. The persistent catalog must be
-pinned to the committed candidate, immutable CDN objects verified, and the task
-integrated through required PR checks before protected Preview.
+Content/audio integration is committed at `7cffa9a8ddc3fc94cc241134674d4f6100c86db2`.
+The complete persistent catalog is pinned to that source. All 153 scoped R2
+objects (13 images and 70 MP3/receipt pairs) were uploaded with immutable writes
+and verified by full GET checksums. Historical objects remain preserved.
+The exact cast audit now covers the approved role reversal; its focused tests
+pass. Full local backend discovery is limited by absent unrelated assets in the
+sparse checkout. Required CI runs the complete checkout before integration and
+protected Preview publication.
 This record does not claim Production approval or completed phone testing.

@@ -323,16 +323,18 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-05: 4.9 Reconoce becomes silent visual reading; seven male question
         # turns retire, with their existing question take still used elsewhere.
         # Its aligned Listen section adds the standalone opening question (+1).
+        # 2026-10-06: approved 4.10 scenes have the woman ask and Luis answer
+        # (+12 net male assets, seven exact answer takes, 187 characters).
         self.assertEqual(
-            Counter({"male-character": 559, "luis": 253, "diego": 16}),
+            Counter({"male-character": 559, "luis": 265, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
-        self.assertEqual(828, len(selected))
-        self.assertEqual(164, len(jobs))
-        self.assertEqual(164, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(840, len(selected))
+        self.assertEqual(171, len(jobs))
+        self.assertEqual(171, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
-        self.assertEqual(3312, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(3499, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
