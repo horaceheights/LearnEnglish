@@ -89,6 +89,8 @@ import {
   parseSavedLessonRun,
   type SavedLessonRun,
 } from '../lessonResume';
+import { accountCheckpoints, loadAccountCheckpoint, scheduleAccountSync } from '../accountSync';
+import { progressScope } from '../accountSession';
 import { lessonStageColorForCard } from '../lessonStageTheme';
 import { sectionBriefingForBoundary, type SectionBriefing } from '../lessonSectionBriefing';
 import { LessonSectionBriefing } from '../components/LessonSectionBriefing';
@@ -392,32 +394,40 @@ export function LessonScreen({
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
-  const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
+  const lessonProgressScope = progressScope(profile.userId || profile.displayName.trim().toLowerCase());
+  const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${lessonProgressScope}:${lessonId}`;
   const lessonResumePersistence = useMemo(
     () => createLessonResumePersistence(AsyncStorage, lessonResumeStorageKey),
     [lessonResumeStorageKey],
   );
   const saveLessonResume = useCallback((savedRun: SavedLessonRun) => {
     latestLessonResumeRef.current = savedRun;
-    return lessonResumePersistence.save(savedRun).catch((saveError) => {
+    return lessonResumePersistence.save(savedRun).then(async () => {
+      if (!qaMode && profile.userId) {
+        await accountCheckpoints.save(lessonProgressScope, lessonId, savedRun);
+        scheduleAccountSync();
+      }
+    }).catch((saveError) => {
       captureDiagnosticError(saveError, 'save_lesson_resume', { lesson_id: lessonId }, 'warning');
     });
-  }, [lessonId, lessonResumePersistence]);
+  }, [lessonId, lessonResumePersistence, lessonProgressScope, profile.userId, qaMode]);
   const flushLessonResume = useCallback(() => {
     const latestRun = latestLessonResumeRef.current;
     const persistence = latestRun
-      ? lessonResumePersistence.save(latestRun)
+      ? saveLessonResume(latestRun)
       : lessonResumePersistence.flush();
     return persistence.catch((saveError) => {
       captureDiagnosticError(saveError, 'flush_lesson_resume', { lesson_id: lessonId }, 'warning');
     });
-  }, [lessonId, lessonResumePersistence]);
+  }, [lessonId, lessonResumePersistence, saveLessonResume]);
   const clearLessonResume = useCallback(() => {
     latestLessonResumeRef.current = null;
-    return lessonResumePersistence.clear().catch((saveError) => {
+    return lessonResumePersistence.clear().then(async () => {
+      if (!qaMode && profile.userId) { await accountCheckpoints.save(lessonProgressScope, lessonId, null); scheduleAccountSync(); }
+    }).catch((saveError) => {
       captureDiagnosticError(saveError, 'clear_lesson_resume', { lesson_id: lessonId }, 'warning');
     });
-  }, [lessonId, lessonResumePersistence]);
+  }, [lessonId, lessonResumePersistence, lessonProgressScope, profile.userId, qaMode]);
   const missionExperience = isMissionLesson(lesson);
   const { playMissionSound, stopMissionSound } = useMissionSoundEffects({
     enabled: true,
@@ -869,6 +879,7 @@ export function LessonScreen({
     setReviewStageBounds(null);
     try {
       const nextLesson = await getLesson(lessonId);
+      if (!qaMode && profile.userId) await loadAccountCheckpoint(profile.userId, lessonId, lessonResumeStorageKey);
       const savedRun = qaMode
         ? null
         : parseSavedLessonRun(

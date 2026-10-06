@@ -36,7 +36,7 @@ def _page(title: str, body: str) -> str:
   </style>
 </head>
 <body><main><header><p>SpanGlish</p><h1>{html.escape(title)}</h1></header><article>{body}</article>
-<footer>Última actualización: 5 de agosto de 2026</footer></main></body>
+<footer>Última actualización: 5 de octubre de 2026</footer></main></body>
 </html>"""
 
 
@@ -50,6 +50,7 @@ def privacy_policy_html() -> str:
 <h2>Información que procesamos</h2>
 <ul>
   <li><strong>Perfil:</strong> nombre visible, identificador interno y preferencias del perfil.</li>
+  <li><strong>Cuenta:</strong> correo e identidad de acceso gestionados por Clerk; SpanGlish vincula esa identidad con tu perfil y progreso.</li>
   <li><strong>Actividad de aprendizaje:</strong> lecciones visitadas, respuestas, intentos, resultados, progreso y fechas de actividad.</li>
   <li><strong>Pronunciación:</strong> grabaciones de voz que decides enviar para recibir una evaluación.</li>
   <li><strong>Comentarios opcionales:</strong> respuestas a encuestas de la lección y el texto que confirmas después de dictar un comentario.</li>
@@ -66,7 +67,7 @@ def privacy_policy_html() -> str:
 <p>Cuando decides responder una encuesta, guardamos las opciones seleccionadas y el comentario escrito que confirmas. Si utilizas el micrófono, el audio se envía cifrado a Microsoft Azure Speech para producir una transcripción y no se conserva intencionalmente en nuestra base de datos.</p>
 
 <h2>Proveedores</h2>
-<p>Utilizamos proveedores que procesan información por cuenta de SpanGlish, incluidos Render para infraestructura y base de datos, Microsoft Azure Speech para pronunciación, Sentry para diagnóstico y rendimiento, y Expo/EAS para crear y distribuir la aplicación y sus actualizaciones. Cada proveedor puede conservar datos técnicos conforme a sus propias políticas y obligaciones de seguridad.</p>
+<p>Utilizamos proveedores que procesan información por cuenta de SpanGlish, incluidos Clerk para cuentas y acceso, Render para infraestructura y base de datos, Microsoft Azure Speech para pronunciación, Sentry para diagnóstico y rendimiento, y Expo/EAS para crear y distribuir la aplicación y sus actualizaciones. Cada proveedor puede conservar datos técnicos conforme a sus propias políticas y obligaciones de seguridad.</p>
 
 <h2>Diagnóstico y reproducción de sesiones</h2>
 <p>Sentry puede recibir fallos, métricas de rendimiento y reproducciones técnicas asociadas a un error. Configuramos la reproducción para ocultar texto, imágenes y gráficos de la interfaz. No usamos estos datos con fines publicitarios.</p>
@@ -100,6 +101,7 @@ def account_deletion_html() -> str:
   <li>Confirma <strong>Eliminar definitivamente</strong>.</li>
 </ol>
 <p class="note"><strong>Esta acción es permanente.</strong> Una vez confirmada, se elimina el perfil del alumno y se cierra la sesión local en el dispositivo.</p>
+<p>En la versión web, utiliza <strong>Eliminar mi cuenta</strong>. Para las cuentas vinculadas a Clerk, también se elimina la cuenta de acceso.</p>
 
 <h2>Qué información se elimina</h2>
 <ul>
@@ -110,6 +112,7 @@ def account_deletion_html() -> str:
 </ul>
 
 <h2>Información que no forma parte del perfil</h2>
+<p>Conservamos una referencia mínima de la cuenta eliminada para rechazar sesiones previamente emitidas y evitar que el progreso borrado reaparezca por una sincronización atrasada.</p>
 <p>SpanGlish no conserva intencionalmente las grabaciones de pronunciación en su base de datos de progreso. Los proveedores de diagnóstico e infraestructura pueden conservar registros técnicos limitados durante el periodo establecido por sus políticas o por obligaciones de seguridad.</p>
 
 <h2>Si no puedes abrir la aplicación</h2>

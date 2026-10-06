@@ -145,6 +145,10 @@ def init_db() -> None:
         )
 
 
+    from .accounts import init_account_db
+    init_account_db()
+
+
 class UserCreate(BaseModel):
     display_name: str = Field(default="Student", max_length=80)
     profile: dict[str, Any] = Field(default_factory=dict)
@@ -280,6 +284,8 @@ def create_or_update_user(payload: UserCreate, user_id: str | None = None) -> di
             {"display_name": display_name},
         ).mappings().fetchone()
         if duplicate:
+            from .accounts import guard_write
+            guard_write(db, duplicate["id"])
             db.execute(
                 text(
                     """
@@ -307,6 +313,8 @@ def create_or_update_user(payload: UserCreate, user_id: str | None = None) -> di
                 {"user_id": user_id},
             ).fetchone()
             if existing:
+                from .accounts import guard_write
+                guard_write(db, user_id)
                 db.execute(
                     text(
                         """
@@ -384,6 +392,9 @@ def get_user_by_name(display_name: str) -> dict[str, Any] | None:
 def delete_user_and_activity(user_id: str) -> bool:
     """Delete a learner profile and every activity record linked to it."""
     with engine.begin() as db:
+        db.execute(text("UPDATE learner_accounts SET deleted=1,generation=:generation WHERE user_id=:id"),
+                   {"generation": str(uuid.uuid4()), "id": user_id})
+        db.execute(text("DELETE FROM learner_checkpoints WHERE user_id=:id"), {"id": user_id})
         existing = db.execute(
             text("SELECT id FROM users WHERE id = :user_id"),
             {"user_id": user_id},
@@ -415,6 +426,9 @@ def delete_user_and_activity(user_id: str) -> bool:
 def reset_user_activity(user_id: str) -> bool:
     """Delete a learner's tracked progress while preserving the profile."""
     with engine.begin() as db:
+        db.execute(text("UPDATE learner_accounts SET generation=:generation WHERE user_id=:id"),
+                   {"generation": str(uuid.uuid4()), "id": user_id})
+        db.execute(text("DELETE FROM learner_checkpoints WHERE user_id=:id"), {"id": user_id})
         existing = db.execute(
             text("SELECT id FROM users WHERE id = :user_id"),
             {"user_id": user_id},
@@ -443,6 +457,8 @@ def create_session(payload: SessionCreate) -> dict[str, Any]:
     session_id = payload.id or str(uuid.uuid4())
     timestamp = now_iso()
     with engine.begin() as db:
+        from .accounts import guard_write
+        guard_write(db, payload.user_id)
         db.execute(
             text(
                 """
@@ -474,8 +490,13 @@ def create_session(payload: SessionCreate) -> dict[str, Any]:
 def finish_session(session_id: str, payload: SessionFinish) -> dict[str, Any] | None:
     timestamp = now_iso()
     with engine.begin() as db:
+        from .accounts import guard_write, write_account
+        if write_account.get():
+            guard_write(db, write_account.get()[0])
         db.execute(text("UPDATE lesson_sessions SET id = id WHERE id = :id"), {"id": session_id})
         saved = db.execute(text("SELECT user_id, finished_at, score, total_cards, result_json FROM lesson_sessions WHERE id = :id"), {"id": session_id}).mappings().first()
+        if saved:
+            guard_write(db, saved["user_id"])
         if saved and saved["result_json"]:
             # An older delayed client request must not overwrite an immutable result.
             return {"id": session_id, **{key: saved[key] for key in ("user_id", "finished_at", "score", "total_cards")}}
@@ -530,6 +551,8 @@ def sync_lesson_result(payload: LessonResultSync) -> dict[str, Any]:
     """Atomically union corrections; neither retries nor stale snapshots award twice."""
     incoming = payload.model_dump(exclude_none=True)
     with engine.begin() as db:
+        from .accounts import guard_write
+        guard_write(db, payload.userId)
         if not db.execute(text("SELECT id FROM users WHERE id = :id"), {"id": payload.userId}).first():
             raise ValueError("Learner does not exist")
         db.execute(text("""
@@ -566,7 +589,7 @@ def sync_lesson_result(payload: LessonResultSync) -> dict[str, Any]:
         """), {"initial": payload.initialScore, "score": payload.initialScore + len(recovered),
                "total": payload.totalCards, "pending": pending, "result": json.dumps(incoming),
                "finished": payload.completedAt, "finish_order": order, "id": payload.id})
-    return incoming
+    return {**incoming, "serverOrder": order}
 
 
 def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
@@ -605,7 +628,7 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
                     WHERE user_id = :user_id
                       AND finished_at IS NOT NULL
                 )
-                SELECT lesson_id, score, initial_score, total_cards, finished_at, passed
+                SELECT lesson_id, score, initial_score, total_cards, finished_at, finished_order, passed
                 FROM ranked_sessions
                 WHERE session_rank = 1
                 ORDER BY lesson_id
@@ -626,6 +649,7 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
             if row["total_cards"] > 0
             else 0,
             "completed_at": row["finished_at"],
+            **({"finished_order": row["finished_order"]} if row["finished_order"] is not None else {}),
         }
         for row in rows
     ]
@@ -635,6 +659,8 @@ def create_attempt(payload: CardAttemptCreate) -> dict[str, Any]:
     attempt_id = str(uuid.uuid4())
     timestamp = now_iso()
     with engine.begin() as db:
+        from .accounts import guard_write
+        guard_write(db, payload.user_id)
         session = db.execute(
             text(
                 """
@@ -736,6 +762,8 @@ def create_lesson_feedback(payload: LessonFeedbackCreate) -> dict[str, Any]:
     timestamp = now_iso()
     comment_text = (payload.comment_text or "").strip() or None
     with engine.begin() as db:
+        from .accounts import guard_write
+        guard_write(db, payload.user_id)
         existing_user = db.execute(
             text("SELECT id FROM users WHERE id = :user_id"),
             {"user_id": payload.user_id},

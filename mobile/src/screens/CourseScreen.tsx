@@ -22,6 +22,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { getLessonProgress, getLessons } from '../api';
 import { localResultProgress, mergeCourseProgress } from '../lessonResult';
 import { lessonResults, syncLocalLessonResults } from '../localLessonResults';
+import { subscribeAccountSync } from '../accountSync';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { setDiagnosticContext } from '../diagnostics';
 import { lessonImageSource } from '../lessonImageSources';
@@ -547,6 +548,12 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   };
 
   useEffect(() => { void load(); }, [profile.userId]);
+  useEffect(() => subscribeAccountSync((snapshot) => {
+    if (!snapshot || snapshot.user.id !== profile.userId) return;
+    void lessonResults.list(snapshot.user.id).then(results => {
+      setProgressByLesson(current => mergeCourseProgress(Object.values(current), localResultProgress(results)));
+    }).catch(cause => setError(cause.message));
+  }), [profile.userId]);
   useEffect(() => { setDiagnosticContext({}); }, []);
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);

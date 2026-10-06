@@ -26,6 +26,8 @@ module.exports = ({ config }) => {
     plugins: [
       ...(config.plugins || []),
       'expo-video',
+      'expo-secure-store',
+      '@clerk/expo',
       '@sentry/react-native',
       [
         'expo-build-properties',

@@ -41,6 +41,8 @@ import MissionCompletion from "./MissionCompletion";
 import LessonResultScreen, { LessonGoodbye } from "./LessonResultScreen";
 import { newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCards, resultSummary } from "../../mobile/src/lessonResult";
 import { parseSavedLessonRun } from "../../mobile/src/lessonResume";
+import { accountCheckpoints, loadAccountCheckpoint, scheduleAccountSync } from '../lib/accountSync';
+import { progressScope } from '../../mobile/src/accountSession';
 import { lessonResults, syncLocalLessonResults } from "../lib/localLessonResults";
 import MissionJourney from "./MissionJourney";
 import SentenceConstruction from "./SentenceConstruction";
@@ -2218,17 +2220,17 @@ function getPronunciationOutcome(summary, level, result = null) {
   };
 }
 
-export default function LessonPlayer({ lesson, lessons, testMode = false }) {
+export default function LessonPlayer({ lesson, lessons, testMode = false, accountProfile = null }) {
   const [activeLesson, setActiveLesson] = useState(lesson);
   const [started, setStarted] = useState(testMode);
-  const [profileLoaded, setProfileLoaded] = useState(testMode);
+  const [profileLoaded, setProfileLoaded] = useState(testMode || Boolean(accountProfile));
   const [profile, setProfile] = useState(
     testMode
       ? {
           ...DEFAULT_PROFILE,
           displayName: "Pronunciation Test",
         }
-      : null
+      : accountProfile
   );
   const [isCreatingProfile, setIsCreatingProfile] = useState(false);
   const [loginName, setLoginName] = useState("");
@@ -3289,6 +3291,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     try {
+      if (accountProfile) {
+        setDraftProfile(accountProfile); setLoginName(accountProfile.displayName || '');
+        setProfileLoaded(true); return;
+      }
       const storedProfile = window.localStorage.getItem(PROFILE_STORAGE_KEY);
       if (storedProfile) {
         const parsedProfile = JSON.parse(storedProfile);
@@ -3300,7 +3306,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     } finally {
       setProfileLoaded(true);
     }
-  }, [testMode]);
+  }, [testMode, accountProfile]);
 
   useEffect(() => {
     setActiveLesson(lesson);
@@ -3372,7 +3378,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
   }, [cardIndex, pronunciationOutcome.accepted, pronunciationResult, started, wrongAttempts]);
 
-  const resumeKey = `spanglish-lesson-resume-v1:${profile?.userId || profile?.displayName}:${activeLesson.id}`;
+  const resumeKey = `spanglish-lesson-resume-v1:${progressScope(profile?.userId || profile?.displayName || 'qa')}:${activeLesson.id}`;
   useEffect(() => {
     if (testMode || !started || !lessonSessionId) return;
     try {
@@ -3384,6 +3390,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         wrongCards: Object.keys(wrongAttempts).filter((key) => wrongAttempts[key]).map(Number),
         ...(reviewQueue.length ? { reviewQueue, resultId: lessonResultRef.current?.id } : {}),
       }));
+      if (accountProfile) void accountCheckpoints.save(progressScope(profile.userId), activeLesson.id,
+        JSON.parse(window.localStorage.getItem(resumeKey))).then(() => scheduleAccountSync())
+        .catch(() => setResultError('No pudimos guardar tu progreso. Inténtalo otra vez.'));
     } catch { setResultError("No pudimos guardar tu progreso en este navegador."); }
   }, [activeLesson, cardIndex, isComplete, lessonSessionId, resumeKey, reviewQueue, score, started, testMode, wrongAttempts]);
 
@@ -4525,7 +4534,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     let storedResult = null;
     if (!testMode && !fresh) {
       try {
-        saved = parseSavedLessonRun(window.localStorage.getItem(`spanglish-lesson-resume-v1:${userId}:${lessonToStart.id}`), lessonToStart.cards.length, lessonToStart.content_revision);
+        const key = `spanglish-lesson-resume-v1:${progressScope(userId)}:${lessonToStart.id}`;
+        if (accountProfile) await loadAccountCheckpoint(userId, lessonToStart.id, key);
+        saved = parseSavedLessonRun(window.localStorage.getItem(key), lessonToStart.cards.length, lessonToStart.content_revision);
         storedResult = await lessonResults.latest(userId, lessonToStart.id, lessonToStart.cards.length, lessonToStart.content_revision, saved?.sessionId || undefined);
       } catch { setLessonLoadError("No pudimos leer tu progreso guardado. Inténtalo otra vez."); return; }
     }
