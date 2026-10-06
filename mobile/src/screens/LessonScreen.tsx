@@ -28,7 +28,6 @@ import {
   preload,
   setAudioModeAsync,
   type AudioSource,
-  useAudioPlaylistStatus,
   useAudioPlayer,
   useAudioPlayerStatus,
 } from 'expo-audio';
@@ -47,6 +46,7 @@ import { newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCar
 import { lessonResults, syncLocalLessonResults } from '../localLessonResults';
 import canonicalCourse from '../generated/a1-course.json';
 import { MissionCompletion } from '../components/MissionCompletion';
+import { createDialoguePlaylistController, type DialoguePlaylistStatus } from '../lessonDialoguePlaylist';
 import { MissionGameSurface } from '../components/MissionGameSurface';
 import { MissionJourney } from '../components/MissionJourney';
 import { MissionKickoff } from '../components/MissionKickoff';
@@ -261,13 +261,15 @@ export function LessonScreen({
   }));
   const audioPlayerRef = useRef(audioPlayer);
   const audioPlayerStatus = useAudioPlayerStatus(audioPlayer);
-  const [audioPlaylist, setAudioPlaylist] = useState(() => createAudioPlaylist({
+  const [audioPlaylist] = useState(() => createAudioPlaylist({
     loop: 'none',
     sources: [],
   }));
   const audioPlaylistRef = useRef(audioPlaylist);
-  const retiredAudioPlaylistsRef = useRef<ReturnType<typeof createAudioPlaylist>[]>([]);
-  const audioPlaylistStatus = useAudioPlaylistStatus(audioPlaylist);
+  const [audioPlaylistStatus, setAudioPlaylistStatus] = useState<DialoguePlaylistStatus>(
+    () => ({ ...audioPlaylist.currentStatus, error: null }),
+  );
+  const audioPlaylistControllerRef = useRef<ReturnType<typeof createDialoguePlaylistController> | null>(null);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, {
     downloadFirst: true,
     keepAudioSessionActive: true,
@@ -649,10 +651,9 @@ export function LessonScreen({
       return;
     }
     const requestId = ++audioPlaybackRequestRef.current;
-    void Promise.all([
-      ...sources.map(ensureAudioPreloaded),
-      ...sequence.map(({ turn }) => ensureImagePreloaded(turn.image_url).then(() => true)),
-    ]).then(async (results) => {
+    // Images preload independently in preloadCardImages. A slow picture must
+    // never block the English listening cue or its speaker replay.
+    void Promise.all(sources.map(ensureAudioPreloaded)).then(async (results) => {
       if (
         !results.every(Boolean)
         || !audioPlayerActiveRef.current
@@ -667,17 +668,13 @@ export function LessonScreen({
         || audioPlaybackRequestRef.current !== requestId
       ) return;
 
-      const nextPlaylist = createAudioPlaylist({ loop: 'none', sources });
-      const previousPlaylist = audioPlaylistRef.current;
-      try {
-        audioPlayerRef.current.pause();
-        previousPlaylist.pause();
-      } catch {
-        // A previous clip or sequence may already have completed.
-      }
-      retiredAudioPlaylistsRef.current.push(previousPlaylist);
-      audioPlaylistRef.current = nextPlaylist;
-      setAudioPlaylist(nextPlaylist);
+      // Healthy playlists stay observed across cards. A failed Android player
+      // is replaced and observed before playing, because clear/add cannot prepare it.
+      const controller = audioPlaylistControllerRef.current;
+      if (!controller) return;
+      audioPlayerRef.current.pause();
+      const playlist = controller.replaceTracks(sources);
+      audioPlaylistRef.current = playlist;
       setActiveAudioSequence(sequence);
       setActiveTurnImageUrl(sequence[0].turn.image_url);
       addDiagnosticBreadcrumb('audio_sequence_started', {
@@ -685,7 +682,7 @@ export function LessonScreen({
         turn_count: sequence.length,
         variant,
       });
-      nextPlaylist.play();
+      playlist.play();
     }).catch((playbackError) => {
       if (
         !audioPlayerActiveRef.current
@@ -698,7 +695,7 @@ export function LessonScreen({
         'warning',
       );
     });
-  }, [ensureAudioPreloaded, ensureImagePreloaded, isAppActive, isOffline, pageTurnBusy, stopMissionSound]);
+  }, [ensureAudioPreloaded, isAppActive, isOffline, pageTurnBusy, stopMissionSound]);
 
   const playAudioSource = useCallback((source: AudioSource, mode = 'prompt', variant = 'default') => {
     if (!cardAudioReadyRef.current) return;
@@ -826,6 +823,16 @@ export function LessonScreen({
   }, [cardIndex, lesson, playAudio, playAudioSequence]);
 
   useEffect(() => {
+    const controller = createDialoguePlaylistController(
+      audioPlaylistRef.current,
+      () => createAudioPlaylist({ loop: 'none', sources: [] }),
+      setAudioPlaylistStatus,
+    );
+    audioPlaylistControllerRef.current = controller;
+    return () => controller.stopObserving();
+  }, []);
+
+  useEffect(() => {
     audioPlayerActiveRef.current = true;
     return () => {
       audioPlayerActiveRef.current = false;
@@ -849,18 +856,10 @@ export function LessonScreen({
         // Release is idempotent from the screen's point of view.
       }
       try {
-        audioPlaylistRef.current.release();
+        audioPlaylistControllerRef.current?.release();
       } catch {
         // Release is idempotent from the screen's point of view.
       }
-      retiredAudioPlaylistsRef.current.forEach((playlist) => {
-        try {
-          playlist.release();
-        } catch {
-          // Retired playlists may already be unavailable during app teardown.
-        }
-      });
-      retiredAudioPlaylistsRef.current = [];
     };
   }, [missionCuePlayer, translationOpacity]);
 
@@ -1213,7 +1212,7 @@ export function LessonScreen({
     ? lessonAudioAssetSource(completionPromptAsset)
     : null;
   const courseAudioPlaybackStatus = activeAudioSequence
-    ? { ...audioPlaylistStatus, error: null }
+    ? audioPlaylistStatus
     : audioPlayerStatus;
 
   useEffect(() => {
