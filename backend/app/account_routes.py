@@ -18,7 +18,14 @@ def current_account(request):
 
 @router.get("")
 def read_account(request: Request):
-    return accounts.snapshot(current_account(request))
+    account = current_account(request)
+    result = accounts.snapshot(account)
+    if result["profileVersion"] == 1 and result["user"]["display_name"] == "Student":
+        name = learner_auth.first_name(request.state.identity)
+        if name:
+            accounts.adopt_first_name(account, name)
+            result = accounts.snapshot(account)
+    return result
 
 
 class ProfileUpdate(tracking.UserCreate):

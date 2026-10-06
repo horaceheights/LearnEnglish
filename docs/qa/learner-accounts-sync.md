@@ -4,7 +4,27 @@ Accounts: pull request #237, merged as `4a5e4c4`. Android release follow-up:
 `codex/android-account-preview`, based on freshly fetched `origin/main`.
 Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
 
-## Observed locally (2026-10-05)
+## Account presentation follow-up (2026-10-06)
+
+- The user's installed Android screenshot reaches the signed-in course. It exposed
+  an inline legacy-import notice and the backend's default `Student` name; it does
+  not establish checkpoint restoration or offline behavior on the phone.
+- The mobile import offer is now a centered modal with safe-area padding, scrollable
+  content, explicit import/skip actions, disabled actions while saving, and an
+  in-dialog error/retry state. Original progress bytes and retry-safe migration
+  remain unchanged. Eight native Yoga tests cover choices, Android back, failures,
+  small phones, landscape, tablets, larger text and 48dp touch targets.
+- Account reads adopt Clerk's first name only for an untouched `Student` profile.
+  Backend tests cover first login, repair across devices, profile version conflicts,
+  a racing profile edit, learner-chosen names and bounded provider failures.
+- All 533 backend tests pass locally. A read-only lookup with the configured
+  production Clerk instance returns `Horacio` for the signed-in learner; the
+  currently deployed course still shows `Student` before this follow-up deploy.
+- Installed-device review still needs to confirm the popup appearance, both choices,
+  and the first name after a Preview refresh. The remaining progress gates below
+  stay open until their specific behaviors are observed.
+
+## Initial local verification (2026-10-05)
 
 - Real Google sign-in through the user's SpanGlish Clerk development app reaches
   all seven units in Chrome and the separate Codex in-app browser.

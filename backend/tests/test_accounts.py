@@ -16,7 +16,8 @@ class AccountIntegrationTests(unittest.TestCase):
         self.engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)
         self.patches = [patch.object(tracking, "engine", self.engine), patch.object(main, "APP_API_KEY", ""),
                         patch.object(main, "ADMIN_API_KEY", "operator"),
-                        patch.object(learner_auth, "authenticate", side_effect=self.identity)]
+                        patch.object(learner_auth, "authenticate", side_effect=self.identity),
+                        patch.object(learner_auth, "first_name", return_value=None)]
         for item in self.patches:
             item.start()
         tracking.init_db()
@@ -59,6 +60,50 @@ class AccountIntegrationTests(unittest.TestCase):
         legacy = tracking.create_or_update_user(tracking.UserCreate(display_name="Old learner"))
         response = self.client.get(f'/api/users/{legacy["id"]}', headers=self.headers())
         self.assertEqual(403, response.status_code)
+
+    def test_first_name_repairs_placeholder_and_is_shared_without_repeated_provider_lookups(self):
+        with patch.object(learner_auth, "first_name", return_value="Horacio") as lookup:
+            first = self.client.get("/api/account", headers=self.headers()).json()
+            again = self.client.get("/api/account", headers=self.headers()).json()
+        lookup.assert_called_once_with(learner_auth.Identity("https://test.clerk.accounts.dev", "alice"))
+        self.assertEqual("Horacio", first["user"]["display_name"])
+        self.assertEqual(first["user"], again["user"])
+        self.assertEqual(2, first["profileVersion"])
+        self.assertEqual(self.alice["user"]["id"], first["user"]["id"])
+        self.assertEqual("Student", self.client.get("/api/account", headers=self.headers("bob")).json()["user"]["display_name"])
+        stale = self.client.put("/api/account/profile", headers=self.headers(), json={"display_name": "Old", "version": 1})
+        self.assertEqual(409, stale.status_code)
+
+    def test_first_login_uses_first_name_without_claiming_same_named_legacy_user(self):
+        legacy = tracking.create_or_update_user(tracking.UserCreate(display_name="Horacio"))
+        with patch.object(learner_auth, "authenticate", return_value=learner_auth.Identity("https://test.clerk.accounts.dev", "new-user")), \
+                patch.object(learner_auth, "first_name", return_value="Horacio"):
+            response = self.client.get("/api/account", headers={"Authorization": "Bearer new-user"})
+        self.assertEqual(200, response.status_code)
+        self.assertEqual("Horacio", response.json()["user"]["display_name"])
+        self.assertNotEqual(legacy["id"], response.json()["user"]["id"])
+
+    def test_learner_chosen_name_even_student_is_not_replaced(self):
+        for name in ("Student", "Mi nombre"):
+            with self.subTest(name=name):
+                current = self.client.get("/api/account", headers=self.headers()).json()
+                self.assertEqual(200, self.client.put("/api/account/profile", headers=self.headers(),
+                    json={"display_name": name, "version": current["profileVersion"]}).status_code)
+                with patch.object(learner_auth, "first_name", return_value="Horacio") as lookup:
+                    response = self.client.get("/api/account", headers=self.headers())
+                lookup.assert_not_called()
+                self.assertEqual(name, response.json()["user"]["display_name"])
+
+    def test_profile_edit_during_first_name_lookup_wins(self):
+        def lookup(_identity):
+            edited = self.client.put("/api/account/profile", headers=self.headers(),
+                                    json={"display_name": "Mi nombre", "version": 1})
+            self.assertEqual(200, edited.status_code)
+            return "Horacio"
+        with patch.object(learner_auth, "first_name", side_effect=lookup):
+            result = self.client.get("/api/account", headers=self.headers()).json()
+        self.assertEqual("Mi nombre", result["user"]["display_name"])
+        self.assertEqual(2, result["profileVersion"])
 
     def test_browser_preflight_and_authentication_failure_have_cors_headers(self):
         with patch.object(main, "APP_API_KEY", "application-key"):

@@ -5,6 +5,13 @@ learner UUID, curriculum and progress. The binding is `(issuer, subject)`;
 changing providers or moving between Clerk instances requires a verified
 migration rather than claiming an old learner by name.
 
+The backend uses Clerk's `first_name` for a new or untouched `Student` account
+and persists it as the application display name. The optional provider lookup
+uses only the verified subject, a two-second timeout and no retries. It never
+blocks course access on failure; email-only learners without a provider name
+can enter their name through **Ajustar mi perfil**. Learner-edited names are
+preserved, including an explicitly chosen `Student`.
+
 ## Configuration
 
 | Location | Variables |
