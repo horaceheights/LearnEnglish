@@ -1,0 +1,561 @@
+{
+  "schema_version": 2,
+  "purpose": "Connected female-asker/male-watch-wearer reply views for Lesson 4.10.",
+  "provider": "built-in image_gen",
+  "method": "Built-in image edits; lossless WebP encoding with identical decoded RGB pixels.",
+  "source_set_review": {
+    "status": "approved",
+    "date": "2026-10-06",
+    "user_response": "Yes, apply the complete set"
+  },
+  "preservation": "V1 source files and provenance remain unchanged. Only the 13 used time-exchange assets are rebound; clock-free day photos and original contextual clocks are preserved.",
+  "assets": [
+    {
+      "pair_id": "07",
+      "role": "ask",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "filename": "a1_photo_time_07_ask_v2.webp",
+      "sha256": "b30fac2a8d1e49cb412b807b6d288750bb725b9aed51f6a41166f57d42e9419b",
+      "bytes": 1435264,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_ask_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_ask_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_ask_v2.webp"
+      ],
+      "description": "The woman without a watch asks the man wearing the gold-black watch for the time. She gestures toward his watch; he listens, with a natural compact hand and wrist. The watch shows 7:00; setting matches the paired reply.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-8780840f-288b-40d5-9469-1b933431588b.png",
+        "sha256": "98488ef8719ab6d8dafa63959461f90deedb9da24a490415115247f4fe199300",
+        "prompt": "Use case: identity-preserve. Image1 is the APPROVED EDIT TARGET: the woman without a watch asks the man wearing the watch for the time. Preserve its exact two people, faces, expressions, anatomy, clothing and compact natural hand poses. Woman on left speaking and pointing toward man's watch, both her wrists bare. Man on right listening, closed mouth, presents his left wrist, his right arm relaxed down. DO NOT switch roles or let him point to his own watch. Image2 is background/time reference for this same man's next-shot watch closeup. Change ONLY the setting, scene lighting and clock hands to match Image2: early sunrise7AM on a terrace with low stone wall and metal railing, rolling wooded hills and low rising sun. Natural warm sunrise light, same setting clearly visible behind both people. Watch EXACTLY SEVEN O'CLOCK: minute hand UP12, shorter hour hand DOWN LEFT7, exactly two hands. Gold rim, black face, black leather strap, blue shirt cuff, charcoal jacket match closeup Image2. Preserve the compact normal left hand from Image1, never elongate wrist-to-knuckle distance or dangle long fingers. Natural realistic anatomy, watch worn snugly on wrist. Landscape3:2 medium two-shot. No text, labels or speech bubbles. Woman asks; man will answer in following close-up. Preserve all anatomical proportions and facial identity from approved Image1.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-8780840f-288b-40d5-9469-1b933431588b.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "47a6dde8b44a84432507447e815052ec4c6e1de398f00ef4a23ef4a75970325c",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "07",
+      "role": "reply",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "filename": "a1_photo_time_07_reply_v2.webp",
+      "sha256": "a31a9c863c8ca177b985687932b2288ca9214650dfb23e6559fdaf39b90260b3",
+      "bytes": 1346248,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_reply_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_reply_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_reply_v2.webp"
+      ],
+      "description": "Close-up of the male respondent's same gold-black wristwatch at 7:00, naturally fitted to his wrist beside the blue cuff and charcoal jacket. The background matches the asking scene's day period.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-1f377d46-cdee-49eb-adb7-77836a969620.png",
+        "sha256": "136d9407aff2275d9b5d2f2935f3e17412970e4dafff9804d99bacfea2a48c7c",
+        "prompt": "Use case: text-localization. In this approved-layout sunrise wrist photograph, change ONLY the small bottom caption from '7:00 AM' to '7:00'. Preserve ALL other pixels and appearance: the exact hand, wrist, gold-rim black watch displaying seven o'clock, sleeves, sunrise landscape, framing and lighting. The complete replacement caption is exactly '7:00' in the same plaque. This variant introduces the whole-hour answer before the a.m./p.m. abbreviation lesson. Do not reshape any body part or move the clock hands.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-1f377d46-cdee-49eb-adb7-77836a969620.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "36e3ea9273bc6c32005f9becda66ee4009a7c05dc69c7e869c174fab775c9a87",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "07_am",
+      "role": "ask",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "filename": "a1_photo_time_07_am_ask_v2.webp",
+      "sha256": "b30fac2a8d1e49cb412b807b6d288750bb725b9aed51f6a41166f57d42e9419b",
+      "bytes": 1435264,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_am_ask_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_am_ask_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_am_ask_v2.webp"
+      ],
+      "description": "The woman without a watch asks the man wearing the gold-black watch for the time. She gestures toward his watch; he listens, with a natural compact hand and wrist. The watch shows 7:00 AM; setting matches the paired reply.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-8780840f-288b-40d5-9469-1b933431588b.png",
+        "sha256": "98488ef8719ab6d8dafa63959461f90deedb9da24a490415115247f4fe199300",
+        "prompt": "Use case: identity-preserve. Image1 is the APPROVED EDIT TARGET: the woman without a watch asks the man wearing the watch for the time. Preserve its exact two people, faces, expressions, anatomy, clothing and compact natural hand poses. Woman on left speaking and pointing toward man's watch, both her wrists bare. Man on right listening, closed mouth, presents his left wrist, his right arm relaxed down. DO NOT switch roles or let him point to his own watch. Image2 is background/time reference for this same man's next-shot watch closeup. Change ONLY the setting, scene lighting and clock hands to match Image2: early sunrise7AM on a terrace with low stone wall and metal railing, rolling wooded hills and low rising sun. Natural warm sunrise light, same setting clearly visible behind both people. Watch EXACTLY SEVEN O'CLOCK: minute hand UP12, shorter hour hand DOWN LEFT7, exactly two hands. Gold rim, black face, black leather strap, blue shirt cuff, charcoal jacket match closeup Image2. Preserve the compact normal left hand from Image1, never elongate wrist-to-knuckle distance or dangle long fingers. Natural realistic anatomy, watch worn snugly on wrist. Landscape3:2 medium two-shot. No text, labels or speech bubbles. Woman asks; man will answer in following close-up. Preserve all anatomical proportions and facial identity from approved Image1.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-8780840f-288b-40d5-9469-1b933431588b.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "47a6dde8b44a84432507447e815052ec4c6e1de398f00ef4a23ef4a75970325c",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "07_am",
+      "role": "reply",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "filename": "a1_photo_time_07_am_reply_v2.webp",
+      "sha256": "04c9ca2cec31e3968fae9a2d825071739359e1809173af9d68c66c7561a90c70",
+      "bytes": 1451736,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_am_reply_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_am_reply_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_am_reply_v2.webp"
+      ],
+      "description": "Close-up of the male respondent's same gold-black wristwatch at 7:00 AM, naturally fitted to his wrist beside the blue cuff and charcoal jacket. The background matches the asking scene's day period.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-07e6ebc3-392e-44f0-be89-e8db8b9e43fc.png",
+        "sha256": "0361757b9dc7105db193fa7b1bc4c2e903449d0930521653b0c4d1da23dfa6e8",
+        "prompt": "Use case: precise-object-edit. Make the reply close-up for Image 1's exact time conversation. Image 1 is authoritative for the man, his clothing, time and setting. Image 2 is the approved close-up hand/wrist anatomy and composition; preserve that natural upright pose, whole dorsal hand and wrist facing the camera, wrist between hand at left and sleeve at right. SAME gold-rimmed black dial watch and black leather strap, same blue shirt cuff and charcoal jacket, natural relative watch size and strap wrapping snugly on wrist. Camera is closer than Image 1, retaining consistent skin tone and setting. Set exact 7:00 AM, long minute hand at 12, short hour hand at 7, exactly two hands. Upper third clearly shows early sunrise on the same terrace, softly blurred hills, rail and warm rising sun. Photorealistic skin and natural light, readable clock face at phone size, landscape 3:2. Small dark bottom-center caption exactly '7:00 AM' using clear bold sans-serif white type. No other text. No night sky for these daytime images, no reoriented watch alone, no disconnected hand, no upside-down composition, no extra fingers or extra arms, no floating watch.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-07e6ebc3-392e-44f0-be89-e8db8b9e43fc.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "3469ebe5638b0007dfc4f62709a685f750c82e491f7ca3843668d62563c9535a",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "03_pm",
+      "role": "ask",
+      "hour": 3,
+      "day_part": "afternoon",
+      "notation": "3:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "afternoon",
+      "filename": "a1_photo_time_03_pm_ask_v2.webp",
+      "sha256": "c36a366519c3b1058bd3568e3e4b4434ba584c2441fc45852522427ad207344a",
+      "bytes": 1588568,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_pm_ask_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_pm_ask_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_pm_ask_v2.webp"
+      ],
+      "description": "The woman without a watch asks the man wearing the gold-black watch for the time. She gestures toward his watch; he listens, with a natural compact hand and wrist. The watch shows 3:00 PM; setting matches the paired reply.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-1ebd270c-95f9-4120-9f37-501f60b051ca.png",
+        "sha256": "f6e7195855f71b03046e43aaa02c85427962eeb1348c72533aa04f69cdd33d17",
+        "prompt": "Use case: identity-preserve. Correct the CONVERSATIONAL ROLES in this English-learning photograph. Image1 is the wide scene to recompose. Image2 is the already approved close-up of the MAN'S watch: preserve this man's compact natural hand, blue cuff, charcoal jacket and gold-rim black-dial watch on black leather strap. The WOMAN WITHOUT A WATCH is ASKING the MAN WITH THE WATCH what time it is. Show BOTH faces in a natural medium two-shot, woman on left three-quarter facing right, man on right three-quarter facing left. Woman is visibly speaking, lips naturally parted, curious friendly expression, her right index finger gestures gently toward HIS watch without touching him. Her wrists are bare. Man listens with relaxed closed mouth, looks at her and presents his left wrist held comfortably across his torso. Man's left hand is a SMALL COMPACT loosely closed fist, back of hand and watch visible, natural near-straight wrist, normal short wrist-to-knuckle length, no elongated or dangling hand. His right arm rests relaxed down, HE DOES NOT POINT at his own watch. The watch belongs only to the man; he will answer on the next closeup image. Same people identities and clothes as reference: curly-haired man blue shirt charcoal jacket; dark-haired woman olive/beige top. SAME bright 3PM garden path and pale house, hydrangeas, green trees, blue daytime sky as both references. Watch shows EXACTLY THREE O'CLOCK: long minute hand up12, short hour hand right3, exactly two hands. Photorealistic landscape3:2. Allow enough space to show her face and natural asking gesture and his raised wrist. Do not add speech bubbles, captions or text; the lesson UI supplies the spoken question. No second watch, no people asking themselves, no strange arm overlaps, no stretched hands or fingers. Keep the watch/man details consistent with approved closeup Image2.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-1ebd270c-95f9-4120-9f37-501f60b051ca.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "953c76918958b75ee9963dcef2afe81e7f6f0c874410a30e15e0546f6a3b486f",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "03_pm",
+      "role": "reply",
+      "hour": 3,
+      "day_part": "afternoon",
+      "notation": "3:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "afternoon",
+      "filename": "a1_photo_time_03_pm_reply_v2.webp",
+      "sha256": "16afe4de3be1ae9ecd515cafb72bd41dc80db540bb23277945a8347acb03d19b",
+      "bytes": 1591418,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_pm_reply_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_pm_reply_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_pm_reply_v2.webp"
+      ],
+      "description": "Close-up of the male respondent's same gold-black wristwatch at 3:00 PM, naturally fitted to his wrist beside the blue cuff and charcoal jacket. The background matches the asking scene's day period.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-ffb91016-4ba7-42ad-9a60-4ae23cd37cdf.png",
+        "sha256": "bfb3cf640bb051b470c5057d65dca137accf2132f76d60405a5e805a590a8e8f",
+        "prompt": "Use case: precise-object-edit. Make the reply close-up for Image 1's exact time conversation. Image 1 is authoritative for the man, his clothing, time and setting. Image 2 is the approved close-up hand/wrist anatomy and composition; preserve that natural upright pose, whole dorsal hand and wrist facing the camera, wrist between hand at left and sleeve at right. SAME gold-rimmed black dial watch and black leather strap, same blue shirt cuff and charcoal jacket, natural relative watch size and strap wrapping snugly on wrist. Camera is closer than Image 1, retaining consistent skin tone and setting. Set exact 3:00 PM, long minute hand at 12, short hour hand at 3, exactly two hands. Upper third clearly shows bright mid-afternoon garden, softly blurred sunlit greenery, path and house. Photorealistic skin and natural light, readable clock face at phone size, landscape 3:2. Small dark bottom-center caption exactly '3:00 PM' using clear bold sans-serif white type. No other text. No night sky for these daytime images, no reoriented watch alone, no disconnected hand, no upside-down composition, no extra fingers or extra arms, no floating watch.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-ffb91016-4ba7-42ad-9a60-4ae23cd37cdf.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "7af31850dce101c73b7330b4da00a5c75a6ffeb1e33397704034b59d5c6baf06",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "07_pm",
+      "role": "ask",
+      "hour": 7,
+      "day_part": "evening",
+      "notation": "7:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "evening",
+      "filename": "a1_photo_time_07_pm_ask_v2.webp",
+      "sha256": "eef51aed0f6a485a726754d63c036788ebd794d6ed9342099364055944f89f6e",
+      "bytes": 1369260,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_pm_ask_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_pm_ask_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_pm_ask_v2.webp"
+      ],
+      "description": "The woman without a watch asks the man wearing the gold-black watch for the time. She gestures toward his watch; he listens, with a natural compact hand and wrist. The watch shows 7:00 PM; setting matches the paired reply.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-2d36f3d4-d4b3-49ab-a61e-bde02c373807.png",
+        "sha256": "55c26f8f135a585b56c3aa4762f023873ea5284aaf116c88e5456a9b13b4abd3",
+        "prompt": "Use case: precise-object-edit. Image1 is the target photograph. Correct ONLY its wristwatch dial. It currently has an erroneous extra needle pointing down-right. Remove that extra needle completely. The dial must contain EXACTLY TWO clock hands at seven o'clock: one long gold minute hand from center straight UP to12; one shorter gold hour hand from center diagonally DOWN LEFT to7. No hand from center toward4,5,6,8,9,10 or11. No second hand. Image2 is the correct two-hand 7:00 dial reference. Keep watch case, strap, size and angle unchanged. Preserve ALL other content of Image1: woman asking and pointing, man listening, faces, natural hands, wrist anatomy, clothes, framing, house and dusk background, lighting. No words/captions. Photorealism, landscape3:2. It is a tiny localized dial correction; do not redraw any anatomy or move people.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-2d36f3d4-d4b3-49ab-a61e-bde02c373807.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "ee0e9e4d44fd66bf674f74749d7e916b66ae0281dfccaafab6a690923acb72fc",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "07_pm",
+      "role": "reply",
+      "hour": 7,
+      "day_part": "evening",
+      "notation": "7:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "evening",
+      "filename": "a1_photo_time_07_pm_reply_v2.webp",
+      "sha256": "f2e099c5e8472180118ed1bf65f99dfb9e222c2e0aa209522dc2bfd0ed41edc1",
+      "bytes": 1369480,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_pm_reply_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_pm_reply_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_pm_reply_v2.webp"
+      ],
+      "description": "Close-up of the male respondent's same gold-black wristwatch at 7:00 PM, naturally fitted to his wrist beside the blue cuff and charcoal jacket. The background matches the asking scene's day period.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-efb357bc-f401-49ad-a6eb-f20b5ec6eddd.png",
+        "sha256": "753aaa34d390e34f8af9bc9d600d7b19da0d3c6ceccd85872f4a5f2a51238001",
+        "prompt": "Use case: lighting-weather. EDIT TARGET is this specifically approved wrist close-up. Preserve the hand, wrist, forearm, skin texture, compact curled fingers, thumb, watch case and strap, clothing and camera framing EXACTLY; do not redraw or reshape the hand, enlarge it, stretch it or change wrist orientation. Change only background, scene-matched light, clock hands and the caption. Background: a softly blurred neighborhood courtyard at dusk: blue-violet upper sky, fading orange horizon, house with glowing windows and newly lit small street lamps, clearly visible in upper third. Watch hands must show EXACTLY 7:00 PM: long minute hand pointing straight up to twelve, shorter hour hand pointing diagonally DOWN AND LEFT to seven. Exactly two watch hands, no second hand, clock markers in correct positions. Keep original gold rim, black dial, black leather strap, blue shirt cuff and dark jacket. At bottom center retain a modest dark caption plaque with exact text '7:00 PM'. Photorealistic landscape 3:2 with believable scene lighting; same natural anatomy as approved input. No other text, no collage, no pasted watch, no upside-down or elongated hand.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-efb357bc-f401-49ad-a6eb-f20b5ec6eddd.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "302f3f432dc19a4e16bb6ab31299400a3663a78320a89386469d50166a910473",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "09_pm",
+      "role": "ask",
+      "hour": 9,
+      "day_part": "night",
+      "notation": "9:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "filename": "a1_photo_time_09_pm_ask_v2.webp",
+      "sha256": "97c60c1d3d07b901e1c75b9d44cebbba24fbf27321afc0fecfb1431c944e8be7",
+      "bytes": 1340382,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_09_pm_ask_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_09_pm_ask_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_09_pm_ask_v2.webp"
+      ],
+      "description": "The woman without a watch asks the man wearing the gold-black watch for the time. She gestures toward his watch; he listens, with a natural compact hand and wrist. The watch shows 9:00 PM; setting matches the paired reply.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-0727d8a0-5c69-4f24-9ca7-148b95ea7cd7.png",
+        "sha256": "151cc4e7e561ee21158f4259c0de4a71ec823d9133676fee9ec4162756bb380a",
+        "prompt": "Use case: identity-preserve. Image1 is the APPROVED two-person conversation edit target: woman at left WITHOUT a watch is visibly ASKING, her right index gestures toward the man's watch; man at right WITH watch listens with mouth closed, right arm down relaxed, left wrist held naturally across torso. Preserve these exact people, facial expressions, clothes, anatomy, framing, and compact naturally closed left hand. Image2 is the next closeup's scene/time reference. Change ONLY scene/light and watch hands: same neighborhood walkway at FULL NIGHT9PM as Image2, deep dark blue sky, small moon, trees/shrubs, pale house on right with warm windows and illuminated path lamps. No orange sunset or daylight. Natural night lighting that keeps faces readable. Clock MUST read NINE O'CLOCK: long gold minute hand UP to12, short gold hour hand horizontally LEFT to9. EXACTLY TWO HANDS and NO SECOND HAND, no needle pointing right3 or down7. Same small gold-rim black-dial watch and black leather strap, normal wrist fit, same blue cuff and charcoal jacket. Do not make hand longer, rotate watch separately, or add fingers. Photo landscape3:2. No text, labels or speech bubbles. Retain woman-asks/man-listens relationship from approved Image1.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-0727d8a0-5c69-4f24-9ca7-148b95ea7cd7.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "07fc4eb58f4b3821af3cdab280a620f16099c43bca86fe5a4ef5432a80de804e",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "09_pm",
+      "role": "reply",
+      "hour": 9,
+      "day_part": "night",
+      "notation": "9:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "filename": "a1_photo_time_09_pm_reply_v2.webp",
+      "sha256": "6e87331ae8c2c88f7c98570f6570bae25d9b699b41dea5dc2e399989f640803d",
+      "bytes": 1248066,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_09_pm_reply_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_09_pm_reply_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_09_pm_reply_v2.webp"
+      ],
+      "description": "Close-up of the male respondent's same gold-black wristwatch at 9:00 PM, naturally fitted to his wrist beside the blue cuff and charcoal jacket. The background matches the asking scene's day period.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-1ab563cf-dae4-4ee8-b4a4-5d5bacdd5b9b.png",
+        "sha256": "be4d99b4859d4ab65b05ffadd816ca21fa738fcef1062595706c317136fabca1",
+        "prompt": "Use case: lighting-weather. EDIT TARGET is this specifically approved wrist close-up. Preserve the hand, wrist, forearm, skin texture, compact curled fingers, thumb, watch case and strap, clothing and camera framing EXACTLY; do not redraw or reshape the hand, enlarge it, stretch it or change wrist orientation. Change only background, scene-matched light, clock hands and the caption. Background: a softly blurred neighborhood walkway at full night: deep dark blue sky, small moon, distant house windows and small street lamps, no orange sunset and no daylight, clearly visible in upper third. Watch hands must show EXACTLY 9:00 PM: long minute hand pointing straight UP to twelve, shorter hour hand pointing horizontally LEFT to nine, an L shape pointing up and left. Exactly two watch hands, no second hand, clock markers in correct positions. Keep original gold rim, black dial, black leather strap, blue shirt cuff and dark jacket. At bottom center retain a modest dark caption plaque with exact text '9:00 PM'. Photorealistic landscape 3:2 with believable scene lighting; same natural anatomy as approved input. No other text, no collage, no pasted watch, no upside-down or elongated hand.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-1ab563cf-dae4-4ee8-b4a4-5d5bacdd5b9b.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "79affc79a8cb82078478cff58a217a0c86a57255296b1764d0d1648aaf0e24d2",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "03_am",
+      "role": "ask",
+      "hour": 3,
+      "day_part": "night",
+      "notation": "3:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "filename": "a1_photo_time_03_am_ask_v2.webp",
+      "sha256": "7807c9dd4e9fa5577e7356e44570fac80ff8e909df53d76bc88f0cdadca86528",
+      "bytes": 1260986,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_am_ask_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_am_ask_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_am_ask_v2.webp"
+      ],
+      "description": "The woman without a watch asks the man wearing the gold-black watch for the time. She gestures toward his watch; he listens, with a natural compact hand and wrist. The watch shows 3:00 AM; setting matches the paired reply.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-6c3140dd-4e07-4bdd-afea-0b4ca2d230a1.png",
+        "sha256": "16ce37f690ac6bf3209492bcaae61b881681fb4c723ec5c3237f39cf44c2ec55",
+        "prompt": "Use case: identity-preserve. Edit APPROVED Image1, preserving the exact two people, faces and expressions, clothing, positions and normal compact hand anatomy. Preserve roles: woman on left without watch asks, mouth slightly open and right index gesturing toward man's watch; man on right listens with mouth closed, right arm resting down and left wrist held naturally across torso. Image2 is the paired closeup's time/night-background reference. Change background and scene light only to a quiet wooded park/overlook at THREE AM, fully dark navy sky, softly visible moon and a few stars, dark tree silhouettes. No sunrise, no orange horizon, no daylight. Soft realistic night illumination keeps people and hands visible. Match same watch/clothes and dark wooded surroundings as Image2; remove bright house/garden background from Image1. Clock EXACTLY THREE O'CLOCK: long minute hand UP12, short hour hand RIGHT3, precisely two hands, no second hand or third needle. Gold rim black dial black leather strap, snug natural fit behind man's compact loosely closed hand. Preserve normal wrist/hand proportions, no elongated fingers, no floating watch or rotation of dial alone. Landscape3:2 photographic two-shot. No labels/captions/text. It is the woman asking the watch wearer, not the wearer asking her.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-6c3140dd-4e07-4bdd-afea-0b4ca2d230a1.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "95d9b99f4608e7caee34f6e2ad5d0f72b253d7235c075c2eb3dd91e6a82f1671",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "03_am",
+      "role": "reply",
+      "hour": 3,
+      "day_part": "night",
+      "notation": "3:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "filename": "a1_photo_time_03_am_reply_v2.webp",
+      "sha256": "64843d3014df2ad43088a6e69b21ca42f8a3e7ec3f8a33fc7b3cc2adc8c782d7",
+      "bytes": 1281126,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_am_reply_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_am_reply_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_am_reply_v2.webp"
+      ],
+      "description": "Close-up of the male respondent's same gold-black wristwatch at 3:00 AM, naturally fitted to his wrist beside the blue cuff and charcoal jacket. The background matches the asking scene's day period.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-8f841b54-c94c-4ead-8a04-3f5d00d3dd8a.png",
+        "sha256": "1283c7f69a1a3679508662b069cb1d4f6dbf0e0b82c94043e60651f840683776",
+        "prompt": null,
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-8f841b54-c94c-4ead-8a04-3f5d00d3dd8a.png",
+        "prompt_record": "Initial built-in close-up prompt was not retained in the working review record. Exact generated PNG and its user approval are preserved; do not infer or reconstruct an exact prompt."
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "9acb25352e2062141af16990ddd073d6399336745cc9892805423ee036f486a9",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    },
+    {
+      "pair_id": "09_am",
+      "role": "reply",
+      "hour": 9,
+      "day_part": "morning",
+      "notation": "9:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "filename": "a1_photo_time_09_am_reply_v2.webp",
+      "sha256": "b984fca5039fec9a2d3a0e387aa615680c4eb96de17afa7e27717811ded59368",
+      "bytes": 1626390,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_09_am_reply_v2.webp",
+        "frontend/public/lesson-assets/a1_photo_time_09_am_reply_v2.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_09_am_reply_v2.webp"
+      ],
+      "description": "Listening alternative: the same naturally worn watch shows 9:00 AM, with morning daylight and contextual surroundings. No asking view is used for this alternative.",
+      "asking_speaker_role": "female-character",
+      "reply_speaker_role": "luis",
+      "watch_owner": "luis",
+      "source_generation": {
+        "provider": "built-in image_gen",
+        "output_filename": "exec-3694b753-796c-4045-96d9-d5340abfedde.png",
+        "sha256": "229d9cb7d2cd2c8a9b526e3fbffa59979a2f4059e8bcd6a273ee7407f338e48c",
+        "prompt": "Use case: lighting-weather. Edit the approved 3:00 PM wrist photograph. Preserve EXACT hand/wrist/forearm shape, compact fingers, skin texture, gold-rim black dial watch, black strap, blue cuff, charcoal jacket, camera angle and natural proportions. Change ONLY environment/light, clock hands and caption for 9:00 AM. Background is a small garden plaza beside pale stucco homes in clear morning daylight with long fresh morning shadows, blue sky and sunlit trees. No sunrise at horizon, no sunset, no moon or lamps lit. Clock reads exactly NINE O'CLOCK: long minute hand straight UP to twelve; shorter hour hand horizontally LEFT to nine. Precisely two hands, no other needles. Caption bottom center exactly '9:00 AM'. Landscape3:2 realistic photograph, full hand on left and cuff on right, watch clearly on wrist, same crop as reference, no stretching or rotating anatomy.",
+        "path": "docs/product/media-sources/time-exchanges-v2/exec-3694b753-796c-4045-96d9-d5340abfedde.png"
+      },
+      "encoding": {
+        "format": "webp",
+        "lossless": true,
+        "decoded_rgb_sha256": "57ad0570eb7381f24c8b764b033fe09e7c5948d7003355a6cfe36092e4307301",
+        "source_pixel_parity": true
+      },
+      "human_semantic_review": {
+        "status": "pending",
+        "note": "Source set approved in chat; final phone runtime/crop review remains in Preview."
+      }
+    }
+  ]
+}

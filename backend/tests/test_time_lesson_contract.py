@@ -19,13 +19,29 @@ IMAGE_FOLDERS = (
     'mobile/assets/lesson-assets',
 )
 DAY_PARTS = ('morning', 'afternoon', 'evening', 'night')
+EXCHANGE_PHOTOS_PATH = ROOT / 'docs/product/time-exchange-photo-assets-v2.json'
+# 2026-10-06 approval: the woman asks; the male watch-wearer replies.
+# Pin only depicted exchanges, leaving independent clock narration untouched.
+EXCHANGE_SPEAKERS = {
+    **{f'L{number}': {'audio_speaker': 'female-character' if number % 2 else 'luis'}
+       for number in range(1, 15)},
+    **{slide: {'audio_speaker': 'female-character', 'answer_audio_speaker': 'luis'}
+       for slide in ('R7', 'R9')},
+    **{f'S{number}': {'audio_speaker': 'female-character' if number in (1, 3) else 'luis'}
+       for number in range(1, 9)},
+    **{slide: {'audio_speaker': role, 'answer_audio_speaker': role}
+       for role, slides in (
+           ('female-character', ('U1', 'U5')),
+           ('luis', ('U2', 'U3', 'U6', 'U7')),
+       ) for slide in slides},
+}
 
 
 def assert_matching_exchange(question_image, reply_image, assets):
     question, reply = assets[Path(question_image).name], assets[Path(reply_image).name]
     if (question['role'], reply['role']) != ('ask', 'reply'):
         raise ValueError('An exchange needs an asking view followed by its watch close-up.')
-    for key in ('hour', 'day_part', 'clock_id', 'scene_id'):
+    for key in ('hour', 'day_part', 'notation', 'clock_id', 'scene_id', 'pair_id'):
         if question[key] != reply[key]:
             raise ValueError(f'Question and reply disagree on {key}.')
 
@@ -48,7 +64,7 @@ def check_time_image(text, image, meanings):
 
 
 def time_image_meanings():
-    photos = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+    photos = json.loads(EXCHANGE_PHOTOS_PATH.read_text(encoding='utf-8'))
     meanings = {a['filename']: a for a in photos['assets']}
     neutral = json.loads((ROOT / 'docs/product/time-photograph-assets-v4.json').read_text(encoding='utf-8'))
     meanings.update({a['filename']: {'hour': a['hour'], 'day_part': None} for a in neutral['assets']})
@@ -72,34 +88,72 @@ def successful_image_names(card):
 
 
 class TimeLessonContractTests(unittest.TestCase):
+    def test_depicted_time_exchanges_voice_the_female_asker_and_male_watch_wearer(self):
+        canonical = json.loads(LESSON_PATH.read_text(encoding='utf-8'))
+        plan = json.loads((ROOT / 'docs/product/content-plans/4.10-time-exchanges-v1.plan.json').read_text(encoding='utf-8'))
+        for source, lesson in [('canonical', canonical), ('source plan', compose_lesson(plan))]:
+            cards = {card['slide_id']: card for card in lesson['cards']}
+            for slide, expected in EXCHANGE_SPEAKERS.items():
+                for field, speaker in expected.items():
+                    with self.subTest(source=source, slide=slide, field=field):
+                        self.assertEqual(cards[slide].get(field), speaker,
+                                         'The recorded voice must match the approved pictured speaker.')
+            for number in range(6, 11):
+                slide = f'A{number}'
+                with self.subTest(source=source, slide=slide, field='audio_turns'):
+                    turns = cards[slide].get('audio_turns', [])
+                    self.assertEqual(len(turns), 2)
+                    self.assertEqual(turns[0]['text'], 'What time is it?')
+                    self.assertTrue(turns[1]['text'].startswith('It is '))
+                    self.assertEqual([turn['speaker_role'] for turn in turns],
+                                     ['female-character', 'luis'])
+
+    def test_time_brief_learn_models_preserve_canonical_words_and_speaker_roles(self):
+        canonical = json.loads(LESSON_PATH.read_text(encoding='utf-8'))
+        brief = json.loads((ROOT / 'docs/product/content-briefs/unit-4/4.10-time-exchanges-v1.json').read_text(encoding='utf-8'))
+        learns = {card['slide_id']: card for card in canonical['cards'] if card['stage'] == 'Learn'}
+        self.assertEqual({item['id'] for item in brief['items']}, set(learns))
+        for item in brief['items']:
+            with self.subTest(slide=item['id']):
+                card = learns[item['id']]
+                self.assertEqual(item['text'], card['audio_text'])
+                self.assertEqual(item['speaker'], card['audio_speaker'])
+
     def test_every_slide_image_and_distractor_matches_its_time_meaning(self):
         lesson = json.loads(LESSON_PATH.read_text(encoding='utf-8'))
         meanings = time_image_meanings()
         checked = set()
+        checked_images = set()
         for card in lesson['cards']:
             with self.subTest(slide=card['slide_id']):
                 target = card.get('answer_audio_text') or card.get('audio_text') or card['prompt']
                 if card.get('prompt_image_url'):
                     check_time_image(target, card['prompt_image_url'], meanings)
+                    checked_images.add(Path(card['prompt_image_url']).name)
                 for option in card['options']:
                     if option.get('image_url'):
                         check_time_image(option.get('label') or option['id'], option['image_url'], meanings)
+                        checked_images.add(Path(option['image_url']).name)
                         if card['stage'] == 'Listen' and option['id'] == card['correct_option_id']:
                             check_time_image(target, option['image_url'], meanings)
                 for field in ('audio_turns', 'answer_audio_turns'):
                     for turn in card.get(field, []):
                         if turn.get('image_url'):
                             check_time_image(turn['text'], turn['image_url'], meanings)
+                            checked_images.add(Path(turn['image_url']).name)
                 checked.add(card['slide_id'])
         self.assertEqual(len(checked), 70)
         self.assertEqual({c['stage'] for c in lesson['cards']}, {'Learn', 'Recognize', 'Listen', 'Speak', 'Use'})
+        self.assertEqual({name for name in checked_images if name.startswith('a1_photo_time_')},
+                         {name for name in meanings if name.startswith('a1_photo_time_')},
+                         'The approved v2 manifest must cover exactly the exchange images in use.')
 
     def test_pm_label_on_gray_wall_does_not_satisfy_evening_background(self):
         with self.assertRaisesRegex(ValueError, 'day background'):
             check_time_image("It is seven o'clock in the evening.", 'a1_time_photo_clock_07_pm_v4.webp', time_image_meanings())
 
     def test_exchange_views_match_clock_hour_and_day_context(self):
-        report = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+        report = json.loads(EXCHANGE_PHOTOS_PATH.read_text(encoding='utf-8'))
         assets = {row['filename']: row for row in report['assets']}
         lesson = json.loads(LESSON_PATH.read_text(encoding='utf-8'))
         cards = {card['slide_id']: card for card in lesson['cards']}
@@ -120,28 +174,125 @@ class TimeLessonContractTests(unittest.TestCase):
             self.assertEqual(assets[cards[a]['options'][0]['image_url']]['day_part'], 'night')
         self.assertEqual(assets[cards['L12']['options'][0]['image_url']]['notation'], '3:00 AM')
         self.assertNotIn('a1_photo_u4_what_time_luis_v1.webp', json.dumps(lesson))
+        self.assertNotRegex(json.dumps(lesson), r'a1_photo_time_\w+_v1\.webp')
 
     def test_daytime_question_cannot_be_paired_with_three_am(self):
-        report = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+        report = json.loads(EXCHANGE_PHOTOS_PATH.read_text(encoding='utf-8'))
         assets = {row['filename']: row for row in report['assets']}
         with self.assertRaisesRegex(ValueError, 'day_part'):
-            assert_matching_exchange('a1_photo_time_03_pm_ask_v1.webp', 'a1_photo_time_03_am_reply_v1.webp', assets)
-        for key, wrong in [('hour', 9), ('scene_id', 'different-place'), ('clock_id', 'other-clock')]:
+            assert_matching_exchange('a1_photo_time_03_pm_ask_v2.webp', 'a1_photo_time_03_am_reply_v2.webp', assets)
+        for key, wrong in [('pair_id', 'other-pair'), ('hour', 9), ('notation', '3:00 PM'),
+                           ('scene_id', 'different-place'), ('clock_id', 'other-clock')]:
             mutated = copy.deepcopy(assets)
-            mutated['a1_photo_time_03_am_ask_v1.webp'][key] = wrong
+            mutated['a1_photo_time_03_am_ask_v2.webp'][key] = wrong
             with self.assertRaisesRegex(ValueError, key):
-                assert_matching_exchange('a1_photo_time_03_am_ask_v1.webp', 'a1_photo_time_03_am_reply_v1.webp', mutated)
+                assert_matching_exchange('a1_photo_time_03_am_ask_v2.webp', 'a1_photo_time_03_am_reply_v2.webp', mutated)
 
-    def test_paired_photo_sources_and_runtime_pixels_are_pinned(self):
-        report = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+    def test_historical_v1_photo_provenance_and_assets_remain_untouched(self):
+        path = ROOT / 'docs/product/time-exchange-photo-assets-v1.json'
+        self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),
+                         '5615e33743850ba652c60e1580d421f0eb6d5f68b6131b2806f2e8e57a01d281')
+        report = json.loads(path.read_text(encoding='utf-8'))
         for source in [*report['sources'], report['recipe']]:
             self.assertEqual(hashlib.sha256((ROOT / source['path']).read_bytes()).hexdigest(), source['sha256'])
         for asset in report['assets']:
             for folder in IMAGE_FOLDERS:
                 payload = (ROOT / folder / asset['filename']).read_bytes()
+                self.assertEqual(len(payload), asset['bytes'])
                 self.assertEqual(hashlib.sha256(payload).hexdigest(), asset['sha256'])
             with Image.open(ROOT / IMAGE_FOLDERS[0] / asset['filename']) as photo:
                 self.assertEqual(photo.size, (1536, 1024))
+
+    def test_v2_photo_provenance_and_runtime_pixels_match_the_approved_set(self):
+        report = json.loads(EXCHANGE_PHOTOS_PATH.read_text(encoding='utf-8'))
+        self.assertEqual(report['schema_version'], 2)
+        self.assertEqual(report['provider'], 'built-in image_gen')
+        self.assertNotIn('recipe', report, 'The generated v2 set has no deterministic compositing recipe.')
+        self.assertEqual(report['source_set_review'], {
+            'status': 'approved', 'date': '2026-10-06',
+            'user_response': 'Yes, apply the complete set',
+        })
+        expected_pairs = {
+            '07': (7, 'morning', '7:00'),
+            '07_am': (7, 'morning', '7:00 AM'),
+            '03_pm': (3, 'afternoon', '3:00 PM'),
+            '07_pm': (7, 'evening', '7:00 PM'),
+            '09_pm': (9, 'night', '9:00 PM'),
+            '03_am': (3, 'night', '3:00 AM'),
+            '09_am': (9, 'morning', '9:00 AM'),
+        }
+        assets = {asset['filename']: asset for asset in report['assets']}
+        self.assertEqual(len(assets), len(report['assets']), 'Asset filenames must be unique.')
+        self.assertEqual(set(assets), {
+            f'a1_photo_time_{pair}_{role}_v2.webp'
+            for pair in expected_pairs
+            for role in (('reply',) if pair == '09_am' else ('ask', 'reply'))
+        })
+        for pair, (hour, day_part, notation) in expected_pairs.items():
+            ask, reply = (f'a1_photo_time_{pair}_{role}_v2.webp' for role in ('ask', 'reply'))
+            views = [('reply', reply)]
+            if pair != '09_am':
+                assert_matching_exchange(ask, reply, assets)
+                views.insert(0, ('ask', ask))
+            for role, filename in views:
+                with self.subTest(filename=filename):
+                    asset = assets[filename]
+                    self.assertEqual((asset['pair_id'], asset['role'], asset['hour'],
+                                      asset['day_part'], asset['notation']),
+                                     (pair, role, hour, day_part, notation))
+                    self.assertTrue(asset['clock_id'])
+                    self.assertTrue(asset['scene_id'])
+                    self.assertTrue(asset['description'].strip())
+                    self.assertEqual(asset['asking_speaker_role'], 'female-character')
+                    self.assertEqual(asset['reply_speaker_role'], 'luis')
+                    self.assertEqual(asset['watch_owner'], 'luis')
+                    # Chat approval covers the source set; phone crop review is separate.
+                    self.assertEqual(asset['human_semantic_review']['status'], 'pending')
+                    source = asset['source_generation']
+                    self.assertEqual(source['provider'], report['provider'])
+                    self.assertEqual(Path(source['output_filename']).name, source['output_filename'])
+                    self.assertTrue(source['output_filename'].endswith('.png'))
+                    self.assertRegex(source['sha256'], r'^[0-9a-f]{64}$')
+                    if filename == 'a1_photo_time_03_am_reply_v2.webp':
+                        self.assertIsNone(source['prompt'])
+                        self.assertIn('not retained', source['prompt_record'])
+                        self.assertIn('do not infer', source['prompt_record'])
+                    else:
+                        self.assertTrue(source['prompt'].strip())
+                    source_path = Path(source['path'])
+                    self.assertEqual(source_path.name, source['output_filename'])
+                    self.assertEqual(source_path.parent.as_posix(),
+                                     'docs/product/media-sources/time-exchanges-v2')
+                    self.assertEqual(hashlib.sha256((ROOT / source_path).read_bytes()).hexdigest(),
+                                     source['sha256'])
+                    with Image.open(ROOT / source_path) as generated:
+                        self.assertEqual(generated.format, 'PNG')
+                        self.assertEqual(generated.size, tuple(asset['dimensions']))
+                        source_pixels = generated.convert('RGB').tobytes()
+                    encoding = asset['encoding']
+                    self.assertEqual(encoding['format'], 'webp')
+                    self.assertIs(encoding['lossless'], True)
+                    self.assertIs(encoding['source_pixel_parity'], True)
+                    self.assertRegex(encoding['decoded_rgb_sha256'], r'^[0-9a-f]{64}$')
+                    self.assertEqual(hashlib.sha256(source_pixels).hexdigest(),
+                                     encoding['decoded_rgb_sha256'])
+                    self.assertEqual(asset['dimensions'], [1536, 1024])
+                    self.assertEqual(set(asset['copies']), {
+                        f'{folder}/{filename}' for folder in IMAGE_FOLDERS
+                    })
+                    copies = [(ROOT / folder / filename).read_bytes() for folder in IMAGE_FOLDERS]
+                    self.assertEqual(copies[0], copies[1])
+                    self.assertEqual(copies[0], copies[2])
+                    self.assertEqual(len(copies[0]), asset['bytes'])
+                    self.assertEqual(hashlib.sha256(copies[0]).hexdigest(), asset['sha256'])
+                    with Image.open(ROOT / IMAGE_FOLDERS[0] / filename) as photo:
+                        self.assertEqual(photo.format, 'WEBP')
+                        self.assertEqual(photo.size, tuple(asset['dimensions']))
+                        runtime_pixels = photo.convert('RGB').tobytes()
+                        self.assertTrue(runtime_pixels == source_pixels,
+                                        'The lossless runtime image must preserve every source RGB pixel.')
+                        self.assertEqual(hashlib.sha256(runtime_pixels).hexdigest(),
+                                         encoding['decoded_rgb_sha256'])
 
     def test_teaching_clock_photographs_keep_the_inspected_source_and_identical_copies(self):
         report = json.loads((ROOT / 'docs/product/time-photograph-assets-v4.json').read_text(encoding='utf-8'))
