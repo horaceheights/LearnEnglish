@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "purpose": "Connected asking and same-watch reply views for Lesson 4.10",
+  "method": "Local photographic compositing and hand retouching; no image API or generation service.",
+  "sources": [
+    {
+      "path": "Lessons/Lesson1/images/a1_photo_u4_what_time_luis_v1.webp",
+      "sha256": "c8d16bdf6df5765052d5aa435043c39e9cc3a66b5875504a98c3c9f79857c221",
+      "provenance": "existing-course-asset; original provider not inferred"
+    },
+    {
+      "path": "Lessons/Lesson1/images/a1_photo_u4_day_morning_v1.webp",
+      "sha256": "c79cf27518cbc33ec3a2d1153c8a0397733a5e6aa6d093509d4d08c2f43f40d0",
+      "provenance": "existing-course-asset; original provider not inferred"
+    },
+    {
+      "path": "Lessons/Lesson1/images/a1_photo_u4_day_evening_v1.webp",
+      "sha256": "d0fe09405053dcd0d64618b8ca497ed68af5f79e1ad20c76a8ccc496fab10bdd",
+      "provenance": "existing-course-asset; original provider not inferred"
+    },
+    {
+      "path": "Lessons/Lesson1/images/a1_photo_u4_day_night_v1.webp",
+      "sha256": "bcf79a7e6d6cc1914f817b2773c873fe960d969ba285265063983d7f8df7957c",
+      "provenance": "existing-course-asset; original provider not inferred"
+    },
+    {
+      "path": "Lessons/Lesson1/images/a1_scene_night_1be2a44.webp",
+      "sha256": "2dfc065642b47489660069f5fccfdf6951c33f1b88c394ac9d5b085acdcfb8a2",
+      "provenance": "existing-course-asset; original provider not inferred"
+    },
+    {
+      "path": "docs/product/media-sources/watch-generic-2017.jpg",
+      "sha256": "dc3484f0fb9bbd1916795b2342c53f986400f9f67c5a1073f9513c5c6f9df387",
+      "provenance": "CC0 camera source",
+      "author": "ゴスロリ (Zijun93)",
+      "date": "2017-06-15",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Generic_analog_watch.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Generic_analog_watch.jpg"
+    },
+    {
+      "path": "docs/product/media-sources/time-asking-people-mask-v1.png",
+      "sha256": "7f894068cba3766ea534915e7bc435396fe17bf128e9237b7631017313574160",
+      "provenance": "Offline GrabCut selection of existing people, manually corrected by recipe"
+    }
+  ],
+  "recipe": {
+    "path": "scripts/prepare_time_exchange_photos.py",
+    "sha256": "aa7295c36ddb45e471dbbf759ae74df74712f28ab79a45142b976f55d27292ad"
+  },
+  "assets": [
+    {
+      "filename": "a1_photo_time_07_ask_v1.webp",
+      "pair_id": "07",
+      "role": "ask",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "sha256": "e61eb89bcf502f7e70431f3a074d428d7a51e4719e1153d52c80ad3dac7a27de",
+      "bytes": 182714,
+      "description": "Locally retouched photographic composite: Luis faces Ana and points at the visible watch on his wrist. The watch shows 7:00, minute hand at 12. The setting has low golden sun and mountain horizon.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_ask_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_ask_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_ask_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_07_reply_v1.webp",
+      "pair_id": "07",
+      "role": "reply",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "sha256": "dc2a83066507ba3452fdf2e66c56dbde0d5dcdc2e5ac36f61b81508a488f151e",
+      "bytes": 123582,
+      "description": "Locally retouched photographic composite: a close-up of the same wrist, jacket sleeve and same watch. The watch shows 7:00, minute hand at 12. The setting has low golden sun and mountain horizon. Readout 7:00.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_reply_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_reply_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_reply_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_07_am_ask_v1.webp",
+      "pair_id": "07_am",
+      "role": "ask",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "sha256": "e61eb89bcf502f7e70431f3a074d428d7a51e4719e1153d52c80ad3dac7a27de",
+      "bytes": 182714,
+      "description": "Locally retouched photographic composite: Luis faces Ana and points at the visible watch on his wrist. The watch shows 7:00, minute hand at 12. The setting has low golden sun and mountain horizon.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_am_ask_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_am_ask_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_am_ask_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_07_am_reply_v1.webp",
+      "pair_id": "07_am",
+      "role": "reply",
+      "hour": 7,
+      "day_part": "morning",
+      "notation": "7:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "sha256": "8da005a17129b6f97d46710203f982562c70337d5781c4d9edcfe4d191d86ad6",
+      "bytes": 124856,
+      "description": "Locally retouched photographic composite: a close-up of the same wrist, jacket sleeve and same watch. The watch shows 7:00, minute hand at 12. The setting has low golden sun and mountain horizon. Readout 7:00 AM.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_am_reply_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_am_reply_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_am_reply_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_03_pm_ask_v1.webp",
+      "pair_id": "03_pm",
+      "role": "ask",
+      "hour": 3,
+      "day_part": "afternoon",
+      "notation": "3:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "afternoon",
+      "sha256": "5e789d23f00518ae322c092b8d402075ff134b0010125f4a580a042e07ffa2aa",
+      "bytes": 228306,
+      "description": "Locally retouched photographic composite: Luis faces Ana and points at the visible watch on his wrist. The watch shows 3:00, minute hand at 12. The setting has bright daylight on the residential street.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_pm_ask_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_pm_ask_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_pm_ask_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_03_pm_reply_v1.webp",
+      "pair_id": "03_pm",
+      "role": "reply",
+      "hour": 3,
+      "day_part": "afternoon",
+      "notation": "3:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "afternoon",
+      "sha256": "2e4babe5729f82c29ac96494fe531d9af3afbb70a8aebb83dcb106ee12c981d2",
+      "bytes": 131052,
+      "description": "Locally retouched photographic composite: a close-up of the same wrist, jacket sleeve and same watch. The watch shows 3:00, minute hand at 12. The setting has bright daylight on the residential street. Readout 3:00 PM.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_pm_reply_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_pm_reply_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_pm_reply_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_07_pm_ask_v1.webp",
+      "pair_id": "07_pm",
+      "role": "ask",
+      "hour": 7,
+      "day_part": "evening",
+      "notation": "7:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "evening",
+      "sha256": "68e5da95643b26d684bc8aa79e628e48741deb8a3277b2582e07dfca953d2e41",
+      "bytes": 230592,
+      "description": "Locally retouched photographic composite: Luis faces Ana and points at the visible watch on his wrist. The watch shows 7:00, minute hand at 12. The setting has fading purple sky and illuminated street lamps outside a venue.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_pm_ask_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_pm_ask_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_pm_ask_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_07_pm_reply_v1.webp",
+      "pair_id": "07_pm",
+      "role": "reply",
+      "hour": 7,
+      "day_part": "evening",
+      "notation": "7:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "evening",
+      "sha256": "0ffa892ccdceb5dbea730712ead5030df0ed4a6c4dad5251e423418686d2ede6",
+      "bytes": 137292,
+      "description": "Locally retouched photographic composite: a close-up of the same wrist, jacket sleeve and same watch. The watch shows 7:00, minute hand at 12. The setting has fading purple sky and illuminated street lamps outside a venue. Readout 7:00 PM.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_07_pm_reply_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_07_pm_reply_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_07_pm_reply_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_09_pm_ask_v1.webp",
+      "pair_id": "09_pm",
+      "role": "ask",
+      "hour": 9,
+      "day_part": "night",
+      "notation": "9:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "sha256": "46239cf8fc0170775a7550bd84465f00c978231ca4dc0721ef079207c69cb370",
+      "bytes": 87844,
+      "description": "Locally retouched photographic composite: Luis faces Ana and points at the visible watch on his wrist. The watch shows 9:00, minute hand at 12. The setting has dark sky, stars and moon without sunrise.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_09_pm_ask_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_09_pm_ask_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_09_pm_ask_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_09_pm_reply_v1.webp",
+      "pair_id": "09_pm",
+      "role": "reply",
+      "hour": 9,
+      "day_part": "night",
+      "notation": "9:00 PM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "sha256": "444d28106a00228350a3d6d13b1040f2f9cee7241aa363a18cd4160222636529",
+      "bytes": 88408,
+      "description": "Locally retouched photographic composite: a close-up of the same wrist, jacket sleeve and same watch. The watch shows 9:00, minute hand at 12. The setting has dark sky, stars and moon without sunrise. Readout 9:00 PM.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_09_pm_reply_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_09_pm_reply_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_09_pm_reply_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_03_am_ask_v1.webp",
+      "pair_id": "03_am",
+      "role": "ask",
+      "hour": 3,
+      "day_part": "night",
+      "notation": "3:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "sha256": "bf46a1f2b0af82699e9eb6511260e873fa7dca13d33fab65611f08293c357854",
+      "bytes": 87790,
+      "description": "Locally retouched photographic composite: Luis faces Ana and points at the visible watch on his wrist. The watch shows 3:00, minute hand at 12. The setting has dark sky, stars and moon without sunrise.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_am_ask_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_am_ask_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_am_ask_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_03_am_reply_v1.webp",
+      "pair_id": "03_am",
+      "role": "reply",
+      "hour": 3,
+      "day_part": "night",
+      "notation": "3:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "night",
+      "sha256": "7ec510ff336347676c86b6eee8b815986eff14f00aa6ffb35b5b447324bdbace",
+      "bytes": 88896,
+      "description": "Locally retouched photographic composite: a close-up of the same wrist, jacket sleeve and same watch. The watch shows 3:00, minute hand at 12. The setting has dark sky, stars and moon without sunrise. Readout 3:00 AM.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_03_am_reply_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_03_am_reply_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_03_am_reply_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_09_am_ask_v1.webp",
+      "pair_id": "09_am",
+      "role": "ask",
+      "hour": 9,
+      "day_part": "morning",
+      "notation": "9:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "sha256": "5416b03e277d0bedd0e1e1736820398ab05d906792d7facef2b481ff463405bb",
+      "bytes": 182716,
+      "description": "Locally retouched photographic composite: Luis faces Ana and points at the visible watch on his wrist. The watch shows 9:00, minute hand at 12. The setting has low golden sun and mountain horizon.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_09_am_ask_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_09_am_ask_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_09_am_ask_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    },
+    {
+      "filename": "a1_photo_time_09_am_reply_v1.webp",
+      "pair_id": "09_am",
+      "role": "reply",
+      "hour": 9,
+      "day_part": "morning",
+      "notation": "9:00 AM",
+      "clock_id": "gold-black-leather-watch-1",
+      "scene_id": "morning",
+      "sha256": "cef5bb7dc92b925283e2a6603f5ff2c203ce7ae706200984d44e78a86ab9a0a0",
+      "bytes": 123668,
+      "description": "Locally retouched photographic composite: a close-up of the same wrist, jacket sleeve and same watch. The watch shows 9:00, minute hand at 12. The setting has low golden sun and mountain horizon. Readout 9:00 AM.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "copies": [
+        "Lessons/Lesson1/images/a1_photo_time_09_am_reply_v1.webp",
+        "frontend/public/lesson-assets/a1_photo_time_09_am_reply_v1.webp",
+        "mobile/assets/lesson-assets/a1_photo_time_09_am_reply_v1.webp"
+      ],
+      "human_semantic_review": {
+        "status": "pending"
+      }
+    }
+  ],
+  "review_policy": "Agent inspection is engineering evidence; human semantic review remains pending.",
+  "exchanges": [
+    {
+      "question_slide": "L1",
+      "reply_slide": "L2",
+      "pair_id": "07"
+    },
+    {
+      "question_slide": "L3",
+      "reply_slide": "L4",
+      "pair_id": "07_am"
+    },
+    {
+      "question_slide": "L5",
+      "reply_slide": "L6",
+      "pair_id": "03_pm"
+    },
+    {
+      "question_slide": "L7",
+      "reply_slide": "L8",
+      "pair_id": "07_pm"
+    },
+    {
+      "question_slide": "L9",
+      "reply_slide": "L10",
+      "pair_id": "09_pm"
+    },
+    {
+      "question_slide": "L11",
+      "reply_slide": "L12",
+      "pair_id": "03_am"
+    },
+    {
+      "question_slide": "L13",
+      "reply_slide": "L14",
+      "pair_id": "03_pm"
+    },
+    {
+      "dialogue_slide": "A6",
+      "pair_id": "03_pm"
+    },
+    {
+      "dialogue_slide": "A7",
+      "pair_id": "07_pm"
+    },
+    {
+      "dialogue_slide": "A8",
+      "pair_id": "09_pm"
+    },
+    {
+      "dialogue_slide": "A9",
+      "pair_id": "03_am"
+    },
+    {
+      "dialogue_slide": "A10",
+      "pair_id": "03_pm"
+    }
+  ]
+}
