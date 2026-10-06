@@ -36,8 +36,9 @@ whenever upgrading the pinned Clerk Expo SDK.
 ## Provider settings
 
 Enable email verification, account recovery and the chosen sign-in methods in
-Clerk. Google is enabled in the SpanGlish development instance. Native API is
-enabled, and the user approved and saved these exact mobile redirect URLs:
+Clerk. Google is enabled in the SpanGlish development instance; Production
+requires its own Google OAuth client. Native API is enabled, and the user
+approved and saved these exact mobile redirect URLs in both instances:
 
 - `spanglish-preview://auth-callback`
 - `spanglish-dev://auth-callback`
@@ -55,6 +56,15 @@ it does not require a bundled app key. Deletions are idempotent, retain a minima
 identity tombstone, and also block a late first login after provider deletion.
 Configure the webhook for the same Clerk instance as the backend issuer.
 See [Clerk's Python webhook reference](https://clerk.com/articles/how-to-add-authentication-to-a-python-backend-3).
+
+The production webhook is registered for only `user.deleted`, and its signing
+secret is saved on Render. Matching Clerk production keys are saved in Vercel
+Production, Render and EAS Preview. All five DNS-only Clerk CNAME records in
+Cloudflare are verified. These settings still require the new backend deploy,
+valid certificates, and real hosted/installed authentication checks.
+Google setup uses the existing `horaciomainproject`; its exact authorized
+redirect URI is `https://clerk.learnspanglish.app/v1/oauth_callback`.
+Request only basic identity scopes: OpenID, email and profile.
 
 QA access is opt-in through backend `CLERK_QA_SUBJECTS`; display names and profile
 JSON cannot grant it. Do not infer QA privileges from the old `horace` login.

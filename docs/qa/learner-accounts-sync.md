@@ -27,13 +27,23 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
   pass after updating the replaced login-screen navigation assertion.
 - Complete Preview preflight passes, including Android export and versioned
   catalog integrity. No local EAS publication was performed.
-- Both approved mobile callback URLs are saved in Clerk. Native API was already
-  enabled; no paid plan or upgrade was selected.
-- Clerk Production currently reports 0/3 setup tasks complete: production
-  environment keys, custom Google credentials and domain CNAME records.
-  Vercel's connector returned 403 when listing project environment variables.
-  Hosted deployment remains blocked pending that configuration; merging would
-  activate the new account gate on the live web application.
+- Both approved mobile callback URLs are saved in Clerk Development and
+  Production. Native API was already enabled; no paid plan was selected.
+- All five production Clerk CNAME records are DNS-only in Cloudflare and verified
+  by Clerk. Certificate issuance was still pending at the last observation.
+- Matching production Clerk keys are configured in Vercel Production, Render
+  and EAS Preview. Render also has the issuer, exact browser-origin allowlist,
+  preserved CORS origins plus the owned apex/www origins, and webhook secret.
+  Settings are saved for the next deploy; the old backend has no webhook route.
+- A production webhook is registered for only `user.deleted` at the documented
+  backend endpoint. Real delivery and deletion remain unchecked below.
+- Google consent setup is prepared in the existing `horaciomainproject` and
+  awaits user approval of Google's API user-data policy. No new Google project
+  or billing selection was made. Its OAuth client and Clerk credentials are
+  still pending, so hosted sign-in is not yet verified.
+- Pull request #237 passed the complete release-candidate check and Vercel
+  build. It remains draft while hosted configuration is completed; merging
+  activates the new account gate on the live web application.
 
 ## Required installed/hosted checks
 
