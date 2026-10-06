@@ -424,7 +424,7 @@ def read_admin_storage():
 
 
 @app.get("/api/lessons")
-def list_lessons() -> list[dict[str, str]]:
+def list_lessons() -> list[dict[str, str | int]]:
     return [
         {
             "id": lesson.id,
@@ -436,6 +436,7 @@ def list_lessons() -> list[dict[str, str]]:
             "lesson_title": lesson.lesson_title,
             "sub_lesson_id": lesson.sub_lesson_id,
             "sub_lesson_title": lesson.sub_lesson_title,
+            "content_revision": lesson.content_revision,
         }
         for lesson in LESSONS.values()
     ]

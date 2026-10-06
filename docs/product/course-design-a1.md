@@ -17,9 +17,11 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 
 ## Current Track Check
 
-The A1 track now contains seven implemented units of ten lessons each. Unit 1,
-`People, Family, and Actions`, begins the sequence with `1.1 Meet the People`,
-then grows those people into actions, groups, family roles, contrasts, and identity questions.
+The A1 track currently contains 81 lessons across seven implemented,
+content-sized units. The release manifest pins the approved count for each unit;
+those counts may grow with curriculum coverage. Unit 1, `People, Family, and
+Actions`, begins the sequence with `1.1 Meet the People`, then grows those people
+into actions, groups, family roles, contrasts, and identity questions.
 
 What it does well:
 
@@ -293,25 +295,25 @@ Current restructuring target:
 
 - at least 40 total cards for each restructured standard `Learn -> Recognize -> Listen -> Speak -> Use` lesson; Lesson 1.1 establishes a 42-card pilot while later lessons retain their baseline counts until reviewed one at a time
 - new vocabulary is limited by the lesson contract rather than introduced incidentally through distractors
-- lessons 1-8 may reuse earlier vocabulary only as part of the current lesson's larger construction, meaning, contrast, or situation; they do not insert standalone prior-lesson review cards
-- lesson 9 is the unit's comprehensive no-new-language review, while lesson 10 is a distinct applied story or challenge rather than another review
+- forward-building lessons may reuse earlier vocabulary only as part of the current lesson's larger construction, meaning, contrast, or situation; they do not insert standalone prior-lesson review cards
+- each unit closes with one comprehensive no-new-language review and then one distinct applied story or challenge rather than another review
 
-### Ten-lesson unit rhythm
+### Content-sized unit rhythm
 
-- Lessons 1-8 form one forward-moving construction chain. A unit can progress from subjects to actions, then places or objects, then attributes such as colors and quantities, so familiar words do more work each time they return.
-- Vocabulary and grammar may move between lessons 1-8 of the same unit when needed for that chain. Every moved item carries its prerequisite, declared teaching target, and downstream dependency with it; old lesson boundaries never outrank understandable story flow, but later-unit language does not move forward without a separate curriculum decision.
+- The forward-building lessons form one construction chain, however many the unit's coverage requires. A unit can progress from subjects to actions, then places or objects, then attributes such as colors and quantities, so familiar words do more work each time they return.
+- Vocabulary and grammar may move between forward-building lessons of the same unit when needed for that chain. Every moved item carries its prerequisite, declared teaching target, and downstream dependency with it; old lesson boundaries never outrank understandable story flow, but later-unit language does not move forward without a separate curriculum decision.
 - Introduce the small supporting words needed to make the story grammatical before using them in a cumulative sentence. Articles, pronouns, forms of `be`, prepositions, and place or object nouns are teaching content, not invisible glue. Unit 1 may grow `girl` into `The girl is running.` Unit 2 then introduces `park` and `in the park` before expanding it to `The girl is running in the park.`
 - Within every lesson, the slides form a linked chain rather than a collection of cards about the same topic. Each slide continues, answers, applies, contrasts, deepens, or resolves the previous slide and creates a natural reason for the following slide; this applies across section boundaries as well as within a section.
 - Learn, Recognize, Listen, Speak, and Use preserve the same reviewed concept or story order. Each section changes the learner's task and may compress or deepen the arc, but it does not reshuffle its subjects, events, or logic. Every restructured lesson also varies direction, option depth, modality, and construction where those interactions fit the stage.
-- Repetition in lessons 1-8 is repetition with growth: keep the useful vocabulary, but change the combination, sentence structure, communicative purpose, scene, or required response. Do not copy a prior teaching or assessment card into the next lesson merely to review it.
-- Lesson 9 retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets from lessons 1-8. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
-- Lesson 10 is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
-- Lesson 10 uses light, language-centered gamification to break the lessons 1-8 rhythm without turning the course into a reward loop. Its interactions follow the story and may include finding a person in a scene, connecting relationships, sorting, tracing, correcting a false clue, listening, and speaking. Word-part or sentence tiles are optional tools for a mission whose story genuinely calls for them; they are never the default mission identity or a reason to turn a mission into another exercise deck.
-- Mission lessons declare `experience_type: mission`, a positive `content_revision`, a presentation contract, ordered chapters, and one chapter ID per card. They retain internal stage values only to select engine behavior; the learner sees one continuous mission with beat progress, not the standard five-stage journey or section picker.
-- Unit 1 Lesson 1.10 has exactly 22 contiguous beats. Its successful-path language covers the exact 46-item union of vocabulary introduced in Lessons 1.1-1.8—including all thirteen actions plus `Who is he?`, `Who is she?`, and `Who are they?`—without using unintroduced English. Each beat advances the same celebration story and uses a fresh, unambiguous hero still whose exact file hash is absent from Lessons 1.1-1.9, every other mission beat, and both rejected Lesson 1.10 concepts.
-- Lesson 1.10's fixed narrative map is `find-the-people` (beats 1-3), `connect-the-family` (4-9), `follow-the-actions` (10-15), `repair-the-clues` (16-18), and `welcome-everyone` (19-22). These chapters are acts in one uninterrupted adventure, not tabs, replayable lesson sections, or resets of mission state.
+- Repetition in forward-building lessons is repetition with growth: keep the useful vocabulary, but change the combination, sentence structure, communicative purpose, scene, or required response. Do not copy a prior teaching or assessment card into the next lesson merely to review it.
+- The penultimate lesson retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative targets from its forward-building lessons. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
+- The final lesson is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
+- The final mission uses light, language-centered gamification to vary the unit rhythm without turning the course into a reward loop. Its interactions follow the story and may include finding a person in a scene, connecting relationships, sorting, tracing, correcting a false clue, listening, and speaking. Word-part or sentence tiles are optional tools for a mission whose story genuinely calls for them; they are never the default mission identity or a reason to turn a mission into another exercise deck.
+- Every lesson declares a positive `content_revision`. Mission lessons additionally declare `experience_type: mission`, a presentation contract, ordered chapters, and one chapter ID per card. They retain internal stage values only to select engine behavior; the learner sees one continuous mission with beat progress, not the standard five-stage journey or section picker.
+- Unit 1 Lesson 1.11 has exactly 22 contiguous beats. Its successful-path language covers the exact 46-item union of vocabulary introduced in Lessons 1.1-1.9—including all thirteen actions plus `Who is he?`, `Who is she?`, and `Who are they?`—without using unintroduced English. Each beat advances the same celebration story and uses a fresh, unambiguous hero still whose exact file hash is absent from Lessons 1.1-1.10, every other mission beat, and both rejected mission concepts.
+- Lesson 1.11's fixed narrative map is `find-the-people` (beats 1-3), `connect-the-family` (4-9), `follow-the-actions` (10-15), `repair-the-clues` (16-18), and `welcome-everyone` (19-22). These chapters are acts in one uninterrupted adventure, not tabs, replayable lesson sections, or resets of mission state.
 
-### Unit 1 Lesson 1.10 mission contract
+### Unit 1 Lesson 1.11 mission contract
 
 The learner-facing title is `¡Todos a la celebración!`. A family celebration is about to begin, but everyone has not yet arrived. Learned English is the tool for finding each person, establishing the family connections, following what they are doing, correcting broken reports, answering the greeter, and bringing the whole family together. There is no album, film set, studio production, syllable opening, or repeated sentence-order board.
 
@@ -426,33 +428,34 @@ Avoid:
 
 ## Current Unit 1 Build
 
-The approved Unit 1 rebuild now includes all ten roadmap lessons:
+The approved Unit 1 rebuild now includes all eleven lessons:
 
 | Lesson | Scope | Build status |
 | --- | --- | --- |
 | `1.1` | Meet the People | 42-card pilot ready for learner review |
 | `1.2` | People in Action | 42-card cumulative rebuild ready for learner review |
 | `1.3` | Two People: They and Are | 42-card cumulative rebuild ready for learner review |
-| `1.4` | Children and Siblings | 42-card cumulative rebuild ready for learner review |
-| `1.5` | Parents and Grandparents | 42-card cumulative rebuild ready for learner review |
-| `1.6` | Family Actions | 42-card cumulative rebuild ready for learner review |
-| `1.7` | What They Are Not Doing | 42-card cumulative rebuild ready for learner review |
-| `1.8` | Who Is He? Who Are They? | 50-card question/answer pairs in all five sections |
-| `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
-| `1.10` | ¡Todos a la celebración! | 22-beat find/connect/action/correct/Who adventure ready for Preview learner review |
+| `1.4` | Children and Babies | 42-card cumulative rebuild ready for learner review |
+| `1.5` | Brothers, Sisters, and Adults | 42-card cumulative rebuild ready for learner review |
+| `1.6` | Parents and Grandparents | 42-card cumulative rebuild ready for learner review |
+| `1.7` | Family Actions | 42-card cumulative rebuild ready for learner review |
+| `1.8` | What They Are Not Doing | cumulative contrast lesson ready for learner review |
+| `1.9` | Who Is He? Who Are They? | question/answer pairs in all five stages |
+| `1.10` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
+| `1.11` | ¡Todos a la celebración! | 22-beat find/connect/action/correct/Who adventure ready for Preview learner review |
 
-Every standard lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10, including the approved celebration-adventure contract above. The Completa progression now extends to 1.2–1.9: eligible cards in the last four Use positions construct the entire existing phrase with 2–8 required word tiles and full model audio, after earlier guided completion. Retain single-word cards 1.4 U4/U6 and ten-word cards 1.3 U7 and 1.9 U7 as guided completion. This converts 28 cards without adding vocabulary or changing card counts. The builder’s `--standard-only` option regenerates 1.2–1.9 without rewriting the separate mission. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat, 74-target mission contract for 1.10.
+Every standard and comprehensive-review lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. Canonical YAML is the current Unit 1 source; the legacy unit-specific builder is retired. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat mission contract for 1.11.
 
 The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
-Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
+Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each lesson's Speak stage.
 
 ## Current Build and Review Status
 
-The canonical A1 track contains 81 lessons in seven units, with each approved unit count recorded in the release integrity manifest. Every standard lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`; every mission lesson replaces that visible shell with one continuous chaptered challenge while retaining internal modality metadata. Each lesson declares its prerequisite and culminates in a speaking outcome. Lessons 1-8 move forward by incorporating earlier vocabulary into richer constructions rather than inserting standalone review cards. Lesson 9 of each unit is a comprehensive no-new-language review using fresh scenarios and covering at least 70 percent of the unit's declared mastery targets; lesson 10 is a coherent, lightly gamified mission that integrates the unit's functions in one applied story or challenge.
+The canonical A1 track contains 81 lessons in seven units, with each approved unit count recorded in the release integrity manifest. Every standard and comprehensive-review lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`; every mission lesson replaces that visible shell with one continuous chaptered challenge while retaining internal modality metadata. Each lesson declares its prerequisite and culminates in a speaking outcome. However many forward-building lessons a unit needs incorporate earlier vocabulary into richer constructions rather than inserting standalone review cards. The penultimate lesson is a comprehensive no-new-language review using fresh scenarios and covering at least 70 percent of the unit's declared targets; the final lesson is a coherent, lightly gamified mission that integrates the unit's functions in one applied story or challenge.
 
 The course menu presents the seven-unit big picture first. Selecting a unit reveals only that unit's lessons, with an explicit return to the all-units view. This navigation mirrors the curriculum hierarchy and keeps the approved course roadmap browsable without flattening it into one long list.
 
-The next pedagogical decision is the post-Preview mastery policy: define the observable pass thresholds for each stage, the number and timing of delayed recycling attempts, and whether a failed mission blocks progression or schedules targeted review while allowing the learner to continue.
+The P1 learning foundation distinguishes lesson progression from mastery. The existing inclusive 80 percent lesson result remains the clearance rule for standard lessons, reviews, and missions; stages do not have separate P1 gates. That score is not called mastery. P3 will add target-level, strand-specific and delayed unassisted evidence; older results without that evidence remain `mastery_unknown` rather than receiving an inferred status.
 
 **2026-10-03 approved time revision.** Lesson 4.10 teaches complete question/answer exchanges (for example, `What time is it? / It is seven o’clock.`), morning, afternoon, evening, night and explicit a.m./p.m. distinctions. It contains only asking/telling time, with every whole hour 1–12 on the successful practice path. The approved 50-card allocation is 14 Learn, 10 Recognize, 10 Listen, 8 Speak and 8 Use. Exact adjacent `learn_context_groups` bind the full models; o’clock is never a standalone vocabulary slide. Eight new targets stay within the A1 budget. Unit review 4.11 retrieves a.m., p.m. and evening in its existing time beats; mission 4.12 retrieves them within its established home story. Mission time/day/activity clues use separate known statements, without introducing activity-at-time grammar; later meals/schedule contexts introduce that use of `at`. The current authoring source is [the time-exchange plan](content-plans/4.10-time-exchanges-v1.plan.json), with [the approved brief](content-briefs/unit-4/4.10-time-exchanges-v1.json). Clock teaching photos come from a licensed camera photograph and local edits; this task uses no image generation API or service. Existing protected originals remain untouched.

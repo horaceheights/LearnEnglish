@@ -29,6 +29,16 @@ for (const [surface, source] of [
 }
 
 assert.equal(embeddedCourse.length, courseContract.lessonCount, 'Preview must always ship the complete A1 catalog pinned by the release manifest.');
+assert.equal(courseContract.courseId, 'a1', 'The release manifest must preserve the stable A1 course identity.');
+for (const lesson of embeddedCourse) {
+  assert.ok(Number.isInteger(lesson.content_revision) && lesson.content_revision >= 1,
+    `${lesson.id} must embed a positive content revision.`);
+  const cardIds = lesson.cards.map((card) => card.slide_id);
+  assert.ok(cardIds.every((cardId) => typeof cardId === 'string' && cardId.trim() === cardId && cardId.length > 0),
+    `${lesson.id} must embed a nonblank ID for every card.`);
+  assert.equal(new Set(cardIds).size, cardIds.length,
+    `${lesson.id} card IDs must be unique within the lesson.`);
+}
 const lessonCountsByUnit = Object.groupBy
   ? Object.fromEntries(Object.entries(Object.groupBy(embeddedCourse, (lesson) => lesson.unit_id)).map(([unitId, lessons]) => [unitId, lessons.length]))
   : embeddedCourse.reduce((counts, lesson) => ({ ...counts, [lesson.unit_id]: (counts[lesson.unit_id] || 0) + 1 }), {});
