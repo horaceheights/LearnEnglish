@@ -37,14 +37,18 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
   Settings are saved for the next deploy; the old backend has no webhook route.
 - A production webhook is registered for only `user.deleted` at the documented
   backend endpoint. Real delivery and deletion remain unchecked below.
-- The user completed Google consent setup in existing `horaciomainproject`.
-  No new project or billing selection was made. The web OAuth client form is
-  prepared with apex/www origins and Clerk's exact callback; final credential
-  creation and entry into Clerk are handed to the user. Hosted sign-in remains
-  unverified until those credentials and test-user access are configured.
+- The user completed Google consent setup and saved the custom web-client
+  credentials in Clerk Production. The existing `horaciomainproject` has only
+  the owned apex/www JavaScript origins and Clerk's exact callback for this
+  client. No new project or billing selection was made.
+- Real Google sign-in through the production account portal created the user's
+  Clerk identity and returned to `www.learnspanglish.app`. Requested scopes are
+  only OpenID, email and profile; Google's basic-identity exception permits this
+  test while its OAuth app remains in testing mode. This verifies provider
+  configuration; the new web/backend account flow still requires deployment.
 - Pull request #237 passed the complete release-candidate check and Vercel
-  build. It remains draft while hosted configuration is completed; merging
-  activates the new account gate on the live web application.
+  build. Hosted settings and production provider sign-in are ready for merge;
+  merging activates the new account gate on the live web application.
 
 ## Required installed/hosted checks
 

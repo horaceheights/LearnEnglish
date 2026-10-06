@@ -37,7 +37,7 @@ whenever upgrading the pinned Clerk Expo SDK.
 
 Enable email verification, account recovery and the chosen sign-in methods in
 Clerk. Google is enabled in the SpanGlish development instance; Production
-requires its own Google OAuth client. Native API is enabled, and the user
+uses its own Google OAuth client. Native API is enabled, and the user
 approved and saved these exact mobile redirect URLs in both instances:
 
 - `spanglish-preview://auth-callback`
@@ -62,9 +62,15 @@ secret is saved on Render. Matching Clerk production keys are saved in Vercel
 Production, Render and EAS Preview. All five DNS-only Clerk CNAME records in
 Cloudflare are verified. These settings still require the new backend deploy,
 valid certificates, and real hosted/installed authentication checks.
-Google setup uses the existing `horaciomainproject`; its exact authorized
-redirect URI is `https://clerk.learnspanglish.app/v1/oauth_callback`.
-Request only basic identity scopes: OpenID, email and profile.
+Google setup uses the existing `horaciomainproject`. The user created the
+`SpanGlish Clerk Production` web client and saved its credentials in Clerk.
+Its origins are the owned apex/www URLs and its exact authorized redirect URI
+is `https://clerk.learnspanglish.app/v1/oauth_callback`. Real production provider
+sign-in is verified. Request only basic identity scopes: OpenID, email and
+profile. Google's basic-identity exception permits access while the OAuth app
+remains in testing mode; public production readiness and branding should be
+reviewed before expanding beyond Preview.
+See [Google's OAuth app state guidance](https://developers.google.com/identity/protocols/oauth2/production-readiness/overview).
 
 QA access is opt-in through backend `CLERK_QA_SUBJECTS`; display names and profile
 JSON cannot grant it. Do not infer QA privileges from the old `horace` login.
