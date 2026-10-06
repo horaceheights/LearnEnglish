@@ -1,6 +1,7 @@
 import json
 import hashlib
 import unittest
+import copy
 from pathlib import Path
 
 from PIL import Image
@@ -19,6 +20,16 @@ IMAGE_FOLDERS = (
 DAY_PARTS = ('morning', 'afternoon', 'evening', 'night')
 
 
+def assert_matching_exchange(question_image, reply_image, assets):
+    question, reply = assets[Path(question_image).name], assets[Path(reply_image).name]
+    if (question['role'], reply['role']) != ('ask', 'reply'):
+        raise ValueError('An exchange needs an asking view followed by its watch close-up.')
+    for key in ('hour', 'day_part', 'clock_id', 'scene_id'):
+        if question[key] != reply[key]:
+            raise ValueError(f'Question and reply disagree on {key}.')
+
+
+
 def successful_image_names(card):
     correct = {card.get('correct_option_id'), *(card.get('correct_option_ids') or [])}
     images = [card.get('prompt_image_url')]
@@ -29,6 +40,46 @@ def successful_image_names(card):
 
 
 class TimeLessonContractTests(unittest.TestCase):
+    def test_exchange_views_match_clock_hour_and_day_context(self):
+        report = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+        assets = {row['filename']: row for row in report['assets']}
+        lesson = json.loads(LESSON_PATH.read_text(encoding='utf-8'))
+        cards = {card['slide_id']: card for card in lesson['cards']}
+        learns = [c for c in lesson['cards'] if c['stage'] == 'Learn'][4:]
+        for question, reply in zip(learns[::2], learns[1::2]):
+            assert_matching_exchange(question['options'][0]['image_url'], reply['options'][0]['image_url'], assets)
+        for card in lesson['cards']:
+            turns = card.get('audio_turns', [])
+            if len(turns) == 2 and turns[0]['text'] == 'What time is it?':
+                assert_matching_exchange(turns[0]['image_url'], turns[1]['image_url'], assets)
+        for q, a in [('L11', 'L12'), ('L9', 'L10')]:
+            self.assertEqual(assets[cards[q]['options'][0]['image_url']]['day_part'], 'night')
+            self.assertEqual(assets[cards[a]['options'][0]['image_url']]['day_part'], 'night')
+        self.assertEqual(assets[cards['L12']['options'][0]['image_url']]['notation'], '3:00 AM')
+        self.assertNotIn('a1_photo_u4_what_time_luis_v1.webp', json.dumps(lesson))
+
+    def test_daytime_question_cannot_be_paired_with_three_am(self):
+        report = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+        assets = {row['filename']: row for row in report['assets']}
+        with self.assertRaisesRegex(ValueError, 'day_part'):
+            assert_matching_exchange('a1_photo_time_03_pm_ask_v1.webp', 'a1_photo_time_03_am_reply_v1.webp', assets)
+        for key, wrong in [('hour', 9), ('scene_id', 'different-place'), ('clock_id', 'other-clock')]:
+            mutated = copy.deepcopy(assets)
+            mutated['a1_photo_time_03_am_ask_v1.webp'][key] = wrong
+            with self.assertRaisesRegex(ValueError, key):
+                assert_matching_exchange('a1_photo_time_03_am_ask_v1.webp', 'a1_photo_time_03_am_reply_v1.webp', mutated)
+
+    def test_paired_photo_sources_and_runtime_pixels_are_pinned(self):
+        report = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+        for source in [*report['sources'], report['recipe']]:
+            self.assertEqual(hashlib.sha256((ROOT / source['path']).read_bytes()).hexdigest(), source['sha256'])
+        for asset in report['assets']:
+            for folder in IMAGE_FOLDERS:
+                payload = (ROOT / folder / asset['filename']).read_bytes()
+                self.assertEqual(hashlib.sha256(payload).hexdigest(), asset['sha256'])
+            with Image.open(ROOT / IMAGE_FOLDERS[0] / asset['filename']) as photo:
+                self.assertEqual(photo.size, (1536, 1024))
+
     def test_teaching_clock_photographs_keep_the_inspected_source_and_identical_copies(self):
         report = json.loads((ROOT / 'docs/product/time-photograph-assets-v4.json').read_text(encoding='utf-8'))
         source = report['source']
