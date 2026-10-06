@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 from functools import lru_cache
 from pathlib import Path
@@ -105,6 +106,20 @@ def _check_response(response: httpx.Response, descriptor: dict, *, full: bool) -
         raise ValueError("Cloudflare object checksum mismatch")
 
 
+def retry_transient_cdn_read(operation):
+    """Retry an immutable CDN read at most twice; integrity failures never retry."""
+    for attempt in range(3):
+        try:
+            return operation()
+        except (httpx.TimeoutException, httpx.NetworkError, httpx.RemoteProtocolError):
+            if attempt == 2:
+                raise
+        except httpx.HTTPStatusError as error:
+            if error.response.status_code not in {429, 500, 502, 503, 504} or attempt == 2:
+                raise
+        time.sleep(0.5 * (2 ** attempt))
+
+
 def verify_inventory(*, full: bool = False, workers: int = 16) -> dict:
     """Verify all catalog bindings. Full mode is mandatory before publication."""
     global _status, _available
@@ -118,7 +133,7 @@ def verify_inventory(*, full: bool = False, workers: int = 16) -> dict:
                           limits=httpx.Limits(max_connections=workers)) as client:
             def check(item):
                 asset_id, entry = item
-                try:
+                def verify():
                     receipt_response = client.get(object_url(entry["key"].removesuffix(".mp3") + ".json"))
                     _check_response(receipt_response, entry["receipt"], full=True)
                     receipt = receipt_response.json()
@@ -128,6 +143,8 @@ def verify_inventory(*, full: bool = False, workers: int = 16) -> dict:
                     if full and probe_mp3(audio.content) != receipt["stored_media"]:
                         raise ValueError("Cloudflare MP3 media probe mismatch")
                     return asset_id, None, False
+                try:
+                    return retry_transient_cdn_read(verify)
                 except httpx.HTTPStatusError as error:
                     return asset_id, str(error.response.status_code), error.response.status_code == 404
                 except Exception as error:

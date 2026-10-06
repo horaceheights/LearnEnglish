@@ -8,7 +8,21 @@ import httpx
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from backend.app.cloudflare_media import MEDIA_BASE_URL, object_url, verify_inventory
+from backend.app.cloudflare_media import MEDIA_BASE_URL, object_url, retry_transient_cdn_read, verify_inventory
+
+def verify_media_object(client, key, value):
+    def verify():
+        # A retry starts a new stream and a new digest; partial bytes are discarded.
+        digest = hashlib.sha256()
+        count = 0
+        with client.stream('GET', object_url(key)) as response:
+            response.raise_for_status()
+            for chunk in response.iter_bytes():
+                digest.update(chunk)
+                count += len(chunk)
+        if count != value['bytes'] or digest.hexdigest() != value['sha256']:
+            raise ValueError('checksum/size mismatch')
+    retry_transient_cdn_read(verify)
 
 def main():
     result = verify_inventory(full=True)
@@ -20,15 +34,7 @@ def main():
         def check(item):
             key, value = item
             try:
-                digest = hashlib.sha256()
-                count = 0
-                with client.stream('GET',object_url(key)) as response:
-                    response.raise_for_status()
-                    for chunk in response.iter_bytes():
-                        digest.update(chunk)
-                        count += len(chunk)
-                if count != value['bytes'] or digest.hexdigest() != value['sha256']:
-                    raise ValueError('checksum/size mismatch')
+                verify_media_object(client, key, value)
             except Exception as error:
                 return f'{key}: {error}'
         with ThreadPoolExecutor(max_workers=16) as pool:
