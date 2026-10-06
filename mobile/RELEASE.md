@@ -19,7 +19,7 @@ Si más adelante se crea un backend exclusivo para Preview, debe tener servicio,
 
 ## Configuración inicial por teléfono
 
-Preview se compila en la nube de Expo; no necesita el servidor local de Metro. Desde el head protegido de `main`, ejecuta **Publish SpanGlish Preview** con `delivery: native-build` y una descripción. El workflow entrega un build interno para Android y otro para iOS.
+Preview se compila en la nube de Expo; no necesita el servidor local de Metro. Desde el head protegido de `main`, ejecuta **Publish SpanGlish Preview** con `delivery: native-build` y una descripción. `native_platform: all` entrega un build interno para Android y otro para iOS. Para la revisión Android aprobada mientras falta la firma de iOS, elige `native_platform: android`; iOS sigue pendiente.
 
 El archivo de carga contiene únicamente `mobile/`. El backend, el frontend web, el historial de Git y los archivos locales de desarrollo no se suben a Expo; EAS conserva el hash del commit como metadato de cada build.
 
@@ -69,7 +69,7 @@ El workflow:
 3. Ejecuta el preflight completo de contenido, backend, TypeScript y bundle Android.
 4. Espera a que el backend compartido informe ese mismo commit de `main`, el SHA-256 y la cantidad exactos del catálogo candidato, con cero audios faltantes, inválidos o con error.
 5. Publica en el canal `preview` sin permitir dos publicaciones simultáneas.
-6. Consulta Expo después de publicar y comprueba que Android e iOS correspondan al mismo commit.
+6. Consulta Expo después de publicar y comprueba que Android e iOS correspondan al mismo commit. En un build nativo Android, verifica exactamente la plataforma solicitada; las OTA conservan ambas plataformas.
 7. No modifica `production`.
 
 `npm run release:preview`, `eas update` y `npx eas-cli update` están prohibidos como publicación local. Si GitHub Actions o su secreto no están disponibles, la publicación queda bloqueada; no se usa la sesión local de Expo como atajo.
@@ -113,7 +113,7 @@ Se necesita un build nuevo cuando cambia cualquiera de estos elementos:
 
 En ese caso, incrementa la versión de la app y crea el build de Preview antes del build de Production.
 
-Para un build nativo, ejecuta **Publish SpanGlish Preview** desde el head protegido de `main` con `delivery: native-build`. El mismo gate de curso y backend verifica el candidato; EAS compila Android e iOS con el perfil interno `preview`, conserva el hash Git y lo incluye en la etiqueta de la app. El workflow comprueba el commit y ambos resultados y entrega los enlaces de instalación. Esta opción no ejecuta una OTA ni publica en Production. Instala el nuevo build: **Actualizar** no puede agregar módulos nativos.
+Para un build nativo, ejecuta **Publish SpanGlish Preview** desde el head protegido de `main` con `delivery: native-build`. El mismo gate de curso y backend verifica el candidato; EAS compila las plataformas solicitadas (`native_platform: all` por defecto, o `android` para la revisión Android aprobada) con el perfil interno `preview`, conserva el hash Git y lo incluye en la etiqueta de la app. El workflow exige exactamente un resultado terminado por plataforma, con el commit, canal, perfil y versión correctos, y entrega los enlaces de instalación. Esta opción no ejecuta una OTA ni publica en Production. Instala el nuevo build: **Actualizar** no puede agregar módulos nativos. La revisión Android no da por verificado iOS ni cambia las condiciones de promoción a Production.
 
 ## Si un cambio falla
 

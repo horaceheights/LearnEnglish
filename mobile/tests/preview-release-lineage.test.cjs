@@ -128,11 +128,12 @@ test('the versioned manifest locks the complete recovery baseline and release id
       'mobile/src/updates.ts',
       'mobile/src/screens/CourseScreen.tsx',
       'mobile/scripts/publish-preview.ps1',
+      'mobile/scripts/release-guard.ps1',
     ],
   );
   assert.equal(
     integrityManifest.requiredReleaseIdentityFiles.at(-1).expectedGitBlob,
-    'bf69092b3ade2353da21c6a383e42b3c7958817e',
+    'b4b56dafb13bf849619ec37403c9e89d6409ddea',
   );
 });
 

@@ -37,13 +37,23 @@
     },
     {
       "path": "mobile/scripts/publish-preview.ps1",
-      "expectedGitBlob": "bf69092b3ade2353da21c6a383e42b3c7958817e",
+      "expectedGitBlob": "6b61a10b4cbc1b86ed8f4d5bb9cebe3f70c67ebe",
       "requiredMarkers": [
         "Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_SHA'",
         "EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA",
         "PSObject.Properties['gitCommitHash']",
-        "$build.gitCommitHash -cne $releaseCommit",
-        "$build.runtimeVersion -cne $expectedVersion"
+        "Assert-NativePreviewBuilds -Builds $builds",
+        "-NativePlatform $NativePlatform"
+      ]
+    },
+    {
+      "path": "mobile/scripts/release-guard.ps1",
+      "expectedGitBlob": "b4b56dafb13bf849619ec37403c9e89d6409ddea",
+      "requiredMarkers": [
+        "function Assert-NativePreviewBuilds",
+        "$build.gitCommitHash -cne $ExpectedCommit",
+        "$build.runtimeVersion -cne $ExpectedVersion",
+        "$build.platform -cnotin $expectedPlatforms"
       ]
     }
   ]

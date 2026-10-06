@@ -60,8 +60,11 @@ See [Clerk's Python webhook reference](https://clerk.com/articles/how-to-add-aut
 The production webhook is registered for only `user.deleted`, and its signing
 secret is saved on Render. Matching Clerk production keys are saved in Vercel
 Production, Render and EAS Preview. All five DNS-only Clerk CNAME records in
-Cloudflare are verified. These settings still require the new backend deploy,
-valid certificates, and real hosted/installed authentication checks.
+Cloudflare are verified and both production certificates are issued. The new
+web and backend are deployed from merged main commit `4a5e4c4`. Real Google
+sign-in and lesson checkpoint restoration are verified in Chrome and the
+independent in-app browser, including sign-out and re-entry. Installed mobile
+checks and real external deletion remain required.
 Google setup uses the existing `horaciomainproject`. The user created the
 `SpanGlish Clerk Production` web client and saved its credentials in Clerk.
 Its origins are the owned apex/www URLs and its exact authorized redirect URI
@@ -93,6 +96,9 @@ remain in their original namespace for inspection.
 
 Before merging, configure the target hosted environments and verify the signed
 account path. Then use only the protected main Preview workflow with
-`delivery: native-build`. Installed Preview sign-in, recovery and offline
+`delivery: native-build`. The user approved Android Preview first after the
+all-platform workflow found no suitable iOS internal-distribution credentials;
+select `native_platform: android` in the protected workflow. The default `all`
+still requires both platforms. Installed Preview sign-in, recovery and offline
 two-device checks are still required. Production requires explicit approval of
 the same tested commit and completed provider/domain configuration.

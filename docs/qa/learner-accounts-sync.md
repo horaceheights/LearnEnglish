@@ -1,6 +1,7 @@
 # Learner accounts and progress QA
 
-Candidate: `codex/learner-accounts-sync`, based on current `origin/main`.
+Accounts: pull request #237, merged as `4a5e4c4`. Android release follow-up:
+`codex/android-account-preview`, based on freshly fetched `origin/main`.
 Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
 
 ## Observed locally (2026-10-05)
@@ -49,6 +50,28 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
 - Pull request #237 passed the complete release-candidate check and Vercel
   build. Hosted settings and production provider sign-in are ready for merge;
   merging activates the new account gate on the live web application.
+
+## Hosted verification and Android release follow-up (2026-10-05)
+
+- Vercel and Render both serve merged main commit `4a5e4c4`; Render reports
+  all 6,357 approved audio assets ready with no missing or invalid objects.
+- Real production Google sign-in reaches all seven units in Chrome and the
+  independent Codex in-app browser. After Chrome answered card one, the other
+  browser restored lesson 1.1 at `He`, card 2/42, score 1. Sign-out and Google
+  re-entry restored the same checkpoint and score.
+- Hosted anonymous account access and invalid bearer tokens return 401. The
+  owned www-origin preflight returns 200 with the matching CORS header. An
+  unsigned deletion webhook returns 400 and is rejected before any mutation.
+- Protected Preview run `37414762949` passed all backend, course, interaction,
+  export and CDN checks. EAS uploaded the Android candidate, then the workflow
+  failed because iOS had no suitable internal-distribution signing credentials.
+  This is not a successful native Preview publication.
+- The user approved Android Preview first. The follow-up adds an explicit
+  `native_platform: android` choice to the same protected workflow. The default
+  still requires Android and iOS. Executable release checks reject stale,
+  unfinished, duplicate, missing and unexpected platform results. The release
+  manifest deliberately pins the revised publisher and its metadata guard;
+  course content and its complete approved catalog are unchanged.
 
 ## Required installed/hosted checks
 
