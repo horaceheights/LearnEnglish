@@ -142,3 +142,16 @@ test('both clients preserve the written task while using answer assets only afte
   assert.match(web, /disabled=\{!isPronunciationCard && !cardReplayText\.trim\(\)\}/);
   assert.match(web, /speakText\(correctRecognizeReplayText,[\s\S]*?purpose: "answer", text: correctRecognizeReplayText/);
 });
+
+test('the actual web autoplay predicate pronounces written cues outside Unit 1 and keeps explicit silence', () => {
+  const web = fs.readFileSync(path.join(root, '../frontend/components/LessonPlayer.js'), 'utf8');
+  const expression = web.match(/const hasPromptAutoplay = ([^;]+);/)[1];
+  const applies = new Function('isRecognitionLesson', 'currentCard', 'cardPromptText',
+    'cardPromptHasVisualBlank', 'isWrittenRecognize', `return Boolean(${expression});`);
+  const spoken = { ...card, prompt_presentation: 'written', audio_text: 'What day is it today? Monday' };
+  assert.equal(applies(false, spoken, spoken.audio_text, false, isWrittenRecognize), true);
+  assert.equal(applies(false, { ...card, prompt_presentation: 'written' }, '', false, isWrittenRecognize), false);
+  assert.equal(applies(false, { ...spoken, prompt_presentation: undefined }, spoken.audio_text, false, isWrittenRecognize), false);
+  assert.match(web, /data-written-prompt-speaker/,
+    'An available cue has a visible speaker affordance on its existing replay control.');
+});

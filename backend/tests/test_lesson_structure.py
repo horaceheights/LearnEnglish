@@ -648,6 +648,11 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(image_to_text)
                 self.assertTrue(all(
                     card.audio_text == card.prompt
+                    # Written line breaks preserve reading layout. A spoken
+                    # multi-turn cue must still pronounce all the same words.
+                    or (card.prompt_presentation == "written" and card.audio_turns
+                        and " ".join(card.audio_text.split()) == " ".join(card.prompt.split())
+                        and " ".join(turn.text for turn in card.audio_turns) == card.audio_text)
                     # An explicitly silent written task still needs its visible
                     # English target and authored post-correct confirmation.
                     or (card.audio_text == "" and card.prompt.strip()

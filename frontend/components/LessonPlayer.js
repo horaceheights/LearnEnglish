@@ -2368,7 +2368,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     : "";
   const isRecognitionLesson = activeLesson.unit_id === "unit-1";
   const helpCardKey = `${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
-  const hasPromptAutoplay = (isRecognitionLesson || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
+  const hasPromptAutoplay = (isRecognitionLesson || isWrittenRecognize(currentCard) || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
     && Boolean(cardPromptText.trim());
   const introduceHelp = !testMode && isFirstSectionHelpIntroduction(activeLesson, cardIndex);
   const help = useContextualHelp({
@@ -3637,7 +3637,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   useEffect(() => {
     if (
-      (!isRecognitionLesson && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
+      (!isRecognitionLesson && !isWrittenRecognize(currentCard) && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
       || isMissionGameExperience
       || isPageTurning
@@ -5556,8 +5556,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   border: 0,
                   background: "transparent",
                   color: "var(--text)",
-                  padding: 0,
+                  padding: isWrittenRecognize(currentCard) ? "0 36px" : 0,
                   margin: 0,
+                  position: isWrittenRecognize(currentCard) ? "relative" : undefined,
                   cursor: isPronunciationCard || cardReplayText.trim() ? "pointer" : "default",
                   width: "100%",
                 }}
@@ -5567,6 +5568,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     : currentCard.prompt?.trim() || lessonStageLabel(activeLesson.id, currentCard.stage)
                 }
               >
+                {isWrittenRecognize(currentCard) && cardReplayText.trim() ? (
+                  <span aria-hidden="true" data-written-prompt-speaker style={{ position: "absolute", right: -8, top: "50%", transform: "translateY(-50%)", width: 44, height: 44, display: "grid", placeItems: "center" }}>
+                    <svg viewBox="0 0 28 28" width="28" height="28">
+                      <circle cx="14" cy="14" r="14" fill="#278d70" />
+                      <path d="M7 11h3l4-3v12l-4-3H7z" fill="white" />
+                      <path d="M17 10q4 4 0 8m3-10q6 6 0 12" fill="none" stroke="white" strokeWidth="1.4" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                ) : null}
                 <div
                   style={{
                     color: "#8b765d",
