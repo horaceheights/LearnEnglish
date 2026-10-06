@@ -54,6 +54,7 @@ class LessonCard(BaseModel):
     slide_id: str | None = None
     interaction_type: str | None = None
     prompt: str
+    prompt_presentation: Literal["written"] | None = None
     stage: str
     correct_option_id: str
     correct_option_ids: list[str] = Field(default_factory=list)
@@ -70,6 +71,13 @@ class LessonCard(BaseModel):
     audio_revision: int = Field(default=1, ge=1)
     answer_audio_revision: int = Field(default=1, ge=1)
     audio_assets: list[CourseAudioAsset] = Field(default_factory=list)
+
+    @model_serializer(mode="wrap")
+    def omit_unset_prompt_presentation(self, handler):
+        payload = handler(self)
+        if self.prompt_presentation is None:
+            payload.pop("prompt_presentation", None)
+        return payload
 
     @model_validator(mode="after")
     def require_complete_sentence_contract(self):

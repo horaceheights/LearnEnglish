@@ -1,7 +1,7 @@
 """Acceptance contract for the approved 4.9 question-first worked example.
 
 The wider engine rollout is separate. These checks protect this reviewed
-sequence in every stage, silent recognition evidence, and its authoring source.
+sequence in every stage, written recognition with pronunciation, and its authoring source.
 """
 import calendar
 import hashlib
@@ -35,11 +35,12 @@ SEQUENCE = (
     ("Saturday", "text", ("Saturday", "Friday", "Sunday")),
     ("Sunday", "text", ("Sunday", "Saturday", "Monday")),
 )
-# Learn and the approved Reconoce are preserved by the subsequent alignment of
-# Listen, Speak and Use. Re-importing a plan cannot silently change these cards.
+# The user corrected the sound-off interpretation and extended the complete
+# calendar boards to every section. Re-importing the accepted plan preserves
+# that reviewed presentation, while the explicit assertions protect its meaning.
 PRESERVED_STAGE_DIGESTS = {
-    "Learn": "63778398168d91775d279dc9cb221b6ca6cd9869cf94a2ad721fabb773d3ebea",
-    "Recognize": "c8c5f6df3578cc930520e87fb462d136f5b2a172f2d24945451433326dd6dbfc",
+    "Learn": "74c4440c9ea6093da6adf2a8eb78c886acc48daf13657856d823356d1dbb43b5",
+    "Recognize": "ae4f38ff017d880afb85a43e3c2ec239a06c1d23e31706b8faa47b2a697ae60b",
 }
 
 
@@ -98,22 +99,25 @@ class WeekdayRecognizeSequenceTests(unittest.TestCase):
         ordered_days = list(dict.fromkeys(day for day, _, _ in SEQUENCE))
         self.assertEqual([card["prompt"] for card in learn[1:]], ordered_days)
 
-    def test_every_card_is_answerable_without_upfront_audio_or_answer_captions(self):
+    def test_every_card_keeps_written_evidence_and_pronunciation_without_answer_leakage(self):
         for card, (day, direction, alternatives) in zip(self.cards, SEQUENCE):
             with self.subTest(slide=card["slide_id"]):
-                # Empty, not null: clients must not fall back to reading prompt.
-                self.assertEqual(card["audio_text"], "")
-                self.assertFalse(card.get("audio_turns"))
+                self.assertEqual(card["prompt_presentation"], "written")
+                self.assertEqual(card["audio_speaker"], card["answer_audio_speaker"])
+                self.assertEqual(card["audio_text"], f"{QUESTION} {day}" if direction == "image" else QUESTION)
                 self.assertFalse(card.get("answer_audio_turns"))
-                self.assertFalse(any(asset.get("purpose") == "prompt" for asset in card.get("audio_assets", [])))
                 self.assertIn(card["answer_audio_speaker"], ("teacher", "co-teacher"))
                 correct = next(option for option in card["options"] if option["id"] == card["correct_option_id"])
                 if direction == "image":
+                    self.assertEqual([turn["text"] for turn in card["audio_turns"]], [QUESTION, day])
+                    self.assertEqual([turn["speaker_role"] for turn in card["audio_turns"]], ["co-teacher"] * 2)
+                    self.assertEqual([turn["image_url"] for turn in card["audio_turns"]], [board("unmarked"), board(day)])
                     self.assertEqual(card["prompt_image_url"], "", "Do not show the answer picture beside the target word.")
                     self.assertEqual([option["image_url"] for option in card["options"]], [board(alternative) for alternative in alternatives])
                     self.assertTrue(all(option["label"] is None for option in card["options"]))
                     self.assertEqual(correct["image_url"], board(day))
                 else:
+                    self.assertFalse(card.get("audio_turns"))
                     self.assertEqual(card["prompt_image_url"], board(day))
                     self.assertEqual([option["label"] for option in card["options"]], [f"Today is {alternative}." for alternative in alternatives])
                     self.assertTrue(all(option["image_url"] == "" for option in card["options"]))
@@ -152,7 +156,7 @@ class WeekdayRecognizeSequenceTests(unittest.TestCase):
             self.assertEqual(card["prompt_image_url"], "", "Do not reveal the correct picture above the image choices.")
             self.assertTrue(all(option["image_url"] and option["label"] is None for option in card["options"]))
             correct = next(option for option in card["options"] if option["id"] == card["correct_option_id"])
-            self.assertEqual(correct["image_url"], f"/lesson-assets/a1_photo_u4_days_week_{day.lower()}_handdrawn_v2.webp")
+            self.assertEqual(correct["image_url"], board(day))
         for card, day in zip(cards[4:], days[3:]):
             correct = next(option for option in card["options"] if option["id"] == card["correct_option_id"])
             self.assertEqual(correct["label"], f"Today is {day}.")
@@ -201,7 +205,48 @@ class WeekdayRecognizeSequenceTests(unittest.TestCase):
         for spec in plan["cards"]:
             if spec["stage"] == "Recognize":
                 self.assertEqual(spec["recipe"], "choice")
-                self.assertEqual(spec["exceptions"]["audio_text"], "")
+                self.assertEqual(spec["prompt_presentation"], "written")
+                self.assertNotEqual(spec.get("exceptions", {}).get("audio_text"), "")
+
+    def test_all_sections_use_the_same_board_family_and_neutral_question_context(self):
+        def image_refs(value):
+            if isinstance(value, dict):
+                for key, child in value.items():
+                    if key in ("image_url", "prompt_image_url") and child:
+                        yield child
+                    else:
+                        yield from image_refs(child)
+            elif isinstance(value, list):
+                for child in value:
+                    yield from image_refs(child)
+
+        refs = list(image_refs(self.lesson["cards"]))
+        self.assertTrue(refs)
+        self.assertTrue(all(re.fullmatch(r"/lesson-assets/a1_photo_u4_days_week_board_(?:unmarked|monday|tuesday|wednesday|thursday|friday|saturday|sunday)_v1\.webp", ref) for ref in refs))
+        for card in self.lesson["cards"]:
+            for turn in card.get("audio_turns", []):
+                if turn["text"] == QUESTION:
+                    self.assertEqual(turn["image_url"], board("unmarked"), card["slide_id"])
+        for slide in ("L0", "S1", "U1"):
+            card = next(card for card in self.lesson["cards"] if card["slide_id"] == slide)
+            self.assertIn(board("unmarked"), list(image_refs(card)), slide)
+
+    def test_prompt_pronunciation_reuses_exact_approved_question_and_word_takes(self):
+        from backend.app.data import LESSONS
+
+        registry = json.loads((ROOT / "backend/approved-course-audio/registry.json").read_text(encoding="utf-8"))
+        expected = {
+            ("teacher", QUESTION): "ae1d21ebae21beddb0229f270a88da0be9f04327656ee90182683602a8573fac",
+            ("co-teacher", QUESTION): "521497530aff441f82cbc1a08254daed33c3401a9b277c5d83e040892ab77727",
+            ("co-teacher", "Monday"): "08c4bd76a86a2aaaf3b2fd8331f4ba572267c130f97adee96a754d431093770e",
+            ("co-teacher", "Tuesday"): "81bab853536a562c68f9b048c6e200ae0ba838cab76abf3ed2a0bbdc2fafebe6",
+            ("co-teacher", "Wednesday"): "c28afb328b23bdfe454d650b4b7a9c0d4a41bb7a93d6afa006aea1bf28698aa5",
+        }
+        prompts = [asset for card in LESSONS["lesson-4-8-days-and-time"].cards if card.stage == "Recognize"
+                   for asset in card.audio_assets if asset.purpose.startswith("prompt")]
+        self.assertEqual(len(prompts), 13)
+        for asset in prompts:
+            self.assertEqual(registry["bindings"][asset.id]["take_id"], expected[(asset.speaker_role, asset.text)])
 
 
 class WeekdayCalendarBoardTests(unittest.TestCase):
@@ -225,8 +270,8 @@ class WeekdayCalendarBoardTests(unittest.TestCase):
             self.assertEqual(calendar.weekday(2023, 5, row["date"]), weekday)
 
     def test_all_client_copies_match_the_receipted_full_calendar_bytes(self):
-        for row in self.receipt["assets"]:
-            with self.subTest(day=row["day"]):
+        for row in [*self.receipt["assets"], self.receipt["neutral_asset"]]:
+            with self.subTest(filename=row["filename"]):
                 copies = [(ROOT / folder / row["filename"]).read_bytes() for folder in (
                     "Lessons/Lesson1/images", "mobile/assets/lesson-assets", "frontend/public/lesson-assets")]
                 self.assertEqual(copies[0], copies[1])
@@ -235,6 +280,18 @@ class WeekdayCalendarBoardTests(unittest.TestCase):
                 self.assertEqual(row["dimensions"], [1536, 1024])
                 with Image.open(ROOT / "Lessons/Lesson1/images" / row["filename"]) as image:
                     self.assertEqual(image.size, (1536, 1024))
+
+    def test_question_introduction_pixels_do_not_mark_a_weekday_answer(self):
+        row = self.receipt["neutral_asset"]
+        self.assertEqual(row["marker"], "none")
+        self.assertEqual(hashlib.sha256((ROOT / row["source_png"]).read_bytes()).hexdigest(),
+                         row["source_sha256"])
+        with Image.open(ROOT / "Lessons/Lesson1/images" / row["filename"]) as image:
+            for points in blue_components(image):
+                xs, ys = zip(*points)
+                self.assertLess(len(points), 200, "A day-marker loop remains on the neutral calendar.")
+                self.assertLess(max(xs) - min(xs), 35)
+                self.assertLess(max(ys) - min(ys), 35)
 
     def test_pixels_have_one_large_loop_around_the_correct_first_row_cell(self):
         for row in self.receipt["assets"]:

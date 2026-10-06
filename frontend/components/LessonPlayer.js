@@ -28,7 +28,7 @@ import {
   usesCompactListenInstruction,
   usesCompactRecognizeInstruction,
 } from "../../mobile/src/lessonInstructions";
-import { isSilentWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
+import { isWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
@@ -2498,7 +2498,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const isThreeOptionCard = optionCount === 3;
   const isSingleOptionCard = optionCount === 1;
   const fitWrittenRecognition = isMobile && viewportHeight >= viewportWidth
-    && isSilentWrittenRecognize(currentCard) && optionCount > 0 && optionCount <= 3;
+    && isWrittenRecognize(currentCard) && optionCount > 0 && optionCount <= 3;
   const compactWrittenRecognitionChoices = fitWrittenRecognition
     && currentCard.options.every(option => !option.image_url);
   const writtenRecognitionPageRef = useRef(null);
@@ -2717,6 +2717,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const correctContrastPrompt =
     lastResult === "correct" &&
     currentCard?.stage === "Recognize" &&
+    !isWrittenRecognize(currentCard) &&
     Boolean(currentCard?.answer_audio_text?.trim()) &&
     currentCard?.answer_audio_text?.trim() !== cardPromptText.trim() &&
     /\b(?:is|are) not\b/i.test(cardPromptText)
@@ -6052,8 +6053,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             <div style={{ marginTop: fitWrittenRecognition ? 8 : 20, minHeight: fitWrittenRecognition ? 88 : undefined }}>
               {lastResult === "correct" ? (
                 <div style={{ ...styles.feedback, ...(fitWrittenRecognition ? { padding: "8px 10px" } : {}), background: "var(--green-soft)", color: "var(--green)" }}>
-                  {isSilentWrittenRecognize(currentCard) && correctRecognizeReplayText
-                    ? <div>{correctRecognizeReplayText}</div> : null}
+                  {isWrittenRecognize(currentCard) && currentCard.answer_audio_text?.trim()
+                    ? <div>{currentCard.answer_audio_text}</div> : null}
                   Correcto. Vamos a la siguiente tarjeta...
                 </div>
               ) : null}

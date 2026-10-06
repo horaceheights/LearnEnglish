@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "lesson_id": "lesson-4-8-days-and-time",
-  "scope": "Recognize R1-R10 only",
+  "scope": "All five sections of lesson 4.9, including calendar choices and audio-turn image references",
   "month": "2023-05",
   "calendar_week_start": "Monday",
   "visible_dates": [
@@ -47,7 +47,7 @@
     7
   ],
   "source_preservation": "All original book/planner images and unrelated lesson bindings are preserved.",
-  "agent_visual_review": "All seven full 3:2 outputs inspected: complete dates1-31; one blue loop marks the correct first-week cell; no written weekday answers inside the photograph. Phone render review is recorded separately.",
+  "agent_visual_review": "All seven marked full 3:2 outputs and the unmarked introduction inspected: complete dates 1-31; marked variants have one blue loop at the correct first-week cell; neutral variant has no day-marker loop; no written weekday answers inside any photograph. Phone render review is recorded separately.",
   "human_design_review": "User approved complete calendar after requesting dates start at1; exact client/device semantic review remains pending.",
   "human_device_review": "pending",
   "assets": [
@@ -149,5 +149,23 @@
       "generation_tool": "built-in image_gen",
       "prompt": "Use case: precise-object-edit. Edit target: attached complete May2023 calendar photo with all dates1–31. Change ONLY its single blue day-marker loop. Remove the blue loop from the first cell (date1); draw one blue freehand pen loop enclosing the complete upper cell for date7 and its home drawing in FIRST ROW column7. Mark only this sunday column, no other blue marks. Preserve the numeric heading05 / 2023, all31 numbers in exactly their present places, all7 equal columns and all5 rows. Row1 1 2 3 4 5 6 7; row2 8 9 10 11 12 13 14; row3 15 16 17 18 19 20 21; row4 22 23 24 25 26 27 28; row5 29 30 31 with four empty trailing cells. Keep all pictures, grid lines, handwriting, wood framing, camera position, 3:2 aspect, natural lighting and physical textures exactly unchanged. Slight asymmetry, uneven ink and overlapping end stroke for the blue loop, enclosing date and picture together. Do NOT alter any numbers, blank valid date cells, crop the calendar or introduce letters, weekday names, captions, translated labels, initials or extra circles. One complete real calendar photo."
     }
-  ]
+  ],
+  "neutral_asset": {
+    "filename": "a1_photo_u4_days_week_board_unmarked_v1.webp",
+    "source_png": "Lessons/Lesson1/images/course-photoreal-sources/weekday-calendar-board-v1/unmarked.png",
+    "source_sha256": "b4c29be9261b6aea4910004a1cefe7272032ef0b0094cecd5151f0d38baf1258",
+    "sha256": "21a475814ad1530bae01643f21baf8ebecf28e770b256abe50c4297d96f517fc",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "generation_tool": "built-in image_gen",
+    "reference_png": "Lessons/Lesson1/images/course-photoreal-sources/weekday-calendar-board-v1/monday.png",
+    "marker": "none",
+    "webp_encoding": {
+      "quality": 82,
+      "method": 6
+    },
+    "prompt": "Use case: precise-object-edit. Edit the referenced May 2023 whiteboard calendar photograph. Remove ONLY the dark-blue ink loop and its small overlap stroke from the first cell around date 1 and the house. Leave that cell naturally white and clean like the other cells. Preserve the exact board, wooden frame, straight-on camera, lighting, proportions, black grid, all dates 1 through 31 exactly once in the same Monday-first seven-column five-row arrangement, numeric heading 05 / 2023, and all seven first-row activity drawings. Preserve the numeral 1, the house, and the grid beneath the removed ink completely. All seven first-row cells must be unmarked. No blue ink anywhere, no circled date. Do not add words, weekday names, captions, initials, text labels, other marks or props. Do not crop, resize, redraw, recompose, change any numbers, or alter any other part of the photograph. This is the neutral question-only variant of the same approved calendar."
+  }
 }

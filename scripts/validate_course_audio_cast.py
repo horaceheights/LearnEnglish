@@ -176,8 +176,9 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6'),
         ('answer_audio_speaker', 'teacher', 'R1 R3 R5 R7 R9'),
         ('audio_speaker', 'ana', 'S1'),
-        ('audio_speaker', 'co-teacher', 'S3 S5 S7 U2 U4 U6'),
+        ('audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 S3 S5 S7 U2 U4 U6'),
         ('audio_speaker', 'male-character', 'L0'),
+        ('audio_speaker', 'teacher', 'R1 R3 R5 R7 R9'),
     ],
     "lesson-4-what-time-is-it": [
         ('answer_audio_speaker', 'female-character', 'R2 R3 R4 R5 R6 R7 R8 R9 R10 U2 U3 U4 U6 U7 U8'),

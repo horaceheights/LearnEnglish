@@ -63,6 +63,7 @@ export type LessonCard = {
   slide_id?: string | null;
   interaction_type?: string | null;
   prompt: string;
+  prompt_presentation?: 'written' | null;
   stage: string;
   correct_option_id: string;
   correct_option_ids?: string[];

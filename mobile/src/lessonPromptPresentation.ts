@@ -1,6 +1,6 @@
 import type { LessonCard } from './types';
 
-type RecognitionPrompt = Pick<LessonCard, 'stage' | 'prompt' | 'audio_text'>;
+type RecognitionPrompt = Pick<LessonCard, 'stage' | 'prompt' | 'audio_text' | 'prompt_presentation'>;
 type RecognitionAnswer = RecognitionPrompt
   & Pick<LessonCard, 'answer_audio_text' | 'correct_option_id' | 'options'>;
 
@@ -11,6 +11,13 @@ export function isSilentWrittenRecognize(card?: RecognitionPrompt | null) {
     && Boolean(card.prompt.trim())
     && typeof card.audio_text === 'string'
     && !card.audio_text.trim();
+}
+
+// Written presentation is independent of whether its cue is pronounced.
+// Existing explicitly silent authored cards keep their reading presentation.
+export function isWrittenRecognize(card?: RecognitionPrompt | null) {
+  return card?.stage === 'Recognize' && Boolean(card.prompt.trim())
+    && (card.prompt_presentation === 'written' || isSilentWrittenRecognize(card));
 }
 
 export function recognizeAnswerReplayText(card: RecognitionAnswer | null | undefined, correct: boolean) {

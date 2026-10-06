@@ -29,8 +29,8 @@ test("wrapped text consumes space before pictures, without oscillating on resize
   assert.equal(fitMedia(844, 480, 28, [], []), null);
 });
 
-test("the budget applies only to authored silent written portrait cards and preserves full media", () => {
-  assert.match(player, /fitWrittenRecognition = isMobile && viewportHeight >= viewportWidth\s*&& isSilentWrittenRecognize\(currentCard\)/);
+test("the budget applies only to authored written portrait cards and preserves full media independently of pronunciation", () => {
+  assert.match(player, /fitWrittenRecognition = isMobile && viewportHeight >= viewportWidth\s*&& isWrittenRecognize\(currentCard\)/);
   assert.match(player, /ResizeObserver\(measure\)/);
   assert.match(player, /ref=\{writtenRecognitionPageRef\}/);
   assert.match(player, /height: writtenMediaHeight, aspectRatio: "auto", objectFit: "contain"/);

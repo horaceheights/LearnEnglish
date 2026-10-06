@@ -12,7 +12,7 @@ assert.ok(header.includes('styles.promptRowPhraseBox'), 'Exercise the production
 const headerModule = `
 import { View, Text, Pressable, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { isSilentWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
+import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation }) {
   const { width, height, fontScale } = viewport;
   const usesLessonPhoneLandscape = width > height && height < 600;
@@ -24,7 +24,8 @@ export function Header({ currentCard, result, viewport, styles, showSentenceTran
   const isPronunciation = false, promptHasVisualBlank = false;
   const visiblePromptText = currentCard.prompt, pronunciationModelText = '';
   const silentWrittenRecognize = isSilentWrittenRecognize(currentCard);
-  const phraseReplayText = recognizeAnswerReplayText(currentCard, result === 'correct');
+  const writtenRecognize = isWrittenRecognize(currentCard);
+  const phraseReplayText = recognizeAnswerReplayText(currentCard, result === 'correct') || (currentCard.audio_text ?? currentCard.prompt);
   const phraseReplayAvailable = Boolean(phraseReplayText);
   const promptFontSize = 28, promptLineHeight = 34;
   const visibleSentenceTranslation = currentCard.spanish_translation;
@@ -36,22 +37,23 @@ export function Header({ currentCard, result, viewport, styles, showSentenceTran
   return lessonPromptHeader;
 }`;
 
-test('native silent recognition keeps both English lines and translation reachable through retry and feedback', () => {
+test('native written and silent recognition keep English readable and preserve the appropriate speaker through feedback', () => {
   const card = {
     stage: 'Recognize', prompt: 'What day is it today?\nMonday', audio_text: '',
     spanish_translation: '¿Qué día es hoy?\nLunes', answer_audio_text: 'Today is Monday.',
     correct_option_id: 'monday', options: [{ id: 'monday', label: '' }, { id: 'tuesday', label: '' }],
   };
-  for (const [width, height] of [[320, 568], [390, 844], [740, 360], [915, 412]]) {
+  for (const spoken of [false, true]) for (const [width, height] of [[320, 568], [360, 780], [390, 844], [430, 932], [740, 360], [915, 412]]) {
     for (const fontScale of [1, 1.3, 2]) for (const result of [null, 'wrong', 'correct']) {
       const viewport = { width, height, fontScale };
+      const currentCard = spoken ? { ...card, prompt_presentation: 'written', audio_text: 'What day is it today? Monday' } : card;
       const h = lessonHarness(viewport, { sourceTransform: (file, code) => file.endsWith('LessonScreen.tsx') ? headerModule : code });
       const styles = h.styles('screens/LessonScreen.tsx');
       const { Header } = h.load('screens/LessonScreen.tsx');
       const landscape = width > height;
       const paneWidth = landscape ? 230 : width - 20;
       const records = h.render(() => e('View', { children: e(Header, {
-        currentCard: card, result, viewport, styles, showSentenceTranslation: true,
+        currentCard, result, viewport, styles, showSentenceTranslation: true,
       }) }), paneWidth, 220);
       const prompt = records.find(r => r.type === 'Text' && r.text === card.prompt);
       assert.ok(prompt, `${width}/${fontScale}/${result}: complete written question and word remain present.`);
@@ -60,9 +62,9 @@ test('native silent recognition keeps both English lines and translation reachab
       const translation = records.find(r => r.type === 'Pressable' && r.props.accessibilityLabel === `Mostrar traducción de ${card.prompt}`);
       assert.ok(translation && !translation.props.disabled, 'Translation is available without prompt audio.');
       const replay = records.filter(r => r.type === 'Pressable' && r.props.accessibilityRole === 'button' && r.props.accessibilityLabel?.startsWith('Repetir:'));
-      assert.equal(replay.length, result === 'correct' ? 1 : 0, 'Only a correct selection exposes answer replay.');
+      assert.equal(replay.length, spoken || result === 'correct' ? 1 : 0, 'Written pronunciation remains available; silent cards wait for correct.');
       if (replay.length) {
-        assert.equal(replay[0].props.accessibilityLabel, 'Repetir: Today is Monday.');
+        assert.equal(replay[0].props.accessibilityLabel, spoken ? 'Repetir: What day is it today? Monday' : 'Repetir: Today is Monday.');
         assert.ok(!replay[0].props.disabled);
       }
       for (const r of records.filter(r => r.type === 'Text')) {
@@ -75,7 +77,7 @@ test('native silent recognition keeps both English lines and translation reachab
 
 test('native picture recognition shows the full English response only after a correct selection', () => {
   const card = {
-    stage: 'Recognize', prompt: 'What day is it today?\nMonday', audio_text: '',
+    stage: 'Recognize', prompt_presentation: 'written', prompt: 'What day is it today?\nMonday', audio_text: 'What day is it today? Monday',
     answer_audio_text: 'Today is Monday.', prompt_image_url: '', interaction_type: 't2i2',
     correct_option_id: 'monday', options: [
       { id: 'monday', label: '', image_url: '/board-monday.webp' },

@@ -1,5 +1,5 @@
 import type { Lesson, LessonCard } from './types';
-import { isSilentWrittenRecognize } from './lessonPromptPresentation';
+import { isWrittenRecognize } from './lessonPromptPresentation';
 
 /** The first Aprende card models the task; introduce help on the next card. */
 export function isFirstSectionHelpIntroduction(lesson: Lesson | null | undefined, cardIndex: number): boolean {
@@ -110,7 +110,7 @@ function cardHelpInstruction(card: LessonCard, promptInteractionMode: PromptInte
   }
 
   if (card.stage === 'Recognize') {
-    if (isSilentWrittenRecognize(card)) {
+    if (isWrittenRecognize(card)) {
       const target = card.prompt.trim().split(/\r?\n/).pop() || '';
       const noun = target.endsWith('?') ? 'pregunta' : /\s/.test(target) ? 'frase' : 'palabra';
       return `Lee la ${noun} y toca la imagen que corresponde.`;

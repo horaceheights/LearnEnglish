@@ -76,10 +76,11 @@ EXACT_ROLE_CHANGES = {
 # servers and every pictured customer keep their voices) and the six new review cards (+321 net).
 # The 2026-09-29 action-question correction adds four explicit assignments in 3.3.
 # The 2026-10-05 4.9 Reconoce correction adds ten post-correct neutral narrator
-# assignments, alternating teacher and co-teacher while the visible task is silent.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1867
+# assignments, alternating teacher and co-teacher. The follow-up restores ten
+# matching upfront prompt-speaker assignments beside the preserved written cues.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1877
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "8b9fb85c002daee4c9cd4b47951334b27241e7ee1cf7cd5310d4d2ecf2abd7a0"
+    "439bcbb5b80e0df4211490fc574222f1057d671d14d987ec67588f20816fbfd8"
 )
 
 

@@ -83,7 +83,7 @@ import {
   usesCompactRecognizeInstruction,
   usesCompactSpeakInstruction,
 } from '../lessonInstructions';
-import { isSilentWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
+import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import {
   createLessonResumePersistence,
   parseSavedLessonRun,
@@ -1182,13 +1182,15 @@ export function LessonScreen({
   const correctContrastPrompt =
     result === 'correct'
     && currentCard?.stage === 'Recognize'
+    && !isWrittenRecognize(currentCard)
     && Boolean(contrastAnswerAudio)
     && contrastAnswerAudio !== promptAudio.trim()
     && /\b(?:is|are) not\b/i.test(promptAudio)
       ? contrastAnswerAudio
       : '';
   const visiblePromptAudio = correctContrastPrompt || promptAudio;
-  const visiblePromptText = visiblePromptAudio || currentCard?.prompt || '';
+  const writtenRecognize = isWrittenRecognize(currentCard);
+  const visiblePromptText = writtenRecognize ? currentCard?.prompt || '' : visiblePromptAudio || currentCard?.prompt || '';
   const silentWrittenRecognize = isSilentWrittenRecognize(currentCard);
   const isUseStage = currentCard?.stage === 'Use';
   const promptHasVisualBlank = !isSentenceCard && !isUseStage && (authoredPromptHasVisualBlank
@@ -3093,7 +3095,7 @@ export function LessonScreen({
               <Text
                 maxFontSizeMultiplier={usesLessonPhoneLandscape ? 1.3 : undefined}
                 adjustsFontSizeToFit={!useCompactHeaderInstruction}
-                minimumFontScale={useCompactHeaderInstruction ? undefined : usesLessonPhoneLandscape ? 16 / (24 * Math.min(fontScale, 1.3)) : silentWrittenRecognize ? 16 / (promptFontSize * fontScale) : 0.45}
+                minimumFontScale={useCompactHeaderInstruction ? undefined : usesLessonPhoneLandscape ? 16 / (24 * Math.min(fontScale, 1.3)) : writtenRecognize ? 16 / (promptFontSize * fontScale) : 0.45}
                 numberOfLines={usesLessonPhoneLandscape ? 4 : 2}
                 style={[
                   styles.prompt,
@@ -3102,7 +3104,7 @@ export function LessonScreen({
                   {
                     height: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 44 : 80) : undefined,
                     fontSize: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 14 : 24) : promptFontSize,
-                    lineHeight: usesLessonPhoneLandscape || silentWrittenRecognize ? undefined : promptLineHeight,
+                    lineHeight: usesLessonPhoneLandscape || writtenRecognize ? undefined : promptLineHeight,
                   },
                 ]}
               >
