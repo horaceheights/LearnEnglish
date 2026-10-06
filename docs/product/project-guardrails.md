@@ -794,6 +794,8 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 
 ## Lesson results and recoverable scores (2026-09-20)
 
+- 2026-10-06 lesson correction scope: when the user reports a slide defect, inspect the entire affected lesson for the same class of issue before calling the fix complete. Check every stage, model, prompt image, correct option, distractor, dialogue turn and repeated asset use. A screenshot identifies a symptom; it does not limit the correction to that slide. Record the lesson-wide coverage and add a regression check where practical. Preserve healthy material and unrelated lessons.
+
 - 2026-09-29 media review: `boy_is_drinking`, `boy_is_sleeping` and `girl_is_drinking` use their original photographs. Their legacy v2 videos contain blurred side panels and must not be remapped without replacement footage passing the existing full-bleed review.
 
 - On web and mobile, show the integer percentage instead of a correct/total count. Floor the display percentage; use the original fraction for the inclusive 80% pass threshold. Ungraded activities keep the result pending and never grant a pass.

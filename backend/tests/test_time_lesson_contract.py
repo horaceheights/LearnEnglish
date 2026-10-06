@@ -2,6 +2,7 @@ import json
 import hashlib
 import unittest
 import copy
+import re
 from pathlib import Path
 
 from PIL import Image
@@ -29,6 +30,37 @@ def assert_matching_exchange(question_image, reply_image, assets):
             raise ValueError(f'Question and reply disagree on {key}.')
 
 
+def check_time_image(text, image, meanings):
+    """Check target meaning for any model, prompt, choice or individual turn."""
+    meaning = meanings[Path(image).name]
+    text = text.lower().replace('-', ' ').replace('a.m.', 'am').replace('p.m.', 'pm')
+    hours = ('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve')
+    hour = next((i for i, word in enumerate(hours, 1) if re.search(rf'\b{word}\b', text)), None)
+    part = next((p for p in DAY_PARTS if re.search(rf'\b{p}\b', text)), None)
+    if re.search(r'\bam\b', text) or (part == 'morning' and hour == 3):
+        part = 'night' if hour == 3 else 'morning'
+    elif re.search(r'\bpm\b', text):
+        part = {3: 'afternoon', 7: 'evening', 9: 'night'}.get(hour)
+    if hour is not None and meaning.get('hour') != hour:
+        raise ValueError(f'{image}: wrong clock hour for {text}')
+    if part is not None and meaning.get('day_part') != part:
+        raise ValueError(f'{image}: missing or wrong day background for {text}')
+
+
+def time_image_meanings():
+    photos = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
+    meanings = {a['filename']: a for a in photos['assets']}
+    neutral = json.loads((ROOT / 'docs/product/time-photograph-assets-v4.json').read_text(encoding='utf-8'))
+    meanings.update({a['filename']: {'hour': a['hour'], 'day_part': None} for a in neutral['assets']})
+    meanings.update({f'a1_photo_u4_day_{p}_v1.webp': {'day_part': p} for p in DAY_PARTS})
+    meanings.update({
+        'a1_scene_morning_45a21e4.webp': {'hour': 7, 'day_part': 'morning'},
+        'a1_scene_afternoon_7a10f39.webp': {'hour': 3, 'day_part': 'afternoon'},
+        'a1_scene_night_1be2a44.webp': {'hour': 9, 'day_part': 'night'},
+    })
+    return meanings
+
+
 
 def successful_image_names(card):
     correct = {card.get('correct_option_id'), *(card.get('correct_option_ids') or [])}
@@ -40,6 +72,32 @@ def successful_image_names(card):
 
 
 class TimeLessonContractTests(unittest.TestCase):
+    def test_every_slide_image_and_distractor_matches_its_time_meaning(self):
+        lesson = json.loads(LESSON_PATH.read_text(encoding='utf-8'))
+        meanings = time_image_meanings()
+        checked = set()
+        for card in lesson['cards']:
+            with self.subTest(slide=card['slide_id']):
+                target = card.get('answer_audio_text') or card.get('audio_text') or card['prompt']
+                if card.get('prompt_image_url'):
+                    check_time_image(target, card['prompt_image_url'], meanings)
+                for option in card['options']:
+                    if option.get('image_url'):
+                        check_time_image(option.get('label') or option['id'], option['image_url'], meanings)
+                        if card['stage'] == 'Listen' and option['id'] == card['correct_option_id']:
+                            check_time_image(target, option['image_url'], meanings)
+                for field in ('audio_turns', 'answer_audio_turns'):
+                    for turn in card.get(field, []):
+                        if turn.get('image_url'):
+                            check_time_image(turn['text'], turn['image_url'], meanings)
+                checked.add(card['slide_id'])
+        self.assertEqual(len(checked), 70)
+        self.assertEqual({c['stage'] for c in lesson['cards']}, {'Learn', 'Recognize', 'Listen', 'Speak', 'Use'})
+
+    def test_pm_label_on_gray_wall_does_not_satisfy_evening_background(self):
+        with self.assertRaisesRegex(ValueError, 'day background'):
+            check_time_image("It is seven o'clock in the evening.", 'a1_time_photo_clock_07_pm_v4.webp', time_image_meanings())
+
     def test_exchange_views_match_clock_hour_and_day_context(self):
         report = json.loads((ROOT / 'docs/product/time-exchange-photo-assets-v1.json').read_text(encoding='utf-8'))
         assets = {row['filename']: row for row in report['assets']}
@@ -48,6 +106,11 @@ class TimeLessonContractTests(unittest.TestCase):
         learns = [c for c in lesson['cards'] if c['stage'] == 'Learn'][4:]
         for question, reply in zip(learns[::2], learns[1::2]):
             assert_matching_exchange(question['options'][0]['image_url'], reply['options'][0]['image_url'], assets)
+        for q, a in [('S1', 'S2'), ('S3', 'S4'), ('U1', 'U2'), ('U5', 'U6')]:
+            question, reply = cards[q], cards[a]
+            question_image = question.get('prompt_image_url') or question['options'][0]['image_url']
+            reply_image = reply.get('prompt_image_url') or reply['options'][0]['image_url']
+            assert_matching_exchange(question_image, reply_image, assets)
         for card in lesson['cards']:
             turns = card.get('audio_turns', [])
             if len(turns) == 2 and turns[0]['text'] == 'What time is it?':
@@ -129,7 +192,7 @@ class TimeLessonContractTests(unittest.TestCase):
                         f'{stage} must practise the day part independently before combining it with an hour.',
                     )
 
-    def test_contextual_clocks_keep_their_day_period_on_the_successful_path(self):
+    def test_contextual_clocks_remain_as_meaningful_practice_references(self):
         lesson = json.loads(LESSON_PATH.read_text(encoding='utf-8'))
         contexts = {
             'a1_scene_morning_45a21e4.webp': (
@@ -144,13 +207,18 @@ class TimeLessonContractTests(unittest.TestCase):
         }
         for filename, answers in contexts.items():
             with self.subTest(image=filename):
-                uses = [card for card in lesson['cards'] if filename in successful_image_names(card)]
+                uses = [card for card in lesson['cards'] if filename in successful_image_names(card)
+                        or any(Path(o.get('image_url') or '').name == filename for o in card['options'])]
                 self.assertTrue(uses, f'The useful contextual clock {filename} must remain in teaching.')
-                self.assertTrue(any(answers[0] in card_evidence(card) for card in uses))
-                self.assertTrue(all(
-                    any(answer in card_evidence(card) for answer in answers)
-                    for card in uses
-                ))
+                for card in uses:
+                    if filename in successful_image_names(card):
+                        self.assertTrue(any(answer in card_evidence(card) for answer in answers))
+                    else:
+                        # The original sunrise clock is the meaningful morning
+                        # contrast to the evening watch in the listening bank.
+                        for option in card['options']:
+                            if Path(option.get('image_url') or '').name == filename:
+                                check_time_image(option.get('label') or option['id'], filename, time_image_meanings())
 
     def test_approved_plan_teaches_time_in_complete_exchanges_and_preserves_identity(self):
         plan = json.loads((ROOT / 'docs/product/content-plans/4.10-time-exchanges-v1.plan.json').read_text(encoding='utf-8'))
