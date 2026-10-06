@@ -67,8 +67,8 @@ assert.match(
 
 assert.match(
   frontendLessonPlayerSource,
-  /\(!isRecognitionLesson && !cardPromptHasVisualBlank && !currentCard\?\.audio_turns\?\.length\)[\s\S]*?\|\| isPronunciationCard/,
-  'Web autoplay must bypass the existing unit-1 gate only for completion cards or authored turn sequences.',
+  /\(!isRecognitionLesson && !isWrittenRecognize\(currentCard\) && !cardPromptHasVisualBlank && !currentCard\?\.audio_turns\?\.length\)[\s\S]*?\|\| isPronunciationCard/,
+  'Web autoplay outside Unit 1 must support explicit written recognition, completion cards and authored turn sequences without enabling every ordinary card.',
 );
 
 let completionCardCount = 0;
