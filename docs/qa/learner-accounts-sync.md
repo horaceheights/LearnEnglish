@@ -14,6 +14,10 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
   in-dialog error/retry state. Original progress bytes and retry-safe migration
   remain unchanged. Eight native Yoga tests cover choices, Android back, failures,
   small phones, landscape, tablets, larger text and 48dp touch targets.
+- The revised presentation uses brief copy, a cloud icon, source/destination
+  name cards and a soft white surface. The actual component was reviewed at
+  phone size through React Native Web; native installed-device review remains
+  separate. The same eight native interaction/layout tests pass after revision.
 - Account reads adopt Clerk's first name only for an untouched `Student` profile.
   Backend tests cover first login, repair across devices, profile version conflicts,
   a racing profile edit, learner-chosen names and bounded provider failures.

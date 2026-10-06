@@ -27,7 +27,8 @@ test('popup requires an explicit import or skip choice', () => {
   const records = renderDialog(390, 844, { onImport: () => imports++, onSkip: () => skips++ });
   assert.equal(imports + skips, 0);
   assert.ok(records.some(r => r.props.accessibilityViewIsModal));
-  assert.ok(records.some(r => r.text.includes('horace') && r.text.includes('Horacio')));
+  assert.ok(records.some(r => r.text === 'horace'));
+  assert.ok(records.some(r => r.text === 'Horacio'));
   const buttons = records.filter(r => r.type === 'Pressable');
   assert.equal(buttons.length, 2);
   buttons[0].props.onPress();
@@ -51,7 +52,7 @@ test('Android back defers import; loading blocks exits and duplicate imports', (
     if (importing) {
       buttons.forEach(r => r.props.onPress());
       assert.equal(imports + skips, 0);
-      assert.ok(records.some(r => r.text === 'Conservando tu progreso…'));
+      assert.ok(records.some(r => r.text === 'Guardando progreso…'));
     }
   }
 });
@@ -60,7 +61,7 @@ test('import failure stays visible with an explicit retry', () => {
   let imports = 0;
   const records = renderDialog(320, 640, { error: 'No pudimos guardar tu progreso.', onImport: () => imports++ });
   assert.equal(records.find(r => r.props.accessibilityRole === 'alert').text, 'No pudimos guardar tu progreso.');
-  assert.ok(records.some(r => r.text === 'Reintentar importación'));
+  assert.ok(records.some(r => r.text === 'Reintentar'));
   records.find(r => r.type === 'Pressable').props.onPress(); assert.equal(imports, 1);
 });
 
