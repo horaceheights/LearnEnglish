@@ -9,6 +9,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { AppState, Pressable, Text, View } from 'react-native';
 import { BrandHeader } from './BrandHeader';
 import { PlayfulLoading } from './PlayfulLoading';
+import { LegacyProgressImportDialog } from './LegacyProgressImportDialog';
 import { getAccountSnapshot, getLessons } from '../api';
 import { getAccountSession, setAccountSession, setAccessTokenProvider } from '../accountSession';
 import { acceptAccountSnapshot, accountCheckpoints, synchronizeAccount, subscribeAccountSync } from '../accountSync';
@@ -32,7 +33,8 @@ function Gate({ children }: Props) {
   const [busy, setBusy] = useState(false);
   const [legacyProfile, setLegacyProfile] = useState<LearnerProfile | null>(null);
   const [importing, setImporting] = useState(false);
-  const importPending = useRef(false);
+  const [importError, setImportError] = useState('');
+  const importPending = useRef<object | null>(null);
   const identity = useRef(userId); identity.current = userId;
   const tokenProvider = useRef(getToken); tokenProvider.current = getToken;
   const isOffline = useConnectivity();
@@ -71,6 +73,7 @@ function Gate({ children }: Props) {
   }, [isSignedIn, userId]);
   useEffect(() => {
     setSnapshot(null); setLegacyProfile(null); setAccountSession(null);
+    setImportError(''); setImporting(false); importPending.current = null;
     if (!isSignedIn) { setAccessTokenProvider(null); return; }
     void restore();
     return () => { setAccessTokenProvider(null); setAccountSession(null); };
@@ -93,27 +96,40 @@ function Gate({ children }: Props) {
     return () => { subscription.remove(); stop(); clearInterval(interval); };
   }, [!!snapshot, userId, isOffline]);
   const leave = async () => { await signOut(); setSnapshot(null); setAccountSession(null); };
+  const importPreviousProgress = () => {
+    if (!legacyProfile || !snapshot || importPending.current) return;
+    const operation = {};
+    importPending.current = operation; setImporting(true); setImportError('');
+    const previous = legacyProfile;
+    const accountId = snapshot.user.id;
+    const scope = progressScope(accountId);
+    const checkIdentity = () => {
+      if (importPending.current !== operation || identity.current !== userId || progressScope(accountId) !== scope) throw new Error('La cuenta cambió. Inténtalo otra vez.');
+    };
+    void getLessons().then(lessons => {
+      checkIdentity();
+      return importLegacyAccount(AsyncStorage, previous, accountId, lessons,
+        result => { checkIdentity(); return lessonResults.save(result); },
+        (lessonId, run) => { checkIdentity(); return accountCheckpoints.save(scope, lessonId, run); });
+    }).then(() => {
+      if (importPending.current !== operation || identity.current !== userId) return;
+      setLegacyProfile(null);
+      return synchronizeAccount().catch(cause => {
+        if (importPending.current === operation && identity.current === userId) setError(`Tu progreso queda guardado aquí. ${cause.message}`);
+      });
+    }).catch(cause => {
+      if (importPending.current === operation && identity.current === userId) setImportError(cause instanceof Error ? cause.message : 'No pudimos importar tu progreso. Inténtalo otra vez.');
+    }).finally(() => {
+      if (importPending.current !== operation) return;
+      importPending.current = null; setImporting(false);
+    });
+  };
   if (!isLoaded || (busy && !snapshot)) return <View style={{ flex: 1, justifyContent: 'center' }}><PlayfulLoading label="Preparando tu cuenta…" /></View>;
   if (isSignedIn && snapshot) return <View style={{ flex: 1 }}>
     {error ? <Pressable accessibilityRole="button" onPress={() => void restore()}><Text style={{ padding: 10, color: '#a34842' }}>{error} Toca para reintentar.</Text></Pressable> : null}
-    {legacyProfile ? <View style={{ padding: 12, gap: 8 }}><Text>Encontramos progreso anterior de {legacyProfile.displayName} en este dispositivo.</Text>
-      <Pressable accessibilityRole="button" disabled={importing} onPress={() => {
-        if (importPending.current) return;
-        importPending.current = true; setImporting(true);
-        const previous = legacyProfile;
-        const scope = progressScope(snapshot.user.id);
-        const checkIdentity = () => {
-          if (identity.current !== userId || progressScope(snapshot.user.id) !== scope) throw new Error('La cuenta cambió. Inténtalo otra vez.');
-        };
-        void getLessons().then(lessons => importLegacyAccount(AsyncStorage, previous, snapshot.user.id, lessons,
-          result => { checkIdentity(); return lessonResults.save(result); },
-          (lessonId, run) => { checkIdentity(); return accountCheckpoints.save(scope, lessonId, run); }))
-          .then(() => { if (identity.current !== userId) return; setLegacyProfile(null); return synchronizeAccount(); })
-          .catch(cause => { if (identity.current === userId) setError(cause.message); })
-          .finally(() => { importPending.current = false; setImporting(false); });
-      }}><Text>Conservar este progreso en mi cuenta</Text></Pressable>
-      <Pressable accessibilityRole="button" disabled={importing} onPress={() => setLegacyProfile(null)}><Text>Continuar sin importar</Text></Pressable>
-    </View> : null}
+    <LegacyProgressImportDialog visible={!!legacyProfile} previousName={legacyProfile?.displayName || ''}
+      accountName={snapshot.user.display_name === 'Student' ? '' : snapshot.user.display_name} importing={importing} error={importError}
+      onImport={importPreviousProgress} onSkip={() => { if (!importPending.current) { setLegacyProfile(null); setImportError(''); } }} />
     {children({ ...DEFAULT_PROFILE, ...snapshot.user.profile, userId: snapshot.user.id,
       displayName: snapshot.user.display_name, qaAccess: snapshot.qaAccess }, leave)}
   </View>;

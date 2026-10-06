@@ -70,6 +70,23 @@ def lock_generation(db, user_id, generation):
         raise HTTPException(409, "Tu progreso cambió. Actualiza la cuenta antes de continuar.")
 
 
+def adopt_first_name(account, name):
+    """Replace only the untouched signup placeholder, under the profile write lock."""
+    with tracking.engine.begin() as db:
+        lock_generation(db, account["user_id"], account["generation"])
+        version = db.execute(text("SELECT profile_version FROM learner_accounts WHERE user_id=:id"),
+                             {"id": account["user_id"]}).scalar_one()
+        if version != 1:
+            return
+        changed = db.execute(text("""UPDATE users SET display_name=:name,updated_at=:now
+            WHERE id=:id AND display_name='Student'"""),
+                             {"id": account["user_id"], "name": name, "now": tracking.now_iso()})
+        if changed.rowcount:
+            # An edit already opened on another device must refresh this new name.
+            db.execute(text("UPDATE learner_accounts SET profile_version=profile_version+1 WHERE user_id=:id"),
+                       {"id": account["user_id"]})
+
+
 def snapshot(account):
     with tracking.engine.begin() as db:
         # One consistent snapshot, including profile and generation, during a reset.

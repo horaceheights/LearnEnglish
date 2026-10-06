@@ -41,6 +41,9 @@ try {
   & node --test tests/lesson-result-native.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Native lesson result layouts failed.' }
 
+  & node --test tests/legacy-progress-import-native.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Legacy progress import popup interactions and safe-area layouts failed.' }
+
   & node tests/lesson-resume.test.cjs (Join-Path $outputDirectory 'lessonResume.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de persistencia y recuperación de lecciones.' }
 

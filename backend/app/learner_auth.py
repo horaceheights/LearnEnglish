@@ -55,3 +55,17 @@ def delete_identity(identity: Identity) -> None:
     except SDKError as error:
         if error.status_code != 404:
             raise HTTPException(503, "No pudimos eliminar tu cuenta. Inténtalo otra vez.") from error
+
+
+def first_name(identity: Identity) -> str | None:
+    """Optional profile decoration for an already verified identity, never login proof."""
+    from clerk_backend_api import Clerk
+    try:
+        # A profile lookup must not prevent a learner from opening their course.
+        with Clerk(bearer_auth=os.environ["CLERK_SECRET_KEY"]) as clerk:
+            user = clerk.users.get(user_id=identity.subject, timeout_ms=2000, retries=None)
+        name = (user.first_name or "").strip()[:80]
+        return name or None
+    except Exception:
+        # Provider exceptions can contain credentials; retain the local fallback.
+        return None
