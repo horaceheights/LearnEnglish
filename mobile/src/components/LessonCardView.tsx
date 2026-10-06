@@ -9,7 +9,7 @@ import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { COMPLETION_RETRY_HELP, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
-import { isSilentWrittenRecognize } from '../lessonPromptPresentation';
+import { isWrittenRecognize } from '../lessonPromptPresentation';
 import { awaitingConstructionRetry } from '../constructionTeaching';
 import { IMAGE_CHOICE_INSET, imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
@@ -475,14 +475,14 @@ export function LessonCardView({
           maxHeight={hasSidePrompt ? availableCardHeight - cardVerticalChrome - feedbackReservedHeight : promptImageHeight}
         >
           <OptionMediaImage
-            accessibilityLabel={isSilentWrittenRecognize(card) && result !== 'correct'
+            accessibilityLabel={isWrittenRecognize(card) && result !== 'correct'
               ? card.prompt
               : card.answer_audio_text || card.prompt}
             imageUrl={activeTurnImageUrl || card.prompt_image_url}
           />
         </LessonMediaFrame>
       ) : null);
-  const writtenRecognitionAnswer = result === 'correct' && isSilentWrittenRecognize(card)
+  const writtenRecognitionAnswer = result === 'correct' && isWrittenRecognize(card)
     ? card.answer_audio_text?.trim() || '' : '';
   const correctChoiceFeedback = writtenRecognitionAnswer
     ? `${writtenRecognitionAnswer}\nCorrecto. Vamos a la siguiente tarjeta…`

@@ -40,43 +40,43 @@ assert.ok(
 
 assert.match(
   screenSource,
-  /<Text\s+maxFontSizeMultiplier=\{usesLessonPhoneLandscape \? 1\.3 : undefined\}\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : usesLessonPhoneLandscape \? 16 \/ \(24 \* Math\.min\(fontScale, 1\.3\)\) : silentWrittenRecognize \? 16 \/ \(promptFontSize \* fontScale\) : 0\.45\}\s+numberOfLines=\{usesLessonPhoneLandscape \? 4 : 2\}/,
-  'Authored phrases retain native fitting and the landscape 16dp floor; silent written recognition also has a 16dp portrait floor.',
+  /<Text\s+maxFontSizeMultiplier=\{usesLessonPhoneLandscape \? 1\.3 : undefined\}\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : usesLessonPhoneLandscape \? 16 \/ \(24 \* Math\.min\(fontScale, 1\.3\)\) : writtenRecognize \? 16 \/ \(promptFontSize \* fontScale\) : 0\.45\}\s+numberOfLines=\{usesLessonPhoneLandscape \? 4 : 2\}/,
+  'Authored phrases retain native fitting and the landscape 16dp floor; written recognition also has a 16dp portrait floor.',
 );
 
 // Exercise the production expression rather than restating its arithmetic.
-// Silent reading is a distinct portrait path; the established modes keep their
+// Written presentation is a distinct portrait path; the established modes keep their
 // compact instruction, normal phrase and capped landscape behavior.
 const minimumScaleExpression = screenSource.match(
   /adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{([^{}]+)\}/,
 )?.[1];
 assert.ok(minimumScaleExpression, 'The authored header must retain an explicit text-fitting floor.');
 const minimumScale = new Function(
-  'useCompactHeaderInstruction', 'usesLessonPhoneLandscape', 'fontScale', 'silentWrittenRecognize', 'promptFontSize',
+  'useCompactHeaderInstruction', 'usesLessonPhoneLandscape', 'fontScale', 'writtenRecognize', 'promptFontSize',
   `return ${minimumScaleExpression};`,
 );
 for (const fontScale of [1, 1.3, 2]) {
   for (const promptFontSize of [26, 32, 36]) {
     const portraitScale = minimumScale(false, false, fontScale, true, promptFontSize);
     assert.ok(Math.abs(promptFontSize * fontScale * portraitScale - 16) < 1e-9,
-      'Silent written portrait English must stop at an effective 16dp size.');
+      'Written portrait English must stop at an effective 16dp size.');
     assert.equal(minimumScale(false, false, fontScale, false, promptFontSize), 0.45,
       'Ordinary authored portrait phrases retain their established fitting range.');
   }
-  for (const silentWrittenRecognize of [false, true]) {
-    const landscapeScale = minimumScale(false, true, fontScale, silentWrittenRecognize, 24);
+  for (const writtenRecognize of [false, true]) {
+    const landscapeScale = minimumScale(false, true, fontScale, writtenRecognize, 24);
     assert.ok(Math.abs(24 * Math.min(fontScale, 1.3) * landscapeScale - 16) < 1e-9,
       'Every authored landscape mode keeps the effective 16dp floor with capped system scaling.');
     for (const landscape of [false, true]) {
-      assert.equal(minimumScale(true, landscape, fontScale, silentWrittenRecognize, 14), undefined,
+      assert.equal(minimumScale(true, landscape, fontScale, writtenRecognize, 14), undefined,
         'Compact instructions retain their own fixed typography instead of authored-phrase shrinking.');
     }
   }
 }
 assert.match(
   screenSource,
-  /lineHeight: usesLessonPhoneLandscape \|\| silentWrittenRecognize \? undefined : promptLineHeight/,
-  'Silent written and landscape text may fit their native leading; ordinary portrait phrases preserve established leading.',
+  /lineHeight: usesLessonPhoneLandscape \|\| writtenRecognize \? undefined : promptLineHeight/,
+  'Written and landscape text may fit their native leading; ordinary portrait phrases preserve established leading.',
 );
 assert.match(
   screenSource,
