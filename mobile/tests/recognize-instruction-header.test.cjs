@@ -37,7 +37,8 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  359, // 2026-10-03 time lesson supplies explicit questions; 362 on 2026-10-01: approved Unit 4 uses explicit question/heard cues; previously 387.
+  363, // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) join the shared empty-prompt choices.
+  // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.
   // 2026-09-29: 3.3 replaces five empty prompts with questions and audio-choice instructions.
   // 2026-09-25: the engine-built Unit 3 gives its 12 teaching lessons sentence-choice cards;
   // 2026-09-26: the engine-built Unit 4 does the same for its ten (+30), and Unit 5 for its ten;
@@ -46,7 +47,8 @@ assert.equal(
 );
 assert.equal(
   affectedLessons.size,
-  66, // 2026-10-01: rebuilt Unit 4 context cards carry explicit instructions/questions.
+  67, // 2026-10-05: 4.10 joins the shared empty-prompt header through its four day foundations.
+  // 2026-10-01: rebuilt Unit 4 context cards carry explicit instructions/questions.
   // 3.3 now uses explicit questions and audio-choice instructions instead of an empty prompt.
   // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;
   // the Unit 3 rebuild adds its four new lessons and 3.2; the Unit 4 rebuild adds the new 4.8 and 4.10;
@@ -60,6 +62,12 @@ const englishInstructions = course.flatMap((lesson) => lesson.cards
     && /^(choose|select|pick|find|tap|listen)/i.test(`${card.prompt} ${card.audio_text ?? ''}`.trim()))
   .map((card) => `${lesson.id} ${card.slide_id}`));
 assert.deepEqual(englishInstructions, [], 'Recognize cards must not show or speak an English instruction.');
+assert.deepEqual(
+  emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-4-what-time-is-it')
+    .map(({ card }) => card.slide_id),
+  ['DR1', 'DR2', 'DR3', 'DR4'],
+  'The four day foundations use the shared phrase-choice instruction before explicit time questions.',
+);
 assert.deepEqual(
   emptyRecognizeCards.filter(({ card }) => card.audio_text?.trim()).map(({ card, lessonId }) => `${lessonId} ${card.slide_id}`),
   [

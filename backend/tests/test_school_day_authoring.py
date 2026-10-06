@@ -66,3 +66,29 @@ class ContextualGrammarIntroductionTests(unittest.TestCase):
         values = sequence()
         values[0][0]['audio_turns'] = [{'text': 'Then, I wash.', 'speaker_role': 'teacher'}]
         assert result(values)[1]
+
+    def test_exact_contrast_sequence_can_explicitly_retrieve_a_known_support_target(self):
+        cards = [card('L1', 'It is morning.'), card('L2', 'It is afternoon.')]
+        groups = [{'kind': 'sequence', 'targets': ['afternoon'], 'support_targets': ['morning'],
+                   'models': [{'slide_id': c['slide_id'], 'text': c['prompt']} for c in cards]}]
+        allowed, errors = learn_context_groups(cards, groups, ['afternoon'], {'it', 'is', 'morning'}, {'afternoon'})
+        assert allowed == {'L1', 'L2'} and not errors
+
+    def test_known_support_requires_exact_declared_binding_and_prior_teaching(self):
+        cards = [card('L1', 'It is morning.'), card('L2', 'It is afternoon.')]
+        group = {'kind': 'sequence', 'targets': ['afternoon'], 'support_targets': ['morning'],
+                 'models': [{'slide_id': c['slide_id'], 'text': c['prompt']} for c in cards]}
+        for support, known in [([], {'it', 'is', 'morning'}), (['morning'], {'it', 'is'}),
+                               (['night'], {'it', 'is', 'morning', 'night'})]:
+            changed = {**group, 'support_targets': support}
+            assert learn_context_groups(cards, [changed], ['afternoon'], known, {'afternoon'})[1]
+
+    def test_support_targets_cannot_authorize_known_only_groups_or_question_exchanges(self):
+        cards = [card('L1', 'It is morning.')]
+        group = {'kind': 'sequence', 'targets': [], 'support_targets': ['morning'],
+                 'models': [{'slide_id': 'L1', 'text': 'It is morning.'}]}
+        assert learn_context_groups(cards, [group], [], {'it', 'is', 'morning'}, {'afternoon'})[1]
+        values = sequence()
+        values[1][0]['kind'] = 'exchange'
+        values[1][0]['support_targets'] = ['eat']
+        assert result(values)[1]

@@ -62,7 +62,9 @@ def choice(spec: dict) -> dict:
 
 def complete(spec: dict) -> dict:
     """Use-stage completion and construction; the answer sentence is content."""
-    return {"correct_option_id": spec["correct_option_ids"][0], "audio_text": spec.get("answer_audio_text")}
+    ordered = spec.get("correct_option_ids") or []
+    correct = ordered[0] if ordered else spec.get("correct_option_id") or _correct(spec)["id"]
+    return {"correct_option_id": correct, "audio_text": spec.get("answer_audio_text")}
 
 
 def mission(spec: dict) -> dict:
@@ -110,7 +112,8 @@ def recipe_for(card: dict) -> str:
         return "teach"
     if card.get("stage") == "Speak" and len(options) == 1:
         return "speak"
-    if card.get("stage") == "Use" and card.get("correct_option_ids"):
+    if card.get("stage") == "Use" and (card.get("correct_option_ids") or
+            (card.get("correct_option_id") and card.get("interaction_type") == "complete")):
         return "complete"
     if card.get("stage") in ("Recognize", "Listen") and 2 <= len(options) <= 4:
         return "choice"
