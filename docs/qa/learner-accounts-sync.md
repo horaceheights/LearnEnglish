@@ -13,9 +13,9 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
 - Browser preflight originally received 401. Moving CORS outside authentication
   fixed it; the regression test verifies preflight with an app key configured
   and readable CORS headers on authentication errors.
-- Backend full suite: 525 tests passed before deletion-webhook addition.
-  The final account/authentication/tracking/API subset subsequently passed all
-  35 tests, including signed deletion retries and deletion before first login.
+- Backend final full suite: all 527 tests passed in GitHub's complete release
+  candidate check, including signed deletion retries and deletion before first
+  login. The focused account/authentication/tracking/API subset also passed.
 - Fourteen shared sync tests cover offline persistence, account/generation isolation,
   explicit two-device conflicts, delayed acknowledgements, tombstones, corrupt
   storage preservation, correction unions, retry-safe legacy import, canonical
@@ -37,10 +37,11 @@ Jira: SCRUM-5 and SCRUM-51 remain in progress until hosted/native verification.
   Settings are saved for the next deploy; the old backend has no webhook route.
 - A production webhook is registered for only `user.deleted` at the documented
   backend endpoint. Real delivery and deletion remain unchecked below.
-- Google consent setup is prepared in the existing `horaciomainproject` and
-  awaits user approval of Google's API user-data policy. No new Google project
-  or billing selection was made. Its OAuth client and Clerk credentials are
-  still pending, so hosted sign-in is not yet verified.
+- The user completed Google consent setup in existing `horaciomainproject`.
+  No new project or billing selection was made. The web OAuth client form is
+  prepared with apex/www origins and Clerk's exact callback; final credential
+  creation and entry into Clerk are handed to the user. Hosted sign-in remains
+  unverified until those credentials and test-user access are configured.
 - Pull request #237 passed the complete release-candidate check and Vercel
   build. It remains draft while hosted configuration is completed; merging
   activates the new account gate on the live web application.
