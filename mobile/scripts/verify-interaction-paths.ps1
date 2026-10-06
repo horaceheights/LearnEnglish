@@ -17,7 +17,7 @@ $outputDirectory = [System.IO.Path]::Combine(
 Push-Location $mobileRoot
 try {
   [System.IO.Directory]::CreateDirectory($outputDirectory) | Out-Null
-  & node $typescriptCompiler src/config.ts src/courseAudioSources.ts src/types.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/lessonResume.ts src/lessonResult.ts src/lessonResultStore.ts src/missionExperience.ts src/missionSceneGeometry.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
+  & node $typescriptCompiler src/config.ts src/courseAudioSources.ts src/types.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/lessonResume.ts src/lessonResult.ts src/lessonResultStore.ts src/accountSyncStore.ts src/accountSession.ts src/legacyAccountImport.ts src/scopedLessonResults.ts src/missionExperience.ts src/missionSceneGeometry.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
   if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el modelo de progreso.' }
 
   & node tests/lesson-help.test.cjs (Join-Path $outputDirectory 'lessonHelp.js')
@@ -34,6 +34,9 @@ try {
 
   & node tests/lesson-result.test.cjs (Join-Path $outputDirectory 'lessonResult.js')
   if ($LASTEXITCODE -ne 0) { throw 'Lesson results and durable recovery tests failed.' }
+
+  & node tests/account-sync.test.cjs (Join-Path $outputDirectory 'accountSyncStore.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Account isolation, offline synchronization, and conflict recovery tests failed.' }
 
   & node --test tests/lesson-result-native.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Native lesson result layouts failed.' }

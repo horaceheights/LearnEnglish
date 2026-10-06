@@ -521,6 +521,16 @@ The user approved these measurable standards so that learners can predict how lo
 - Increment `content_revision` whenever a learner-visible card, its order, or its behavior changes in a way that could reconnect saved progress or results to different content. Resume and result recovery must reject a revision mismatch rather than infer equivalent cards from equal counts.
 - Lesson role is orthogonal metadata, not a hierarchy level: ordinary lessons build forward, reviews declare no new vocabulary, and missions declare `experience_type: mission`. Role checks come from lesson data rather than a fixed lesson number.
 
+### Learner accounts and synchronization (approved 2026-10-05)
+
+- Clerk's free plan is the approved starting identity provider. Email verification, Google sign-in and account recovery belong to the provider. Application-owned learner IDs, profiles, curriculum and progress stay in our database; provider changes require verified rebinding, never claiming history by an editable name or client-supplied UUID.
+- Every account data route verifies the signed provider session, configured issuer and browser origin when present. The bundled app key is only abuse deterrence. QA access comes from server-configured provider subjects, never a profile name or client privilege field. Missing auth configuration fails closed for account access.
+- Clerk's Expo token and offline resource caches use SecureStore. Learner progress and outgoing queues are scoped by application learner ID and reset generation. Logout/account changes cannot retarget an in-flight request or its acknowledgement; resets invalidate stale queues inside the server write transaction.
+- Preserve immutable first-attempt results and union unique corrections. Server completion order decides the latest acknowledged run across device clocks; earlier clearance remains sticky. Local writes survive connectivity loss, and a delayed acknowledgement cannot clear a newer local write.
+- Interrupted runs use server revisions, not device timestamps. A conflict requires an explicit learner choice and retains the displaced run. Remote cleared checkpoints remove stale resume files; obsolete content revisions stay recoverable without blocking other lessons. Retry on reconnect, foreground and a bounded interval; coalesce frequent checkpoint uploads.
+- Offer importing old device-held history only after the learner chooses the destination account. Keep the original bytes and persistent run-ID mapping for retry safety. A legacy display name or UUID never grants access to another account's server history.
+- Account deletion revokes the provider account, removes learner data and retains only the minimal deletion binding needed to reject previously issued sessions. Verified provider deletion webhooks perform the same cleanup for external deletions. Keep legacy unbound clients compatible during Preview; removing that compatibility is part of the approved Production transition.
+
 ### Progression and mastery meanings (approved 2026-10-05)
 
 - Keep three different facts: `run_completed` means the learner reached the end of one run; `progression_cleared` means the lesson's unlock requirement was met; mastery means strong, retained, strand-specific evidence. Never label completion or the current lesson score as mastery.

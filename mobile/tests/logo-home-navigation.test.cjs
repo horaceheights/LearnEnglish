@@ -9,17 +9,17 @@ function source(relativePath) {
 const appSource = source('../App.tsx');
 const courseSource = source('../src/screens/CourseScreen.tsx');
 const lessonSource = source('../src/screens/LessonScreen.tsx');
-const loginSource = source('../src/screens/LoginScreen.tsx');
+const accountSource = source('../src/components/AccountGate.tsx');
 const profileSource = source('../src/screens/ProfileScreen.tsx');
 const brandHeaderSource = source('../src/components/BrandHeader.tsx');
 const webSource = source('../../frontend/components/LessonPlayer.js');
 const webSceneSource = source('../../frontend/app/test-scenes/page.js');
 const guardrailSource = source('../../docs/product/project-guardrails.md');
 
-assert.match(appSource, /<LoginScreen[\s\S]*?onHome=\{\(\) => setScreen\(\{ name: 'course' \}\)\}/);
+assert.match(appSource, /<AccountGate>/);
 assert.match(appSource, /<LessonScreen[\s\S]*?onHome=\{\(\) => setScreen\(\{ name: 'course' \}\)\}/);
 assert.match(appSource, /<CourseScreen[\s\S]*?onHome=\{\(\) => setScreen\(\{ name: 'course' \}\)\}/);
-assert.match(loginSource, /<BrandHeader[\s\S]*?onLogoPress=\{onHome\}/);
+assert.match(accountSource, /<BrandHeader[\s\S]*?onLogoPress=/);
 assert.match(profileSource, /<BrandHeader[\s\S]*?onLogoPress=\{onCancel\}/);
 assert.match(brandHeaderSource, /accessibilityLabel="Ir a Inicio"/);
 assert.match(courseSource, /accessibilityLabel="Ir a Inicio"[\s\S]*?onPress=\{onHome\}[\s\S]*?spanglish-header-logo/);

@@ -11,6 +11,7 @@ import * as Updates from 'expo-updates';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConnectivityBanner } from './src/components/ConnectivityBanner';
+import { AccountGate } from './src/components/AccountGate';
 import { PlayfulLoading } from './src/components/PlayfulLoading';
 import {
   addDiagnosticBreadcrumb,
@@ -19,13 +20,12 @@ import {
   setDiagnosticContext,
   type DiagnosticContext,
 } from './src/diagnostics';
-import { clearLocalProfile, loadLocalProfile } from './src/profile';
+import { clearLocalProfile } from './src/profile';
 import { CourseScreen } from './src/screens/CourseScreen';
 import { EngineQAScreen } from './src/screens/EngineQAScreen';
 import { LessonScreen } from './src/screens/LessonScreen';
 import { useConnectivity } from './src/hooks/useConnectivity';
 import { syncLocalLessonResults } from './src/localLessonResults';
-import { LoginScreen } from './src/screens/LoginScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import type { LearnerProfile } from './src/types';
 import {
@@ -90,10 +90,10 @@ class AppErrorBoundary extends Component<
   }
 }
 
-function AppContent() {
-  const [profile, setProfile] = useState<LearnerProfile | null>(null);
+function AppContent({ accountProfile, signOut }: { accountProfile: LearnerProfile; signOut: () => Promise<void> }) {
+  const [profile, setProfile] = useState<LearnerProfile>(accountProfile);
   const [screen, setScreen] = useState<Screen>({ name: 'course' });
-  const [isRestoring, setIsRestoring] = useState(true);
+  const isRestoring = false;
   const isOffline = useConnectivity();
 
   useEffect(() => {
@@ -105,12 +105,7 @@ function AppContent() {
     return () => subscription.remove();
   }, [isOffline, profile?.userId]);
 
-  useEffect(() => {
-    loadLocalProfile()
-      .then(setProfile)
-      .catch((error) => captureDiagnosticError(error, 'restore_local_profile'))
-      .finally(() => setIsRestoring(false));
-  }, []);
+  useEffect(() => { setProfile(accountProfile); }, [accountProfile]);
 
   useEffect(() => {
     addDiagnosticBreadcrumb('screen_changed', { screen: screen.name });
@@ -127,11 +122,7 @@ function AppContent() {
     );
   }
 
-  if (!profile) {
-    return <LoginScreen onAuthenticated={setProfile} onHome={() => setScreen({ name: 'course' })} />;
-  }
-
-  const hasQaAccess = profile.displayName.trim().toLowerCase() === 'horace';
+  const hasQaAccess = accountProfile.qaAccess === true;
 
   if (screen.name === 'lesson') {
     return (
@@ -158,7 +149,7 @@ function AppContent() {
         }}
         onDeleted={() => {
           void clearLocalProfile();
-          setProfile(null);
+          void signOut();
           setScreen({ name: 'course' });
         }}
         profile={profile}
@@ -181,7 +172,7 @@ function AppContent() {
       onHome={() => setScreen({ name: 'course' })}
       onSignOut={() => {
         void clearLocalProfile();
-        setProfile(null);
+        void signOut();
         setScreen({ name: 'course' });
       }}
       onOpenLesson={(lessonId, previouslyCompleted) => setScreen({ lessonId, name: 'lesson', previouslyCompleted })}
@@ -250,7 +241,7 @@ export default function App() {
         <ConnectivityBanner />
         <AppErrorBoundary>
           <StartupUpdateGate>
-            <AppContent />
+            <AccountGate>{(profile, signOut) => <AppContent key={profile.userId} accountProfile={profile} signOut={signOut} />}</AccountGate>
           </StartupUpdateGate>
         </AppErrorBoundary>
       </View>

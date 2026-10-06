@@ -148,6 +148,7 @@ export type LessonProgress = {
 };
 
 export type LearnerProfile = {
+  qaAccess?: boolean;
   userId?: string;
   displayName: string;
   level: string;

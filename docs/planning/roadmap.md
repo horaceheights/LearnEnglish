@@ -170,7 +170,10 @@ keeping this phase open indefinitely.
 
 ## P1 — Guided conversation and learning foundation
 
-Conversation work is the active P1 focus.
+Learner accounts and reliable cross-device progress are the active P1 focus
+(user decision, 2026-10-05). SCRUM-5 and SCRUM-51 are the first two backlog
+items and are in progress. Clerk's free plan is the approved identity provider.
+Conversation foundation follows these account and synchronization tasks.
 
 ### Conversation foundation
 
@@ -180,12 +183,19 @@ Conversation work is the active P1 focus.
 
 ### Accounts and progress
 
-- [ ] Implement production authentication and account recovery
+- [~] Implement production authentication and account recovery
 - [~] Synchronize learner profile and session data
 - [x] Save lesson completion and first-attempt scores
 - [x] Resume unfinished lessons from local state after force-close, screen lock, app switching, ordinary exit, and airplane-mode interruption
 - [~] Show cleared lessons and current-unit progress; add a clear total-course progress summary using the manifest-pinned denominator
 - [~] Store attempt history and session timestamps; expose learner-facing learning-time history
+
+Account implementation: Clerk web and Expo sign-in, verified backend identity,
+account-bound profiles, recoverable result/checkpoint queues, revision conflicts,
+reset generations and provider/account deletion are implemented. Local Google
+sign-in reaches the complete course. Hosted configuration, installed native
+Preview sign-in/recovery and the two-device/offline matrix remain release gates;
+see [account QA](../qa/learner-accounts-sync.md).
 
 ### Learner controls
 
@@ -381,9 +391,9 @@ internal-mouth model rather than claiming the camera alone can diagnose it.
 
 ## Recommended immediate sequence
 
-1. Begin P1 short, curriculum-bounded conversational responses using already-learned vocabulary.
-2. Build the conversation flow through the shared lesson engine and verify turn-taking, speaker-correct audio, pronunciation, retry, progress, interruption, and offline behavior.
-3. Queue progress and analytics locally, then synchronize safely after reconnecting.
+1. Complete Clerk learner accounts and account recovery (SCRUM-5).
+2. Verify durable profile, lesson-result and interrupted-run synchronization across devices (SCRUM-51); full queued analytics remains P6 work.
+3. Begin curriculum-bounded conversational responses through the shared lesson engine and verify turn-taking, audio, pronunciation, retries and offline behavior.
 4. Build reusable drag-and-drop sentence construction.
 5. Add tap-any-word audio.
 6. Add actual microphone-volume visualization.

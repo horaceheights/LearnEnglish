@@ -1,7 +1,7 @@
-import { createLessonResultStore } from '../../mobile/src/lessonResultStore';
+import { createScopedLessonResults } from '../../mobile/src/scopedLessonResults';
 import { syncLessonResult } from './api';
 
-export const lessonResults = createLessonResultStore({
+export const lessonResults = createScopedLessonResults({
   getItem: async (key) => window.localStorage.getItem(key),
   setItem: async (key, value) => window.localStorage.setItem(key, value),
 });

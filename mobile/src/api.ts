@@ -3,6 +3,8 @@ import { fetch } from 'expo/fetch';
 import { File } from 'expo-file-system';
 
 import { API_BASE_URL, APP_API_KEY } from './config';
+import { accountHeaders, getAccountSession, setAccountSession } from './accountSession';
+import type { AccountSnapshot, Checkpoint } from './accountSyncStore';
 import { getPreviewLesson } from './previewLessons';
 import { getCurrentUpdateReceipt } from './updates';
 import type {
@@ -72,6 +74,7 @@ async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
       const timeout = setTimeout(() => controller.abort(), STANDARD_REQUEST_TIMEOUT_MS);
       try {
         const headers = tracedHeaders(init?.headers, span);
+        for (const [name, value] of Object.entries(await accountHeaders())) headers.set(name, value);
         headers.set('Content-Type', 'application/json');
         const release = getCurrentUpdateReceipt();
         headers.set('X-App-Version', release.version);
@@ -89,7 +92,7 @@ async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
           const detail = payload && typeof payload === 'object' && 'detail' in payload
             ? payload.detail
             : undefined;
-          throw new Error(typeof detail === 'string' ? detail : `Request failed (${response.status}).`);
+          throw Object.assign(new Error(typeof detail === 'string' ? detail : `Request failed (${response.status}).`), { detail, status: response.status });
         }
         return payload as T;
       } catch (error) {
@@ -121,6 +124,10 @@ export function getLearnerByName(displayName: string): Promise<SavedUser> {
 }
 
 export function saveLearnerProfile(profile: LearnerProfile): Promise<SavedUser> {
+  const account = getAccountSession();
+  if (account) return jsonRequest<AccountSnapshot>('/api/account/profile', {
+    method: 'PUT', body: JSON.stringify({ display_name: profile.displayName, profile, version: account.profileVersion }),
+  }).then(snapshot => { setAccountSession({ userId: snapshot.user.id, generation: snapshot.generation, profileVersion: snapshot.profileVersion }); return snapshot.user; });
   const path = profile.userId ? `/api/users/${profile.userId}` : '/api/users';
   return jsonRequest(path, {
     method: profile.userId ? 'PUT' : 'POST',
@@ -129,7 +136,15 @@ export function saveLearnerProfile(profile: LearnerProfile): Promise<SavedUser> 
 }
 
 export function deleteLearnerProfile(userId: string): Promise<{ deleted: boolean }> {
+  if (getAccountSession()) return jsonRequest('/api/account', { method: 'DELETE' });
   return jsonRequest(`/api/users/${userId}`, { method: 'DELETE' });
+}
+
+export function getAccountSnapshot(): Promise<AccountSnapshot> { return jsonRequest('/api/account'); }
+export function syncAccountCheckpoint(checkpoint: Checkpoint): Promise<Checkpoint> {
+  return jsonRequest(`/api/account/checkpoints/${encodeURIComponent(checkpoint.lessonId)}`, {
+    method: 'PUT', body: JSON.stringify({ run: checkpoint.run, revision: checkpoint.revision }),
+  });
 }
 
 export function startLessonSession(userId: string, lessonId: string, totalCards: number, id?: string) {
@@ -212,7 +227,7 @@ export async function transcribeFeedback(recordingUri: string): Promise<string> 
         const response = await fetch(`${API_BASE_URL}/api/feedback/transcribe`, {
           method: 'POST',
           body: formData,
-          headers: tracedHeaders(undefined, span),
+          headers: tracedHeaders(await accountHeaders(), span),
           signal: controller.signal,
         });
         span.setAttribute('http.response.status_code', response.status);
@@ -268,7 +283,7 @@ export async function scorePronunciation(
         const response = await fetch(`${API_BASE_URL}/api/pronunciation/score`, {
           method: 'POST',
           body: formData,
-          headers: tracedHeaders(undefined, span),
+          headers: tracedHeaders(await accountHeaders(), span),
           signal: controller.signal,
         });
         span.setAttribute('http.response.status_code', response.status);
