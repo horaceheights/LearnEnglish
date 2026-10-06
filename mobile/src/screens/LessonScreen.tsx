@@ -2780,6 +2780,7 @@ export function LessonScreen({
     const localizedPrompt = useCompactListenInstruction
       ? listeningChoiceInstruction(currentCard.options)
       : lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt, currentCard.options);
+    if (useCompactHeaderInstruction) return localizedPrompt;
     return localizedPrompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
       const normalizedPart = part.toLowerCase();
       const isNotConceptFocus = lesson.id === 'lesson-7-is-are-not' && normalizedPart === 'not';
@@ -3067,7 +3068,7 @@ export function LessonScreen({
             <Pressable
               ref={promptTapTargetRef}
               accessibilityLabel={useCompactRecognizeInstruction
-                  ? 'Instrucción: Elige la frase correcta'
+                  ? `Instrucción: ${lessonHeaderPromptText(lesson.id, currentCard.stage, currentCard.prompt, currentCard.options)}`
                   : useCompactListenInstruction
                     ? `Instrucción: ${listeningChoiceInstruction(currentCard.options)}`
                     : useCompactSpeakInstruction
@@ -3110,10 +3111,10 @@ export function LessonScreen({
                 numberOfLines={usesLessonPhoneLandscape ? 4 : 2}
                 style={[
                   styles.prompt,
-                  useCompactHeaderInstruction ? styles.promptCompactInstruction : null,
                   styles.promptPhraseBox,
+                  useCompactHeaderInstruction ? styles.promptCompactInstruction : null,
                   {
-                    height: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 44 : 80) : undefined,
+                    height: usesLessonPhoneLandscape && !useCompactHeaderInstruction ? 80 : undefined,
                     fontSize: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 14 : 24) : promptFontSize,
                     lineHeight: usesLessonPhoneLandscape || writtenRecognize ? undefined : promptLineHeight,
                   },
@@ -3690,7 +3691,7 @@ const styles = StyleSheet.create({
   promptRowCompactInstruction: { minHeight: 44 },
   promptTapTarget: { width: '100%' },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
-  promptCompactInstruction: { fontWeight: '900' },
+  promptCompactInstruction: { fontWeight: '600' },
   promptRowPhraseBox: { minHeight: 64, overflow: 'visible' },
   promptRowPhraseBoxCompact: { minHeight: 50 },
   promptTapTargetPhraseBox: { paddingHorizontal: 44 },

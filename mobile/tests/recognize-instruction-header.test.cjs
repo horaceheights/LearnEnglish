@@ -24,6 +24,13 @@ const interactionVerifier = fs.readFileSync(
   path.join(mobileRoot, 'scripts/verify-interaction-paths.ps1'),
   'utf8',
 );
+const vm = require('node:vm');
+const ts = require('typescript');
+const instructionApi = {};
+vm.runInNewContext(ts.transpileModule(instructionSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS },
+}).outputText, { exports: instructionApi });
+const { lessonHeaderPromptText, listeningChoiceInstruction, usesCompactListenInstruction } = instructionApi;
 
 const emptyRecognizeCards = course.flatMap((lesson) => (
   lesson.experience_type === 'mission' ? [] : lesson.cards
@@ -55,11 +62,26 @@ assert.equal(
   // the Unit 5 rebuild adds the new 5.3 and 5.10
   'The shared rule must cover every standard lesson that contains this interaction.',
 );
-// Section instructions are Spanish in every unit (2026-09-19): no Recognize card may
-// show or speak an English instruction such as "Choose the sentence." any more.
+// Inspect actual presentation, including legacy English control cues that are
+// localized before rendering. Audio may contain the English learning question,
+// but must never contain the task instruction.
+const englishInstructionPattern = /^(choose|select|pick|find|tap|listen)\b/i;
+assert.ok(englishInstructionPattern.test('Listen and choose.'),
+  'The instruction matcher must actually recognize its positive fixture.');
+const containsEnglishInstruction = (displayedPrompt, audioText) => [displayedPrompt, audioText ?? '']
+  .some(text => englishInstructionPattern.test(text.trim()));
+assert.ok(containsEnglishInstruction('¡Escucha y elige la frase!', 'Listen and choose.'),
+  'A Spanish header must not hide an English instruction in the audio.');
+assert.ok(!containsEnglishInstruction('¡Escucha y elige la frase!', 'What time is it?'),
+  'The English learning question remains valid audio.');
 const englishInstructions = course.flatMap((lesson) => lesson.cards
-  .filter((card) => card.stage === 'Recognize'
-    && /^(choose|select|pick|find|tap|listen)/i.test(`${card.prompt} ${card.audio_text ?? ''}`.trim()))
+  .filter((card) => {
+    if (card.stage !== 'Recognize') return false;
+    const displayedPrompt = usesCompactListenInstruction(card.stage, card.prompt)
+      ? listeningChoiceInstruction(card.options)
+      : lessonHeaderPromptText(lesson.id, card.stage, card.prompt, card.options);
+    return containsEnglishInstruction(displayedPrompt, card.audio_text);
+  })
   .map((card) => `${lesson.id} ${card.slide_id}`));
 assert.deepEqual(englishInstructions, [], 'Recognize cards must not show or speak an English instruction.');
 assert.deepEqual(
@@ -97,12 +119,12 @@ assert.ok(
 
 assert.match(
   instructionSource,
-  /const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase correcta!';/,
+  /const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase que corresponde a la imagen!';/,
   'The instruction must use complete Spanish exclamation punctuation.',
 );
 assert.match(
   instructionSource,
-  /const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra correcta!';/,
+  /const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra que corresponde a la imagen!';/,
   'Single-word choices ask for the word, with complete Spanish punctuation.',
 );
 assert.match(
@@ -152,7 +174,7 @@ assert.doesNotMatch(
 );
 assert.match(
   guardrails,
-  /Recognize with an empty authored prompt uses bold 14 dp `¡Elige la frase correcta!`[\s\S]*never from a specific slide/,
+  /Recognize with an empty authored prompt uses semibold 14 dp `¡Elige la frase que corresponde a la imagen!`[\s\S]*never from a specific slide/,
   'Durable product memory must define the reusable Recognize instruction contract.',
 );
 assert.match(

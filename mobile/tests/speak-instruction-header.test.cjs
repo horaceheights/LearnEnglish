@@ -121,7 +121,7 @@ assert.doesNotMatch(
 );
 assert.match(
   guardrails,
-  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Speak \(including legacy `Pronunciation Practice`\) uses bold 14 dp `¡Escucha y repite!`/,
+  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Speak \(including legacy `Pronunciation Practice`\) uses semibold 14 dp `¡Escucha y repite!`/,
   'Durable product memory must define the all-unit compact Speak instruction.',
 );
 assert.match(
