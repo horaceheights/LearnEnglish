@@ -3,7 +3,7 @@
 SpanGlish tiene dos destinos de actualización:
 
 - **Preview:** solamente Horace. Aquí se prueba cada cambio primero y pueden aparecer advertencias por revisiones visuales humanas todavía pendientes.
-- **Production:** testers internos. No recibe cambios hasta que el mismo commit fue probado en Preview, recibió aprobación explícita y todas las revisiones visuales están vigentes.
+- **Production:** testers internos. Recibe únicamente el mismo Preview inmutable probado y aprobado explícitamente por el usuario, después de pasar los controles de integridad.
 
 `origin/main` es la única fuente de verdad para código, backend y publicaciones móviles. Toda rama de trabajo abre un pull request hacia `main` y se elimina localmente y en GitHub después de integrarse. No se crean ni se conservan ramas compartidas de Preview o Production.
 
@@ -86,14 +86,16 @@ En **SpanGlish Preview**:
 
 ### 6. Publicar el Preview aprobado en Production
 
-Production usa una política distinta y estricta. Antes de publicar debe haber cero decisiones `pending` o `rejected`, todos los hashes y contratos deben estar vigentes y el manifiesto de recortes 4:5 debe coincidir exactamente con los archivos actuales.
+Estándar aprobado el 2026-10-06: probar y aprobar explícitamente el Preview exacto es suficiente para la decisión humana de promoción. Las revisiones de imagen pendientes, firmas antiguas del renderizador y diferencias del registro de recortes 4:5 se muestran como avisos; no bloquean ese Preview aprobado ni cambian automáticamente sus registros. Siguen bloqueando contenido inválido, imágenes rechazadas, contratos o archivos ausentes, hashes de contenido incorrectos y diferencias de bytes entre clientes.
+
+Cada PR y publicación Preview incluye **Production readiness** en el resumen de GitHub y un artefacto `release-readiness` con el inventario de contextos afectados y sus vínculos actuales/guardados. El resumen de un Preview OTA publicado también muestra el Group ID exacto y el enlace al workflow Production. `Eligible after testing and approving the exact Preview` no es una aprobación automática.
 
 Si las aprobaciones humanas se guardaron después del Preview probado, esas aprobaciones forman un commit nuevo. Intégralo en `main`, publícalo otra vez en Preview, pruébalo y usa el nuevo `Group ID`; nunca promociones el grupo anterior.
 
 Solamente después de que el usuario apruebe explícitamente ese Preview exacto, ejecuta **Publish SpanGlish Production** desde `main`, indica el `Group ID` probado y marca la confirmación de Production. El workflow:
 
 1. Exige el head remoto exacto y protegido de `main`.
-2. Ejecuta `npm run verify:production` con la política humana estricta.
+2. Ejecuta `npm run verify:production`: integridad obligatoria y avisos de revisión visibles.
 3. Comprueba que el grupo Preview más reciente incluya Android e iOS con ese mismo commit.
 4. Republica ese grupo inmutable en el canal `production`; no compila contenido local diferente.
 5. Verifica que Expo publicó el mismo commit en Production.

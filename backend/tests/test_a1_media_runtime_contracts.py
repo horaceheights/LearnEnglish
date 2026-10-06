@@ -5,6 +5,8 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+from scripts import a1_media_runtime_contracts as runtime_contracts
 from scripts.course_contract import expected_lesson_count, expected_lessons_by_unit
 
 from scripts.a1_media_runtime_contracts import (
@@ -213,6 +215,45 @@ class A1MediaRuntimeContractTests(unittest.TestCase):
         stale["render_signature_sha256"] = "0" * 64
         with self.assertRaisesRegex(ValueError, "render signature is stale"):
             validate_review_context(stale)
+
+    def test_renderer_drift_is_limited_to_affected_views_and_visual_dependencies(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            for filename in set().union(*runtime_contracts.RENDER_PROFILE_FILES.values()):
+                source = root / filename
+                source.parent.mkdir(parents=True, exist_ok=True)
+                source.write_text("const fit = 'cover';\n", encoding="utf-8")
+            profiles = list(runtime_contracts.RENDER_PROFILE_FILES)
+            def signatures():
+                render_profile_sha256.cache_clear()
+                return {profile: render_profile_sha256(profile) for profile in profiles}
+            with patch.object(runtime_contracts, "ROOT", root):
+                baseline = signatures()
+                speak = root / "mobile/src/components/PronunciationPractice.tsx"
+                speak.write_text("const fit = 'contain';\n", encoding="utf-8")
+                after_speak = signatures()
+                self.assertNotEqual(baseline["lesson-speak-model-3x2-v1"], after_speak["lesson-speak-model-3x2-v1"])
+                self.assertEqual(baseline["lesson-option-1to3-3x2-v1"], after_speak["lesson-option-1to3-3x2-v1"])
+                self.assertEqual(baseline["lesson-prompt-3x2-v1"], after_speak["lesson-prompt-3x2-v1"])
+                construction = root / "mobile/src/components/SentenceConstruction.tsx"
+                construction.write_text("const fit = 'contain';\n", encoding="utf-8")
+                after_construction = signatures()
+                self.assertNotEqual(after_speak["lesson-prompt-3x2-v1"], after_construction["lesson-prompt-3x2-v1"])
+                self.assertEqual(after_speak["lesson-speak-model-3x2-v1"], after_construction["lesson-speak-model-3x2-v1"])
+                self.assertEqual(after_speak["lesson-option-four-mobile-4x5-web-3x2-v1"], after_construction["lesson-option-four-mobile-4x5-web-3x2-v1"])
+                for dependency in [
+                    "mobile/src/components/LessonMediaFrame.tsx",
+                    "mobile/src/lessonViewportLayout.ts",
+                    "mobile/src/lessonImageSources.ts",
+                    "mobile/src/lessonTurnImages.ts",
+                ]:
+                    before = signatures()
+                    (root / dependency).write_text("const visual = 'changed';\n", encoding="utf-8")
+                    after = signatures()
+                    for profile in profiles:
+                        if dependency in runtime_contracts.RENDER_PROFILE_FILES[profile]:
+                            self.assertNotEqual(before[profile], after[profile], (dependency, profile))
+            render_profile_sha256.cache_clear()
 
     def test_explicit_nonvisual_blocks_do_not_change_renderer_source(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:

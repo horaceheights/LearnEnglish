@@ -103,7 +103,7 @@ jobs:
         shell: pwsh
         run: python -m unittest discover -s backend/tests -p "test_*.py"
 
-      - name: Run strict Production verification
+      - name: Verify content integrity before promoting the approved Preview
         working-directory: mobile
         shell: pwsh
         run: npm run verify:production

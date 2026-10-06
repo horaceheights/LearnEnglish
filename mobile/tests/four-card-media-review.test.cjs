@@ -118,7 +118,7 @@ test('every effective four-card image has a current semantic-crop review', (t) =
 
   const message = `Four-card semantic-crop review is pending: ${issues.join('; ')}.`;
   if (allowPendingReview) {
-    const warning = `PREVIEW ONLY — ${message} Production remains blocked until the manifest is current.`;
+    const warning = `REVIEW ADVISORY — ${message} Promotion requires user testing and approval of the exact Preview group.`;
     console.warn(warning);
     t.diagnostic(warning);
     return;
