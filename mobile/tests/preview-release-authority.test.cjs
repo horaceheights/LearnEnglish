@@ -1,8 +1,10 @@
 const assert = require('node:assert/strict');
 const { spawnSync } = require('node:child_process');
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
+const { assertNativeExport, exportNativePreview } = require('../scripts/export-native-preview.cjs');
 
 const repositoryRoot = path.resolve(__dirname, '../..');
 const workflowsRoot = path.join(repositoryRoot, '.github/workflows');
@@ -292,6 +294,71 @@ test('the publisher verifies Expo reports the same GitHub commit after upload', 
   assert.match(publishScriptSource, /Assert-PublishedPreviewCommit -ExpectedCommit \$releaseCommit/);
 });
 
+function withNativeExportFixture(run) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'spanglish-native-export-test-'));
+  const metadata = { version: 0, bundler: 'metro', fileMetadata: {} };
+  for (const platform of ['android', 'ios']) {
+    metadata.fileMetadata[platform] = { bundle: `${platform}.hbc`, assets: [{ path: 'asset.png', ext: 'png' }] };
+    fs.writeFileSync(path.join(directory, `${platform}.hbc`), 'native bundle fixture');
+  }
+  fs.writeFileSync(path.join(directory, 'asset.png'), 'asset fixture');
+  const writeMetadata = () => fs.writeFileSync(path.join(directory, 'metadata.json'), JSON.stringify(metadata));
+  writeMetadata();
+  try { run(directory, metadata, writeMetadata); }
+  finally { fs.rmSync(directory, { recursive: true, force: true }); }
+}
+
+test('native export requests both native bundles in the Preview environment without loading local dotenv', () => {
+  withNativeExportFixture(directory => {
+    const commit = 'a'.repeat(40);
+    let calls = 0;
+    exportNativePreview({
+      outputDirectory: directory,
+      environment: { APP_VARIANT: 'preview', GITHUB_SHA: commit, EXPO_PUBLIC_RELEASE_COMMIT: commit, EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: 'public-key-fixture' },
+      run(executable, args, options) {
+        calls += 1;
+        assert.equal(executable, process.execPath);
+        assert.deepEqual(args.slice(1), ['export', '--platform', 'android', '--platform', 'ios', '--output-dir', directory, '--source-maps', '--dump-assetmap', '--clear']);
+        assert.equal(options.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, 'public-key-fixture');
+        assert.equal(options.env.EXPO_PUBLIC_RELEASE_COMMIT, commit);
+        assert.equal(options.env.APP_VARIANT, 'preview');
+        assert.equal(options.env.EXPO_NO_DOTENV, '1');
+        return { status: 0 };
+      },
+    });
+    assert.equal(calls, 1);
+  });
+  assert.match(publishScriptSource, /eas env:exec preview 'node scripts\/export-native-preview\.cjs' --non-interactive/);
+  assert.match(publishScriptSource, /eas update --channel preview --environment preview --platform all --skip-bundler --input-dir dist/);
+  assert.match(publishScriptSource, /export-native-preview\.cjs'[\s\S]*?Assert-GitHubPreviewPublishAuthority[\s\S]*?eas update --channel preview/);
+});
+
+test('a failed export or a mismatched release identity cannot continue', () => {
+  const commit = 'a'.repeat(40);
+  const environment = { APP_VARIANT: 'preview', GITHUB_SHA: commit, EXPO_PUBLIC_RELEASE_COMMIT: commit };
+  for (const invalid of [{ ...environment, APP_VARIANT: 'production' }, { ...environment, EXPO_PUBLIC_RELEASE_COMMIT: 'b'.repeat(40) }, { ...environment, GITHUB_SHA: '' }]) {
+    assert.throws(() => exportNativePreview({ environment: invalid, run() { assert.fail('must not start Expo'); } }), /exact GitHub commit/);
+  }
+  assert.throws(() => exportNativePreview({ environment, run: () => ({ status: 1 }) }), /export failed/);
+});
+
+test('native export validation rejects missing platforms, unexpected web, absent bundles and escaping asset paths', () => {
+  withNativeExportFixture(directory => assert.doesNotThrow(() => assertNativeExport(directory)));
+  for (const mutate of [
+    metadata => { delete metadata.fileMetadata.ios; },
+    metadata => { metadata.fileMetadata.web = { bundle: 'web.js', assets: [] }; },
+    metadata => { metadata.fileMetadata.ios.bundle = 'missing.hbc'; },
+    metadata => { metadata.fileMetadata.ios.assets[0].path = '../outside.png'; },
+    metadata => { delete metadata.fileMetadata.ios.assets; },
+  ]) {
+    withNativeExportFixture((directory, metadata, writeMetadata) => {
+      mutate(metadata);
+      writeMetadata();
+      assert.throws(() => assertNativeExport(directory));
+    });
+  }
+});
+
 test('Preview uses human-review advisories without introducing a preapproval gate', () => {
   assert.equal(
     mobilePackage.scripts['verify:preview'],
@@ -438,6 +505,7 @@ test('CODEOWNERS protects the complete mobile release trust boundary', () => {
     '/scripts/export_persistent_audio_catalog.py',
     '/mobile/scripts/promote-preview.ps1',
     '/mobile/scripts/publish-preview.ps1',
+    '/mobile/scripts/export-native-preview.cjs',
     '/mobile/scripts/release-guard.ps1',
     '/mobile/scripts/verify-interaction-paths.ps1',
     '/mobile/scripts/verify-preview.ps1',

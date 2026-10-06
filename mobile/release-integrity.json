@@ -37,13 +37,25 @@
     },
     {
       "path": "mobile/scripts/publish-preview.ps1",
-      "expectedGitBlob": "6b61a10b4cbc1b86ed8f4d5bb9cebe3f70c67ebe",
+      "expectedGitBlob": "fd928e24dd98ac105cb18135b79149a14e05cac6",
       "requiredMarkers": [
         "Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_SHA'",
         "EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA",
         "PSObject.Properties['gitCommitHash']",
         "Assert-NativePreviewBuilds -Builds $builds",
-        "-NativePlatform $NativePlatform"
+        "-NativePlatform $NativePlatform",
+        "eas env:exec preview 'node scripts/export-native-preview.cjs' --non-interactive",
+        "--platform all --skip-bundler --input-dir dist"
+      ]
+    },
+    {
+      "path": "mobile/scripts/export-native-preview.cjs",
+      "expectedGitBlob": "f038f75e60889071047c349a7ce13f724161aa66",
+      "requiredMarkers": [
+        "'--platform', 'android', '--platform', 'ios'",
+        "environment.EXPO_PUBLIC_RELEASE_COMMIT !== environment.GITHUB_SHA",
+        "EXPO_NO_DOTENV: '1'",
+        "assertNativeExport(outputDirectory)"
       ]
     },
     {

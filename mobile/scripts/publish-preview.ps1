@@ -212,7 +212,9 @@ Assert-MainReleaseLineage
 Assert-CleanReleaseCommit
 $releaseCommit = $authority.Commit
 $previousReleaseCommit = [Environment]::GetEnvironmentVariable('EXPO_PUBLIC_RELEASE_COMMIT', 'Process')
+$previousAppVariant = [Environment]::GetEnvironmentVariable('APP_VARIANT', 'Process')
 [Environment]::SetEnvironmentVariable('EXPO_PUBLIC_RELEASE_COMMIT', $releaseCommit, 'Process')
+[Environment]::SetEnvironmentVariable('APP_VARIANT', 'preview', 'Process')
 $mobileRoot = Split-Path -Parent $PSScriptRoot
 
 Push-Location $mobileRoot
@@ -245,9 +247,19 @@ try {
     return
   }
 
+  # Expo's "all" also exports web. This native app deliberately has no web
+  # renderer; keep both native platforms in one export and one update group.
+  Invoke-CheckedCommand -FailureMessage 'Expo no pudo exportar Android e iOS con el ambiente Preview.' -Command {
+    & eas env:exec preview 'node scripts/export-native-preview.cjs' --non-interactive
+  }
+  # Export can take time. Reject a superseded main immediately before upload.
+  $null = Assert-GitHubPreviewPublishAuthority
+  Assert-MainReleaseLineage
+  Assert-CleanReleaseCommit
+
   Write-Host 'Publicando solamente en Preview...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'Expo no pudo publicar la actualización de Preview.' -Command {
-    & eas update --channel preview --environment preview --message $Message --non-interactive
+    & eas update --channel preview --environment preview --platform all --skip-bundler --input-dir dist --message $Message --non-interactive
   }
 
   Assert-PublishedPreviewCommit -ExpectedCommit $releaseCommit
@@ -258,4 +270,5 @@ try {
 } finally {
   Pop-Location
   [Environment]::SetEnvironmentVariable('EXPO_PUBLIC_RELEASE_COMMIT', $previousReleaseCommit, 'Process')
+  [Environment]::SetEnvironmentVariable('APP_VARIANT', $previousAppVariant, 'Process')
 }

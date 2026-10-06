@@ -68,7 +68,7 @@ El workflow:
 2. Valida el manifiesto de integridad, el catálogo completo declarado y la identidad visible del commit. No hay un límite fijo de unidades o lecciones: conserva las existentes y actualiza el manifiesto cuando se aprueba nuevo contenido, manteniendo una duración similar por lección.
 3. Ejecuta el preflight completo de contenido, backend, TypeScript y bundle Android.
 4. Espera a que el backend compartido informe ese mismo commit de `main`, el SHA-256 y la cantidad exactos del catálogo candidato, con cero audios faltantes, inválidos o con error.
-5. Publica en el canal `preview` sin permitir dos publicaciones simultáneas.
+5. Exporta explícitamente Android e iOS con las variables de EAS Preview, sin cargar archivos `.env` locales ni incluir web. Valida ambos bundles y sus assets; después publica ese export en un solo grupo del canal `preview` con `--skip-bundler`, sin permitir dos publicaciones simultáneas y comprobando de nuevo el head remoto antes de subir.
 6. Consulta Expo después de publicar y comprueba que Android e iOS correspondan al mismo commit. En un build nativo Android, verifica exactamente la plataforma solicitada; las OTA conservan ambas plataformas.
 7. No modifica `production`.
 
