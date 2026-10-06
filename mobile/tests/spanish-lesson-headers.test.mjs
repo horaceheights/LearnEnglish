@@ -32,9 +32,9 @@ test('an empty Recognize prompt asks for the word or the phrase in Spanish', () 
   assert.equal(colors.prompt, '');
   assert.equal(park.prompt, '');
   assert.equal(instructions.lessonHeaderPromptText('lesson-2-6-numbers-1-10', 'Recognize', '', colors.options),
-    '¡Elige la palabra correcta!');
+    '¡Elige la palabra que corresponde a la imagen!');
   assert.equal(instructions.lessonHeaderPromptText('lesson-2-1-places-around-me', 'Recognize', '', park.options),
-    '¡Elige la frase correcta!');
+    '¡Elige la frase que corresponde a la imagen!');
   assert.equal(instructions.lessonHeaderPromptText('lesson-2-1-places-around-me', 'Recognize', 'A boy', park.options),
     'A boy', 'authored English content stays as the lesson wrote it');
 });

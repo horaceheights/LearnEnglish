@@ -48,11 +48,18 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
     : e(LessonCardView, { card, lessonId: card.lessonId, result, selectedId: selected[0] || null, selectedIds: selected,
       level: 'A1', showHelp: false, userId: 'layout-test', onSelect: noop, onResetSelection: noop, optionsInteractive: card.options.length > 1,
       onPronunciationPassed: noop, onPronunciationUnavailable: noop, onGrammarAnimationComplete: noop });
-  const instructional = ['Listen', 'Speak'].includes(card.stage) || !card.prompt;
-  const displayPrompt = card.stage === 'Listen' ? '¡Escucha y elige la frase!' : card.stage === 'Speak' ? '¡Escucha y repite!' : card.prompt || '¡Elige la frase correcta!';
+  const { usesCompactListenInstruction, usesCompactRecognizeInstruction, usesCompactSpeakInstruction,
+    lessonHeaderPromptText, listeningChoiceInstruction, pronunciationInstruction } = h.load('lessonInstructions.ts');
+  const instructional = usesCompactListenInstruction(card.stage, card.prompt)
+    || usesCompactRecognizeInstruction(card.stage, card.prompt) || usesCompactSpeakInstruction(card.stage);
+  const displayPrompt = usesCompactSpeakInstruction(card.stage) ? pronunciationInstruction()
+    : usesCompactListenInstruction(card.stage, card.prompt) ? listeningChoiceInstruction(card.options)
+      : lessonHeaderPromptText(card.lessonId, card.stage, card.prompt, card.options);
   const widePrompt = landscape && !instructional && !construction && landscapePromptIsWide(card.prompt, viewport.width - 56);
   const header = e('View', { style: [screen.contentHeader, landscape ? screen.contentHeaderRail : screen.contentHeaderPortrait], children: [
-    e('Text', { adjustsFontSizeToFit: landscape && !instructional, minimumFontScale: 16 / (24 * Math.min(viewport.fontScale, 1.3)), maxFontSizeMultiplier: 1.3, style: { height: landscape ? (!instructional ? 80 : 44) : undefined, fontSize: landscape ? (!instructional ? 24 : 14) : 28, fontWeight: '800', textAlign: 'center' }, children: displayPrompt }),
+    e('Text', { numberOfLines: landscape ? 4 : 2, adjustsFontSizeToFit: landscape && !instructional, minimumFontScale: 16 / (24 * Math.min(viewport.fontScale, 1.3)), maxFontSizeMultiplier: 1.3, style: [screen.prompt, screen.promptPhraseBox,
+      instructional ? screen.promptCompactInstruction : null,
+      { height: landscape && !instructional ? 80 : undefined, fontSize: instructional ? 14 : landscape ? 24 : 28, textAlign: 'center' }], children: displayPrompt }),
     ...(landscape ? [e('Pressable', { accessibilityRole: 'button', style: { height: 48, width: 48 }, children: e('Text', { children: 'Audio' }) })] : []),
   ] });
   const chrome = landscape ? e(LessonLandscapeRail, { location: 'UNIT 1 | LESSON 1.3', stage: { Learn: 'APRENDE', Recognize: 'RECONOCE', Listen: 'ESCUCHA', Speak: 'HABLA', Use: 'COMPLETA' }[card.stage], color: '#df765b', progress: '12 / 42',
@@ -63,6 +70,33 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
       e('View', { style: [screen.lessonBody, landscape ? screen.lessonBodyLandscape : null], children: [chrome,
         e('View', { style: screen.activityColumn, children: [widePrompt ? header : null, e('View', { style: screen.cardCarousel, children: body }, 'lesson-activity')] })] }) }) });
 }
+
+test('time recognition directions retain compact semibold typography and fit enlarged phone text', () => {
+  const heardChoice = cards.find(card => card.lessonId === 'lesson-4-what-time-is-it' && card.slide_id === 'R1');
+  const imageChoice = cards.find(card => card.lessonId === 'lesson-4-what-time-is-it' && card.slide_id === 'DR1');
+  assert.ok(heardChoice && imageChoice);
+  const cases = [
+    [heardChoice, '¡Escucha y elige la frase!'],
+    [{ ...heardChoice, prompt: '¡Escucha y elige!' }, '¡Escucha y elige la frase!'],
+    [imageChoice, '¡Elige la frase que corresponde a la imagen!'],
+  ];
+  for (const viewport of [
+    { width: 360, height: 800, fontScale: 1 },
+    { width: 390, height: 844, fontScale: 1.3 },
+    { width: 915, height: 412, fontScale: 1.3 },
+  ]) {
+    for (const [card, instruction] of cases) {
+      const h = lessonHarness(viewport);
+      const records = h.render(lessonFactory(h, card, viewport), viewport.width, viewport.height);
+      const header = records.find(record => record.type === 'Text' && record.text === instruction);
+      assert.ok(header, 'Render the actual shared instruction copy.');
+      assert.equal(header.style.fontSize, 14);
+      assert.equal(header.style.fontWeight, '600');
+      assert.ok(header.textWidth <= header.box.width + 1, 'Keep the whole direction within its header.');
+      assert.ok(header.textHeight <= header.box.height + 1, 'Do not clip the direction vertically.');
+    }
+  }
+});
 
 test('both portrait screenshot grids keep the lower images and full success/retry text above Android navigation', () => {
   const examples = cards.filter(c => ['The boy and the girl', 'They are writing.'].includes(c.prompt) && c.stage === 'Recognize' && c.options.length === 4);

@@ -44,8 +44,8 @@ const SPANISH_STAGE_LABELS: Record<string, string> = {
 };
 
 const LISTEN_AND_CHOOSE_PROMPT = 'Listen and choose.';
-const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase correcta!';
-const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra correcta!';
+const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase que corresponde a la imagen!';
+const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra que corresponde a la imagen!';
 const LISTEN_AND_REPEAT_INSTRUCTION = '¡Escucha y repite!';
 const EQUIVALENT_SUBJECT_PRONOUNS = new Set(['he', 'she', 'they', 'it']);
 const PRONOUN_BE_FORMS: Record<string, string> = {
@@ -113,8 +113,9 @@ export function lessonPromptText(lessonId: string, prompt: string) {
 }
 
 export function usesCompactListenInstruction(stage: string, prompt: string) {
-  return (stage === 'Listen' && prompt.trim() === LISTEN_AND_CHOOSE_PROMPT)
-    || (stage === 'Recognize' && prompt.trim() === '¡Escucha y elige!');
+  const listeningInstruction = prompt.trim() === LISTEN_AND_CHOOSE_PROMPT
+    || prompt.trim() === SPANISH_INSTRUCTION_PROMPTS[LISTEN_AND_CHOOSE_PROMPT];
+  return (stage === 'Listen' || stage === 'Recognize') && listeningInstruction;
 }
 
 export function listeningChoiceInstruction(options: readonly { image_url?: string | null }[]) {

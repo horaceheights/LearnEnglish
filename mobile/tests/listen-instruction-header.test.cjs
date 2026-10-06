@@ -30,7 +30,7 @@ const ts = require('typescript');
 const transpiledInstruction = ts.transpileModule(instructionSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
 const instructionApi = {};
 vm.runInNewContext(transpiledInstruction, { exports: instructionApi });
-const { listeningChoiceInstruction } = instructionApi;
+const { listeningChoiceInstruction, usesCompactListenInstruction } = instructionApi;
 
 const units = new Set(course.map((lesson) => lesson.unit_id));
 const standardLessons = course.filter((lesson) => lesson.experience_type !== 'mission');
@@ -78,11 +78,27 @@ assert.match(
   /\[LISTEN_AND_CHOOSE_PROMPT\]: '¡Escucha y elige!'/,
   'The shared instruction copy must use complete Spanish exclamation punctuation.',
 );
-assert.match(
-  instructionSource,
-  /export function usesCompactListenInstruction\(stage: string, prompt: string\)\s*\{\s*return \(stage === 'Listen' && prompt\.trim\(\) === LISTEN_AND_CHOOSE_PROMPT\)\s*\|\| \(stage === 'Recognize' && prompt\.trim\(\) === '¡Escucha y elige!'\);/,
-  'Compact styling must be selected by stage and authored prompt rather than lesson or card identity.',
-);
+for (const stage of ['Listen', 'Recognize']) {
+  for (const prompt of ['Listen and choose.', '¡Escucha y elige!', '  Listen and choose.  ']) {
+    assert.equal(usesCompactListenInstruction(stage, prompt), true,
+      'Heard choices retain the instruction role before or after localization in either stage.');
+  }
+  for (const phrase of ['What time is it?', 'It is three a.m.', 'It is evening.']) {
+    assert.equal(usesCompactListenInstruction(stage, phrase), false,
+      'Authored English learning phrases never receive instruction styling.');
+  }
+}
+assert.equal(usesCompactListenInstruction('Learn', 'Listen and choose.'), false);
+for (const card of standardLessons.flatMap(lesson => lesson.cards)
+  .filter(card => ['Listen', 'Recognize'].includes(card.stage)
+    && ['Listen and choose.', '¡Escucha y elige!'].includes(card.prompt.trim()))) {
+  assert.equal(usesCompactListenInstruction(card.stage, card.prompt), true,
+    'Every real heard-choice card must use the shared compact role.');
+}
+assert.match(screenSource, /styles\.prompt,\s*styles\.promptPhraseBox,\s*useCompactHeaderInstruction \? styles\.promptCompactInstruction : null/,
+  'Instruction weight must override the learning-phrase weight.');
+assert.match(screenSource, /if \(useCompactHeaderInstruction\) return localizedPrompt;\s*return localizedPrompt\.split/,
+  'Instruction copy bypasses learning-word highlighting and animations.');
 assert.match(
   instructionSource,
   /const instruction = SPANISH_INSTRUCTION_PROMPTS\[prompt\.trim\(\)\];\s*if \(instruction\) return instruction;\s*if \(!usesSpanishInstructions\(lessonId\)\) return prompt;/,
@@ -121,12 +137,12 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /promptCompactInstruction:\s*\{\s*fontWeight:\s*'900'\s*\}/,
-  'The compact Listen instruction must remain bold.',
+  /promptCompactInstruction:\s*\{\s*fontWeight:\s*'600'\s*\}/,
+  'The compact Listen instruction must remain semibold.',
 );
 assert.match(
   guardrails,
-  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Listen uses bold 14 dp `¡Escucha y elige la frase!`[\s\S]*`¡Escucha y elige la foto!`[\s\S]*never from a specific slide/,
+  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Listen uses semibold 14 dp `¡Escucha y elige la frase!`[\s\S]*`¡Escucha y elige la foto!`[\s\S]*never from a specific slide/,
   'Durable product memory must define the reusable Listen instruction contract and its scope.',
 );
 assert.match(
