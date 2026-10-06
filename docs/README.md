@@ -16,6 +16,7 @@ Durable project knowledge is organized by purpose. Application and tool-specific
 ## Quality assurance
 
 - [Engine QA checklist](qa/engine-qa-checklist.md): internal parity, activity, device, and release checks.
+- [Exact Preview approval](qa/preview-approval-release.md): release readiness, targeted review inventory and promotion regression checks.
 - [Tester guide (Spanish)](qa/guia-pruebas-testers-es.md): concise instructions for external testers.
 - [Learner accounts QA](qa/learner-accounts-sync.md): Clerk, cross-device progress and offline/reset verification.
 

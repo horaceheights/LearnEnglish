@@ -181,7 +181,7 @@ function Assert-PublishedPreviewCommit {
 
               if ($allMetadataMatches -and $hasBothPlatforms) {
                 Write-Host "Expo verificado: grupo $observedGroup, commit $($ExpectedCommit.Substring(0, 7)), Android e iOS." -ForegroundColor Green
-                return
+                return $observedGroup
               }
             } else {
               $lastObservation = "update:view terminó con código $detailExitCode para el grupo $observedGroup"
@@ -262,7 +262,18 @@ try {
     & eas update --channel preview --environment preview --platform all --skip-bundler --input-dir dist --message $Message --non-interactive
   }
 
-  Assert-PublishedPreviewCommit -ExpectedCommit $releaseCommit
+  $verifiedGroup = Assert-PublishedPreviewCommit -ExpectedCommit $releaseCommit
+  if ($env:GITHUB_STEP_SUMMARY) {
+    Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY -Value @"
+
+## Preview ready for testing
+
+- Commit: $releaseCommit
+- Expo Group ID: $verifiedGroup
+- After testing and approving this exact Preview, run [Publish SpanGlish Production](https://github.com/horaceheights/LearnEnglish/actions/workflows/publish-production.yml) from main with this Group ID and confirmed checked.
+- Image-review advisories alone do not prevent promotion. If main advances, publish and test a new Preview.
+"@
+  }
 
   Write-Host ''
   Write-Host 'Preview publicado. Los testers de Production no recibieron este cambio.' -ForegroundColor Green

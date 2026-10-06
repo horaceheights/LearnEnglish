@@ -112,7 +112,7 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] Phrase tiles remain full-width, horizontally stacked, and readable with one-line auto-sizing
 - [ ] One-, two-, and three-card media retain the approved 3:2 treatment; four-image portrait choices retain a fixed 2x2 grid with fixed 4:5 media viewports
 - [ ] A four-card window-like crop may omit nonessential scene edges, but the concept remains unmistakable and no numeral, count, price, action, spatial relationship, or identifying structure is hidden or changed
-- [ ] New or changed four-card media is inspected in the real 4:5 Preview crop; before Production, its reviewed contact-sheet crop and current hash are recorded in `docs/product/a1-four-card-media-review.json`
+- [ ] New or changed four-card media is inspected in the real 4:5 Preview crop; crop-review records remain useful evidence, with outstanding paperwork reported as an advisory under the 2026-10-06 exact Preview approval standard
 - [ ] Font scale at 1.15 does not overlap choices; larger accessibility scales remain reachable by scrolling
 - [ ] Capture one Engine QA screenshot for the longest phrase card in portrait before release
 
@@ -288,7 +288,7 @@ A Preview update is ready for Horace's internal device testing when:
 - [ ] TypeScript check passes
 - [ ] Android production export passes
 - [ ] Automated lesson/media validation passes
-- [ ] Any pending human semantic or four-card crop reviews appear only as explicit Preview warnings; there are no rejected decisions, stale or malformed semantic contracts or asset-binding hashes, missing assets, copy-parity failures, ambiguous answers, or structural media errors
+- [ ] Pending human semantic reviews, renderer drift and four-card crop reviews appear as visible advisories; there are no rejected decisions, stale or malformed semantic contracts or asset-binding hashes unrelated to renderer drift, missing assets, copy-parity failures, ambiguous answers or structural media errors
 - [x] Automated first-try, retry, duplicate-completion, and skipped-pronunciation scoring checks pass
 - [ ] Representative card from every stage passes
 - [ ] The complete Speak stage passes in a representative lesson from every unit
@@ -301,9 +301,9 @@ A Preview update is ready for Horace's internal device testing when:
 
 A tested Preview is eligible for Production only when:
 
-- [ ] Every learner-facing still and final runtime crop has a current human approval; there are zero `pending` and zero `rejected` semantic contracts
-- [ ] `docs/product/a1-four-card-media-review.json` exactly matches the current four-card inventory and file hashes
-- [ ] `npm run verify:production` passes without review warnings or errors
+- [ ] The exact Preview has been tested, including new or visually affected images and crops; there are no rejected image decisions or content-integrity failures
+- [ ] Pending image decisions, renderer drift and crop-review differences are visible in the readiness report; saved review records have not been automatically rewritten
+- [ ] `npm run verify:production` passes; review advisories do not block the approved Preview
 - [ ] The latest tested Preview group contains Android and iOS updates whose `gitCommitHash` exactly matches the clean, pushed approval commit
 - [ ] The user explicitly approves promotion after testing that exact Preview group
 

@@ -376,11 +376,11 @@ test('Preview uses human-review advisories without introducing a preapproval gat
   assert.match(interactionVerifierSource, /\[string\]\$ReviewPolicy = 'Production'/);
   assert.match(
     interactionVerifierSource,
-    /if \(\$ReviewPolicy -eq 'Preview'\)[\s\S]*?'--allow-pending-review'/,
+    /\$fourCardReviewArguments \+= '--allow-pending-review'/,
   );
   assert.match(
     semanticValidatorSource,
-    /allow_stale_render_signatures=review_policy == "preview"/,
+    /allow_stale_render_signatures=True/,
   );
   assert.match(
     projectGuardrailsSource,
@@ -392,7 +392,7 @@ test('Preview uses human-review advisories without introducing a preapproval gat
   );
 });
 
-test('Production promotion reruns strict review against the exact tested Preview commit', () => {
+test('Production promotion verifies integrity and user approval of the exact Preview commit', () => {
   assert.equal(
     mobilePackage.scripts['verify:production'],
     'powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-preview.ps1 -ReviewPolicy Production',
@@ -403,6 +403,11 @@ test('Production promotion reruns strict review against the exact tested Preview
   assert.match(promoteScriptSource, /publish-production\.yml@refs\/heads\/main/);
   assert.match(promoteScriptSource, /ls-remote --exit-code origin refs\/heads\/main/);
   assert.match(promoteScriptSource, /Assert-MainReleaseLineage/);
+  const promotionBody = promoteScriptSource.slice(promoteScriptSource.indexOf('$authority = Assert-GitHubProductionPublishAuthority'));
+  assert.ok(
+    promotionBody.indexOf('Assert-TestedPreviewGroup') < promotionBody.indexOf('npm run verify:production'),
+    'The group approved by the user must be verified before promotion preflight.',
+  );
   assert.match(promoteScriptSource, /Assert-SharedBackendRelease/);
   assert.match(promoteScriptSource, /npm run verify:production/);
   assert.match(promoteScriptSource, /eas-cli update:view \$ExpectedGroup --json/);
@@ -412,8 +417,75 @@ test('Production promotion reruns strict review against the exact tested Preview
   assert.match(
     promoteScriptSource,
     /npm run verify:production[\s\S]*?Assert-SharedBackendRelease[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas-cli update:republish[\s\S]*?Assert-PublishedProductionCommit/,
-    'Strict Production verification and immutable Preview binding must finish before promotion.',
+    'Content integrity and immutable Preview binding must finish before promotion.',
   );
+});
+
+test('Production group binding rejects an old group, wrong commit, wrong branch and missing platform', () => {
+  const commit = 'a'.repeat(40);
+  const group = '11111111-1111-1111-1111-111111111111';
+  const android = { platform: 'android', gitCommitHash: commit, branch: 'preview', group };
+  const ios = { ...android, platform: 'ios' };
+  const cases = [
+    { name: 'exact approved Preview', latest: group, updates: [android, ios], accepted: true },
+    { name: 'old group', latest: '22222222-2222-2222-2222-222222222222', updates: [android, ios], accepted: false },
+    { name: 'wrong commit', latest: group, updates: [android, { ...ios, gitCommitHash: 'b'.repeat(40) }], accepted: false },
+    { name: 'wrong branch', latest: group, updates: [android, { ...ios, branch: 'production' }], accepted: false },
+    { name: 'wrong group detail', latest: group, updates: [android, { ...ios, group: 'other' }], accepted: false },
+    { name: 'missing iOS', latest: group, updates: [android], accepted: false },
+    { name: 'missing metadata', latest: group, updates: [{ platform: 'android' }, ios], accepted: false },
+    { name: 'empty group', latest: group, updates: [], accepted: false },
+  ];
+  // The protected publisher runs under pwsh, whose JSON arrays are enumerated.
+  const result = spawnSync('pwsh.exe', ['-NoProfile', '-Command', `
+    $source = Get-Content -Raw -LiteralPath $env:PRODUCTION_GROUP_TEST_SCRIPT
+    $tokens = $null
+    $parseErrors = $null
+    $ast = [System.Management.Automation.Language.Parser]::ParseInput($source, [ref]$tokens, [ref]$parseErrors)
+    if ($parseErrors.Count) { throw 'Production script does not parse.' }
+    $functionAst = $ast.Find({ param($item)
+      $item -is [System.Management.Automation.Language.FunctionDefinitionAst] -and $item.Name -eq 'Assert-TestedPreviewGroup'
+    }, $true)
+    Invoke-Expression $functionAst.Extent.Text
+    function npx {
+      if ($args -contains 'update:list') {
+        $response = @{ currentPage = @(@{ group = $script:groupCase.latest }) }
+      } else { $response = @($script:groupCase.updates) }
+      $global:LASTEXITCODE = 0
+      ConvertTo-Json -InputObject $response -Depth 8 -Compress
+    }
+    $cases = [Console]::In.ReadToEnd() | ConvertFrom-Json
+    $results = foreach ($case in $cases) {
+      $script:groupCase = $case
+      try {
+        Assert-TestedPreviewGroup -ExpectedGroup $env:PRODUCTION_GROUP_TEST_ID -ExpectedCommit $env:PRODUCTION_GROUP_TEST_COMMIT 6>$null
+        $accepted = $true
+      } catch {
+        $accepted = $false
+        if ($case.accepted) { [Console]::Error.WriteLine($_.Exception.Message) }
+      }
+      [pscustomobject]@{ name = $case.name; accepted = $accepted }
+    }
+    ConvertTo-Json -InputObject @($results) -Compress
+  `], { encoding: 'utf8', input: JSON.stringify(cases), env: {
+    ...process.env,
+    PRODUCTION_GROUP_TEST_SCRIPT: path.join(repositoryRoot, 'mobile/scripts/promote-preview.ps1'),
+    PRODUCTION_GROUP_TEST_ID: group,
+    PRODUCTION_GROUP_TEST_COMMIT: commit,
+  } });
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout), cases.map(({ name, accepted }) => ({ name, accepted })), result.stderr);
+});
+
+test('readiness summaries and review inventories run before the Expo credential is available', () => {
+  for (const workflow of [integritySource, publishWorkflowSource]) {
+    assert.match(workflow, /report_release_readiness\.py[\s\S]*?--verification-status "\$\{\{ job\.status \}\}"/);
+    assert.match(workflow, /actions\/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6/);
+    assert.match(workflow, /if: \$\{\{ !cancelled\(\) \}\}/);
+  }
+  assert.ok(publishWorkflowSource.indexOf('report_release_readiness.py') < publishWorkflowSource.indexOf('expo/expo-github-action@'));
+  assert.match(publishScriptSource, /\$verifiedGroup = Assert-PublishedPreviewCommit/);
+  assert.match(publishScriptSource, /Expo Group ID: \$verifiedGroup/);
 });
 
 test('main is the only active integration and release branch', () => {
@@ -450,7 +522,7 @@ test('Production publication is manual, confirmed, serialized, and sourced only 
   assert.match(
     productionWorkflowSource,
     new RegExp(`run: npm run verify:production[\\s\\S]*?expo/expo-github-action@${pinnedActions.expo} # v9[\\s\\S]*?promote-preview\\.ps1`),
-    'The strict Production gate must finish before the Expo credential is initialized.',
+    'Content integrity must finish before the Expo credential is initialized.',
   );
   assert.equal(
     productionWorkflowSource.match(/\$\{\{ secrets\.EXPO_TOKEN \}\}/g)?.length,
@@ -501,6 +573,8 @@ test('CODEOWNERS protects the complete mobile release trust boundary', () => {
     '/docs/operations/persistent-course-audio.md',
     '/mobile/release-integrity.json',
     '/scripts/validate_lesson_cards.py',
+    '/scripts/report_release_readiness.py',
+    '/scripts/a1_media_runtime_contracts.py',
     '/scripts/audit-repository-hygiene.ps1',
     '/scripts/export_persistent_audio_catalog.py',
     '/mobile/scripts/promote-preview.ps1',
