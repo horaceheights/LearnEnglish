@@ -60,3 +60,9 @@ Local Android and iOS exports each contain **984 assets** and pass the export va
 The complete local Preview preflight passes with the follow-up, including the full native viewport and interaction suites, TypeScript and the Android production bundle.
 
 Protected Preview run `37667738005` successfully published and verified commit `9fd3a622` on Android and iOS in group `62adead1-5a93-4ebc-a1ba-f5b09da46ed0`. Its receipt reports 985 total assets per platform: the 984 exported media assets plus one launch bundle. The export guard includes that bundle in its limit calculation; boundary fixtures use 999 and 1,000 media entries to verify totals of 1,000 and 1,001. This matches the launch-asset accounting in EAS CLI 21.4.0 and preserves the published application content.
+
+## Standalone Our pronunciation correction
+
+The user reported a sustained final r in the standalone Our recording. A single fresh ElevenLabs Liam take uses Flash v2 pronunciation guidance and provider speed 1.0. The user auditioned this exact file and then approved it with "yes that recording is fine"; that latest answer supersedes the preceding negative reply. Original provider MP3 bytes are preserved without timing edits. The request, checksum, budget and approval are recorded in `our-audio-2026-10-07.json`.
+
+Only L1, R1 and A1 prompt/answer audio revisions advance to 2, replacing six immutable bindings. The rejected source file is retained. The other 80 lessons and all longer ownership phrases, pictures, translations and card order are unchanged. Sixteen focused tests passed for Our, ownership content, earlier Playing and In/On corrections, and voice matching. Exact whole-course audio validation and protected CI/Preview remain release gates.

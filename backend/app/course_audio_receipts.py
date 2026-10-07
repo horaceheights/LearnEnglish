@@ -14,6 +14,8 @@ from .course_audio_profile import (
     LOCATION_WORD_CORRECTION_MODEL_ID,
     LOCATION_WORD_CORRECTION_SPEED,
     NEUTRAL_SPEAKER_ROLES,
+    OUR_CORRECTION_MODEL_ID,
+    OUR_CORRECTION_SPEED,
     PLAYING_CORRECTION_MODEL_ID,
     PLAYING_CORRECTION_SPEED,
     render_profile_for,
@@ -29,6 +31,17 @@ REVIEWED_EXACT_OVERRIDE_SOURCE = "reviewed-exact-audio-override"
 NATURAL_PLAYING_AUDIO_SHA256 = (
     "698ad5dee9464665b2b6bb627922b2e7a16b66a93a71e8a47f6e5c1ee4a17587"
 )
+NATURAL_OUR_AUDIO_SHA256 = (
+    "b1aee4a74b731910eda3a52d4a6d0d7e90b43503825e90af5717ed2cba2e95ed"
+)
+NATURAL_OUR_ASSET_IDS = frozenset({
+    "lesson-3-our-their-c001-answer-324e68ec5a0a98d4dd9b",
+    "lesson-3-our-their-c001-prompt-db8fe0e6197ba3272b19",
+    "lesson-3-our-their-c003-answer-bd04600c952333a4db5e",
+    "lesson-3-our-their-c003-prompt-8f6ea4069b93217947d9",
+    "lesson-3-our-their-c015-answer-448987c808676149a300",
+    "lesson-3-our-their-c015-prompt-6d73d910967d1a453e78",
+})
 NATURAL_PLAYING_ASSET_IDS = frozenset({
     "lesson-6-family-actions-c001-prompt-d72cd4a2415d36362874",
     "lesson-6-family-actions-c001-answer-0b039959a602912a7dad",
@@ -181,6 +194,9 @@ def _profile_mismatch(
     asset: CourseAudioAsset, provenance: dict[str, Any], audio_sha256: str | None = None,
 ) -> str | None:
     expected = render_profile_for(asset.speaker_role, asset.mode).as_provenance_contract()
+    if audio_sha256 == NATURAL_OUR_AUDIO_SHA256 and asset.id in NATURAL_OUR_ASSET_IDS:
+        expected["model_id"] = OUR_CORRECTION_MODEL_ID
+        expected["settings"]["speed"] = OUR_CORRECTION_SPEED
     if audio_sha256 == NATURAL_PLAYING_AUDIO_SHA256 and asset.id in NATURAL_PLAYING_ASSET_IDS:
         expected["model_id"] = PLAYING_CORRECTION_MODEL_ID
         expected["settings"]["speed"] = PLAYING_CORRECTION_SPEED
