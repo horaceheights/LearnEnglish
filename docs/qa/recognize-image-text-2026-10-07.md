@@ -40,3 +40,7 @@ These results belong to PR #246 and do not validate the follow-up by themselves.
 - The exact plans reproduce all three revised lessons. The 3.3 brief also generates the corrected directions. No new photographs, recordings, vocabulary or layout were introduced in this follow-up. Eight single-phrase recordings and the Listen question/reply reuse existing approved takes.
 - 3.3 A2 retains its image alternatives and response target, adds the existing Ana question before the existing Luis cooking reply, and keeps both the spoken target and turn photographs hidden during selection. This preserves five question exposures without weakening the course standard.
 - Focused backend, native header, and full-course checks are recorded with the follow-up release evidence; installed-phone review remains pending.
+
+- Follow-up local results: complete Preview preflight passed (content, cast, all 6,376 persistent audio contracts, TypeScript, native interaction/layout suites and Android bundle export). All 23 web regressions passed; practice audit has no new findings; unit parity is ready. The 72 focused backend authoring, recognition, cast, voice and audio tests pass. Protected CI reruns the complete backend suite before merge.
+
+- Immutable audio inventory: 6,376 active contracts verified, 12,716 existing objects retained and 36 new objects uploaded (18 reused-take bindings plus receipts). Every historical object descriptor remains unchanged. All 13 Cloudflare regression tests pass after inventory synchronization. No audio provider requests were made.

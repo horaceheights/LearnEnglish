@@ -241,7 +241,15 @@ class ContentEngineAuthorTests(unittest.TestCase):
             if item is None:
                 continue
             with self.subTest(slide=card["slide_id"]):
-                if item.get("turns"):
+                if stage == "Listen" and item.get("listening_turns"):
+                    turns = card["audio_turns"]
+                    self.assertEqual([turn["speaker_role"] for turn in turns],
+                                     [turn["speaker"] for turn in item["listening_turns"]])
+                    self.assertEqual([turn["text"] for turn in turns],
+                                     [turn["text"] for turn in item["listening_turns"]])
+                    self.assertEqual(card["audio_text"], " ".join(turn["text"] for turn in turns))
+                    self.assertFalse(card.get("audio_speaker"))
+                elif item.get("turns"):
                     self.assertNotEqual(card["stage"], "Use")
                     turns = card.get("audio_turns") or card.get("answer_audio_turns")
                     self.assertEqual([turn["speaker_role"] for turn in turns],

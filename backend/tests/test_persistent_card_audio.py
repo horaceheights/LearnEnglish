@@ -326,13 +326,15 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-06: approved 4.10 scenes have the woman ask and Luis answer
         # (+12 net male assets, seven exact answer takes, 187 characters).
         self.assertEqual(
-            Counter({"male-character": 558, "luis": 262, "diego": 16}),
+            Counter({"male-character": 555, "luis": 251, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
         # 2026-10-07: visual Reconoce removes duplicate heard questions/replies;
         # the photographed time asker is female. All existing takes are reused.
-        self.assertEqual(836, len(selected))
+        # Lesson 1.1 template follow-up retires redundant question bindings;
+        # Listen A2 retains Ana/Luis turns. The unique male takes do not change.
+        self.assertEqual(822, len(selected))
         self.assertEqual(171, len(jobs))
         self.assertEqual(171, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
