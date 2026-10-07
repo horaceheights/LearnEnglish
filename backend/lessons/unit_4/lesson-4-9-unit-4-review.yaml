@@ -124,9 +124,12 @@
     "U5",
     "U6",
     "U7",
-    "U8"
+    "U8",
+    "R7Q",
+    "R8Q",
+    "R9Q"
   ],
-  "content_revision": 7,
+  "content_revision": 8,
   "cards": [
     {
       "slide_id": "L1",
@@ -470,6 +473,31 @@
       "audio_speaker": "male-character"
     },
     {
+      "slide_id": "R7Q",
+      "interaction_type": "t2i2",
+      "prompt": "Do you clean the table?",
+      "stage": "Recognize",
+      "correct_option_id": "clean-table-r7q",
+      "options": [
+        {
+          "id": "wash-clothes-r7q",
+          "image_url": "a1_recognize_u4_review_wash_no_v2.webp",
+          "label": null
+        },
+        {
+          "id": "clean-table-r7q",
+          "image_url": "a1_recognize_u4_review_clean_yes_v2.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Do you clean the table?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Limpias la mesa?",
+      "pedagogy_note": "Restore the original contextual question as its own visual-recognition card immediately before the reply. Match the one written and spoken question to the clearly represented conversation topic, then continue the same scene for its original short answer. No combined question/answer prompt.",
+      "audio_speaker": "female-character"
+    },
+    {
       "slide_id": "R7",
       "interaction_type": "i2t2",
       "prompt": "",
@@ -489,10 +517,35 @@
       ],
       "audio_text": "",
       "answer_audio_text": "Yes, I do.",
-      "prompt_image_url": "a1_recognize_review_yes_v1.webp",
+      "prompt_image_url": "a1_recognize_u4_review_clean_yes_v2.webp",
       "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
-      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+      "pedagogy_note": "Continue the separate preceding question card in the same scene. The respondent's explicit thumbs-up/thumbs-down supplies the answer; retain the original short reply and voice. No heard answer or combined question/answer appears before selection.",
       "answer_audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "R8Q",
+      "interaction_type": "t2i2",
+      "prompt": "Do you wash your clothes?",
+      "stage": "Recognize",
+      "correct_option_id": "wash-clothes-r8q",
+      "options": [
+        {
+          "id": "wash-clothes-r8q",
+          "image_url": "a1_recognize_u4_review_wash_no_v2.webp",
+          "label": null
+        },
+        {
+          "id": "clean-table-r8q",
+          "image_url": "a1_recognize_u4_review_clean_yes_v2.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Do you wash your clothes?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Lavas tu ropa?",
+      "pedagogy_note": "Restore the original contextual question as its own visual-recognition card immediately before the reply. Match the one written and spoken question to the clearly represented conversation topic, then continue the same scene for its original short answer. No combined question/answer prompt.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "R8",
@@ -514,10 +567,35 @@
       ],
       "audio_text": "",
       "answer_audio_text": "No, I do not.",
-      "prompt_image_url": "a1_recognize_review_no_v1.webp",
+      "prompt_image_url": "a1_recognize_u4_review_wash_no_v2.webp",
       "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
-      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+      "pedagogy_note": "Continue the separate preceding question card in the same scene. The respondent's explicit thumbs-up/thumbs-down supplies the answer; retain the original short reply and voice. No heard answer or combined question/answer appears before selection.",
       "answer_audio_speaker": "female-character"
+    },
+    {
+      "slide_id": "R9Q",
+      "interaction_type": "t2i2",
+      "prompt": "What day is it today?",
+      "stage": "Recognize",
+      "correct_option_id": "day-calendar-r9q",
+      "options": [
+        {
+          "id": "time-clock-r9q",
+          "image_url": "a1_photo_u4_rebuild_review_clock_3_v1.webp",
+          "label": null
+        },
+        {
+          "id": "day-calendar-r9q",
+          "image_url": "a1_photo_u4_rebuild_review_calendar_v2_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "What day is it today?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Qué día es hoy?",
+      "pedagogy_note": "Restore the original weekday question as its own recognition target before Monday and Thursday responses. Choose the full seven-column dated week calendar instead of a single large clock. No particular weekday is assessed until the next marked-calendar reply card.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "R9",

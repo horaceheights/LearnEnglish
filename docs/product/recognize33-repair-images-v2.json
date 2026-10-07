@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "provider": "OpenAI built-in image generation",
+  "authorization": "User requested undo and correct Reconoce, preserving lesson content in Lesson 1.1 layouts; existing OpenAI image and ElevenLabs audio choices retained.",
+  "assets": [
+    {
+      "id": "a1_recognize33_she_question_v2",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-repair-v2/a1_recognize33_she_question_v2.png",
+      "runtime_filename": "a1_recognize33_she_question_v2.webp",
+      "source_sha256": "d3a6d743219c6a83dddeaaf6955d85700056c2765d528e6a65c4fc2a0d0a6deb",
+      "runtime_sha256": "d8efb4e79283b243a4062b3ab142319250d5f0fad2acd9e58bf632d1f8c3a55d",
+      "prompt": "Use case: photorealistic-natural. Make one 1536x1024 landscape 3:2 photograph for an English-learning picture-choice card. Reference photo provides the exact cooking woman, orange blouse, green kitchen, food and pan; preserve her identity, clothing and cooking action. Create a wider connected question view: on the LEFT a visiting adult man in a navy casual shirt is speaking to an adult female companion in a cream blouse. His head and eyes clearly face his female companion, and one extended hand points across to the cooking woman on the RIGHT. His companion listens to him. The cooking woman is separate from this conversation, actively stirring her vegetable pan and looking down at her work, not at the visitors. The composition must make it unmistakable that the man asks his companion ABOUT the other woman, not directly addressing the cook. Remove the incidental background child from this new scene; exactly three adults. All three faces, the pointing hand, the woman cooking and the pan must be large and readable at phone size. Natural anatomy, realistic daylight editorial photography consistent with reference. Full-bleed photo, no text, no question marks, no arrows, no bubbles, no graphic labels, no borders. This is a lesson-specific question scene, not a UI screenshot.",
+      "reference": "Lessons/Lesson1/images/family_mother_cooking.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a116b9-61f7-7a61-89f9-3dce8b706741\\exec-791c7472-f1fc-4d6a-90af-e70f195236ff.png",
+      "generation_receipt": {
+        "status": "image_saved",
+        "tool": "image_gen.imagegen",
+        "external_api_requests": 0,
+        "model": "not exposed by built-in tool"
+      },
+      "agent_review": "The man looks at his companion while pointing toward the separate woman stirring a pan. Three distinct adults; the cook is not the addressee. All faces, pointing hand and cooking action visible.",
+      "human_semantic_status": "pending"
+    },
+    {
+      "id": "a1_recognize33_he_question_v2",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-repair-v2/a1_recognize33_he_question_v2.png",
+      "runtime_filename": "a1_recognize33_he_question_v2.webp",
+      "source_sha256": "95c6c975b255814e90bffc05e6f280fc8b606349cd5634e8bb730879e77178e0",
+      "runtime_sha256": "01ae283050899138735621e5f14ae9bece55249559e21b2fdfdc0507f8c50dda",
+      "prompt": "Use case: photorealistic-natural. Make one 1536x1024 landscape 3:2 photograph for an English-learning card. Reference provides the exact sleeping boy with blue shirt and star blanket, wood bed and daylight bedroom; preserve his identity, outfit, closed eyes and sleeping action. Create a wider connected question view: on the LEFT near the bedroom doorway a visiting adult man in a navy casual shirt quietly speaks to an adult female companion in a cream blouse. His head and eyes face his female companion, and one open hand indicates the sleeping boy clearly separated on the RIGHT. His companion is looking at the speaking man, listening. The boy remains asleep with eyes closed and is not addressed directly. This clearly depicts asking a companion ABOUT a male child doing something, not speaking to the child. Exactly three people, no others. Keep all faces and pointing gesture legible; sleeping boy and bed take about half of the photo so sleep is unmistakable. Natural anatomy, calm realistic daylight, same bedroom as reference. Full-bleed photograph, no text, question marks, arrows, speech bubbles, labels or borders. No UI.",
+      "reference": "Lessons/Lesson1/images/boy_is_sleeping.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a116b9-61f7-7a61-89f9-3dce8b706741\\exec-09d7ee28-47f2-42b1-803a-d0c397619cae.png",
+      "generation_receipt": {
+        "status": "image_saved",
+        "tool": "image_gen.imagegen",
+        "external_api_requests": 0,
+        "model": "not exposed by built-in tool"
+      },
+      "agent_review": "The man looks at his companion while indicating the separate sleeping boy. The boy has closed eyes, head on pillow and blue star blanket; not directly addressed. All three faces and indicating hand visible.",
+      "human_semantic_status": "pending"
+    },
+    {
+      "id": "a1_recognize33_they_question_v2",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-repair-v2/a1_recognize33_they_question_v2.png",
+      "runtime_filename": "a1_recognize33_they_question_v2.webp",
+      "source_sha256": "e371c5f9fa5aa2cbb828d6118a009534e1a3cf213f14b4622d214e87cd98117b",
+      "runtime_sha256": "0444c60c9849d84116fe72ff8caeff160ff999387e1a9e064cc9be21ac5bbf99",
+      "prompt": "Use case: photorealistic-natural. Make one 1536x1024 landscape 3:2 photograph for an English-learning card. Reference provides the exact boy in blue and girl in purple running together along this green park path; preserve both identities, outfits, surroundings and running action. Create a wider connected question scene: on the LEFT foreground a visiting adult man in a navy casual shirt speaks to an adult female companion in a cream blouse. His head and eyes clearly face his companion, while one extended hand indicates BOTH children running together on the RIGHT middle distance. The companion looks at him, listening. The two children are together and apart from the adults, NOT the people addressed by the question; neither adult runs. Make the kids large enough to see both faces and full running bodies and separate the pair as the one indicated group. Exactly four people; remove unrelated park bystanders. Clear one-to-one conversation about a third-person pair. Natural anatomy and realistic daylight photography, matching the park reference. Full-bleed photo; no text, question marks, arrows, labels, speech bubbles, borders or UI.",
+      "reference": "Lessons/Lesson1/images/they_boy_girl_are_running.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a116b9-61f7-7a61-89f9-3dce8b706741\\exec-ace33b3e-e309-4e33-9c85-4877360990b2.png",
+      "generation_receipt": {
+        "status": "image_saved",
+        "tool": "image_gen.imagegen",
+        "external_api_requests": 0,
+        "model": "not exposed by built-in tool"
+      },
+      "agent_review": "The man looks at his companion while indicating both running children. Neither adult runs. The boy and girl remain a separate pair with full running bodies visible, not direct addressees.",
+      "human_semantic_status": "pending"
+    }
+  ]
+}

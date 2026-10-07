@@ -102,18 +102,23 @@ test('corrected photo-to-phrase cards reuse Lesson 1.1 instruction and replay st
   }
 });
 
-test('corrected Recognize phrase cues use the same native header as Lesson 1.1', () => {
+test('corrected Recognize targets use the same native header as Lesson 1.1 without changing lesson content', () => {
   const course = JSON.parse(fs.readFileSync(new URL('../src/generated/a1-course.json', import.meta.url), 'utf8'));
   const lessons = new Set(['lesson-3-3-am-is-and-are', 'lesson-4-do-you-questions']);
   const cards = course.filter(lesson => lessons.has(lesson.id)).flatMap(lesson => lesson.cards)
     .filter(card => card.stage === 'Recognize' && card.interaction_type.startsWith('t2i'));
-  assert.equal(cards.length, 8, 'Four action phrases and four short replies.');
+  assert.equal(cards.length, 8, 'Four current-action questions and four routine targets.');
+  const actionQuestions = course.find(lesson => lesson.id === 'lesson-3-3-am-is-and-are').cards
+    .filter(card => card.stage === 'Recognize' && card.interaction_type.startsWith('t2i'));
+  assert.deepEqual(actionQuestions.map(card => card.prompt), [
+    'What are you doing?', 'What is she doing?', 'What is he doing?', 'What are they doing?',
+  ], 'Lesson 3.3 retains its own question targets while reusing the established presentation.');
   cards.push(course.find(lesson => lesson.id === 'lesson-1-people-actions').cards.find(card => card.slide_id === 'R6'));
   for (const card of cards) {
     assert.ok(!card.prompt_presentation, 'Keep the ordinary Lesson 1.1 phrase presentation.');
     assert.ok(!card.audio_turns?.length, 'One visible cue has one pronunciation model.');
     assert.equal(card.audio_text, card.prompt);
-    assert.ok(!/[?\n]/.test(card.prompt), 'Do not restore the rejected question/answer block.');
+    assert.ok(!/\n/.test(card.prompt), 'Use one authored target, without a combined question/answer block.');
   }
   for (const viewport of [{ width: 320, height: 568, fontScale: 1 }, { width: 390, height: 844, fontScale: 2 }, { width: 740, height: 360, fontScale: 1.3 }]) {
     const h = lessonHarness(viewport, { sourceTransform: (file, code) => file.endsWith('LessonScreen.tsx') ? headerModule : code });

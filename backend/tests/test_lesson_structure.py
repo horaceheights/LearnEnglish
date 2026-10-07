@@ -243,7 +243,12 @@ class LessonStructureTests(unittest.TestCase):
                     # The reviewed rebuilds follow the comprehensive-review
                     # exception in course-design-a1.md; pin their intentional size.
                     # The 2026-09-25 Unit 3 and 2026-09-26 Unit 4 and Unit 5 reviews add six cards for their new language.
-                    self.assertEqual(len(lesson.cards), 54 if lesson.unit_id in ("unit-3", "unit-4", "unit-5", "unit-6", "unit-7") else 48)
+                    standards = json.loads((Path(__file__).resolve().parents[2] / 'docs/product/content-standards.json').read_text(encoding='utf-8'))['courses']['a1']
+                    default_count = 54 if lesson.unit_id in ("unit-3", "unit-4", "unit-5", "unit-6", "unit-7") else 48
+                    bounds = standards.get('approved_lesson_card_limits', {}).get(
+                        lesson.id, {'min': default_count, 'max': default_count})
+                    self.assertGreaterEqual(len(lesson.cards), bounds['min'])
+                    self.assertLessEqual(len(lesson.cards), bounds['max'])
                 else:
                     # 40-42 is the 2026-09-23 standard; units not yet rebuilt stay shorter.
                     standards = json.loads((Path(__file__).resolve().parents[2] / 'docs/product/content-standards.json').read_text(encoding='utf-8'))['courses']['a1']

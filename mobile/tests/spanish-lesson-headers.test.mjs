@@ -47,9 +47,11 @@ test('Recognize keeps visual matching with Lesson 1.1 phrase and picture prompts
   const lesson = course.find(item => item.id === 'lesson-3-3-am-is-and-are');
   const exchanges = lesson.cards.filter(item => item.stage === 'Recognize' && item.interaction_type.startsWith('t2i'));
   assert.equal(exchanges.length, 4);
+  assert.deepEqual(exchanges.map(card => card.prompt), [
+    'What are you doing?', 'What is she doing?', 'What is he doing?', 'What are they doing?',
+  ], 'Reusing the Lesson 1.1 format must preserve Lesson 3.3 question practice.');
   for (const card of exchanges) {
     assert.ok(!card.prompt_presentation);
-    assert.match(card.prompt, /^(I am|She is|He is|They are) \w+ing\.$/);
     assert.equal(card.audio_text, card.prompt);
     assert.equal(instructions.lessonHeaderPromptText(lesson.id, card.stage, card.prompt, card.options), card.prompt);
     assert.ok(card.options.every(option => option.image_url && !option.label));

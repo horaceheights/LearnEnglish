@@ -126,9 +126,12 @@
       "U5",
       "U6",
       "U7",
-      "U8"
+      "U8",
+      "R7Q",
+      "R8Q",
+      "R9Q"
     ],
-    "content_revision": 7
+    "content_revision": 8
   },
   "cards": [
     {
@@ -447,6 +450,28 @@
     },
     {
       "recipe": "choice",
+      "slide_id": "R7Q",
+      "prompt": "Do you clean the table?",
+      "stage": "Recognize",
+      "options": [
+        {
+          "id": "wash-clothes-r7q",
+          "image_url": "a1_recognize_u4_review_wash_no_v2.webp",
+          "label": null
+        },
+        {
+          "id": "clean-table-r7q",
+          "image_url": "a1_recognize_u4_review_clean_yes_v2.webp",
+          "label": null
+        }
+      ],
+      "spanish_translation": "¿Limpias la mesa?",
+      "pedagogy_note": "Restore the original contextual question as its own visual-recognition card immediately before the reply. Match the one written and spoken question to the clearly represented conversation topic, then continue the same scene for its original short answer. No combined question/answer prompt.",
+      "audio_speaker": "female-character",
+      "answer": 1
+    },
+    {
+      "recipe": "choice",
       "slide_id": "R7",
       "prompt": "",
       "stage": "Recognize",
@@ -462,9 +487,9 @@
           "label": "No, I do not."
         }
       ],
-      "prompt_image_url": "a1_recognize_review_yes_v1.webp",
+      "prompt_image_url": "a1_recognize_u4_review_clean_yes_v2.webp",
       "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
-      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+      "pedagogy_note": "Continue the separate preceding question card in the same scene. The respondent's explicit thumbs-up/thumbs-down supplies the answer; retain the original short reply and voice. No heard answer or combined question/answer appears before selection.",
       "answer_audio_speaker": "male-character",
       "field_order": [
         "slide_id",
@@ -483,6 +508,27 @@
     },
     {
       "recipe": "choice",
+      "slide_id": "R8Q",
+      "prompt": "Do you wash your clothes?",
+      "stage": "Recognize",
+      "options": [
+        {
+          "id": "wash-clothes-r8q",
+          "image_url": "a1_recognize_u4_review_wash_no_v2.webp",
+          "label": null
+        },
+        {
+          "id": "clean-table-r8q",
+          "image_url": "a1_recognize_u4_review_clean_yes_v2.webp",
+          "label": null
+        }
+      ],
+      "spanish_translation": "¿Lavas tu ropa?",
+      "pedagogy_note": "Restore the original contextual question as its own visual-recognition card immediately before the reply. Match the one written and spoken question to the clearly represented conversation topic, then continue the same scene for its original short answer. No combined question/answer prompt.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "recipe": "choice",
       "slide_id": "R8",
       "prompt": "",
       "stage": "Recognize",
@@ -498,9 +544,9 @@
           "label": "No, I do not."
         }
       ],
-      "prompt_image_url": "a1_recognize_review_no_v1.webp",
+      "prompt_image_url": "a1_recognize_u4_review_wash_no_v2.webp",
       "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
-      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+      "pedagogy_note": "Continue the separate preceding question card in the same scene. The respondent's explicit thumbs-up/thumbs-down supplies the answer; retain the original short reply and voice. No heard answer or combined question/answer appears before selection.",
       "answer_audio_speaker": "female-character",
       "answer": 1,
       "field_order": [
@@ -517,6 +563,28 @@
         "pedagogy_note",
         "answer_audio_speaker"
       ]
+    },
+    {
+      "recipe": "choice",
+      "slide_id": "R9Q",
+      "prompt": "What day is it today?",
+      "stage": "Recognize",
+      "options": [
+        {
+          "id": "time-clock-r9q",
+          "image_url": "a1_photo_u4_rebuild_review_clock_3_v1.webp",
+          "label": null
+        },
+        {
+          "id": "day-calendar-r9q",
+          "image_url": "a1_photo_u4_rebuild_review_calendar_v2_v1.webp",
+          "label": null
+        }
+      ],
+      "spanish_translation": "¿Qué día es hoy?",
+      "pedagogy_note": "Restore the original weekday question as its own recognition target before Monday and Thursday responses. Choose the full seven-column dated week calendar instead of a single large clock. No particular weekday is assessed until the next marked-calendar reply card.",
+      "audio_speaker": "male-character",
+      "answer": 1
     },
     {
       "recipe": "choice",
@@ -1880,7 +1948,18 @@
   },
   "source": {
     "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
-    "sha256": "28a5f03b5e4cbeddc72be776cc70cb490d14eb5391c7ca0f85dd40e38aab40b0"
+    "sha256": "d51c0d98a65145cff33309a34b9dd04151deb7881a1c8f097707d7e49cfd8503"
   },
-  "recognize_revision": "2026-10-07 clarification: reuse Lesson 1.1 presentation exactly; single phrase, no combined question/answer prompt."
+  "recognize_revision": "2026-10-07 repair: preserve the original question targets and separate replies with Lesson 1.1 text-to-image/image-to-text mechanics; six inspected topic-specific scenes, no combined prompts and no changes to other stages.",
+  "recognize_repair": {
+    "media_manifest": "docs/product/recognize-unit4-question-repair-v2.json",
+    "human_semantic_status": "pending",
+    "original_target_source": "1d6a51df",
+    "unchanged_stages": [
+      "Learn",
+      "Listen",
+      "Speak",
+      "Use"
+    ]
+  }
 }
