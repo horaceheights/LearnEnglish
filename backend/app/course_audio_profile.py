@@ -18,6 +18,10 @@ PLAYING_CORRECTION_SPEED = 0.85
 LOCATION_WORD_CORRECTION_MODEL_ID = "eleven_flash_v2"
 LOCATION_WORD_CORRECTION_SPEED = 0.85
 
+# User-auditioned standalone Our; exact bytes and bindings gate this exception.
+OUR_CORRECTION_MODEL_ID = "eleven_flash_v2"
+OUR_CORRECTION_SPEED = 1.0
+
 NARRATOR_VOICE_IDS = {
     "female-teacher": "XfNU2rGpBa01ckF309OY",  # Nichalia
     "female-warm": "EXAVITQu4vr4xnSDxMaL",  # Sarah
