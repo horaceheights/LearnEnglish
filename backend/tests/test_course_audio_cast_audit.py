@@ -87,9 +87,11 @@ EXACT_ROLE_CHANGES = {
 # question narration from the 12 reverse cards. Listen A2 now uses per-turn
 # speakers for its existing question and reply (-5 net scalar assignments).
 # 3.11 adds 17 ownership-speaker assignments after the template correction.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1926
+# Reconoce repair restores the question speakers and original Listen A2,
+# with three explicit review question speakers; exact inspected cast is preserved.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1930
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "42a7edad71f4e21b87e8a2551ddf6f08dadc2a0762a343bf43fa0b8100fd0f9f"
+    "aa689692569905f0e228c4568497ae8393e90508129af99c98d1e900dc4537a5"
 )
 
 

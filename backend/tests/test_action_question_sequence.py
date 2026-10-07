@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 import re
 import unittest
@@ -12,6 +13,14 @@ from scripts.content_engine.practice import learn_context
 ROOT = Path(__file__).resolve().parents[2]
 BRIEF = ROOT / 'docs/product/content-briefs/unit-3/3.3-am-is-and-are.json'
 QUESTIONS = ['What are you doing?', 'What is she doing?', 'What is he doing?', 'What are they doing?']
+RECOGNIZE_ANSWERS = ['I am reading.', 'She is cooking.', 'He is sleeping.', 'They are running.']
+
+
+def recognition_target(card):
+    if card['interaction_type'].startswith('t2i'):
+        return card['prompt']
+    return next(option['label'] for option in card['options']
+                if option['id'] == card['correct_option_id'])
 
 
 class ActionQuestionSequenceTests(unittest.TestCase):
@@ -28,18 +37,19 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             for index, question in enumerate(QUESTIONS):
                 q, answer = cards[index * 2:index * 2 + 2]
                 if stage == 'Recognize':
-                    self.assertEqual(q['prompt'], answer['answer_audio_text'])
-                    self.assertEqual(q['audio_text'], q['prompt'])
-                    self.assertEqual(answer['prompt'], '')
+                    self.assertEqual(recognition_target(q), question)
+                    line = recognition_target(answer)
+                    self.assertEqual(line, RECOGNIZE_ANSWERS[index])
                 else:
                     self.assertEqual(q['audio_text'], question)
-                line = (answer.get('audio_turns') or [{}])[-1].get('text') or answer.get('answer_audio_text') or answer['audio_text']
+                    line = (answer.get('audio_turns') or [{}])[-1].get('text') or answer.get('answer_audio_text') or answer['audio_text']
                 subject = ['I am', 'She is', 'He is', 'They are'][index]
                 self.assertRegex(line, '^' + subject + r' \w+ing\.$')
                 actions.add(line.split()[-1].rstrip('.'))
                 self.assertNotEqual(q['audio_text'], 'Doing')
             if stage != 'Learn':
-                self.assertGreaterEqual(len({(c.get('answer_audio_text') or c['audio_text']).split()[-1]
+                self.assertGreaterEqual(len({(recognition_target(c) if stage == 'Recognize'
+                                               else c.get('answer_audio_text') or c['audio_text']).split()[-1]
                                               for c in cards[1::2]}), 4)
         self.assertEqual(actions, set('writing reading eating playing cooking sleeping running drinking working talking swimming studying sitting'.split()))
 
@@ -48,26 +58,55 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             if card['stage'] != 'Listen' or int(re.sub(r'\D', '', card['slide_id'])) % 2 == 0:
                 continue
             self.assertTrue(card['interaction_type'].startswith('a2t'))
-            self.assertEqual(card['prompt'], '¡Escucha y elige!' if card['stage'] == 'Recognize' else 'Listen and choose.')
+            self.assertEqual(card['prompt'], 'Listen and choose.')
             self.assertIsNone(card['answer_audio_text'])
             self.assertTrue(all(not option['image_url'] for option in card['options']))
 
-    def test_recognize_alternates_single_phrase_and_pictured_response(self):
+    def test_recognize_keeps_questions_and_replies_in_the_two_existing_formats(self):
         cards = [c for c in self.lesson['cards'] if c['stage'] == 'Recognize']
-        for question, answer in zip(cards[::2], cards[1::2]):
-            self.assertTrue(question['interaction_type'].startswith('t2i'))
-            self.assertTrue(all(option['image_url'] for option in question['options']))
-            self.assertTrue(answer['interaction_type'].startswith('i2t'))
-            self.assertTrue(answer['prompt_image_url'])
-            self.assertNotIn(answer['answer_audio_text'], answer['audio_text'])
+        self.assertTrue(any(c['interaction_type'].startswith('t2i') for c in cards))
+        self.assertTrue(any(c['interaction_type'].startswith('i2t') for c in cards))
+        for card in cards:
+            with self.subTest(slide=card['slide_id']):
+                self.assertFalse(card.get('audio_turns'))
+                self.assertIsNone(card.get('prompt_presentation'))
+                if card['interaction_type'].startswith('t2i'):
+                    self.assertNotIn('\n', card['prompt'])
+                    self.assertEqual(card['audio_text'], card['prompt'])
+                    self.assertFalse(card['prompt_image_url'])
+                    self.assertTrue(all(o['image_url'] and not o.get('label') for o in card['options']))
+                else:
+                    self.assertTrue(card['interaction_type'].startswith('i2t'))
+                    self.assertEqual(card['prompt'], '')
+                    self.assertFalse(card['audio_text'])
+                    self.assertTrue(card['prompt_image_url'])
+                    self.assertEqual(card['answer_audio_text'], recognition_target(card))
 
-    def test_listening_reply_preserves_question_practice_without_a_visible_answer(self):
+    def test_listening_reply_is_not_rewritten_to_compensate_for_removed_recognize_questions(self):
         card = next(c for c in self.lesson['cards'] if c['slide_id'] == 'A2')
         self.assertEqual(card['interaction_type'], 'a2i2')
-        self.assertEqual([t['text'] for t in card['audio_turns']], ['What are you doing?', 'I am cooking.'])
-        self.assertEqual([t['speaker_role'] for t in card['audio_turns']], ['ana', 'luis'])
+        self.assertEqual(card['audio_text'], 'I am cooking.')
+        self.assertEqual(card['audio_speaker'], 'luis')
+        self.assertFalse(card.get('audio_turns'))
         self.assertEqual(card['prompt_image_url'], '')
         self.assertEqual(card['prompt'], 'Listen and choose.')
+
+    def test_format_repair_preserves_all_other_stages_exactly(self):
+        # Snapshot of the full canonical stage cards at 1d6a51df, before the
+        # Reconoce changes. No runtime git dependency or lossy target-only check:
+        # prompts, options, speakers, media and stage order are all preserved.
+        expected = {
+            'Learn': '18d8d6f18e09dc6cdecce79a8bd1c318047ddb8101d6f8420d4bb2858202afbd',
+            'Listen': '4849373d28f81ff404b43bf4ff90c1f4f349af488b9bbd75dc099cc42d7c9b92',
+            'Speak': '51764e08424c4843e4ae6d0114d7337d48eb90cf479b2d3e91350a4aab447eb4',
+            'Use': '7298cd1183be5880825257436dbca7d09498e3483c234ec548e8c001076bc913',
+        }
+        lesson = json.loads((ROOT / 'backend/lessons/unit_3/lesson-3-3-am-is-and-are.yaml').read_text('utf-8'))
+        for stage, digest in expected.items():
+            cards = [card for card in lesson['cards'] if card['stage'] == stage]
+            serialized = json.dumps(cards, sort_keys=True, separators=(',', ':'), ensure_ascii=False)
+            with self.subTest(stage=stage):
+                self.assertEqual(hashlib.sha256(serialized.encode()).hexdigest(), digest)
 
     def test_reused_stills_do_not_activate_legacy_videos_with_blurred_side_panels(self):
         from scripts.audit_action_video_bindings import video_map

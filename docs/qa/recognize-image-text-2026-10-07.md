@@ -1,5 +1,7 @@
 # Reconoce image/text correction
 
+> Superseded record: the response-only changes described below were rejected. They removed the original 3.3 and 4.8 question targets and changed 3.3 Listen A2 to compensate. Those changes were not the requested format repair. See [the content-preserving repair](reconoce-preservation-repair-2026-10-07.md) for the replacement candidate and its actual verification status. The earlier test and publication results below are historical evidence only.
+
 The user confirmed Unit 1's two visual interactions as the standard for every standard lesson: visible English above image choices, or a photo above written English choices. An audit of all 813 Recognize cards found 18 audio-input cards across five lessons. The final correction preserves all 81 lessons and stable card IDs. Learn, Speak, Use and mission cards are unchanged. One existing Listen reply (3.3 A2) now repeats its question before the reply to preserve the required question practice.
 
 | Lesson | Corrected cards | Visual evidence |

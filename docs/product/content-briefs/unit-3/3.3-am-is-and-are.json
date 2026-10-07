@@ -5,7 +5,7 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "Learn, Listen, Speak and Use retain the approved four question/answer pairs and familiar action variety. Reconoce follows the explicit 2026-10-07 Lesson 1.1 reference: one response phrase above photographs, then the pictured response above written choices with the shared Spanish instruction. The exact installed banks remain in the action-questions content plan.",
+  "note": "All five sections preserve the original you/she/he/they question/answer sequence. Reconoce uses the established Lesson 1.1 text-to-image question cards and image-to-text response cards. Question photos distinguish who is addressed or indicated, not arbitrary action choices. Exact reviewed banks live in the content plan. No other stage is changed by the correction.",
   "sources": [
     "docs/product/course-design-a1.md#unit-3-me-and-other-people",
     "docs/product/project-guardrails.md#learn"
@@ -59,7 +59,7 @@
     "grammar_function": "What are you doing? / I am ...; What is she doing? / She is ...; What is he doing? / He is ...; What are they doing? / They are ... . Complete present-progressive exchanges using familiar Unit 1 actions; do/does is not generalized.",
     "prerequisite": "3.2 I/you/we frames plus Unit 1 he/she/they, is/are, actions, baby and babies.",
     "speaking_outcome": "Say all four current-action questions and their matching answers in separate consecutive turns.",
-    "content_revision": 5,
+    "content_revision": 6,
     "learn_context_pairs": [
       {
         "question_slide_id": "L1",
@@ -203,15 +203,22 @@
     },
     {
       "id": "recognize-you-q",
-      "text": "I am reading.",
-      "es": "Estoy leyendo.",
-      "image": "a1_u3_l33_v1_reading_answer.webp",
-      "kind": "current-action-visual-you",
+      "text": "What are you doing?",
+      "es": "¿Qué estás haciendo?",
+      "image": "a1_u3_l33_v1_reading_question.webp",
+      "kind": "current-action-visual-question",
       "learn": false,
       "image_choices": true,
       "four_card": false,
+      "speaker": "luis",
       "text_choices": false,
-      "speaker": "ana"
+      "prefer": [
+        "What are they doing?"
+      ],
+      "avoid": [
+        "What is she doing?",
+        "What is he doing?"
+      ]
     },
     {
       "id": "recognize-you-a",
@@ -222,21 +229,28 @@
       "learn": false,
       "four_card": false,
       "accepts": {
-        "subject-variety": "The image establishes the subject. Response alternatives preserve that subject and contrast only observable actions."
+        "subject-variety": "The immediately preceding question fixes the perspective; these original responses contrast only the visible action."
       },
       "speaker": "ana"
     },
     {
       "id": "recognize-she-q",
-      "text": "She is cooking.",
-      "es": "Ella está cocinando.",
-      "image": "family_mother_cooking.webp",
-      "kind": "current-action-visual-she",
+      "text": "What is she doing?",
+      "es": "¿Qué está haciendo ella?",
+      "image": "a1_recognize33_she_question_v2.webp",
+      "kind": "current-action-visual-question",
       "learn": false,
       "image_choices": true,
       "four_card": false,
       "text_choices": false,
-      "speaker": "co-teacher"
+      "speaker": "male-character",
+      "prefer": [
+        "What are you doing?"
+      ],
+      "avoid": [
+        "What is he doing?",
+        "What are they doing?"
+      ]
     },
     {
       "id": "recognize-she-a",
@@ -247,20 +261,28 @@
       "learn": false,
       "four_card": false,
       "accepts": {
-        "subject-variety": "The image establishes the subject. Response alternatives preserve that subject and contrast only observable actions."
-      }
+        "subject-variety": "The immediately preceding question fixes the perspective; these original responses contrast only the visible action."
+      },
+      "speaker": "co-teacher"
     },
     {
       "id": "recognize-he-q",
-      "text": "He is sleeping.",
-      "es": "Él está durmiendo.",
-      "image": "boy_is_sleeping.webp",
-      "kind": "current-action-visual-he",
+      "text": "What is he doing?",
+      "es": "¿Qué está haciendo él?",
+      "image": "a1_recognize33_he_question_v2.webp",
+      "kind": "current-action-visual-question",
       "learn": false,
       "image_choices": true,
       "four_card": false,
       "text_choices": false,
-      "speaker": "co-teacher"
+      "speaker": "male-character",
+      "prefer": [
+        "What is she doing?"
+      ],
+      "avoid": [
+        "What are you doing?",
+        "What are they doing?"
+      ]
     },
     {
       "id": "recognize-he-a",
@@ -271,20 +293,28 @@
       "learn": false,
       "four_card": false,
       "accepts": {
-        "subject-variety": "The image establishes the subject. Response alternatives preserve that subject and contrast only observable actions."
-      }
+        "subject-variety": "The immediately preceding question fixes the perspective; these original responses contrast only the visible action."
+      },
+      "speaker": "co-teacher"
     },
     {
       "id": "recognize-they-q",
-      "text": "They are running.",
-      "es": "Ellos están corriendo.",
-      "image": "they_boy_girl_are_running.webp",
-      "kind": "current-action-visual-they",
+      "text": "What are they doing?",
+      "es": "¿Qué están haciendo ellos?",
+      "image": "a1_recognize33_they_question_v2.webp",
+      "kind": "current-action-visual-question",
       "learn": false,
       "image_choices": true,
       "four_card": false,
       "text_choices": false,
-      "speaker": "co-teacher"
+      "speaker": "male-character",
+      "prefer": [
+        "What is he doing?"
+      ],
+      "avoid": [
+        "What are you doing?",
+        "What is she doing?"
+      ]
     },
     {
       "id": "recognize-they-a",
@@ -295,8 +325,9 @@
       "learn": false,
       "four_card": false,
       "accepts": {
-        "subject-variety": "The image establishes the subject. Response alternatives preserve that subject and contrast only observable actions."
-      }
+        "subject-variety": "The immediately preceding question fixes the perspective; these original responses contrast only the visible action."
+      },
+      "speaker": "co-teacher"
     },
     {
       "id": "listen-you-q",
@@ -324,19 +355,7 @@
       "speaker": "luis",
       "question": "What are you doing?",
       "question_es": "¿Qué estás haciendo?",
-      "question_speaker": "ana",
-      "listening_turns": [
-        {
-          "text": "What are you doing?",
-          "speaker": "ana",
-          "image": "a1_u3_l33_cooking_question_v1.webp"
-        },
-        {
-          "text": "I am cooking.",
-          "speaker": "luis",
-          "image": "a1_u3_l33_cooking_answer_v1.webp"
-        }
-      ]
+      "question_speaker": "ana"
     },
     {
       "id": "listen-she-q",
@@ -620,36 +639,7 @@
       "question_es": "¿Qué están haciendo ellos?"
     }
   ],
-  "pool": [
-    {
-      "text": "I am writing.",
-      "es": "Estoy escribiendo.",
-      "image": "a1_u3_l33_v1_writing_answer.webp",
-      "kind": "current-action-visual-you",
-      "four_card": false
-    },
-    {
-      "text": "She is reading.",
-      "es": "Ella está leyendo.",
-      "image": "girl_is_reading.webp",
-      "kind": "current-action-visual-she",
-      "four_card": false
-    },
-    {
-      "text": "He is eating.",
-      "es": "Él está comiendo.",
-      "image": "boy_is_eating.webp",
-      "kind": "current-action-visual-he",
-      "four_card": false
-    },
-    {
-      "text": "They are sitting.",
-      "es": "Ellos están sentados.",
-      "image": "family_grandparents_sitting.webp",
-      "kind": "current-action-visual-they",
-      "four_card": false
-    }
-  ],
+  "pool": [],
   "stage_sequences": {
     "Learn": [
       "learn-you-q",
@@ -702,5 +692,5 @@
       "use-they-a"
     ]
   },
-  "replaces_sha256": "38b7c56f4761e805073c0e39c3aa922c5f1aab12adf26e13576b847ca07d35f7"
+  "replaces_sha256": "8a65ce69fe52325c33c01cc831dd9e74342c6fabdcd11009e70e5a6d911400c3"
 }

@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "authorization": "2026-10-07 user instructed undo the incorrect Reconoce change and preserve each lesson's learning content; OpenAI image generation and ElevenLabs audio previously selected.",
+  "scope": "Six new scene assets for 4.8 and 4.11 Reconoce. Existing assets are preserved byte for byte. No audio generation.",
+  "assets": [
+    {
+      "id": "u4_do_work_yes_v2",
+      "reference": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-question-repair-v2/u4_do_work_yes_v2.png",
+      "runtime_filename": "a1_recognize_u4_do_work_yes_v2.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a117b2-6edf-75e2-9513-a95cf7e6bd99\\exec-a8e99b54-0144-4e82-a597-79b28f734b4b.png",
+      "prompt": "Use case: identity-preserve, photorealistic-natural. Asset: caption-free photographic scene for a beginner English picture-matching exercise, not a UI mockup. The reference photo is for exact character identities, clothing and photographic style. Create one 1536x1024 landscape 3:2 photograph. Keep both people's faces, eyes, all gesturing hands and the conversation topic LARGE and clearly visible in the central 85% of the image, suitable for a phone. Natural realistic anatomy, no cropped fingers, no extra people. No printed words, logos, speech bubbles, arrows, ticks, crosses, symbols, borders, collages, subtitles, or text. One coherent photographic scene. Preserve Ana (long dark hair, sage-green overshirt over white top) and Luis (short curly dark hair, navy T-shirt, tan trousers). Move them into Ana's small neighborhood shop. Ana stands behind a foreground shop counter wearing a plain apron OVER her same clothes; a large recognizable cash register and orderly merchandise shelves clearly communicate WORK. Luis stands on the customer side, looking at Ana with a questioning expression and open-palmed gesture toward her work station, as if asking 'Do you work?' Ana looks at Luis and answers with ONE unmistakable thumbs-UP hand at chest height, friendly affirmative expression. Her other hand rests on counter near register. Nobody holds books or sports objects. The question topic is work, the reply is yes. Keep both people waist-up; register and gesture must dominate over decorative merchandise.",
+      "provider": "OpenAI built-in image generation",
+      "generation_tool": "image_gen.imagegen",
+      "generation_attempts": 1,
+      "external_image_api_calls": 0,
+      "human_semantic_status": "pending",
+      "source_sha256": "5a874dcc0650c04066582a2c7a08db7dcb7e7ee6f427f0c8057d1bcd07ec2184",
+      "runtime_sha256": "abfa10487e99bd5cab9a4d95e9a0b26b5858bb27e7a0b3f246948a65d1433337",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "encoding": "WebP quality 90; no crop, retouch, composite, resize or content alteration",
+      "agent_semantic_review": {
+        "status": "inspected",
+        "evidence": "Ana wears an apron behind a large shop register. Luis faces her with open palms. Ana shows a large thumbs-up; no book or ball. Both faces, gestures, register and shop shelves are visible in the full 3:2 image.",
+        "limits": "Human image approval and actual native-card crop review remain pending."
+      }
+    },
+    {
+      "id": "u4_do_study_no_v2",
+      "reference": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-question-repair-v2/u4_do_study_no_v2.png",
+      "runtime_filename": "a1_recognize_u4_do_study_no_v2.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a117b2-6edf-75e2-9513-a95cf7e6bd99\\exec-4016c27d-0f6d-417f-b4d0-dee6c9edfb9f.png",
+      "prompt": "Use case: identity-preserve, photorealistic-natural. Asset: caption-free photographic scene for a beginner English picture-matching exercise, not a UI mockup. The reference photo is for exact character identities, clothing and photographic style. Create one 1536x1024 landscape 3:2 photograph. Keep both people's faces, eyes, all gesturing hands and the conversation topic LARGE and clearly visible in the central 85% of the image, suitable for a phone. Natural realistic anatomy, no cropped fingers, no extra people. No printed words, logos, speech bubbles, arrows, ticks, crosses, symbols, borders, collages, subtitles, or text. One coherent photographic scene. Preserve Ana (long dark hair, sage-green overshirt over white top) and Luis (short curly dark hair, navy T-shirt, tan trousers). They converse at a quiet library study table, with large bookshelves visibly behind them. Luis holds an OPEN textbook and a study notebook on the near tabletop; their pages show small indistinct line texture with NO readable words. Luis looks at Ana and points with his other hand at the open study book, clearly asking her about STUDYING. Ana is NOT reading, writing, holding study materials, or studying. She looks at Luis, leaning slightly away from the study book, and answers with ONE large unmistakable thumbs-DOWN hand at chest height, a gentle negative expression. Her other hand rests on her lap. No register, no sports ball, no park. The study topic is clear because the asker indicates the textbook, but her explicit gesture says no. Both faces and hands fully visible.",
+      "provider": "OpenAI built-in image generation",
+      "generation_tool": "image_gen.imagegen",
+      "generation_attempts": 1,
+      "external_image_api_calls": 0,
+      "human_semantic_status": "pending",
+      "source_sha256": "8abdd23938aa98c4f9455614edb9b2ad912412fd34a176f187c4b2bff72895f5",
+      "runtime_sha256": "f022269823a97889e4b33e2bd9049dec96f33cef01b092a9a37b922a1cb8d892",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "encoding": "WebP quality 90; no crop, retouch, composite, resize or content alteration",
+      "agent_semantic_review": {
+        "status": "inspected",
+        "evidence": "Luis holds an open textbook and points at its page while looking at Ana; notebook and library shelves identify studying. Ana is not reading or writing and gives an explicit thumbs-down. All assessed details are visible.",
+        "limits": "Human image approval and actual native-card crop review remain pending."
+      }
+    },
+    {
+      "id": "u4_do_park_play_yes_v2",
+      "reference": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-question-repair-v2/u4_do_park_play_yes_v2.png",
+      "runtime_filename": "a1_recognize_u4_do_park_play_yes_v2.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a117b2-6edf-75e2-9513-a95cf7e6bd99\\exec-c4f4b6fb-955a-4323-9dc2-33a482577615.png",
+      "prompt": "Use case: identity-preserve, photorealistic-natural. Asset: caption-free photographic scene for a beginner English picture-matching exercise, not a UI mockup. The reference photo is for exact character identities, clothing and photographic style. Create one 1536x1024 landscape 3:2 photograph. Keep both people's faces, eyes, all gesturing hands and the conversation topic LARGE and clearly visible in the central 85% of the image, suitable for a phone. Natural realistic anatomy, no cropped fingers, no extra people. No printed words, logos, speech bubbles, arrows, ticks, crosses, symbols, borders, collages, subtitles, or text. One coherent photographic scene. Preserve Ana (long dark hair, sage-green overshirt over white top) and Luis (short curly dark hair, navy T-shirt, tan trousers). They are standing in a clearly recognizable green public PARK: grass, trees, a paved walking path and simple park bench in view. Ana holds a LARGE soccer ball at waist level with one hand, and answers Luis with her other hand giving ONE large unmistakable thumbs-UP at chest height, smiling affirmatively. Luis looks at Ana with a question expression and indicates the ball and play area with one open palm, asking about PLAYING IN THE PARK. They are engaged with each other, not looking at camera. Make the large ball, question gesture and thumbs-up instantly readable; no books, notebooks, study objects, or work equipment. Two people only, natural outdoor light, medium full scene.",
+      "provider": "OpenAI built-in image generation",
+      "generation_tool": "image_gen.imagegen",
+      "generation_attempts": 1,
+      "external_image_api_calls": 0,
+      "human_semantic_status": "pending",
+      "source_sha256": "8a507f982e22fee32b3e3c04f8132ed845554fb0912511639ffee043c2726d22",
+      "runtime_sha256": "94f5bd9b2055258684a258bd69adbf22cd4220a20b4c61a762ec78260e8577c4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "encoding": "WebP quality 90; no crop, retouch, composite, resize or content alteration",
+      "agent_semantic_review": {
+        "status": "inspected",
+        "evidence": "Trees, grass, path and bench establish a park. Ana holds a large soccer ball and gives thumbs-up. Luis faces her with a question gesture. There are no study materials.",
+        "limits": "Human image approval and actual native-card crop review remain pending."
+      }
+    },
+    {
+      "id": "u4_do_park_study_no_v2",
+      "reference": "Lessons/Lesson1/images/a1_photo_u4_do_you_question_v1.webp",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-question-repair-v2/u4_do_park_study_no_v2.png",
+      "runtime_filename": "a1_recognize_u4_do_park_study_no_v2.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a117b2-6edf-75e2-9513-a95cf7e6bd99\\exec-26531e7d-ddc3-4ac9-87eb-74386410cac5.png",
+      "prompt": "Use case: identity-preserve, photorealistic-natural. Asset: caption-free photographic scene for a beginner English picture-matching exercise, not a UI mockup. The reference photo is for exact character identities, clothing and photographic style. Create one 1536x1024 landscape 3:2 photograph. Keep both people's faces, eyes, all gesturing hands and the conversation topic LARGE and clearly visible in the central 85% of the image, suitable for a phone. Natural realistic anatomy, no cropped fingers, no extra people. No printed words, logos, speech bubbles, arrows, ticks, crosses, symbols, borders, collages, subtitles, or text. One coherent photographic scene. Preserve Ana (long dark hair, sage-green overshirt over white top) and Luis (short curly dark hair, navy T-shirt, tan trousers). They sit at a clearly recognizable green public PARK bench or picnic table: trees, grass and walking path prominently visible, not an indoor library. Luis holds a LARGE OPEN textbook beside a study notebook on the near tabletop, pages without readable text. He looks directly at Ana and indicates the open textbook with his free hand as if asking about STUDYING IN THE PARK. Ana is NOT studying, reading or writing, has no book or pen in her hands; she looks at Luis and answers with ONE clear large thumbs-DOWN hand at chest height, friendly negative expression. Her other hand rests on her lap. Large open textbook belongs to Luis, not Ana. No ball, no register, no work tools. Both people and the park stay clearly visible.",
+      "provider": "OpenAI built-in image generation",
+      "generation_tool": "image_gen.imagegen",
+      "generation_attempts": 1,
+      "external_image_api_calls": 0,
+      "human_semantic_status": "pending",
+      "source_sha256": "1e795672936c92354412d6a6594ad889eef4bfdbeee38630de57af9b5e681486",
+      "runtime_sha256": "d4d7ada16165ce1c9788662388ce60230d61fa884381a7592ac4e71555f3317e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "encoding": "WebP quality 90; no crop, retouch, composite, resize or content alteration",
+      "agent_semantic_review": {
+        "status": "inspected",
+        "evidence": "Trees, grass and park furniture establish the same outdoor topic. Luis holds a large open textbook beside a notebook and faces Ana with a question gesture. Ana touches no study material and explicitly gives thumbs-down. No ball is present.",
+        "limits": "Human image approval and actual native-card crop review remain pending."
+      }
+    },
+    {
+      "id": "u4_review_clean_yes_v2",
+      "reference": "Lessons/Lesson1/images/a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-question-repair-v2/u4_review_clean_yes_v2.png",
+      "runtime_filename": "a1_recognize_u4_review_clean_yes_v2.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a117b2-6edf-75e2-9513-a95cf7e6bd99\\exec-86ebde4c-025f-4350-9d63-571966ac122c.png",
+      "prompt": "Use case: identity-preserve, photorealistic-natural. Asset: caption-free photographic scene for a beginner English picture-matching exercise, not a UI mockup. The reference photo is for exact character identities, clothing and photographic style. Create one 1536x1024 landscape 3:2 photograph. Keep both people's faces, eyes, all gesturing hands and the conversation topic LARGE and clearly visible in the central 85% of the image, suitable for a phone. Natural realistic anatomy, no cropped fingers, no extra people. No printed words, logos, speech bubbles, arrows, ticks, crosses, symbols, borders, collages, subtitles, or text. One coherent photographic scene. Preserve the reference man (navy blue button-up shirt, short dark hair, light beard) and woman (coral shirt, long wavy brown hair) as the same two adults. In their same bright family home, show them beside a large wooden dining TABLE, with visible dining chairs. Remove cups, fruit bowl, decorative placemat and clutter so the tabletop and activity are clear. The coral-shirt woman at left looks at the man, mouths a question and points visibly at the table's cleaning area, asking about CLEANING THE TABLE. The navy-shirt man at right looks at her and gives ONE large explicit thumbs-UP with his free hand at chest height. His other hand holds a cleaning cloth against the foreground tabletop, mid-wipe, with a plain unlabeled spray bottle beside the wipe area. Topic and yes reply must both be directly visible. Do not add washer, laundry or books. Both complete faces and all relevant hands visible.",
+      "provider": "OpenAI built-in image generation",
+      "generation_tool": "image_gen.imagegen",
+      "generation_attempts": 1,
+      "external_image_api_calls": 0,
+      "human_semantic_status": "pending",
+      "source_sha256": "cd2318a83fa076a4b145d6f5bd9d9456ab257833f0dbafde57ff93078ab2a36a",
+      "runtime_sha256": "2437960a7262b50a5b24d9e74f83c27ec2f2c47c13ef3b848f2929488cc572b3",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "encoding": "WebP quality 90; no crop, retouch, composite, resize or content alteration",
+      "agent_semantic_review": {
+        "status": "inspected",
+        "evidence": "The coral-shirt woman points at the foreground table and looks at the navy-shirt man. He wipes the table with a cloth beside a spray bottle and gives a large thumbs-up. Clear cleaning topic and male affirmative respondent.",
+        "limits": "Human image approval and actual native-card crop review remain pending."
+      }
+    },
+    {
+      "id": "u4_review_wash_no_v2",
+      "reference": "Lessons/Lesson1/images/a1_photo_u4_rebuild_review_conversation_no_v1.webp",
+      "source": "Lessons/Lesson1/images/course-photoreal-sources/recognize-question-repair-v2/u4_review_wash_no_v2.png",
+      "runtime_filename": "a1_recognize_u4_review_wash_no_v2.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a117b2-6edf-75e2-9513-a95cf7e6bd99\\exec-385bc8cb-35cb-4135-8d9f-8e720ff6e58b.png",
+      "prompt": "Use case: identity-preserve, photorealistic-natural. Asset: caption-free photographic scene for a beginner English picture-matching exercise, not a UI mockup. The reference photo is for exact character identities, clothing and photographic style. Create one 1536x1024 landscape 3:2 photograph. Keep both people's faces, eyes, all gesturing hands and the conversation topic LARGE and clearly visible in the central 85% of the image, suitable for a phone. Natural realistic anatomy, no cropped fingers, no extra people. No printed words, logos, speech bubbles, arrows, ticks, crosses, symbols, borders, collages, subtitles, or text. One coherent photographic scene. Preserve the reference man (navy blue button-up shirt, short dark hair, light beard) and woman (coral shirt, long wavy brown hair) as the same two adults. Move them to the home's bright laundry area, beside a large recognizable front-loading washing machine and a foreground basket of clothing. Navy-shirt MAN is the asker: he looks directly at the woman, mouths a question and points clearly toward the washer and basket with one hand, asking her about WASHING HER CLOTHES. Coral-shirt WOMAN is the respondent: she looks at him and gives ONE large unmistakable thumbs-DOWN at chest height, gently declining. She is NOT loading the machine, touching controls, washing clothing, or handling laundry; her other hand hangs naturally at her side. The basket is on the floor beside the washer, not held by her. Washer round front, clothes basket, question gesture and negative hand must be immediately recognizable. No cleaning table, spray bottle, book, or ball. All relevant hands and both faces visible.",
+      "provider": "OpenAI built-in image generation",
+      "generation_tool": "image_gen.imagegen",
+      "generation_attempts": 1,
+      "external_image_api_calls": 0,
+      "human_semantic_status": "pending",
+      "source_sha256": "17f4a96aadef46539d25b68f66994ad3106c0e49e9adc4dfd6bced1193e7e93c",
+      "runtime_sha256": "60a8fb505c514913b45e5565ca8d60b7b285a1d23e5d108830ac32fa210c5154",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "encoding": "WebP quality 90; no crop, retouch, composite, resize or content alteration",
+      "agent_semantic_review": {
+        "status": "inspected",
+        "evidence": "The navy-shirt man gestures toward the front-loading washer and clothing basket while looking at the coral-shirt woman. She gives a large thumbs-down, with her other arm down and no contact with laundry. Clear washing-clothes topic and female negative respondent.",
+        "limits": "Human image approval and actual native-card crop review remain pending."
+      }
+    }
+  ]
+}
