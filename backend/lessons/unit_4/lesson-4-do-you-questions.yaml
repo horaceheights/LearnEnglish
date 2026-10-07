@@ -48,7 +48,7 @@
   "grammar_function": "Ask with Do + you + action? Respond with Yes, I do. or No, I do not. Keep the question auxiliary central while practising familiar actions and places.",
   "prerequisite": "Familiar Unit 1 people/actions, Unit 2 objects/park, Unit 3 speakers/possessions and Unit 4 home/morning language.",
   "speaking_outcome": "Ask with Do + you + action? Respond with Yes, I do. or No, I do not. Keep the question auxiliary central while practising familiar actions and places.",
-  "content_revision": 2,
+  "content_revision": 3,
   "purposeful_review_slides": [
     "R1",
     "R2",
@@ -322,39 +322,45 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "Do you work?\nYes, I do.",
       "stage": "Recognize",
-      "correct_option_id": "do-you-work-r1",
+      "correct_option_id": "yes-i-do-r1",
       "options": [
         {
-          "id": "do-you-work-r1",
-          "image_url": "",
-          "label": "Do you work?"
+          "id": "no-i-do-not-r1",
+          "image_url": "a1_recognize_ana_no_v1.webp",
+          "label": null
         },
         {
-          "id": "do-you-study-r1",
-          "image_url": "",
-          "label": "Do you study?"
+          "id": "yes-i-do-r1",
+          "image_url": "a1_photo_u4_yes_i_do_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Do you work?",
+      "audio_text": "Do you work? Yes, I do.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
+      "prompt_image_url": "",
+      "spanish_translation": "¿Trabajas? Sí.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
       "audio_turns": [
         {
           "text": "Do you work?",
           "speaker_role": "luis",
           "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker_role": "ana",
+          "image_url": "a1_photo_u4_yes_i_do_v1.webp"
         }
-      ],
-      "spanish_translation": "¿Trabajas?",
-      "pedagogy_note": "One connected conversation with the established adults. Keep the asker, respondent, clothes and setting consistent within each question/reply pair. Later park exchanges retrieve the familiar place and actions. Images support the topic; explicit spoken replies establish yes or no, never inferred from a person working, studying or being in a park.\nHear the English question with its target text hidden, then select the complete written question. This assesses the question form; do not ask the learner to infer a question from an action photo.\nChoices (2): Do you work? / Do you study?\nCorrect: Do you work? Randomize positions and keep all choices equally styled."
+      ]
     },
     {
       "slide_id": "R2",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t2",
+      "prompt": "Do you work?",
       "stage": "Recognize",
       "correct_option_id": "yes-i-do-r2",
       "options": [
@@ -369,59 +375,55 @@
           "label": "Yes, I do."
         }
       ],
-      "audio_text": "Do you work? Yes, I do.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-      "audio_turns": [
-        {
-          "text": "Do you work?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "Yes, I do.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp"
-        }
-      ],
-      "spanish_translation": "Sí.",
-      "pedagogy_note": "One connected conversation with the established adults. Keep the asker, respondent, clothes and setting consistent within each question/reply pair. Later park exchanges retrieve the familiar place and actions. Images support the topic; explicit spoken replies establish yes or no, never inferred from a person working, studying or being in a park.\nHear the complete question and the explicit reply before choosing the corresponding written response. Hide the dialogue transcript. Choices remain exactly Yes, I do. / No, I do not.; do not pad them into a four-choice bank.\nHeard exchange: Do you work? Yes, I do.\nCorrect: Yes, I do. Keep this card immediately after its question. No other question's negative reply may be offered as a distractor."
+      "audio_text": "Do you work?",
+      "answer_audio_text": "Yes, I do.",
+      "prompt_image_url": "a1_photo_u4_yes_i_do_v1.webp",
+      "spanish_translation": "¿Trabajas?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "ana",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "R3",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "Do you study?\nNo, I do not.",
       "stage": "Recognize",
-      "correct_option_id": "do-you-study-r3",
+      "correct_option_id": "no-i-do-not-r3",
       "options": [
         {
-          "id": "do-you-study-r3",
-          "image_url": "",
-          "label": "Do you study?"
+          "id": "no-i-do-not-r3",
+          "image_url": "a1_recognize_ana_no_v1.webp",
+          "label": null
         },
         {
-          "id": "do-you-work-r3",
-          "image_url": "",
-          "label": "Do you work?"
+          "id": "yes-i-do-r3",
+          "image_url": "a1_photo_u4_yes_i_do_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Do you study?",
+      "audio_text": "Do you study? No, I do not.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
+      "prompt_image_url": "",
+      "spanish_translation": "¿Estudias? No.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
       "audio_turns": [
         {
           "text": "Do you study?",
           "speaker_role": "luis",
           "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "No, I do not.",
+          "speaker_role": "ana",
+          "image_url": "a1_recognize_ana_no_v1.webp"
         }
-      ],
-      "spanish_translation": "¿Estudias?",
-      "pedagogy_note": "One connected conversation with the established adults. Keep the asker, respondent, clothes and setting consistent within each question/reply pair. Later park exchanges retrieve the familiar place and actions. Images support the topic; explicit spoken replies establish yes or no, never inferred from a person working, studying or being in a park.\nHear the English question with its target text hidden, then select the complete written question. This assesses the question form; do not ask the learner to infer a question from an action photo.\nChoices (2): Do you work? / Do you study?\nCorrect: Do you study? Randomize positions and keep all choices equally styled."
+      ]
     },
     {
       "slide_id": "R4",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t2",
+      "prompt": "Do you study?",
       "stage": "Recognize",
       "correct_option_id": "no-i-do-not-r4",
       "options": [
@@ -436,59 +438,55 @@
           "label": "No, I do not."
         }
       ],
-      "audio_text": "Do you study? No, I do not.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_no_i_do_not_v1.webp",
-      "audio_turns": [
-        {
-          "text": "Do you study?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "No, I do not.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u4_no_i_do_not_v1.webp"
-        }
-      ],
-      "spanish_translation": "No.",
-      "pedagogy_note": "One connected conversation with the established adults. Keep the asker, respondent, clothes and setting consistent within each question/reply pair. Later park exchanges retrieve the familiar place and actions. Images support the topic; explicit spoken replies establish yes or no, never inferred from a person working, studying or being in a park.\nHear the complete question and the explicit reply before choosing the corresponding written response. Hide the dialogue transcript. Choices remain exactly Yes, I do. / No, I do not.; do not pad them into a four-choice bank.\nHeard exchange: Do you study? No, I do not.\nCorrect: No, I do not. Keep this card immediately after its question. No other question's negative reply may be offered as a distractor."
+      "audio_text": "Do you study?",
+      "answer_audio_text": "No, I do not.",
+      "prompt_image_url": "a1_recognize_ana_no_v1.webp",
+      "spanish_translation": "¿Estudias?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "ana",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "R5",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "Do you play in the park?\nYes, I do.",
       "stage": "Recognize",
-      "correct_option_id": "do-you-play-in-the-park-r5",
+      "correct_option_id": "yes-i-do-r5",
       "options": [
         {
-          "id": "do-you-play-in-the-park-r5",
-          "image_url": "",
-          "label": "Do you play in the park?"
+          "id": "no-i-do-not-r5",
+          "image_url": "a1_recognize_ana_no_v1.webp",
+          "label": null
         },
         {
-          "id": "do-you-study-in-the-park-r5",
-          "image_url": "",
-          "label": "Do you study in the park?"
+          "id": "yes-i-do-r5",
+          "image_url": "a1_photo_u4_yes_i_do_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Do you play in the park?",
+      "audio_text": "Do you play in the park? Yes, I do.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
+      "prompt_image_url": "",
+      "spanish_translation": "¿Juegas en el parque? Sí.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
       "audio_turns": [
         {
           "text": "Do you play in the park?",
           "speaker_role": "luis",
           "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker_role": "ana",
+          "image_url": "a1_photo_u4_yes_i_do_v1.webp"
         }
-      ],
-      "spanish_translation": "¿Juegas en el parque?",
-      "pedagogy_note": "One connected conversation with the established adults. Keep the asker, respondent, clothes and setting consistent within each question/reply pair. Later park exchanges retrieve the familiar place and actions. Images support the topic; explicit spoken replies establish yes or no, never inferred from a person working, studying or being in a park.\nHear the English question with its target text hidden, then select the complete written question. This assesses the question form; do not ask the learner to infer a question from an action photo.\nChoices (2): Do you play in the park? / Do you study in the park?\nCorrect: Do you play in the park? Randomize positions and keep all choices equally styled."
+      ]
     },
     {
       "slide_id": "R6",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t2",
+      "prompt": "Do you play in the park?",
       "stage": "Recognize",
       "correct_option_id": "yes-i-do-r6",
       "options": [
@@ -503,64 +501,55 @@
           "label": "Yes, I do."
         }
       ],
-      "audio_text": "Do you play in the park? Yes, I do.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-      "audio_turns": [
-        {
-          "text": "Do you play in the park?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "Yes, I do.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp"
-        }
-      ],
-      "spanish_translation": "Sí.",
-      "pedagogy_note": "One connected conversation with the established adults. Keep the asker, respondent, clothes and setting consistent within each question/reply pair. Later park exchanges retrieve the familiar place and actions. Images support the topic; explicit spoken replies establish yes or no, never inferred from a person working, studying or being in a park.\nHear the complete question and the explicit reply before choosing the corresponding written response. Hide the dialogue transcript. Choices remain exactly Yes, I do. / No, I do not.; do not pad them into a four-choice bank.\nHeard exchange: Do you play in the park? Yes, I do.\nCorrect: Yes, I do. Keep this card immediately after its question. No other question's negative reply may be offered as a distractor."
+      "audio_text": "Do you play in the park?",
+      "answer_audio_text": "Yes, I do.",
+      "prompt_image_url": "a1_photo_u4_yes_i_do_v1.webp",
+      "spanish_translation": "¿Juegas en el parque?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "ana",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "R9",
-      "interaction_type": "a2t3",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "Do you study in the park?\nNo, I do not.",
       "stage": "Recognize",
-      "correct_option_id": "do-you-study-in-the-park-r9",
+      "correct_option_id": "no-i-do-not-r9",
       "options": [
         {
-          "id": "do-you-play-in-the-park-r9",
-          "image_url": "",
-          "label": "Do you play in the park?"
+          "id": "yes-i-do-r9",
+          "image_url": "a1_photo_u4_yes_i_do_v1.webp",
+          "label": null
         },
         {
-          "id": "do-you-study-in-the-park-r9",
-          "image_url": "",
-          "label": "Do you study in the park?"
-        },
-        {
-          "id": "do-you-work-in-the-park-r9",
-          "image_url": "",
-          "label": "Do you work in the park?"
+          "id": "no-i-do-not-r9",
+          "image_url": "a1_recognize_ana_no_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Do you study in the park?",
+      "audio_text": "Do you study in the park? No, I do not.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
+      "prompt_image_url": "",
+      "spanish_translation": "¿Estudias en el parque? No.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
       "audio_turns": [
         {
           "text": "Do you study in the park?",
           "speaker_role": "luis",
           "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
+        },
+        {
+          "text": "No, I do not.",
+          "speaker_role": "ana",
+          "image_url": "a1_recognize_ana_no_v1.webp"
         }
-      ],
-      "spanish_translation": "¿Estudias en el parque?",
-      "pedagogy_note": "Hear the complete Do you run in the park? question and identify it among coherent written questions. The base form run has already been explicitly modeled in L7 and answered in L8. No activity or yes/no habit is inferred from a photo."
+      ]
     },
     {
       "slide_id": "R10",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t2",
+      "prompt": "Do you study in the park?",
       "stage": "Recognize",
       "correct_option_id": "no-i-do-not-r10",
       "options": [
@@ -575,23 +564,13 @@
           "label": "No, I do not."
         }
       ],
-      "audio_text": "Do you study in the park? No, I do not.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_no_i_do_not_v1.webp",
-      "audio_turns": [
-        {
-          "text": "Do you study in the park?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "No, I do not.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u4_no_i_do_not_v1.webp"
-        }
-      ],
-      "spanish_translation": "No.",
-      "pedagogy_note": "One connected conversation with the established adults. Keep the asker, respondent, clothes and setting consistent within each question/reply pair. Later park exchanges retrieve the familiar place and actions. Images support the topic; explicit spoken replies establish yes or no, never inferred from a person working, studying or being in a park.\nHear the complete question and the explicit reply before choosing the corresponding written response. Hide the dialogue transcript. Choices remain exactly Yes, I do. / No, I do not.; do not pad them into a four-choice bank.\nHeard exchange: Do you study in the park? No, I do not.\nCorrect: No, I do not. Keep this card immediately after its question. No other question's negative reply may be offered as a distractor."
+      "audio_text": "Do you study in the park?",
+      "answer_audio_text": "No, I do not.",
+      "prompt_image_url": "a1_recognize_ana_no_v1.webp",
+      "spanish_translation": "¿Estudias en el parque?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "ana",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "A1",

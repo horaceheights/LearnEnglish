@@ -39,11 +39,18 @@ test('an empty Recognize prompt asks for the word or the phrase in Spanish', () 
     'A boy', 'authored English content stays as the lesson wrote it');
 });
 
-test('audio choices in Recognize use the compact Spanish listening instruction', () => {
+test('Recognize keeps visual matching, including the four written current-action exchanges', () => {
+  for (const lesson of course.filter(item => item.experience_type !== 'mission')) {
+    assert.ok(lesson.cards.filter(card => card.stage === 'Recognize')
+      .every(card => !card.interaction_type.startsWith('a2')), `${lesson.id}: audio discrimination belongs in Listen.`);
+  }
   const lesson = course.find(item => item.id === 'lesson-3-3-am-is-and-are');
-  for (const card of lesson.cards.filter(item => item.stage === 'Recognize' && item.interaction_type.startsWith('a2t'))) {
-    assert.equal(instructions.usesCompactListenInstruction(card.stage, card.prompt), true);
-    assert.equal(instructions.listeningChoiceInstruction(card.options), '¡Escucha y elige la frase!');
-    assert.match(card.audio_text, /^What (are|is) .+ doing\?$/);
+  const exchanges = lesson.cards.filter(item => item.stage === 'Recognize' && item.interaction_type.startsWith('t2i'));
+  assert.equal(exchanges.length, 4);
+  for (const card of exchanges) {
+    assert.equal(card.prompt_presentation, 'written');
+    assert.match(card.prompt, /^What (are|is) .+ doing\?\n.+\.$/);
+    assert.equal(instructions.lessonHeaderPromptText(lesson.id, card.stage, card.prompt, card.options), card.prompt);
+    assert.ok(card.options.every(option => option.image_url && !option.label));
   }
 });

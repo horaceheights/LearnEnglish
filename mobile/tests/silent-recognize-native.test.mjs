@@ -75,6 +75,30 @@ test('native written and silent recognition keep English readable and preserve t
   }
 });
 
+test('corrected Recognize exchanges keep their complete visible cue at phone sizes', () => {
+  const course = JSON.parse(fs.readFileSync(new URL('../src/generated/a1-course.json', import.meta.url), 'utf8'));
+  const lessons = new Set(['lesson-3-3-am-is-and-are', 'lesson-4-do-you-questions']);
+  const cards = course.filter(lesson => lessons.has(lesson.id)).flatMap(lesson => lesson.cards)
+    .filter(card => card.stage === 'Recognize' && card.prompt_presentation === 'written');
+  assert.equal(cards.length, 8, 'Four action exchanges and four Do you exchanges.');
+  for (const viewport of [{ width: 320, height: 568, fontScale: 1 }, { width: 390, height: 844, fontScale: 2 }, { width: 740, height: 360, fontScale: 1.3 }]) {
+    const h = lessonHarness(viewport, { sourceTransform: (file, code) => file.endsWith('LessonScreen.tsx') ? headerModule : code });
+    const styles = h.styles('screens/LessonScreen.tsx');
+    const { Header } = h.load('screens/LessonScreen.tsx');
+    const paneWidth = viewport.width > viewport.height ? 230 : viewport.width - 20;
+    for (const currentCard of cards) for (const result of [null, 'wrong', 'correct']) {
+      const records = h.render(() => e('View', { children: e(Header, {
+        currentCard, result, viewport, styles, showSentenceTranslation: false,
+      }) }), paneWidth, 220);
+      const prompt = records.find(r => r.type === 'Text' && r.text === currentCard.prompt);
+      assert.ok(prompt, `${currentCard.slide_id}: English question and response stay visible, including retry.`);
+      assert.ok(prompt.textHeight <= prompt.box.height + 1.5, `${currentCard.prompt}: complete cue fits.`);
+      assert.ok(prompt.fontSize >= 15.99, 'English retains the 16dp reading floor.');
+      assert.ok(prompt.box.top + prompt.box.height <= 220, 'The cue stays within its header.');
+    }
+  }
+});
+
 test('native picture recognition shows the full English response only after a correct selection', () => {
   const card = {
     stage: 'Recognize', prompt_presentation: 'written', prompt: 'What day is it today?\nMonday', audio_text: 'What day is it today? Monday',

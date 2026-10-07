@@ -73,7 +73,7 @@
     "U7",
     "U8"
   ],
-  "content_revision": 2,
+  "content_revision": 3,
   "cards": [
     {
       "slide_id": "L1",
@@ -758,8 +758,8 @@
     },
     {
       "slide_id": "R9",
-      "interaction_type": "a2t3",
-      "prompt": "\u00a1Escucha y elige!",
+      "interaction_type": "i2t3",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "i-drink-water-every-day-r9",
       "options": [
@@ -779,31 +779,24 @@
           "label": "I drink milk in the morning."
         }
       ],
-      "audio_text": "I drink water in the morning.",
-      "answer_audio_text": null,
+      "audio_text": null,
+      "answer_audio_text": "I drink water in the morning.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_woman_drinking_water_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: I drink water in the morning.",
+      "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
       "audio_speaker": null,
       "answer_audio_speaker": "female-character",
-      "audio_turns": [
-        {
-          "text": "I drink water in the morning.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_photo_u5_woman_drinking_water_v1.webp"
-        }
-      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-drinks-c015-prompt-turn-1-18fc69679b0ec58c8266",
-          "purpose": "prompt-turn-1",
+          "id": "lesson-5-drinks-c015-answer-3e129e4e3a0793eb3568",
+          "purpose": "answer",
           "text": "I drink water in the morning.",
           "mode": "prompt",
-          "variant": "prompt",
+          "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u5_woman_drinking_water_v1.webp",
-          "semantic_role": "teacher",
+          "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1

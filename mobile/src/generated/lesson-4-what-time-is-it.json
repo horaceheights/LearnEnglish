@@ -53,7 +53,7 @@
     "A4",
     "A5"
   ],
-  "content_revision": 4,
+  "content_revision": 5,
   "cards": [
     {
       "slide_id": "DL1",
@@ -1107,8 +1107,8 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "r1-time",
       "options": [
@@ -1123,37 +1123,25 @@
           "label": "What time is it?"
         }
       ],
-      "audio_text": "What time is it?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfQu\u00e9 hora es?",
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
+      "audio_text": null,
+      "answer_audio_text": "What time is it?",
+      "prompt_image_url": "/lesson-assets/a1_photo_time_07_ask_v2.webp",
+      "spanish_translation": "\u00a1Elige la pregunta que corresponde a la imagen!",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-what-time-is-it-c023-prompt-d3196ae3662fcc9ff951",
-          "purpose": "prompt",
-          "text": "What time is it?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:331bd9a8908fd905adc7",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-what-time-is-it-c023-answer-3244e095591b531f2bba",
+          "id": "lesson-4-what-time-is-it-c023-answer-e714122ab0049a8be98e",
           "purpose": "answer",
           "text": "What time is it?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:331bd9a8908fd905adc7",
+          "image_ref": "/lesson-assets/a1_photo_time_07_ask_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "luis",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

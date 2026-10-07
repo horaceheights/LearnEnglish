@@ -2149,6 +2149,13 @@ def validate_negative_visual_contracts() -> list[str]:
     return errors
 
 
+def validate_recognize_contract(lessons=None) -> list[str]:
+    from scripts.recognize_contract import recognize_errors
+
+    return [error for lesson in (LESSONS.values() if lessons is None else lessons)
+            for error in recognize_errors(lesson.model_dump(mode="json"))]
+
+
 def validate_interaction_requirements() -> list[str]:
     errors: list[str] = []
     for lesson in LESSONS.values():
@@ -3039,6 +3046,7 @@ def main(argv: list[str] | None = None) -> int:
         *validate_family_adult_ambiguity(),
         *validate_mission_cue_ambiguity(),
         *validate_negative_visual_contracts(),
+        *validate_recognize_contract(),
         *validate_interaction_requirements(),
         *validate_mission_contracts(),
         *validate_media_references(),

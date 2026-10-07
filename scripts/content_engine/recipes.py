@@ -30,9 +30,11 @@ def speak(spec: dict) -> dict:
 
 def choice(spec: dict) -> dict:
     """Recognize and Listen choices between two to four options."""
+    if spec["stage"] == "Recognize" and spec.get("input_modality") == "audio":
+        raise ValueError("Recognize requires image/text matching; audio-only choices belong in Listen.")
     correct = _correct(spec)
     images = _image_options(spec)
-    listening = spec["stage"] == "Listen" or spec.get("input_modality") == "audio"
+    listening = spec["stage"] == "Listen"
     kind = ("a2i" if images else "a2t") if listening else ("t2i" if images else "i2t")
     label = correct.get("label")
     derived = {"interaction_type": f"{kind}{len(spec['options'])}", "correct_option_id": correct["id"],

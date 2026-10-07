@@ -167,13 +167,16 @@ def _option(item: dict, *, image: bool, suffix: str, captions: bool = True) -> d
 
 def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *, image: bool,
             instructions: dict, rejected: frozenset = frozenset(), captions: bool = True) -> tuple[dict, dict]:
+    if stage == "Recognize" and item.get("choice_input") == "audio":
+        raise BriefError(f"{slide}: Recognize requires image/text matching; author visible evidence "
+                         "and keep audio-only question discrimination in Listen.")
     wrong = distractors(item, pool, count - 1, need_image=image, rejected=rejected,
                         labelled=captions or not image)
     options = rotate([item, *wrong], slide)
     spec = {"recipe": "choice", "slide_id": slide, "stage": stage,
             "options": [_option(each, image=image, suffix=slide.lower(), captions=captions) for each in options],
             "answer": options.index(item)}
-    if stage == "Listen" or item.get("choice_input") == "audio":
+    if stage == "Listen":
         spec["input_modality"] = "audio"
         spec["spanish_translation"] = instructions["listen"]
         if image and not captions:

@@ -82,9 +82,11 @@ EXACT_ROLE_CHANGES = {
 # The 2026-10-05 4.9 Reconoce correction adds ten post-correct neutral narrator
 # assignments, alternating teacher and co-teacher. The follow-up restores ten
 # matching upfront prompt-speaker assignments beside the preserved written cues.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1901
+# 2026-10-07: 18 Reconoce cards now separate written cues and post-selection replies.
+# Exact pictured speakers and ordered turns are recorded in the Recognize QA evidence.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1914
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "a86f43403b453c01328e5825926b97d4dfc1b2607c5f8fbf5bc7cdfaca766439"
+    "de9919a3c6a4a7dd71731d4be36762fd6428a1239fa65803ae84c4d1c8e6341c"
 )
 
 

@@ -126,7 +126,7 @@
     "U7",
     "U8"
   ],
-  "content_revision": 5,
+  "content_revision": 6,
   "cards": [
     {
       "slide_id": "L1",
@@ -471,8 +471,8 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t2",
+      "prompt": "Do you clean the table?",
       "stage": "Recognize",
       "correct_option_id": "yes-i-do-r7",
       "options": [
@@ -487,29 +487,18 @@
           "label": "No, I do not."
         }
       ],
-      "audio_text": "Do you clean the table? Yes, I do.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_review_conversation_yes_v1.webp",
-      "audio_turns": [
-        {
-          "text": "Do you clean the table?",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_conversation_yes_v1.webp"
-        },
-        {
-          "text": "Yes, I do.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_conversation_yes_v1.webp"
-        }
-      ],
-      "spanish_translation": "¿Limpias la mesa? Sí.",
-      "pedagogy_note": "A new two-speaker conversation about the dining table. Do not make the still imply yes.\nNew review-only view of the familiar family home, with changed composition and object placements. Do not reuse an earlier lesson card/photo pair or rename its image.\nHeard English → written English: select the matching line; the picture is context, not an answer key.\nReviewed bank: Yes, I do. | No, I do not.\nHear these connected turns: Do you clean the table? / Yes, I do.",
-      "answer_audio_speaker": "male-character"
+      "audio_text": "Do you clean the table?",
+      "answer_audio_text": "Yes, I do.",
+      "prompt_image_url": "a1_recognize_review_yes_v1.webp",
+      "spanish_translation": "¿Limpias la mesa?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "male-character",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "R8",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t2",
+      "prompt": "Do you wash your clothes?",
       "stage": "Recognize",
       "correct_option_id": "no-i-do-not-r8",
       "options": [
@@ -524,29 +513,18 @@
           "label": "No, I do not."
         }
       ],
-      "audio_text": "Do you wash your clothes? No, I do not.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_review_conversation_no_v1.webp",
-      "audio_turns": [
-        {
-          "text": "Do you wash your clothes?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_conversation_no_v1.webp"
-        },
-        {
-          "text": "No, I do not.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_conversation_no_v1.webp"
-        }
-      ],
-      "spanish_translation": "¿Lavas tu ropa? No.",
-      "pedagogy_note": "A different respondent gives an explicit negative reply; no gender, age or action is used to infer no.\nNew review-only view of the familiar family home, with changed composition and object placements. Do not reuse an earlier lesson card/photo pair or rename its image.\nHeard English → written English: select the matching line; the picture is context, not an answer key.\nReviewed bank: Yes, I do. | No, I do not.\nHear these connected turns: Do you wash your clothes? / No, I do not.",
-      "answer_audio_speaker": "female-character"
+      "audio_text": "Do you wash your clothes?",
+      "answer_audio_text": "No, I do not.",
+      "prompt_image_url": "a1_recognize_review_no_v1.webp",
+      "spanish_translation": "¿Lavas tu ropa?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "female-character",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "R9",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t2",
+      "prompt": "What day is it today?",
       "stage": "Recognize",
       "correct_option_id": "today-is-monday-r9",
       "options": [
@@ -561,28 +539,18 @@
           "label": "Today is Thursday."
         }
       ],
-      "audio_text": "What day is it today? Today is Monday.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_review_calendar_v2_v1.webp",
-      "audio_turns": [
-        {
-          "text": "What day is it today?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_calendar_v2_v1.webp"
-        },
-        {
-          "text": "Today is Monday.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_calendar_v2_v1.webp"
-        }
-      ],
-      "spanish_translation": "¿Qué día es hoy? Hoy es lunes.",
-      "pedagogy_note": "A functional dated week calendar and a family planning conversation provide context. No isolated sheet with a day word, no day inferred from sunlight or an activity, and no highlighted/printed answer in the context picture. The heard reply supplies the weekday.\nNew review-only view of the familiar family home, with changed composition and object placements. Do not reuse an earlier lesson card/photo pair or rename its image.\nHeard English → written English: select the matching line; the picture is context, not an answer key.\nReviewed bank: Today is Monday. | Today is Thursday.\nHear these connected turns: What day is it today? / Today is Monday."
+      "audio_text": "What day is it today?",
+      "answer_audio_text": "Today is Monday.",
+      "prompt_image_url": "a1_recognize_review_monday_v1.webp",
+      "spanish_translation": "¿Qué día es hoy?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "female-character",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "R10",
-      "interaction_type": "a2t3",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "i2t3",
+      "prompt": "What day is it today?",
       "stage": "Recognize",
       "correct_option_id": "today-is-thursday-r10",
       "options": [
@@ -602,23 +570,13 @@
           "label": "Today is Saturday."
         }
       ],
-      "audio_text": "What day is it today? Today is Thursday.",
-      "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_photo_u4_rebuild_review_calendar_v2_v1.webp",
-      "audio_turns": [
-        {
-          "text": "What day is it today?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_calendar_v2_v1.webp"
-        },
-        {
-          "text": "Today is Thursday.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_photo_u4_rebuild_review_calendar_v2_v1.webp"
-        }
-      ],
-      "spanish_translation": "Hoy es jueves.",
-      "pedagogy_note": "A functional dated week calendar and a family planning conversation provide context. No isolated sheet with a day word, no day inferred from sunlight or an activity, and no highlighted/printed answer in the context picture. The heard reply supplies the weekday.\nNew review-only view of the familiar family home, with changed composition and object placements. Do not reuse an earlier lesson card/photo pair or rename its image.\nHeard English → written English: select the matching line; the picture is context, not an answer key.\nReviewed bank: Today is Thursday. | Today is Monday. | Today is Saturday.\nHear these connected turns: What day is it today? / Today is Thursday."
+      "audio_text": "What day is it today?",
+      "answer_audio_text": "Today is Thursday.",
+      "prompt_image_url": "a1_recognize_review_thursday_v1.webp",
+      "spanish_translation": "¿Qué día es hoy?",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "answer_audio_speaker": "female-character",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "R11",

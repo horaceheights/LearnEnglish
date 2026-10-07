@@ -27,7 +27,12 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             self.assertEqual(len(cards), 8)
             for index, question in enumerate(QUESTIONS):
                 q, answer = cards[index * 2:index * 2 + 2]
-                self.assertEqual(q['audio_text'], question)
+                if stage == 'Recognize':
+                    self.assertEqual(q['audio_turns'][0]['text'], question)
+                    self.assertTrue(q['prompt'].startswith(question))
+                    self.assertEqual(q['audio_turns'][1]['text'], answer['answer_audio_text'])
+                else:
+                    self.assertEqual(q['audio_text'], question)
                 line = answer.get('answer_audio_text') or answer['audio_text']
                 subject = ['I am', 'She is', 'He is', 'They are'][index]
                 self.assertRegex(line, '^' + subject + r' \w+ing\.$')
@@ -38,14 +43,23 @@ class ActionQuestionSequenceTests(unittest.TestCase):
                                               for c in cards[1::2]}), 4)
         self.assertEqual(actions, set('writing reading eating playing cooking sleeping running drinking working talking swimming studying sitting'.split()))
 
-    def test_questions_are_heard_without_written_answer_leakage(self):
+    def test_only_listen_uses_heard_question_discrimination(self):
         for card in self.lesson['cards']:
-            if card['stage'] not in ('Recognize', 'Listen') or int(re.sub(r'\D', '', card['slide_id'])) % 2 == 0:
+            if card['stage'] != 'Listen' or int(re.sub(r'\D', '', card['slide_id'])) % 2 == 0:
                 continue
             self.assertTrue(card['interaction_type'].startswith('a2t'))
             self.assertEqual(card['prompt'], '¡Escucha y elige!' if card['stage'] == 'Recognize' else 'Listen and choose.')
             self.assertIsNone(card['answer_audio_text'])
             self.assertTrue(all(not option['image_url'] for option in card['options']))
+
+    def test_recognize_alternates_visible_exchange_and_pictured_response(self):
+        cards = [c for c in self.lesson['cards'] if c['stage'] == 'Recognize']
+        for question, answer in zip(cards[::2], cards[1::2]):
+            self.assertTrue(question['interaction_type'].startswith('t2i'))
+            self.assertTrue(all(option['image_url'] for option in question['options']))
+            self.assertTrue(answer['interaction_type'].startswith('i2t'))
+            self.assertTrue(answer['prompt_image_url'])
+            self.assertNotIn(answer['answer_audio_text'], answer['audio_text'])
 
     def test_reused_stills_do_not_activate_legacy_videos_with_blurred_side_panels(self):
         from scripts.audit_action_video_bindings import video_map
