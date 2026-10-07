@@ -326,7 +326,7 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-06: approved 4.10 scenes have the woman ask and Luis answer
         # (+12 net male assets, seven exact answer takes, 187 characters).
         self.assertEqual(
-            Counter({"male-character": 632, "luis": 262, "diego": 16}),
+            Counter({"male-character": 629, "luis": 251, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
@@ -334,7 +334,8 @@ class PersistentCardAudioTests(unittest.TestCase):
         # the photographed time asker is female. All existing takes are reused.
         # 2026-10-07: 3.11's revised ownership photos consistently show a male
         # owner or outside speaker (+74 asset bindings, 11 distinct takes).
-        self.assertEqual(910, len(selected))
+        # Reconoce template correction removes 14 redundant male bindings.
+        self.assertEqual(896, len(selected))
         self.assertEqual(182, len(jobs))
         self.assertEqual(182, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).

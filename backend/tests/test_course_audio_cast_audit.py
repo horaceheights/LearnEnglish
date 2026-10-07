@@ -83,11 +83,13 @@ EXACT_ROLE_CHANGES = {
 # assignments, alternating teacher and co-teacher. The follow-up restores ten
 # matching upfront prompt-speaker assignments beside the preserved written cues.
 # 2026-10-07: 18 Reconoce cards now separate written cues and post-selection replies.
-# Exact pictured speakers and ordered turns are recorded in the Recognize QA evidence.
-# 2026-10-07: 3.11 ownership scenes use pictured male owners/outside speakers (+17 explicit assignments).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1931
+# The follow-up keeps each response voice, uses scalar phrase cues and removes
+# question narration from the 12 reverse cards. Listen A2 now uses per-turn
+# speakers for its existing question and reply (-5 net scalar assignments).
+# 3.11 adds 17 ownership-speaker assignments after the template correction.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1926
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "2335994d9caac016f4fb6d25bb5e9881b27fc603e1a597646827925331dd9683"
+    "42a7edad71f4e21b87e8a2551ddf6f08dadc2a0762a343bf43fa0b8100fd0f9f"
 )
 
 

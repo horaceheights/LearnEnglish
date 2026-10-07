@@ -128,7 +128,7 @@
       "U7",
       "U8"
     ],
-    "content_revision": 6
+    "content_revision": 7
   },
   "cards": [
     {
@@ -448,7 +448,7 @@
     {
       "recipe": "choice",
       "slide_id": "R7",
-      "prompt": "Do you clean the table?",
+      "prompt": "",
       "stage": "Recognize",
       "options": [
         {
@@ -463,10 +463,9 @@
         }
       ],
       "prompt_image_url": "a1_recognize_review_yes_v1.webp",
-      "spanish_translation": "¿Limpias la mesa?",
-      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
+      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
       "answer_audio_speaker": "male-character",
-      "audio_speaker": "female-character",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -479,14 +478,13 @@
         "prompt_image_url",
         "spanish_translation",
         "pedagogy_note",
-        "answer_audio_speaker",
-        "audio_speaker"
+        "answer_audio_speaker"
       ]
     },
     {
       "recipe": "choice",
       "slide_id": "R8",
-      "prompt": "Do you wash your clothes?",
+      "prompt": "",
       "stage": "Recognize",
       "options": [
         {
@@ -501,10 +499,9 @@
         }
       ],
       "prompt_image_url": "a1_recognize_review_no_v1.webp",
-      "spanish_translation": "¿Lavas tu ropa?",
-      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
+      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
       "answer_audio_speaker": "female-character",
-      "audio_speaker": "male-character",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -518,14 +515,13 @@
         "prompt_image_url",
         "spanish_translation",
         "pedagogy_note",
-        "answer_audio_speaker",
-        "audio_speaker"
+        "answer_audio_speaker"
       ]
     },
     {
       "recipe": "choice",
       "slide_id": "R9",
-      "prompt": "What day is it today?",
+      "prompt": "",
       "stage": "Recognize",
       "options": [
         {
@@ -540,10 +536,9 @@
         }
       ],
       "prompt_image_url": "a1_recognize_review_monday_v1.webp",
-      "spanish_translation": "¿Qué día es hoy?",
-      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
+      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
       "answer_audio_speaker": "female-character",
-      "audio_speaker": "male-character",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -556,14 +551,13 @@
         "prompt_image_url",
         "spanish_translation",
         "pedagogy_note",
-        "answer_audio_speaker",
-        "audio_speaker"
+        "answer_audio_speaker"
       ]
     },
     {
       "recipe": "choice",
       "slide_id": "R10",
-      "prompt": "What day is it today?",
+      "prompt": "",
       "stage": "Recognize",
       "options": [
         {
@@ -583,10 +577,9 @@
         }
       ],
       "prompt_image_url": "a1_recognize_review_thursday_v1.webp",
-      "spanish_translation": "¿Qué día es hoy?",
-      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
+      "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
+      "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
       "answer_audio_speaker": "female-character",
-      "audio_speaker": "male-character",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -599,8 +592,7 @@
         "prompt_image_url",
         "spanish_translation",
         "pedagogy_note",
-        "answer_audio_speaker",
-        "audio_speaker"
+        "answer_audio_speaker"
       ]
     },
     {
@@ -1888,7 +1880,7 @@
   },
   "source": {
     "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
-    "sha256": "6a5fcb2c3f4865495e2cfcd99d4f72745e70d600c70b13fad6c1b7c3f5bc04c5"
+    "sha256": "28a5f03b5e4cbeddc72be776cc70cb490d14eb5391c7ca0f85dd40e38aab40b0"
   },
-  "recognize_revision": "2026-10-07: explicit visual recognition, superseding heard-question exceptions."
+  "recognize_revision": "2026-10-07 clarification: reuse Lesson 1.1 presentation exactly; single phrase, no combined question/answer prompt."
 }

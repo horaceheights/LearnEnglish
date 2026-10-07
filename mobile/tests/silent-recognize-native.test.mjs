@@ -13,13 +13,16 @@ const headerModule = `
 import { View, Text, Pressable, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
+import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {
   const { width, height, fontScale } = viewport;
   const usesLessonPhoneLandscape = width > height && height < 600;
   const useCompactPhoneLayout = usesLessonPhoneLandscape;
   const isPortrait = height >= width;
   const isMissionGameCard = false, isSentenceCard = false, isCompletedSectionPicker = false;
-  const useCompactHeaderInstruction = false, useCompactRecognizeInstruction = false;
+  const lesson = { id: 'fixture' };
+  const useCompactRecognizeInstruction = usesCompactRecognizeInstruction(currentCard.stage, currentCard.prompt);
+  const useCompactHeaderInstruction = useCompactRecognizeInstruction;
   const useCompactListenInstruction = false, useCompactSpeakInstruction = false;
   const isPronunciation = false, promptHasVisualBlank = false;
   const visiblePromptText = currentCard.prompt, pronunciationModelText = '';
@@ -27,12 +30,12 @@ export function Header({ currentCard, result, viewport, styles, showSentenceTran
   const writtenRecognize = isWrittenRecognize(currentCard);
   const phraseReplayText = recognizeAnswerReplayText(currentCard, result === 'correct') || (currentCard.audio_text ?? currentCard.prompt);
   const phraseReplayAvailable = Boolean(phraseReplayText);
-  const promptFontSize = 28, promptLineHeight = 34;
+  const promptFontSize = useCompactHeaderInstruction ? 14 : 28, promptLineHeight = useCompactHeaderInstruction ? 18 : 34;
   const visibleSentenceTranslation = currentCard.spanish_translation;
   const translationOpacity = 1, promptTapTargetRef = { current: null };
   const help = { interact() {} }, courseAudioPlaybackStatus = { playing: false };
   const openSentenceTranslation = () => {}, handlePromptPress = () => {}, handleReplayButtonPress = () => {};
-  const renderPrompt = () => currentCard.prompt;
+  const renderPrompt = () => lessonHeaderPromptText(lesson.id, currentCard.stage, currentCard.prompt, currentCard.options);
   ${header}
   return lessonPromptHeader;
 }`;
@@ -75,12 +78,43 @@ test('native written and silent recognition keep English readable and preserve t
   }
 });
 
-test('corrected Recognize exchanges keep their complete visible cue at phone sizes', () => {
+test('corrected photo-to-phrase cards reuse Lesson 1.1 instruction and replay states', () => {
+  const course = JSON.parse(fs.readFileSync(new URL('../src/generated/a1-course.json', import.meta.url), 'utf8'));
+  const selected = new Set(['lesson-3-3-am-is-and-are', 'lesson-4-do-you-questions']);
+  const cards = course.filter(l => selected.has(l.id)).flatMap(l => l.cards)
+    .filter(c => c.stage === 'Recognize' && c.interaction_type.startsWith('i2t'));
+  assert.equal(cards.length, 8);
+  cards.push(course.find(l => l.id === 'lesson-1-people-actions').cards.find(c => c.slide_id === 'R7'));
+  for (const viewport of [{ width: 390, height: 844, fontScale: 1 }, { width: 740, height: 360, fontScale: 1.3 }]) {
+    const h = lessonHarness(viewport, { sourceTransform: (file, code) => file.endsWith('LessonScreen.tsx') ? headerModule : code });
+    const styles = h.styles('screens/LessonScreen.tsx');
+    const { Header } = h.load('screens/LessonScreen.tsx');
+    for (const currentCard of cards) for (const result of [null, 'wrong', 'correct']) {
+      const records = h.render(() => e(Header, { currentCard, result, viewport, styles, showSentenceTranslation: false }),
+        viewport.width > viewport.height ? 230 : 370, 220);
+      const instruction = records.find(r => r.type === 'Text' && r.text === '¡Elige la frase que corresponde a la imagen!');
+      assert.ok(instruction, 'The exact Lesson 1.1 instruction uses the same native prompt panel.');
+      assert.ok(instruction.textHeight <= instruction.box.height + 1.5);
+      const replay = records.find(r => r.type === 'Pressable' && r.props.accessibilityLabel?.startsWith('Repetir'));
+      assert.ok(replay);
+      assert.equal(replay.props.disabled, result !== 'correct', 'No upfront answer audio; correct selection enables its replay.');
+    }
+  }
+});
+
+test('corrected Recognize phrase cues use the same native header as Lesson 1.1', () => {
   const course = JSON.parse(fs.readFileSync(new URL('../src/generated/a1-course.json', import.meta.url), 'utf8'));
   const lessons = new Set(['lesson-3-3-am-is-and-are', 'lesson-4-do-you-questions']);
   const cards = course.filter(lesson => lessons.has(lesson.id)).flatMap(lesson => lesson.cards)
-    .filter(card => card.stage === 'Recognize' && card.prompt_presentation === 'written');
-  assert.equal(cards.length, 8, 'Four action exchanges and four Do you exchanges.');
+    .filter(card => card.stage === 'Recognize' && card.interaction_type.startsWith('t2i'));
+  assert.equal(cards.length, 8, 'Four action phrases and four short replies.');
+  cards.push(course.find(lesson => lesson.id === 'lesson-1-people-actions').cards.find(card => card.slide_id === 'R6'));
+  for (const card of cards) {
+    assert.ok(!card.prompt_presentation, 'Keep the ordinary Lesson 1.1 phrase presentation.');
+    assert.ok(!card.audio_turns?.length, 'One visible cue has one pronunciation model.');
+    assert.equal(card.audio_text, card.prompt);
+    assert.ok(!/[?\n]/.test(card.prompt), 'Do not restore the rejected question/answer block.');
+  }
   for (const viewport of [{ width: 320, height: 568, fontScale: 1 }, { width: 390, height: 844, fontScale: 2 }, { width: 740, height: 360, fontScale: 1.3 }]) {
     const h = lessonHarness(viewport, { sourceTransform: (file, code) => file.endsWith('LessonScreen.tsx') ? headerModule : code });
     const styles = h.styles('screens/LessonScreen.tsx');
@@ -91,7 +125,7 @@ test('corrected Recognize exchanges keep their complete visible cue at phone siz
         currentCard, result, viewport, styles, showSentenceTranslation: false,
       }) }), paneWidth, 220);
       const prompt = records.find(r => r.type === 'Text' && r.text === currentCard.prompt);
-      assert.ok(prompt, `${currentCard.slide_id}: English question and response stay visible, including retry.`);
+      assert.ok(prompt, `${currentCard.slide_id}: the single English phrase stays visible, including retry.`);
       assert.ok(prompt.textHeight <= prompt.box.height + 1.5, `${currentCard.prompt}: complete cue fits.`);
       assert.ok(prompt.fontSize >= 15.99, 'English retains the 16dp reading floor.');
       assert.ok(prompt.box.top + prompt.box.height <= 220, 'The cue stays within its header.');
