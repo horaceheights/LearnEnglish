@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { LessonCard } from '../types';
 
 export function learnTranslationPreviewDuration(card?: LessonCard): number {
-  const duration = card?.learn_translation_preview_ms;
+  const duration = card?.learn_translation_preview_ms ?? 2000;
   return card?.stage === 'Learn' && card.options.length === 1
     && Boolean(card.options[0].image_url?.trim())
     && Boolean(card.spanish_translation?.trim())

@@ -109,7 +109,7 @@ const MEANINGS: Record<string, string> = {
   'can': 'puede', 'cannot': 'no puede',
   i: 'yo', you: 'tú', we: 'nosotros', they: 'ellos', he: 'él', she: 'ella',
   his: 'de él', her: 'de ella', your: 'tu', my: 'mi', us: 'Estados Unidos',
-  our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', have: 'tener', has: 'tiene',
+  our: 'nuestro', their: 'de ellos', mine: 'mío', yours: 'tuyo', ours: 'nuestro', have: 'tener', has: 'tiene',
   grandchildren: 'nietos',
   cook: 'cocinero', brush: 'cepillar', wash: 'lavar',
   study: 'estudiar', run: 'correr', goes: 'va', walks: 'camina', likes: 'le gusta',

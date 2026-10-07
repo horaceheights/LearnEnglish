@@ -68,9 +68,10 @@
     "their",
     "mine",
     "yours",
-    "grandchildren"
+    "grandchildren",
+    "ours"
   ],
-  "grammar_function": "Hello/Good morning/Goodbye; What is your name? My name is...; I am/you are/we are; What are you doing? I am + -ing; How old are you? I am ... years old; Where are you from? I am from... / I am + nationality; What is your job? I am a...; he/she is; my/your/his/her; have/has. Is she cooking? Yes, she is.; our/their; It is yours.",
+  "grammar_function": "Hello/Good morning/Goodbye; What is your name? My name is...; I am/you are/we are; What are you doing? I am + -ing; How old are you? I am ... years old; Where are you from? I am from... / I am + nationality; What is your job? I am a...; he/she is; my/your/his/her; have/has. Is she cooking? Yes, she is.; our/their; It is yours. Name objects explicitly; That house is ours. Is this phone yours? Yes, this phone is mine.",
   "prerequisite": "3.1-3.12 complete.",
   "speaking_outcome": "Say six Unit 3 lines aloud across greeting, identity, age, current action, job and possession.",
   "purposeful_review_slides": [
@@ -89,7 +90,7 @@
     "S7",
     "U9"
   ],
-  "content_revision": 3,
+  "content_revision": 4,
   "cards": [
     {
       "slide_id": "L1",
@@ -936,17 +937,17 @@
     {
       "slide_id": "R10",
       "interaction_type": "t2i3",
-      "prompt": "This is our house.",
+      "prompt": "That house is ours.",
       "stage": "Recognize",
-      "correct_option_id": "this-is-our-house-r10",
+      "correct_option_id": "that-house-is-ours-r10",
       "options": [
         {
-          "id": "that-is-their-car-r10",
+          "id": "they-have-their-car-r10",
           "image_url": "/lesson-assets/a1_u3_review_v2_their_car.webp",
           "label": null
         },
         {
-          "id": "this-is-our-house-r10",
+          "id": "that-house-is-ours-r10",
           "image_url": "/lesson-assets/a1_u3_review_v2_our_house.webp",
           "label": null
         },
@@ -956,20 +957,20 @@
           "label": null
         }
       ],
-      "audio_text": "This is our house.",
+      "audio_text": "That house is ours.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Esta es nuestra casa.",
-      "pedagogy_note": "Review station 7: our, said by the young man who owns the house.",
+      "spanish_translation": "Esa casa es nuestra.",
+      "pedagogy_note": "Retrieve ours: the male speaker holds his house keys and includes his partner.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c018-prompt-10d8485d1cb5e51c0468",
+          "id": "lesson-3-9-unit-3-review-c018-prompt-747bff9a44a287b174a5",
           "purpose": "prompt",
-          "text": "This is our house.",
+          "text": "That house is ours.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u3_review_v2_our_house.webp",
@@ -979,9 +980,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c018-answer-d3afd3fded348217ad99",
+          "id": "lesson-3-9-unit-3-review-c018-answer-8cfccc1d6e098b7ae2f1",
           "purpose": "answer",
-          "text": "This is our house.",
+          "text": "That house is ours.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u3_review_v2_our_house.webp",
@@ -1695,28 +1696,28 @@
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "that-is-his-bag-3",
+      "correct_option_id": "he-has-his-bag-3",
       "options": [
         {
-          "id": "that-is-her-bag-1",
+          "id": "she-has-her-bag-1",
           "image_url": "",
-          "label": "That is her bag."
+          "label": "She has her bag."
         },
         {
-          "id": "that-is-my-bag-2",
+          "id": "i-have-my-bag-2",
           "image_url": "",
-          "label": "That is my bag."
+          "label": "I have my bag."
         },
         {
-          "id": "that-is-his-bag-3",
+          "id": "he-has-his-bag-3",
           "image_url": "",
-          "label": "That is his bag."
+          "label": "He has his bag."
         }
       ],
-      "audio_text": "That is his bag.",
+      "audio_text": "He has his bag.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Esa es la bolsa de \u00e9l.",
+      "spanish_translation": "\u00c9l tiene su bolsa.",
       "pedagogy_note": "Possession station; the his/her contrast matches 3.7.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1724,24 +1725,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c031-prompt-c60f4eeaad41a35f7bd5",
+          "id": "lesson-3-9-unit-3-review-c031-prompt-4d8772a687e088edf320",
           "purpose": "prompt",
-          "text": "That is his bag.",
+          "text": "He has his bag.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:a35d3662482709602c6d",
+          "image_ref": "text-only:acafff4c80232cf3d685",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c031-answer-3168c8f7169559a2d80f",
+          "id": "lesson-3-9-unit-3-review-c031-answer-54ee3e1efe2618f3b165",
           "purpose": "answer",
-          "text": "That is his bag.",
+          "text": "He has his bag.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:a35d3662482709602c6d",
+          "image_ref": "text-only:acafff4c80232cf3d685",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2049,33 +2050,33 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "that-is-their-car-n19",
+      "correct_option_id": "they-have-their-car-n19",
       "options": [
         {
-          "id": "that-is-their-car-n19",
+          "id": "they-have-their-car-n19",
           "image_url": "/lesson-assets/a1_u3_review_v2_their_car.webp",
           "label": null
         },
         {
-          "id": "this-is-our-house-n19",
+          "id": "that-house-is-ours-n19",
           "image_url": "/lesson-assets/a1_u3_review_v2_our_house.webp",
           "label": null
         }
       ],
-      "audio_text": "That is their car.",
+      "audio_text": "They have their car.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Review station 7: their, about the two friends' car.",
+      "spanish_translation": "Ellos tienen su carro.",
+      "pedagogy_note": "Retrieve have and their using the two people at their car.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c037-prompt-692b4d0a5b16b12338b1",
+          "id": "lesson-3-9-unit-3-review-c037-prompt-fcfa33636980876f8db5",
           "purpose": "prompt",
-          "text": "That is their car.",
+          "text": "They have their car.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u3_review_v2_their_car.webp",
@@ -2085,9 +2086,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c037-answer-a758283de78daf7e605b",
+          "id": "lesson-3-9-unit-3-review-c037-answer-ea3721b7934efcb55781",
           "purpose": "answer",
-          "text": "That is their car.",
+          "text": "They have their car.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u3_review_v2_their_car.webp",
@@ -2454,61 +2455,61 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "Is it yours? Yes, it is mine.",
+      "prompt": "Is this phone yours? Yes, this phone is mine.",
       "stage": "Speak",
-      "correct_option_id": "is-it-yours-yes-it-is-mine-s7",
+      "correct_option_id": "is-this-phone-yours-yes-this-phone-is-mine-s7",
       "options": [
         {
-          "id": "is-it-yours-yes-it-is-mine-s7",
+          "id": "is-this-phone-yours-yes-this-phone-is-mine-s7",
           "image_url": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp",
-          "label": "Is it yours? Yes, it is mine."
+          "label": "Is this phone yours? Yes, this phone is mine."
         }
       ],
-      "audio_text": "Is it yours? Yes, it is mine.",
+      "audio_text": "Is this phone yours? Yes, this phone is mine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfEs tuyo? S\u00ed, es m\u00edo.",
-      "pedagogy_note": "Review station 7: Sofia returns a phone; its owner answers Yes, it is mine.",
+      "spanish_translation": "\u00bfEste tel\u00e9fono es tuyo? S\u00ed, este tel\u00e9fono es m\u00edo.",
+      "pedagogy_note": "Review station 7: Sofia returns a phone; its owner answers Yes, this phone is mine.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "Is it yours?",
+          "text": "Is this phone yours?",
           "speaker_role": "sofia",
           "image_url": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp"
         },
         {
-          "text": "Yes, it is mine.",
+          "text": "Yes, this phone is mine.",
           "speaker_role": "male-character",
           "image_url": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp"
         }
       ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
+      "audio_revision": 2,
+      "answer_audio_revision": 2,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c045-prompt-turn-1-585159bb5bceb716c906",
+          "id": "lesson-3-9-unit-3-review-c045-prompt-turn-1-7916397ecd96f941b16d",
           "purpose": "prompt-turn-1",
-          "text": "Is it yours?",
+          "text": "Is this phone yours?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp",
           "semantic_role": "question",
           "speaker_role": "sofia",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         },
         {
-          "id": "lesson-3-9-unit-3-review-c045-prompt-turn-2-b7e345147d9bc79c633e",
+          "id": "lesson-3-9-unit-3-review-c045-prompt-turn-2-f4133e7abbe3650b475b",
           "purpose": "prompt-turn-2",
-          "text": "Yes, it is mine.",
+          "text": "Yes, this phone is mine.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_u3_review_v2_sofia_yours.webp",
           "semantic_role": "teacher",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         }
       ]
     },
@@ -2631,56 +2632,56 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "That is ___ ___.",
+      "prompt": "That house ___ ___.",
       "stage": "Use",
-      "correct_option_id": "his",
+      "correct_option_id": "word-3",
       "correct_option_ids": [
-        "his",
-        "car"
+        "word-3",
+        "word-4"
       ],
       "options": [
         {
-          "id": "car",
+          "id": "word-4",
           "image_url": "",
-          "label": "car"
+          "label": "ours"
         },
         {
-          "id": "his",
+          "id": "word-3",
           "image_url": "",
-          "label": "his"
+          "label": "is"
         }
       ],
-      "audio_text": "That is his car.",
-      "answer_audio_text": "That is his car.",
-      "prompt_image_url": "/lesson-assets/a1_u3_review_v1_luis_car.webp",
-      "spanish_translation": "Ese es el auto de \u00e9l.",
-      "pedagogy_note": "guided review completion",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "That house is ours.",
+      "answer_audio_text": "That house is ours.",
+      "prompt_image_url": "/lesson-assets/a1_u3_review_v2_our_house.webp",
+      "spanish_translation": "Esa casa es nuestra.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c048-prompt-1fa4f9199cccac931d77",
+          "id": "lesson-3-9-unit-3-review-c048-prompt-b45fa08f7d0c04ac5350",
           "purpose": "prompt",
-          "text": "That is his car.",
+          "text": "That house is ours.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u3_review_v1_luis_car.webp",
+          "image_ref": "/lesson-assets/a1_u3_review_v2_our_house.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c048-answer-213e3fe3841da55c095b",
+          "id": "lesson-3-9-unit-3-review-c048-answer-f4e7997ece077d8fd8c5",
           "purpose": "answer",
-          "text": "That is his car.",
+          "text": "That house is ours.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u3_review_v1_luis_car.webp",
+          "image_ref": "/lesson-assets/a1_u3_review_v2_our_house.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -3040,7 +3041,7 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
+          "label": "has"
         },
         {
           "id": "word-4",
@@ -3050,7 +3051,7 @@
         {
           "id": "word-1",
           "image_url": "",
-          "label": "It"
+          "label": "He"
         },
         {
           "id": "word-3",
@@ -3058,20 +3059,20 @@
           "label": "his"
         }
       ],
-      "audio_text": "It is his bag.",
-      "answer_audio_text": "It is his bag.",
+      "audio_text": "He has his bag.",
+      "answer_audio_text": "He has his bag.",
       "prompt_image_url": "/lesson-assets/a1_u3_review_v2_diego_bag.webp",
-      "spanish_translation": "Es su bolsa (de \u00e9l).",
-      "pedagogy_note": "Review station 7: describe his bag using the previously taught possessive adjective.",
+      "spanish_translation": "\u00c9l tiene su bolsa.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c054-prompt-12208a4c8ab00ef7d169",
+          "id": "lesson-3-9-unit-3-review-c054-prompt-e1815acfaed7dd7d5e8a",
           "purpose": "prompt",
-          "text": "It is his bag.",
+          "text": "He has his bag.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u3_review_v2_diego_bag.webp",
@@ -3081,9 +3082,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c054-answer-a3ae1af9fb2aa576c9a7",
+          "id": "lesson-3-9-unit-3-review-c054-answer-17e2ac1c70dd67e8bc42",
           "purpose": "answer",
-          "text": "It is his bag.",
+          "text": "He has his bag.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_u3_review_v2_diego_bag.webp",

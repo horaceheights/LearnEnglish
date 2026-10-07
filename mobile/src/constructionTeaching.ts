@@ -5,7 +5,7 @@ import type { LessonCard } from './types';
 // The course-wide hint gate rejects new patterns until their explanation is added.
 const words = (value: string) => value.toLowerCase().replace(/\b([ap])\.m\./g, '$1m').match(/[a-z]+(?:'[a-z]+)?/g) || [];
 const set = (value: string) => new Set(value.split(' '));
-const DETERMINERS = set('a an the my your his her our their');
+const DETERMINERS = set('a an the my your his her our their this that these those');
 const NUMBERS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty');
 const COLORS = set('red blue green yellow black white');
 const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
@@ -17,7 +17,8 @@ for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
 // Unit 7 (2026-09-27): the body word its constructions name.
 NOUNS.add('ears');
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
-const OWNERS = set('mine yours');
+const OWNERS = set('mine yours ours');
+const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
 const PRONOUNS = set('i you he she it we they this that these those there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening');
@@ -98,6 +99,8 @@ function teachClause(text: string): ClausePlan {
         ? progressive[2]
           ? `${quote(tokens[anchorStart])} es el auxiliar; “not” va antes del verbo ${quote(tokens[start])}: ${quote(phrase(anchorStart, start + 1))}.`
           : `${quote(tokens[anchorStart])} es el auxiliar y va antes del verbo ${quote(tokens[start])}: ${quote(phrase(anchorStart, start + 1))}.`
+        : describes && end === start + 1 && OWNERS.has(keys[start])
+        ? `${quote(original)} significa ${quote(OWNER_MEANINGS[keys[start]])}: indica de quién es y va después de ${quote(anchor)}.`
         : describes
         ? `Después de ${quote(anchor)} va ${quote(original)}, que describe al sujeto de esta afirmación.`
         : object ? `Después de ${quote(anchor)} va ${object}: ${quote(original)}.`
@@ -154,7 +157,7 @@ function teachClause(text: string): ClausePlan {
       return true;
     }
     if (end - start === 1 && OWNERS.has(keys[start])) {
-      teach(start, end, `${quote(original)} significa ${keys[start] === 'mine' ? '“mío”' : '“tuyo”'}: reemplaza al dueño y a la cosa, y va después de ${quote(anchor)}.`);
+      teach(start, end, `${quote(original)} significa ${quote(OWNER_MEANINGS[keys[start]])}: reemplaza al dueño y a la cosa, y va después de ${quote(anchor)}.`);
       return true;
     }
     if (end - start === 1 && STATES.has(keys[start])) {

@@ -35,9 +35,9 @@ Identify the actual authoring source for every affected lesson and distinguish i
 
 Start with the applicable course-design documents. For the current A1 work, use [A1 course design](course-design-a1.md) and its relevant unit/lesson requirements. Use the requested unit or lesson; when asked to create the next content, follow the documented course sequence and prerequisites within the authorized scope. Derive the brief from those curriculum requirements and approved standards. Record the source sections so each content package is traceable to its course design. The roadmap continues to govern product priorities and the content-scaling gate.
 
-The user does not need to supply a separate content brief. The only setup question is:
+The user does not need to supply a separate content brief. ElevenLabs is the standing default for course audio (user clarification, 2026-10-07); do not ask again. Preserve the established voices and bounded offline generation workflow. Reuse healthy existing pictures. When new image generation is necessary and its tool has not been selected, the setup question is:
 
-> Which tools should I use to generate the audio and the images?
+> Which tool should I use to generate the new images?
 
 Ask only for tool choices that have not already been supplied for the task. Reuse existing choices without reconfirmation. Record the selected tools/providers and keep their integration separate from curriculum and activity data.
 
