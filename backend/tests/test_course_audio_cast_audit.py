@@ -84,9 +84,10 @@ EXACT_ROLE_CHANGES = {
 # matching upfront prompt-speaker assignments beside the preserved written cues.
 # 2026-10-07: 18 Reconoce cards now separate written cues and post-selection replies.
 # Exact pictured speakers and ordered turns are recorded in the Recognize QA evidence.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1914
+# 2026-10-07: 3.11 ownership scenes use pictured male owners/outside speakers (+17 explicit assignments).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1931
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "de9919a3c6a4a7dd71731d4be36762fd6428a1239fa65803ae84c4d1c8e6341c"
+    "2335994d9caac016f4fb6d25bb5e9881b27fc603e1a597646827925331dd9683"
 )
 
 

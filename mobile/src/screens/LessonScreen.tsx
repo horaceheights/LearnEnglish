@@ -120,6 +120,7 @@ import { useLessonAudioReadiness } from '../hooks/useLessonAudioReadiness';
 import { AudioConnectionNotice } from '../components/AudioConnectionNotice';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
+import { useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
@@ -385,6 +386,7 @@ export function LessonScreen({
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
   const [cardRunId, setCardRunId] = useState(0);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
+  const [loadedTeachingImageKey, setLoadedTeachingImageKey] = useState('');
   const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
   const [activeAudioSequence, setActiveAudioSequence] = useState<CourseAudioTurnPlayback[] | null>(null);
   const [activeTurnImageUrl, setActiveTurnImageUrl] = useState<string | null>(null);
@@ -1504,6 +1506,9 @@ export function LessonScreen({
   helpVisibleRef.current = showHelp;
   const helpAdvancePendingRef = useRef<string | null>(null);
   const helpCardKey = `${lessonId}:${cardIndex}:${cardRunId}`;
+  const learnTranslation = useLearnTranslationPreview(currentCard, helpCardKey,
+    loadedTeachingImageKey === helpCardKey && isAppActive && cardAudio.ready
+      && !isPageTurning && !sectionBriefing && !showHelp && !isComplete && !isCompletedSectionPicker);
 
   const openSentenceTranslation = useCallback(() => {
     if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
@@ -3123,11 +3128,16 @@ export function LessonScreen({
                   ? currentCard.mission_game?.instruction_es || pronunciationInstruction()
                   : renderPrompt()}
               </Text>
-              {showSentenceTranslation ? (
+              {showSentenceTranslation || learnTranslation.enabled ? (
                 <Animated.Text
                   accessibilityLiveRegion="polite"
+                  accessible={showSentenceTranslation || learnTranslation.visible}
+                  accessibilityElementsHidden={!showSentenceTranslation && !learnTranslation.visible}
+                  importantForAccessibility={showSentenceTranslation || learnTranslation.visible ? 'auto' : 'no-hide-descendants'}
                   numberOfLines={2}
-                  style={[styles.inlineTranslation, { opacity: translationOpacity }]}
+                  style={[styles.inlineTranslation, {
+                    opacity: showSentenceTranslation ? translationOpacity : learnTranslation.visible ? 1 : 0,
+                  }]}
                 >
                   {visibleSentenceTranslation}
                 </Animated.Text>
@@ -3379,6 +3389,7 @@ export function LessonScreen({
             audioVoice={audioVoice}
             card={currentCard}
             key={`lesson-card-${cardIndex}-${cardRunId}`}
+            onTeachingImageReady={learnTranslation.enabled ? () => setLoadedTeachingImageKey(helpCardKey) : undefined}
             level={lesson.level}
             lessonId={lesson.id}
             isAppActive={isAppActive && cardAudio.ready}

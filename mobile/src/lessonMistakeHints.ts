@@ -509,6 +509,10 @@ function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boole
   }
   const expectedMeaning = meaning(expected);
   const selectedMeaning = meaning(selected);
+  if (new Set([expected, selected]).size === 2 && [expected, selected].every(word => ['our', 'their'].includes(word))) {
+    const ownership = expected === 'our' ? 'incluye a quien habla' : 'se refiere a otro grupo, sin incluir a quien habla';
+    return `“${selected}” cambia de dueño: “${expected}” ${ownership}.`;
+  }
   if (!expectedMeaning || !selectedMeaning || expectedMeaning === selectedMeaning) return '';
   const evidence = isAudioChoice ? 'La frase escuchada' : 'La imagen';
   return `“${selected}” significa ${selectedMeaning}; ${evidence.toLowerCase()} corresponde a “${expected}” (${expectedMeaning}).`;
