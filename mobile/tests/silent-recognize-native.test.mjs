@@ -11,7 +11,7 @@ assert.ok(header.includes('styles.promptRowPhraseBox'), 'Exercise the production
 // and Text fit rules. Lesson networking and audio playback are separate tests.
 const headerModule = `
 import { View, Text, Pressable, Animated } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
 export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {

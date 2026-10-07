@@ -308,6 +308,19 @@ function withNativeExportFixture(run) {
   finally { fs.rmSync(directory, { recursive: true, force: true }); }
 }
 
+test('native export accepts 1000 assets and rejects 1001 on either platform before upload', () => {
+  for (const platform of ['android', 'ios']) {
+    withNativeExportFixture((directory, metadata, writeMetadata) => {
+      metadata.fileMetadata[platform].assets = Array.from({ length: 1000 }, () => ({ path: 'asset.png', ext: 'png' }));
+      writeMetadata();
+      assert.doesNotThrow(() => assertNativeExport(directory));
+      metadata.fileMetadata[platform].assets.push({ path: 'asset.png', ext: 'png' });
+      writeMetadata();
+      assert.throws(() => assertNativeExport(directory), new RegExp(`${platform} export contains 1001 assets`));
+    });
+  }
+});
+
 test('native export requests both native bundles in the Preview environment without loading local dotenv', () => {
   withNativeExportFixture(directory => {
     const commit = 'a'.repeat(40);

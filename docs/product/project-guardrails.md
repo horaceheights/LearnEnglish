@@ -636,6 +636,8 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 
 ## 11. Release Rules
 
+- Native updates must stay within Expo's 1,000-assets-per-platform limit. Validate the actual exported metadata before upload. Import used icon families directly instead of bundling the entire icon library; retain all approved lesson images and offline media. The 2026-10-07 lesson 3.11 publication exposed this limit with 1,002 assets.
+
 - Follow `AGENTS.md` for the exact release workflow.
 - Preview is the default destination after an OTA-compatible mobile change passes verification.
 - Human pre-approval is not a default prerequisite for implementation or Preview publication: Preview is the normal review surface. Add a human pre-approval step only when the user explicitly requests it before implementation begins. This does not waive automated release-integrity checks or the separate explicit approval required for Production.

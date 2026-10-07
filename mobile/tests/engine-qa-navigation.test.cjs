@@ -115,7 +115,7 @@ const modules = {
     useWindowDimensions: () => ({ width: 360, height: 780, fontScale: 1 }),
   },
   'react-native-safe-area-context': { SafeAreaView: 'SafeAreaView' },
-  '@expo/vector-icons': { MaterialIcons: 'MaterialIcons' },
+  '@expo/vector-icons/MaterialIcons': { default: 'MaterialIcons' },
   'expo-constants': { default: { nativeAppVersion: '1.6.0' } },
   'expo-updates': { channel: 'preview', useUpdates: () => ({ isUpdatePending: false }) },
   '../previewLessons': { getPreviewLessonMetadata: () => undefined },

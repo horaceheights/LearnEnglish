@@ -52,7 +52,7 @@ export function lessonHarness(viewport, options = {}) {
       if (id === 'react/jsx-runtime') return { jsx: element, jsxs: element, Fragment: 'Fragment' };
       if (id === 'react-native') return rn;
       if (id === 'react-native-safe-area-context') return { useSafeAreaInsets: () => options.insets || { top: 0, bottom: 0, left: 0, right: 0 } };
-      if (id === '@expo/vector-icons') return { Ionicons: p => element('View', { style: { width: p.size, height: p.size } }) };
+      if (id === '@expo/vector-icons/Ionicons') return { default: p => element('View', { style: { width: p.size, height: p.size } }) };
       if (/\.(wav|mp3|webp|png)$/.test(id)) return id;
       if (id === 'expo-file-system') return { File: class {} };
       if (id === 'expo-audio') return { RecordingPresets: { HIGH_QUALITY: {} },

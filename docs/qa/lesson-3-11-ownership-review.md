@@ -50,3 +50,11 @@ Local interactive browser verification was blocked when the browser tool denied 
 The branch incorporates the concurrent Lesson 1.1 Reconoce template correction from main (`1d5efdba`). Both sets of canonical cards and exact bank/media/voice bindings are retained. The combined source snapshot is `69e318cc`; the merged catalog has 81 lessons and 6374 audio assets, and every inventory entry retains a descriptor from one of the two validated published inventories. The combined backend run passed its content/audio tests; 46 archive-dependent checks passed after sparse checkout archives were restored.
 
 The complete mobile Preview preflight passed again after reconciliation, using a task-owned installation from the committed lockfile, including the combined native header tests and Android bundle export.
+
+## Preview publication follow-up
+
+PR #248 merged at `81d50c06` and passed the full protected backend, mobile and Cloudflare checks. Preview run `37661336987` then failed at Expo publication: each platform contained 1,002 assets, exceeding the service's 1,000-asset limit. No update group was published. The follow-up imports the two icon families actually used by the app directly instead of pulling in all seventeen font families. All lesson images, offline assets, native configuration and dependencies are preserved. Native export validation now checks the per-platform limit before upload, with tests at 1,000 and 1,001 assets for both platforms.
+
+Local Android and iOS exports each contain **984 assets** and pass the export validator. The asset map includes only Ionicons and MaterialIcons fonts; SHA-256 comparison confirms that all **1,009 required lesson image files** remain represented byte-for-byte after identical files are deduplicated. All 25 targeted release-authority, engine navigation and native header tests pass. The release-integrity manifest deliberately refreshes only the reviewed CourseScreen import and export-validator file pins; its complete course fingerprint and catalog remain unchanged.
+
+The complete local Preview preflight passes with the follow-up, including the full native viewport and interaction suites, TypeScript and the Android production bundle.
