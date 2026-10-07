@@ -20,4 +20,6 @@ The bounded ElevenLabs run created 24 new takes and reported 165 billed characte
 
 Automated coverage includes exact plan composition, specific listening sentences, Learn target emphasis, guided-to-complete construction, review/mission retrieval, picture/voice bindings, course-wide translation timing, and construction hints for named-object possession.
 
+Local verification passed: all 581 backend tests; the complete Preview preflight (content/media, voice cast, 6,379 persistent audio contracts, TypeScript, interaction/layout suites, and Android export); release integrity for 81 lessons/seven units; and immutable R2 MP3/receipt verification. The audio catalog is pinned to content snapshot `a5947d2eb6b9a81d66727a769aa1fecebf3b7018`. Existing pending visual-review advisories remain pending.
+
 **Preview listening remains pending.** This environment could not audition the audio. The attempted transcription checks returned a rate limit and insufficient transcription permission; neither produced pronunciation evidence. Check the new **mine** /maɪn/ clips and picture/voice alignment on the exact published Preview before approving Production. No human audio approval or device test is claimed here.

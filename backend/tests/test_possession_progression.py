@@ -79,6 +79,12 @@ class PossessionProgressionTests(unittest.TestCase):
             self.assertIn('Yes, this phone is mine.', text)
             self.assertNotIn('Is it yours?', text)
             self.assertNotIn('Yes, it is mine.', text)
+            for card in lesson['cards']:
+                if card['stage'] == 'Learn':
+                    continue
+                for field in ('prompt', 'audio_text', 'answer_audio_text'):
+                    self.assertNotRegex((card.get(field) or '').lower(),
+                        r'^(?:have|has|mine|yours|ours)[.!]?$|\b(?:it|this|that) is (?:mine|yours|ours)\b')
 
 
 if __name__ == '__main__':

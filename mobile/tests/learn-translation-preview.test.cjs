@@ -50,9 +50,9 @@ assert.equal(h.api.learnTranslationPreviewDuration({...card,learn_translation_pr
 const course=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../src/generated/a1-course.json'),'utf8'));
 const lessons=Array.isArray(course)?course:(course.lessons||Object.values(course));
 const units=new Set();let introductions=0;
-for(const lesson of lessons){for(const intro of lesson.cards||[]){if(intro.stage==='Learn'&&intro.options.length===1&&intro.options[0].image_url&&intro.spanish_translation){
+for(const lesson of lessons){for(const intro of lesson.cards||[]){if(intro.stage==='Learn'){
   assert.equal(h.api.learnTranslationPreviewDuration(intro),2000,`${lesson.id}/${intro.slide_id}`);units.add(lesson.unit_id);introductions++;
 }}}
-assert.equal(units.size,7,'Every unit is covered by the default.');assert.ok(introductions>300);
+assert.equal(units.size,new Set(lessons.map(lesson=>lesson.unit_id)).size,'Every unit is covered by the default.');assert.ok(introductions>300);
 h.set({key:'L2:restart',card});h.unmount();
 console.log('Learn translation preview: exact timing, readiness, pause, replay, reset and cleanup passed.');
