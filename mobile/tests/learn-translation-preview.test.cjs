@@ -4,7 +4,7 @@ const path = require('node:path');
 const ts = require('typescript');
 const source = fs.readFileSync(path.resolve(__dirname, '../src/hooks/useLearnTranslationPreview.ts'), 'utf8');
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
-const card = { stage: 'Learn', options: [{ image_url: 'our.webp' }], spanish_translation: 'Nuestro', learn_translation_preview_ms: 1000 };
+const card = { stage: 'Learn', options: [{ image_url: 'our.webp' }], spanish_translation: 'Nuestro', learn_translation_preview_ms: 2000 };
 
 function harness() {
   let now = 0, timerId = 0, cursor = 0, dirty = true, effects = [], value;
@@ -37,12 +37,12 @@ function harness() {
 const h=harness();
 h.tick(5000);assert.equal(h.value.visible,false,'Wait for image, briefing and foreground readiness.');
 h.set({ready:true});assert.equal(h.value.visible,true);
-h.tick(999);assert.equal(h.value.visible,true);h.tick(1);assert.equal(h.value.visible,false,'Hide exactly at one second.');
+h.tick(1999);assert.equal(h.value.visible,true);h.tick(1);assert.equal(h.value.visible,false,'Hide exactly at two seconds.');
 h.set({card:{...card}});h.tick(1);assert.equal(h.value.visible,false,'Rotation and replay rerenders cannot restart.');
 h.set({ready:false});h.set({ready:true});assert.equal(h.value.visible,false,'Exhausted preview stays hidden after help/background.');
 h.set({key:'L2'});assert.equal(h.value.visible,true,'New Learn card gets its own preview.');
 h.tick(300);h.set({ready:false});h.tick(5000);assert.equal(h.value.visible,false);
-h.set({ready:true});h.tick(699);assert.equal(h.value.visible,true);h.tick(1);assert.equal(h.value.visible,false,'Paused time is excluded.');
+h.set({ready:true});h.tick(1699);assert.equal(h.value.visible,true);h.tick(1);assert.equal(h.value.visible,false,'Paused time is excluded.');
 h.set({key:'L1:restart'});h.tick(200);h.set({key:'R1',card:{...card,stage:'Recognize'}});assert.equal(h.value.enabled,false);h.tick(1000);assert.equal(h.value.visible,false);
 for(const invalid of [{...card,stage:'Listen'},{...card,learn_translation_preview_ms:undefined},{...card,spanish_translation:''},{...card,options:[]},{...card,options:[{image_url:''}]}]) assert.equal(h.api.learnTranslationPreviewDuration(invalid),0);
 h.set({key:'L2:restart',card});h.unmount();

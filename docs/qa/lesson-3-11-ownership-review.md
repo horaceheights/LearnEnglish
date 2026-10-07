@@ -7,7 +7,7 @@ The approved correction makes **our** include the speaker and **their** refer to
 | User annotation | Implementation and review |
 | --- | --- |
 | 1. The house needs a third person pointing at the family. | A separate foreground speaker points toward the family and their house. R2 keeps the image-to-word contrast Our / Their. |
-| 2. Show the translation below the Learn word for one second. | L1 shows Nuestro; L2 shows Su (de ellos). An authored 1000 ms preview starts after the picture is loaded and the card is available, then hides without collapsing its space. Manual translation and English replay remain available. |
+| 2. Show the translation below the Learn word for one second. | L1 shows Nuestro; L2 shows Su (de ellos). An authored 2000 ms preview (extended from one second in the user's follow-up) starts after the picture is loaded and the card is available, then hides without collapsing its space. Manual translation and English replay remain available. |
 | 2. The man should point at the car to communicate our. | The speaking owner includes his partner with an arm around her and points to the car; she holds the keys. |
 | 3. The Our image pair is ambiguous; change the distractor. | R1 contrasts speaker-included owners with an outside speaker. Sentence practice contrasts the same object from both ownership perspectives, preventing a car-versus-house shortcut. |
 | 4. Ana's introduces a separate singular ownership form; save it for A1+. | Remove L3 Ana's and replace the old R3 with This is our car. versus This is their car. All subsequent practice stays on our/their. |
@@ -28,7 +28,7 @@ The approved correction makes **our** include the speaker and **their** refer to
 
 The timer waits for image readiness, excludes hidden time, cleans up on navigation, and retains elapsed time during help or background pauses. A new card or a restarted lesson gets a fresh preview. English remains visible throughout. Assessments have no automatic translation.
 
-Automated timer checks cover readiness, 999/1000 ms boundaries, pause/resume, replay/rotation rerenders, navigation and cleanup. Content tests bind the scope, paired media, downstream corrections and plan composition. Normal course, audio, client and protected release checks remain required.
+Automated timer checks cover readiness, 1999/2000 ms boundaries, pause/resume, replay/rotation rerenders, navigation and cleanup. Content tests bind the scope, paired media, downstream corrections and plan composition. Normal course, audio, client and protected release checks remain required.
 
 Agent visual review is recorded separately from human semantic approval. Human review of the exact Preview on a physical phone remains pending, including whether gestures are understood immediately, portrait/landscape fit and enlarged text. This record does not approve Production.
 
