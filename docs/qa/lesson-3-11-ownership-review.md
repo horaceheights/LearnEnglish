@@ -37,3 +37,12 @@ Agent visual review is recorded separately from human semantic approval. Human r
 The source is `docs/product/content-briefs/unit-3/3.11-our-their-and-s.json` (historical filename retained). The shared engine composes `docs/product/content-plans/3.11-ownership-v1.plan.json`; no lesson-specific builder is added. `docs/product/lesson-3-11-ownership-images-v1.json` preserves generation prompts, source/runtime hashes and pending human review status. Exact answer-bank, media and voice contracts accompany the canonical content and mobile exports.
 
 Local interactive browser verification was blocked when the browser tool denied access to the local QA page. No alternate browser route was attempted. Timer execution, production native header layout, web regression checks and protected CI provide the available automated evidence; an actual browser/phone interaction review remains pending.
+
+## Local verification on October 7
+
+- Complete mobile Preview preflight passed, including TypeScript, the interaction suite and an Android production bundle export.
+- All 23 web regression tests passed. An isolated Next production build importing the actual LessonPlayer and exported 3.11 lesson compiled and prerendered successfully.
+- The 572-test backend suite completed after the source archive and voice-pin corrections; its sole remaining inventory failure was checked again after CDN synchronization, when all 13 Cloudflare tests passed.
+- Course practice has no new findings. Preservation verified 981 protected assets with no errors. Voice matching, lesson validation and persistent audio validation passed.
+- Eight new pictures and the required audio objects were uploaded. The catalog contains all 81 lessons and 6386 immutable audio contracts. Audio generation persisted 14 takes across two bounded batches (107 provider-reported characters); existing approved takes were reused. Two historical receipts were recovered byte-for-byte after confirming identical JSON and audio hashes.
+- Protected CI and exact-commit Preview publication are the remaining release gates. Physical-phone and interactive-browser review remain pending as described above.
