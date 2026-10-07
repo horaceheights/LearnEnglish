@@ -13,6 +13,9 @@ function assertNativeExport(outputDirectory) {
     if (!files.bundle || !Array.isArray(files.assets)) {
       throw new Error(`Incomplete ${platform} export metadata.`);
     }
+    if (files.assets.length > 1000) {
+      throw new Error(`${platform} export contains ${files.assets.length} assets; Expo permits at most 1000 per update. Remove unused bundle dependencies before publishing.`);
+    }
     for (const relativePath of [files.bundle, ...files.assets.map(asset => asset.path)]) {
       if (typeof relativePath !== 'string' || !relativePath) throw new Error('Missing export file path.');
       const absolutePath = path.resolve(outputDirectory, relativePath.replace(/\\/g, '/'));

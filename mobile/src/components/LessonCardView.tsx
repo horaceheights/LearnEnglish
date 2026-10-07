@@ -1,7 +1,7 @@
 import { Animated, Easing, PanResponder, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
