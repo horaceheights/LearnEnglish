@@ -61701,7 +61701,7 @@
       "U7",
       "U8"
     ],
-    "content_revision": 4,
+    "content_revision": 5,
     "cards": [
       {
         "slide_id": "L1",
@@ -62098,8 +62098,7 @@
       {
         "slide_id": "R1",
         "interaction_type": "t2i2",
-        "prompt": "What are you doing?\nI am reading.",
-        "prompt_presentation": "written",
+        "prompt": "I am reading.",
         "stage": "Recognize",
         "correct_option_id": "i-am-reading-r1",
         "options": [
@@ -62114,48 +62113,36 @@
             "label": null
           }
         ],
-        "audio_text": "What are you doing? I am reading.",
+        "audio_text": "I am reading.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1s haciendo? Estoy leyendo.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "Estoy leyendo.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "ana",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "What are you doing?",
-            "speaker_role": "luis",
-            "image_url": "/lesson-assets/a1_u3_l33_v1_reading_question.webp"
-          },
-          {
-            "text": "I am reading.",
-            "speaker_role": "ana",
-            "image_url": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-3-3-am-is-and-are-c009-prompt-turn-1-2ac5d67fb6ca1f9c8760",
-            "purpose": "prompt-turn-1",
-            "text": "What are you doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_u3_l33_v1_reading_question.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-3-3-am-is-and-are-c009-prompt-turn-2-89b28812bcfae9d24f13",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-3-3-am-is-and-are-c009-prompt-df3322d188e97923c6c2",
+            "purpose": "prompt",
             "text": "I am reading.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp",
             "semantic_role": "teacher",
+            "speaker_role": "ana",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-3-3-am-is-and-are-c009-answer-4882789bca1e0e3dd289",
+            "purpose": "answer",
+            "text": "I am reading.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp",
+            "semantic_role": "answer",
             "speaker_role": "ana",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -62165,7 +62152,7 @@
       {
         "slide_id": "R2",
         "interaction_type": "i2t2",
-        "prompt": "What are you doing?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "i-am-reading-r2",
         "options": [
@@ -62180,28 +62167,16 @@
             "label": "I am reading."
           }
         ],
-        "audio_text": "What are you doing?",
+        "audio_text": "",
         "answer_audio_text": "I am reading.",
         "prompt_image_url": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1s haciendo?",
-        "pedagogy_note": "Story beat 02: I am reading.",
-        "audio_speaker": "luis",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "ana",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-3-3-am-is-and-are-c010-prompt-36353519117feaf92c9c",
-            "purpose": "prompt",
-            "text": "What are you doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-3-3-am-is-and-are-c010-answer-63dba0d73b6005dd7073",
             "purpose": "answer",
@@ -62219,8 +62194,7 @@
       {
         "slide_id": "R3",
         "interaction_type": "t2i2",
-        "prompt": "What is she doing?\nShe is cooking.",
-        "prompt_presentation": "written",
+        "prompt": "She is cooking.",
         "stage": "Recognize",
         "correct_option_id": "she-is-cooking-r3",
         "options": [
@@ -62235,48 +62209,36 @@
             "label": null
           }
         ],
-        "audio_text": "What is she doing? She is cooking.",
+        "audio_text": "She is cooking.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1 haciendo ella? Ella est\u00e1 cocinando.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "Ella est\u00e1 cocinando.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "co-teacher",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "What is she doing?",
-            "speaker_role": "teacher",
-            "image_url": "/lesson-assets/family_mother_cooking.webp"
-          },
-          {
-            "text": "She is cooking.",
-            "speaker_role": "co-teacher",
-            "image_url": "/lesson-assets/family_mother_cooking.webp"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-3-3-am-is-and-are-c011-prompt-turn-1-15bd680b74d1b1bc5bbd",
-            "purpose": "prompt-turn-1",
-            "text": "What is she doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/family_mother_cooking.webp",
-            "semantic_role": "question",
-            "speaker_role": "teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-3-3-am-is-and-are-c011-prompt-turn-2-e5dd0f362c0d89fe9570",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-3-3-am-is-and-are-c011-prompt-5e9c955747ffc8a36081",
+            "purpose": "prompt",
             "text": "She is cooking.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/family_mother_cooking.webp",
             "semantic_role": "teacher",
+            "speaker_role": "co-teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-3-3-am-is-and-are-c011-answer-f5c9a780545ca6744c4f",
+            "purpose": "answer",
+            "text": "She is cooking.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/family_mother_cooking.webp",
+            "semantic_role": "answer",
             "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -62286,7 +62248,7 @@
       {
         "slide_id": "R4",
         "interaction_type": "i2t2",
-        "prompt": "What is she doing?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "she-is-cooking-r4",
         "options": [
@@ -62301,28 +62263,16 @@
             "label": "She is cooking."
           }
         ],
-        "audio_text": "What is she doing?",
+        "audio_text": "",
         "answer_audio_text": "She is cooking.",
         "prompt_image_url": "/lesson-assets/family_mother_cooking.webp",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1 haciendo ella?",
-        "pedagogy_note": "Story beat 04: She is cooking.",
-        "audio_speaker": "co-teacher",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "co-teacher",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-3-3-am-is-and-are-c012-prompt-95a3b6c2b2933c6af965",
-            "purpose": "prompt",
-            "text": "What is she doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/family_mother_cooking.webp",
-            "semantic_role": "question",
-            "speaker_role": "co-teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-3-3-am-is-and-are-c012-answer-01415db015ea8e2f195b",
             "purpose": "answer",
@@ -62340,8 +62290,7 @@
       {
         "slide_id": "R5",
         "interaction_type": "t2i2",
-        "prompt": "What is he doing?\nHe is sleeping.",
-        "prompt_presentation": "written",
+        "prompt": "He is sleeping.",
         "stage": "Recognize",
         "correct_option_id": "he-is-sleeping-r5",
         "options": [
@@ -62356,48 +62305,36 @@
             "label": null
           }
         ],
-        "audio_text": "What is he doing? He is sleeping.",
+        "audio_text": "He is sleeping.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1 haciendo \u00e9l? \u00c9l est\u00e1 durmiendo.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "\u00c9l est\u00e1 durmiendo.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "co-teacher",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "What is he doing?",
-            "speaker_role": "teacher",
-            "image_url": "/lesson-assets/boy_is_sleeping.webp"
-          },
-          {
-            "text": "He is sleeping.",
-            "speaker_role": "co-teacher",
-            "image_url": "/lesson-assets/boy_is_sleeping.webp"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-3-3-am-is-and-are-c013-prompt-turn-1-f18c5c7fbf7e6b1a1939",
-            "purpose": "prompt-turn-1",
-            "text": "What is he doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/boy_is_sleeping.webp",
-            "semantic_role": "question",
-            "speaker_role": "teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-3-3-am-is-and-are-c013-prompt-turn-2-516f2c7dc630bc7b04dc",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-3-3-am-is-and-are-c013-prompt-d9c8c5a6e1cad9587e9f",
+            "purpose": "prompt",
             "text": "He is sleeping.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/boy_is_sleeping.webp",
             "semantic_role": "teacher",
+            "speaker_role": "co-teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-3-3-am-is-and-are-c013-answer-a9af344cc1fb263c4527",
+            "purpose": "answer",
+            "text": "He is sleeping.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/boy_is_sleeping.webp",
+            "semantic_role": "answer",
             "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -62407,7 +62344,7 @@
       {
         "slide_id": "R6",
         "interaction_type": "i2t3",
-        "prompt": "What is he doing?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "he-is-sleeping-r6",
         "options": [
@@ -62427,28 +62364,16 @@
             "label": "He is eating."
           }
         ],
-        "audio_text": "What is he doing?",
+        "audio_text": "",
         "answer_audio_text": "He is sleeping.",
         "prompt_image_url": "/lesson-assets/boy_is_sleeping.webp",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1 haciendo \u00e9l?",
-        "pedagogy_note": "Story beat 06: He is sleeping.",
-        "audio_speaker": "co-teacher",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "co-teacher",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-3-3-am-is-and-are-c014-prompt-92a5295ab176284f8998",
-            "purpose": "prompt",
-            "text": "What is he doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/boy_is_sleeping.webp",
-            "semantic_role": "question",
-            "speaker_role": "co-teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-3-3-am-is-and-are-c014-answer-1426d9eaf4fc234c6bd2",
             "purpose": "answer",
@@ -62466,8 +62391,7 @@
       {
         "slide_id": "R7",
         "interaction_type": "t2i2",
-        "prompt": "What are they doing?\nThey are running.",
-        "prompt_presentation": "written",
+        "prompt": "They are running.",
         "stage": "Recognize",
         "correct_option_id": "they-are-running-r7",
         "options": [
@@ -62482,48 +62406,36 @@
             "label": null
           }
         ],
-        "audio_text": "What are they doing? They are running.",
+        "audio_text": "They are running.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1n haciendo ellos? Ellos est\u00e1n corriendo.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "Ellos est\u00e1n corriendo.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "co-teacher",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "What are they doing?",
-            "speaker_role": "teacher",
-            "image_url": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1"
-          },
-          {
-            "text": "They are running.",
-            "speaker_role": "co-teacher",
-            "image_url": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-3-3-am-is-and-are-c015-prompt-turn-1-4526a13726b369a848ee",
-            "purpose": "prompt-turn-1",
-            "text": "What are they doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
-            "semantic_role": "question",
-            "speaker_role": "teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-3-3-am-is-and-are-c015-prompt-turn-2-2e55c5278db0ea2855a2",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-3-3-am-is-and-are-c015-prompt-5572418cf49b82ccf6b8",
+            "purpose": "prompt",
             "text": "They are running.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
             "semantic_role": "teacher",
+            "speaker_role": "co-teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-3-3-am-is-and-are-c015-answer-851ee93f894a88a27961",
+            "purpose": "answer",
+            "text": "They are running.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
+            "semantic_role": "answer",
             "speaker_role": "co-teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -62533,7 +62445,7 @@
       {
         "slide_id": "R8",
         "interaction_type": "i2t3",
-        "prompt": "What are they doing?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "they-are-running-r8",
         "options": [
@@ -62553,28 +62465,16 @@
             "label": "They are playing."
           }
         ],
-        "audio_text": "What are they doing?",
+        "audio_text": "",
         "answer_audio_text": "They are running.",
         "prompt_image_url": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
-        "spanish_translation": "\u00bfQu\u00e9 est\u00e1n haciendo ellos?",
-        "pedagogy_note": "Story beat 08: They are running.",
-        "audio_speaker": "co-teacher",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "co-teacher",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-3-3-am-is-and-are-c016-prompt-898fa77c7f2a48002820",
-            "purpose": "prompt",
-            "text": "What are they doing?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
-            "semantic_role": "question",
-            "speaker_role": "co-teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-3-3-am-is-and-are-c016-answer-0c82c8d2819bb019831e",
             "purpose": "answer",
@@ -62661,36 +62561,48 @@
             "label": null
           }
         ],
-        "audio_text": "I am cooking.",
+        "audio_text": "What are you doing? I am cooking.",
         "answer_audio_text": null,
         "prompt_image_url": "",
         "spanish_translation": "Escucha y elige.",
-        "pedagogy_note": "Story beat 02: I am cooking.",
-        "audio_speaker": "luis",
+        "pedagogy_note": "Hear the already-taught question and its reply, then select the cooking scene. This preserves question practice after Reconoce returns to the Lesson 1.1 visual template.",
+        "audio_speaker": null,
         "answer_audio_speaker": null,
+        "audio_turns": [
+          {
+            "text": "What are you doing?",
+            "speaker_role": "ana",
+            "image_url": "/lesson-assets/a1_u3_l33_cooking_question_v1.webp"
+          },
+          {
+            "text": "I am cooking.",
+            "speaker_role": "luis",
+            "image_url": "/lesson-assets/a1_u3_l33_cooking_answer_v1.webp"
+          }
+        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-3-3-am-is-and-are-c018-prompt-e591832a8630cd446111",
-            "purpose": "prompt",
+            "id": "lesson-3-3-am-is-and-are-c018-prompt-turn-1-8c4ecd78c47268148d00",
+            "purpose": "prompt-turn-1",
+            "text": "What are you doing?",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "/lesson-assets/a1_u3_l33_cooking_question_v1.webp",
+            "semantic_role": "question",
+            "speaker_role": "ana",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-3-3-am-is-and-are-c018-prompt-turn-2-ccc82c9e02cbf1b61536",
+            "purpose": "prompt-turn-2",
             "text": "I am cooking.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u3_l33_cooking_answer_v1.webp",
             "semantic_role": "teacher",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-3-3-am-is-and-are-c018-answer-a556ecc3f0afb1f7bc5e",
-            "purpose": "answer",
-            "text": "I am cooking.",
-            "mode": "prompt",
-            "variant": "answer",
-            "image_ref": "/lesson-assets/a1_u3_l33_cooking_answer_v1.webp",
-            "semantic_role": "answer",
             "speaker_role": "luis",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -107190,7 +107102,7 @@
       "U7",
       "U8"
     ],
-    "content_revision": 3,
+    "content_revision": 4,
     "cards": [
       {
         "slide_id": "L1",
@@ -107587,8 +107499,7 @@
       {
         "slide_id": "R1",
         "interaction_type": "t2i2",
-        "prompt": "Do you work?\nYes, I do.",
-        "prompt_presentation": "written",
+        "prompt": "Yes, I do.",
         "stage": "Recognize",
         "correct_option_id": "yes-i-do-r1",
         "options": [
@@ -107603,48 +107514,36 @@
             "label": null
           }
         ],
-        "audio_text": "Do you work? Yes, I do.",
+        "audio_text": "Yes, I do.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfTrabajas? S\u00ed.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "S\u00ed.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "ana",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "Do you work?",
-            "speaker_role": "luis",
-            "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-          },
-          {
-            "text": "Yes, I do.",
-            "speaker_role": "ana",
-            "image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-4-do-you-questions-c009-prompt-turn-1-52cec0b64ab908f15b9d",
-            "purpose": "prompt-turn-1",
-            "text": "Do you work?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-4-do-you-questions-c009-prompt-turn-2-b0461b5efb6c99803ea8",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-4-do-you-questions-c009-prompt-a361dbf0917a945d46f6",
+            "purpose": "prompt",
             "text": "Yes, I do.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
             "semantic_role": "teacher",
+            "speaker_role": "ana",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-4-do-you-questions-c009-answer-fd5afa05d4076040f555",
+            "purpose": "answer",
+            "text": "Yes, I do.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
+            "semantic_role": "answer",
             "speaker_role": "ana",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -107654,7 +107553,7 @@
       {
         "slide_id": "R2",
         "interaction_type": "i2t2",
-        "prompt": "Do you work?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "yes-i-do-r2",
         "options": [
@@ -107669,28 +107568,16 @@
             "label": "Yes, I do."
           }
         ],
-        "audio_text": "Do you work?",
+        "audio_text": "",
         "answer_audio_text": "Yes, I do.",
         "prompt_image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-        "spanish_translation": "\u00bfTrabajas?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "luis",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "ana",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-do-you-questions-c010-prompt-a03c4472febab7d044ee",
-            "purpose": "prompt",
-            "text": "Do you work?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-do-you-questions-c010-answer-0fc45ecc851705b6a60e",
             "purpose": "answer",
@@ -107708,8 +107595,7 @@
       {
         "slide_id": "R3",
         "interaction_type": "t2i2",
-        "prompt": "Do you study?\nNo, I do not.",
-        "prompt_presentation": "written",
+        "prompt": "No, I do not.",
         "stage": "Recognize",
         "correct_option_id": "no-i-do-not-r3",
         "options": [
@@ -107724,48 +107610,36 @@
             "label": null
           }
         ],
-        "audio_text": "Do you study? No, I do not.",
+        "audio_text": "No, I do not.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfEstudias? No.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "No.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "ana",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "Do you study?",
-            "speaker_role": "luis",
-            "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-          },
-          {
-            "text": "No, I do not.",
-            "speaker_role": "ana",
-            "image_url": "/lesson-assets/a1_recognize_ana_no_v1.webp"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-4-do-you-questions-c011-prompt-turn-1-723f9e22aa09174d1e3d",
-            "purpose": "prompt-turn-1",
-            "text": "Do you study?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-4-do-you-questions-c011-prompt-turn-2-cddfaa818aa238159b00",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-4-do-you-questions-c011-prompt-32f941a8d7fb7408bdbe",
+            "purpose": "prompt",
             "text": "No, I do not.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_recognize_ana_no_v1.webp",
             "semantic_role": "teacher",
+            "speaker_role": "ana",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-4-do-you-questions-c011-answer-df2cf1501805cda3f4a0",
+            "purpose": "answer",
+            "text": "No, I do not.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_recognize_ana_no_v1.webp",
+            "semantic_role": "answer",
             "speaker_role": "ana",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -107775,7 +107649,7 @@
       {
         "slide_id": "R4",
         "interaction_type": "i2t2",
-        "prompt": "Do you study?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "no-i-do-not-r4",
         "options": [
@@ -107790,28 +107664,16 @@
             "label": "No, I do not."
           }
         ],
-        "audio_text": "Do you study?",
+        "audio_text": "",
         "answer_audio_text": "No, I do not.",
         "prompt_image_url": "/lesson-assets/a1_recognize_ana_no_v1.webp",
-        "spanish_translation": "\u00bfEstudias?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "luis",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "ana",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-do-you-questions-c012-prompt-866811ce39147be4de31",
-            "purpose": "prompt",
-            "text": "Do you study?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_recognize_ana_no_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-do-you-questions-c012-answer-82a86633e05ccbc5bf93",
             "purpose": "answer",
@@ -107829,8 +107691,7 @@
       {
         "slide_id": "R5",
         "interaction_type": "t2i2",
-        "prompt": "Do you play in the park?\nYes, I do.",
-        "prompt_presentation": "written",
+        "prompt": "Yes, I do.",
         "stage": "Recognize",
         "correct_option_id": "yes-i-do-r5",
         "options": [
@@ -107845,48 +107706,36 @@
             "label": null
           }
         ],
-        "audio_text": "Do you play in the park? Yes, I do.",
+        "audio_text": "Yes, I do.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfJuegas en el parque? S\u00ed.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "S\u00ed.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "ana",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "Do you play in the park?",
-            "speaker_role": "luis",
-            "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-          },
-          {
-            "text": "Yes, I do.",
-            "speaker_role": "ana",
-            "image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-4-do-you-questions-c013-prompt-turn-1-070536c6b19739777fa5",
-            "purpose": "prompt-turn-1",
-            "text": "Do you play in the park?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-4-do-you-questions-c013-prompt-turn-2-390492ff4feddd68a544",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-4-do-you-questions-c013-prompt-09a22c34079f372e3441",
+            "purpose": "prompt",
             "text": "Yes, I do.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
             "semantic_role": "teacher",
+            "speaker_role": "ana",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-4-do-you-questions-c013-answer-3f1923adf2ba1eb26d71",
+            "purpose": "answer",
+            "text": "Yes, I do.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
+            "semantic_role": "answer",
             "speaker_role": "ana",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -107896,7 +107745,7 @@
       {
         "slide_id": "R6",
         "interaction_type": "i2t2",
-        "prompt": "Do you play in the park?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "yes-i-do-r6",
         "options": [
@@ -107911,28 +107760,16 @@
             "label": "Yes, I do."
           }
         ],
-        "audio_text": "Do you play in the park?",
+        "audio_text": "",
         "answer_audio_text": "Yes, I do.",
         "prompt_image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-        "spanish_translation": "\u00bfJuegas en el parque?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "luis",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "ana",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-do-you-questions-c014-prompt-9e15d372ae56ef03b380",
-            "purpose": "prompt",
-            "text": "Do you play in the park?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-do-you-questions-c014-answer-c3603bfddca3d8982b34",
             "purpose": "answer",
@@ -107950,8 +107787,7 @@
       {
         "slide_id": "R9",
         "interaction_type": "t2i2",
-        "prompt": "Do you study in the park?\nNo, I do not.",
-        "prompt_presentation": "written",
+        "prompt": "No, I do not.",
         "stage": "Recognize",
         "correct_option_id": "no-i-do-not-r9",
         "options": [
@@ -107966,48 +107802,36 @@
             "label": null
           }
         ],
-        "audio_text": "Do you study in the park? No, I do not.",
+        "audio_text": "No, I do not.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00bfEstudias en el parque? No.",
-        "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
-        "audio_speaker": null,
+        "spanish_translation": "No.",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": "ana",
         "answer_audio_speaker": null,
-        "audio_turns": [
-          {
-            "text": "Do you study in the park?",
-            "speaker_role": "luis",
-            "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-          },
-          {
-            "text": "No, I do not.",
-            "speaker_role": "ana",
-            "image_url": "/lesson-assets/a1_recognize_ana_no_v1.webp"
-          }
-        ],
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-4-do-you-questions-c015-prompt-turn-1-6affc1e3dc8c5667791b",
-            "purpose": "prompt-turn-1",
-            "text": "Do you study in the park?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-4-do-you-questions-c015-prompt-turn-2-046ee0d7f741dbf80986",
-            "purpose": "prompt-turn-2",
+            "id": "lesson-4-do-you-questions-c015-prompt-cab8ec351565b7beacde",
+            "purpose": "prompt",
             "text": "No, I do not.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_recognize_ana_no_v1.webp",
             "semantic_role": "teacher",
+            "speaker_role": "ana",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-4-do-you-questions-c015-answer-2e82988a1d681e48369d",
+            "purpose": "answer",
+            "text": "No, I do not.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_recognize_ana_no_v1.webp",
+            "semantic_role": "answer",
             "speaker_role": "ana",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
@@ -108017,7 +107841,7 @@
       {
         "slide_id": "R10",
         "interaction_type": "i2t2",
-        "prompt": "Do you study in the park?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "no-i-do-not-r10",
         "options": [
@@ -108032,28 +107856,16 @@
             "label": "No, I do not."
           }
         ],
-        "audio_text": "Do you study in the park?",
+        "audio_text": "",
         "answer_audio_text": "No, I do not.",
         "prompt_image_url": "/lesson-assets/a1_recognize_ana_no_v1.webp",
-        "spanish_translation": "\u00bfEstudias en el parque?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "luis",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "ana",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-do-you-questions-c016-prompt-23bfa9f1c752fa84d5d6",
-            "purpose": "prompt",
-            "text": "Do you study in the park?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_recognize_ana_no_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "luis",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-do-you-questions-c016-answer-8ab5af92a04be76bc926",
             "purpose": "answer",
@@ -116052,7 +115864,7 @@
       "U7",
       "U8"
     ],
-    "content_revision": 6,
+    "content_revision": 7,
     "cards": [
       {
         "slide_id": "L1",
@@ -116783,7 +116595,7 @@
       {
         "slide_id": "R7",
         "interaction_type": "i2t2",
-        "prompt": "Do you clean the table?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "yes-i-do-r7",
         "options": [
@@ -116798,28 +116610,16 @@
             "label": "No, I do not."
           }
         ],
-        "audio_text": "Do you clean the table?",
+        "audio_text": "",
         "answer_audio_text": "Yes, I do.",
         "prompt_image_url": "/lesson-assets/a1_recognize_review_yes_v1.webp",
-        "spanish_translation": "\u00bfLimpias la mesa?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "female-character",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "male-character",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-9-unit-4-review-c015-prompt-21dce80b20342ffe0854",
-            "purpose": "prompt",
-            "text": "Do you clean the table?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_recognize_review_yes_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "female-character",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-9-unit-4-review-c015-answer-f3492cf20a8b16054d2a",
             "purpose": "answer",
@@ -116837,7 +116637,7 @@
       {
         "slide_id": "R8",
         "interaction_type": "i2t2",
-        "prompt": "Do you wash your clothes?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "no-i-do-not-r8",
         "options": [
@@ -116852,28 +116652,16 @@
             "label": "No, I do not."
           }
         ],
-        "audio_text": "Do you wash your clothes?",
+        "audio_text": "",
         "answer_audio_text": "No, I do not.",
         "prompt_image_url": "/lesson-assets/a1_recognize_review_no_v1.webp",
-        "spanish_translation": "\u00bfLavas tu ropa?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "male-character",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "female-character",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-9-unit-4-review-c016-prompt-cb9a84e97945d1a4d7f9",
-            "purpose": "prompt",
-            "text": "Do you wash your clothes?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_recognize_review_no_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "male-character",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-9-unit-4-review-c016-answer-c827e42a7ed2ee0453dc",
             "purpose": "answer",
@@ -116891,7 +116679,7 @@
       {
         "slide_id": "R9",
         "interaction_type": "i2t2",
-        "prompt": "What day is it today?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "today-is-monday-r9",
         "options": [
@@ -116906,28 +116694,16 @@
             "label": "Today is Thursday."
           }
         ],
-        "audio_text": "What day is it today?",
+        "audio_text": "",
         "answer_audio_text": "Today is Monday.",
         "prompt_image_url": "/lesson-assets/a1_recognize_review_monday_v1.webp",
-        "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "male-character",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "female-character",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-9-unit-4-review-c017-prompt-5956a64d1906e9f1d623",
-            "purpose": "prompt",
-            "text": "What day is it today?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_recognize_review_monday_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "male-character",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-9-unit-4-review-c017-answer-ed4bcbed3338e15e64e8",
             "purpose": "answer",
@@ -116945,7 +116721,7 @@
       {
         "slide_id": "R10",
         "interaction_type": "i2t3",
-        "prompt": "What day is it today?",
+        "prompt": "",
         "stage": "Recognize",
         "correct_option_id": "today-is-thursday-r10",
         "options": [
@@ -116965,28 +116741,16 @@
             "label": "Today is Saturday."
           }
         ],
-        "audio_text": "What day is it today?",
+        "audio_text": "",
         "answer_audio_text": "Today is Thursday.",
         "prompt_image_url": "/lesson-assets/a1_recognize_review_thursday_v1.webp",
-        "spanish_translation": "\u00bfQu\u00e9 d\u00eda es hoy?",
-        "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
-        "audio_speaker": "male-character",
+        "spanish_translation": "\u00a1Elige la frase que corresponde a la imagen!",
+        "pedagogy_note": "Lesson 1.1 recognition template: one phrase to image choices, or one image to phrase choices; pronounce only the visible phrase or the selected correct answer.",
+        "audio_speaker": null,
         "answer_audio_speaker": "female-character",
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
-          {
-            "id": "lesson-4-9-unit-4-review-c018-prompt-adbbc4b0f6d085f5a942",
-            "purpose": "prompt",
-            "text": "What day is it today?",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_recognize_review_thursday_v1.webp",
-            "semantic_role": "question",
-            "speaker_role": "male-character",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
           {
             "id": "lesson-4-9-unit-4-review-c018-answer-b1b46b32d061fe7fbeef",
             "purpose": "answer",

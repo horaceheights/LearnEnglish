@@ -20,7 +20,7 @@ class ActionQuestionSequenceTests(unittest.TestCase):
         self.standards = load_standards(ROOT, 'a1')
         self.lesson = compose_lesson(propose_lesson(self.brief, self.standards)[0])
 
-    def test_each_stage_preserves_four_adjacent_exchanges_and_all_familiar_actions(self):
+    def test_each_stage_preserves_perspective_order_and_all_familiar_actions(self):
         actions = set()
         for stage in ('Learn', 'Recognize', 'Listen', 'Speak', 'Use'):
             cards = [card for card in self.lesson['cards'] if card['stage'] == stage]
@@ -28,12 +28,12 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             for index, question in enumerate(QUESTIONS):
                 q, answer = cards[index * 2:index * 2 + 2]
                 if stage == 'Recognize':
-                    self.assertEqual(q['audio_turns'][0]['text'], question)
-                    self.assertTrue(q['prompt'].startswith(question))
-                    self.assertEqual(q['audio_turns'][1]['text'], answer['answer_audio_text'])
+                    self.assertEqual(q['prompt'], answer['answer_audio_text'])
+                    self.assertEqual(q['audio_text'], q['prompt'])
+                    self.assertEqual(answer['prompt'], '')
                 else:
                     self.assertEqual(q['audio_text'], question)
-                line = answer.get('answer_audio_text') or answer['audio_text']
+                line = (answer.get('audio_turns') or [{}])[-1].get('text') or answer.get('answer_audio_text') or answer['audio_text']
                 subject = ['I am', 'She is', 'He is', 'They are'][index]
                 self.assertRegex(line, '^' + subject + r' \w+ing\.$')
                 actions.add(line.split()[-1].rstrip('.'))
@@ -52,7 +52,7 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             self.assertIsNone(card['answer_audio_text'])
             self.assertTrue(all(not option['image_url'] for option in card['options']))
 
-    def test_recognize_alternates_visible_exchange_and_pictured_response(self):
+    def test_recognize_alternates_single_phrase_and_pictured_response(self):
         cards = [c for c in self.lesson['cards'] if c['stage'] == 'Recognize']
         for question, answer in zip(cards[::2], cards[1::2]):
             self.assertTrue(question['interaction_type'].startswith('t2i'))
@@ -60,6 +60,14 @@ class ActionQuestionSequenceTests(unittest.TestCase):
             self.assertTrue(answer['interaction_type'].startswith('i2t'))
             self.assertTrue(answer['prompt_image_url'])
             self.assertNotIn(answer['answer_audio_text'], answer['audio_text'])
+
+    def test_listening_reply_preserves_question_practice_without_a_visible_answer(self):
+        card = next(c for c in self.lesson['cards'] if c['slide_id'] == 'A2')
+        self.assertEqual(card['interaction_type'], 'a2i2')
+        self.assertEqual([t['text'] for t in card['audio_turns']], ['What are you doing?', 'I am cooking.'])
+        self.assertEqual([t['speaker_role'] for t in card['audio_turns']], ['ana', 'luis'])
+        self.assertEqual(card['prompt_image_url'], '')
+        self.assertEqual(card['prompt'], 'Listen and choose.')
 
     def test_reused_stills_do_not_activate_legacy_videos_with_blurred_side_panels(self):
         from scripts.audit_action_video_bindings import video_map

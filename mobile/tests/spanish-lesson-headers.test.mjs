@@ -39,7 +39,7 @@ test('an empty Recognize prompt asks for the word or the phrase in Spanish', () 
     'A boy', 'authored English content stays as the lesson wrote it');
 });
 
-test('Recognize keeps visual matching, including the four written current-action exchanges', () => {
+test('Recognize keeps visual matching with Lesson 1.1 phrase and picture prompts', () => {
   for (const lesson of course.filter(item => item.experience_type !== 'mission')) {
     assert.ok(lesson.cards.filter(card => card.stage === 'Recognize')
       .every(card => !card.interaction_type.startsWith('a2')), `${lesson.id}: audio discrimination belongs in Listen.`);
@@ -48,9 +48,16 @@ test('Recognize keeps visual matching, including the four written current-action
   const exchanges = lesson.cards.filter(item => item.stage === 'Recognize' && item.interaction_type.startsWith('t2i'));
   assert.equal(exchanges.length, 4);
   for (const card of exchanges) {
-    assert.equal(card.prompt_presentation, 'written');
-    assert.match(card.prompt, /^What (are|is) .+ doing\?\n.+\.$/);
+    assert.ok(!card.prompt_presentation);
+    assert.match(card.prompt, /^(I am|She is|He is|They are) \w+ing\.$/);
+    assert.equal(card.audio_text, card.prompt);
     assert.equal(instructions.lessonHeaderPromptText(lesson.id, card.stage, card.prompt, card.options), card.prompt);
     assert.ok(card.options.every(option => option.image_url && !option.label));
+  }
+  for (const card of lesson.cards.filter(c => c.stage === 'Recognize' && c.interaction_type.startsWith('i2t'))) {
+    assert.equal(card.prompt, '');
+    assert.equal(card.audio_text, '');
+    assert.equal(instructions.lessonHeaderPromptText(lesson.id, card.stage, card.prompt, card.options),
+      '¡Elige la frase que corresponde a la imagen!');
   }
 });

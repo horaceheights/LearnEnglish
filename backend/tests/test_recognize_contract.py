@@ -34,16 +34,45 @@ class RecognizeContractTests(unittest.TestCase):
         card['prompt_image_url'] = ''
         self.assertTrue(any('one image' in e for e in recognize_errors(lesson)))
 
-    def test_complete_written_exchange_can_select_photos(self):
+    def test_one_visible_phrase_can_select_photos(self):
         lesson = self.lesson()
         card = lesson['cards'][0]
-        card.update(interaction_type='t2i2', prompt='What is she doing?\nShe is reading.', prompt_image_url='')
+        card.update(interaction_type='t2i2', prompt='She is reading.', prompt_image_url='')
         for option in card['options']:
             option['image_url'] = option['id'] + '.webp'
             option['label'] = None
         self.assertEqual(recognize_errors(lesson), [])
         card['prompt'] = '¡Escucha y elige!'
         self.assertTrue(recognize_errors(lesson))
+
+    def test_corrected_sections_reuse_the_lesson_1_1_template(self):
+        from backend.app.data import LESSONS
+        scope = {
+            'lesson-3-3-am-is-and-are': {'R1','R2','R3','R4','R5','R6','R7','R8'},
+            'lesson-4-do-you-questions': {'R1','R2','R3','R4','R5','R6','R9','R10'},
+            'lesson-4-9-unit-4-review': {'R7','R8','R9','R10'},
+            'lesson-4-what-time-is-it': {'R1'},
+            'lesson-5-drinks': {'R9'},
+        }
+        for lesson_id, slides in scope.items():
+            cards = [c.model_dump(mode='json') for c in LESSONS[lesson_id].cards if c.slide_id in slides]
+            self.assertEqual(len(cards), len(slides))
+            for card in cards:
+                with self.subTest(lesson=lesson_id, slide=card['slide_id']):
+                    self.assertIsNone(card.get('prompt_presentation'))
+                    self.assertFalse(card.get('audio_turns'))
+                    if card['interaction_type'].startswith('t2i'):
+                        self.assertNotIn('?', card['prompt'])
+                        self.assertNotIn('\n', card['prompt'])
+                        self.assertEqual(card['audio_text'], card['prompt'])
+                        self.assertFalse(card.get('prompt_image_url'))
+                        self.assertTrue(all(o['image_url'] and not o.get('label') for o in card['options']))
+                    else:
+                        self.assertEqual(card['prompt'], '')
+                        self.assertFalse(card['audio_text'])
+                        self.assertTrue(card['prompt_image_url'])
+                        answer = next(o['label'] for o in card['options'] if o['id'] == card['correct_option_id'])
+                        self.assertEqual(card['answer_audio_text'], answer)
 
     def test_mission_metadata_keeps_its_separate_contract(self):
         lesson = self.lesson()

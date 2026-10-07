@@ -40,9 +40,9 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('answer_audio_speaker', 'ana', 'R2 U1'),
         ('answer_audio_speaker', 'co-teacher', 'R4 R6 R8 U4 U6 U8'),
         ('answer_audio_speaker', 'luis', 'U2'),
-        ('audio_speaker', 'ana', 'L1 A1 S1 U1'),
-        ('audio_speaker', 'co-teacher', 'L4 L6 L8 R4 R6 R8 A4 A6 A8 S4 S6 S8 U4 U6 U8'),
-        ('audio_speaker', 'luis', 'L2 R2 A2 S2 U2'),
+        ('audio_speaker', 'ana', 'L1 R1 A1 S1 U1'),
+        ('audio_speaker', 'co-teacher', 'L4 L6 L8 R3 R5 R7 A4 A6 A8 S4 S6 S8 U4 U6 U8'),
+        ('audio_speaker', 'luis', 'L2 S2 U2'),
     ],
     "lesson-3-yes-no-questions": [
         ("audio_speaker", "ana", "L1 R1 A1 U8"),
@@ -169,8 +169,8 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     "lesson-4-do-you-questions": [
         ('answer_audio_speaker', 'ana', 'R2 R4 R6 R10 U2 U4 U6 U8'),
         ('answer_audio_speaker', 'luis', 'U1 U3 U5 U7'),
-        ('audio_speaker', 'ana', 'L2 L4 L6 L8 S2 S4 S6 S8 U2 U4 U6 U8'),
-        ('audio_speaker', 'luis', 'L1 L3 L5 L7 R2 R4 R6 R10 S1 S3 S5 S7 U1 U3 U5 U7'),
+        ('audio_speaker', 'ana', 'L2 L4 L6 L8 R1 R3 R5 R9 S2 S4 S6 S8 U2 U4 U6 U8'),
+        ('audio_speaker', 'luis', 'L1 L3 L5 L7 S1 S3 S5 S7 U1 U3 U5 U7'),
     ],
     "lesson-4-8-days-and-time": [
         ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 U2 U4 U6'),
@@ -195,8 +195,8 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('answer_audio_speaker', 'male-character', 'R7 A12 A14 S3 U1 U4 U6 U8'),
         ('answer_audio_speaker', 'teacher', 'U2'),
         ('audio_speaker', 'co-teacher', 'L2 L5 R2 R4 A1 A3 A5 A11'),
-        ('audio_speaker', 'female-character', 'R5 R7 U3 U5 U7'),
-        ('audio_speaker', 'male-character', 'L4 L6 R3 R6 R8 R9 R10 A7 A8 A9 A10 S5 U1 U4 U6 U8'),
+        ('audio_speaker', 'female-character', 'R5 U3 U5 U7'),
+        ('audio_speaker', 'male-character', 'L4 L6 R3 R6 A7 A8 A9 A10 S5 U1 U4 U6 U8'),
         ('audio_speaker', 'teacher', 'U2'),
     ],
     # Unit 5 was rebuilt through the content engine on 2026-09-26: each brief names who says
