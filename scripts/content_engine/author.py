@@ -397,6 +397,8 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
             # A Learn take that was replaced keeps its bumped revision, so the rejected
             # asset never comes back from a cache (Lesson 3.1 "Hello." is revision 2).
             learn["audio_revision"] = learn["answer_audio_revision"] = int(item["learn_revision"])
+        if brief.get("learn_translation_preview_ms") is not None:
+            learn["learn_translation_preview_ms"] = brief["learn_translation_preview_ms"]
         cards.append(learn)
     # Each section gives its cards to the least-practised new words, in story order.
     # Recognize alternates picture choices and sentence choices; two options come before four.

@@ -63,6 +63,7 @@ class LessonCard(BaseModel):
     answer_audio_text: str | None = None
     prompt_image_url: str = ""
     spanish_translation: str | None = None
+    learn_translation_preview_ms: int | None = Field(default=None, ge=100, le=10000)
     pedagogy_note: str | None = None
     audio_speaker: str | None = None
     answer_audio_speaker: str | None = None
@@ -77,7 +78,19 @@ class LessonCard(BaseModel):
         payload = handler(self)
         if self.prompt_presentation is None:
             payload.pop("prompt_presentation", None)
+        if self.learn_translation_preview_ms is None:
+            payload.pop("learn_translation_preview_ms", None)
         return payload
+
+    @model_validator(mode="after")
+    def require_teaching_translation_preview(self):
+        if self.learn_translation_preview_ms is not None and (
+            self.stage != "Learn" or len(self.options) != 1
+            or not self.options[0].image_url.strip()
+            or not (self.spanish_translation or "").strip()
+        ):
+            raise ValueError("An automatic translation preview needs one Learn image and authored Spanish.")
+        return self
 
     @model_validator(mode="after")
     def require_complete_sentence_contract(self):

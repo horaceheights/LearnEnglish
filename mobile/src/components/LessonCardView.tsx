@@ -76,6 +76,7 @@ type Props = {
   result: 'correct' | 'wrong' | null;
   showHelp: boolean;
   onSelect: (optionId: string) => void;
+  onTeachingImageReady?: () => void;
   onPronunciationAttempted?: () => void;
   onPronunciationReplayAvailabilityChange?: (available: boolean) => void;
   onPronunciationPassed: (firstTry: boolean, accepted: boolean) => void;
@@ -109,6 +110,7 @@ export function LessonCardView({
   result,
   showHelp,
   onSelect,
+  onTeachingImageReady,
   onPronunciationAttempted,
   onPronunciationReplayAvailabilityChange,
   onPronunciationPassed,
@@ -714,6 +716,7 @@ export function LessonCardView({
                         >
                           <OptionMediaImage
                             imageUrl={option.image_url}
+                            onLoad={card.stage === 'Learn' && card.options.length === 1 ? onTeachingImageReady : undefined}
                             sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
                           />
                       </View>

@@ -86,9 +86,10 @@ EXACT_ROLE_CHANGES = {
 # The follow-up keeps each response voice, uses scalar phrase cues and removes
 # question narration from the 12 reverse cards. Listen A2 now uses per-turn
 # speakers for its existing question and reply (-5 net scalar assignments).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1909
+# 3.11 adds 17 ownership-speaker assignments after the template correction.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1926
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "0f73f56f73008bd5b2f8ca3340aa4318ad16a267f57c1f7ab12a3a02e0f06d5b"
+    "42a7edad71f4e21b87e8a2551ddf6f08dadc2a0762a343bf43fa0b8100fd0f9f"
 )
 
 

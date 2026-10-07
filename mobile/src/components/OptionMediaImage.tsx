@@ -10,11 +10,13 @@ export function OptionMediaImage({
   imageUrl,
   poster = false,
   sourceOverride,
+  onLoad,
 }: {
   accessibilityLabel?: string;
   imageUrl: string;
   poster?: boolean;
   sourceOverride?: ImageSourcePropType;
+  onLoad?: () => void;
 }) {
   const source = sourceOverride ?? lessonOptionImageSource(imageUrl);
   const resolvedSource = Image.resolveAssetSource(source);
@@ -36,6 +38,7 @@ export function OptionMediaImage({
       accessibilityLabel={accessibilityLabel}
       resizeMode={shouldContain ? 'contain' : 'cover'}
       source={source}
+      onLoad={onLoad}
       style={[styles.fill, poster ? styles.poster : null]}
     />
   );

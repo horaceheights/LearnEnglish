@@ -83,7 +83,7 @@
     "M12",
     "M13"
   ],
-  "content_revision": 4,
+  "content_revision": 5,
   "cards": [
     {
       "slide_id": "M01",
@@ -152,7 +152,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-10-introduction-mission-c001-mission-intro-003e406520c3be6eb9e8",
+          "id": "lesson-3-10-introduction-mission-c001-mission-intro-1abbafd0a2feec8329c2",
           "purpose": "mission-intro",
           "text": "Hoy es la cena internacional del centro comunitario y Ana necesita tu ayuda. Escucha cada frase y descubre qui\u00e9n la dice o a qui\u00e9n describe: saludos, nombres, pa\u00edses, edades, trabajos y cosas de cada invitado. Al final, responde en voz alta en la mesa. Primero escucha la frase completa; despu\u00e9s toca a la persona.",
           "mode": "prompt",
@@ -161,7 +161,7 @@
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 4
+          "revision": 5
         },
         {
           "id": "lesson-3-10-introduction-mission-c001-prompt-turn-1-d455f379bcac83a8cee0",
@@ -2004,7 +2004,7 @@
     {
       "slide_id": "M09",
       "interaction_type": "mission-game",
-      "prompt": "That is her bag. That is his bag. It is the woman's phone. It is the man's phone.",
+      "prompt": "That is her bag. That is his bag. That is her phone. That is his phone.",
       "stage": "Listen",
       "correct_option_id": "belongings-1",
       "correct_option_ids": [
@@ -2027,19 +2027,19 @@
         {
           "id": "belongings-3",
           "image_url": "",
-          "label": "It is the woman's phone."
+          "label": "That is her phone."
         },
         {
           "id": "belongings-4",
           "image_url": "",
-          "label": "It is the man's phone."
+          "label": "That is his phone."
         }
       ],
-      "audio_text": "That is her bag. That is his bag. It is the woman's phone. It is the man's phone.",
+      "audio_text": "That is her bag. That is his bag. That is her phone. That is his phone.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp",
-      "spanish_translation": "Esa es la bolsa de ella. Esa es la bolsa de \u00e9l. Es el tel\u00e9fono de la mujer. Es el tel\u00e9fono del hombre.",
-      "pedagogy_note": "Mission beat 09/14: En la entrada, cada cosa tiene due\u00f1o: f\u00edjate si es de \u00e9l, de ella, de la mujer o del hombre.",
+      "spanish_translation": "Esa es la bolsa de ella. Esa es la bolsa de \u00e9l. Ese es el tel\u00e9fono de ella. Ese es el tel\u00e9fono de \u00e9l.",
+      "pedagogy_note": "Mission beat 09/14: En la entrada, escucha si la bolsa o el tel\u00e9fono es de \u00e9l o de ella.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
@@ -2054,12 +2054,12 @@
           "image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp"
         },
         {
-          "text": "It is the woman's phone.",
+          "text": "That is her phone.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp"
         },
         {
-          "text": "It is the man's phone.",
+          "text": "That is his phone.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp"
         }
@@ -2092,9 +2092,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-10-introduction-mission-c009-prompt-turn-3-14e6418022827847f8ce",
+          "id": "lesson-3-10-introduction-mission-c009-prompt-turn-3-af912be09c8f85da97db",
           "purpose": "prompt-turn-3",
-          "text": "It is the woman's phone.",
+          "text": "That is her phone.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u3_dinner_v1_belongings.webp",
@@ -2104,9 +2104,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-10-introduction-mission-c009-prompt-turn-4-4d3b79d072cf89297363",
+          "id": "lesson-3-10-introduction-mission-c009-prompt-turn-4-37f1227fabc620c9191b",
           "purpose": "prompt-turn-4",
-          "text": "It is the man's phone.",
+          "text": "That is his phone.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u3_dinner_v1_belongings.webp",
@@ -2164,7 +2164,7 @@
           },
           {
             "id": "belongings-3",
-            "label_es": "Es el tel\u00e9fono de la mujer.",
+            "label_es": "Ese es el tel\u00e9fono de ella.",
             "rect": {
               "x": 0.515,
               "y": 0.115,
@@ -2184,7 +2184,7 @@
           },
           {
             "id": "belongings-4",
-            "label_es": "Es el tel\u00e9fono del hombre.",
+            "label_es": "Ese es el tel\u00e9fono de \u00e9l.",
             "rect": {
               "x": 0.72,
               "y": 0.03,
@@ -2220,15 +2220,15 @@
           },
           {
             "id": "cue-belongings-3",
-            "text": "It is the woman's phone.",
-            "answer_text": "It is the woman's phone.",
+            "text": "That is her phone.",
+            "answer_text": "That is her phone.",
             "target_id": "belongings-3",
             "option_id": "belongings-3"
           },
           {
             "id": "cue-belongings-4",
-            "text": "It is the man's phone.",
-            "answer_text": "It is the man's phone.",
+            "text": "That is his phone.",
+            "answer_text": "That is his phone.",
             "target_id": "belongings-4",
             "option_id": "belongings-4"
           }
@@ -2268,7 +2268,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-10-introduction-mission-c010-mission-cue-75c6ff2b7b89445a3808",
+          "id": "lesson-3-10-introduction-mission-c010-mission-cue-0afa00e01ad0df1f513c",
           "purpose": "mission-cue",
           "text": "What is your job?",
           "mode": "prompt",
@@ -2277,7 +2277,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 4
+          "revision": 5
         },
         {
           "id": "lesson-3-10-introduction-mission-c010-prompt-turn-1-b52abd2612921ce7f752",
@@ -2358,7 +2358,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-10-introduction-mission-c011-mission-cue-76c49310f5cf0870703e",
+          "id": "lesson-3-10-introduction-mission-c011-mission-cue-d6d0c5f8f5cfafd44799",
           "purpose": "mission-cue",
           "text": "Where are you from?",
           "mode": "prompt",
@@ -2367,7 +2367,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 4
+          "revision": 5
         },
         {
           "id": "lesson-3-10-introduction-mission-c011-prompt-turn-1-76ac153ccae9822066c1",
@@ -2448,7 +2448,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-10-introduction-mission-c012-mission-cue-85d9fd886f4e8fd98a86",
+          "id": "lesson-3-10-introduction-mission-c012-mission-cue-ce777e8b37110fe9743e",
           "purpose": "mission-cue",
           "text": "How old are you?",
           "mode": "prompt",
@@ -2457,7 +2457,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 4
+          "revision": 5
         },
         {
           "id": "lesson-3-10-introduction-mission-c012-prompt-turn-1-66715f7fcf1a09e00ffd",
@@ -2538,7 +2538,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-10-introduction-mission-c013-mission-cue-e9870a332baf9fab2723",
+          "id": "lesson-3-10-introduction-mission-c013-mission-cue-03cd1d168a6bb8463471",
           "purpose": "mission-cue",
           "text": "Is it yours?",
           "mode": "prompt",
@@ -2547,7 +2547,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 4
+          "revision": 5
         },
         {
           "id": "lesson-3-10-introduction-mission-c013-prompt-turn-1-f4b80d82ba17cb23d646",
@@ -2628,7 +2628,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-10-introduction-mission-c014-mission-cue-bfa9850ce6fef155bb55",
+          "id": "lesson-3-10-introduction-mission-c014-mission-cue-b31cdd70058c01aaed2b",
           "purpose": "mission-cue",
           "text": "What are you doing?",
           "mode": "prompt",
@@ -2637,7 +2637,7 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 4
+          "revision": 5
         },
         {
           "id": "lesson-3-10-introduction-mission-c014-prompt-turn-1-3a5a0e4e493b8f04ed89",

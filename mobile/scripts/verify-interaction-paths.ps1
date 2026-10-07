@@ -26,6 +26,9 @@ try {
   & node tests/help-lifecycle.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de duración de la ayuda.' }
 
+  & node tests/learn-translation-preview.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Learn translation preview timing failed.' }
+
   & node --test tests/silent-recognize-prompt.test.cjs tests/silent-recognize-native.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Silent written recognition and answer replay checks failed.' }
 

@@ -10,7 +10,7 @@
   "sub_lesson_id": "3.14",
   "sub_lesson_title": "Cenas cruzadas",
   "experience_type": "mission",
-  "content_revision": 4,
+  "content_revision": 5,
   "mission": {
     "label": "MISIÓN FINAL · UNIDAD 3",
     "title": "Cenas cruzadas",
@@ -1559,7 +1559,7 @@
       "mission_chapter_id": "guests",
       "interaction_type": "mission-game",
       "stage": "Listen",
-      "prompt": "That is her bag. That is his bag. It is the woman's phone. It is the man's phone.",
+      "prompt": "That is her bag. That is his bag. That is her phone. That is his phone.",
       "prompt_image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp",
       "options": [
         {
@@ -1575,12 +1575,12 @@
         {
           "id": "belongings-3",
           "image_url": "",
-          "label": "It is the woman's phone."
+          "label": "That is her phone."
         },
         {
           "id": "belongings-4",
           "image_url": "",
-          "label": "It is the man's phone."
+          "label": "That is his phone."
         }
       ],
       "correct_option_id": "belongings-1",
@@ -1590,7 +1590,7 @@
         "belongings-3",
         "belongings-4"
       ],
-      "audio_text": "That is her bag. That is his bag. It is the woman's phone. It is the man's phone.",
+      "audio_text": "That is her bag. That is his bag. That is her phone. That is his phone.",
       "answer_audio_text": null,
       "audio_turns": [
         {
@@ -1604,18 +1604,18 @@
           "image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp"
         },
         {
-          "text": "It is the woman's phone.",
+          "text": "That is her phone.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp"
         },
         {
-          "text": "It is the man's phone.",
+          "text": "That is his phone.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u3_dinner_v1_belongings.webp"
         }
       ],
-      "spanish_translation": "Esa es la bolsa de ella. Esa es la bolsa de él. Es el teléfono de la mujer. Es el teléfono del hombre.",
-      "pedagogy_note": "Mission beat 09/14: En la entrada, cada cosa tiene dueño: fíjate si es de él, de ella, de la mujer o del hombre.",
+      "spanish_translation": "Esa es la bolsa de ella. Esa es la bolsa de él. Ese es el teléfono de ella. Ese es el teléfono de él.",
+      "pedagogy_note": "Mission beat 09/14: En la entrada, escucha si la bolsa o el teléfono es de él o de ella.",
       "mission_game": {
         "kind": "contrast-hunt",
         "instruction_es": "Escucha de quién es cada cosa y toca a esa persona.",
@@ -1661,7 +1661,7 @@
           },
           {
             "id": "belongings-3",
-            "label_es": "Es el teléfono de la mujer.",
+            "label_es": "Ese es el teléfono de ella.",
             "accepted_option_ids": [
               "belongings-3"
             ],
@@ -1680,7 +1680,7 @@
           },
           {
             "id": "belongings-4",
-            "label_es": "Es el teléfono del hombre.",
+            "label_es": "Ese es el teléfono de él.",
             "accepted_option_ids": [
               "belongings-4"
             ],
@@ -1715,15 +1715,15 @@
           },
           {
             "id": "cue-belongings-3",
-            "text": "It is the woman's phone.",
-            "answer_text": "It is the woman's phone.",
+            "text": "That is her phone.",
+            "answer_text": "That is her phone.",
             "target_id": "belongings-3",
             "option_id": "belongings-3"
           },
           {
             "id": "cue-belongings-4",
-            "text": "It is the man's phone.",
-            "answer_text": "It is the man's phone.",
+            "text": "That is his phone.",
+            "answer_text": "That is his phone.",
             "target_id": "belongings-4",
             "option_id": "belongings-4"
           }

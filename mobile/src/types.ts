@@ -72,6 +72,7 @@ export type LessonCard = {
   answer_audio_text: string | null;
   prompt_image_url: string;
   spanish_translation?: string | null;
+  learn_translation_preview_ms?: number | null;
   pedagogy_note?: string | null;
   audio_speaker?: string | null;
   answer_audio_speaker?: string | null;

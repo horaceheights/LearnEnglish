@@ -14,7 +14,7 @@ import { View, Text, Pressable, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { isSilentWrittenRecognize, isWrittenRecognize, recognizeAnswerReplayText } from '../lessonPromptPresentation';
 import { lessonHeaderPromptText, usesCompactRecognizeInstruction } from '../lessonInstructions';
-export function Header({ currentCard, result, viewport, styles, showSentenceTranslation }) {
+export function Header({ currentCard, result, viewport, styles, showSentenceTranslation, learnTranslation = { enabled: false, visible: false } }) {
   const { width, height, fontScale } = viewport;
   const usesLessonPhoneLandscape = width > height && height < 600;
   const useCompactPhoneLayout = usesLessonPhoneLandscape;
@@ -157,5 +157,27 @@ test('native picture recognition shows the full English response only after a co
       assert.ok(response.textHeight <= response.box.height + 1.5);
       assert.ok(response.box.top + response.box.height <= 450, 'The full written answer fits the same card as its pictures.');
     }
+  }
+});
+
+test('Learn preview keeps the word and reserved Spanish line inside portrait and landscape headers', () => {
+  const card = { stage: 'Learn', prompt: 'Their', audio_text: 'Their', spanish_translation: 'Su (de ellos)', options: [{id: 'their', image_url: 'their.webp'}] };
+  for (const viewport of [{width:320,height:568,fontScale:1},{width:390,height:844,fontScale:2},{width:740,height:360,fontScale:1.3}]) {
+    const h = lessonHarness(viewport, { sourceTransform: (file, code) => file.endsWith('LessonScreen.tsx') ? headerModule : code });
+    const styles=h.styles('screens/LessonScreen.tsx'), {Header}=h.load('screens/LessonScreen.tsx');
+    const paneWidth=viewport.width>viewport.height?230:viewport.width-20;
+    const layouts=[];
+    for(const visible of [true,false]) {
+      const records=h.render(()=>e('View',{children:e(Header,{currentCard:card,result:null,viewport,styles,showSentenceTranslation:false,learnTranslation:{enabled:true,visible}})}),paneWidth,220);
+      const subtitle=records.find(r=>r.type==='Text'&&r.text==='Su (de ellos)');
+      assert.ok(subtitle,'Keep the subtitle mounted when hidden.');
+      assert.ok(subtitle.box.top+subtitle.box.height<=220);
+      assert.ok(subtitle.box.left>=-1&&subtitle.box.left+subtitle.box.width<=paneWidth+1);
+      assert.equal(subtitle.props.accessible,visible);
+      layouts.push(subtitle.box);
+      assert.ok(records.some(r=>r.type==='Text'&&r.text==='Their'));
+      assert.ok(records.some(r=>r.props.accessibilityLabel==='Repetir: Their'));
+    }
+    assert.deepEqual(layouts[0],layouts[1],'Hiding the preview must not move the prompt or picture.');
   }
 });

@@ -31,6 +31,7 @@ import {
 import { isWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
+import { useLearnTranslationPreview } from "../../mobile/src/hooks/useLearnTranslationPreview";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
@@ -2326,6 +2327,19 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }, [playUiSfx]);
 
   const currentCard = activeLesson.cards[cardIndex];
+  const teachingCardKey = `${lessonSessionId}:${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
+  const [loadedTeachingImageKey, setLoadedTeachingImageKey] = useState("");
+  const [manualTeachingTranslationKey, setManualTeachingTranslationKey] = useState("");
+  const teachingTranslationTimer = useRef(null);
+  const openTeachingTranslation = () => {
+    clearTimeout(teachingTranslationTimer.current);
+    setManualTeachingTranslationKey(teachingCardKey);
+    teachingTranslationTimer.current = setTimeout(() => setManualTeachingTranslationKey(""), 3000);
+  };
+  useEffect(() => {
+    setManualTeachingTranslationKey("");
+    return () => clearTimeout(teachingTranslationTimer.current);
+  }, [teachingCardKey]);
   const missionOrder = useMemo(() => missionCueOrder(currentCard?.mission_game), [currentCard]);
   const [playingTurnImageUrl, setActiveTurnImageUrl] = useState(null);
   // A speaker's picture never covers an answer-choice card's options (shared with mobile).
@@ -2384,6 +2398,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         : !hasPromptAutoplay || helpAudioReadyKey === helpCardKey),
   });
   const showHelp = help.visible;
+  const learnTranslation = useLearnTranslationPreview(currentCard, teachingCardKey,
+    loadedTeachingImageKey === teachingCardKey && started && !isComplete && !isPageTurning
+      && helpDocumentVisible && !showHelp);
+  const teachingTranslationVisible = learnTranslation.visible || manualTeachingTranslationKey === teachingCardKey;
   useEffect(() => {
     const visibility = () => setHelpDocumentVisible(document.visibilityState === "visible");
     visibility();
@@ -5558,6 +5576,30 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                   </span>
                 </button>
               </>
+            ) : learnTranslation.enabled ? (
+              <div data-learn-translation-prompt style={{ position: "relative", textAlign: "center" }}>
+                <div style={{ color: "#8b765d", fontSize: 12, fontWeight: 900 }}>
+                  {lessonLocationLabel(activeLesson)} · {lessonStageLabel(activeLesson.id, currentCard.stage)}
+                </div>
+                <button type="button" onClick={openTeachingTranslation}
+                  aria-label={`Ver traducción de ${currentCard.prompt}`}
+                  style={{ border: 0, background: "transparent", color: "var(--text)", width: "100%", padding: "0 48px", cursor: "pointer" }}>
+                  <h1 style={titleStyle}>{renderHighlightedTitle(currentCard.prompt)}</h1>
+                  <span data-learn-translation aria-hidden={!teachingTranslationVisible}
+                    style={{ display: "block", minHeight: 20, fontSize: 14, lineHeight: "20px",
+                      color: "#58656b", fontWeight: 700, visibility: teachingTranslationVisible ? "visible" : "hidden" }}>
+                    {currentCard.spanish_translation}
+                  </span>
+                </button>
+                <button type="button" aria-label={`Repetir: ${cardReplayText}`} onClick={playCurrentCardPrompt}
+                  style={{ position: "absolute", right: 0, top: "30%", width: 48, height: 48,
+                    border: 0, borderRadius: "50%", background: "#278d70", color: "white", cursor: "pointer" }}>
+                  <svg aria-hidden="true" viewBox="0 0 28 28" width="28" height="28">
+                    <path d="M7 11h3l4-3v12l-4-3H7z" fill="currentColor" />
+                    <path d="M17 10q4 4 0 8m3-10q6 6 0 12" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                  </svg>
+                </button>
+              </div>
             ) : !compactPracticeHeader && !isSentenceCard ? (
               <button
                 type="button"
@@ -5994,6 +6036,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                         />
                       ) : (
                         <img src={actionPosterSrc || lessonOptionImageSrc(option.image_url)} alt={optionLabel}
+                          onLoad={learnTranslation.enabled ? () => setLoadedTeachingImageKey(teachingCardKey) : undefined}
                           data-written-recognition-media={fitWrittenRecognition ? true : undefined} style={optionImageStyle} />
                       )
                     ) : (
