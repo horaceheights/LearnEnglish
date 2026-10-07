@@ -44,7 +44,8 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  363, // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) join the shared empty-prompt choices.
+  365, // 2026-10-07: 4.10 R1 and 5.3 R9 become image-to-text choices (+2).
+  // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.
   // 2026-09-29: 3.3 replaces five empty prompts with questions and audio-choice instructions.
   // 2026-09-25: the engine-built Unit 3 gives its 12 teaching lessons sentence-choice cards;
@@ -87,8 +88,8 @@ assert.deepEqual(englishInstructions, [], 'Recognize cards must not show or spea
 assert.deepEqual(
   emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-4-what-time-is-it')
     .map(({ card }) => card.slide_id),
-  ['DR1', 'DR2', 'DR3', 'DR4'],
-  'The four day foundations use the shared phrase-choice instruction before explicit time questions.',
+  ['DR1', 'DR2', 'DR3', 'DR4', 'R1'],
+  'Day foundations and the pictured time question use the shared phrase-choice instruction.',
 );
 assert.deepEqual(
   emptyRecognizeCards.filter(({ card }) => card.audio_text?.trim()).map(({ card, lessonId }) => `${lessonId} ${card.slide_id}`),

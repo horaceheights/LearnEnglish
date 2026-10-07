@@ -290,12 +290,12 @@
       "stage": "Recognize",
       "options": [
         {
-          "id": "other-scene",
+          "id": "no-i-do-not-r1",
           "image_url": "a1_recognize_ana_no_v1.webp",
           "label": null
         },
         {
-          "id": "matching-scene",
+          "id": "yes-i-do-r1",
           "image_url": "a1_photo_u4_yes_i_do_v1.webp",
           "label": null
         }
@@ -381,12 +381,12 @@
       "stage": "Recognize",
       "options": [
         {
-          "id": "matching-scene",
+          "id": "no-i-do-not-r3",
           "image_url": "a1_recognize_ana_no_v1.webp",
           "label": null
         },
         {
-          "id": "other-scene",
+          "id": "yes-i-do-r3",
           "image_url": "a1_photo_u4_yes_i_do_v1.webp",
           "label": null
         }
@@ -471,12 +471,12 @@
       "stage": "Recognize",
       "options": [
         {
-          "id": "other-scene",
+          "id": "no-i-do-not-r5",
           "image_url": "a1_recognize_ana_no_v1.webp",
           "label": null
         },
         {
-          "id": "matching-scene",
+          "id": "yes-i-do-r5",
           "image_url": "a1_photo_u4_yes_i_do_v1.webp",
           "label": null
         }
@@ -562,12 +562,12 @@
       "stage": "Recognize",
       "options": [
         {
-          "id": "other-scene",
+          "id": "yes-i-do-r9",
           "image_url": "a1_photo_u4_yes_i_do_v1.webp",
           "label": null
         },
         {
-          "id": "matching-scene",
+          "id": "no-i-do-not-r9",
           "image_url": "a1_recognize_ana_no_v1.webp",
           "label": null
         }
@@ -1379,10 +1379,6 @@
     }
   ],
   "draft": false,
-  "source": {
-    "path": "backend/lessons/unit_4/lesson-4-do-you-questions.yaml",
-    "sha256": "b86b60925a88a9613cb98f334bd0ec0a97108f021eaf44a469291d5884dba08e"
-  },
   "authoring": {
     "approved_editorial_source": "output/school-day-drafts/review-data.json",
     "user_approval": "2026-10-01 execute all",
@@ -2327,5 +2323,9 @@
       }
     ]
   },
-  "recognize_revision": "2026-10-07: explicit visual recognition, superseding heard-question exceptions."
+  "recognize_revision": "2026-10-07: explicit visual recognition, superseding heard-question exceptions.",
+  "source": {
+    "path": "backend/lessons/unit_4/lesson-4-do-you-questions.yaml",
+    "sha256": "f1c3761a4c5fba4c26c9acabd12049d2f1eaf760110ff5bad40d53655df03d01"
+  }
 }

@@ -71,13 +71,15 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
         e('View', { style: screen.activityColumn, children: [widePrompt ? header : null, e('View', { style: screen.cardCarousel, children: body }, 'lesson-activity')] })] }) }) });
 }
 
-test('time recognition directions retain compact semibold typography and fit enlarged phone text', () => {
-  const heardChoice = cards.find(card => card.lessonId === 'lesson-4-what-time-is-it' && card.slide_id === 'R1');
+test('visual recognition and listening directions retain compact semibold typography and fit enlarged phone text', () => {
+  const heardChoice = cards.find(card => card.lessonId === 'lesson-3-3-am-is-and-are' && card.slide_id === 'A1');
+  const questionImageChoice = cards.find(card => card.lessonId === 'lesson-4-what-time-is-it' && card.slide_id === 'R1');
   const imageChoice = cards.find(card => card.lessonId === 'lesson-4-what-time-is-it' && card.slide_id === 'DR1');
-  assert.ok(heardChoice && imageChoice);
+  assert.ok(heardChoice && imageChoice && questionImageChoice);
   const cases = [
     [heardChoice, '¡Escucha y elige la frase!'],
     [{ ...heardChoice, prompt: '¡Escucha y elige!' }, '¡Escucha y elige la frase!'],
+    [questionImageChoice, '¡Elige la frase que corresponde a la imagen!'],
     [imageChoice, '¡Elige la frase que corresponde a la imagen!'],
   ];
   for (const viewport of [
