@@ -1,6 +1,5 @@
 {
   "plan_version": 1,
-  "draft": false,
   "lesson": {
     "id": "lesson-3-3-am-is-and-are",
     "title": "3.3 Am, Is, and Are",
@@ -45,7 +44,7 @@
     "grammar_function": "What are you doing? / I am ...; What is she doing? / She is ...; What is he doing? / He is ...; What are they doing? / They are ... . Complete present-progressive exchanges using familiar Unit 1 actions; do/does is not generalized.",
     "prerequisite": "3.2 I/you/we frames plus Unit 1 he/she/they, is/are, actions, baby and babies.",
     "speaking_outcome": "Say all four current-action questions and their matching answers in separate consecutive turns.",
-    "content_revision": 3,
+    "content_revision": 4,
     "learn_context_pairs": [
       {
         "question_slide_id": "L1",
@@ -240,28 +239,59 @@
     {
       "recipe": "choice",
       "slide_id": "R1",
+      "prompt": "What are you doing?\nI am reading.",
       "stage": "Recognize",
       "options": [
         {
-          "id": "what-are-they-doing-r1",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "other-scene",
+          "image_url": "a1_u3_l33_v1_writing_answer.webp",
+          "label": null
         },
         {
-          "id": "what-are-you-doing-r1",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "matching-scene",
+          "image_url": "a1_u3_l33_v1_reading_answer.webp",
+          "label": null
+        }
+      ],
+      "spanish_translation": "¿Qué estás haciendo? Estoy leyendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What are you doing?",
+          "speaker_role": "luis",
+          "image_url": "a1_u3_l33_v1_reading_question.webp"
+        },
+        {
+          "text": "I am reading.",
+          "speaker_role": "ana",
+          "image_url": "a1_u3_l33_v1_reading_answer.webp"
         }
       ],
       "answer": 1,
-      "input_modality": "audio",
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "luis",
-      "pedagogy_note": "Story beat 01: What are you doing?"
+      "exceptions": {
+        "audio_text": "What are you doing? I am reading."
+      },
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "prompt_presentation",
+        "audio_turns"
+      ]
     },
     {
       "recipe": "choice",
       "slide_id": "R2",
+      "prompt": "What are you doing?",
       "stage": "Recognize",
       "options": [
         {
@@ -275,37 +305,68 @@
           "label": "I am reading."
         }
       ],
-      "answer": 1,
-      "prompt": "What are you doing?",
       "prompt_image_url": "a1_u3_l33_v1_reading_answer.webp",
       "spanish_translation": "¿Qué estás haciendo?",
-      "audio_speaker": "luis",
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 02: I am reading."
+      "pedagogy_note": "Story beat 02: I am reading.",
+      "audio_speaker": "luis",
+      "answer": 1
     },
     {
       "recipe": "choice",
       "slide_id": "R3",
+      "prompt": "What is she doing?\nShe is cooking.",
       "stage": "Recognize",
       "options": [
         {
-          "id": "what-is-she-doing-r3",
-          "image_url": "",
-          "label": "What is she doing?"
+          "id": "matching-scene",
+          "image_url": "family_mother_cooking.webp",
+          "label": null
         },
         {
-          "id": "what-are-you-doing-r3",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "other-scene",
+          "image_url": "girl_is_reading.webp",
+          "label": null
         }
       ],
-      "input_modality": "audio",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: What is she doing?"
+      "spanish_translation": "¿Qué está haciendo ella? Ella está cocinando.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What is she doing?",
+          "speaker_role": "teacher",
+          "image_url": "family_mother_cooking.webp"
+        },
+        {
+          "text": "She is cooking.",
+          "speaker_role": "co-teacher",
+          "image_url": "family_mother_cooking.webp"
+        }
+      ],
+      "exceptions": {
+        "audio_text": "What is she doing? She is cooking."
+      },
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "prompt_presentation",
+        "audio_turns"
+      ]
     },
     {
       "recipe": "choice",
       "slide_id": "R4",
+      "prompt": "What is she doing?",
       "stage": "Recognize",
       "options": [
         {
@@ -319,43 +380,69 @@
           "label": "She is cooking."
         }
       ],
-      "answer": 1,
-      "prompt": "What is she doing?",
       "prompt_image_url": "family_mother_cooking.webp",
       "spanish_translation": "¿Qué está haciendo ella?",
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 04: She is cooking.",
       "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher"
+      "answer": 1
     },
     {
       "recipe": "choice",
       "slide_id": "R5",
+      "prompt": "What is he doing?\nHe is sleeping.",
       "stage": "Recognize",
       "options": [
         {
-          "id": "what-are-they-doing-r5",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "other-scene",
+          "image_url": "boy_is_eating.webp",
+          "label": null
         },
         {
-          "id": "what-is-he-doing-r5",
-          "image_url": "",
-          "label": "What is he doing?"
+          "id": "matching-scene",
+          "image_url": "boy_is_sleeping.webp",
+          "label": null
+        }
+      ],
+      "spanish_translation": "¿Qué está haciendo él? Él está durmiendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What is he doing?",
+          "speaker_role": "teacher",
+          "image_url": "boy_is_sleeping.webp"
         },
         {
-          "id": "what-is-she-doing-r5",
-          "image_url": "",
-          "label": "What is she doing?"
+          "text": "He is sleeping.",
+          "speaker_role": "co-teacher",
+          "image_url": "boy_is_sleeping.webp"
         }
       ],
       "answer": 1,
-      "input_modality": "audio",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: What is he doing?"
+      "exceptions": {
+        "audio_text": "What is he doing? He is sleeping."
+      },
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "prompt_presentation",
+        "audio_turns"
+      ]
     },
     {
       "recipe": "choice",
       "slide_id": "R6",
+      "prompt": "What is he doing?",
       "stage": "Recognize",
       "options": [
         {
@@ -374,42 +461,68 @@
           "label": "He is eating."
         }
       ],
-      "answer": 1,
-      "prompt": "What is he doing?",
       "prompt_image_url": "boy_is_sleeping.webp",
       "spanish_translation": "¿Qué está haciendo él?",
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: He is sleeping.",
       "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher"
+      "answer": 1
     },
     {
       "recipe": "choice",
       "slide_id": "R7",
+      "prompt": "What are they doing?\nThey are running.",
       "stage": "Recognize",
       "options": [
         {
-          "id": "what-are-they-doing-r7",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "matching-scene",
+          "image_url": "they_boy_girl_are_running.webp",
+          "label": null
         },
         {
-          "id": "what-is-he-doing-r7",
-          "image_url": "",
-          "label": "What is he doing?"
-        },
-        {
-          "id": "what-are-you-doing-r7",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "other-scene",
+          "image_url": "family_grandparents_sitting.webp",
+          "label": null
         }
       ],
-      "input_modality": "audio",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: What are they doing?"
+      "spanish_translation": "¿Qué están haciendo ellos? Ellos están corriendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What are they doing?",
+          "speaker_role": "teacher",
+          "image_url": "they_boy_girl_are_running.webp"
+        },
+        {
+          "text": "They are running.",
+          "speaker_role": "co-teacher",
+          "image_url": "they_boy_girl_are_running.webp"
+        }
+      ],
+      "exceptions": {
+        "audio_text": "What are they doing? They are running."
+      },
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "prompt_presentation",
+        "audio_turns"
+      ]
     },
     {
       "recipe": "choice",
       "slide_id": "R8",
+      "prompt": "What are they doing?",
       "stage": "Recognize",
       "options": [
         {
@@ -428,13 +541,12 @@
           "label": "They are playing."
         }
       ],
-      "answer": 1,
-      "prompt": "What are they doing?",
       "prompt_image_url": "they_boy_girl_are_running.webp",
       "spanish_translation": "¿Qué están haciendo ellos?",
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 08: They are running.",
       "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher"
+      "answer": 1
     },
     {
       "recipe": "choice",
@@ -452,10 +564,9 @@
           "label": "What are they doing?"
         }
       ],
-      "input_modality": "audio",
       "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "ana",
-      "pedagogy_note": "Story beat 01: What are you doing?"
+      "pedagogy_note": "Story beat 01: What are you doing?",
+      "audio_speaker": "ana"
     },
     {
       "recipe": "choice",
@@ -473,11 +584,10 @@
           "label": null
         }
       ],
-      "input_modality": "audio",
-      "spanish_translation": "Escucha y elige.",
       "audio_text": "I am cooking.",
-      "audio_speaker": "luis",
-      "pedagogy_note": "Story beat 02: I am cooking."
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: I am cooking.",
+      "audio_speaker": "luis"
     },
     {
       "recipe": "choice",
@@ -495,7 +605,6 @@
           "label": "What are you doing?"
         }
       ],
-      "input_modality": "audio",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 03: What is she doing?"
     },
@@ -515,12 +624,11 @@
           "label": null
         }
       ],
-      "answer": 1,
-      "input_modality": "audio",
-      "spanish_translation": "Escucha y elige.",
       "audio_text": "She is drinking.",
+      "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 04: She is drinking.",
-      "audio_speaker": "co-teacher"
+      "audio_speaker": "co-teacher",
+      "answer": 1
     },
     {
       "recipe": "choice",
@@ -543,7 +651,6 @@
           "label": "What are they doing?"
         }
       ],
-      "input_modality": "audio",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 05: What is he doing?"
     },
@@ -568,7 +675,6 @@
           "label": "He is swimming."
         }
       ],
-      "input_modality": "audio",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 06: He is working.",
       "audio_speaker": "co-teacher"
@@ -594,7 +700,6 @@
           "label": "What are you doing?"
         }
       ],
-      "input_modality": "audio",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 07: What are they doing?"
     },
@@ -619,9 +724,8 @@
           "label": null
         }
       ],
-      "input_modality": "audio",
-      "spanish_translation": "Escucha y elige.",
       "audio_text": "They are talking.",
+      "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Story beat 08: They are talking.",
       "audio_speaker": "co-teacher"
     },
@@ -748,10 +852,6 @@
       "interaction_type": "complete2",
       "prompt": "What are ___ ___?",
       "stage": "Use",
-      "correct_option_ids": [
-        "you",
-        "doing"
-      ],
       "options": [
         {
           "id": "you",
@@ -767,10 +867,14 @@
       "answer_audio_text": "What are you doing?",
       "prompt_image_url": "a1_u3_l33_cooking_question_v1.webp",
       "spanish_translation": "¿Qué estás haciendo?",
-      "mirror_translation": true,
-      "audio_speaker": "ana",
+      "correct_option_ids": [
+        "you",
+        "doing"
+      ],
       "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 01: What are you doing?"
+      "pedagogy_note": "Story beat 01: What are you doing?",
+      "audio_speaker": "ana",
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -778,10 +882,6 @@
       "interaction_type": "complete2",
       "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_ids": [
-        "am",
-        "cooking"
-      ],
       "options": [
         {
           "id": "am",
@@ -797,10 +897,14 @@
       "answer_audio_text": "I am cooking.",
       "prompt_image_url": "a1_u3_l33_cooking_answer_v1.webp",
       "spanish_translation": "Estoy cocinando.",
-      "mirror_translation": true,
-      "audio_speaker": "luis",
+      "correct_option_ids": [
+        "am",
+        "cooking"
+      ],
       "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 02: I am cooking."
+      "pedagogy_note": "Story beat 02: I am cooking.",
+      "audio_speaker": "luis",
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -808,10 +912,6 @@
       "interaction_type": "complete2",
       "prompt": "What is ___ ___?",
       "stage": "Use",
-      "correct_option_ids": [
-        "she",
-        "doing"
-      ],
       "options": [
         {
           "id": "she",
@@ -827,8 +927,12 @@
       "answer_audio_text": "What is she doing?",
       "prompt_image_url": "woman_is_running.webp",
       "spanish_translation": "¿Qué está haciendo ella?",
-      "mirror_translation": true,
-      "pedagogy_note": "Story beat 03: What is she doing?"
+      "correct_option_ids": [
+        "she",
+        "doing"
+      ],
+      "pedagogy_note": "Story beat 03: What is she doing?",
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -836,10 +940,6 @@
       "interaction_type": "complete2",
       "prompt": "She ___ ___.",
       "stage": "Use",
-      "correct_option_ids": [
-        "is",
-        "running"
-      ],
       "options": [
         {
           "id": "is",
@@ -855,10 +955,14 @@
       "answer_audio_text": "She is running.",
       "prompt_image_url": "woman_is_running.webp",
       "spanish_translation": "Ella está corriendo.",
-      "mirror_translation": true,
-      "audio_speaker": "co-teacher",
+      "correct_option_ids": [
+        "is",
+        "running"
+      ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: She is running."
+      "pedagogy_note": "Story beat 04: She is running.",
+      "audio_speaker": "co-teacher",
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -866,12 +970,6 @@
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
       "options": [
         {
           "id": "word-2",
@@ -897,8 +995,14 @@
       "answer_audio_text": "What is he doing?",
       "prompt_image_url": "boy_is_drinking.webp",
       "spanish_translation": "¿Qué está haciendo él?",
-      "mirror_translation": true,
-      "pedagogy_note": "Story beat 05: What is he doing?"
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "pedagogy_note": "Story beat 05: What is he doing?",
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -906,11 +1010,6 @@
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
-      ],
       "options": [
         {
           "id": "word-2",
@@ -931,10 +1030,15 @@
       "answer_audio_text": "He is drinking.",
       "prompt_image_url": "boy_is_drinking.webp",
       "spanish_translation": "Él está bebiendo.",
-      "mirror_translation": true,
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 06: He is drinking.",
       "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher"
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -942,12 +1046,6 @@
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
       "options": [
         {
           "id": "word-2",
@@ -973,8 +1071,14 @@
       "answer_audio_text": "What are they doing?",
       "prompt_image_url": "family_grandparents_sitting.webp",
       "spanish_translation": "¿Qué están haciendo ellos?",
-      "mirror_translation": true,
-      "pedagogy_note": "Story beat 07: What are they doing?"
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "pedagogy_note": "Story beat 07: What are they doing?",
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -982,11 +1086,6 @@
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
-      ],
       "options": [
         {
           "id": "word-2",
@@ -1007,14 +1106,21 @@
       "answer_audio_text": "They are sitting.",
       "prompt_image_url": "family_grandparents_sitting.webp",
       "spanish_translation": "Ellos están sentados.",
-      "mirror_translation": true,
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 08: They are sitting.",
       "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher"
+      "mirror_translation": true
     }
   ],
+  "draft": false,
   "source": {
     "path": "backend/lessons/unit_3/lesson-3-3-am-is-and-are.yaml",
-    "sha256": "97b3432456d54bb89b461faa2e723a2c06378caa2afef09dc7cce7594be54e5d"
-  }
+    "sha256": "2f37ef71dd59dca41a38b0059c8e923eac76549eba0d7bd83ccf50e82d1e3737"
+  },
+  "recognize_revision": "2026-10-07: explicit visual recognition, superseding heard-question exceptions."
 }

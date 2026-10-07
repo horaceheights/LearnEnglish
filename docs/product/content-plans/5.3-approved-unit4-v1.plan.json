@@ -42,7 +42,7 @@
     "grammar_function": "The grandmother is drinking tea. I drink water in the morning. Do you drink coffee? Yes, I do.",
     "prerequisite": "1.2 drinking; 1.4–1.6 family; 4.5 in the morning; 4.8 Do questions/replies; 5.2 food.",
     "speaking_outcome": "Name a drink and say what I drink in the morning.",
-    "content_revision": 2,
+    "content_revision": 3,
     "purposeful_review_slides": [
       "R2",
       "R3",
@@ -378,18 +378,26 @@
         }
       ],
       "prompt_image_url": "a1_photo_u5_woman_drinking_water_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
+      "spanish_translation": "¡Elige la frase que corresponde a la imagen!",
+      "pedagogy_note": "Choose the written response supported by the visible scene. Only the question may play before selection; the correct response is spoken after selection.",
       "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 09: I drink water in the morning.",
       "answer": 1,
-      "input_modality": "audio",
-      "audio_text": "I drink water in the morning.",
-      "audio_turns": [
-        {
-          "text": "I drink water in the morning.",
-          "speaker_role": "female-character",
-          "image_url": "a1_photo_u5_woman_drinking_water_v1.webp"
-        }
+      "exceptions": {
+        "audio_text": null
+      },
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "answer_audio_speaker"
       ]
     },
     {
@@ -1004,14 +1012,6 @@
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ],
       "options": [
         {
           "id": "word-2",
@@ -1047,10 +1047,18 @@
       "answer_audio_text": "I drink water in the morning.",
       "prompt_image_url": "a1_photo_u5_woman_drinking_water_v1.webp",
       "spanish_translation": "Bebo agua por la mañana.",
-      "mirror_translation": true,
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "female-character",
       "pedagogy_note": "Use: I drink water in the morning.",
       "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character"
+      "mirror_translation": true
     },
     {
       "recipe": "complete",
@@ -1108,11 +1116,12 @@
     }
   ],
   "draft": false,
-  "source": {
-    "path": "backend/lessons/unit_5/lesson-5-drinks.yaml",
-    "sha256": "796d5613064a3ea54d453e2c0f392e7e8a9a447160f5feea74626f4f0742a03a"
-  },
   "authoring": {
     "reason": "Necessary prior-teaching reconciliation after approved 4.6–4.8 replacement. No added lesson or vocabulary budget; unchanged cards/media preserved."
-  }
+  },
+  "source": {
+    "path": "backend/lessons/unit_5/lesson-5-drinks.yaml",
+    "sha256": "18bd49b23bbc1c8dc2d7f31992eda3e4fe33119da5a8f90abf001367edcab820"
+  },
+  "recognize_revision": "2026-10-07: explicit visual recognition, superseding heard-question exceptions."
 }

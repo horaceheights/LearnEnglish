@@ -84,7 +84,7 @@
     "U7",
     "U8"
   ],
-  "content_revision": 3,
+  "content_revision": 4,
   "cards": [
     {
       "slide_id": "L1",
@@ -480,53 +480,66 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "a2t2",
-      "prompt": "\u00a1Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What are you doing?\nI am reading.",
+      "prompt_presentation": "written",
       "stage": "Recognize",
-      "correct_option_id": "what-are-you-doing-r1",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-are-they-doing-r1",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "other-scene",
+          "image_url": "/lesson-assets/a1_u3_l33_v1_writing_answer.webp",
+          "label": null
         },
         {
-          "id": "what-are-you-doing-r1",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "matching-scene",
+          "image_url": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp",
+          "label": null
         }
       ],
-      "audio_text": "What are you doing?",
+      "audio_text": "What are you doing? I am reading.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: What are you doing?",
-      "audio_speaker": "luis",
+      "spanish_translation": "\u00bfQu\u00e9 est\u00e1s haciendo? Estoy leyendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What are you doing?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_u3_l33_v1_reading_question.webp"
+        },
+        {
+          "text": "I am reading.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-3-am-is-and-are-c009-prompt-2ada1a2e0cc828ef7e47",
-          "purpose": "prompt",
+          "id": "lesson-3-3-am-is-and-are-c009-prompt-turn-1-2ac5d67fb6ca1f9c8760",
+          "purpose": "prompt-turn-1",
           "text": "What are you doing?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:59785c6dcf22f2e0f074",
+          "image_ref": "/lesson-assets/a1_u3_l33_v1_reading_question.webp",
           "semantic_role": "question",
           "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-3-am-is-and-are-c009-answer-1272236c3295dbde1a49",
-          "purpose": "answer",
-          "text": "What are you doing?",
+          "id": "lesson-3-3-am-is-and-are-c009-prompt-turn-2-89b28812bcfae9d24f13",
+          "purpose": "prompt-turn-2",
+          "text": "I am reading.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:59785c6dcf22f2e0f074",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u3_l33_v1_reading_answer.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -588,53 +601,66 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "a2t2",
-      "prompt": "\u00a1Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What is she doing?\nShe is cooking.",
+      "prompt_presentation": "written",
       "stage": "Recognize",
-      "correct_option_id": "what-is-she-doing-r3",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-is-she-doing-r3",
-          "image_url": "",
-          "label": "What is she doing?"
+          "id": "matching-scene",
+          "image_url": "/lesson-assets/family_mother_cooking.webp",
+          "label": null
         },
         {
-          "id": "what-are-you-doing-r3",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "other-scene",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": null
         }
       ],
-      "audio_text": "What is she doing?",
+      "audio_text": "What is she doing? She is cooking.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: What is she doing?",
+      "spanish_translation": "\u00bfQu\u00e9 est\u00e1 haciendo ella? Ella est\u00e1 cocinando.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What is she doing?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/family_mother_cooking.webp"
+        },
+        {
+          "text": "She is cooking.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/family_mother_cooking.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-3-am-is-and-are-c011-prompt-faf79859b3fdf51a0359",
-          "purpose": "prompt",
+          "id": "lesson-3-3-am-is-and-are-c011-prompt-turn-1-15bd680b74d1b1bc5bbd",
+          "purpose": "prompt-turn-1",
           "text": "What is she doing?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:fc07c59ca8b65fb5438f",
+          "image_ref": "/lesson-assets/family_mother_cooking.webp",
           "semantic_role": "question",
-          "speaker_role": "question",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-3-am-is-and-are-c011-answer-02b3a8a1a40fb2b39fa7",
-          "purpose": "answer",
-          "text": "What is she doing?",
+          "id": "lesson-3-3-am-is-and-are-c011-prompt-turn-2-e5dd0f362c0d89fe9570",
+          "purpose": "prompt-turn-2",
+          "text": "She is cooking.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:fc07c59ca8b65fb5438f",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/family_mother_cooking.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -696,58 +722,66 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "a2t3",
-      "prompt": "\u00a1Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What is he doing?\nHe is sleeping.",
+      "prompt_presentation": "written",
       "stage": "Recognize",
-      "correct_option_id": "what-is-he-doing-r5",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-are-they-doing-r5",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "other-scene",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": null
         },
         {
-          "id": "what-is-he-doing-r5",
-          "image_url": "",
-          "label": "What is he doing?"
-        },
-        {
-          "id": "what-is-she-doing-r5",
-          "image_url": "",
-          "label": "What is she doing?"
+          "id": "matching-scene",
+          "image_url": "/lesson-assets/boy_is_sleeping.webp",
+          "label": null
         }
       ],
-      "audio_text": "What is he doing?",
+      "audio_text": "What is he doing? He is sleeping.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: What is he doing?",
+      "spanish_translation": "\u00bfQu\u00e9 est\u00e1 haciendo \u00e9l? \u00c9l est\u00e1 durmiendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What is he doing?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/boy_is_sleeping.webp"
+        },
+        {
+          "text": "He is sleeping.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/boy_is_sleeping.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-3-am-is-and-are-c013-prompt-59b9344abeb4e06f24eb",
-          "purpose": "prompt",
+          "id": "lesson-3-3-am-is-and-are-c013-prompt-turn-1-f18c5c7fbf7e6b1a1939",
+          "purpose": "prompt-turn-1",
           "text": "What is he doing?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:54f750d1f8b7af461237",
+          "image_ref": "/lesson-assets/boy_is_sleeping.webp",
           "semantic_role": "question",
-          "speaker_role": "question",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-3-am-is-and-are-c013-answer-7019aff250dab7166a1e",
-          "purpose": "answer",
-          "text": "What is he doing?",
+          "id": "lesson-3-3-am-is-and-are-c013-prompt-turn-2-516f2c7dc630bc7b04dc",
+          "purpose": "prompt-turn-2",
+          "text": "He is sleeping.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:54f750d1f8b7af461237",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/boy_is_sleeping.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -814,58 +848,66 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "a2t3",
-      "prompt": "\u00a1Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What are they doing?\nThey are running.",
+      "prompt_presentation": "written",
       "stage": "Recognize",
-      "correct_option_id": "what-are-they-doing-r7",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-are-they-doing-r7",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "matching-scene",
+          "image_url": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
+          "label": null
         },
         {
-          "id": "what-is-he-doing-r7",
-          "image_url": "",
-          "label": "What is he doing?"
-        },
-        {
-          "id": "what-are-you-doing-r7",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "other-scene",
+          "image_url": "/lesson-assets/family_grandparents_sitting.webp",
+          "label": null
         }
       ],
-      "audio_text": "What are they doing?",
+      "audio_text": "What are they doing? They are running.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: What are they doing?",
+      "spanish_translation": "\u00bfQu\u00e9 est\u00e1n haciendo ellos? Ellos est\u00e1n corriendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What are they doing?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1"
+        },
+        {
+          "text": "They are running.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-3-am-is-and-are-c015-prompt-7af6691db44b43e35949",
-          "purpose": "prompt",
+          "id": "lesson-3-3-am-is-and-are-c015-prompt-turn-1-4526a13726b369a848ee",
+          "purpose": "prompt-turn-1",
           "text": "What are they doing?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:b9901a449501f3f850a0",
+          "image_ref": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
           "semantic_role": "question",
-          "speaker_role": "question",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-3-am-is-and-are-c015-answer-9fa29f49975031a96b2a",
-          "purpose": "answer",
-          "text": "What are they doing?",
+          "id": "lesson-3-3-am-is-and-are-c015-prompt-turn-2-2e55c5278db0ea2855a2",
+          "purpose": "prompt-turn-2",
+          "text": "They are running.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:b9901a449501f3f850a0",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/they_boy_girl_are_running.webp?v=20260802-plural-unified-scenes-v1",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

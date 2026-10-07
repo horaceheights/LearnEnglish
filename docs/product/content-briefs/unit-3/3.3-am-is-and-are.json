@@ -5,7 +5,7 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "Approved 2026-09-29: eight Learn slides, question then answer for you/she/he/they. Every following section alternates the same four question forms with their responses and varies familiar actions. Explicit stage sequences preserve this conversational order; known answers contextualize the new question rather than introducing standalone Doing.",
+  "note": "Approved 2026-09-29: eight Learn slides, question then answer for you/she/he/they. Every following section alternates the same four question forms with their responses and varies familiar actions. Explicit stage sequences preserve this conversational order; known answers contextualize the new question rather than introducing standalone Doing. Reconoce correction 2026-10-07: complete written exchanges select photographs, alternating with image-to-response cards; listening discrimination stays in Listen. Exact installed card presentation and reviewed banks are in docs/product/content-plans/3.3-action-questions-v1.plan.json.",
   "sources": [
     "docs/product/course-design-a1.md#unit-3-me-and-other-people",
     "docs/product/project-guardrails.md#learn"
@@ -59,7 +59,7 @@
     "grammar_function": "What are you doing? / I am ...; What is she doing? / She is ...; What is he doing? / He is ...; What are they doing? / They are ... . Complete present-progressive exchanges using familiar Unit 1 actions; do/does is not generalized.",
     "prerequisite": "3.2 I/you/we frames plus Unit 1 he/she/they, is/are, actions, baby and babies.",
     "speaking_outcome": "Say all four current-action questions and their matching answers in separate consecutive turns.",
-    "content_revision": 3,
+    "content_revision": 4,
     "learn_context_pairs": [
       {
         "question_slide_id": "L1",
@@ -203,15 +203,26 @@
     },
     {
       "id": "recognize-you-q",
-      "text": "What are you doing?",
-      "es": "¿Qué estás haciendo?",
-      "image": "a1_u3_l33_v1_reading_question.webp",
-      "kind": "current-action-question",
+      "text": "What are you doing? I am reading.",
+      "es": "¿Qué estás haciendo? Estoy leyendo.",
+      "image": "a1_u3_l33_v1_reading_answer.webp",
+      "kind": "current-action-exchange-you",
       "learn": false,
-      "image_choices": false,
-      "choice_input": "audio",
+      "image_choices": true,
       "four_card": false,
-      "speaker": "luis"
+      "text_choices": false,
+      "turns": [
+        {
+          "text": "What are you doing?",
+          "speaker": "luis",
+          "image": "a1_u3_l33_v1_reading_question.webp"
+        },
+        {
+          "text": "I am reading.",
+          "speaker": "ana",
+          "image": "a1_u3_l33_v1_reading_answer.webp"
+        }
+      ]
     },
     {
       "id": "recognize-you-a",
@@ -231,14 +242,26 @@
     },
     {
       "id": "recognize-she-q",
-      "text": "What is she doing?",
-      "es": "¿Qué está haciendo ella?",
+      "text": "What is she doing? She is cooking.",
+      "es": "¿Qué está haciendo ella? Ella está cocinando.",
       "image": "family_mother_cooking.webp",
-      "kind": "current-action-question",
+      "kind": "current-action-exchange-she",
       "learn": false,
-      "image_choices": false,
-      "choice_input": "audio",
-      "four_card": false
+      "image_choices": true,
+      "four_card": false,
+      "text_choices": false,
+      "turns": [
+        {
+          "text": "What is she doing?",
+          "speaker": "teacher",
+          "image": "family_mother_cooking.webp"
+        },
+        {
+          "text": "She is cooking.",
+          "speaker": "co-teacher",
+          "image": "family_mother_cooking.webp"
+        }
+      ]
     },
     {
       "id": "recognize-she-a",
@@ -256,14 +279,26 @@
     },
     {
       "id": "recognize-he-q",
-      "text": "What is he doing?",
-      "es": "¿Qué está haciendo él?",
+      "text": "What is he doing? He is sleeping.",
+      "es": "¿Qué está haciendo él? Él está durmiendo.",
       "image": "boy_is_sleeping.webp",
-      "kind": "current-action-question",
+      "kind": "current-action-exchange-he",
       "learn": false,
-      "image_choices": false,
-      "choice_input": "audio",
-      "four_card": false
+      "image_choices": true,
+      "four_card": false,
+      "text_choices": false,
+      "turns": [
+        {
+          "text": "What is he doing?",
+          "speaker": "teacher",
+          "image": "boy_is_sleeping.webp"
+        },
+        {
+          "text": "He is sleeping.",
+          "speaker": "co-teacher",
+          "image": "boy_is_sleeping.webp"
+        }
+      ]
     },
     {
       "id": "recognize-he-a",
@@ -281,14 +316,26 @@
     },
     {
       "id": "recognize-they-q",
-      "text": "What are they doing?",
-      "es": "¿Qué están haciendo ellos?",
+      "text": "What are they doing? They are running.",
+      "es": "¿Qué están haciendo ellos? Ellos están corriendo.",
       "image": "they_boy_girl_are_running.webp",
-      "kind": "current-action-question",
+      "kind": "current-action-exchange-they",
       "learn": false,
-      "image_choices": false,
-      "choice_input": "audio",
-      "four_card": false
+      "image_choices": true,
+      "four_card": false,
+      "text_choices": false,
+      "turns": [
+        {
+          "text": "What are they doing?",
+          "speaker": "teacher",
+          "image": "they_boy_girl_are_running.webp"
+        },
+        {
+          "text": "They are running.",
+          "speaker": "co-teacher",
+          "image": "they_boy_girl_are_running.webp"
+        }
+      ]
     },
     {
       "id": "recognize-they-a",
@@ -614,7 +661,36 @@
       "question_es": "¿Qué están haciendo ellos?"
     }
   ],
-  "pool": [],
+  "pool": [
+    {
+      "text": "What are you doing? I am writing.",
+      "es": "Estoy escribiendo.",
+      "image": "a1_u3_l33_v1_writing_answer.webp",
+      "kind": "current-action-exchange-you",
+      "four_card": false
+    },
+    {
+      "text": "What is she doing? She is reading.",
+      "es": "Ella está leyendo.",
+      "image": "girl_is_reading.webp",
+      "kind": "current-action-exchange-she",
+      "four_card": false
+    },
+    {
+      "text": "What is he doing? He is eating.",
+      "es": "Él está comiendo.",
+      "image": "boy_is_eating.webp",
+      "kind": "current-action-exchange-he",
+      "four_card": false
+    },
+    {
+      "text": "What are they doing? They are sitting.",
+      "es": "Ellos están sentados.",
+      "image": "family_grandparents_sitting.webp",
+      "kind": "current-action-exchange-they",
+      "four_card": false
+    }
+  ],
   "stage_sequences": {
     "Learn": [
       "learn-you-q",
@@ -667,5 +743,5 @@
       "use-they-a"
     ]
   },
-  "replaces_sha256": "97b3432456d54bb89b461faa2e723a2c06378caa2afef09dc7cce7594be54e5d"
+  "replaces_sha256": "2f37ef71dd59dca41a38b0059c8e923eac76549eba0d7bd83ccf50e82d1e3737"
 }

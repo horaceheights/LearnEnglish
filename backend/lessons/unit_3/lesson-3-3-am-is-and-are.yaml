@@ -42,7 +42,7 @@
   "grammar_function": "What are you doing? / I am ...; What is she doing? / She is ...; What is he doing? / He is ...; What are they doing? / They are ... . Complete present-progressive exchanges using familiar Unit 1 actions; do/does is not generalized.",
   "prerequisite": "3.2 I/you/we frames plus Unit 1 he/she/they, is/are, actions, baby and babies.",
   "speaking_outcome": "Say all four current-action questions and their matching answers in separate consecutive turns.",
-  "content_revision": 3,
+  "content_revision": 4,
   "learn_context_pairs": [
     {
       "question_slide_id": "L1",
@@ -275,28 +275,40 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What are you doing?\nI am reading.",
       "stage": "Recognize",
-      "correct_option_id": "what-are-you-doing-r1",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-are-they-doing-r1",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "other-scene",
+          "image_url": "a1_u3_l33_v1_writing_answer.webp",
+          "label": null
         },
         {
-          "id": "what-are-you-doing-r1",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "matching-scene",
+          "image_url": "a1_u3_l33_v1_reading_answer.webp",
+          "label": null
         }
       ],
-      "audio_text": "What are you doing?",
+      "audio_text": "What are you doing? I am reading.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: What are you doing?",
-      "audio_speaker": "luis"
+      "spanish_translation": "¿Qué estás haciendo? Estoy leyendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What are you doing?",
+          "speaker_role": "luis",
+          "image_url": "a1_u3_l33_v1_reading_question.webp"
+        },
+        {
+          "text": "I am reading.",
+          "speaker_role": "ana",
+          "image_url": "a1_u3_l33_v1_reading_answer.webp"
+        }
+      ]
     },
     {
       "slide_id": "R2",
@@ -326,27 +338,40 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "a2t2",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What is she doing?\nShe is cooking.",
       "stage": "Recognize",
-      "correct_option_id": "what-is-she-doing-r3",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-is-she-doing-r3",
-          "image_url": "",
-          "label": "What is she doing?"
+          "id": "matching-scene",
+          "image_url": "family_mother_cooking.webp",
+          "label": null
         },
         {
-          "id": "what-are-you-doing-r3",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "other-scene",
+          "image_url": "girl_is_reading.webp",
+          "label": null
         }
       ],
-      "audio_text": "What is she doing?",
+      "audio_text": "What is she doing? She is cooking.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: What is she doing?"
+      "spanish_translation": "¿Qué está haciendo ella? Ella está cocinando.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What is she doing?",
+          "speaker_role": "teacher",
+          "image_url": "family_mother_cooking.webp"
+        },
+        {
+          "text": "She is cooking.",
+          "speaker_role": "co-teacher",
+          "image_url": "family_mother_cooking.webp"
+        }
+      ]
     },
     {
       "slide_id": "R4",
@@ -376,32 +401,40 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "a2t3",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What is he doing?\nHe is sleeping.",
       "stage": "Recognize",
-      "correct_option_id": "what-is-he-doing-r5",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-are-they-doing-r5",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "other-scene",
+          "image_url": "boy_is_eating.webp",
+          "label": null
         },
         {
-          "id": "what-is-he-doing-r5",
-          "image_url": "",
-          "label": "What is he doing?"
-        },
-        {
-          "id": "what-is-she-doing-r5",
-          "image_url": "",
-          "label": "What is she doing?"
+          "id": "matching-scene",
+          "image_url": "boy_is_sleeping.webp",
+          "label": null
         }
       ],
-      "audio_text": "What is he doing?",
+      "audio_text": "What is he doing? He is sleeping.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: What is he doing?"
+      "spanish_translation": "¿Qué está haciendo él? Él está durmiendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What is he doing?",
+          "speaker_role": "teacher",
+          "image_url": "boy_is_sleeping.webp"
+        },
+        {
+          "text": "He is sleeping.",
+          "speaker_role": "co-teacher",
+          "image_url": "boy_is_sleeping.webp"
+        }
+      ]
     },
     {
       "slide_id": "R6",
@@ -436,32 +469,40 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "a2t3",
-      "prompt": "¡Escucha y elige!",
+      "interaction_type": "t2i2",
+      "prompt": "What are they doing?\nThey are running.",
       "stage": "Recognize",
-      "correct_option_id": "what-are-they-doing-r7",
+      "correct_option_id": "matching-scene",
       "options": [
         {
-          "id": "what-are-they-doing-r7",
-          "image_url": "",
-          "label": "What are they doing?"
+          "id": "matching-scene",
+          "image_url": "they_boy_girl_are_running.webp",
+          "label": null
         },
         {
-          "id": "what-is-he-doing-r7",
-          "image_url": "",
-          "label": "What is he doing?"
-        },
-        {
-          "id": "what-are-you-doing-r7",
-          "image_url": "",
-          "label": "What are you doing?"
+          "id": "other-scene",
+          "image_url": "family_grandparents_sitting.webp",
+          "label": null
         }
       ],
-      "audio_text": "What are they doing?",
+      "audio_text": "What are they doing? They are running.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: What are they doing?"
+      "spanish_translation": "¿Qué están haciendo ellos? Ellos están corriendo.",
+      "pedagogy_note": "Read the complete exchange and choose its matching photograph. The visible response identifies one scene without relying on audio. The following card reverses the task.",
+      "prompt_presentation": "written",
+      "audio_turns": [
+        {
+          "text": "What are they doing?",
+          "speaker_role": "teacher",
+          "image_url": "they_boy_girl_are_running.webp"
+        },
+        {
+          "text": "They are running.",
+          "speaker_role": "co-teacher",
+          "image_url": "they_boy_girl_are_running.webp"
+        }
+      ]
     },
     {
       "slide_id": "R8",
