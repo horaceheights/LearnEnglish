@@ -23,7 +23,7 @@ class OwnershipLessonTest(unittest.TestCase):
                          {'Learn': 2, 'Recognize': 12, 'Listen': 10, 'Speak': 8, 'Use': 8})
         learn = [c for c in lesson['cards'] if c['stage'] == 'Learn']
         self.assertEqual([c['spanish_translation'] for c in learn], ['Nuestro', 'Su (de ellos)'])
-        self.assertTrue(all(c['learn_translation_preview_ms'] == 1000 for c in learn))
+        self.assertTrue(all(c['learn_translation_preview_ms'] == 2000 for c in learn))
         self.assertTrue(all('learn_translation_preview_ms' not in c for c in lesson['cards'] if c['stage'] != 'Learn'))
         for card in lesson['cards']:
             if card['stage'] in {'Recognize', 'Listen'}:
@@ -42,8 +42,8 @@ class OwnershipLessonTest(unittest.TestCase):
 
     def test_preview_requires_teaching_image_and_authored_spanish(self):
         payload = dict(stage='Learn', prompt='Our', correct_option_id='our', options=[dict(id='our', image_url='our.webp')],
-                       spanish_translation='Nuestro', learn_translation_preview_ms=1000)
-        self.assertEqual(LessonCard(**payload).learn_translation_preview_ms, 1000)
+                       spanish_translation='Nuestro', learn_translation_preview_ms=2000)
+        self.assertEqual(LessonCard(**payload).learn_translation_preview_ms, 2000)
         for patch in [dict(stage='Recognize'), dict(options=[]), dict(options=[dict(id='our', image_url='')]),
                       dict(spanish_translation=''), dict(learn_translation_preview_ms=0)]:
             with self.assertRaises(ValidationError):
