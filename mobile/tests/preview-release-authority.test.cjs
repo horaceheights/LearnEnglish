@@ -308,10 +308,10 @@ function withNativeExportFixture(run) {
   finally { fs.rmSync(directory, { recursive: true, force: true }); }
 }
 
-test('native export accepts 1000 assets and rejects 1001 on either platform before upload', () => {
+test('native export accepts 1000 total assets including the launch bundle and rejects 1001 on either platform', () => {
   for (const platform of ['android', 'ios']) {
     withNativeExportFixture((directory, metadata, writeMetadata) => {
-      metadata.fileMetadata[platform].assets = Array.from({ length: 1000 }, () => ({ path: 'asset.png', ext: 'png' }));
+      metadata.fileMetadata[platform].assets = Array.from({ length: 999 }, () => ({ path: 'asset.png', ext: 'png' }));
       writeMetadata();
       assert.doesNotThrow(() => assertNativeExport(directory));
       metadata.fileMetadata[platform].assets.push({ path: 'asset.png', ext: 'png' });

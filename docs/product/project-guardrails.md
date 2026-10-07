@@ -636,7 +636,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 
 ## 11. Release Rules
 
-- Native updates must stay within Expo's 1,000-assets-per-platform limit. Validate the actual exported metadata before upload. Import used icon families directly instead of bundling the entire icon library; retain all approved lesson images and offline media. The 2026-10-07 lesson 3.11 publication exposed this limit with 1,002 assets.
+- Native updates must stay within Expo's 1,000-assets-per-platform limit, counting both the metadata's media assets and the launch bundle. Validate that total before upload. Import used icon families directly instead of bundling the entire icon library; retain all approved lesson images and offline media. The 2026-10-07 lesson 3.11 publication exposed this limit with 1,002 assets.
 
 - Follow `AGENTS.md` for the exact release workflow.
 - Preview is the default destination after an OTA-compatible mobile change passes verification.
