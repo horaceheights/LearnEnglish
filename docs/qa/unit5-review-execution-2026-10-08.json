@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-10-08",
-  "status": "Authored changes and scoped checks completed; six meal recordings were user-approved and bound. Audio catalog finalization, final release checks and Preview remain pending.",
+  "status": "Authored changes, approved audio bindings, versioned catalog and immutable R2 publication complete; CDN, CI and Preview verification pending.",
   "comparison_base_commit": "202c96a111ac3d175504e0ba1af8a3f2cf9a5256",
   "base_status": "Root confirmed protected main unchanged after a fresh fetch. This report does not record a commit, push or publication.",
   "authored_scope": {
@@ -26,7 +26,8 @@
     "course_git_blob": "4bd32cb93afa91cb4261bbe7be6a368f921923b5",
     "runtime_images": 1020,
     "release_integrity_updated": true,
-    "audio_catalog_finalized": false
+    "audio_catalog_finalized": true,
+    "audio_catalog_source_commit": "76c3f3d554934f43a2d0a0babe7345d2a0b45e18"
   },
   "media_and_review_evidence": {
     "new_generated_images": 23,
@@ -56,12 +57,30 @@
     "historical_intermediate_bindings": 10,
     "some_v4_bindings_preserved": true,
     "approved_v4_character_lines": [
-      {"text": "I eat two eggs for breakfast.", "speaker_role": "female-character"},
-      {"text": "I eat fish for lunch.", "speaker_role": "female-character"},
-      {"text": "I eat chicken for lunch.", "speaker_role": "female-character"},
-      {"text": "I drink water for lunch.", "speaker_role": "male-character"},
-      {"text": "I eat rice for dinner.", "speaker_role": "male-character"},
-      {"text": "I drink water for dinner.", "speaker_role": "male-character"}
+      {
+        "text": "I eat two eggs for breakfast.",
+        "speaker_role": "female-character"
+      },
+      {
+        "text": "I eat fish for lunch.",
+        "speaker_role": "female-character"
+      },
+      {
+        "text": "I eat chicken for lunch.",
+        "speaker_role": "female-character"
+      },
+      {
+        "text": "I drink water for lunch.",
+        "speaker_role": "male-character"
+      },
+      {
+        "text": "I eat rice for dinner.",
+        "speaker_role": "male-character"
+      },
+      {
+        "text": "I drink water for dinner.",
+        "speaker_role": "male-character"
+      }
     ],
     "approved_take_status": "The user approved all six exact staged v4 recordings on 2026-10-08. Root promoted those exact hashes with --promote and --reviewed-take, preserving original bytes without execution or new provider calls. All 520 scoped logical assets now resolve to approved takes.",
     "approval_evidence": "docs/qa/mission-meal-v4-auditions-2026-10-08.json"
@@ -120,12 +139,27 @@
     {
       "check": "M15 preservation plan",
       "result": "Targeted validate_plan passed against the protected baseline, installed replacement hashes and current mission binding."
+    },
+    {
+      "check": "backend.tests.test_persistent_card_audio and backend.tests.test_mission_cue_audio",
+      "result": "38 tests passed after final approved catalog export."
+    },
+    {
+      "check": "mobile/scripts/verify-release-integrity.cjs --repository-root .",
+      "result": "Passed: complete 81-lesson, 7-unit catalog."
     }
   ],
   "remaining_work": [
-    "Finalize the audio catalog against the eventual source commit and verify required CDN assets and deployment metadata.",
+    "Complete the learner CDN byte verification and exact backend deployment readiness gate.",
     "Run the complete required CI checks with all archival fixtures. The full local backend suite is not green: sparse-checkout archival media and provenance fixtures remain absent; do not waive the preservation gate.",
     "Run required Android interaction/layout checks on the completed candidate, including translation and initiating-image/response-image/answer playback.",
     "Complete the protected main integration and CI Preview workflow, verify the published commit, and review that exact Preview. No Preview or Production publication is claimed here."
-  ]
+  ],
+  "storage_publication": {
+    "audio_contracts": 6430,
+    "existing_objects_verified": 12667,
+    "new_objects_uploaded_and_verified": 376,
+    "provider_calls": 0,
+    "learner_cdn_full_check": "pending"
+  }
 }
