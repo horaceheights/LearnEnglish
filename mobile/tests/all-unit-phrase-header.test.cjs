@@ -49,8 +49,13 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /recognizeAnswerReplayText\(currentCard, result === 'correct'\)[\s\S]*?correctRecognizeReplayText \|\| \(useCompactRecognizeInstruction[\s\S]*?promptAudio\.trim\(\)[\s\S]*?if \(correctRecognizeReplayText\) \{\s*playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/,
-  'Empty-prompt Recognize replay stays locked until correct (a reply choice may replay the line it answers) and then plays the correct English choice.',
+  /recognizeAnswerReplayText\(currentCard, result === 'correct'\)[\s\S]*?correctRecognizeReplayText \|\| \(useCompactRecognizeInstruction[\s\S]*?promptAudio\.trim\(\)[\s\S]*?if \(correctRecognizeReplayText\) \{\s*if \(currentCard\?\.answer_audio_turns\?\.length\) \{\s*const sequence = findCourseAudioTurnSequence\(currentCard, 'answer'\);\s*if \(sequence\) playAudioSequence\(sequence, 'prompt', 'answer-turns'\)/,
+  'Empty-prompt Recognize replay stays locked until correct, then uses the authored answer-turn audio when present.',
+);
+assert.match(
+  screenSource,
+  /if \(currentCard\?\.answer_audio_turns\?\.length\) \{[\s\S]*?return;\s*\}\s*playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/,
+  'Recognize cards without answer turns keep the existing scalar correct-answer replay.',
 );
 assert.match(
   screenSource,
