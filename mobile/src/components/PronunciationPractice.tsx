@@ -1,3 +1,5 @@
+import { vocabularyText } from './VocabularyText';
+import { recordingPlaybackState } from '../recordingPlayback';
 import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 import { Alert, Animated, Easing, Image, Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -59,6 +61,7 @@ import {
 } from '../../modules/spanglish-speech/src';
 
 type Props = {
+  vocabulary?: readonly string[];
   audioProvider: CourseAudioProvider;
   audioTurns?: CourseAudioTurnPlayback[] | null;
   audioVoice: CourseAudioVoice;
@@ -241,6 +244,7 @@ async function withTimeout<T>(operation: Promise<T>, timeoutMs: number, timeoutM
 }
 
 export function PronunciationPractice({
+  vocabulary = [],
   audioProvider,
   audioTurns = null,
   audioVoice,
@@ -301,6 +305,7 @@ export function PronunciationPractice({
   const retiredModelPlaylistsRef = useRef<ReturnType<typeof createAudioPlaylist>[]>([]);
   const modelPlaylistStatus = useAudioPlaylistStatus(modelPlaylist);
   const activeReadyCuePlayerRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
+  const attemptPlaybackProgress = useRef({ position: 0, progressedAt: 0 });
   const activeAttemptPlaybackRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
   const permissionRequestInFlightRef = useRef(false);
   const appInterruptionHandledRef = useRef(false);
@@ -443,12 +448,14 @@ export function PronunciationPractice({
   }, [expectedTokens.length]);
 
   const playAttemptRecording = useCallback(async (recordingUri: string, runId: number) => {
+    attemptPlaybackProgress.current = { position: 0, progressedAt: Date.now() };
     await new Promise((resolve) => setTimeout(resolve, RECORDING_REVEAL_MS));
     if (!isCurrentRun(runId)) return;
 
     let player: ReturnType<typeof createAudioPlayer> | null = null;
     try {
-      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
+      await withTimeout(setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true }),
+        RECORDING_LOAD_TIMEOUT_MS, 'The learner playback audio session did not open.');
       if (!isCurrentRun(runId)) return;
 
       player = createAudioPlayer(recordingUri, { keepAudioSessionActive: true });
@@ -466,16 +473,14 @@ export function PronunciationPractice({
       }
 
       player.play();
-      let playbackStarted = false;
-      const playbackStartedAt = Date.now();
-      const maximumPlaybackMs = Math.max(5000, (player.duration || 30) * 1000 + 2000);
-      while (Date.now() - playbackStartedAt < maximumPlaybackMs && isCurrentRun(runId)) {
-        if (player.playing) playbackStarted = true;
-        const reachedEnd = player.duration > 0
-          && player.currentTime >= Math.max(0, player.duration - 0.05);
-        if (reachedEnd || (playbackStarted && !player.playing)) break;
+      attemptPlaybackProgress.current = { position: 0, progressedAt: Date.now() };
+      while (isCurrentRun(runId) && !gradedAdvanceHandled.current) {
+        const state = recordingPlaybackState(player.currentStatus, attemptPlaybackProgress.current, Date.now());
+        if (state === 'finished') break;
+        if (state === 'stalled') throw new Error('The learner recording stopped making playback progress.');
         await new Promise((resolve) => setTimeout(resolve, 50));
       }
+      if (!isCurrentRun(runId) || gradedAdvanceHandled.current) return;
       addDiagnosticBreadcrumb('pronunciation_recording_played_back', {
         attempt: attemptRef.current + 1,
         duration_ms: player.duration > 0 ? Math.round(player.duration * 1000) : undefined,
@@ -839,6 +844,7 @@ export function PronunciationPractice({
   ) => {
     if (!isCurrentRun(runId)) return;
     const reviewStartedAt = Date.now();
+    attemptPlaybackProgress.current = { position: 0, progressedAt: reviewStartedAt };
     let shouldAdvance = accepted;
     const passedOnFirstTry = accepted && attemptRef.current === 0;
     setReviewingRecording(true);
@@ -868,6 +874,7 @@ export function PronunciationPractice({
     if (!isCurrentRun(runId)) return;
 
     setReviewingRecording(false);
+    if (gradedAdvanceHandled.current) return;
     if (shouldAdvance) {
       gradedAdvanceHandled.current = true;
       onPassed(passedOnFirstTry, accepted);
@@ -1863,22 +1870,22 @@ export function PronunciationPractice({
       || gradedAdvanceHandled.current
     ) return undefined;
 
-    // Learner-recording replay is helpful feedback, but it is optional. Android
-    // audio-session promises and duration state have both stalled in the wild,
-    // so neither may keep a successfully graded card on screen indefinitely.
+    // A long recording is healthy while its playhead moves. Recover only after
+    // eight seconds without progress; never truncate speech at a fixed deadline.
     const passedOnFirstTry = passed && attemptRef.current === 0 && !continueAfterCoaching;
-    const timer = setTimeout(() => {
-      if (gradedAdvanceHandled.current) return;
+    const timer = setInterval(() => {
+      if (gradedAdvanceHandled.current
+          || Date.now() - attemptPlaybackProgress.current.progressedAt < SUCCESS_ADVANCE_WATCHDOG_MS) return;
       gradedAdvanceHandled.current = true;
       captureDiagnosticError(
-        new Error('Pronunciation success did not advance before the watchdog deadline.'),
+        new Error('Learner playback made no progress before the watchdog deadline.'),
         'pronunciation_success_advance_timeout',
         { attempt: attemptRef.current + 1, passed },
         'warning',
       );
       onPassed(passedOnFirstTry, passed && !continueAfterCoaching);
-    }, SUCCESS_ADVANCE_WATCHDOG_MS);
-    return () => clearTimeout(timer);
+    }, 250);
+    return () => clearInterval(timer);
   }, [continueAfterCoaching, onPassed, passed, phase]);
   // media-contract-ignore-end: pronunciation-success-watchdog
   useEffect(() => {
@@ -1891,7 +1898,11 @@ export function PronunciationPractice({
     // Give the learner time to read the final grade and advice before the
     // lesson advances to the next slide.
     const passedOnFirstTry = passed && attemptRef.current === 0 && !continueAfterCoaching;
-    const timer = setTimeout(() => onPassed(passedOnFirstTry, passed && !continueAfterCoaching), GRADING_REVIEW_MS);
+    const timer = setTimeout(() => {
+      if (gradedAdvanceHandled.current) return;
+      gradedAdvanceHandled.current = true;
+      onPassed(passedOnFirstTry, passed && !continueAfterCoaching);
+    }, GRADING_REVIEW_MS);
     return () => clearTimeout(timer);
   }, [continueAfterCoaching, onPassed, passed, phase, reviewingRecording]);
 
@@ -2115,7 +2126,7 @@ export function PronunciationPractice({
         ) : null}
         {phase === 'listening' ? (
           <View style={styles.liveAssessment}>
-            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{phrase}</Text>
+            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{vocabularyText(phrase, vocabulary, Boolean(result))}</Text>
             <View
               accessibilityLabel={expectedSyllables.map((syllable) => (
                 `${syllable.label}, ${recognizedSyllableKeySet.has(syllable.key) ? 'reconocida' : 'pendiente'}`
@@ -2139,7 +2150,7 @@ export function PronunciationPractice({
               })}
             </View>
           </View>
-        ) : <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{phrase}</Text>}
+        ) : <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{vocabularyText(phrase, vocabulary, Boolean(result))}</Text>}
       </Pressable>) : null}
       <View style={[styles.statusRow, missionVoiceGate ? styles.statusRowMission : null]}>
         {!isLandscape && !missionVoiceGate ? gradingMascot : null}

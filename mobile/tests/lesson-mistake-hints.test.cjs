@@ -168,3 +168,13 @@ assert.match(lessonMistakeHint({...card('I do [blank] like milk.', 'not', 'am'),
 assert.match(lessonMistakeHint({...card('I study English ___ Monday.', 'on', 'in'), answer_audio_text: 'I study English on Monday.'}, 'wrong'), /días de la semana/);
 assert.match(lessonMistakeHint({...card('I wake up ___ the morning.', 'in', 'on'), answer_audio_text: 'I wake up in the morning.'}, 'wrong'), /partes del día/);
 assert.match(lessonMistakeHint({...card('It is an [blank].', 'apple', 'egg'), spanish_translation: 'Es una [pausa].', answer_audio_text: 'It is an apple.'}, 'wrong'), /egg.+huevo.+apple.+manzana/);
+
+for (const [right, wrong] of [['There are', 'There is'], ['There is', 'There are']]) {
+  const hint = lessonMistakeHint({...card('', right, wrong), stage:'Recognize'}, 'wrong');
+  assert.match(hint, /singular/);
+  assert.match(hint, /plural/);
+  assert.doesNotMatch(hint, /Con “There” usamos/);
+}
+assert.match(lessonMistakeHint({...card('', 'You are happy.', 'You is happy.'), stage:'Recognize'}, 'wrong'), /tú.+ustedes/);
+assert.doesNotMatch(lessonMistakeHint({...card('', 'I do not study.', 'I study.'), stage:'Recognize'}, 'wrong'), /gusta/);
+assert.doesNotMatch(lessonMistakeHint({...card('', 'He is not a child.', 'He is a child.'), stage:'Recognize'}, 'wrong'), /acción|ocurre/);

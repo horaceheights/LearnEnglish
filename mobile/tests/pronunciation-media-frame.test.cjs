@@ -112,13 +112,13 @@ assert.doesNotMatch(
 );
 assert.match(
   cardViewSource,
-  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=/,
+  /<OptionMediaImage[\s\S]*?imageUrl=\{teachingImageUrl \|\| option\.image_url\}[\s\S]*?sourceOverride=/,
   'Four-image choice grids must continue using the shared normalized image layer.',
 );
 assert.doesNotMatch(cardViewSource, /preserveSubject=/, 'No option-count layout may opt back into padded catalog rendering.');
 assert.match(
   cardViewSource,
-  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
+  /<OptionMediaImage[\s\S]*?imageUrl=\{teachingImageUrl \|\| option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
   'Two-image choices must continue using their matching action-video poster source.',
 );
 assert.match(

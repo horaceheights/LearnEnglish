@@ -30,7 +30,7 @@ import {
 } from "../../mobile/src/lessonInstructions";
 import { isWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
-import { visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
+import { teachingOptionImageUrl, visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { useLearnTranslationPreview } from "../../mobile/src/hooks/useLearnTranslationPreview";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
@@ -47,6 +47,7 @@ import { progressScope } from '../../mobile/src/accountSession';
 import { lessonResults, syncLocalLessonResults } from "../lib/localLessonResults";
 import MissionJourney from "./MissionJourney";
 import SentenceConstruction from "./SentenceConstruction";
+import { vocabularyParts, NEW_VOCABULARY_COLOR } from "../../mobile/src/lessonVocabulary";
 import { isWordConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
 import { mediaUrl } from "../lib/mediaUrl";
 
@@ -2343,7 +2344,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const missionOrder = useMemo(() => missionCueOrder(currentCard?.mission_game), [currentCard]);
   const [playingTurnImageUrl, setActiveTurnImageUrl] = useState(null);
   // A speaker's picture never covers an answer-choice card's options (shared with mobile).
-  const activeTurnImageUrl = visibleTurnImageUrl(currentCard, playingTurnImageUrl);
+  const teachingImageUrl = currentCard ? teachingOptionImageUrl(currentCard, playingTurnImageUrl) : null;
+  const activeTurnImageUrl = teachingImageUrl ? null : visibleTurnImageUrl(currentCard, playingTurnImageUrl);
   const totalCards = activeLesson.cards.length;
   const finalMissionCard = isMissionExperience ? activeLesson.cards[activeLesson.cards.length - 1] : null;
   const finalMissionImageUrl = finalMissionCard?.prompt_image_url
@@ -2818,25 +2820,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       Use: new Set(selectedLabels.flatMap((label) => label.toLowerCase().match(/[a-z']+/g) || [])),
     };
     const focusWords = focusWordsByStage[currentCard?.stage];
-    const introductionWords = currentCard?.stage === "Learn"
-      ? new Set(
-          (activeLesson.vocabulary || []).flatMap(
-            (entry) => String(entry).toLowerCase().match(/[a-z']+/g) || []
-          )
-        )
-      : new Set();
-
-    if ((!focusWords && introductionWords.size === 0) || !displayText) {
-      return displayText;
-    }
-
-    return displayText.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
+    if (!displayText) return displayText;
+    return vocabularyParts(displayText, activeLesson.vocabulary || []).map(({ text: part, highlighted }, index) => {
       const normalizedPart = part.toLowerCase();
       const isNotConceptFocus = activeLesson?.id === "lesson-7-is-are-not" && normalizedPart === "not";
-      if (introductionWords.has(normalizedPart)) {
+      if (highlighted) {
         return (
           <span
-            className="new-vocabulary-intro"
+            className={currentCard?.stage === "Learn" ? "new-vocabulary-intro" : undefined}
             key={`${cardIndex}-${part}-${index}`}
             style={isNotConceptFocus ? conceptFocusStyle : newWordHighlightStyle}
           >
@@ -2861,6 +2852,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       return part;
     });
   };
+  const renderVocabulary = (text, disabled = false) => disabled ? text : vocabularyParts(text, activeLesson.vocabulary || []).map((part, index) =>
+    part.highlighted ? <span key={index} style={{ color: NEW_VOCABULARY_COLOR, fontWeight: 900 }}>{part.text}</span> : part.text);
   const renderListeningCue = () => (
     <div
       style={{
@@ -2967,7 +2960,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         : isSpokenWord
           ? "#edf7f9"
           : "#fffdf9";
-    const tokenColor = hasGrading ? isGoodFinalWord ? "#17623f" : "#8a5b10" : isSpokenWord ? "#176777" : "transparent";
+    const tokenColor = hasGrading ? isGoodFinalWord ? "#17623f" : "#8a5b10" : options.highlighted ? NEW_VOCABULARY_COLOR : isSpokenWord ? "#176777" : "transparent";
     const tokenBorder = hasGrading
       ? isGoodFinalWord ? "rgba(47, 143, 98, 0.5)" : "rgba(191, 114, 0, 0.52)"
       : isSpokenWord
@@ -3031,12 +3024,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   ) => {
     let spokenWordIndex = 0;
 
-    return promptParts(phrase).map((part, index) => {
+    return vocabularyParts(phrase, activeLesson.vocabulary || []).map(({ text: part, highlighted }, index) => {
       if (!/[A-Za-z]+/.test(part)) {
         return <span key={`${part}-${index}`}>{part}</span>;
       }
 
-      const renderedWord = renderPronunciationWord(part, index, spokenWordIndex, summary, result, options);
+      const renderedWord = renderPronunciationWord(part, index, spokenWordIndex, summary, result, { ...options, highlighted });
       spokenWordIndex += 1;
       return renderedWord;
     });
@@ -3070,7 +3063,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   );
   const renderEmptyPronunciationPhrase = (phrase, options = {}) => {
     const { optionId = activePronunciationOption?.id, interactive = false } = options;
-    return promptParts(phrase).map((part, index) => {
+    return vocabularyParts(phrase, activeLesson.vocabulary || []).map(({ text: part, highlighted }, index) => {
       if (!/[A-Za-z]+/.test(part)) {
         return <span key={`${part}-${index}`}>{part}</span>;
       }
@@ -3122,7 +3115,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const renderPronunciationPromptHeader = (phrase, optionId, isActive) => {
     const activePart = isActive && modelSpeechPart?.optionId === optionId ? modelSpeechPart : null;
 
-    return promptParts(phrase).map((part, index) => {
+    return vocabularyParts(phrase, activeLesson.vocabulary || []).map(({ text: part, highlighted }, index) => {
       if (!/[A-Za-z]+/.test(part)) {
         return <span key={`${part}-${index}`}>{part}</span>;
       }
@@ -5670,7 +5663,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
             ) : null}
           </section>
 
-          {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} surfaceRef={pageRef}
+          {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} vocabulary={activeLesson.vocabulary || []} surfaceRef={pageRef}
             selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={false} helpOpen={showHelp}
             onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt} onRetry={resetMissionSelection}
             imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)} /> : (
@@ -5806,7 +5799,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                 const optionPrompt = optionPracticePrompt(option);
                 const optionLabel = option.label || optionPrompt || option.id;
                 const hasOptionImage = Boolean(option.image_url);
-                const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison
+                const actionVideoName = !teachingImageUrl && !isPronunciationCard && !useStillOnlyLesson17Comparison
                   ? lessonActionVideo(option.image_url, currentCard.options.length)
                   : null;
                 const actionPosterSrc = currentCard.options.length === 2 && actionVideoName
@@ -6035,7 +6028,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                           videoName={actionVideoName}
                         />
                       ) : (
-                        <img src={actionPosterSrc || lessonOptionImageSrc(option.image_url)} alt={optionLabel}
+                        <img src={actionPosterSrc || lessonOptionImageSrc(teachingImageUrl || option.image_url)} alt={optionLabel}
                           onLoad={learnTranslation.enabled ? () => setLoadedTeachingImageKey(teachingCardKey) : undefined}
                           data-written-recognition-media={fitWrittenRecognition ? true : undefined} style={optionImageStyle} />
                       )
@@ -6067,7 +6060,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                             : isMobile ? "18px 14px" : "28px 20px",
                         }}
                       >
-                        {optionLabel}
+                        {renderVocabulary(optionLabel)}
                       </div>
                     )}
                   </CardTag>

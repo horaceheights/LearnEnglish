@@ -1,3 +1,4 @@
+import { vocabularyText } from './VocabularyText';
 import { Animated, Easing, PanResponder, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
@@ -14,7 +15,7 @@ import { awaitingConstructionRetry } from '../constructionTeaching';
 import { IMAGE_CHOICE_INSET, imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
 import type { ChoiceOption, LessonCard } from '../types';
-import { visibleTurnImageUrl } from '../lessonTurnImages';
+import { teachingOptionImageUrl, visibleTurnImageUrl } from '../lessonTurnImages';
 import {
   LESSON_MEDIA_FRAME_STYLE,
   LESSON_MEDIA_VIEWPORT_STYLE,
@@ -56,6 +57,7 @@ export function textAnswerStackNeedsScroll(
 }
 
 type Props = {
+  vocabulary?: readonly string[];
   audioProvider: CourseAudioProvider;
   audioVoice: CourseAudioVoice;
   activeTurnImageUrl?: string | null;
@@ -90,6 +92,7 @@ type Props = {
 };
 
 export function LessonCardView({
+  vocabulary = [],
   audioProvider,
   audioVoice,
   activeTurnImageUrl: playingTurnImageUrl = null,
@@ -125,7 +128,8 @@ export function LessonCardView({
   const { height: viewportHeight, width: viewportWidth, fontScale } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
-  const activeTurnImageUrl = visibleTurnImageUrl(card, playingTurnImageUrl);
+  const teachingImageUrl = teachingOptionImageUrl(card, playingTurnImageUrl);
+  const activeTurnImageUrl = teachingImageUrl ? null : visibleTurnImageUrl(card, playingTurnImageUrl);
   const isMissionVoiceGate = Boolean(missionVoiceGate);
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
   const isMissionTile = card.interaction_type === 'mission-word-parts'
@@ -568,6 +572,7 @@ export function LessonCardView({
             </View>
           ) : null}
           <PronunciationPractice
+            vocabulary={vocabulary}
             compactLandscape={phoneLandscape && !isMissionVoiceGate}
             audioTurns={pronunciationAudioTurns}
             audioProvider={audioProvider}
@@ -637,7 +642,7 @@ export function LessonCardView({
                 || (revealPending && effectiveSelectedIds.length < (card.correct_option_ids?.length || 1));
               const optionTextLineLimit = textOptionLineLimit(option.label);
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
-              const actionVideo = useStillOnlyLesson17Comparison
+              const actionVideo = teachingImageUrl || useStillOnlyLesson17Comparison
                 ? null
                 : lessonActionVideo(option.image_url, card.options.length);
               const playActionVideo = Boolean(actionVideo) && (
@@ -695,7 +700,7 @@ export function LessonCardView({
                       <LessonActionMedia
                         accessibilityLabel={option.label || card.prompt}
                         height={renderedOptionImageHeight}
-                        imageUrl={option.image_url}
+                        imageUrl={teachingImageUrl || option.image_url}
                         onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
@@ -715,7 +720,7 @@ export function LessonCardView({
                         ]}
                         >
                           <OptionMediaImage
-                            imageUrl={option.image_url}
+                            imageUrl={teachingImageUrl || option.image_url}
                             onLoad={card.stage === 'Learn' && card.options.length === 1 ? onTeachingImageReady : undefined}
                             sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
                           />
@@ -747,7 +752,7 @@ export function LessonCardView({
                         ]}
                         textBreakStrategy="simple"
                       >
-                        {option.label}
+                        {vocabularyText(option.label || '', vocabulary, revealCorrect || revealWrong)}
                       </Text>
                     </>
                   ) : null}

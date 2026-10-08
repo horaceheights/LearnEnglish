@@ -87,9 +87,10 @@ EXACT_ROLE_CHANGES = {
 # question narration from the 12 reverse cards. Listen A2 now uses per-turn
 # speakers for its existing question and reply (-5 net scalar assignments).
 # 3.11 adds 17 ownership-speaker assignments after the template correction.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1928
+# 4.3 Listen A1 reuses the approved natural female teacher In take (-1 co-teacher field).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1927
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "d0a0007e74fd5b9f6c9d16c72db5b48d71eb82493fa041908a1214593e36a4ad"
+    "dab46834d7abfd2be94b22c0b79f48a2a23cd27cdd62286cfb7a7e797dccdf42"
 )
 
 

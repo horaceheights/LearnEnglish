@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "note": "Known practice findings in content that predates the 2026-09-23 standards. Entries may only be removed as lessons are rebuilt; new findings fail CI.",
+  "note": "Known practice findings in content that predates the 2026-09-23 standards. Entries may only be removed as lessons are rebuilt; new findings fail CI. The four explicitly documented 2026-10-07 sequence-reuse findings follow the newer user decision; all other new findings still fail.",
   "courses": {
     "a1": [
       "later-reuse|1.5|adult",
@@ -14,6 +14,10 @@
       "later-reuse|3.7|the United States",
       "later-reuse|3.8|Spanish",
       "later-reuse|3.9|cook",
+      "later-reuse|4.6|after that",
+      "later-reuse|4.6|finally",
+      "later-reuse|4.6|first",
+      "later-reuse|4.6|then",
       "learn-new-only|1.2|He is eating.",
       "learn-new-only|1.2|The boy",
       "learn-new-only|1.2|The boy is eating.",
@@ -95,5 +99,17 @@
       "learn-new-only|2.9|Three green books",
       "learn-new-only|2.9|Two blue cars"
     ]
-  }
+  },
+  "reviewed_exceptions": [
+    {
+      "date": "2026-10-07",
+      "keys": [
+        "later-reuse|4.6|after that",
+        "later-reuse|4.6|finally",
+        "later-reuse|4.6|first",
+        "later-reuse|4.6|then"
+      ],
+      "reason": "User explicitly removed artificial sequence connectors from all independent Unit 4 mission speaking answers. This corrects false reuse evidence. Genuine routine practice in 4.6 and review 4.11 remains; the second later lesson is a known curriculum gap, not permission to insert misleading sequence language."
+    }
+  ]
 }

@@ -3,13 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { availableSentenceWords, placeSentenceWord, returnSentenceWord, sentenceHint, sentenceParts, sentenceSlots } from "../../mobile/src/sentenceConstruction";
 import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
+import { constructionVocabulary, NEW_VOCABULARY_COLOR } from "../../mobile/src/lessonVocabulary";
 import styles from "./SentenceConstruction.module.css";
 import ConstructionCelebration from "./ConstructionCelebration";
 
-export default function SentenceConstruction({ card, selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, helpOpen, surfaceRef }) {
+export default function SentenceConstruction({ card, vocabulary = [], selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, helpOpen, surfaceRef }) {
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
+  const { optionIds: vocabularyIds, scaffoldIndexes } = constructionVocabulary(parts, card, vocabulary);
   const locked = result !== null;
   const root = useRef(null);
   const bank = useRef(null);
@@ -123,14 +125,14 @@ export default function SentenceConstruction({ card, selected, result, onChange,
       {result !== "correct" || translated ? <button type="button" className={styles.translation} aria-label="Mostrar traducción" onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Escucha y forma la frase."}</button> : null}
       <div className={styles.slots} aria-label={result === "correct" ? "Frase completada" : "Frase en construcción"}>
         {parts.map((part, index) => {
-          if ("text" in part) return <span key={`text-${index}`} className={styles.scaffold}>{part.text}</span>;
+          if ("text" in part) return <span key={`text-${index}`} className={styles.scaffold} style={scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : undefined}>{part.text}</span>;
           const id = slots[part.slot];
           const label = card.options.find(option => option.id === id)?.label || "";
           return <button key={`slot-${part.slot}`} type="button" ref={element => { slotRefs.current[part.slot] = element; }}
             className={`${styles.slot} ${result === "correct" ? styles.correct : ""} ${hover === part.slot ? styles.target : ""}`}
             aria-label={result === "correct" ? `${label}. Mostrar traducción` : `Espacio ${part.slot + 1}: ${label || "vacío"}`}
             aria-describedby={result === "correct" ? undefined : "word-correction-help"} disabled={result !== "correct" && (locked || !id)}
-            {...(result === "correct" ? { onClick: () => setTranslated(value => !value) } : handlers(id, label, part.slot))}><span style={{ visibility: moving?.id === id ? "hidden" : "visible" }}>{label || "___"}{part.suffix}</span></button>;
+            {...(result === "correct" ? { onClick: () => setTranslated(value => !value) } : handlers(id, label, part.slot))}><span style={{ visibility: moving?.id === id ? "hidden" : "visible", color: result !== "correct" && vocabularyIds.has(id) ? NEW_VOCABULARY_COLOR : undefined }}>{label || "___"}{part.suffix}</span></button>;
         })}
       </div>
       <button className={styles.replay} type="button" aria-label="Repetir frase en inglés" onClick={onReplay}>
@@ -146,7 +148,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
         {words.map(option => <button key={option.id} type="button"
           ref={element => { if (element) wordRefs.current.set(option.id, element); else wordRefs.current.delete(option.id); }}
           className={`${styles.tile} ${styles[`tone${card.options.findIndex(word => word.id === option.id) % 3}`]}`} disabled={locked} aria-label={`Ficha ${option.label}`}
-          {...handlers(option.id, option.label)}><span style={{ visibility: moving?.id === option.id ? "hidden" : "visible" }}>{option.label}</span></button>)}
+          {...handlers(option.id, option.label)}><span style={{ visibility: moving?.id === option.id ? "hidden" : "visible", color: vocabularyIds.has(option.id) ? NEW_VOCABULARY_COLOR : undefined }}>{option.label}</span></button>)}
         {!words.length ? <p className={styles.instruction}>Devuelve aquí una palabra para corregir.</p> : null}
       </div> : null}
       {result !== "wrong" ? <div className={styles.controls}>
@@ -158,6 +160,6 @@ export default function SentenceConstruction({ card, selected, result, onChange,
         onClick={() => { history.current = []; cancel(); onRetry(); }}>Reintentar</button></div> : null}
       </>}
     </div>
-    {moving ? <div aria-hidden="true" className={styles.drag} style={{ left: moving.x, top: moving.y, width: moving.width, minHeight: moving.height }}>{moving.label}</div> : null}
+    {moving ? <div aria-hidden="true" className={styles.drag} style={{ color: vocabularyIds.has(moving.id) ? NEW_VOCABULARY_COLOR : undefined, left: moving.x, top: moving.y, width: moving.width, minHeight: moving.height }}>{moving.label}</div> : null}
   </section>;
 }

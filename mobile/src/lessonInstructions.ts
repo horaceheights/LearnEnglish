@@ -129,7 +129,8 @@ export function listeningChoiceInstruction(options: readonly { image_url?: strin
 }
 
 export function usesCompactRecognizeInstruction(stage: string, prompt: string) {
-  return stage === 'Recognize' && !prompt.trim();
+  return stage === 'Recognize' && (!prompt.trim()
+    || /^[¡!]?elige la (?:frase|palabra)(?: correcta)?[!.]?$/i.test(prompt.trim()));
 }
 
 export function usesCompactSpeakInstruction(stage: string) {

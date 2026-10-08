@@ -372,7 +372,7 @@ function grammarChoiceContrast(correct: string, wrong: string): string {
     return '“He” se usa para personas; la imagen muestra un libro, por eso usamos “It”.';
   }
   if (expected === 'it is a book' && selected === 'they are a book') {
-    return '“They” habla de personas; la imagen muestra un libro, por eso usamos “It”.';
+    return '“They” se refiere a varios; la imagen muestra un solo libro, por eso usamos “It”.';
   }
   if (/^first,/.test(expected) && /^then,/.test(selected)) {
     return '“Then” marca lo que pasa después; aquí es la primera acción, por eso usamos “First”.';
@@ -405,6 +405,12 @@ function grammarChoiceContrast(correct: string, wrong: string): string {
   }
   if (['am', 'is', 'are'].includes(right) && ['am', 'is', 'are'].includes(mistake)) {
     const subject = /\b(i|you|he|she|it|we|they|there)\s+(?:am|is|are)\b/i.exec(correct)?.[1] || '';
+    if (subject.toLowerCase() === 'there') {
+      return right === 'are'
+        ? '“There is” usa “is” para una cosa (singular); “There are” usa “are” para varias (plural). Aquí hay más de una.'
+        : '“There are” usa “are” para varias cosas (plural); “There is” usa “is” para una (singular). Aquí hay una sola.';
+    }
+    if (subject.toLowerCase() === 'you') return 'Con “you” usamos “are”, tanto para una persona (tú) como para varias (ustedes).';
     if (subject) return `Con “${subject}” usamos “${right}”, no “${mistake}”.`;
   }
   if (['have', 'has'].includes(right) && ['have', 'has'].includes(mistake)) {
@@ -415,11 +421,12 @@ function grammarChoiceContrast(correct: string, wrong: string): string {
     return `“${mistake}” significa “${mistake === 'can' ? 'puede' : 'no puede'}”; aquí ${right === 'can' ? 'sí puede' : 'no puede'}, por eso usamos “${right}”.`;
   }
   if ((right === 'do not' && !mistake) || (mistake === 'do not' && !right)) {
-    return right ? 'Tu opción afirma que le gusta; “do not” indica que no le gusta.'
-      : 'Tu opción dice que no le gusta; aquí sí le gusta.';
+    return /\blike\b/i.test(correct)
+      ? (right ? 'Tu opción afirma que le gusta; “do not” indica que no le gusta.' : 'Tu opción dice que no le gusta; aquí sí le gusta.')
+      : (right ? 'Tu opción afirma la acción; “do not” indica que no la hace.' : 'Tu opción niega la acción con “do not”; aquí sí la hace.');
   }
-  if (right === 'not' && !mistake) return 'Tu opción afirma la acción; “not” indica que aquí no ocurre.';
-  if (mistake === 'not' && !right) return 'Tu opción niega la acción; aquí sí ocurre.';
+  if (right === 'not' && !mistake) return 'Tu opción lo afirma; “not” hace la frase negativa.';
+  if (mistake === 'not' && !right) return 'Tu opción es negativa por “not”; aquí usamos la frase afirmativa.';
   if (/^(want|wants|need|needs|go|goes|work|works)$/.test(right) && /^(want|wants|need|needs|go|goes|work|works)$/.test(mistake)) {
     if (right.replace(/(?:es|s)$/, '') === mistake.replace(/(?:es|s)$/, '')) {
       const subject = /\b(i|you|he|she|it|we|they)\s+(?:can\s+)?(?:want|wants|need|needs|go|goes|work|works)\b/i.exec(correct)?.[1] || '';
@@ -710,7 +717,7 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
       he: '“He” (él) reemplaza al hombre o niño del que hablamos.',
       she: '“She” (ella) reemplaza a la mujer o niña de la que hablamos.',
       it: '“It” se refiere aquí a una sola cosa; “he” y “she” se usan para personas.',
-      they: '“They” (ellos o ellas) se refiere a las personas juntas.',
+      they: '“They” se refiere a varias personas, animales o cosas; aquí hablamos del grupo.',
       'they are': '“They” se refiere al grupo completo.',
       i: '“I” significa yo: la persona habla de sí misma.',
       you: '“You” significa tú o ustedes: hablamos con esa persona o grupo.',
@@ -724,8 +731,12 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   }
   if (/^(have|has)$/.test(focus)) return inContext(`usamos “${focus}” con “${before.trim()}”; ${focus === 'has' ? 'he/she/it lleva “has”' : 'I/you/we/they lleva “have”'}.`);
   if (/^(not|do not|do not like|cannot|can)$/.test(focus)) {
-    if (focus === 'not' && /\bdo\s*$/i.test(before)) return inContext('“not” va entre “do” y “like” para negar la preferencia.');
-    if (focus === 'not') return inContext('“Not” indica que la acción no está ocurriendo; va después de “is” o “are”.');
+    if (focus === 'not' && /\bdo\s*$/i.test(before)) return inContext(/\blike\b/i.test(after)
+      ? '“not” va entre “do” y “like” para negar la preferencia.'
+      : '“do not” niega la acción; después va el verbo sin cambiar.');
+    if (focus === 'not') return inContext(/\b(?:am|is|are)\s+not\s+\w+ing\b/i.test(clause)
+      ? '“Not” indica que la acción no está ocurriendo; va después de “am”, “is” o “are”.'
+      : '“Not” niega lo que se afirma; aquí va después de “am”, “is” o “are”.');
     if (focus === 'can' || focus === 'cannot') return inContext(`“${focus}” significa “${focus === 'can' ? 'puede' : 'no puede'}”; después va el verbo sin cambiar.`);
     return inContext('“Do not like” significa “no me gusta”: “do not” niega la preferencia.');
   }
