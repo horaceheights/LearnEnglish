@@ -37,7 +37,7 @@
   "grammar_function": "The bus leaves at eight. The train arrives at nine. The bus leaves at eight on Monday.",
   "prerequisite": "4.9 days; 4.10 at and parts of the day; 6.2 train; 2.6-2.7 numbers.",
   "speaking_outcome": "Say when a bus or a train leaves or arrives.",
-  "content_revision": 2,
+  "content_revision": 3,
   "purposeful_review_slides": [
     "R3",
     "R4",
@@ -81,46 +81,46 @@
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Leaves",
+      "prompt": "The bus leaves at eight.",
       "stage": "Learn",
       "correct_option_id": "leaves-learn",
       "options": [
         {
           "id": "leaves-learn",
           "image_url": "a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "label": "Leaves"
+          "label": "The bus leaves at eight."
         }
       ],
-      "audio_text": "Leaves",
+      "audio_text": "The bus leaves at eight.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Sale",
+      "spanish_translation": "El autobús sale a las ocho.",
       "pedagogy_note": "Story beat 01: Leaves"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Arrives",
+      "prompt": "The bus arrives at seven.",
       "stage": "Learn",
       "correct_option_id": "arrives-learn",
       "options": [
         {
           "id": "arrives-learn",
           "image_url": "a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "label": "Arrives"
+          "label": "The bus arrives at seven."
         }
       ],
-      "audio_text": "Arrives",
+      "audio_text": "The bus arrives at seven.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Llega",
+      "spanish_translation": "El autobús llega a las siete.",
       "pedagogy_note": "Story beat 02: Arrives",
       "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "Leaves",
+      "prompt": "The bus leaves at eight.",
       "stage": "Recognize",
       "correct_option_id": "leaves-r1",
       "options": [
@@ -135,10 +135,10 @@
           "label": null
         }
       ],
-      "audio_text": "Leaves",
+      "audio_text": "The bus leaves at eight.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Sale",
+      "spanish_translation": "El autobús sale a las ocho.",
       "pedagogy_note": "Story beat 01: Leaves"
     },
     {
@@ -151,18 +151,18 @@
         {
           "id": "leaves-r2",
           "image_url": "",
-          "label": "Leaves"
+          "label": "The bus leaves at eight."
         },
         {
           "id": "arrives-r2",
           "image_url": "",
-          "label": "Arrives"
+          "label": "The bus arrives at seven."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Arrives",
+      "answer_audio_text": "The bus arrives at seven.",
       "prompt_image_url": "a1_scene_bus-arrives-7-00_ff6fd43.webp",
-      "spanish_translation": "Elige la frase correcta.",
+      "spanish_translation": "El autobús llega a las siete.",
       "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: Arrives"
     },
@@ -429,7 +429,7 @@
           "label": null
         }
       ],
-      "audio_text": "Arrives",
+      "audio_text": "The bus arrives at seven.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
@@ -1233,6 +1233,32 @@
       "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 09: The bus leaves at eight on Saturday.",
       "audio_speaker": "co-teacher"
+    }
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "leaves"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "The bus leaves at eight."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "arrives"
+      ],
+      "models": [
+        {
+          "slide_id": "L2",
+          "text": "The bus arrives at seven."
+        }
+      ]
     }
   ]
 }

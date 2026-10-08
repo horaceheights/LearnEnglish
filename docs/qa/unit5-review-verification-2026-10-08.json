@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-08",
+  "scope": "Approved Unit 5 review, review/mission follow-through, and shared or contextual-verb corrections applicable to all seven A1 units.",
+  "catalog": {
+    "lessons": 81,
+    "units": 7,
+    "changed_canonical_lessons": [
+      "1.2",
+      "1.7",
+      "4.5",
+      "4.7",
+      "5.5",
+      "5.6",
+      "5.7",
+      "5.8",
+      "5.9",
+      "5.10",
+      "5.11",
+      "5.12",
+      "6.2",
+      "6.6",
+      "6.8",
+      "7.6"
+    ],
+    "preserved_hunger_lesson": "7.2",
+    "immutable_audio_assets": 6395,
+    "audio_source_commit": "2060ab75cfab1df20c6a31d8194e440f3e4dddb9"
+  },
+  "checks": [
+    {
+      "command": "python -m unittest discover -s backend/tests -p test_*.py",
+      "result": "passed",
+      "tests": 594
+    },
+    {
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File mobile/scripts/verify-interaction-paths.ps1 -ReviewPolicy Preview",
+      "result": "passed"
+    },
+    {
+      "command": "node --test frontend/tests/*.test.mjs (expanded paths on Windows Node 20)",
+      "result": "passed",
+      "tests": 23
+    },
+    {
+      "command": "node mobile/node_modules/typescript/bin/tsc --noEmit --project mobile/tsconfig.json",
+      "result": "passed"
+    },
+    {
+      "command": "node mobile/scripts/verify-release-integrity.cjs --repository-root .",
+      "result": "passed"
+    },
+    {
+      "command": "python scripts/validate_lesson_cards.py --semantic-review-policy preview",
+      "result": "passed with existing human-review advisories"
+    },
+    {
+      "command": "python scripts/audit_content_practice.py --check",
+      "result": "passed; 95 existing findings, no new findings"
+    },
+    {
+      "command": "python scripts/validate_course_audio_cast.py; python scripts/review_speaking_voices.py",
+      "result": "passed; actual pictured-speaker gender inspected, not an auditory acceptance claim"
+    },
+    {
+      "command": "python scripts/validate_persistent_course_audio.py",
+      "result": "passed",
+      "assets": 6395
+    },
+    {
+      "command": "python scripts/verify_cloudflare_media.py",
+      "result": "passed; complete MP3/receipt/image bytes verified",
+      "missing": 0,
+      "invalid": 0,
+      "errors": 0,
+      "media_objects": 2889
+    }
+  ],
+  "media": {
+    "new_photos": 51,
+    "generator": "builtin-imagegen",
+    "inspection": "Full pixels and 354-pixel 3:2 phone thumbnails. Matched people, gesture, gaze, food, counts, physical bills and price tags. Original files retained; no human approvals fabricated."
+  },
+  "audio": {
+    "provider": "ElevenLabs",
+    "new_takes": 50,
+    "reported_incremental_character_cost": 554,
+    "final_review_turns": "Four existing takes reused; zero new provider requests.",
+    "listening_acceptance": "Fresh contextual want recordings replace the isolated rejected word. Human listening review of initial English /w/ and complete exchanges remains part of exact Preview acceptance."
+  },
+  "release": {
+    "android_export": "Required protected CI performs the full Android export; local export was not run because of insufficient free disk space.",
+    "production": "Not authorized; requires testing and explicit approval of the exact Preview."
+  }
+}

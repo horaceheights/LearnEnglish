@@ -62,3 +62,9 @@ const alternatives = api.constructionVocabulary([{text:'There'}, {slot:0}, {text
 assert.deepEqual([...alternatives.optionIds].sort(), ['are','is'], 'Both target alternatives must be yellow, so emphasis never reveals the right answer.');
 
 assert.deepEqual(words('At the café.', ['café']), ['café']);
+assert.deepEqual(words('How many?', ['How many...?']), ['How', 'many']);
+assert.deepEqual(words('How many apples are there?', ['How many ...?']), ['How', 'many']);
+assert.deepEqual(words('Can I have coffee, please?', ['Can I have…?', 'please']), ['Can', 'I', 'have', 'please']);
+assert.deepEqual(words('I like coffee. Me too! I do not like milk. Me neither.', ['Me too.', 'Me neither.']), ['Me', 'too', 'Me', 'neither']);
+assert.deepEqual(words('How much is the bread? The bread is five dollars.', ['How much is...?']), ['How', 'much', 'is']);
+assert.match(lessonScreenSource, /<SentenceConstruction[^>]*vocabulary=\{lesson.vocabulary\}/, 'Native Completa receives the same lesson vocabulary as every other stage.');

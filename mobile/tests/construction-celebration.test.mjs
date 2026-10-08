@@ -12,6 +12,38 @@ const examples = ['complete2', 'complete-sentence'].map(type => lesson.cards.fin
 const noop = () => {};
 const forbidden = /Escucha y forma|Toca o arrastra|Devuelve aquí|Frase completa\.|Deshacer|Reintentar|¡Muy bien!/;
 
+test('Completa translates the full authored target in empty, partial, wrong and correct states in every unit', () => {
+  const catalog = JSON.parse(fs.readFileSync(new URL('../src/generated/a1-course.json', import.meta.url), 'utf8'));
+  const cards = catalog.flatMap(lesson => lesson.cards.filter(card => ['complete2', 'complete-sentence'].includes(card.interaction_type)));
+  assert.ok(cards.length > 500);
+  for (const card of cards) assert.ok(card.spanish_translation && !card.spanish_translation.includes('___'), card.slide_id);
+  for (let unit = 1; unit <= 7; unit++) for (const type of ['complete2', 'complete-sentence']) {
+    const card = catalog.filter(lesson => lesson.unit_id === `unit-${unit}`).flatMap(lesson => lesson.cards).find(card => card.interaction_type === type);
+    for (const state of ['empty', 'partial', 'wrong', 'correct']) {
+      const h = lessonHarness({ width: 390, height: 844, fontScale: 1 });
+      const { SentenceConstruction } = h.load('components/SentenceConstruction.tsx');
+      const selected = state === 'empty' ? [] : state === 'partial' ? card.correct_option_ids.slice(0, 1) : [...card.correct_option_ids];
+      if (state === 'wrong') selected.reverse();
+      const result = ['wrong', 'correct'].includes(state) ? state : null;
+      let changes = 0, replays = 0;
+      const render = preserve => h.render(() => e(SentenceConstruction, {
+        card, selected, result, disabled: false, onChange: () => changes++, onReplay: () => replays++, onRetry: noop,
+      }), 378, 530, preserve);
+      let records = render(false);
+      records.find(r => r.props.accessibilityLabel === 'Mostrar traducción').props.onPress();
+      records = render(true);
+      assert.ok(records.some(r => r.text === card.spanish_translation), `Unit ${unit}, ${type}, ${state}`);
+      assert.equal(changes, 0, 'Translation must never place, remove or grade a tile.');
+      records.find(r => r.props.accessibilityLabel === 'Repetir frase en inglés').props.onPress();
+      assert.equal(replays, 1);
+      if (state === 'partial') {
+        records.find(r => r.props.accessibilityLabel?.startsWith('Espacio 1:')).props.onPress();
+        assert.equal(changes, 1, 'A placed tile remains editable while translation is visible.');
+      }
+    }
+  }
+});
+
 test('native guided and full constructions celebrate only graded success and retain translation/replay', () => {
   for (const card of examples) {
     const viewport = { width: 390, height: 844, fontScale: 1 };
@@ -90,6 +122,41 @@ test('web guided and full construction success removes correction UI, with the s
     for (const state of [null, 'wrong']) assert.doesNotMatch(render(state), /construction-celebration/);
     assert.match(render('wrong'), /Reintentar/);
   }
+});
+
+test('web translation remains interactive for both construction types in all seven units and all answer states', () => {
+  const { default: SentenceConstruction } = loadWeb(fileURLToPath(new URL('../../frontend/components/SentenceConstruction.js', import.meta.url)));
+  const catalog = JSON.parse(fs.readFileSync(new URL('../src/generated/a1-course.json', import.meta.url), 'utf8'));
+  const originalState = react.useState;
+  try {
+    for (let unit = 1; unit <= 7; unit++) for (const type of ['complete2', 'complete-sentence']) {
+      const card = catalog.filter(l => l.unit_id === `unit-${unit}`).flatMap(l => l.cards).find(c => c.interaction_type === type);
+      for (const state of ['empty', 'partial', 'wrong', 'correct']) {
+        const values = []; let cursor = 0, edits = 0, replays = 0;
+        react.useState = initial => {
+          const index = cursor++;
+          if (!(index in values)) values[index] = initial;
+          return [values[index], next => { values[index] = typeof next === 'function' ? next(values[index]) : next; }];
+        };
+        const selected = state === 'empty' ? [] : state === 'partial' ? card.correct_option_ids.slice(0, 1) : [...card.correct_option_ids];
+        if (state === 'wrong') selected.reverse();
+        const render = () => {
+          cursor = 0;
+          return webTree(e(SentenceConstruction, {card, selected, result: ['wrong', 'correct'].includes(state) ? state : null,
+            onChange: () => edits++, onReplay: () => replays++, onRetry: noop}));
+        };
+        let nodes = render();
+        nodes.find(n => n['aria-label'] === 'Mostrar traducción').onClick();
+        nodes = render();
+        assert.ok(nodes.includes(card.spanish_translation), `Unit ${unit}/${type}/${state}`);
+        assert.equal(edits, 0);
+        nodes.find(n => n['aria-label'] === 'Repetir frase en inglés').onClick();
+        assert.equal(replays, 1);
+        nodes.find(n => n['aria-label'] === 'Ocultar traducción').onClick();
+        assert.ok(!render().includes(card.spanish_translation));
+      }
+    }
+  } finally { react.useState = originalState; }
 });
 
 test('both clients ship identical transparent celebration pixels and reduced-motion fallbacks', () => {

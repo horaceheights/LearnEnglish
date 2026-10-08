@@ -3347,7 +3347,7 @@ export function LessonScreen({
           ]}
         >
           {isSentenceCard ? (
-            <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard}
+            <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard} vocabulary={lesson.vocabulary}
               selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={false} helpOpen={showHelp}
               onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} onRetry={resetMissionSelection} />
           ) : usesMissionGameSurface && currentCard.mission_game ? (

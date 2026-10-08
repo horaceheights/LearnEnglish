@@ -1,6 +1,6 @@
 {
   "id": "lesson-5-4-likes-and-dislikes",
-  "title": "5.5 Likes, Dislikes, and Me Too",
+  "title": "5.5 Likes, Dislikes, and Agreement",
   "level": "Beginner A1",
   "unit_id": "unit-5",
   "unit_title": "Unit 5: Food, Drinks, and Shopping",
@@ -8,12 +8,13 @@
   "lesson_id": "lesson-5",
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
   "sub_lesson_id": "5.5",
-  "sub_lesson_title": "Likes, Dislikes, and Me Too",
-  "goal": "Say what I like and do not like, ask Do you like ...?, and agree with Me too.",
+  "sub_lesson_title": "Likes, Dislikes, and Agreement",
+  "goal": "Express likes and dislikes, ask Do you like ...?, and agree with Me too. or Me neither.",
   "vocabulary": [
     "like",
     "do not like",
-    "Me too."
+    "Me too.",
+    "Me neither."
   ],
   "review_vocabulary": [
     "I",
@@ -32,19 +33,23 @@
     "grapes",
     "coffee"
   ],
-  "grammar_function": "I like apples. I do not like fish. They like grapes. Do you like coffee? Yes, I do. I like coffee. Me too.",
+  "grammar_function": "I like coffee. Me too. I do not like milk. Me neither. Do you like coffee? Yes, I do.",
   "prerequisite": "3.2 I; 1.8 not; 4.8 Do you...?; 5.1-5.3 fruit, food and drinks.",
-  "speaking_outcome": "Say what I like and do not like, and agree with Me too.",
+  "speaking_outcome": "Say a preference and respond appropriately to positive or negative agreement.",
   "purposeful_review_slides": [
+    "R1",
+    "R2",
     "R3",
     "R4",
     "R5",
     "R6",
     "R7",
     "R8",
-    "R9",
     "R10",
     "R11",
+    "A1",
+    "A2",
+    "A3",
     "A4",
     "A5",
     "A6",
@@ -52,6 +57,8 @@
     "A8",
     "A9",
     "A10",
+    "S1",
+    "S2",
     "S3",
     "S4",
     "S5",
@@ -59,6 +66,7 @@
     "S7",
     "S8",
     "S9",
+    "S10",
     "U1",
     "U2",
     "U3",
@@ -66,55 +74,54 @@
     "U5",
     "U6",
     "U7",
-    "U8",
-    "U9"
+    "U8"
   ],
-  "content_revision": 2,
+  "content_revision": 3,
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Like",
+      "prompt": "I like coffee.",
       "stage": "Learn",
-      "correct_option_id": "like-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "like-learn",
-          "image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
-          "label": "Like"
+          "id": "l1-model",
+          "image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
+          "label": "I like coffee."
         }
       ],
-      "audio_text": "Like",
+      "audio_text": "I like coffee.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Gustar",
-      "pedagogy_note": "Story beat 01: Like",
-      "audio_speaker": null,
+      "spanish_translation": "Me gusta el caf\u00e9.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L1",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c001-prompt-c516b4c447d010516622",
+          "id": "lesson-5-4-likes-and-dislikes-c001-prompt-1d05fb02ee6820edd529",
           "purpose": "prompt",
-          "text": "Like",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c001-answer-ded3c5bcef3df8814b6a",
+          "id": "lesson-5-4-likes-and-dislikes-c001-answer-0140efee6ca5724f528a",
           "purpose": "answer",
-          "text": "Like",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -123,61 +130,12 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Do not like",
-      "stage": "Learn",
-      "correct_option_id": "do-not-like-learn",
-      "options": [
-        {
-          "id": "do-not-like-learn",
-          "image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "label": "Do not like"
-        }
-      ],
-      "audio_text": "Do not like",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "No gustar",
-      "pedagogy_note": "Story beat 02: Do not like",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c002-prompt-8a2bf0d4b28523f64444",
-          "purpose": "prompt",
-          "text": "Do not like",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c002-answer-ea3d6d5de711248796b8",
-          "purpose": "answer",
-          "text": "Do not like",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
       "prompt": "Me too.",
       "stage": "Learn",
-      "correct_option_id": "me-too-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "me-too-learn",
+          "id": "l2-model",
           "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
           "label": "Me too."
         }
@@ -186,14 +144,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Yo tambi\u00e9n.",
-      "pedagogy_note": "Story beat 03: Me too.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L2",
       "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c003-prompt-8cd2464823e86b86eab1",
+          "id": "lesson-5-4-likes-and-dislikes-c002-prompt-0d9394289bd5a495b366",
           "purpose": "prompt",
           "text": "Me too.",
           "mode": "prompt",
@@ -205,12 +163,110 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c003-answer-ace7966a813920dbbe9e",
+          "id": "lesson-5-4-likes-and-dislikes-c002-answer-acbccf2a8d48eb64dd00",
           "purpose": "answer",
           "text": "Me too.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "I do not like milk.",
+      "stage": "Learn",
+      "correct_option_id": "l3-model",
+      "options": [
+        {
+          "id": "l3-model",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+          "label": "I do not like milk."
+        }
+      ],
+      "audio_text": "I do not like milk.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "No me gusta la leche.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L3",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c003-prompt-7386ae60958bbc67e7cb",
+          "purpose": "prompt",
+          "text": "I do not like milk.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c003-answer-78626fa5e513297bdf62",
+          "purpose": "answer",
+          "text": "I do not like milk.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "Me neither.",
+      "stage": "Learn",
+      "correct_option_id": "l4-model",
+      "options": [
+        {
+          "id": "l4-model",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "label": "Me neither."
+        }
+      ],
+      "audio_text": "Me neither.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Yo tampoco.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L4",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c004-prompt-f904319c5a8569168d30",
+          "purpose": "prompt",
+          "text": "Me neither.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c004-answer-10bfe6df02ebd1d10508",
+          "purpose": "answer",
+          "text": "Me neither.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -220,53 +276,41 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "Do not like",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "do-not-like-r1",
+      "correct_option_id": "r1-answer",
       "options": [
         {
-          "id": "like-r1",
-          "image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
-          "label": null
+          "id": "r1-other-0",
+          "image_url": "",
+          "label": "I do not like coffee."
         },
         {
-          "id": "do-not-like-r1",
-          "image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "label": null
+          "id": "r1-answer",
+          "image_url": "",
+          "label": "I like coffee."
         }
       ],
-      "audio_text": "Do not like",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "No gustar",
-      "pedagogy_note": "Story beat 01: Do not like",
+      "audio_text": "",
+      "answer_audio_text": "I like coffee.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R1",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c004-prompt-7b3a0bf95397b3d4931d",
-          "purpose": "prompt",
-          "text": "Do not like",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c004-answer-547abf0db465bf992109",
+          "id": "lesson-5-4-likes-and-dislikes-c005-answer-4ab5db7b6068c9d37b58",
           "purpose": "answer",
-          "text": "Do not like",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -277,44 +321,51 @@
       "interaction_type": "i2t2",
       "prompt": "I like coffee.",
       "stage": "Recognize",
-      "correct_option_id": "me-too-r2",
+      "correct_option_id": "r2-answer",
       "options": [
         {
-          "id": "goodbye-r2",
-          "image_url": "",
-          "label": "Goodbye."
-        },
-        {
-          "id": "me-too-r2",
+          "id": "r2-answer",
           "image_url": "",
           "label": "Me too."
+        },
+        {
+          "id": "r2-other-0",
+          "image_url": "",
+          "label": "Me neither."
         }
       ],
       "audio_text": "I like coffee.",
       "answer_audio_text": "Me too.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
       "spanish_translation": "Me gusta el caf\u00e9.",
-      "pedagogy_note": "Story beat 02: Me too.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R2",
       "audio_speaker": "ana",
       "answer_audio_speaker": "luis",
+      "answer_audio_turns": [
+        {
+          "text": "Me too.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c005-prompt-0a04ae0536b70e65fd57",
+          "id": "lesson-5-4-likes-and-dislikes-c006-prompt-9bf340e91e6dab8ef606",
           "purpose": "prompt",
           "text": "I like coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c005-answer-3f1eed97ebbb901e5691",
-          "purpose": "answer",
+          "id": "lesson-5-4-likes-and-dislikes-c006-answer-turn-1-ead984fd915bdb6012dc",
+          "purpose": "answer-turn-1",
           "text": "Me too.",
           "mode": "prompt",
           "variant": "answer",
@@ -328,6 +379,109 @@
     },
     {
       "slide_id": "R3",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "r3-answer",
+      "options": [
+        {
+          "id": "r3-other-0",
+          "image_url": "",
+          "label": "I like milk."
+        },
+        {
+          "id": "r3-answer",
+          "image_url": "",
+          "label": "I do not like milk."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I do not like milk.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R3",
+      "audio_speaker": null,
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c007-answer-13b8a2ad43f2703fd250",
+          "purpose": "answer",
+          "text": "I do not like milk.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "I do not like milk.",
+      "stage": "Recognize",
+      "correct_option_id": "r4-answer",
+      "options": [
+        {
+          "id": "r4-answer",
+          "image_url": "",
+          "label": "Me neither."
+        },
+        {
+          "id": "r4-other-0",
+          "image_url": "",
+          "label": "Me too."
+        }
+      ],
+      "audio_text": "I do not like milk.",
+      "answer_audio_text": "Me neither.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+      "spanish_translation": "No me gusta la leche.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R4",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "luis",
+      "answer_audio_turns": [
+        {
+          "text": "Me neither.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c008-prompt-822bb0dfafeb486886d1",
+          "purpose": "prompt",
+          "text": "I do not like milk.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c008-answer-turn-1-bea29621a8072192814e",
+          "purpose": "answer-turn-1",
+          "text": "Me neither.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R5",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
@@ -355,7 +509,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c006-answer-0e69f061438b77ce9121",
+          "id": "lesson-5-4-likes-and-dislikes-c009-answer-3765e804d690f6fa985b",
           "purpose": "answer",
           "text": "I like apples.",
           "mode": "prompt",
@@ -369,7 +523,7 @@
       ]
     },
     {
-      "slide_id": "R4",
+      "slide_id": "R6",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
@@ -397,7 +551,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c007-answer-4f16627769cdf80b6f13",
+          "id": "lesson-5-4-likes-and-dislikes-c010-answer-38e7605a8565364396f7",
           "purpose": "answer",
           "text": "I do not like fish.",
           "mode": "prompt",
@@ -405,90 +559,6 @@
           "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-like-rice-r5",
-      "options": [
-        {
-          "id": "i-do-not-like-rice-r5",
-          "image_url": "",
-          "label": "I do not like rice."
-        },
-        {
-          "id": "i-like-rice-r5",
-          "image_url": "",
-          "label": "I like rice."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I like rice.",
-      "prompt_image_url": "/lesson-assets/a1_scene_likes-rice_1dce2b8.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 05: I like rice.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c008-answer-2f7a9380008deb4cfe68",
-          "purpose": "answer",
-          "text": "I like rice.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_likes-rice_1dce2b8.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-do-not-like-milk-r6",
-      "options": [
-        {
-          "id": "i-do-not-like-milk-r6",
-          "image_url": "",
-          "label": "I do not like milk."
-        },
-        {
-          "id": "i-like-milk-r6",
-          "image_url": "",
-          "label": "I like milk."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I do not like milk.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: I do not like milk.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c009-answer-230e2b9a84b91b4eb7fd",
-          "purpose": "answer",
-          "text": "I do not like milk.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -523,7 +593,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c010-answer-d44c3bcc6c76bbad9ee9",
+          "id": "lesson-5-4-likes-and-dislikes-c011-answer-f43b4cc6be8cccc0733c",
           "purpose": "answer",
           "text": "I like juice.",
           "mode": "prompt",
@@ -538,48 +608,6 @@
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-do-not-like-bread-r8",
-      "options": [
-        {
-          "id": "i-do-not-like-bread-r8",
-          "image_url": "",
-          "label": "I do not like bread."
-        },
-        {
-          "id": "i-like-bread-r8",
-          "image_url": "",
-          "label": "I like bread."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I do not like bread.",
-      "prompt_image_url": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: I do not like bread.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c011-answer-5e262af47d00c92ca3fb",
-          "purpose": "answer",
-          "text": "I do not like bread.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R9",
       "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
@@ -764,53 +792,53 @@
     },
     {
       "slide_id": "A1",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "like-a1",
+      "correct_option_id": "a1-answer",
       "options": [
         {
-          "id": "like-a1",
-          "image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
-          "label": null
+          "id": "a1-answer",
+          "image_url": "",
+          "label": "I like coffee."
         },
         {
-          "id": "do-not-like-a1",
-          "image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "label": null
+          "id": "a1-other-0",
+          "image_url": "",
+          "label": "I do not like coffee."
         }
       ],
-      "audio_text": "Like",
+      "audio_text": "I like coffee.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Like",
-      "audio_speaker": null,
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A1",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c015-prompt-ed0af31c74468ad32c7a",
+          "id": "lesson-5-4-likes-and-dislikes-c015-prompt-13df855de6f36a3dfa59",
           "purpose": "prompt",
-          "text": "Like",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "text-only:f05869885fa44390bf7d",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c015-answer-0cde3073b9d321dbc29e",
+          "id": "lesson-5-4-likes-and-dislikes-c015-answer-3d7c5fab4422154b3f2c",
           "purpose": "answer",
-          "text": "Like",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "text-only:f05869885fa44390bf7d",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -818,53 +846,77 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "do-not-like-a2",
+      "correct_option_id": "a2-answer",
       "options": [
         {
-          "id": "do-not-like-a2",
-          "image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "label": null
+          "id": "a2-other-0",
+          "image_url": "",
+          "label": "Me neither."
         },
         {
-          "id": "like-a2",
-          "image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
-          "label": null
+          "id": "a2-answer",
+          "image_url": "",
+          "label": "Me too."
         }
       ],
-      "audio_text": "Do not like",
+      "audio_text": "I like coffee. Me too.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Do not like",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A2",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "I like coffee.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp"
+        },
+        {
+          "text": "Me too.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c016-prompt-787d0c441666f5c752b2",
-          "purpose": "prompt",
-          "text": "Do not like",
+          "id": "lesson-5-4-likes-and-dislikes-c016-prompt-turn-1-a5e132faf430c30d1159",
+          "purpose": "prompt-turn-1",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c016-answer-da00886bdd2548d3c65f",
+          "id": "lesson-5-4-likes-and-dislikes-c016-prompt-turn-2-1ba344d22dc2383e6286",
+          "purpose": "prompt-turn-2",
+          "text": "Me too.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c016-answer-69b90f86d2f5dcb2b35e",
           "purpose": "answer",
-          "text": "Do not like",
+          "text": "Me too.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "text-only:5f23ab69a22760275b76",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -875,50 +927,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "me-too-a3",
+      "correct_option_id": "a3-answer",
       "options": [
         {
-          "id": "me-too-a3",
+          "id": "a3-answer",
           "image_url": "",
-          "label": "Me too."
+          "label": "I do not like milk."
         },
         {
-          "id": "goodbye-a3",
+          "id": "a3-other-0",
           "image_url": "",
-          "label": "Goodbye."
+          "label": "I like milk."
         }
       ],
-      "audio_text": "Me too.",
+      "audio_text": "I do not like milk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Me too.",
-      "audio_speaker": "luis",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A3",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c017-prompt-836df7e5a8431d2d653d",
+          "id": "lesson-5-4-likes-and-dislikes-c017-prompt-48bb42976908848ecf0c",
           "purpose": "prompt",
-          "text": "Me too.",
+          "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:3ffcbe2d9dcd1cb41e4b",
+          "image_ref": "text-only:63aee87871f8ea5a728b",
           "semantic_role": "teacher",
-          "speaker_role": "luis",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c017-answer-84ba1fb59cd144c5f96d",
+          "id": "lesson-5-4-likes-and-dislikes-c017-answer-f27eeb35523cddac49d0",
           "purpose": "answer",
-          "text": "Me too.",
+          "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:3ffcbe2d9dcd1cb41e4b",
+          "image_ref": "text-only:63aee87871f8ea5a728b",
           "semantic_role": "answer",
-          "speaker_role": "luis",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -929,50 +981,74 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-apples-a4",
+      "correct_option_id": "a4-answer",
       "options": [
         {
-          "id": "i-do-not-like-apples-a4",
+          "id": "a4-other-0",
           "image_url": "",
-          "label": "I do not like apples."
+          "label": "Me too."
         },
         {
-          "id": "i-like-apples-a4",
+          "id": "a4-answer",
           "image_url": "",
-          "label": "I like apples."
+          "label": "Me neither."
         }
       ],
-      "audio_text": "I like apples.",
+      "audio_text": "I do not like milk. Me neither.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: I like apples.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A4",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "I do not like milk.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp"
+        },
+        {
+          "text": "Me neither.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c018-prompt-f0f52b0e754d3035038f",
-          "purpose": "prompt",
-          "text": "I like apples.",
+          "id": "lesson-5-4-likes-and-dislikes-c018-prompt-turn-1-b890faf9800b0e24b76c",
+          "purpose": "prompt-turn-1",
+          "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:e095b04b977bf2759c2c",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c018-answer-df3710f210d46d444853",
+          "id": "lesson-5-4-likes-and-dislikes-c018-prompt-turn-2-ea62ae4a3061d23a3644",
+          "purpose": "prompt-turn-2",
+          "text": "Me neither.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c018-answer-4e21edc01ac8268866e0",
           "purpose": "answer",
-          "text": "I like apples.",
+          "text": "Me neither.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:e095b04b977bf2759c2c",
+          "image_ref": "text-only:21144a8bba1e047ad4eb",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -983,48 +1059,48 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-do-not-like-fish-a5",
+      "correct_option_id": "a5-answer",
       "options": [
         {
-          "id": "i-do-not-like-fish-a5",
+          "id": "a5-answer",
           "image_url": "",
-          "label": "I do not like fish."
+          "label": "I like apples."
         },
         {
-          "id": "i-like-fish-a5",
+          "id": "a5-other-0",
           "image_url": "",
           "label": "I like fish."
         }
       ],
-      "audio_text": "I do not like fish.",
+      "audio_text": "I like apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: I do not like fish.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A5",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c019-prompt-1fafa68ed93ca36ea789",
+          "id": "lesson-5-4-likes-and-dislikes-c019-prompt-04ed679bcc13c0ff1bd1",
           "purpose": "prompt",
-          "text": "I do not like fish.",
+          "text": "I like apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:5411e3c7596af983bd30",
+          "image_ref": "text-only:0b9ddd1afdd78cac1c3b",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c019-answer-b3966fe68583de226506",
+          "id": "lesson-5-4-likes-and-dislikes-c019-answer-2ee205d4902e0d53fc07",
           "purpose": "answer",
-          "text": "I do not like fish.",
+          "text": "I like apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:5411e3c7596af983bd30",
+          "image_ref": "text-only:0b9ddd1afdd78cac1c3b",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1037,50 +1113,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-rice-a6",
+      "correct_option_id": "a6-answer",
       "options": [
         {
-          "id": "i-do-not-like-rice-a6",
+          "id": "a6-other-0",
           "image_url": "",
-          "label": "I do not like rice."
+          "label": "I like fish."
         },
         {
-          "id": "i-like-rice-a6",
+          "id": "a6-answer",
           "image_url": "",
-          "label": "I like rice."
+          "label": "I do not like fish."
         }
       ],
-      "audio_text": "I like rice.",
+      "audio_text": "I do not like fish.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: I like rice.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A6",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c020-prompt-f091eceda583429f428c",
+          "id": "lesson-5-4-likes-and-dislikes-c020-prompt-bff9b32daf96b1602174",
           "purpose": "prompt",
-          "text": "I like rice.",
+          "text": "I do not like fish.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:3e9c5befe191d08edd25",
+          "image_ref": "text-only:8e7c1f023db37589be7e",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c020-answer-dd1ce9b8c848acf0e602",
+          "id": "lesson-5-4-likes-and-dislikes-c020-answer-b73dc29f816fb0cfecf1",
           "purpose": "answer",
-          "text": "I like rice.",
+          "text": "I do not like fish.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:3e9c5befe191d08edd25",
+          "image_ref": "text-only:8e7c1f023db37589be7e",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1091,50 +1167,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-do-not-like-milk-a7",
+      "correct_option_id": "a7-answer",
       "options": [
         {
-          "id": "i-like-milk-a7",
+          "id": "a7-answer",
           "image_url": "",
-          "label": "I like milk."
+          "label": "I like juice."
         },
         {
-          "id": "i-do-not-like-milk-a7",
+          "id": "a7-other-0",
           "image_url": "",
-          "label": "I do not like milk."
+          "label": "I like milk."
         }
       ],
-      "audio_text": "I do not like milk.",
+      "audio_text": "I like juice.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: I do not like milk.",
-      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A7",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c021-prompt-537fddb84ac46a57fd46",
+          "id": "lesson-5-4-likes-and-dislikes-c021-prompt-9a61066acf81c6e0f0f4",
           "purpose": "prompt",
-          "text": "I do not like milk.",
+          "text": "I like juice.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:a98cf41cda23f922b1cf",
+          "image_ref": "text-only:68885a44c8d089ae8c7c",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c021-answer-93aa0543774f450e62ad",
+          "id": "lesson-5-4-likes-and-dislikes-c021-answer-cbd70b9219b803b3113e",
           "purpose": "answer",
-          "text": "I do not like milk.",
+          "text": "I like juice.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:a98cf41cda23f922b1cf",
+          "image_ref": "text-only:68885a44c8d089ae8c7c",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1145,50 +1221,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-juice-a8",
+      "correct_option_id": "a8-answer",
       "options": [
         {
-          "id": "i-do-not-like-juice-a8",
+          "id": "a8-other-0",
           "image_url": "",
-          "label": "I do not like juice."
+          "label": "They like apples."
         },
         {
-          "id": "i-like-juice-a8",
+          "id": "a8-answer",
           "image_url": "",
-          "label": "I like juice."
+          "label": "They like grapes."
         }
       ],
-      "audio_text": "I like juice.",
+      "audio_text": "They like grapes.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: I like juice.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A8",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c022-prompt-94166c60dadc5b1f589f",
+          "id": "lesson-5-4-likes-and-dislikes-c022-prompt-4143cb121b45010ef763",
           "purpose": "prompt",
-          "text": "I like juice.",
+          "text": "They like grapes.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:1a1bbcda6862a43c7b63",
+          "image_ref": "text-only:9109f6fc5627fd32c410",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c022-answer-0a4e0e9de849bfd6ed6d",
+          "id": "lesson-5-4-likes-and-dislikes-c022-answer-060a8a8d82954a1c3449",
           "purpose": "answer",
-          "text": "I like juice.",
+          "text": "They like grapes.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:1a1bbcda6862a43c7b63",
+          "image_ref": "text-only:9109f6fc5627fd32c410",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1199,50 +1275,74 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-do-not-like-bread-a9",
+      "correct_option_id": "a9-answer",
       "options": [
         {
-          "id": "i-like-bread-a9",
+          "id": "a9-answer",
           "image_url": "",
-          "label": "I like bread."
+          "label": "Me too."
         },
         {
-          "id": "i-do-not-like-bread-a9",
+          "id": "a9-other-0",
           "image_url": "",
-          "label": "I do not like bread."
+          "label": "Me neither."
         }
       ],
-      "audio_text": "I do not like bread.",
+      "audio_text": "I like coffee. Me too.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: I do not like bread.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A9",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "I like coffee.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp"
+        },
+        {
+          "text": "Me too.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c023-prompt-7ef06b723b35193411cf",
-          "purpose": "prompt",
-          "text": "I do not like bread.",
+          "id": "lesson-5-4-likes-and-dislikes-c023-prompt-turn-1-39152594c0569b0fb4c7",
+          "purpose": "prompt-turn-1",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:70ee60024beb3c32f16c",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c023-answer-552e230da12906d96a32",
+          "id": "lesson-5-4-likes-and-dislikes-c023-prompt-turn-2-dfb0378ea1226c911a18",
+          "purpose": "prompt-turn-2",
+          "text": "Me too.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c023-answer-d697f28f26cecc662557",
           "purpose": "answer",
-          "text": "I do not like bread.",
+          "text": "Me too.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:70ee60024beb3c32f16c",
+          "image_ref": "text-only:126fbf2f6e9fa061d74c",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1250,56 +1350,75 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "they-like-grapes-a10",
+      "correct_option_id": "a10-answer",
       "options": [
         {
-          "id": "they-like-strawberries-a10",
+          "id": "a10-answer",
           "image_url": "",
-          "label": "They like strawberries."
+          "label": "Me neither."
         },
         {
-          "id": "they-like-bananas-a10",
+          "id": "a10-other-0",
           "image_url": "",
-          "label": "They like bananas."
-        },
-        {
-          "id": "they-like-grapes-a10",
-          "image_url": "",
-          "label": "They like grapes."
+          "label": "Me too."
         }
       ],
-      "audio_text": "They like grapes.",
+      "audio_text": "I do not like milk. Me neither.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: They like grapes.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A10",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "I do not like milk.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp"
+        },
+        {
+          "text": "Me neither.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c024-prompt-ac91b791967b54c95947",
-          "purpose": "prompt",
-          "text": "They like grapes.",
+          "id": "lesson-5-4-likes-and-dislikes-c024-prompt-turn-1-5078d000ac8316a4e787",
+          "purpose": "prompt-turn-1",
+          "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:1b3e016bb3a64e2edb0e",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c024-answer-1d87f31b297bb5a5c337",
+          "id": "lesson-5-4-likes-and-dislikes-c024-prompt-turn-2-0302c98ba208649d822d",
+          "purpose": "prompt-turn-2",
+          "text": "Me neither.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c024-answer-ff3441a18148a10e034a",
           "purpose": "answer",
-          "text": "They like grapes.",
+          "text": "Me neither.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:1b3e016bb3a64e2edb0e",
+          "image_ref": "text-only:9c0043b307b2091b8b16",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1310,47 +1429,47 @@
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "Do not like",
+      "prompt": "I like coffee.",
       "stage": "Speak",
-      "correct_option_id": "do-not-like-speak",
+      "correct_option_id": "s1-model",
       "options": [
         {
-          "id": "do-not-like-speak",
-          "image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "label": "Do not like"
+          "id": "s1-model",
+          "image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
+          "label": "I like coffee."
         }
       ],
-      "audio_text": "Do not like",
+      "audio_text": "I like coffee.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No gustar",
-      "pedagogy_note": "Story beat 01: Do not like",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "Me gusta el caf\u00e9.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S1",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c025-prompt-71c33f74aed7d70d9c77",
+          "id": "lesson-5-4-likes-and-dislikes-c025-prompt-d0b99132d8152bd7afbb",
           "purpose": "prompt",
-          "text": "Do not like",
+          "text": "I like coffee.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c025-answer-d3357b95e97b501f8f38",
+          "id": "lesson-5-4-likes-and-dislikes-c025-answer-ecdcf20301782be16808",
           "purpose": "answer",
-          "text": "Do not like",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1361,10 +1480,10 @@
       "interaction_type": "speak",
       "prompt": "Me too.",
       "stage": "Speak",
-      "correct_option_id": "me-too-speak",
+      "correct_option_id": "s2-model",
       "options": [
         {
-          "id": "me-too-speak",
+          "id": "s2-model",
           "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
           "label": "Me too."
         }
@@ -1373,7 +1492,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Yo tambi\u00e9n.",
-      "pedagogy_note": "Story beat 02: Me too.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S2",
       "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -1408,47 +1527,47 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "I like apples.",
+      "prompt": "I do not like milk.",
       "stage": "Speak",
-      "correct_option_id": "i-like-apples-speak",
+      "correct_option_id": "s3-model",
       "options": [
         {
-          "id": "i-like-apples-speak",
-          "image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
-          "label": "I like apples."
+          "id": "s3-model",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
+          "label": "I do not like milk."
         }
       ],
-      "audio_text": "I like apples.",
+      "audio_text": "I do not like milk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gustan las manzanas.",
-      "pedagogy_note": "Story beat 03: I like apples.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "No me gusta la leche.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S3",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c027-prompt-6e73041d521ea88e04ac",
+          "id": "lesson-5-4-likes-and-dislikes-c027-prompt-225b751595d721a0e8e0",
           "purpose": "prompt",
-          "text": "I like apples.",
+          "text": "I do not like milk.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c027-answer-f54ac57ed03bf138f9e4",
+          "id": "lesson-5-4-likes-and-dislikes-c027-answer-52c4a8ee904027086863",
           "purpose": "answer",
-          "text": "I like apples.",
+          "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1457,47 +1576,47 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "I do not like fish.",
+      "prompt": "Me neither.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-like-fish-speak",
+      "correct_option_id": "s4-model",
       "options": [
         {
-          "id": "i-do-not-like-fish-speak",
-          "image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "label": "I do not like fish."
+          "id": "s4-model",
+          "image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "label": "Me neither."
         }
       ],
-      "audio_text": "I do not like fish.",
+      "audio_text": "Me neither.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No me gusta el pescado.",
-      "pedagogy_note": "Story beat 04: I do not like fish.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Yo tampoco.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S4",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c028-prompt-df2ab03926a20f92cac2",
+          "id": "lesson-5-4-likes-and-dislikes-c028-prompt-c069dac11b9c398d213e",
           "purpose": "prompt",
-          "text": "I do not like fish.",
+          "text": "Me neither.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c028-answer-fd82b43a1386c11276ba",
+          "id": "lesson-5-4-likes-and-dislikes-c028-answer-3a489713336680bd0673",
           "purpose": "answer",
-          "text": "I do not like fish.",
+          "text": "Me neither.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1506,47 +1625,47 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "I do not like milk.",
+      "prompt": "I like apples.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-like-milk-speak",
+      "correct_option_id": "s5-model",
       "options": [
         {
-          "id": "i-do-not-like-milk-speak",
-          "image_url": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
-          "label": "I do not like milk."
+          "id": "s5-model",
+          "image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "label": "I like apples."
         }
       ],
-      "audio_text": "I do not like milk.",
+      "audio_text": "I like apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No me gusta la leche.",
-      "pedagogy_note": "Story beat 05: I do not like milk.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Me gustan las manzanas.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S5",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c029-prompt-8ec76afc1f1b64492469",
+          "id": "lesson-5-4-likes-and-dislikes-c029-prompt-f3982f0e78a2b12d7b5f",
           "purpose": "prompt",
-          "text": "I do not like milk.",
+          "text": "I like apples.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
+          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c029-answer-aac358f97cfdf9674df5",
+          "id": "lesson-5-4-likes-and-dislikes-c029-answer-ff452d4ba15688a5c2d9",
           "purpose": "answer",
-          "text": "I do not like milk.",
+          "text": "I like apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
+          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1555,45 +1674,45 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "I do not like bread.",
+      "prompt": "I do not like fish.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-like-bread-speak",
+      "correct_option_id": "s6-model",
       "options": [
         {
-          "id": "i-do-not-like-bread-speak",
-          "image_url": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
-          "label": "I do not like bread."
+          "id": "s6-model",
+          "image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "label": "I do not like fish."
         }
       ],
-      "audio_text": "I do not like bread.",
+      "audio_text": "I do not like fish.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No me gusta el pan.",
-      "pedagogy_note": "Story beat 06: I do not like bread.",
+      "spanish_translation": "No me gusta el pescado.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S6",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c030-prompt-071a3645209529ee6cfb",
+          "id": "lesson-5-4-likes-and-dislikes-c030-prompt-ed1af47d9a25f170da8a",
           "purpose": "prompt",
-          "text": "I do not like bread.",
+          "text": "I do not like fish.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
+          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c030-answer-b46c7a76205f78555e51",
+          "id": "lesson-5-4-likes-and-dislikes-c030-answer-4ea93906035e2002663c",
           "purpose": "answer",
-          "text": "I do not like bread.",
+          "text": "I do not like fish.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
+          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1604,59 +1723,47 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "Do you like coffee? Yes, I do.",
+      "prompt": "I like juice.",
       "stage": "Speak",
-      "correct_option_id": "do-you-like-coffee-yes-i-do-speak",
+      "correct_option_id": "s7-model",
       "options": [
         {
-          "id": "do-you-like-coffee-yes-i-do-speak",
-          "image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-          "label": "Do you like coffee? Yes, I do."
+          "id": "s7-model",
+          "image_url": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+          "label": "I like juice."
         }
       ],
-      "audio_text": "Do you like coffee? Yes, I do.",
+      "audio_text": "I like juice.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfTe gusta el caf\u00e9? S\u00ed.",
-      "pedagogy_note": "Story beat 07: Do you like coffee? Yes, I do.",
-      "audio_speaker": null,
+      "spanish_translation": "Me gusta el jugo.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S7",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Do you like coffee?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "Yes, I do.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp"
-        }
-      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c031-prompt-turn-1-a0f85159590e6f45a39f",
-          "purpose": "prompt-turn-1",
-          "text": "Do you like coffee?",
+          "id": "lesson-5-4-likes-and-dislikes-c031-prompt-a9dedde1f741bd782b75",
+          "purpose": "prompt",
+          "text": "I like juice.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
+          "image_ref": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c031-prompt-turn-2-e3e3e1168f33b41dc808",
-          "purpose": "prompt-turn-2",
-          "text": "Yes, I do.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_yes_i_do_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "id": "lesson-5-4-likes-and-dislikes-c031-answer-5a6b89ad3ab5410155ae",
+          "purpose": "answer",
+          "text": "I like juice.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1665,59 +1772,47 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "Do you like milk? No, I do not.",
+      "prompt": "They like grapes.",
       "stage": "Speak",
-      "correct_option_id": "do-you-like-milk-no-i-do-not-speak",
+      "correct_option_id": "s8-model",
       "options": [
         {
-          "id": "do-you-like-milk-no-i-do-not-speak",
-          "image_url": "/lesson-assets/a1_recognize_ana_no_v1.webp",
-          "label": "Do you like milk? No, I do not."
+          "id": "s8-model",
+          "image_url": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
+          "label": "They like grapes."
         }
       ],
-      "audio_text": "Do you like milk? No, I do not.",
+      "audio_text": "They like grapes.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfTe gusta la leche? No.",
-      "pedagogy_note": "Story beat 08: Do you like milk? No, I do not.",
+      "spanish_translation": "A ellos les gustan las uvas.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S8",
       "audio_speaker": null,
       "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Do you like milk?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "No, I do not.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_recognize_ana_no_v1.webp"
-        }
-      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c032-prompt-turn-1-b2a93d8e8718a095162f",
-          "purpose": "prompt-turn-1",
-          "text": "Do you like milk?",
+          "id": "lesson-5-4-likes-and-dislikes-c032-prompt-7b15b8d30199b124c318",
+          "purpose": "prompt",
+          "text": "They like grapes.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u4_do_you_question_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
+          "image_ref": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c032-prompt-turn-2-28ab0a9ee6b3384d5563",
-          "purpose": "prompt-turn-2",
-          "text": "No, I do not.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_recognize_ana_no_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "id": "lesson-5-4-likes-and-dislikes-c032-answer-e886fdbd2e701368fc08",
+          "purpose": "answer",
+          "text": "They like grapes.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1726,58 +1821,95 @@
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "I like coffee. Me too.",
+      "prompt": "I like coffee.",
       "stage": "Speak",
-      "correct_option_id": "i-like-coffee-me-too-speak",
+      "correct_option_id": "s9-model",
       "options": [
         {
-          "id": "i-like-coffee-me-too-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
-          "label": "I like coffee. Me too."
+          "id": "s9-model",
+          "image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
+          "label": "I like coffee."
         }
       ],
-      "audio_text": "I like coffee. Me too.",
+      "audio_text": "I like coffee.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta el caf\u00e9. Yo tambi\u00e9n.",
-      "pedagogy_note": "Story beat 09: I like coffee. Me too.",
-      "audio_speaker": null,
+      "spanish_translation": "Me gusta el caf\u00e9.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S9",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I like coffee.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_likes_coffee_v1.webp"
-        },
-        {
-          "text": "Me too.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp"
-        }
-      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c033-prompt-turn-1-d027b1c0845898ff974c",
-          "purpose": "prompt-turn-1",
+          "id": "lesson-5-4-likes-and-dislikes-c033-prompt-04805c90a8d957af3707",
+          "purpose": "prompt",
           "text": "I like coffee.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_likes_coffee_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c033-prompt-turn-2-135968be9a11c87a80df",
-          "purpose": "prompt-turn-2",
+          "id": "lesson-5-4-likes-and-dislikes-c033-answer-a383f92ba4904557cc51",
+          "purpose": "answer",
+          "text": "I like coffee.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S10",
+      "interaction_type": "speak",
+      "prompt": "Me too.",
+      "stage": "Speak",
+      "correct_option_id": "s10-model",
+      "options": [
+        {
+          "id": "s10-model",
+          "image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+          "label": "Me too."
+        }
+      ],
+      "audio_text": "Me too.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Yo tambi\u00e9n.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S10",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c034-prompt-5ff2b914da32913b820e",
+          "purpose": "prompt",
           "text": "Me too.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
           "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c034-answer-76890de72d14b9f7b02b",
+          "purpose": "answer",
+          "text": "Me too.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+          "semantic_role": "answer",
           "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
@@ -1792,7 +1924,7 @@
       "correct_option_id": "like",
       "correct_option_ids": [
         "like",
-        "apples"
+        "coffee"
       ],
       "options": [
         {
@@ -1801,42 +1933,42 @@
           "label": "like"
         },
         {
-          "id": "apples",
+          "id": "coffee",
           "image_url": "",
-          "label": "apples"
+          "label": "coffee"
         }
       ],
-      "audio_text": "I like apples.",
-      "answer_audio_text": "I like apples.",
-      "prompt_image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
-      "spanish_translation": "Me gustan las manzanas.",
-      "pedagogy_note": "Story beat 01: I like apples.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "I like coffee.",
+      "answer_audio_text": "I like coffee.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
+      "spanish_translation": "Me gusta el caf\u00e9.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U1",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c034-prompt-6b001fbf774a53ae9bfa",
+          "id": "lesson-5-4-likes-and-dislikes-c035-prompt-c342e220ddb23ad29697",
           "purpose": "prompt",
-          "text": "I like apples.",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c034-answer-721f8a82bb56cc3f2ff2",
+          "id": "lesson-5-4-likes-and-dislikes-c035-answer-52df3dd0b4a629a89562",
           "purpose": "answer",
-          "text": "I like apples.",
+          "text": "I like coffee.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_likes_coffee_statement_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1845,56 +1977,56 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I do not ___ ___.",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "like",
+      "correct_option_id": "me",
       "correct_option_ids": [
-        "like",
-        "fish"
+        "me",
+        "too"
       ],
       "options": [
         {
-          "id": "like",
+          "id": "me",
           "image_url": "",
-          "label": "like"
+          "label": "Me"
         },
         {
-          "id": "fish",
+          "id": "too",
           "image_url": "",
-          "label": "fish"
+          "label": "too"
         }
       ],
-      "audio_text": "I do not like fish.",
-      "answer_audio_text": "I do not like fish.",
-      "prompt_image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-      "spanish_translation": "No me gusta el pescado.",
-      "pedagogy_note": "Story beat 02: I do not like fish.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "Me too.",
+      "answer_audio_text": "Me too.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
+      "spanish_translation": "Yo tambi\u00e9n.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U2",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c035-prompt-49b27b31ec16bb90e5e9",
+          "id": "lesson-5-4-likes-and-dislikes-c036-prompt-ad4d1664d354bdd243fd",
           "purpose": "prompt",
-          "text": "I do not like fish.",
+          "text": "Me too.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c035-answer-732069e370fafff997f6",
+          "id": "lesson-5-4-likes-and-dislikes-c036-answer-5bf33b63a232c69f7c4b",
           "purpose": "answer",
-          "text": "I do not like fish.",
+          "text": "Me too.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_luis_me_too_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1902,64 +2034,6 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "like",
-      "correct_option_ids": [
-        "like",
-        "rice"
-      ],
-      "options": [
-        {
-          "id": "like",
-          "image_url": "",
-          "label": "like"
-        },
-        {
-          "id": "rice",
-          "image_url": "",
-          "label": "rice"
-        }
-      ],
-      "audio_text": "I like rice.",
-      "answer_audio_text": "I like rice.",
-      "prompt_image_url": "/lesson-assets/a1_scene_likes-rice_1dce2b8.webp",
-      "spanish_translation": "Me gusta el arroz.",
-      "pedagogy_note": "Story beat 03: I like rice.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c036-prompt-46762752b4ed7143e518",
-          "purpose": "prompt",
-          "text": "I like rice.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_likes-rice_1dce2b8.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c036-answer-ceed200981c616d44aad",
-          "purpose": "answer",
-          "text": "I like rice.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_likes-rice_1dce2b8.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "I do not ___ ___.",
       "stage": "Use",
@@ -1982,35 +2056,93 @@
       ],
       "audio_text": "I do not like milk.",
       "answer_audio_text": "I do not like milk.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
       "spanish_translation": "No me gusta la leche.",
-      "pedagogy_note": "Story beat 04: I do not like milk.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U3",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c037-prompt-6bd8e9b77dd34ea5a42c",
+          "id": "lesson-5-4-likes-and-dislikes-c037-prompt-bd8f2c4b27dee5e110b7",
           "purpose": "prompt",
           "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c037-answer-701594066406ef202d5b",
+          "id": "lesson-5-4-likes-and-dislikes-c037-answer-a2c3ccc84ad376fa8dfb",
           "purpose": "answer",
           "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_statement_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "me",
+      "correct_option_ids": [
+        "me",
+        "neither"
+      ],
+      "options": [
+        {
+          "id": "me",
+          "image_url": "",
+          "label": "Me"
+        },
+        {
+          "id": "neither",
+          "image_url": "",
+          "label": "neither"
+        }
+      ],
+      "audio_text": "Me neither.",
+      "answer_audio_text": "Me neither.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+      "spanish_translation": "Yo tampoco.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U4",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c038-prompt-7f4a556d24e1d220ebd7",
+          "purpose": "prompt",
+          "text": "Me neither.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c038-answer-6c4211d929c78b3c239e",
+          "purpose": "answer",
+          "text": "Me neither.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_dislikes_milk_reply_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2018,55 +2150,61 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "like",
+      "correct_option_id": "word-1",
       "correct_option_ids": [
-        "like",
-        "juice"
+        "word-1",
+        "word-2",
+        "word-3"
       ],
       "options": [
         {
-          "id": "like",
+          "id": "word-2",
           "image_url": "",
           "label": "like"
         },
         {
-          "id": "juice",
+          "id": "word-1",
           "image_url": "",
-          "label": "juice"
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "apples"
         }
       ],
-      "audio_text": "I like juice.",
-      "answer_audio_text": "I like juice.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
-      "spanish_translation": "Me gusta el jugo.",
-      "pedagogy_note": "Story beat 05: I like juice.",
+      "audio_text": "I like apples.",
+      "answer_audio_text": "I like apples.",
+      "prompt_image_url": "/lesson-assets/a1_photo_likes_apples_v1.webp",
+      "spanish_translation": "Me gustan las manzanas.",
+      "pedagogy_note": "Use: I like apples.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c038-prompt-d46bbfc83ebb38a6d6de",
+          "id": "lesson-5-4-likes-and-dislikes-c039-prompt-23f7b8df83b408c7e666",
           "purpose": "prompt",
-          "text": "I like juice.",
+          "text": "I like apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c038-answer-9db081f5f7dce5bbcaf3",
+          "id": "lesson-5-4-likes-and-dislikes-c039-answer-b017d201132a4cf316f8",
           "purpose": "answer",
-          "text": "I like juice.",
+          "text": "I like apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+          "image_ref": "/lesson-assets/a1_photo_likes_apples_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2111,38 +2249,38 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "bread"
+          "label": "fish"
         }
       ],
-      "audio_text": "I do not like bread.",
-      "answer_audio_text": "I do not like bread.",
-      "prompt_image_url": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
-      "spanish_translation": "No me gusta el pan.",
-      "pedagogy_note": "Story beat 06: I do not like bread.",
+      "audio_text": "I do not like fish.",
+      "answer_audio_text": "I do not like fish.",
+      "prompt_image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
+      "spanish_translation": "No me gusta el pescado.",
+      "pedagogy_note": "Use: I do not like fish.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c039-prompt-4fd8942bbf63e98d2ba3",
+          "id": "lesson-5-4-likes-and-dislikes-c040-prompt-0e116ef6562baf3fa2b3",
           "purpose": "prompt",
-          "text": "I do not like bread.",
+          "text": "I do not like fish.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
+          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c039-answer-d82435508704a321fe05",
+          "id": "lesson-5-4-likes-and-dislikes-c040-answer-2c59ac1541e951815a97",
           "purpose": "answer",
-          "text": "I do not like bread.",
+          "text": "I do not like fish.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_does-not-like-bread_cce412b.webp",
+          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2152,6 +2290,70 @@
     },
     {
       "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "juice"
+        }
+      ],
+      "audio_text": "I like juice.",
+      "answer_audio_text": "I like juice.",
+      "prompt_image_url": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+      "spanish_translation": "Me gusta el jugo.",
+      "pedagogy_note": "Use: I like juice.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c041-prompt-cf9b73781d60f5589db8",
+          "purpose": "prompt",
+          "text": "I like juice.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-4-likes-and-dislikes-c041-answer-a4133535bd7b21c50bf2",
+          "purpose": "answer",
+          "text": "I like juice.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_i-like-juice_b1740dd.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___.",
       "stage": "Use",
@@ -2181,15 +2383,15 @@
       "audio_text": "They like grapes.",
       "answer_audio_text": "They like grapes.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
-      "spanish_translation": "Les gustan las uvas.",
-      "pedagogy_note": "Story beat 07: They like grapes.",
+      "spanish_translation": "A ellos les gustan las uvas.",
+      "pedagogy_note": "Use: They like grapes.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-4-likes-and-dislikes-c040-prompt-788a885b86f59aa3028d",
+          "id": "lesson-5-4-likes-and-dislikes-c042-prompt-608230438dc930d5c7e8",
           "purpose": "prompt",
           "text": "They like grapes.",
           "mode": "prompt",
@@ -2201,7 +2403,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-4-likes-and-dislikes-c040-answer-ef1f072241b9c98e2c4d",
+          "id": "lesson-5-4-likes-and-dislikes-c042-answer-87a6dc4a5c405e3de77b",
           "purpose": "answer",
           "text": "They like grapes.",
           "mode": "prompt",
@@ -2209,158 +2411,6 @@
           "image_ref": "/lesson-assets/a1_photo_u5_children_eating_grapes_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "do"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "like"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "not"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "fish"
-        }
-      ],
-      "audio_text": "I do not like fish.",
-      "answer_audio_text": "I do not like fish.",
-      "prompt_image_url": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-      "spanish_translation": "No me gusta el pescado.",
-      "pedagogy_note": "Story beat 08: I do not like fish.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c041-prompt-68e52c5fd23e7dbc2f98",
-          "purpose": "prompt",
-          "text": "I do not like fish.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c041-answer-e420992313f210e5a691",
-          "purpose": "answer",
-          "text": "I do not like fish.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_dislikes_fish_crop_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U9",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "do"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "like"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "not"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "milk"
-        }
-      ],
-      "audio_text": "I do not like milk.",
-      "answer_audio_text": "I do not like milk.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
-      "spanish_translation": "No me gusta la leche.",
-      "pedagogy_note": "Story beat 09: I do not like milk.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c042-prompt-af211dafde271029d6f8",
-          "purpose": "prompt",
-          "text": "I do not like milk.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-4-likes-and-dislikes-c042-answer-d597a02a78572c15bc76",
-          "purpose": "answer",
-          "text": "I do not like milk.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-do-not-like-milk_f3786e9.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

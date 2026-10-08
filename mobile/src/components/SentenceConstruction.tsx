@@ -83,7 +83,7 @@ function WordTile(props: WordProps) {
       }}
       onPress={() => { if (props.onTranslate) props.onTranslate(); else if (id && !dragged.current) props.onPress(id, slot, sourceBounds.current); }}
       style={[slot === undefined ? styles.tile : styles.slot, props.maxFontSizeMultiplier ? styles.tilePhoneLandscape : null, { minHeight: height }, active ? styles.target : null, correct ? styles.correct : null]}>
-      <Text numberOfLines={1} maxFontSizeMultiplier={props.maxFontSizeMultiplier} style={[styles.word, { fontSize: textSize }, hidden ? styles.arriving : null, !correct && props.vocabularyIds.has(id) ? { color: NEW_VOCABULARY_COLOR } : null]}>{label || '___'}{suffix}</Text>
+      <Text numberOfLines={1} maxFontSizeMultiplier={props.maxFontSizeMultiplier} style={[styles.word, { fontSize: textSize }, hidden ? styles.arriving : null, props.vocabularyIds.has(id) ? { color: NEW_VOCABULARY_COLOR } : null]}>{label || '___'}{suffix}</Text>
     </Pressable>
   </View>;
 }
@@ -213,24 +213,23 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
   </Pressable>;
   return <View ref={root} style={[styles.root, landscape ? styles.landscape : null]} onLayout={event => setSize(event.nativeEvent.layout)}>
     <View style={[styles.importance, landscape ? styles.importancePhoneLandscape : null, wideSlots && !landscape ? styles.importanceWide : null]}>
-      <View style={[landscape ? styles.constructionToolbar : null,
-        result === 'correct' && wideSlots && !landscape && !translated ? styles.successReplaySpace : null]}>
+      <View style={landscape ? styles.constructionToolbar : null}>
       {landscape && result !== 'correct' ? <Pressable accessibilityRole="button" accessibilityLabel={result === 'wrong' ? 'Reintentar' : 'Deshacer último movimiento'}
         disabled={result !== 'wrong' && (locked || !history.current.length)} style={styles.control}
         onPress={() => { if (result === 'wrong') { history.current = []; cancel(); stopFlight(); onRetry(); }
           else { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } } }}>
         <Text maxFontSizeMultiplier={1.3} style={styles.controlText}>{result === 'wrong' ? 'Reintentar' : 'Deshacer'}</Text>
       </Pressable> : null}
-      {result !== 'correct' || translated ? <Pressable accessibilityRole="button" accessibilityLabel="Mostrar traducción"
+      <Pressable accessibilityRole="button" accessibilityLabel={translated ? 'Ocultar traducción' : 'Mostrar traducción'} accessibilityState={{ expanded: translated }}
         style={{ minHeight: 48, justifyContent: 'center', flex: landscape ? 1 : undefined, paddingRight: wideSlots && !landscape ? 48 : 0 }} onPress={() => setTranslated(!translated)}>
-        <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={styles.instruction}>{translated ? card.spanish_translation : 'Escucha y forma la frase.'}</Text>
-      </Pressable> : null}
+        <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={styles.instruction}>{translated ? card.spanish_translation : 'Traducir frase'}</Text>
+      </Pressable>
       {landscape ? replayControl : null}
       </View>
       <SlotsContainer ref={view => { slotPane.current = view; }}
         style={landscape ? styles.slots : styles.slotScroll} accessibilityLabel={result === 'correct' ? 'Frase completada' : 'Frase en construcción'}
         {...(!landscape ? { contentContainerStyle: styles.slots, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
-        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }, scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : null]}>{part.text}</Text> :
+        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} accessibilityRole="button" accessibilityLabel={`${part.text}. Mostrar traducción`} onPress={() => setTranslated(value => !value)} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }, scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : null]}>{part.text}</Text> :
           <WordTile key={`slot-${part.slot}`} {...common} slot={part.slot} suffix={part.suffix}
             id={slots[part.slot] || ''} label={card.options.find(option => option.id === slots[part.slot])?.label || ''}
             register={view => { slotsRef.current[part.slot] = view; }} active={hover === part.slot}

@@ -81,6 +81,7 @@ const MEANINGS: Record<string, string> = {
   bananas: 'plátanos', oranges: 'naranjas', strawberries: 'fresas', pears: 'peras',
   fruit: 'fruta', food: 'comida', drinks: 'bebidas', café: 'cafetería', cafe: 'cafetería',
   'me too': 'yo también',
+  'me neither': 'yo tampoco',
   station: 'estación', pharmacy: 'farmacia', train: 'tren', taxi: 'taxi', walk: 'caminar',
   left: 'izquierda', right: 'derecha', straight: 'recto, sin girar', cross: 'cruzar',
   leaves: 'sale', arrives: 'llega', afternoon: 'tarde', head: 'cabeza', eyes: 'ojos',
@@ -660,6 +661,16 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
     if (imageHint) return imageHint;
   }
   if (!isCompletion) {
+    if (/^me (too|neither)$/.test(normalized(correct)) && /^me (too|neither)$/.test(normalized(wrong))) {
+      return normalized(correct) === 'me neither'
+        ? 'La primera persona dice que no le gusta. “Me neither” significa yo tampoco; “Me too” responde a una afirmación positiva.'
+        : 'La primera persona dice que sí le gusta. “Me too” significa yo también; “Me neither” responde a una afirmación negativa.';
+    }
+    if (/^(a |one )?dollars?$/.test(normalized(correct)) && /^(a |one )?dollars?$/.test(normalized(wrong))) {
+      return /\bdollars$/.test(normalized(correct))
+        ? 'Hay varios dólares: usamos “dollars”, con -s. “A dollar” nombra un solo dólar.'
+        : 'Hay un solo dólar: decimos “a dollar”. “Dollars”, con -s, se usa para varios.';
+    }
     const pronounHint = pronounChoiceHint(correct, wrong, card);
     if (pronounHint) return pronounHint;
     if (!card.mission_game && wrong) {

@@ -54,16 +54,90 @@
     "grammar_function": "Describe opening and closing a door, washing clothes, and cleaning a table with meaningful I, you, we and they perspectives. Reuse familiar home objects and rooms.",
     "prerequisite": "Familiar Unit 1 people/actions, Unit 2 objects/park, Unit 3 speakers/possessions and Unit 4 home/morning language.",
     "speaking_outcome": "Describe opening and closing a door, washing clothes, and cleaning a table with meaningful I, you, we and they perspectives. Reuse familiar home objects and rooms.",
-    "content_revision": 3,
-    "purposeful_review_slides": []
+    "content_revision": 4,
+    "purposeful_review_slides": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9",
+      "R10",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9",
+      "A10",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "U1",
+      "U2",
+      "U3",
+      "U4",
+      "U5",
+      "U6",
+      "U7",
+      "U8"
+    ],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "open"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I open the door."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "close"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I close the door."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "clean"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "We clean the table."
+          }
+        ]
+      }
+    ]
   },
   "media_tools": {
     "audio": "ElevenLabs pinned character cast through immutable offline renderer",
     "images": "GPT built-in image generation; no image API"
   },
-  "note": "Supersedes the rejected packing/bedtime/every-day brief. Compose and install the linked shared-engine plan; this brief records the approved inputs, not a second competing recipe.",
+  "note": "2026-10-08 user-authorized review. The linked exact engine plan supersedes this brief's previous wording, order, banks and media. Preserve its complete contextual verb models, conversational turns and stage sequence when authoring.",
   "layout": {
-    "Learn": 4,
     "Recognize": 10,
     "Listen": 10,
     "Speak": 8,
@@ -128,5 +202,106 @@
       ],
       "audio_turns": null
     }
-  ]
+  ],
+  "authoritative_plan": "docs/product/content-plans/unit5-review-2026-10-08/4.7.plan.json",
+  "items": [
+    {
+      "text": "I open the door.",
+      "es": "Abro la puerta.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_open_corrected_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "I close the door.",
+      "es": "Cierro la puerta.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_close_boy_swap_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "text": "Clothes",
+      "es": "Ropa",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clothes_bedroom_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false
+    },
+    {
+      "text": "We clean the table.",
+      "es": "Limpiamos la mesa.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "You close the door.",
+      "es": "Cierras la puerta.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_close_boy_swap_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "The clothes are in the bedroom.",
+      "es": "La ropa está en el dormitorio.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clothes_bedroom_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false
+    },
+    {
+      "text": "We wash our clothes.",
+      "es": "Lavamos nuestra ropa.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_pair_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "You wash your clothes.",
+      "es": "Lavas tu ropa.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_wash_you_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "They clean the table.",
+      "es": "Limpian la mesa.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "co-teacher"
+    },
+    {
+      "text": "We clean the table in the kitchen.",
+      "es": "Limpiamos la mesa en la cocina.",
+      "image": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "I clean the table.",
+      "es": "Limpio la mesa.",
+      "image": "/lesson-assets/a1_photo_u4_rebuild_home_clean_single_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character"
+    }
+  ],
+  "review": []
 }

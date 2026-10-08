@@ -5,7 +5,10 @@ const escapePattern = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$
 export function vocabularyParts(text: string, vocabulary: readonly string[]): VocabularyPart[] {
   const ranges: Array<[number, number]> = [];
   for (const entry of vocabulary) {
-    const value = entry.trim();
+    // Authoring uses trailing ellipses for an open frame (How many...?).
+    // Match its spoken words, not the placeholder or sentence punctuation.
+    // Keep interior words together: `there is` must never highlight `is` alone.
+    const value = entry.trim().replace(/[.?!…]+$/u, '').trim();
     if (!value) continue;
     const pattern = escapePattern(value).replace(/\s+/g, '\\s+').replace(/[’']/g, "[’']");
     const expression = new RegExp(`(^|[^\\p{L}’'])(${pattern})(?=$|[^\\p{L}’'])`, 'giu');

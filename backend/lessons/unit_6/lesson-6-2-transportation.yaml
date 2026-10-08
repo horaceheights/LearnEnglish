@@ -31,7 +31,7 @@
   "grammar_function": "I go by bus. I go to work by train. The children walk to school.",
   "prerequisite": "2.2 bus, car and bike; 4.6 go to school; 4.8 work; 1.4 children.",
   "speaking_outcome": "Say how I go to work or school.",
-  "content_revision": 2,
+  "content_revision": 3,
   "purposeful_review_slides": [
     "R3",
     "R4",
@@ -110,21 +110,22 @@
     {
       "slide_id": "L3",
       "interaction_type": "teach",
-      "prompt": "Walk",
+      "prompt": "I walk.",
       "stage": "Learn",
       "correct_option_id": "walk-learn",
       "options": [
         {
           "id": "walk-learn",
           "image_url": "a1_scene_i-walk_b4cf763.webp",
-          "label": "Walk"
+          "label": "I walk."
         }
       ],
-      "audio_text": "Walk",
+      "audio_text": "I walk.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Caminar",
-      "pedagogy_note": "Story beat 03: Walk"
+      "spanish_translation": "Camino.",
+      "pedagogy_note": "Story beat 03: Walk",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "R1",
@@ -1220,6 +1221,20 @@
       "answer_audio_speaker": "female-character",
       "pedagogy_note": "Story beat 09: I go by taxi.",
       "audio_speaker": "female-character"
+    }
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "walk"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "I walk."
+        }
+      ]
     }
   ]
 }

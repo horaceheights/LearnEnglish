@@ -5,11 +5,11 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds like, do not like and Me too. First-person likes use the pictured speaker's voice; Luis asks Ana about coffee at the Unit 4 cafe table, and Ana says I like coffee and Luis answers Me too. A No answer is only offered as text beside its Yes pair.",
+  "note": "2026-10-08 user-authorized review. The linked exact engine plan supersedes this brief's previous wording, order, banks and media. Preserve its complete contextual verb models, conversational turns and stage sequence when authoring.",
   "target": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
   "lesson": {
     "id": "lesson-5-4-likes-and-dislikes",
-    "title": "5.5 Likes, Dislikes, and Me Too",
+    "title": "5.5 Likes, Dislikes, and Agreement",
     "level": "Beginner A1",
     "unit_id": "unit-5",
     "unit_title": "Unit 5: Food, Drinks, and Shopping",
@@ -17,12 +17,13 @@
     "lesson_id": "lesson-5",
     "lesson_title": "Unit 5: Food, Drinks, and Shopping",
     "sub_lesson_id": "5.5",
-    "sub_lesson_title": "Likes, Dislikes, and Me Too",
-    "goal": "Say what I like and do not like, ask Do you like ...?, and agree with Me too.",
+    "sub_lesson_title": "Likes, Dislikes, and Agreement",
+    "goal": "Express likes and dislikes, ask Do you like ...?, and agree with Me too. or Me neither.",
     "vocabulary": [
       "like",
       "do not like",
-      "Me too."
+      "Me too.",
+      "Me neither."
     ],
     "review_vocabulary": [
       "I",
@@ -41,209 +42,157 @@
       "grapes",
       "coffee"
     ],
-    "grammar_function": "I like apples. I do not like fish. They like grapes. Do you like coffee? Yes, I do. I like coffee. Me too.",
+    "grammar_function": "I like coffee. Me too. I do not like milk. Me neither. Do you like coffee? Yes, I do.",
     "prerequisite": "3.2 I; 1.8 not; 4.8 Do you...?; 5.1-5.3 fruit, food and drinks.",
-    "speaking_outcome": "Say what I like and do not like, and agree with Me too.",
-    "content_revision": 2
+    "speaking_outcome": "Say a preference and respond appropriately to positive or negative agreement.",
+    "content_revision": 3,
+    "purposeful_review_slides": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R10",
+      "R11",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9",
+      "A10",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "U1",
+      "U2",
+      "U3",
+      "U4",
+      "U5",
+      "U6",
+      "U7",
+      "U8"
+    ],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "like",
+          "do not like",
+          "Me too.",
+          "Me neither."
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I like coffee."
+          },
+          {
+            "slide_id": "L2",
+            "text": "Me too."
+          },
+          {
+            "slide_id": "L3",
+            "text": "I do not like milk."
+          },
+          {
+            "slide_id": "L4",
+            "text": "Me neither."
+          }
+        ]
+      }
+    ]
   },
   "layout": {
-    "Recognize": 11,
+    "Recognize": 10,
     "Listen": 10,
-    "Speak": 9,
-    "Use": 9
+    "Speak": 10,
+    "Use": 8
   },
   "items": [
     {
-      "text": "Like",
-      "es": "Gustar",
-      "image": "a1_photo_likes_apples_v1.webp",
-      "kind": "like-word",
-      "form": "word",
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      }
-    },
-    {
-      "text": "Do not like",
-      "es": "No gustar",
-      "image": "a1_photo_dislikes_fish_crop_v1.webp",
-      "kind": "like-word",
-      "form": "word",
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      },
-      "use": false
+      "text": "I like coffee.",
+      "es": "Me gusta el café.",
+      "image": "a1_u5_revision_likes_coffee_statement_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "ana"
     },
     {
       "text": "Me too.",
       "es": "Yo también.",
       "image": "a1_photo_u5_luis_me_too_v1.webp",
-      "kind": "agree-response",
-      "speaker": "luis",
-      "question": "I like coffee.",
-      "question_es": "Me gusta el café.",
-      "question_speaker": "ana",
+      "kind": "contextual-model",
+      "learn": true,
       "image_choices": false,
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      }
+      "speaker": "luis"
+    },
+    {
+      "text": "I do not like milk.",
+      "es": "No me gusta la leche.",
+      "image": "a1_u5_revision_dislikes_milk_statement_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "text": "Me neither.",
+      "es": "Yo tampoco.",
+      "image": "a1_u5_revision_dislikes_milk_reply_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "luis"
     },
     {
       "text": "I like apples.",
       "es": "Me gustan las manzanas.",
       "image": "a1_photo_likes_apples_v1.webp",
-      "kind": "i-like-apples",
+      "kind": "contextual-model",
       "learn": false,
-      "speaker": "female-character",
       "image_choices": false,
-      "prefer": [
-        "I do not like apples."
-      ]
+      "speaker": "female-character"
     },
     {
       "text": "I do not like fish.",
       "es": "No me gusta el pescado.",
       "image": "a1_photo_dislikes_fish_crop_v1.webp",
-      "kind": "i-like-fish",
+      "kind": "contextual-model",
       "learn": false,
-      "speaker": "female-character",
       "image_choices": false,
-      "prefer": [
-        "I like fish."
-      ]
-    },
-    {
-      "text": "I like rice.",
-      "es": "Me gusta el arroz.",
-      "image": "a1_scene_likes-rice_1dce2b8.webp",
-      "kind": "i-like-rice",
-      "learn": false,
-      "speaker": "female-character",
-      "image_choices": false,
-      "prefer": [
-        "I do not like rice."
-      ]
-    },
-    {
-      "text": "I do not like milk.",
-      "es": "No me gusta la leche.",
-      "image": "a1_scene_i-do-not-like-milk_f3786e9.webp",
-      "kind": "i-like-milk",
-      "learn": false,
-      "speaker": "male-character",
-      "image_choices": false,
-      "prefer": [
-        "I like milk."
-      ]
+      "speaker": "female-character"
     },
     {
       "text": "I like juice.",
       "es": "Me gusta el jugo.",
       "image": "a1_scene_i-like-juice_b1740dd.webp",
-      "kind": "i-like-juice",
+      "kind": "contextual-model",
       "learn": false,
-      "speaker": "female-character",
       "image_choices": false,
-      "prefer": [
-        "I do not like juice."
-      ]
-    },
-    {
-      "text": "I do not like bread.",
-      "es": "No me gusta el pan.",
-      "image": "a1_scene_does-not-like-bread_cce412b.webp",
-      "kind": "i-like-bread",
-      "learn": false,
-      "speaker": "female-character",
-      "image_choices": false,
-      "prefer": [
-        "I like bread."
-      ]
+      "speaker": "female-character"
     },
     {
       "text": "They like grapes.",
-      "es": "Les gustan las uvas.",
+      "es": "A ellos les gustan las uvas.",
       "image": "a1_photo_u5_children_eating_grapes_v1.webp",
-      "kind": "they-like",
+      "kind": "contextual-model",
       "learn": false,
-      "image_choices": false,
-      "prefer": [
-        "They like strawberries.",
-        "They like bananas."
-      ]
-    },
-    {
-      "text": "Do you like coffee? Yes, I do.",
-      "es": "¿Te gusta el café? Sí.",
-      "image": "a1_photo_u4_yes_i_do_v1.webp",
-      "kind": "do-like",
-      "learn": false,
-      "turns": [
-        {
-          "text": "Do you like coffee?",
-          "speaker": "luis",
-          "image": "a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "Yes, I do.",
-          "speaker": "ana",
-          "image": "a1_photo_u4_yes_i_do_v1.webp"
-        }
-      ],
-      "image_choices": false,
-      "prefer": [
-        "Do you like coffee? No, I do not."
-      ],
-      "avoid": [
-        "Do you like milk? No, I do not.",
-        "Do you like milk? Yes, I do."
-      ]
-    },
-    {
-      "text": "Do you like milk? No, I do not.",
-      "es": "¿Te gusta la leche? No.",
-      "image": "a1_photo_u4_no_i_do_not_v1.webp",
-      "kind": "do-like",
-      "learn": false,
-      "turns": [
-        {
-          "text": "Do you like milk?",
-          "speaker": "luis",
-          "image": "a1_photo_u4_do_you_question_v1.webp"
-        },
-        {
-          "text": "No, I do not.",
-          "speaker": "ana",
-          "image": "a1_photo_u4_no_i_do_not_v1.webp"
-        }
-      ],
-      "image_choices": false,
-      "prefer": [
-        "Do you like milk? Yes, I do."
-      ],
-      "avoid": [
-        "Do you like coffee? No, I do not."
-      ]
-    },
-    {
-      "text": "I like coffee. Me too.",
-      "es": "Me gusta el café. Yo también.",
-      "image": "a1_photo_u5_luis_me_too_v1.webp",
-      "kind": "me-too-exchange",
-      "learn": false,
-      "turns": [
-        {
-          "text": "I like coffee.",
-          "speaker": "ana",
-          "image": "a1_photo_u5_ana_likes_coffee_v1.webp"
-        },
-        {
-          "text": "Me too.",
-          "speaker": "luis",
-          "image": "a1_photo_u5_luis_me_too_v1.webp"
-        }
-      ],
-      "choices": false
+      "image_choices": false
     }
   ],
   "pool": [
@@ -307,5 +256,7 @@
       "es": "Hola.",
       "kind": "agree-response"
     }
-  ]
+  ],
+  "authoritative_plan": "docs/product/content-plans/unit5-review-2026-10-08/5.5.plan.json",
+  "review": []
 }

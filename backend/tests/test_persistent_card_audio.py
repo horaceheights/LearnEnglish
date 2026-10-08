@@ -326,7 +326,7 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-06: approved 4.10 scenes have the woman ask and Luis answer
         # (+12 net male assets, seven exact answer takes, 187 characters).
         self.assertEqual(
-            Counter({"male-character": 646, "luis": 251, "diego": 16}),
+            Counter({"male-character": 733, "luis": 261, "diego": 16}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
@@ -337,11 +337,12 @@ class PersistentCardAudioTests(unittest.TestCase):
         # Reconoce template correction removes 14 redundant male bindings.
         # 2026-10-07: full possession phrases and ours in 3.12-3.14 add 17
         # male bindings and four distinct takes; superseded audio is retained.
-        self.assertEqual(913, len(selected))
-        self.assertEqual(186, len(jobs))
-        self.assertEqual(186, sum(len(job.request_fragments()) for job in jobs))
+        # 2026-10-08: contextual verb models and the revised Unit 5 exchanges.
+        self.assertEqual(1010, len(selected))
+        self.assertEqual(195, len(jobs))
+        self.assertEqual(195, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
-        self.assertEqual(3776, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(4015, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},

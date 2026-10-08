@@ -151,20 +151,21 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("audio_speaker", "co-teacher", "L2 A2 A4 A6 A8 A10 S2 S4 S6 S8 U1 U3 U5 U7 U9"),
         ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 R12 U1 U3 U5 U7 U9"),
     ],
-    "lesson-4-5-morning-routine": [
-        ("audio_speaker", "ana", "L2 L3 R2 R3 R5 R7 A2 A3 A5 A6 A7 A8 A9 S1 S4 S5 S6 S7 S8 U1 U2 U3 U4 U5 U6 U7 U8"),
-        ("audio_speaker", "co-teacher", "L4 L6 A1 S2"),
-        ("answer_audio_speaker", "ana", "R4 R6 R8 R9 R10 R11 U1 U2 U3 U4 U5 U6 U7 U8"),
+    'lesson-4-5-morning-routine': [
+        ('answer_audio_speaker', 'ana', 'R4 R6 R8 R9 R10 R11 U1 U2 U3 U4 U5 U6 U7 U8'),
+        ('audio_speaker', 'ana', 'L1 L2 L3 L4 L5 R1 R2 R3 R5 R7 A1 A2 A3 A4 A5 A6 A7 A8 A9 S1 S2 S4 S5 S6 S7 S8 U1 U2 U3 U4 U5 U6 U7 U8'),
+        ('audio_speaker', 'co-teacher', 'L6'),
     ],
     "lesson-4-6-everyday-verbs": [
         ('answer_audio_speaker', 'male-character', 'R1 R2 R3 R4 U1 U2 U3 U4 U5 U6 U7 U8'),
         ('audio_speaker', 'male-character', 'L1 L2 L3 L4 L5 L6 R1 R2 R3 R4 R5 R6 R7 R8 R9 A1 A2 A3 A4 A5 A6 A7 A8 A9 A10 S1 S2 S3 S4 S5 S6 S7 S8 U1 U2 U3 U4 U5 U6 U7 U8'),
     ],
-    "lesson-4-7-simple-present": [
+    'lesson-4-7-simple-present': [
         ('answer_audio_speaker', 'female-character', 'R1 R4 R5 R8 R9 U1 U2 U3 U5 U6 U7'),
         ('answer_audio_speaker', 'teacher', 'U4'),
-        ('audio_speaker', 'co-teacher', 'L2 L4 R6 A3 A7 S6'),
-        ('audio_speaker', 'female-character', 'R1 R2 R4 R5 R7 R8 R9 A1 A2 A4 A5 A8 A9 A10 S1 S2 S4 S5 S7 S8 U1 U2 U3 U5 U6 U7'),
+        ('audio_speaker', 'co-teacher', 'R6 A3 A7 S6'),
+        ('audio_speaker', 'female-character', 'L1 L4 R1 R2 R4 R5 R7 R8 R9 A1 A2 A4 A5 A8 A9 A10 S1 S2 S4 S5 S7 S8 U1 U2 U3 U5 U6 U7'),
+        ('audio_speaker', 'male-character', 'L2'),
         ('audio_speaker', 'teacher', 'U4'),
     ],
     "lesson-4-do-you-questions": [
@@ -225,62 +226,54 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "co-teacher", "U3 U5 U7 U9"),
         ("answer_audio_speaker", "luis", "U1"),
     ],
-    "lesson-5-4-likes-and-dislikes": [
-        ("audio_speaker", "ana", "R2"),
-        ("audio_speaker", "co-teacher", "L2 A2 S1"),
-        ("audio_speaker", "female-character", "A4 A5 A6 A8 A9 S3 S4 S6 U1 U2 U3 U5 U6 U8"),
-        ("audio_speaker", "luis", "L3 A3 S2"),
-        ("audio_speaker", "male-character", "A7 S5 U4 U9"),
-        ("answer_audio_speaker", "co-teacher", "R9"),
-        ("answer_audio_speaker", "female-character", "R3 R4 R5 R7 R8 U1 U2 U3 U5 U6 U8"),
-        ("answer_audio_speaker", "luis", "R2"),
-        ("answer_audio_speaker", "male-character", "R6 U4 U9"),
+    'lesson-5-4-likes-and-dislikes': [
+        ('answer_audio_speaker', 'ana', 'R1 R3 U1 U3'),
+        ('answer_audio_speaker', 'co-teacher', 'R8'),
+        ('answer_audio_speaker', 'female-character', 'R5 R6 R7 U5 U6 U7'),
+        ('answer_audio_speaker', 'luis', 'R2 R4 U2 U4'),
+        ('audio_speaker', 'ana', 'L1 L3 R2 R4 A1 A3 S1 S3 S9 U1 U3'),
+        ('audio_speaker', 'female-character', 'A5 A7 S5 S6 S7 U5 U6 U7'),
+        ('audio_speaker', 'luis', 'L2 L4 S2 S4 S10 U2 U4'),
+        ('audio_speaker', 'male-character', 'A6'),
     ],
-    "lesson-5-5-wants-and-needs": [
-        ("audio_speaker", "co-teacher", "L2 A4 A6 A8 A10 S4 S6 S8 U3 U5 U7 U9"),
-        ("audio_speaker", "female-character", "A2 S1 U1"),
-        ("audio_speaker", "male-character", "A3 S2 U2"),
-        ("answer_audio_speaker", "co-teacher", "R4 R6 R8 R10 R12 U3 U5 U7 U9"),
-        ("answer_audio_speaker", "female-character", "R2 U1"),
-        ("answer_audio_speaker", "male-character", "R3 U2"),
+    'lesson-5-5-wants-and-needs': [
+        ('answer_audio_speaker', 'female-character', 'R1 R2 R9 U1 U2'),
+        ('answer_audio_speaker', 'male-character', 'R3 R4 R10 U3 U4'),
+        ('audio_speaker', 'female-character', 'L1 L2 A1 A2 A9 S1 S2 U1 U2'),
+        ('audio_speaker', 'male-character', 'L3 L4 A3 A4 A10 S3 S4 U3 U4'),
     ],
-    "lesson-5-6-meals": [
-        ("audio_speaker", "co-teacher", "L2 A2 A8 A10 S6 S9 U6 U9"),
-        ("audio_speaker", "female-character", "R3 R11 A3 A4 A5 S1 S2 S3 S8 U1 U2 U3 U8"),
-        ("audio_speaker", "male-character", "A6 S4 U4"),
-        ("answer_audio_speaker", "co-teacher", "R2 R8 R12 U6 U9"),
-        ("answer_audio_speaker", "female-character", "R4 R5 R10 U1 U2 U3 U8"),
-        ("answer_audio_speaker", "male-character", "R6 R11 U4"),
+    'lesson-5-6-meals': [
+        ('answer_audio_speaker', 'co-teacher', 'R12 R2 R8 U7 U9'),
+        ('answer_audio_speaker', 'female-character', 'R5 R10 R4 U1 U2 U4 U8'),
+        ('answer_audio_speaker', 'male-character', 'R11 U3'),
+        ('audio_speaker', 'co-teacher', 'A10 A2 A8 S9 S6 U7 U9'),
+        ('audio_speaker', 'female-character', 'LB R3 R11 A3 A5 A4 S1 S3 S8 S2 U1 U2 U4 U8'),
+        ('audio_speaker', 'male-character', 'U3'),
     ],
-    "lesson-5-7-prices": [
-        ("audio_speaker", "co-teacher", "L3 R2 R4 A1 A3 A5 A7 A9 S2 S4 S6 S8 U2 U4 U6 U8"),
-        ("audio_speaker", "female-character", "L1 S1 U1"),
-        ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 U2 U4 U6 U8"),
-        ("answer_audio_speaker", "female-character", "U1"),
+    'lesson-5-7-prices': [
+        ('answer_audio_speaker', 'female-character', 'U3 U5 U7'),
+        ('answer_audio_speaker', 'male-character', 'R3 R4 R5 R6 R7 R8 R9 R10 U2 U4 U6 U8'),
+        ('audio_speaker', 'female-character', 'L3 L5 R3 R5 R7 R9 A3 A5 A7 A9 S1 S3 S5 U3 U5 U7'),
+        ('audio_speaker', 'male-character', 'L4 L6 A4 A6 A8 A10 S2 S4 S6 S8 U2 U4 U6 U8'),
     ],
-    "lesson-5-8-ordering-politely": [
-        ("audio_speaker", "co-teacher", "A3 S4"),
-        ("audio_speaker", "female-character", "L2 L3 R2 R5 R7 A1 A5 A7 A8 S2 S6 S8 U1 U2 U3 U4 U5 U6 U7 U8 U9"),
-        ("audio_speaker", "male-character", "L4 R1 A2 A4 A6 S3 S5 S7"),
-        ("answer_audio_speaker", "co-teacher", "R3"),
-        ("answer_audio_speaker", "female-character", "R1 R8 U1 U2 U3 U4 U5 U6 U7 U8 U9"),
-        ("answer_audio_speaker", "male-character", "R2 R4 R6"),
+    'lesson-5-8-ordering-politely': [
+        ('answer_audio_speaker', 'female-character', 'R3 R6 R8 R10 U1 U3 U6 U8'),
+        ('answer_audio_speaker', 'male-character', 'R1 R2 R4 R5 R7 R9 U2 U4 U5 U7'),
+        ('audio_speaker', 'female-character', 'L1 L3 L6 L8 R1 R4 A1 A3 A6 A8 S1 S3 S6 S8 U1 U3 U6 U8'),
+        ('audio_speaker', 'male-character', 'L2 L4 L5 L7 R3 R6 R8 R10 A2 A4 A5 A7 S2 S4 S5 S7 U2 U4 U5 U7'),
     ],
-    "lesson-5-can-i-have": [
-        ("audio_speaker", "ana", "L1 L2 R1 A1 A2 S1 S2 U1"),
-        ("audio_speaker", "co-teacher", "S7"),
-        ("audio_speaker", "female-character", "R7 R9 A4 A6 A7 S4 S5 S6 U3 U5 U6 U7 U8 U9"),
-        ("audio_speaker", "male-character", "R3 R5 A3 A5 S3 U2 U4"),
-        ("answer_audio_speaker", "ana", "R2 U1"),
-        ("answer_audio_speaker", "female-character", "R4 R6 R8 R10 U3 U5 U6 U7 U8 U9"),
-        ("answer_audio_speaker", "male-character", "U2 U4"),
+    'lesson-5-can-i-have': [
+        ('answer_audio_speaker', 'female-character', 'R1 R4 R5 R6 R7 R10 U1 U4 U5 U6 U9'),
+        ('answer_audio_speaker', 'male-character', 'R2 R3 R8 R9 U2 U3 U7 U8'),
+        ('audio_speaker', 'female-character', 'L2 L4 R2 R8 R9 A1 A5 A6 A7 A8 A9 S1 S4 S5 S6 S9 U1 U4 U5 U6 U9'),
+        ('audio_speaker', 'male-character', 'L1 L3 R4 R10 A2 A3 S2 S3 S7 S8 U2 U3 U7 U8'),
     ],
-    "lesson-5-9-unit-5-review": [
-        ("audio_speaker", "female-character", "L5 R5 R10 N3 N6 N9 N11 N15 N18 N19 S3 S4 S6 U5"),
-        ("audio_speaker", "luis", "R9"),
-        ("audio_speaker", "male-character", "L6 N5 N14 N17 S2 S5 S7 U6 U8"),
-        ("answer_audio_speaker", "female-character", "U5"),
-        ("answer_audio_speaker", "male-character", "R4 R10 R11 U8"),
+    'lesson-5-9-unit-5-review': [
+        ('answer_audio_speaker', 'female-character', 'R4 U2 U7'),
+        ('answer_audio_speaker', 'male-character', 'R3 R10 R11 U4 U8'),
+        ('audio_speaker', 'female-character', 'L5 L8 R3 R5 R10 N3 N9 N11 N14 N15 N17 N18 N19 S4 S5 S7 U2 U7'),
+        ('audio_speaker', 'luis', 'R9'),
+        ('audio_speaker', 'male-character', 'L6 L7 N5 N7 N8 S3 S6 U4 U6 U8'),
     ],
     # Unit 6 was rebuilt through the content engine on 2026-09-27: each brief names who says every
     # line (the pictured traveller, the woman asking for help and the man she asks, or the crossing
@@ -290,12 +283,12 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("audio_speaker", "co-teacher", "L2 L4 A1 A3 A5 A7 A9 S2 S4 S6 S8 U1 U3 U5 U7 U9"),
         ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 U1 U3 U5 U7 U9"),
     ],
-    "lesson-6-2-transportation": [
+    'lesson-6-2-transportation': [
         ('answer_audio_speaker', 'co-teacher', 'R10 U8'),
         ('answer_audio_speaker', 'female-character', 'R8 U1 U3 U5 U9'),
         ('answer_audio_speaker', 'male-character', 'R4 R6 R9 U2 U4 U6'),
         ('audio_speaker', 'co-teacher', 'L2 R1 A1 A10 S2 S9 U8'),
-        ('audio_speaker', 'female-character', 'R3 R5 R7 A3 A5 A7 A8 S3 S5 S6 U1 U3 U5 U9'),
+        ('audio_speaker', 'female-character', 'L3 R3 R5 R7 A3 A5 A7 A8 S3 S5 S6 U1 U3 U5 U9'),
         ('audio_speaker', 'male-character', 'A4 A6 A9 S4 S7 U2 U4 U6'),
     ],
     "lesson-6-3-where-is-it": [
@@ -310,13 +303,13 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("audio_speaker", "co-teacher", "L2 L4 R1 R3 R5 R7 R9 R11 A2 A4 A6 A8 S1 S3 S5 S7 S9 U2 U4 U6 U8"),
         ("answer_audio_speaker", "co-teacher", "U2 U4 U6 U8"),
     ],
-    "lesson-6-6-can-and-cannot": [
-        ("audio_speaker", "co-teacher", "L2 A2 A6 A8 S4 S6 U4 U6"),
-        ("audio_speaker", "female-character", "A3 A9 A10 S1 S7 S8 S9 U1 U7 U8"),
-        ("audio_speaker", "male-character", "A4 S2 U2 U9"),
-        ("answer_audio_speaker", "co-teacher", "R2 R6 R8 U4 U6"),
-        ("answer_audio_speaker", "female-character", "R3 R9 R10 R11 U1 U7 U8"),
-        ("answer_audio_speaker", "male-character", "R4 R12 U2 U9"),
+    'lesson-6-6-can-and-cannot': [
+        ('answer_audio_speaker', 'co-teacher', 'R2 R6 R8 U4 U6'),
+        ('answer_audio_speaker', 'female-character', 'R3 R9 R10 R11 U1 U7 U8'),
+        ('answer_audio_speaker', 'male-character', 'R4 R12 U2 U9'),
+        ('audio_speaker', 'co-teacher', 'L2 A2 A6 A8 S4 S6 U4 U6'),
+        ('audio_speaker', 'female-character', 'A3 A9 A10 S1 S7 S8 S9 U1 U7 U8'),
+        ('audio_speaker', 'male-character', 'A4 S2 U2 U9'),
     ],
     "lesson-6-7-simple-requests": [
         ("audio_speaker", "female-character", "L1 L2 L3 R1 R3 A1 A2 A3 A4 A7 A10 S1 S2 S3 S4 S7 S9 U1 U2 U3 U5 U6 U7 U9"),
@@ -324,9 +317,9 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "female-character", "R2 R4 R7 R10 U1 U2 U3 U5 U6 U7 U9"),
         ("answer_audio_speaker", "male-character", "R8 U4 U8"),
     ],
-    "lesson-6-8-schedules": [
-        ("audio_speaker", "co-teacher", "L2 A2 A4 A6 A8 A10 S2 S4 S6 S8 U1 U3 U5 U7 U9"),
-        ("answer_audio_speaker", "co-teacher", "R2 R4 R6 R8 R10 R12 U1 U3 U5 U7 U9"),
+    'lesson-6-8-schedules': [
+        ('answer_audio_speaker', 'co-teacher', 'R2 R4 R6 R8 R10 R12 U1 U3 U5 U7 U9'),
+        ('audio_speaker', 'co-teacher', 'L2 A2 A4 A6 A8 A10 S2 S4 S6 S8 U1 U3 U5 U7 U9'),
     ],
     "lesson-6-9-unit-6-review": [
         ("audio_speaker", "female-character", "N2 N6 N10 N13 S5 U1 U4"),
@@ -367,13 +360,11 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "female-character", "R3 R6 R8 R9 R11 U1 U3 U4 U6 U7"),
         ("answer_audio_speaker", "male-character", "R4 R7 R10 R12 U2 U5 U8 U9"),
     ],
-    "lesson-7-6-hobbies-and-free-time": [
-        ("audio_speaker", "co-teacher", "L2 A1 A9 S2 U8"),
-        ("audio_speaker", "female-character", "R3 R5 R11 A3 A4 A5 A7 A8 A10 S3 S4 S5 S7 S8 S9 U2 U3 U4 U6 U7 U9"),
-        ("audio_speaker", "male-character", "A6 S6 U5"),
-        ("answer_audio_speaker", "co-teacher", "R2 U8"),
-        ("answer_audio_speaker", "female-character", "R4 R7 R8 R10 R12 U2 U3 U4 U6 U7 U9"),
-        ("answer_audio_speaker", "male-character", "R6 U5"),
+    'lesson-7-6-hobbies-and-free-time': [
+        ('answer_audio_speaker', 'female-character', 'R2 R4 R7 R8 R10 R12 U1 U2 U3 U4 U6 U7 U8 U9'),
+        ('answer_audio_speaker', 'male-character', 'R6 U5'),
+        ('audio_speaker', 'female-character', 'L2 R3 R5 R9 R11 A2 A3 A4 A5 A7 A8 A9 A10 S2 S3 S4 S5 S7 S8 S9 U1 U2 U3 U4 U6 U7 U8 U9'),
+        ('audio_speaker', 'male-character', 'L1 R1 A1 A6 S1 S6 U5'),
     ],
     "lesson-7-7-invitations-and-responses": [
         ("audio_speaker", "ana", "A6 S6 U5"),
@@ -402,6 +393,12 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('answer_audio_speaker', 'male-character', 'M09 M10 M14 M15'),
         ('audio_speaker', 'female-character', 'M09 M10 M14'),
         ('audio_speaker', 'male-character', 'M11 M12 M13 M15 M16 M17'),
+    ],
+    'lesson-2-pronouns': [
+    ],
+    'lesson-5-10-cafe-mission': [
+    ],
+    'lesson-6-family-actions': [
     ],
 }
 

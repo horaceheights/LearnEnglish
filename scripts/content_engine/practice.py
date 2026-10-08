@@ -36,6 +36,7 @@ def card_evidence(card: dict) -> str:
     parts = [card.get("prompt"), card.get("audio_text"), card.get("answer_audio_text")]
     parts += [option.get("label") for option in card.get("options") or [] if option.get("id") in correct]
     parts += [turn.get("text") for turn in card.get("audio_turns") or []]
+    parts += [turn.get("text") for turn in card.get("answer_audio_turns") or []]
     for cue in (card.get("mission_game") or {}).get("cues") or []:
         parts += [cue.get("text"), cue.get("answer_text")]
     return " ".join(str(part) for part in parts if part).lower()
@@ -191,6 +192,18 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
 
     for index, lesson in enumerate(catalog):
         cards = lesson.data.get("cards") or []
+        # Course-configured action labels are vocabulary metadata, not complete
+        # teaching utterances. A construction's individual tiles remain valid.
+        bare_verbs = {term.lower().strip(" .?!") for term in standards.get("verbs_require_subject", [])}
+        for card in cards:
+            lines = [card.get(field) for field in ("prompt", "audio_text", "answer_audio_text")]
+            lines += [turn.get("text") for field in ("audio_turns", "answer_audio_turns") for turn in card.get(field) or []]
+            if card.get("interaction_type") not in ("complete2", "complete-sentence"):
+                lines += [option.get("label") for option in card.get("options") or []]
+            isolated = sorted({str(line).lower().strip(" .?!") for line in lines if line} & bare_verbs)
+            for term in isolated:
+                findings.append(Finding("verb-context", lesson.number, f"{card.get('slide_id')}:{term}",
+                                        "Teach or assess this verb in a complete subject–verb context, not as an isolated action label."))
         limits = {"standard": standards["standard_lesson_cards"], "review": standards["review_lesson_cards"]}
         bounds = standards.get("approved_lesson_card_limits", {}).get(lesson.data.get("id"), limits.get(lesson.role))
         if bounds and not bounds["min"] <= len(cards) <= bounds["max"]:

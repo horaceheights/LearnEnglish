@@ -45,7 +45,7 @@
   "grammar_function": "Describe opening and closing a door, washing clothes, and cleaning a table with meaningful I, you, we and they perspectives. Reuse familiar home objects and rooms.",
   "prerequisite": "Familiar Unit 1 people/actions, Unit 2 objects/park, Unit 3 speakers/possessions and Unit 4 home/morning language.",
   "speaking_outcome": "Describe opening and closing a door, washing clothes, and cleaning a table with meaningful I, you, we and they perspectives. Reuse familiar home objects and rooms.",
-  "content_revision": 3,
+  "content_revision": 4,
   "purposeful_review_slides": [
     "R1",
     "R2",
@@ -88,41 +88,42 @@
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Open",
+      "prompt": "I open the door.",
       "stage": "Learn",
       "correct_option_id": "l1-open",
       "options": [
         {
           "id": "l1-open",
           "image_url": "/lesson-assets/a1_photo_u4_rebuild_home_open_corrected_v1.webp",
-          "label": "Open"
+          "label": "I open the door."
         }
       ],
-      "audio_text": "Open",
+      "audio_text": "I open the door.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Abrir",
-      "pedagogy_note": "From inside the familiar home, the adult moves the same door from closed to open. Use before-and-after action evidence, not a still of a door already open. Do not imply travel to school or work.\nTeach the new action open. Only the new word is the Learn English target; complete statements belong to the practice stages. Spanish help uses the appropriate verb or noun meaning."
+      "spanish_translation": "Abro la puerta.",
+      "pedagogy_note": "From inside the familiar home, the adult moves the same door from closed to open. Use before-and-after action evidence, not a still of a door already open. Do not imply travel to school or work.\nTeach the new action open. Only the new word is the Learn English target; complete statements belong to the practice stages. Spanish help uses the appropriate verb or noun meaning.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Close",
+      "prompt": "I close the door.",
       "stage": "Learn",
       "correct_option_id": "l2-close",
       "options": [
         {
           "id": "l2-close",
           "image_url": "/lesson-assets/a1_photo_u4_rebuild_home_close_boy_swap_v1.webp",
-          "label": "Close"
+          "label": "I close the door."
         }
       ],
-      "audio_text": "Close",
+      "audio_text": "I close the door.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Cerrar",
+      "spanish_translation": "Cierro la puerta.",
       "pedagogy_note": "Continue from that open door: the addressed boy moves it from open to closed, visibly acting on it. Keep door, room and viewpoint consistent; opening and closing must have opposite before/after order.\nTeach close, contrasting the same door action with open. Only the new word is the Learn English target; complete statements belong to the practice stages. Spanish help uses the appropriate verb or noun meaning.",
-      "audio_speaker": "co-teacher"
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "L3",
@@ -146,22 +147,22 @@
     {
       "slide_id": "L4",
       "interaction_type": "teach",
-      "prompt": "Clean",
+      "prompt": "We clean the table.",
       "stage": "Learn",
       "correct_option_id": "l4-clean",
       "options": [
         {
           "id": "l4-clean",
           "image_url": "/lesson-assets/a1_u4_review_repair_clean_kitchen_v1.webp",
-          "label": "Clean"
+          "label": "We clean the table."
         }
       ],
-      "audio_text": "Clean",
+      "audio_text": "We clean the table.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Limpiar",
+      "spanish_translation": "Limpiamos la mesa.",
       "pedagogy_note": "Two familiar family members actively wipe the same table and remove a visible spill or crumbs. Show the action and a before/after change. An empty tidy table alone cannot prove cleaning. Keep the table and room recognizable.\nTeach the new action clean on a familiar table. Only the new word is the Learn English target; complete statements belong to the practice stages. Spanish help uses the appropriate verb or noun meaning.",
-      "audio_speaker": "co-teacher"
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "R1",
@@ -1142,6 +1143,44 @@
         "word-4"
       ],
       "pedagogy_note": "Use: They clean the table."
+    }
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "open"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "I open the door."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "close"
+      ],
+      "models": [
+        {
+          "slide_id": "L2",
+          "text": "I close the door."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "clean"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "We clean the table."
+        }
+      ]
     }
   ]
 }

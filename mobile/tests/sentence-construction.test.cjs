@@ -46,7 +46,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // (32, up from 30).
   // 293 since 2026-09-27: the engine-built Unit 7 has four in each of its eight teaching lessons
   // (32, up from 27).
-  assert.equal(rollout.length, 293);
+  // 295 since the 2026-10-08 Unit 5 review: the meals and market sequences add two.
+  assert.equal(rollout.length, 295);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;
