@@ -62,7 +62,7 @@ const textAnswerSource = cardViewSource.slice(textAnswerStart, textAnswerEnd);
 
 assert.match(
   textAnswerSource,
-  /<Text\s+adjustsFontSizeToFit[\s\S]*?numberOfLines=\{optionTextLineLimit\}[\s\S]*?>[\s\S]*?\{option\.label\}/,
+  /<Text\s+adjustsFontSizeToFit[\s\S]*?numberOfLines=\{optionTextLineLimit\}[\s\S]*?>[\s\S]*?\{vocabularyText\(option\.label \|\| '', vocabulary, revealCorrect \|\| revealWrong\)\}/,
   'Every mapped text answer must independently use native largest-text-that-fits sizing.',
 );
 assert.doesNotMatch(

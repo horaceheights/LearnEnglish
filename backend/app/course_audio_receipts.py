@@ -57,6 +57,9 @@ APPROVED_ONE_AUDIO_SHA256 = (
 )
 NATURAL_LOCATION_WORD_ASSET_IDS = {
     "98a130ae509d0c9ac30c071ef6e4017c1f880c4775690fd69b60f73e6ed61add": frozenset({
+        "lesson-4-3-where-things-are-c017-prompt-6a5e3410c7058b866bc7",
+        "lesson-4-3-where-things-are-c017-answer-2f9004c3ca46640d69b8",
+
         "lesson-4-3-where-things-are-c001-prompt-8f0e13d497db1bdf4a43",
         "lesson-4-3-where-things-are-c001-answer-e37151e29ce6d3107418",
         "lesson-4-3-where-things-are-c006-prompt-d5d7ba3d6487262da23f",

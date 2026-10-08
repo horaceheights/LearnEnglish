@@ -120,7 +120,7 @@ assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, 
 assert.doesNotMatch(cardView, /preserveSubject=/, 'four-card layouts must use the same normalized fill policy');
 assert.match(
   cardView,
-  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
+  /<OptionMediaImage[\s\S]*?imageUrl=\{teachingImageUrl \|\| option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
 );
 assert.match(optionMediaImage, /const sourceIsThreeByTwo = Boolean\(/);
 assert.match(optionMediaImage, /const shouldContain = !sourceIsThreeByTwo/);
@@ -128,15 +128,15 @@ assert.match(optionMediaImage, /resizeMode=\{shouldContain \? 'contain' : 'cover
 assert.doesNotMatch(optionMediaImage, /TOP_ALIGNED_OPTION_MEDIA|topAligned/);
 assert.match(lessonPlayer, /const useThreeByTwoOptionMedia = currentCard\?\.options\?\.some/);
 assert.match(lessonPlayer, /useThreeByTwoOptionMedia[\s\S]*?aspectRatio:\s*"3 \/ 2"[\s\S]*?objectFit:\s*"cover"/);
-assert.match(lessonPlayer, /lessonOptionImageSrc\(option\.image_url\)/);
+assert.match(lessonPlayer, /lessonOptionImageSrc\(teachingImageUrl \|\| option\.image_url\)/);
 assert.doesNotMatch(lessonPlayer, /src=\{lessonImageSrc\(option\.image_url\)\}/);
 
 // Preserve the user's explicit Lesson 1.7 still-image choice without disabling
 // action-video behavior on the rest of the now-global 3:2 catalog.
 assert.match(cardView, /useStillOnlyLesson17Comparison[\s\S]*?lessonId === 'lesson-7-is-are-not'/);
-assert.match(cardView, /const actionVideo = useStillOnlyLesson17Comparison\s*\?\s*null/);
+assert.match(cardView, /const actionVideo = teachingImageUrl \|\| useStillOnlyLesson17Comparison\s*\?\s*null/);
 assert.match(lessonPlayer, /useStillOnlyLesson17Comparison[\s\S]*?activeLesson\.id === "lesson-7-is-are-not"/);
-assert.match(lessonPlayer, /const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison/);
+assert.match(lessonPlayer, /const actionVideoName = !teachingImageUrl && !isPronunciationCard && !useStillOnlyLesson17Comparison/);
 
 assert.match(
   exporter,

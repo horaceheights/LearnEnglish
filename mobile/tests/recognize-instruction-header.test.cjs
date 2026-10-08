@@ -134,11 +134,11 @@ assert.match(
   /const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra que corresponde a la imagen!';/,
   'Single-word choices ask for the word, with complete Spanish punctuation.',
 );
-assert.match(
-  instructionSource,
-  /export function usesCompactRecognizeInstruction\(stage: string, prompt: string\)\s*\{\s*return stage === 'Recognize' && !prompt\.trim\(\);/,
-  'The rule must be selected by Recognize plus an empty authored prompt.',
-);
+for (const prompt of ['', '¡Elige la frase!', 'Elige la palabra correcta.', '¡Elige la frase correcta!']) {
+  assert.equal(instructionApi.usesCompactRecognizeInstruction('Recognize', prompt), true, prompt);
+}
+assert.equal(instructionApi.usesCompactRecognizeInstruction('Recognize', 'Where is the book?'), false);
+assert.equal(instructionApi.usesCompactRecognizeInstruction('Learn', 'There is'), false);
 assert.match(
   instructionSource,
   /export function recognizeChoiceInstruction[\s\S]*CHOOSE_CORRECT_WORD_INSTRUCTION[\s\S]*CHOOSE_CORRECT_PHRASE_INSTRUCTION[\s\S]*export function lessonHeaderPromptText\(\s*lessonId: string,\s*stage: string,\s*prompt: string,[\s\S]*usesCompactRecognizeInstruction\(stage, prompt\)\) return recognizeChoiceInstruction\(options\)/,

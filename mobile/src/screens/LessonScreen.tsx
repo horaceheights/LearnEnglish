@@ -1,3 +1,4 @@
+import { vocabularyParts } from '../lessonVocabulary';
 import { awaitingConstructionRetry } from '../constructionTeaching';
 import { SentenceConstruction } from '../components/SentenceConstruction';
 import { isWordConstruction, sentenceIsCorrect } from '../sentenceConstruction';
@@ -1238,16 +1239,8 @@ export function LessonScreen({
     ? pronunciationReplayAvailable
     : Boolean(phraseReplayText);
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
-  const newVocabularyWords = useMemo(() => {
-    if (!lesson || currentCard?.stage !== 'Learn') return new Set<string>();
-    return new Set(
-      lesson.vocabulary.flatMap((entry) => entry.toLowerCase().match(/[a-z']+/g) || []),
-    );
-  }, [currentCard?.stage, lesson]);
-  const hasNewVocabularyInPrompt = useMemo(() => (
-    (currentCard?.prompt.toLowerCase().match(/[a-z']+/g) || [])
-      .some((word) => newVocabularyWords.has(word))
-  ), [currentCard?.prompt, newVocabularyWords]);
+  const hasNewVocabularyInPrompt = currentCard?.stage === 'Learn'
+    && vocabularyParts(currentCard.prompt, lesson?.vocabulary || []).some(part => part.highlighted);
 
   useEffect(() => {
     if (!cardAudio.ready) {
@@ -2785,10 +2778,13 @@ export function LessonScreen({
       ? listeningChoiceInstruction(currentCard.options)
       : lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt, currentCard.options);
     if (useCompactHeaderInstruction) return localizedPrompt;
-    return localizedPrompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
+    return vocabularyParts(localizedPrompt, useCompactHeaderInstruction ? [] : lesson.vocabulary).map(({ text: part, highlighted }, index) => {
       const normalizedPart = part.toLowerCase();
       const isNotConceptFocus = lesson.id === 'lesson-7-is-are-not' && normalizedPart === 'not';
-      if (newVocabularyWords.has(normalizedPart)) {
+      if (highlighted && currentCard.stage !== 'Learn') {
+        return <Text key={`${part}-${index}`} style={[styles.newVocabulary, isNotConceptFocus ? { fontSize: promptFontSize * 1.22 } : null]}>{part}</Text>;
+      }
+      if (highlighted) {
         return (
           <Animated.Text
             key={`${cardIndex}-${part}-${index}`}
@@ -3383,6 +3379,7 @@ export function LessonScreen({
               <PlayfulLoading label="Preparando pronunciación…" />
             </View>
           ) : <LessonCardView
+            vocabulary={lesson.vocabulary}
             activeTurnImageUrl={activeTurnImageUrl}
             allowVerticalGrowth={needsTextAnswerScrolling}
             audioProvider={audioProvider}

@@ -97,7 +97,7 @@ for (const card of standardLessons.flatMap(lesson => lesson.cards)
 }
 assert.match(screenSource, /styles\.prompt,\s*styles\.promptPhraseBox,\s*useCompactHeaderInstruction \? styles\.promptCompactInstruction : null/,
   'Instruction weight must override the learning-phrase weight.');
-assert.match(screenSource, /if \(useCompactHeaderInstruction\) return localizedPrompt;\s*return localizedPrompt\.split/,
+assert.match(screenSource, /if \(useCompactHeaderInstruction\) return localizedPrompt;\s*return vocabularyParts\(localizedPrompt,/,
   'Instruction copy bypasses learning-word highlighting and animations.');
 assert.match(
   instructionSource,

@@ -60,8 +60,17 @@ test('no card in the course lets a spoken turn cover or reveal its choices', () 
 
 test('mobile and web resolve the shown picture through the shared rule', () => {
   const mobileCard = fs.readFileSync(path.join(mobileRoot, 'src', 'components', 'LessonCardView.tsx'), 'utf8');
-  assert.match(mobileCard, /const activeTurnImageUrl = visibleTurnImageUrl\(card, playingTurnImageUrl\);/);
+  assert.match(mobileCard, /const activeTurnImageUrl = teachingImageUrl \? null : visibleTurnImageUrl\(card, playingTurnImageUrl\);/);
   const webPlayer = fs.readFileSync(path.join(repositoryRoot, 'frontend', 'components', 'LessonPlayer.js'), 'utf8');
   assert.match(webPlayer, /from "\.\.\/\.\.\/mobile\/src\/lessonTurnImages"/);
-  assert.match(webPlayer, /const activeTurnImageUrl = visibleTurnImageUrl\(currentCard, playingTurnImageUrl\);/);
+  assert.match(webPlayer, /const activeTurnImageUrl = teachingImageUrl \? null : visibleTurnImageUrl\(currentCard, playingTurnImageUrl\);/);
+});
+
+test('single-image teaching exchanges reuse one option slot for both turns', () => {
+  for (const lesson of course) for (const card of lesson.cards) {
+    if (card.interaction_type !== 'teach' || card.options.length !== 1) continue;
+    for (const turn of card.audio_turns || []) assert.equal(moduleExports.teachingOptionImageUrl(card, turn.image_url), turn.image_url);
+  }
+  assert.equal(moduleExports.teachingOptionImageUrl({interaction_type:'teach',options:[{}]}, speaker), speaker);
+  assert.equal(moduleExports.teachingOptionImageUrl({interaction_type:'a2i2',options:[{},{}]}, speaker), null);
 });

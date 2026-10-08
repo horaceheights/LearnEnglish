@@ -1,3 +1,4 @@
+import { NEW_VOCABULARY_COLOR, constructionVocabulary } from '../lessonVocabulary';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -19,12 +20,14 @@ type Flight = { label: string; path: TileFlightPath; slot: number };
 type Drag = { id: string; label: string; area?: Bounds; slotArea?: Bounds; cardArea?: Bounds; targets: Bounds[]; bank?: Bounds; width: number; height: number };
 const FLIGHT_MS = 220;
 type Props = {
+  vocabulary?: readonly string[];
   card: LessonCard; selected: string[]; result: 'correct' | 'wrong' | null;
   disabled: boolean; showHelp?: boolean; helpOpen?: boolean;
   onChange: (ids: string[]) => void; onReplay: () => void; onRetry: () => void;
 };
 
 type WordProps = {
+  vocabularyIds: ReadonlySet<string>;
   id: string; label: string; slot?: number; suffix?: string; disabled: boolean;
   width: number; height: number; textSize: number; active: boolean; hidden: boolean; correct: boolean;
   count: number;
@@ -80,12 +83,13 @@ function WordTile(props: WordProps) {
       }}
       onPress={() => { if (props.onTranslate) props.onTranslate(); else if (id && !dragged.current) props.onPress(id, slot, sourceBounds.current); }}
       style={[slot === undefined ? styles.tile : styles.slot, props.maxFontSizeMultiplier ? styles.tilePhoneLandscape : null, { minHeight: height }, active ? styles.target : null, correct ? styles.correct : null]}>
-      <Text numberOfLines={1} maxFontSizeMultiplier={props.maxFontSizeMultiplier} style={[styles.word, { fontSize: textSize }, hidden ? styles.arriving : null]}>{label || '___'}{suffix}</Text>
+      <Text numberOfLines={1} maxFontSizeMultiplier={props.maxFontSizeMultiplier} style={[styles.word, { fontSize: textSize }, hidden ? styles.arriving : null, !correct && props.vocabularyIds.has(id) ? { color: NEW_VOCABULARY_COLOR } : null]}>{label || '___'}{suffix}</Text>
     </Pressable>
   </View>;
 }
 
-export function SentenceConstruction({ card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry }: Props) {
+export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry }: Props) {
+
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const celebrationLift = useConstructionCelebration(result === 'correct');
@@ -110,6 +114,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
+  const { optionIds: vocabularyIds, scaffoldIndexes } = constructionVocabulary(parts, card, vocabulary);
   const landscape = isPhoneLandscape(viewport.width, viewport.height);
   const layout = landscape
     ? { ...sentenceLayout(size.width, size.height, Math.min(1.3, viewport.fontScale), slots.length, feedbackHeight),
@@ -197,7 +202,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
     }
     cancel();
   };
-  const common = { disabled: locked, width: layout.tileWidth, height: layout.tileHeight, textSize: layout.textSize, count: slots.length, maxFontSizeMultiplier: landscape ? 1.3 : undefined,
+  const common = { vocabularyIds, disabled: locked, width: layout.tileWidth, height: layout.tileHeight, textSize: layout.textSize, count: slots.length, maxFontSizeMultiplier: landscape ? 1.3 : undefined,
     onWidth: measureWord, onPress: press, onPlace: place, onStart: start, onMove: move, onDrop: drop, onCancel: cancel };
   const compact = !landscape && layout.scrollBank;
   const CardContainer = compact ? ScrollView : View;
@@ -225,7 +230,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       <SlotsContainer ref={view => { slotPane.current = view; }}
         style={landscape ? styles.slots : styles.slotScroll} accessibilityLabel={result === 'correct' ? 'Frase completada' : 'Frase en construcción'}
         {...(!landscape ? { contentContainerStyle: styles.slots, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
-        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }]}>{part.text}</Text> :
+        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }, scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : null]}>{part.text}</Text> :
           <WordTile key={`slot-${part.slot}`} {...common} slot={part.slot} suffix={part.suffix}
             id={slots[part.slot] || ''} label={card.options.find(option => option.id === slots[part.slot])?.label || ''}
             register={view => { slotsRef.current[part.slot] = view; }} active={hover === part.slot}
@@ -264,7 +269,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       </>}
     </CardContainer>
     {moving ? <Animated.View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" pointerEvents="none"
-      style={[styles.lifted, { width: wordWidths[moving.id] || layout.tileWidth, minHeight: layout.tileHeight, transform: position.getTranslateTransform() }]}><Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }]}>{moving.label}</Text></Animated.View> : null}
+      style={[styles.lifted, { width: wordWidths[moving.id] || layout.tileWidth, minHeight: layout.tileHeight, transform: position.getTranslateTransform() }]}><Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }, vocabularyIds.has(moving.id) ? { color: NEW_VOCABULARY_COLOR } : null]}>{moving.label}</Text></Animated.View> : null}
     {flight ? <Animated.View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" pointerEvents="none"
       style={[styles.flight, { height: flight.path.height, left: flight.path.left, top: flight.path.top, width: flight.path.width,
         transform: [
@@ -272,7 +277,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
           { translateY: flightValue.interpolate({ inputRange: [0, 1], outputRange: [flight.path.translateY, 0] }) },
           { scaleX: flightValue.interpolate({ inputRange: [0, 1], outputRange: [flight.path.scaleX, 1] }) },
           { scaleY: flightValue.interpolate({ inputRange: [0, 1], outputRange: [flight.path.scaleY, 1] }) },
-        ] }]}><Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }]}>{flight.label}</Text></Animated.View> : null}
+        ] }]}><Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }, card.options.some(option => option.label === flight.label && vocabularyIds.has(option.id)) ? { color: NEW_VOCABULARY_COLOR } : null]}>{flight.label}</Text></Animated.View> : null}
   </View>;
 }
 

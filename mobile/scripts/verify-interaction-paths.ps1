@@ -231,6 +231,15 @@ try {
   & node tests/engine-qa-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la navegación compacta y persistente de Engine QA.' }
 
+  & node tests/recording-advance.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Learner replay progression checks failed.' }
+
+  & node --test tests/teaching-photo-slot.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Teaching photo slot checks failed.' }
+
+  & node tests/recording-playback.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Learner replay completion checks failed.' }
+
   & node tests/new-vocabulary-emphasis.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de énfasis para vocabulario nuevo.' }
 

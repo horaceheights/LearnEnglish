@@ -1847,9 +1847,11 @@ def validate_media_references() -> list[str]:
 
 def validate_duplicate_option_images() -> list[str]:
     errors: list[str] = []
+    hashes: dict[str, str] = {}
     for lesson in LESSONS.values():
         for card_index, card in enumerate(lesson.cards, 1):
             seen: dict[str, str] = {}
+            seen_bytes: dict[str, str] = {}
             for option in card.options:
                 if not option.image_url:
                     continue
@@ -1860,6 +1862,16 @@ def validate_duplicate_option_images() -> list[str]:
                         f"{option.image_url!r} for {previous_id!r} and {option.id!r}."
                     )
                 seen[option.image_url] = option.id
+                name = Path(option.image_url).name
+                source = LESSON_ASSET_DIR / name
+                if source.is_file():
+                    if name not in hashes:
+                        hashes[name] = sha256_file(source)
+                    digest = hashes[name]
+                    if digest in seen_bytes and not previous_id:
+                        errors.append(f"{lesson.id} card {card_index} has identical image bytes under different filenames: "
+                                      f"{seen_bytes[digest]!r} and {option.image_url!r}.")
+                    seen_bytes[digest] = option.image_url
     return errors
 
 

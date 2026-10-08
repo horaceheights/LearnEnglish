@@ -23,3 +23,12 @@ export function visibleTurnImageUrl(card: TurnImageCard | null | undefined, acti
   if (isAnswerChoiceCard(card) && !card.prompt_image_url) return null;
   return activeTurnImageUrl;
 }
+
+/** Automatic teaching has one media slot; the current speaker replaces its photo. */
+export function teachingOptionImageUrl(
+  card: Pick<LessonCard, 'stage' | 'interaction_type' | 'options'>,
+  activeTurnImageUrl: string | null | undefined,
+) {
+  return card.interaction_type === 'teach' && card.options.length === 1
+    ? activeTurnImageUrl || null : null;
+}
