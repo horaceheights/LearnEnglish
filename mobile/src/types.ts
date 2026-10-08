@@ -80,6 +80,7 @@ export type LessonCard = {
   answer_audio_revision?: number;
   audio_turns?: CourseAudioTurn[];
   answer_audio_turns?: CourseAudioTurn[];
+  reply_image_timing?: 'after-prompt' | null;
   audio_assets: CourseAudioAsset[];
   mission_chapter_id?: string;
   mission_game?: MissionGame;

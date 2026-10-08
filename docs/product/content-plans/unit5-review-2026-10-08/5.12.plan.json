@@ -12,7 +12,7 @@
     "sub_lesson_id": "5.12",
     "sub_lesson_title": "Un día en el mercado y el café",
     "experience_type": "mission",
-    "content_revision": 4,
+    "content_revision": 5,
     "mission": {
       "label": "MISIÓN FINAL · UNIDAD 5",
       "title": "Un día en el mercado y el café",
@@ -43,8 +43,13 @@
         },
         {
           "id": "comidas",
-          "title": "Comidas y precios",
-          "objective": "Escucha la comida y el precio."
+          "title": "Recuerda las comidas del día",
+          "objective": "Recuerda desayuno, almuerzo y cena: son tres momentos distintos. Escucha y toca a quien habla."
+        },
+        {
+          "id": "precios",
+          "title": "De vuelta en el mercado",
+          "objective": "Retoma la compra: escucha los precios y completa el pedido."
         },
         {
           "id": "cafe",
@@ -52,9 +57,9 @@
           "objective": "Escucha la pregunta y responde en voz alta."
         }
       ],
-      "voice_heading": "PIDE EN EL CAFÉ",
+      "voice_heading": "CONVERSA Y RESPONDE",
       "voice_instruction": "Escucha la frase y responde en voz alta",
-      "voice_success_label": "PEDIDO CONFIRMADO"
+      "voice_success_label": "RESPUESTA CONFIRMADA"
     },
     "goal": "Complete market purchases and a café order, with spoken agreement, negative wants/needs, named prices and polite requests.",
     "vocabulary": [],
@@ -88,6 +93,7 @@
       "wants",
       "need",
       "needs",
+      "breakfast",
       "lunch",
       "dinner",
       "for",
@@ -126,7 +132,7 @@
       "prompt": "There are apples. There are bananas. There is bread. There is rice.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_market_stall.webp",
       "spanish_translation": "Hay manzanas. Hay plátanos. Hay pan. Hay arroz.",
-      "pedagogy_note": "Mission beat 01/18: mercado — guided-search; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 01/20: mercado — guided-search; retrieve taught food, preference, quantity and polite-order language.",
       "mission_game": {
         "kind": "guided-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -267,7 +273,7 @@
       "prompt": "There are five oranges. How many pears are there? There are two pears. There are grapes. There is a strawberry.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_fruit_counter.webp",
       "spanish_translation": "Hay cinco naranjas. ¿Cuántas peras hay? Hay dos peras. Hay uvas. Hay una fresa.",
-      "pedagogy_note": "Mission beat 02/18: mercado — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 02/20: mercado — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -416,7 +422,7 @@
         {
           "text": "Hello! How can I help you?",
           "speaker_role": "male-character",
-          "image_url": "a1_u5_revision_mission_apples_request_v1.webp"
+          "image_url": "a1_u5_sequence_mission_market_greeting_v1.webp"
         }
       ],
       "spanish_translation": "¿Me da tres manzanas, por favor?",
@@ -450,7 +456,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 03/18: mercado — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 03/20: mercado — voice-gate; retrieve taught food, preference, quantity and polite-order language. Distinct initiating and responding pictures preserve the same people and objects; the customer response appears after the spoken question.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -476,7 +482,7 @@
       "prompt": "There is water. There is milk. There is juice. There is coffee.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_drinks_fridge.webp",
       "spanish_translation": "Hay agua. Hay leche. Hay jugo. Hay café.",
-      "pedagogy_note": "Mission beat 04/18: mercado — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 04/20: mercado — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -616,7 +622,7 @@
       "prompt": "I like fish. I do not like fish. I like chicken. I do not like milk.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_likes_table.webp",
       "spanish_translation": "Me gusta el pescado. No me gusta el pescado. Me gusta el pollo. No me gusta la leche.",
-      "pedagogy_note": "Mission beat 05/18: gustos — contrast-hunt; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 05/20: gustos — contrast-hunt; retrieve taught food, preference, quantity and polite-order language.",
       "mission_game": {
         "kind": "contrast-hunt",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -805,7 +811,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 06/18: gustos — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 06/20: gustos — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -874,7 +880,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 07/18: gustos — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 07/20: gustos — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -900,7 +906,7 @@
       "prompt": "I want two eggs. I want some rice. I want three apples. He wants some water.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_wants_counter.webp",
       "spanish_translation": "Quiero dos huevos. Quiero un poco de arroz. Quiero tres manzanas. Él quiere un poco de agua.",
-      "pedagogy_note": "Mission beat 08/18: pide — action-hunt; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 08/20: pide — action-hunt; retrieve taught food, preference, quantity and polite-order language.",
       "mission_game": {
         "kind": "action-hunt",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -1089,7 +1095,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 09/18: pide — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 09/20: pide — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -1115,7 +1121,7 @@
       "prompt": "I need milk. I need bread. I need eggs. She needs juice.",
       "prompt_image_url": "/lesson-assets/a1_u5_market_v1_needs_list.webp",
       "spanish_translation": "Necesito leche. Necesito pan. Necesito huevos. Ella necesita jugo.",
-      "pedagogy_note": "Mission beat 10/18: pide — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 10/20: pide — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -1304,7 +1310,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 11/18: pide — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 11/20: pide — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -1327,10 +1333,10 @@
       "slide_id": "M12",
       "mission_chapter_id": "comidas",
       "stage": "Listen",
-      "prompt": "I eat eggs for breakfast. I eat rice for lunch. I eat chicken for dinner. I drink tea for breakfast.",
-      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_meals_table.webp",
-      "spanish_translation": "Desayuno huevos. Como arroz en el almuerzo. Ceno pollo. Tomo té en el desayuno.",
-      "pedagogy_note": "Mission beat 12/18: comidas — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "prompt": "I eat two eggs for breakfast. I drink coffee for breakfast. I eat an egg for breakfast. I drink tea for breakfast.",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_mission_breakfast_v1.webp",
+      "spanish_translation": "Como dos huevos en el desayuno. Tomo café en el desayuno. Desayuno un huevo. Tomo té en el desayuno.",
+      "pedagogy_note": "Mission beat 12/20: comidas — crowd-search; Meal recap, breakfast: one shared meal and time per photograph, with four distinct food/drink targets and the same people. The recap proceeds breakfast, lunch, dinner before returning to the present market purchase. Morning daylight and a wall clock showing 8:00. Left-to-right: denim woman with two separate fried eggs/two yolks, glasses man holding near-black coffee with French press, mustard woman with one fried egg/one yolk, older man holding transparent amber tea with tea bag and amber-filled teapot. Same cast and room, no camera poses.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la frase y toca a la persona que la dice.",
@@ -1338,58 +1344,58 @@
         "targets": [
           {
             "id": "meals-table-1",
-            "label_es": "Desayuno huevos.",
+            "label_es": "Como dos huevos en el desayuno.",
             "accepted_option_ids": [
               "meals-table-1"
             ],
             "rect": {
-              "x": 0.055,
-              "y": 0.18,
-              "width": 0.2,
-              "height": 0.78
+              "x": 0.04,
+              "y": 0.178,
+              "width": 0.21,
+              "height": 0.792
             },
             "head_anchors": [
               {
-                "x": 0.135,
-                "y": 0.185
+                "x": 0.145,
+                "y": 0.183
               }
             ]
           },
           {
             "id": "meals-table-2",
-            "label_es": "Como arroz en el almuerzo.",
+            "label_es": "Tomo café en el desayuno.",
             "accepted_option_ids": [
               "meals-table-2"
             ],
             "rect": {
-              "x": 0.285,
-              "y": 0.13,
-              "width": 0.195,
-              "height": 0.83
+              "x": 0.275,
+              "y": 0.146,
+              "width": 0.21,
+              "height": 0.824
             },
             "head_anchors": [
               {
-                "x": 0.375,
-                "y": 0.135
+                "x": 0.38,
+                "y": 0.151
               }
             ]
           },
           {
             "id": "meals-table-3",
-            "label_es": "Ceno pollo.",
+            "label_es": "Desayuno un huevo.",
             "accepted_option_ids": [
               "meals-table-3"
             ],
             "rect": {
-              "x": 0.54,
-              "y": 0.14,
-              "width": 0.19,
-              "height": 0.82
+              "x": 0.527,
+              "y": 0.126,
+              "width": 0.21,
+              "height": 0.844
             },
             "head_anchors": [
               {
-                "x": 0.625,
-                "y": 0.145
+                "x": 0.632,
+                "y": 0.131
               }
             ]
           },
@@ -1400,15 +1406,15 @@
               "meals-table-4"
             ],
             "rect": {
-              "x": 0.785,
-              "y": 0.14,
-              "width": 0.19,
-              "height": 0.82
+              "x": 0.781,
+              "y": 0.127,
+              "width": 0.21,
+              "height": 0.843
             },
             "head_anchors": [
               {
-                "x": 0.875,
-                "y": 0.15
+                "x": 0.886,
+                "y": 0.132
               }
             ]
           }
@@ -1416,22 +1422,22 @@
         "cues": [
           {
             "id": "cue-meals-table-1",
-            "text": "I eat eggs for breakfast.",
-            "answer_text": "I eat eggs for breakfast.",
+            "text": "I eat two eggs for breakfast.",
+            "answer_text": "I eat two eggs for breakfast.",
             "target_id": "meals-table-1",
             "option_id": "meals-table-1"
           },
           {
             "id": "cue-meals-table-2",
-            "text": "I eat rice for lunch.",
-            "answer_text": "I eat rice for lunch.",
+            "text": "I drink coffee for breakfast.",
+            "answer_text": "I drink coffee for breakfast.",
             "target_id": "meals-table-2",
             "option_id": "meals-table-2"
           },
           {
             "id": "cue-meals-table-3",
-            "text": "I eat chicken for dinner.",
-            "answer_text": "I eat chicken for dinner.",
+            "text": "I eat an egg for breakfast.",
+            "answer_text": "I eat an egg for breakfast.",
             "target_id": "meals-table-3",
             "option_id": "meals-table-3"
           },
@@ -1470,13 +1476,305 @@
     },
     {
       "recipe": "mission",
-      "slide_id": "M13",
+      "slide_id": "M12L",
       "mission_chapter_id": "comidas",
+      "stage": "Listen",
+      "prompt": "I eat fish for lunch. I eat rice for lunch. I eat chicken for lunch. I drink water for lunch.",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_mission_lunch_v1.webp",
+      "spanish_translation": "Como pescado en el almuerzo. Como arroz en el almuerzo. Como pollo en el almuerzo. Tomo agua en el almuerzo.",
+      "pedagogy_note": "Mission beat 13/20: comidas — crowd-search; Meal recap, lunch: one shared meal and time per photograph, with four distinct food/drink targets and the same people. The recap proceeds breakfast, lunch, dinner before returning to the present market purchase. Daylight and a wall clock showing 1:00. Left-to-right: denim woman eating an unmistakable whole cooked fish with head and tail; glasses man eating white rice; mustard woman eating roast chicken; older man drinking clear water with water carafe. Each item belongs to one person and all are at one lunch table.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "lunch-table-1",
+            "label_es": "Como pescado en el almuerzo.",
+            "accepted_option_ids": [
+              "lunch-table-1"
+            ],
+            "rect": {
+              "x": 0.036,
+              "y": 0.165,
+              "width": 0.21,
+              "height": 0.805
+            },
+            "head_anchors": [
+              {
+                "x": 0.141,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "id": "lunch-table-2",
+            "label_es": "Como arroz en el almuerzo.",
+            "accepted_option_ids": [
+              "lunch-table-2"
+            ],
+            "rect": {
+              "x": 0.276,
+              "y": 0.152,
+              "width": 0.21,
+              "height": 0.818
+            },
+            "head_anchors": [
+              {
+                "x": 0.381,
+                "y": 0.157
+              }
+            ]
+          },
+          {
+            "id": "lunch-table-3",
+            "label_es": "Como pollo en el almuerzo.",
+            "accepted_option_ids": [
+              "lunch-table-3"
+            ],
+            "rect": {
+              "x": 0.523,
+              "y": 0.152,
+              "width": 0.21,
+              "height": 0.818
+            },
+            "head_anchors": [
+              {
+                "x": 0.628,
+                "y": 0.157
+              }
+            ]
+          },
+          {
+            "id": "lunch-table-4",
+            "label_es": "Tomo agua en el almuerzo.",
+            "accepted_option_ids": [
+              "lunch-table-4"
+            ],
+            "rect": {
+              "x": 0.776,
+              "y": 0.126,
+              "width": 0.21,
+              "height": 0.844
+            },
+            "head_anchors": [
+              {
+                "x": 0.881,
+                "y": 0.131
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-lunch-table-1",
+            "text": "I eat fish for lunch.",
+            "answer_text": "I eat fish for lunch.",
+            "target_id": "lunch-table-1",
+            "option_id": "lunch-table-1"
+          },
+          {
+            "id": "cue-lunch-table-2",
+            "text": "I eat rice for lunch.",
+            "answer_text": "I eat rice for lunch.",
+            "target_id": "lunch-table-2",
+            "option_id": "lunch-table-2"
+          },
+          {
+            "id": "cue-lunch-table-3",
+            "text": "I eat chicken for lunch.",
+            "answer_text": "I eat chicken for lunch.",
+            "target_id": "lunch-table-3",
+            "option_id": "lunch-table-3"
+          },
+          {
+            "id": "cue-lunch-table-4",
+            "text": "I drink water for lunch.",
+            "answer_text": "I drink water for lunch.",
+            "target_id": "lunch-table-4",
+            "option_id": "lunch-table-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "female-character",
+        "male-character",
+        "female-character",
+        "male-character"
+      ],
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M12D",
+      "mission_chapter_id": "comidas",
+      "stage": "Listen",
+      "prompt": "I eat eggs for dinner. I eat rice for dinner. I eat chicken for dinner. I drink water for dinner.",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_mission_dinner_v1.webp",
+      "spanish_translation": "Ceno huevos. Ceno arroz. Ceno pollo. Tomo agua en la cena.",
+      "pedagogy_note": "Mission beat 14/20: comidas — crowd-search; Meal recap, dinner: one shared meal and time per photograph, with four distinct food/drink targets and the same people. The recap proceeds breakfast, lunch, dinner before returning to the present market purchase. Dark blue sky through the windows, warm indoor lights, and wall clock showing 7:00. Left-to-right: denim woman with two fried eggs, glasses man with white rice, mustard woman with roast chicken, older man holding clear water with a water carafe. Same people and seats at one evening meal.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "dinner-table-1",
+            "label_es": "Ceno huevos.",
+            "accepted_option_ids": [
+              "dinner-table-1"
+            ],
+            "rect": {
+              "x": 0.037,
+              "y": 0.167,
+              "width": 0.21,
+              "height": 0.803
+            },
+            "head_anchors": [
+              {
+                "x": 0.142,
+                "y": 0.172
+              }
+            ]
+          },
+          {
+            "id": "dinner-table-2",
+            "label_es": "Ceno arroz.",
+            "accepted_option_ids": [
+              "dinner-table-2"
+            ],
+            "rect": {
+              "x": 0.278,
+              "y": 0.146,
+              "width": 0.21,
+              "height": 0.824
+            },
+            "head_anchors": [
+              {
+                "x": 0.383,
+                "y": 0.151
+              }
+            ]
+          },
+          {
+            "id": "dinner-table-3",
+            "label_es": "Ceno pollo.",
+            "accepted_option_ids": [
+              "dinner-table-3"
+            ],
+            "rect": {
+              "x": 0.52,
+              "y": 0.13,
+              "width": 0.21,
+              "height": 0.84
+            },
+            "head_anchors": [
+              {
+                "x": 0.625,
+                "y": 0.135
+              }
+            ]
+          },
+          {
+            "id": "dinner-table-4",
+            "label_es": "Tomo agua en la cena.",
+            "accepted_option_ids": [
+              "dinner-table-4"
+            ],
+            "rect": {
+              "x": 0.779,
+              "y": 0.127,
+              "width": 0.21,
+              "height": 0.843
+            },
+            "head_anchors": [
+              {
+                "x": 0.884,
+                "y": 0.132
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-dinner-table-1",
+            "text": "I eat eggs for dinner.",
+            "answer_text": "I eat eggs for dinner.",
+            "target_id": "dinner-table-1",
+            "option_id": "dinner-table-1"
+          },
+          {
+            "id": "cue-dinner-table-2",
+            "text": "I eat rice for dinner.",
+            "answer_text": "I eat rice for dinner.",
+            "target_id": "dinner-table-2",
+            "option_id": "dinner-table-2"
+          },
+          {
+            "id": "cue-dinner-table-3",
+            "text": "I eat chicken for dinner.",
+            "answer_text": "I eat chicken for dinner.",
+            "target_id": "dinner-table-3",
+            "option_id": "dinner-table-3"
+          },
+          {
+            "id": "cue-dinner-table-4",
+            "text": "I drink water for dinner.",
+            "answer_text": "I drink water for dinner.",
+            "target_id": "dinner-table-4",
+            "option_id": "dinner-table-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "female-character",
+        "male-character",
+        "female-character",
+        "male-character"
+      ],
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M13",
+      "mission_chapter_id": "precios",
       "stage": "Listen",
       "prompt": "The apples are one dollar. The bananas are two dollars. The bread is three dollars. The milk is five dollars.",
       "prompt_image_url": "/lesson-assets/a1_u5_revision_mission_price_board_v1.webp",
       "spanish_translation": "Cuesta un dólar. Cuesta dos dólares. Cuesta tres dólares. Cuesta cinco dólares.",
-      "pedagogy_note": "Mission beat 13/18: comidas — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 15/20: precios — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
       "mission_game": {
         "kind": "crowd-search",
         "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
@@ -1611,7 +1909,7 @@
     {
       "recipe": "mission",
       "slide_id": "M14",
-      "mission_chapter_id": "comidas",
+      "mission_chapter_id": "precios",
       "interaction_type": "mission-speak",
       "stage": "Speak",
       "options": [
@@ -1659,7 +1957,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 14/18: comidas — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 16/20: precios — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -1680,131 +1978,56 @@
     {
       "recipe": "mission",
       "slide_id": "M15",
-      "mission_chapter_id": "cafe",
-      "stage": "Listen",
-      "prompt": "Can I have water, please? Yes, please. No, thank you. Tea, please.",
-      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_cafe_counter.webp",
-      "spanish_translation": "¿Me da agua, por favor? Sí, por favor. No, gracias. Té, por favor.",
-      "pedagogy_note": "Mission beat 15/18: cafe — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_chapter_id": "precios",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m15-response",
+          "label": "Yes, please.",
+          "image_url": "a1_u5_sequence_mission_bag_accept_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Do you want a bag?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_mission_bag_offer_v1.webp"
+        }
+      ],
+      "spanish_translation": "Sí, por favor.",
+      "pedagogy_note": "Mission beat 17/20: precios — voice-gate; Complete the market checkout: the older vendor offers a bag for the coral-blouse customer's three-apple order; she accepts. The question frame shows the vendor speaking and the response frame shows the customer taking the bag before the learner speaks. Retrieve polite acceptance through the existing mission voice gate; do not identify generic dialogue by guessing among a crowd.",
       "mission_game": {
-        "kind": "crowd-search",
-        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
-        "validation": "ordered",
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you want a bag?",
         "targets": [
           {
-            "id": "cafe-counter-v2-1",
-            "label_es": "¿Me da agua, por favor?",
-            "accepted_option_ids": [
-              "cafe-counter-v2-1"
-            ],
-            "rect": {
-              "x": 0.05,
-              "y": 0.095,
-              "width": 0.17,
-              "height": 0.82
-            },
-            "head_anchors": [
-              {
-                "x": 0.125,
-                "y": 0.1
-              }
-            ]
-          },
-          {
-            "id": "cafe-counter-v2-2",
+            "id": "m15-response",
             "label_es": "Sí, por favor.",
             "accepted_option_ids": [
-              "cafe-counter-v2-2"
+              "m15-response"
             ],
             "rect": {
-              "x": 0.35,
-              "y": 0.09,
-              "width": 0.17,
-              "height": 0.83
-            },
-            "head_anchors": [
-              {
-                "x": 0.42,
-                "y": 0.095
-              }
-            ]
-          },
-          {
-            "id": "cafe-counter-v2-3",
-            "label_es": "No, gracias.",
-            "accepted_option_ids": [
-              "cafe-counter-v2-3"
-            ],
-            "rect": {
-              "x": 0.58,
-              "y": 0.105,
-              "width": 0.16,
-              "height": 0.81
-            },
-            "head_anchors": [
-              {
-                "x": 0.655,
-                "y": 0.11
-              }
-            ]
-          },
-          {
-            "id": "cafe-counter-v2-4",
-            "label_es": "Té, por favor.",
-            "accepted_option_ids": [
-              "cafe-counter-v2-4"
-            ],
-            "rect": {
-              "x": 0.75,
-              "y": 0.17,
-              "width": 0.15,
-              "height": 0.75
-            },
-            "head_anchors": [
-              {
-                "x": 0.815,
-                "y": 0.175
-              }
-            ]
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
           }
         ],
         "cues": [
           {
-            "id": "cue-cafe-counter-v2-1",
-            "text": "Can I have water, please?",
-            "answer_text": "Can I have water, please?",
-            "target_id": "cafe-counter-v2-1",
-            "option_id": "cafe-counter-v2-1"
-          },
-          {
-            "id": "cue-cafe-counter-v2-2",
-            "text": "Yes, please.",
+            "id": "cue-m15-response",
+            "text": "Do you want a bag?",
             "answer_text": "Yes, please.",
-            "target_id": "cafe-counter-v2-2",
-            "option_id": "cafe-counter-v2-2"
-          },
-          {
-            "id": "cue-cafe-counter-v2-3",
-            "text": "No, thank you.",
-            "answer_text": "No, thank you.",
-            "target_id": "cafe-counter-v2-3",
-            "option_id": "cafe-counter-v2-3"
-          },
-          {
-            "id": "cue-cafe-counter-v2-4",
-            "text": "Tea, please.",
-            "answer_text": "Tea, please.",
-            "target_id": "cafe-counter-v2-4",
-            "option_id": "cafe-counter-v2-4"
+            "target_id": "m15-response",
+            "option_id": "m15-response"
           }
         ]
       },
-      "cue_speakers": [
-        "female-character",
-        "male-character",
-        "female-character",
-        "male-character"
-      ],
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -1814,9 +2037,9 @@
         "prompt_image_url",
         "options",
         "correct_option_id",
-        "correct_option_ids",
         "audio_text",
         "answer_audio_text",
+        "answer_audio_speaker",
         "audio_turns",
         "spanish_translation",
         "pedagogy_note",
@@ -1833,14 +2056,14 @@
         {
           "id": "m11-response",
           "label": "Can I have coffee and eggs, please?",
-          "image_url": "a1_u5_revision_mission_cafe_request_v1.webp"
+          "image_url": "a1_u5_sequence_mission_cafe_request_v1.webp"
         }
       ],
       "audio_turns": [
         {
           "text": "Hello! How can I help you?",
           "speaker_role": "female-character",
-          "image_url": "a1_u5_revision_mission_cafe_request_v1.webp"
+          "image_url": "a1_u5_sequence_mission_cafe_greeting_v1.webp"
         }
       ],
       "spanish_translation": "¿Me da café y huevos, por favor?",
@@ -1874,7 +2097,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 16/18: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 18/20: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language. Distinct initiating and responding pictures preserve the same people and objects; the customer response appears after the spoken question.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -1909,7 +2132,7 @@
         {
           "text": "Do you want milk?",
           "speaker_role": "female-character",
-          "image_url": "a1_u5_revision_mission_cafe_decline_v1.webp"
+          "image_url": "a1_u5_sequence_mission_cafe_offer_milk_v1.webp"
         }
       ],
       "spanish_translation": "No, gracias.",
@@ -1943,7 +2166,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 17/18: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 19/20: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language. Distinct initiating and responding pictures preserve the same people and objects; the customer response appears after the spoken question.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -1971,7 +2194,7 @@
         {
           "id": "m13-response",
           "label": "Thank you.",
-          "image_url": "a1_u5_revision_mission_cafe_handover_v1.webp"
+          "image_url": "a1_u5_sequence_mission_cafe_thanks_v1.webp"
         }
       ],
       "audio_turns": [
@@ -2012,7 +2235,7 @@
           }
         ]
       },
-      "pedagogy_note": "Mission beat 18/18: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "pedagogy_note": "Mission beat 20/20: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language. Distinct initiating and responding pictures preserve the same people and objects; the customer response appears after the spoken question.",
       "field_order": [
         "slide_id",
         "mission_chapter_id",
@@ -2033,8 +2256,8 @@
   ],
   "source": {
     "path": "backend/lessons/unit_5/lesson-5-10-cafe-mission.yaml",
-    "sha256": "0b8d60bb7689d24329e143abcbe304173505e67b02f23d15b6bdeba305d0b753"
+    "sha256": "0054269ea81d094b51fa41fac011d211cd34ab624ee02d430ee1376bdec18b4f"
   },
   "draft": false,
-  "review_status": "Language, sequence, complete banks and source photographs reviewed by Codex. Installation requires whole-course validators. Recorded audio and phone acceptance remain separate verification steps; no human approval implied."
+  "review_status": "2026-10-08 user-directed sequence corrections. Exact language, speakers, chronological scenes and ordered moments authored through shared recipes. New generated pixels and phone-size views inspected by agents, with immutable provenance. Human review of the exact Preview remains pending; no publication or human approval is implied."
 }

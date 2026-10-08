@@ -257,10 +257,10 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ('audio_speaker', 'male-character', 'L4 L6 A4 A6 A8 A10 S2 S4 S6 S8 U2 U4 U6 U8'),
     ],
     'lesson-5-8-ordering-politely': [
-        ('answer_audio_speaker', 'female-character', 'R3 R6 R8 R10 U1 U3 U6 U8'),
-        ('answer_audio_speaker', 'male-character', 'R1 R2 R4 R5 R7 R9 U2 U4 U5 U7'),
-        ('audio_speaker', 'female-character', 'L1 L3 L6 L8 R1 R4 A1 A3 A6 A8 S1 S3 S6 S8 U1 U3 U6 U8'),
-        ('audio_speaker', 'male-character', 'L2 L4 L5 L7 R3 R6 R8 R10 A2 A4 A5 A7 S2 S4 S5 S7 U2 U4 U5 U7'),
+        ('answer_audio_speaker', 'female-character', 'R3 R5 R-water-thanks R8 A3 A5 A-water-thanks A8 U1 U3 U5 U-water-thanks U8'),
+        ('answer_audio_speaker', 'male-character', 'R1 R4 R6 R7 R-combo-thanks A2 A4 A6 A7 A-combo-thanks U2 U4 U6 U7 U-combo-thanks'),
+        ('audio_speaker', 'female-character', 'L1 L3 L5 L-water-thanks L-combo-greeting L8 R1 R4 R6 R7 R-combo-thanks S1 S3 S5 S-water-thanks S8 U1 U3 U5 U-water-thanks U8'),
+        ('audio_speaker', 'male-character', 'L2 L4 L-water-greeting L6 L7 L-combo-thanks R3 R5 R-water-thanks R8 S2 S4 S6 S7 S-combo-thanks U2 U4 U6 U7 U-combo-thanks'),
     ],
     'lesson-5-can-i-have': [
         ('answer_audio_speaker', 'female-character', 'R1 R4 R5 R6 R7 R10 U1 U4 U5 U6 U9'),
@@ -397,6 +397,7 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
     'lesson-2-pronouns': [
     ],
     'lesson-5-10-cafe-mission': [
+        ('answer_audio_speaker', 'female-character', 'M15'),
     ],
     'lesson-6-family-actions': [
     ],

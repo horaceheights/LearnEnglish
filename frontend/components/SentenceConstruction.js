@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { availableSentenceWords, placeSentenceWord, returnSentenceWord, sentenceHint, sentenceParts, sentenceSlots } from "../../mobile/src/sentenceConstruction";
 import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
 import { constructionVocabulary, NEW_VOCABULARY_COLOR } from "../../mobile/src/lessonVocabulary";
+import { useManualSentenceTranslation } from "../../mobile/src/hooks/useManualSentenceTranslation";
 import styles from "./SentenceConstruction.module.css";
 import ConstructionCelebration from "./ConstructionCelebration";
 
@@ -22,7 +23,7 @@ export default function SentenceConstruction({ card, vocabulary = [], selected, 
   const history = useRef([]);
   const [moving, setMoving] = useState(null);
   const [hover, setHover] = useState(null);
-  const [translated, setTranslated] = useState(false);
+  const translation = useManualSentenceTranslation(`${card.slide_id}:${card.spanish_translation}`);
   const [wideSlots, setWideSlots] = useState(false);
   const cancel = useCallback(() => { drag.current = null; setMoving(null); setHover(null); }, []);
   useEffect(() => {
@@ -121,19 +122,20 @@ export default function SentenceConstruction({ card, vocabulary = [], selected, 
   return <section ref={setRoot} data-lesson-page className={styles.activity} aria-label="Construye la frase">
     <div className={`${styles.importance} ${wideSlots ? styles.wideSlots : ""}`}>
       <div className={styles.location}>{location} · COMPLETA</div>
-      <button type="button" className={styles.translation} aria-label={translated ? "Ocultar traducción" : "Mostrar traducción"} aria-expanded={translated} onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Traducir frase"}</button>
       <div className={styles.slots} aria-label={result === "correct" ? "Frase completada" : "Frase en construcción"}>
         {parts.map((part, index) => {
-          if ("text" in part) return <button type="button" key={`text-${index}`} className={styles.scaffold} aria-label={`${part.text}. Mostrar traducción`} onClick={() => setTranslated(value => !value)} style={scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : undefined}>{part.text}</button>;
+          if ("text" in part) return <button type="button" key={`text-${index}`} className={styles.scaffold} aria-label={`${part.text}. Mostrar traducción`} onClick={translation.open} style={scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : undefined}>{part.text}</button>;
           const id = slots[part.slot];
           const label = card.options.find(option => option.id === id)?.label || "";
+          const translates = result !== null || !id;
           return <button key={`slot-${part.slot}`} type="button" ref={element => { slotRefs.current[part.slot] = element; }}
             className={`${styles.slot} ${result === "correct" ? styles.correct : ""} ${hover === part.slot ? styles.target : ""}`}
-            aria-label={result === "correct" ? `${label}. Mostrar traducción` : `Espacio ${part.slot + 1}: ${label || "vacío"}`}
-            aria-describedby={result === "correct" ? undefined : "word-correction-help"} disabled={result !== "correct" && (locked || !id)}
-            {...(result === "correct" ? { onClick: () => setTranslated(value => !value) } : handlers(id, label, part.slot))}><span style={{ visibility: moving?.id === id ? "hidden" : "visible", color: vocabularyIds.has(id) ? NEW_VOCABULARY_COLOR : undefined }}>{label || "___"}{part.suffix}</span></button>;
+            aria-label={translates ? `${label || "___"}. Mostrar traducción` : `Espacio ${part.slot + 1}: ${label}`}
+            aria-describedby={translates ? undefined : "word-correction-help"}
+            {...(translates ? { onClick: translation.open } : handlers(id, label, part.slot))}><span style={{ visibility: moving?.id === id ? "hidden" : "visible", color: vocabularyIds.has(id) ? NEW_VOCABULARY_COLOR : undefined }}>{label || "___"}{part.suffix}</span></button>;
         })}
       </div>
+      {translation.visible ? <span className={styles.inlineTranslation} aria-live="polite">{card.spanish_translation}</span> : null}
       <button className={styles.replay} type="button" aria-label="Repetir frase en inglés" onClick={onReplay}>
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4zM15 8a6 6 0 0 1 0 8M18 4a11 11 0 0 1 0 16" /></svg>
       </button>

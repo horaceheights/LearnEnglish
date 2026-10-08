@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "provider": "openai-builtin-imagegen",
+  "tool": "image_gen.imagegen",
+  "model_id": null,
+  "request_id": null,
+  "usage": null,
+  "provider_metadata_note": "The built-in tool exposed output paths but no model ID, request ID, usage or billing.",
+  "task_scope": "Seven distinct review and mission speaker-turn scenes in the Unit 5 ordering correction.",
+  "approval_status": "pending-user-preview-review",
+  "continuity": {
+    "review": "Same East Asian male customer in gray polo and Black woman server in white shirt/burgundy apron at marble cafe counter.",
+    "mission_market": "Same coral-blouse woman and gray-haired man in olive apron; basket of exactly three apples.",
+    "mission_cafe": "Same curly-haired male customer in blue shirt/white T-shirt and East Asian woman server in white shirt/brown apron at outdoor cafe.",
+    "sequence": "Greeting before request; request before handover; milk offer before refusal; thanks only after receipt."
+  },
+  "assets": [
+    {
+      "filename": "a1_u5_sequence_review_cafe_greeting_v1.webp",
+      "role": "review-server-greets",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-9ccb143b-d923-4bb8-8ebc-83787b1b0342.png",
+      "prompt": "Use case: identity-preserve. Edit the attached exact reference into one photorealistic English lesson photograph, landscape 3:2, 1536x1024. Preserve these exact people, face identities, hairstyles, clothing, cafe or market geometry, lighting and camera angle. Keep both people facing each other or the relevant shared object, never the camera. Show the current speaker through a clearly open speaking mouth and a natural conversational gesture; the listener has closed mouth and relaxed hands. Keep faces and hands and all relevant objects large, central and readable at 354px phone width. No captions, writing, speech bubbles, logos, overlay, collage or extra people. The Black female server in white shirt and burgundy apron is speaking a friendly greeting to the East Asian man in the gray polo. Her one hand makes a modest welcoming open palm gesture, not pointing at an item. He listens with his hands resting relaxed. REMOVE the coffee cup, saucer and egg plate from the reference. The marble counter between them is empty because no order has been placed. Do NOT put any food, drinks, trays, menus, menu boards or picture catalogues on or behind this interaction. No menu of any kind. This is the opening greeting, before he requests anything.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_review_cafe_request_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_review_cafe_request_v1.webp",
+      "reference_sha256": "1c88bdcf2ddccf7c475467d6e56af2d11b6d655a19025e22be11b654100d5fac",
+      "source_path": "docs/product/media-sources/unit5-review-mission-sequence-2026-10-08/a1_u5_sequence_review_cafe_greeting_v1.png",
+      "source_sha256": "b2e02074d23d914fa77bec93fd09a5d538bf1da7c2c36ad84e45c080546dff87",
+      "source_bytes": 2072186,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_review_cafe_greeting_v1.webp",
+      "runtime_sha256": "cc5315f9e5b0228d553c32a1ed1d049212b0cbb30e91b72d64e15bc3988e090e",
+      "runtime_bytes": 250902,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:28:19.308053+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone",
+        "note": "Greeting uses the existing review cast at an empty marble counter; the server speaks with an open welcoming hand and customer listens.",
+        "human_approval": false,
+        "reviewed_at_utc": "2026-10-08T22:33:24.810131+00:00",
+        "phone_widths_inspected": [
+          354
+        ],
+        "findings": "Speaker turn, familiar cast, hands, gaze, meal objects and sequence state remain readable at the inspected phone size. No written answer or speech bubble. Human Preview approval remains pending."
+      },
+      "rejected_attempts": [
+        {
+          "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-42911e14-8c12-47a6-bc57-dc683ea15e43.png",
+          "source_sha256": "6d6ef9125a79f847c5f3aab6dc36088227a9addf232cbb8bfecf5e35826c3fbe",
+          "prompt": "Edit this exact reference into one photorealistic landscape3:2 English lesson frame. Preserve the identities, hair, clothing, café/stall geometry, lighting and real objects except changes explicitly stated. Black female server in burgundy apron greets male East Asian customer at empty marble counter; same fresh review cast. Both people face one another or the shared object, never the camera. Make the speaking person and listening person unambiguous via natural mouth/gesture. Keep faces, hands and answer-critical objects large and central for a354px phone photo. No graphic overlays, added captions, English answer text, logos, speech bubbles or collage; a physical pictorial menu may contain realistic food/drink photos but no writing. Natural hands and exact object counts.",
+          "reason": "Unexpected menus altered the continuity; request cards did not group coffee and eggs clearly, and the mission greeting incorrectly retained already-served food. Not installed. Original generated bytes retained at tool path."
+        }
+      ]
+    },
+    {
+      "filename": "a1_u5_sequence_review_cafe_request_v1.webp",
+      "role": "review-customer-requests-coffee-and-eggs",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-9e1f3ed0-9182-4369-bcb2-6fd4a20ed50c.png",
+      "prompt": "Use case: identity-preserve. Edit the attached exact reference into one photorealistic English lesson photograph, landscape 3:2, 1536x1024. Preserve these exact people, face identities, hairstyles, clothing, cafe or market geometry, lighting and camera angle. Keep both people facing each other or the relevant shared object, never the camera. Show the current speaker through a clearly open speaking mouth and a natural conversational gesture; the listener has closed mouth and relaxed hands. Keep faces and hands and all relevant objects large, central and readable at 354px phone width. No captions, writing, speech bubbles, logos, overlay, collage or extra people. The East Asian male customer in the gray polo is speaking his polite request to the Black female server in white shirt and burgundy apron, who listens with mouth closed. REMOVE the served coffee, saucer and eggs completely; no real food or drink has yet reached the marble counter. Customer holds a simple physical menu card at the center between them, pointing at the SINGLE LARGE PHOTOGRAPH on that card showing ONE COFFEE AND EGGS COMBO: one white cup of unmistakably black coffee beside a white plate with two fried eggs. The entire card contains exactly that one combined meal photograph, no separate tiles, no other drink, no bread, pastries, or other foods, no writing. The pointing finger selects the whole coffee-and-eggs meal picture. Make the menu's combined meal photograph large and unambiguous on a phone; no real meal or drinks anywhere on the near counter.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_review_cafe_request_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_review_cafe_request_v1.webp",
+      "reference_sha256": "1c88bdcf2ddccf7c475467d6e56af2d11b6d655a19025e22be11b654100d5fac",
+      "source_path": "docs/product/media-sources/unit5-review-mission-sequence-2026-10-08/a1_u5_sequence_review_cafe_request_v1.png",
+      "source_sha256": "45d017378913d27e9bb624e03dceb34f334e123f833776d7b51bb75d4cf28781",
+      "source_bytes": 2075159,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_review_cafe_request_v1.webp",
+      "runtime_sha256": "5e426322c8f2c244dc06c96f771d16f6dd29a896cf9a838169fe3a1e21836348",
+      "runtime_bytes": 253174,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:28:48.760706+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone",
+        "note": "Customer requests one coffee-and-eggs combination shown together on a large physical menu card; real counter is still unserved.",
+        "human_approval": false,
+        "reviewed_at_utc": "2026-10-08T22:33:24.897891+00:00",
+        "phone_widths_inspected": [
+          354,
+          206
+        ],
+        "findings": "Speaker turn, familiar cast, hands, gaze, meal objects and sequence state remain readable at the inspected phone size. No written answer or speech bubble. Human Preview approval remains pending."
+      },
+      "rejected_attempts": [
+        {
+          "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-3e152ae9-8d47-4d1a-8b99-17a3b6f0ec31.png",
+          "source_sha256": "f4a360bc58e28b54208bfc048ad134db349d165f76a15e7d95dd2ad77fa899fe",
+          "prompt": "Edit this exact reference into one photorealistic landscape3:2 English lesson frame. Preserve the identities, hair, clothing, café/stall geometry, lighting and real objects except changes explicitly stated. Customer requests coffee+eggs from a pictorial menu before being served; same review cast and setting. Both people face one another or the shared object, never the camera. Make the speaking person and listening person unambiguous via natural mouth/gesture. Keep faces, hands and answer-critical objects large and central for a354px phone photo. No graphic overlays, added captions, English answer text, logos, speech bubbles or collage; a physical pictorial menu may contain realistic food/drink photos but no writing. Natural hands and exact object counts.",
+          "reason": "Unexpected menus altered the continuity; request cards did not group coffee and eggs clearly, and the mission greeting incorrectly retained already-served food. Not installed. Original generated bytes retained at tool path."
+        }
+      ]
+    },
+    {
+      "filename": "a1_u5_sequence_mission_market_greeting_v1.webp",
+      "role": "mission-market-vendor-greets",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-c43d64fd-cdc9-41b7-bcb2-b0b453dc39ee.png",
+      "prompt": "Use case: identity-preserve. Edit the attached exact reference into one photorealistic English lesson photograph, landscape 3:2, 1536x1024. Preserve these exact people, face identities, hairstyles, clothing, cafe or market geometry, lighting and camera angle. Keep both people facing each other or the relevant shared object, never the camera. Show the current speaker through a clearly open speaking mouth and a natural conversational gesture; the listener has closed mouth and relaxed hands. Keep faces and hands and all relevant objects large, central and readable at 354px phone width. No captions, writing, speech bubbles, logos, overlay, collage or extra people. The older gray-haired male vendor with olive apron is speaking a friendly greeting to the woman in coral blouse and brown shoulder bag. His one hand makes a modest welcoming open-palm gesture toward her; she listens, mouth closed, hands resting and not pointing. Preserve the basket with EXACTLY THREE APPLES in the original position as the stall's display, not handed to her. Do NOT add any menu, picture board or catalogue; no new objects. Preserve the wooden counter and green market canopy. This is greeting before her request.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_mission_apples_request_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_mission_apples_request_v1.webp",
+      "reference_sha256": "4d051a37cc9aa673a9d76a8c4b9d9669b58a8d8ead71ec8cddc435f3be07b846",
+      "source_path": "docs/product/media-sources/unit5-review-mission-sequence-2026-10-08/a1_u5_sequence_mission_market_greeting_v1.png",
+      "source_sha256": "18a16a23c39f021443e9590dbc53ff9bba62beeda0fd4e5e4ccee05fb293c9e9",
+      "source_bytes": 2260798,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_market_greeting_v1.webp",
+      "runtime_sha256": "42682fdfdfbfa014307232daf988daff7b385d321688986118d150bcb9ae102a",
+      "runtime_bytes": 284942,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:29:21.150170+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone",
+        "note": "Same mission vendor greets the coral-blouse customer; exactly three apples remain in the display basket, and her hands are relaxed.",
+        "human_approval": false,
+        "reviewed_at_utc": "2026-10-08T22:33:24.990859+00:00",
+        "phone_widths_inspected": [
+          354
+        ],
+        "findings": "Speaker turn, familiar cast, hands, gaze, meal objects and sequence state remain readable at the inspected phone size. No written answer or speech bubble. Human Preview approval remains pending."
+      },
+      "rejected_attempts": [
+        {
+          "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-a069571a-a955-47f5-9807-a8162a1be38e.png",
+          "source_sha256": "43ea967ed03c17940631ba204cd0878c1308f240b3cb4ca55df5fbe31cf32d08",
+          "prompt": "Edit this exact reference into one photorealistic landscape3:2 English lesson frame. Preserve the identities, hair, clothing, café/stall geometry, lighting and real objects except changes explicitly stated. Older male market vendor greets coral-blouse woman; she listens without requesting gesture. Both people face one another or the shared object, never the camera. Make the speaking person and listening person unambiguous via natural mouth/gesture. Keep faces, hands and answer-critical objects large and central for a354px phone photo. No graphic overlays, added captions, English answer text, logos, speech bubbles or collage; a physical pictorial menu may contain realistic food/drink photos but no writing. Natural hands and exact object counts.",
+          "reason": "Unexpected menus altered the continuity; request cards did not group coffee and eggs clearly, and the mission greeting incorrectly retained already-served food. Not installed. Original generated bytes retained at tool path."
+        }
+      ]
+    },
+    {
+      "filename": "a1_u5_sequence_mission_cafe_greeting_v1.webp",
+      "role": "mission-cafe-server-greets",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-51103819-e478-4ecd-9742-957059c9037e.png",
+      "prompt": "Use case: identity-preserve. Edit the attached exact reference into one photorealistic English lesson photograph, landscape 3:2, 1536x1024. Preserve these exact people, face identities, hairstyles, clothing, cafe or market geometry, lighting and camera angle. Keep both people facing each other or the relevant shared object, never the camera. Show the current speaker through a clearly open speaking mouth and a natural conversational gesture; the listener has closed mouth and relaxed hands. Keep faces and hands and all relevant objects large, central and readable at 354px phone width. No captions, writing, speech bubbles, logos, overlay, collage or extra people. The East Asian female server in white shirt and dark brown apron is speaking a friendly greeting to the curly-haired man in the blue shirt over white T-shirt. Her one hand makes a modest welcoming open palm gesture, not pointing to an item. He listens with closed mouth and relaxed hands. REMOVE the coffee cup, saucer and egg plate completely; the wooden counter between them is empty because no order has yet been placed. Do NOT add any menu, menu board, catalogue, food, drink or tray. Keep the existing jars and utensils far at the right edge and the flower market setting unchanged. This is the first greeting before his request.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_mission_cafe_request_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_mission_cafe_request_v1.webp",
+      "reference_sha256": "4af155d5c42f800ea6d0b0add4b5d47e5bc3148a16ee40be48f6fa4a1ae1dddb",
+      "source_path": "docs/product/media-sources/unit5-review-mission-sequence-2026-10-08/a1_u5_sequence_mission_cafe_greeting_v1.png",
+      "source_sha256": "931153b44f68f28f3d274c26d8ec9e075c767fe90f7b5782da75d46807dcb49a",
+      "source_bytes": 2385096,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_cafe_greeting_v1.webp",
+      "runtime_sha256": "0e88fcf2305248d276e3d35833b1ccf84464d90d5a3885893bee910f2cacc596",
+      "runtime_bytes": 339946,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:29:52.602669+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone",
+        "note": "Same mission cafe server greets the customer before ordering; no coffee, eggs or tray are delivered yet.",
+        "human_approval": false,
+        "reviewed_at_utc": "2026-10-08T22:33:25.088906+00:00",
+        "phone_widths_inspected": [
+          354
+        ],
+        "findings": "Speaker turn, familiar cast, hands, gaze, meal objects and sequence state remain readable at the inspected phone size. No written answer or speech bubble. Human Preview approval remains pending."
+      },
+      "rejected_attempts": [
+        {
+          "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-98bb7e5e-e411-4d11-981f-e16abd542f32.png",
+          "source_sha256": "a34211c3ae911158ba167ac515eaaef017eaa9ec2d57a67cf2dfa78b6a890b0f",
+          "prompt": "Edit this exact reference into one photorealistic landscape3:2 English lesson frame. Preserve the identities, hair, clothing, café/stall geometry, lighting and real objects except changes explicitly stated. East Asian female server speaks greeting at empty outdoor café counter; curly-haired male customer listens. Both people face one another or the shared object, never the camera. Make the speaking person and listening person unambiguous via natural mouth/gesture. Keep faces, hands and answer-critical objects large and central for a354px phone photo. No graphic overlays, added captions, English answer text, logos, speech bubbles or collage; a physical pictorial menu may contain realistic food/drink photos but no writing. Natural hands and exact object counts.",
+          "reason": "Unexpected menus altered the continuity; request cards did not group coffee and eggs clearly, and the mission greeting incorrectly retained already-served food. Not installed. Original generated bytes retained at tool path."
+        }
+      ]
+    },
+    {
+      "filename": "a1_u5_sequence_mission_cafe_request_v1.webp",
+      "role": "mission-customer-requests-coffee-and-eggs",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-7fdd226c-aecf-4923-9877-bd9a79397e07.png",
+      "prompt": "Use case: identity-preserve. Edit the attached exact reference into one photorealistic English lesson photograph, landscape 3:2, 1536x1024. Preserve these exact people, face identities, hairstyles, clothing, cafe or market geometry, lighting and camera angle. Keep both people facing each other or the relevant shared object, never the camera. Show the current speaker through a clearly open speaking mouth and a natural conversational gesture; the listener has closed mouth and relaxed hands. Keep faces and hands and all relevant objects large, central and readable at 354px phone width. No captions, writing, speech bubbles, logos, overlay, collage or extra people. The curly-haired male customer in blue shirt over white T-shirt speaks a polite request to the East Asian woman server in white shirt and dark brown apron, who listens with mouth closed. REMOVE the served coffee and egg plate completely; the wooden counter has not received real food or drink yet. Customer holds a simple physical menu card at the center between them, pointing at the SINGLE LARGE PHOTOGRAPH on that card showing ONE COFFEE AND EGGS COMBO: one white cup of unmistakably black coffee beside one white plate of two fried eggs. The menu card contains exactly that one combined meal photograph, no separate tiles, no other drinks, no bread, pastries, or other foods, no writing. The pointing finger selects the whole meal picture. Make this single combined coffee-and-eggs photograph large and clear on a phone. No additional menu boards or new objects. Keep existing jars/utensils at right and flower market unchanged.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_mission_cafe_request_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_mission_cafe_request_v1.webp",
+      "reference_sha256": "4af155d5c42f800ea6d0b0add4b5d47e5bc3148a16ee40be48f6fa4a1ae1dddb",
+      "source_path": "docs/product/media-sources/unit5-review-mission-sequence-2026-10-08/a1_u5_sequence_mission_cafe_request_v1.png",
+      "source_sha256": "7ece35b39ba674b59b86face3ecf05aa490f44a2a0f95b7ed560d0b2e9d49c8a",
+      "source_bytes": 2432893,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_cafe_request_v1.webp",
+      "runtime_sha256": "142c9e60ca501ee4e74dd335e53805c9240084b0c1a25534dec541ab85b8c38b",
+      "runtime_bytes": 347060,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:30:27.032904+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone",
+        "note": "Customer points at one large coffee-and-eggs combo photograph on a physical menu card; no real meal is already on the counter.",
+        "human_approval": false,
+        "reviewed_at_utc": "2026-10-08T22:33:25.190398+00:00",
+        "phone_widths_inspected": [
+          354,
+          206
+        ],
+        "findings": "Speaker turn, familiar cast, hands, gaze, meal objects and sequence state remain readable at the inspected phone size. No written answer or speech bubble. Human Preview approval remains pending."
+      },
+      "rejected_attempts": [
+        {
+          "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-ef699438-455a-4f33-847b-e18634373028.png",
+          "source_sha256": "deea9ff26516de54946ca78992c3cc06811ac7433f391e4ec8f74386468033de",
+          "prompt": "Edit this exact reference into one photorealistic landscape3:2 English lesson frame. Preserve the identities, hair, clothing, café/stall geometry, lighting and real objects except changes explicitly stated. Customer requests coffee and eggs from pictorial menu, not already receiving goods. Both people face one another or the shared object, never the camera. Make the speaking person and listening person unambiguous via natural mouth/gesture. Keep faces, hands and answer-critical objects large and central for a354px phone photo. No graphic overlays, added captions, English answer text, logos, speech bubbles or collage; a physical pictorial menu may contain realistic food/drink photos but no writing. Natural hands and exact object counts.",
+          "reason": "Unexpected menus altered the continuity; request cards did not group coffee and eggs clearly, and the mission greeting incorrectly retained already-served food. Not installed. Original generated bytes retained at tool path."
+        }
+      ]
+    },
+    {
+      "filename": "a1_u5_sequence_mission_cafe_offer_milk_v1.webp",
+      "role": "mission-server-offers-milk",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-da07c4d0-984b-4e70-9002-cca9202edf27.png",
+      "prompt": "Use case: identity-preserve. Edit the attached exact reference into one photorealistic English lesson photograph, landscape 3:2, 1536x1024. Preserve these exact people, face identities, hairstyles, clothing, cafe or market geometry, lighting and camera angle. Keep both people facing each other or the relevant shared object, never the camera. Show the current speaker through a clearly open speaking mouth and a natural conversational gesture; the listener has closed mouth and relaxed hands. Keep faces and hands and all relevant objects large, central and readable at 354px phone width. No captions, writing, speech bubbles, logos, overlay, collage or extra people. The East Asian female server in white shirt and brown apron actively offers the same small clear glass pitcher of white milk, her mouth open speaking. The curly-haired man in blue shirt and white T-shirt listens, mouth closed, BOTH HANDS relaxed down on the wooden counter. REMOVE HIS RAISED REFUSAL PALM: no refusal gesture yet. Keep the same coffee and plate of two fried eggs in exactly their original positions and the same milk pitcher held centrally. Do NOT add any menu, sign, picture board, catalogue or new object anywhere. This offer comes immediately before the reference's refusal; preserve exact scene and objects.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_mission_cafe_decline_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_mission_cafe_decline_v1.webp",
+      "reference_sha256": "cccfef3a9c4bb1406bd1d0beca518422893413b65469887498503ddd1c469250",
+      "source_path": "docs/product/media-sources/unit5-review-mission-sequence-2026-10-08/a1_u5_sequence_mission_cafe_offer_milk_v1.png",
+      "source_sha256": "4d4a561445db3e1b08137ea6c51b20fcd2402ef58d349d4ab095e3dd04a61dd8",
+      "source_bytes": 2369277,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_cafe_offer_milk_v1.webp",
+      "runtime_sha256": "758e800109b014e32e0c7f0e1c07c3d33863683134f5885db58ef68d08e6ee29",
+      "runtime_bytes": 335236,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:30:55.508182+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone",
+        "note": "Server offers the existing milk pitcher; customer keeps both hands down, without the later refusal gesture; coffee and eggs remain.",
+        "human_approval": false,
+        "reviewed_at_utc": "2026-10-08T22:33:25.287178+00:00",
+        "phone_widths_inspected": [
+          354,
+          206
+        ],
+        "findings": "Speaker turn, familiar cast, hands, gaze, meal objects and sequence state remain readable at the inspected phone size. No written answer or speech bubble. Human Preview approval remains pending."
+      },
+      "rejected_attempts": [
+        {
+          "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-38a1376d-35d5-4ff2-b191-f02803ded336.png",
+          "source_sha256": "380b798da2ea6a019d125089c73ce6ec3dc01e52f1c9f75c19eba2eef7ec4189",
+          "prompt": "Edit this exact reference into one photorealistic landscape3:2 English lesson frame. Preserve the identities, hair, clothing, café/stall geometry, lighting and real objects except changes explicitly stated. Server actively offers small glass pitcher of white milk; customer listens, hands down, no refusal yet. Same prepared coffee/eggs location. Both people face one another or the shared object, never the camera. Make the speaking person and listening person unambiguous via natural mouth/gesture. Keep faces, hands and answer-critical objects large and central for a354px phone photo. No graphic overlays, added captions, English answer text, logos, speech bubbles or collage; a physical pictorial menu may contain realistic food/drink photos but no writing. Natural hands and exact object counts.",
+          "reason": "Unexpected menus altered the continuity; request cards did not group coffee and eggs clearly, and the mission greeting incorrectly retained already-served food. Not installed. Original generated bytes retained at tool path."
+        }
+      ]
+    },
+    {
+      "filename": "a1_u5_sequence_mission_cafe_thanks_v1.webp",
+      "role": "mission-customer-thanks-after-receipt",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-4cc7a637-e9e4-47cb-8bc2-411c4e5dbe6d.png",
+      "prompt": "Use case: identity-preserve. Edit the attached exact reference into one photorealistic English lesson photograph, landscape 3:2, 1536x1024. Preserve these exact people, face identities, hairstyles, clothing, cafe or market geometry, lighting and camera angle. Keep both people facing each other or the relevant shared object, never the camera. Show the current speaker through a clearly open speaking mouth and a natural conversational gesture; the listener has closed mouth and relaxed hands. Keep faces and hands and all relevant objects large, central and readable at 354px phone width. No captions, writing, speech bubbles, logos, overlay, collage or extra people. Show the moment immediately after the handover. The curly-haired male customer in blue shirt and white T-shirt now has the same dark tray resting on HIS SIDE of the counter with the exact same white cup of black coffee and white plate of two fried eggs. He speaks thanks with one hand gently at his chest and the other by his received tray. The same East Asian female server in white shirt and brown apron has withdrawn both hands, with her hands clasped near her apron and mouth closed as she listens. Do NOT add any menu, picture board, catalogue or any new object. Preserve the jar and utensils at right, the flower market background, people and lighting. The tray is no longer in transfer, and the vendor no longer touches it.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_mission_cafe_handover_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_mission_cafe_handover_v1.webp",
+      "reference_sha256": "a42a72049aab45c00083feed96306aa9bea30e8c8e0c3287388bc54633f098c1",
+      "source_path": "docs/product/media-sources/unit5-review-mission-sequence-2026-10-08/a1_u5_sequence_mission_cafe_thanks_v1.png",
+      "source_sha256": "e747af6766e57d605575cb11de5abc1387458510431b48b9f9effad8662fc445",
+      "source_bytes": 2338349,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_cafe_thanks_v1.webp",
+      "runtime_sha256": "1faa4c10e739928d2253428b244c062f468c3d289775d53fcf008e759d32cf92",
+      "runtime_bytes": 322520,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:31:27.532794+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone",
+        "note": "Customer speaks thanks with one hand at his chest and the received coffee-and-eggs tray on his side; server hands are withdrawn.",
+        "human_approval": false,
+        "reviewed_at_utc": "2026-10-08T22:33:25.388159+00:00",
+        "phone_widths_inspected": [
+          354
+        ],
+        "findings": "Speaker turn, familiar cast, hands, gaze, meal objects and sequence state remain readable at the inspected phone size. No written answer or speech bubble. Human Preview approval remains pending."
+      },
+      "rejected_attempts": [
+        {
+          "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-bf8248b6-7764-47b1-a758-8d3b1942603f.png",
+          "source_sha256": "634690c1a800be04b009adac1c1f3dc8a67f10e6a94af9ffc1d0ff26810849e6",
+          "prompt": "Edit this exact reference into one photorealistic landscape3:2 English lesson frame. Preserve the identities, hair, clothing, café/stall geometry, lighting and real objects except changes explicitly stated. Tray coffee/eggs received customer-side, customer thanks with hand-to-chest; server hands withdrawn. Both people face one another or the shared object, never the camera. Make the speaking person and listening person unambiguous via natural mouth/gesture. Keep faces, hands and answer-critical objects large and central for a354px phone photo. No graphic overlays, added captions, English answer text, logos, speech bubbles or collage; a physical pictorial menu may contain realistic food/drink photos but no writing. Natural hands and exact object counts.",
+          "reason": "Unexpected menus altered the continuity; request cards did not group coffee and eggs clearly, and the mission greeting incorrectly retained already-served food. Not installed. Original generated bytes retained at tool path."
+        }
+      ]
+    }
+  ]
+}

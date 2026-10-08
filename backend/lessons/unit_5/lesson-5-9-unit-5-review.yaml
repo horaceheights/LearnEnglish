@@ -227,7 +227,7 @@
         {
           "id": "l8-model",
           "label": "Hello! How can I help you?",
-          "image_url": "a1_u5_revision_review_cafe_request_v1.webp"
+          "image_url": "a1_u5_sequence_review_cafe_greeting_v1.webp"
         }
       ],
       "audio_text": "Hello! How can I help you?",
@@ -494,7 +494,8 @@
       "spanish_translation": "No me gusta la leche.",
       "answer_audio_speaker": "male-character",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10"
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R11",
@@ -930,23 +931,23 @@
       "options": [
         {
           "id": "n16-other-0",
-          "label": "Here is your tea. Thank you.",
+          "label": "Here are your coffee and bread. Thank you.",
           "image_url": ""
         },
         {
           "id": "n16-answer",
-          "label": "Here is your coffee. Thank you.",
+          "label": "Here are your coffee and eggs. Thank you.",
           "image_url": ""
         }
       ],
-      "audio_text": "Here is your coffee. Thank you.",
+      "audio_text": "Here are your coffee and eggs. Thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
+      "spanish_translation": "Aquí están tu café y tus huevos. Gracias.",
       "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N16",
       "audio_turns": [
         {
-          "text": "Here is your coffee.",
+          "text": "Here are your coffee and eggs.",
           "speaker_role": "female-character",
           "image_url": "a1_u5_revision_review_cafe_handover_v1.webp"
         },
@@ -966,19 +967,19 @@
       "options": [
         {
           "id": "n17-answer",
-          "label": "Here are your coffee and eggs.",
+          "label": "Here is your coffee.",
           "image_url": ""
         },
         {
           "id": "n17-other-0",
-          "label": "Here are your coffee and bread.",
+          "label": "Here is your tea.",
           "image_url": ""
         }
       ],
-      "audio_text": "Here are your coffee and eggs.",
+      "audio_text": "Here is your coffee.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
+      "spanish_translation": "Aquí está tu café.",
       "audio_speaker": "female-character",
       "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N17"
     },
@@ -1191,7 +1192,7 @@
         {
           "id": "s6-model",
           "label": "Can I have coffee and eggs, please?",
-          "image_url": "a1_u5_revision_review_cafe_request_v1.webp"
+          "image_url": "a1_u5_sequence_review_cafe_request_v1.webp"
         }
       ],
       "audio_text": "Can I have coffee and eggs, please?",
@@ -1559,5 +1560,5 @@
       "audio_speaker": "male-character"
     }
   ],
-  "content_revision": 3
+  "content_revision": 4
 }

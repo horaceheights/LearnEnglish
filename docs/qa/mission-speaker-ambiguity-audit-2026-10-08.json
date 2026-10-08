@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-08",
+  "reviewer": "Codex source audit and selected actual-pixel inspection; agent review only",
+  "purpose": "Find the corrected Unit 5 M15 generic-speaker ambiguity pattern in the other current missions.",
+  "implementation_scope": "Separate older mission-content findings remain unchanged by this scoped Unit 5 patch. This record performs no implementation and grants no release or human semantic approval.",
+  "coursewide_visual_clearance": false,
+  "method": "Read all non-voice-gate cue/answer text in all seven current missions, then inspect the actual full-resolution image pixels for the five findings and one contextual exception below.",
+  "limitations": [
+    "The text scan covered all seven missions; image inspection was limited to the six selected suspect/contextual scenes listed here.",
+    "Lower-confidence findings retain contextual evidence and require deliberate follow-up review.",
+    "No broad tests or device interaction were run for this read-only audit.",
+    "Specific objects, food or actions are not flagged merely because their phrase includes a polite word."
+  ],
+  "missions_scanned": [
+    {
+      "lesson_id": "lesson-10-family-mission",
+      "sub_lesson_id": "1.11",
+      "source_path": "backend/lessons/unit_1/1.11_family_scene_mission.yaml",
+      "source_sha256": "782301f6734490198a4d8b27126bc6348cb94c4dac33629696bbc42a681a3f40",
+      "content_revision": 6,
+      "cards": 22,
+      "listening_decisions": 74
+    },
+    {
+      "lesson_id": "lesson-2-10-around-me-mission",
+      "sub_lesson_id": "2.12",
+      "source_path": "backend/lessons/unit_2/lesson-2-10-around-me-mission.yaml",
+      "source_sha256": "f5a9ac940b35655d031a4ec3c87fdf203f415db1c6485bc6f5b44075fe9b5f2f",
+      "content_revision": 6,
+      "cards": 13,
+      "listening_decisions": 36
+    },
+    {
+      "lesson_id": "lesson-3-10-introduction-mission",
+      "sub_lesson_id": "3.14",
+      "source_path": "backend/lessons/unit_3/lesson-3-10-introduction-mission.yaml",
+      "source_sha256": "bf287ec208c04976f38053fc91c81c6bfd7026118bae280c89458f33ae7af154",
+      "content_revision": 6,
+      "cards": 14,
+      "listening_decisions": 36
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "sub_lesson_id": "4.12",
+      "source_path": "backend/lessons/unit_4/lesson-4-10-my-day-mission.yaml",
+      "source_sha256": "06986a84bf223c7792cf2d6414d32d7dd73f0faff5fac824b2215641e8392fd9",
+      "content_revision": 6,
+      "cards": 17,
+      "listening_decisions": 32
+    },
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "sub_lesson_id": "5.12",
+      "source_path": "backend/lessons/unit_5/lesson-5-10-cafe-mission.yaml",
+      "source_sha256": "0054269ea81d094b51fa41fac011d211cd34ab624ee02d430ee1376bdec18b4f",
+      "content_revision": 5,
+      "cards": 20,
+      "listening_decisions": 40
+    },
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "sub_lesson_id": "6.10",
+      "source_path": "backend/lessons/unit_6/lesson-6-10-town-mission.yaml",
+      "source_sha256": "e900403215dd15a62ffce64649674111c3d2b1888cd306982e5bb8b842ea4d00",
+      "content_revision": 1,
+      "cards": 13,
+      "listening_decisions": 36
+    },
+    {
+      "lesson_id": "lesson-7-10-a1-final-mission",
+      "sub_lesson_id": "7.10",
+      "source_path": "backend/lessons/unit_7/lesson-7-10-a1-final-mission.yaml",
+      "source_sha256": "c38d5ac8544ce61847fde640a219be73c92c1bdab4d6688e7efd174c7a96fa96",
+      "content_revision": 2,
+      "cards": 13,
+      "listening_decisions": 36
+    }
+  ],
+  "total_listening_decisions_scanned": 290,
+  "findings": [
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "sub_lesson_id": "6.10",
+      "slide_id": "M07",
+      "kind": "action-hunt",
+      "target_count": 4,
+      "confidence": "strong",
+      "status": "separate-older-content-follow-up-not-implemented",
+      "image_file": "a1_u6_town_v1_help_exchange.webp",
+      "image_path": "Lessons/Lesson1/images/a1_u6_town_v1_help_exchange.webp",
+      "image_sha256": "7fc5ccbde634b7c2a0e759e8dfda43c2287edbef6048afcb3ca7573e1ec08b94",
+      "actual_pixels_inspected": true,
+      "ambiguous_lines": [
+        "Excuse me.",
+        "Can you help me?",
+        "Yes.",
+        "Sorry, no."
+      ],
+      "all_cues": [
+        {
+          "cue_id": "cue-help-exchange-1",
+          "text": "Excuse me.",
+          "target_id": "help-exchange-1"
+        },
+        {
+          "cue_id": "cue-help-exchange-2",
+          "text": "Can you help me?",
+          "target_id": "help-exchange-2"
+        },
+        {
+          "cue_id": "cue-help-exchange-3",
+          "text": "Yes.",
+          "target_id": "help-exchange-3"
+        },
+        {
+          "cue_id": "cue-help-exchange-4",
+          "text": "Sorry, no.",
+          "target_id": "help-exchange-4"
+        }
+      ],
+      "observed_pixels": "Four disconnected people face mostly toward the viewer: a yellow-jacket girl raises her hand, a man holds a map, a red-coat woman points into the distance, and an older man shrugs with open palms.",
+      "concern": "No definite question-to-reply pairing. A hand can greet or interrupt, pointing does not uniquely mean Yes, and a shrug does not uniquely establish Sorry, no. The exact speaker assignments rely on interpreting generic poses.",
+      "possible_follow_up": "Review a specific initiating turn and response through the established two-view exchange, retaining required language and meaningful listening coverage."
+    },
+    {
+      "lesson_id": "lesson-7-10-a1-final-mission",
+      "sub_lesson_id": "7.10",
+      "slide_id": "M08",
+      "kind": "action-hunt",
+      "target_count": 4,
+      "confidence": "strong",
+      "status": "separate-older-content-follow-up-not-implemented",
+      "image_file": "a1_u7_outing_v1_communication_help.webp",
+      "image_path": "Lessons/Lesson1/images/a1_u7_outing_v1_communication_help.webp",
+      "image_sha256": "0f5df7cd2c4d8c129677f7ea5ad531d24e402320f10f84b5aea2252774fd3e6d",
+      "actual_pixels_inspected": true,
+      "ambiguous_lines": [
+        "I need help.",
+        "I do not understand.",
+        "Please repeat.",
+        "Please speak slowly."
+      ],
+      "all_cues": [
+        {
+          "cue_id": "cue-communication-help-1",
+          "text": "I need help.",
+          "target_id": "communication-help-1"
+        },
+        {
+          "cue_id": "cue-communication-help-2",
+          "text": "I do not understand.",
+          "target_id": "communication-help-2"
+        },
+        {
+          "cue_id": "cue-communication-help-3",
+          "text": "Please repeat.",
+          "target_id": "communication-help-3"
+        },
+        {
+          "cue_id": "cue-communication-help-4",
+          "text": "Please speak slowly.",
+          "target_id": "communication-help-4"
+        }
+      ],
+      "observed_pixels": "At an information booth, a woman holds a map with one palm open, a man shrugs with two palms open, a girl cups an ear, and an older man raises a palm. All face the viewer.",
+      "concern": "The map holder and shrugging person could both need help or not understand. Cupping an ear and raising a hand do not reliably distinguish repeat from speak slowly. These exact phrases lack uniquely defensible targets.",
+      "possible_follow_up": "Review a specific initiating turn and response through the established two-view exchange, retaining required language and meaningful listening coverage."
+    },
+    {
+      "lesson_id": "lesson-7-10-a1-final-mission",
+      "sub_lesson_id": "7.10",
+      "slide_id": "M06",
+      "kind": "action-hunt",
+      "target_count": 4,
+      "confidence": "lower-confidence-context-present",
+      "status": "separate-older-content-follow-up-not-implemented",
+      "image_file": "a1_u7_outing_v1_invitations.webp",
+      "image_path": "Lessons/Lesson1/images/a1_u7_outing_v1_invitations.webp",
+      "image_sha256": "9c07da9dfe73363f34d2cca5348de994f22768c18076a890ba44d00e687b4931",
+      "actual_pixels_inspected": true,
+      "ambiguous_lines": [
+        "Yes, thank you.",
+        "Sorry, no."
+      ],
+      "all_cues": [
+        {
+          "cue_id": "cue-invitations-1",
+          "text": "Do you want to play?",
+          "target_id": "invitations-1"
+        },
+        {
+          "cue_id": "cue-invitations-2",
+          "text": "Yes, thank you.",
+          "target_id": "invitations-2"
+        },
+        {
+          "cue_id": "cue-invitations-3",
+          "text": "Let's read.",
+          "target_id": "invitations-3"
+        },
+        {
+          "cue_id": "cue-invitations-4",
+          "text": "Sorry, no.",
+          "target_id": "invitations-4"
+        }
+      ],
+      "observed_pixels": "A boy offers a ball to a smiling man with palms together. A girl holds an open book toward another girl who raises a palm.",
+      "concern": "Ball and book offers provide stronger context than the other flagged crowds. The responses still depend on one-frame gesture interpretation; review their reply targets as contextual exchanges without discarding the visibly specific play/read cues.",
+      "possible_follow_up": "Review a specific initiating turn and response through the established two-view exchange, retaining required language and meaningful listening coverage."
+    },
+    {
+      "lesson_id": "lesson-3-10-introduction-mission",
+      "sub_lesson_id": "3.14",
+      "slide_id": "M01",
+      "kind": "guided-search",
+      "target_count": 4,
+      "confidence": "lower-confidence-greeting-review",
+      "status": "separate-older-content-follow-up-not-implemented",
+      "image_file": "a1_u3_dinner_v1_courtyard.webp",
+      "image_path": "Lessons/Lesson1/images/a1_u3_dinner_v1_courtyard.webp",
+      "image_sha256": "a6bc63de4305b84f2eefe2b22489996d70f550136882039c29a96efa85937fed",
+      "actual_pixels_inspected": true,
+      "ambiguous_lines": [
+        "Good morning.",
+        "Goodbye."
+      ],
+      "all_cues": [
+        {
+          "cue_id": "cue-courtyard-1",
+          "text": "Good morning.",
+          "target_id": "courtyard-1"
+        },
+        {
+          "cue_id": "cue-courtyard-2",
+          "text": "Goodbye.",
+          "target_id": "courtyard-2"
+        },
+        {
+          "cue_id": "cue-courtyard-3",
+          "text": "I am reading.",
+          "target_id": "courtyard-3"
+        },
+        {
+          "cue_id": "cue-courtyard-4",
+          "text": "I am playing.",
+          "target_id": "courtyard-4"
+        }
+      ],
+      "observed_pixels": "In one morning courtyard with an 8:00 wall clock, a foreground woman waves and a uniformed man at a doorway also waves while turning toward it. A seated reader and boy playing with a ball provide distinct action targets.",
+      "concern": "Light and clock establish morning, but two waves do not reliably distinguish greeting from farewell. The single frame does not clearly establish arrival versus departure; preserve the clear reading and playing cues.",
+      "possible_follow_up": "Review a specific initiating turn and response through the established two-view exchange, retaining required language and meaningful listening coverage."
+    },
+    {
+      "lesson_id": "lesson-3-10-introduction-mission",
+      "sub_lesson_id": "3.14",
+      "slide_id": "M02",
+      "kind": "crowd-search",
+      "target_count": 4,
+      "confidence": "lower-confidence-greeting-review",
+      "status": "separate-older-content-follow-up-not-implemented",
+      "image_file": "a1_u3_dinner_v1_registration.webp",
+      "image_path": "Lessons/Lesson1/images/a1_u3_dinner_v1_registration.webp",
+      "image_sha256": "081d5a98c7560ac4b4391e965bf35645b2b940644f881d7218e0f641c5c72ed8",
+      "actual_pixels_inspected": true,
+      "ambiguous_lines": [
+        "Hello."
+      ],
+      "all_cues": [
+        {
+          "cue_id": "cue-registration-1",
+          "text": "What is your name?",
+          "target_id": "registration-1"
+        },
+        {
+          "cue_id": "cue-registration-2",
+          "text": "My name is Diego.",
+          "target_id": "registration-2"
+        },
+        {
+          "cue_id": "cue-registration-3",
+          "text": "Hello.",
+          "target_id": "registration-3"
+        },
+        {
+          "cue_id": "cue-registration-4",
+          "text": "We are talking.",
+          "target_id": "registration-4"
+        }
+      ],
+      "observed_pixels": "A registration-table woman gestures toward a man with his hand on his chest; an entering woman waves; two older women talk on a bench.",
+      "concern": "Registration, familiar cast and arrival provide context, so this is lower confidence. Hello still relies on selecting a waving arrival from a static social scene; review whether preceding story evidence identifies her uniquely. This does not label every other cue on the card defective.",
+      "possible_follow_up": "Review a specific initiating turn and response through the established two-view exchange, retaining required language and meaningful listening coverage."
+    }
+  ],
+  "resolved_in_current_unit5_patch": {
+    "lesson_id": "lesson-5-10-cafe-mission",
+    "sub_lesson_id": "5.12",
+    "content_revision": 5,
+    "slide_id": "M15",
+    "status": "implemented-in-scoped-unit5-candidate",
+    "previous_problem": "One four-target cafe crowd assigned Can I have water, please?, Yes, please., No, thank you., and Tea, please. to people without a definite exchange.",
+    "current_kind": "voice-gate",
+    "prompt": "Do you want a bag?",
+    "prompt_speaker": "male-character",
+    "prompt_image_file": "a1_u5_sequence_mission_bag_offer_v1.webp",
+    "answer": "Yes, please.",
+    "answer_speaker": "female-character",
+    "response_image_file": "a1_u5_sequence_mission_bag_accept_v1.webp",
+    "resolution": "The established two-view mission voice gate shows a concrete bag offer, then the same customer accepting; the learner speaks the reply instead of guessing a speaker in a crowd.",
+    "evidence_basis": "Canonical bindings rechecked here; picture inspection and immutable provenance are recorded by the implementing bag-sequence media agent. This audit does not grant human approval."
+  },
+  "contextual_exception_reviewed": {
+    "lesson_id": "lesson-7-10-a1-final-mission",
+    "sub_lesson_id": "7.10",
+    "slide_id": "M07",
+    "line": "Water, please.",
+    "image_file": "a1_u7_outing_v1_table_refreshments.webp",
+    "image_sha256": "cd0c25b5f5286fce4e5513d0864e7320d2b5cf42391565308d43079312f19f6d",
+    "actual_pixels_inspected": true,
+    "observation": "The targets are objects: a 5:00 clock, a price board, clear water carafes and three red apples. Water has a visible object target rather than an arbitrary person.",
+    "disposition": "Outside this generic-speaker ambiguity finding; no change proposed by this audit."
+  },
+  "coverage_constraint": {
+    "lesson_id": "lesson-7-10-a1-final-mission",
+    "current_listening_decisions": 36,
+    "affected_cards": [
+      "M06",
+      "M08"
+    ],
+    "affected_listening_decisions": 8,
+    "minimum_listening_decisions": 32,
+    "if_both_become_voice_gates": {
+      "remaining_listening_decisions": 28,
+      "additional_meaningful_listening_decisions_needed": 4
+    },
+    "requirement": "Future changes must preserve invitation, acceptance/refusal and communication-help functions on successful paths and restore meaningful listening coverage as needed. Do not lower the floor or remove required language."
+  },
+  "negative_scan_result": "No remaining non-voice-gate crowd cues using Me too., Me neither., Yes, please., or No, thank you. were found in Units 1, 2, 4 or 5. This text-query result is not visual clearance of those missions."
+}

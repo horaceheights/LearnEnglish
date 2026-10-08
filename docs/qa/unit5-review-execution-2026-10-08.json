@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-08",
+  "status": "Authored changes and scoped checks completed; six meal recordings were user-approved and bound. Audio catalog finalization, final release checks and Preview remain pending.",
+  "comparison_base_commit": "202c96a111ac3d175504e0ba1af8a3f2cf9a5256",
+  "base_status": "Root confirmed protected main unchanged after a fresh fetch. This report does not record a commit, push or publication.",
+  "authored_scope": {
+    "5.4": "Retain the user-approved Some v4 recording and its two exact bindings; preserve healthy existing audio.",
+    "5.5": "Show the initiating agreement scene and audio, then the response picture before selection; response audio follows a correct answer.",
+    "5.9": "50 cards covering three distinct cafe customers ordering coffee, water, and coffee with eggs. Each visit follows greeting/help, request, matching handover and thanks with consistent people, goods and speaker roles.",
+    "5.10": "42 cards. Bag acceptance and refusal use separate customers; the older second customer has her own tote. Offer and response frames preserve continuity within each encounter.",
+    "5.11": "54-card review retains fresh review casts and retrieves the corrected service exchanges, agreement and other revised Unit 5 functions.",
+    "5.12": "20-card mission with six chapters and preserved existing slide IDs plus M12L/M12D. Breakfast, lunch and dinner have separate chronological scenes; the two-versus-one egg cue is explicit. M15 replaces ambiguous crowd replies with a bag-offer/acceptance voice gate. Conversation labels apply across market and cafe exchanges.",
+    "shared_behavior": [
+      "Restore the established in-place translation on tap, including the full intended Completa sentence before completion; no separate translation row above it.",
+      "Use shared after-prompt response-image timing for authored reply-selection cards; preserve unrelated established timing.",
+      "Match a single-turn mission fallback cue to its exact authored prompt turn's voice, mode and variant across all seven missions. Forty derived fallback assets reuse compatible approved takes.",
+      "Native correct-answer playback and replay use authored answer turns even when no scalar answer exists; root confirmed the focused replay checks and mobile TypeScript check.",
+      "The four legacy Unit 4 Use/complete cards, lesson-4-what-time-is-it DU1-DU4, now use the shared manual sentence-translation header. Tapping the sentence reveals its full authored Spanish inside the same button for three seconds; the separate speaker remains audio-only and answer choices are unchanged."
+    ]
+  },
+  "exports": {
+    "course_lessons": 81,
+    "course_units": 7,
+    "scope": "Full A1 catalog plus the six changed Unit 5 standalone lessons and the other six affected standalone missions.",
+    "course_git_blob": "4bd32cb93afa91cb4261bbe7be6a368f921923b5",
+    "runtime_images": 1020,
+    "release_integrity_updated": true,
+    "audio_catalog_finalized": false
+  },
+  "media_and_review_evidence": {
+    "new_generated_images": 23,
+    "inspection": "Agents inspected exact generated pixels and phone-size views. Source/runtime hashes and speaker continuity are recorded; no human semantic approval was granted.",
+    "unrelated_manifest_rows_preserved": 3295,
+    "new_or_changed_runtime_usages": 60,
+    "changed_semantic_contracts_pending_review": 30,
+    "speaker_pairs_added": 38,
+    "unused_unit5_speaker_pairs_removed": 23,
+    "existing_speaker_pairs_preserved": 434,
+    "preservation": "Updated only the stale M15 replacement plan to the bound bag-acceptance image and added both bag-frame receipts. Preserved 905 unrelated plan rows and all 18 prior installation asset records; original media bytes were not replaced.",
+    "records": [
+      "docs/qa/ordering-sequence-media-review-2026-10-08.json",
+      "docs/qa/ordering-sequence-speaker-review-2026-10-08.json",
+      "docs/qa/ordering-sequence-answer-banks-2026-10-08.json",
+      "docs/qa/unit-5-mission-media-v1.json",
+      "docs/qa/units-2-7-mission-target-reviews.json"
+    ]
+  },
+  "audio_state": {
+    "evidence": "docs/qa/ordering-audio-reuse-2026-10-08.json",
+    "course_logical_assets": 6430,
+    "scope_logical_assets": 520,
+    "scope_missing_approved_bindings": 0,
+    "added_bindings": 168,
+    "current_added_bindings": 158,
+    "historical_intermediate_bindings": 10,
+    "some_v4_bindings_preserved": true,
+    "approved_v4_character_lines": [
+      {"text": "I eat two eggs for breakfast.", "speaker_role": "female-character"},
+      {"text": "I eat fish for lunch.", "speaker_role": "female-character"},
+      {"text": "I eat chicken for lunch.", "speaker_role": "female-character"},
+      {"text": "I drink water for lunch.", "speaker_role": "male-character"},
+      {"text": "I eat rice for dinner.", "speaker_role": "male-character"},
+      {"text": "I drink water for dinner.", "speaker_role": "male-character"}
+    ],
+    "approved_take_status": "The user approved all six exact staged v4 recordings on 2026-10-08. Root promoted those exact hashes with --promote and --reviewed-take, preserving original bytes without execution or new provider calls. All 520 scoped logical assets now resolve to approved takes.",
+    "approval_evidence": "docs/qa/mission-meal-v4-auditions-2026-10-08.json"
+  },
+  "validation_scope_note": "These are specific staged checks, including later focused runtime fixes. They do not certify a complete final CI run, Android device behavior or a release candidate.",
+  "targeted_validation": [
+    {
+      "check": "Independent source/provenance/runtime image verification",
+      "result": "All 23 new assets match their exact source hashes across five provenance packs; all 69 canonical/web/mobile runtime copies match the recorded hashes and are 1536x1024. All 23 images are bound in the full current catalog and match local media-upload-manifest records. This local check does not verify live CDN contents.",
+      "evidence": "docs/qa/ordering-sequence-media-review-2026-10-08.json"
+    },
+    {
+      "check": "Post-approval v4, schema and ordering regressions",
+      "result": "Root confirmed 18 targeted tests passed after exact user-approved meal take promotion, using working workspace-local temporary-directory permissions. This overlaps earlier focused checks; counts are not additive."
+    },
+    {
+      "check": "scripts/validate_lesson_cards.py --semantic-review-policy preview",
+      "result": "Passed after the 20-beat mission contract and precise bag-refusal description were updated.",
+      "advisories": "Existing pending human semantic reviews, renderer-signature drift, and 12 unrelated legacy Use images without authored descriptions remain advisories."
+    },
+    {
+      "check": "Ordering sequence, exact content-plan round trips, Unit 5 progression, mission cue and mission schema tests",
+      "result": "46 targeted tests passed using a workspace-local temporary directory; a later overlapping 19-test mission/order run also passed after the fail-closed 20-beat validator regressions were added. Counts are not additive."
+    },
+    {
+      "check": "backend.tests.test_speaking_voice_review",
+      "result": "All 3 tests passed after exact inspected image/line cast records were refreshed."
+    },
+    {
+      "check": "Native reply-image, exchange and silent-recognition regressions; mobile TypeScript",
+      "result": "Root confirmed 21 focused checks and mobile tsc passed after fixing correct-answer playback/replay for authored answer-turn-only cards."
+    },
+    {
+      "check": "Distinct initiating/response image schema and ordering regressions",
+      "result": "Root confirmed 12 tests passed, including the shared distinct-image requirement."
+    },
+    {
+      "check": "node --test --test-reporter=dot tests/web-legacy-completion-translation.test.cjs tests/manual-sentence-translation.test.cjs tests/learn-translation-preview.test.cjs",
+      "working_directory": "mobile",
+      "result": "Audio-review agent reported 5 passing checks: three new actual-JSX/callback regressions for the four legacy Unit 4 completion cards and two existing translation-hook script suites. They cover tap-only full-sentence translation, the three-second display, separate audio control, and unchanged choices. The fix uses the generic Use/non-word-construction path without lesson-specific conditions.",
+      "additional_check": "The existing sentence-translations.test.cjs also passed with the locally compiled sentenceTranslations.js and current src/generated catalog. The new web regression is registered in verify-interaction-paths.ps1."
+    },
+    {
+      "check": "scripts/audit_content_practice.py --check",
+      "result": "Passed with 95 previously recorded findings and no new findings."
+    },
+    {
+      "check": "Mission presentation parity and native layout tests",
+      "result": "Translation-review agent reported all 8 tests passing, including 18 meal-scene geometry cases and exact canonical/web/mobile image hashes. This is automated geometry evidence, not Android device verification."
+    },
+    {
+      "check": "Course audio cast and male-render inventory checks",
+      "result": "Audio-review agent reported 8 targeted tests and the read-only cast validator passing. Evidence pins 1993 explicit scalar assignments and the reviewed male inventory of 1040 assets, 197 jobs and 4073 characters.",
+      "evidence": "docs/qa/audio-inventory-unit5-review-2026-10-08.json"
+    },
+    {
+      "check": "M15 preservation plan",
+      "result": "Targeted validate_plan passed against the protected baseline, installed replacement hashes and current mission binding."
+    }
+  ],
+  "remaining_work": [
+    "Finalize the audio catalog against the eventual source commit and verify required CDN assets and deployment metadata.",
+    "Run the complete required CI checks with all archival fixtures. The full local backend suite is not green: sparse-checkout archival media and provenance fixtures remain absent; do not waive the preservation gate.",
+    "Run required Android interaction/layout checks on the completed candidate, including translation and initiating-image/response-image/answer playback.",
+    "Complete the protected main integration and CI Preview workflow, verify the published commit, and review that exact Preview. No Preview or Production publication is claimed here."
+  ]
+}

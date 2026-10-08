@@ -1,0 +1,54 @@
+{
+  "created_at": "2026-10-08T21:36:13.426777+00:00",
+  "purpose": "Approved standalone Some replacement and Eleven v4 default decision",
+  "voice_name": "Nichalia",
+  "voice_id": "XfNU2rGpBa01ckF309OY",
+  "request": {
+    "text": "Some",
+    "model_id": "eleven_v4",
+    "seed": 1101,
+    "voice_settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    }
+  },
+  "output_format": "mp3_44100_128",
+  "requested_speed": 0.75,
+  "speed_applied": null,
+  "speed_note": "Eleven v4 does not support the speed setting; native pacing used. Style and speaker boost omitted because v4 documents only stability and similarity.",
+  "request_limit": 1,
+  "source_character_limit": 4,
+  "status": "user-listening-approved",
+  "processing": [],
+  "review": {
+    "status": "user-listening-approved",
+    "audio_sha256": "c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3",
+    "basis": "User heard the attached audition and replied: yes looks good lets use V4"
+  },
+  "http_status": 200,
+  "provider_headers": {
+    "request-id": "HC28dR8KK0raUwgDRhzu",
+    "history-item-id": "za3Qer6BdBikznYdWWGL",
+    "character-cost": "0",
+    "content-type": "audio/mpeg"
+  },
+  "audio_file": "backend/approved-course-audio/takes/c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3.mp3",
+  "bytes": 13836,
+  "sha256": "c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3",
+  "media_probe": {
+    "codec": "mp3float",
+    "sample_rate_hz": 44100,
+    "duration_seconds": 0.8,
+    "channels": 1
+  },
+  "approved_at": "2026-10-08T21:44:33.964445+00:00",
+  "asset_ids": [
+    "lesson-5-3-food-quantities-c002-answer-628c3c0dd538b4c56f62",
+    "lesson-5-3-food-quantities-c002-prompt-ea5039f1f11cd5fa6d73"
+  ],
+  "superseded_asset_ids": [
+    "lesson-5-3-food-quantities-c002-answer-b37b8cf0172a2d625927",
+    "lesson-5-3-food-quantities-c002-prompt-56f8f427a76f8879424e"
+  ],
+  "scope": "Only the two standalone Some bindings change. Preserve all other recordings; use v4 for future missing or explicitly replaced recordings."
+}

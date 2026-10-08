@@ -82,7 +82,7 @@
       "N20",
       "S7"
     ],
-    "content_revision": 3
+    "content_revision": 4
   },
   "cards": [
     {
@@ -208,7 +208,7 @@
         {
           "id": "l8-model",
           "label": "Hello! How can I help you?",
-          "image_url": "a1_u5_revision_review_cafe_request_v1.webp"
+          "image_url": "a1_u5_sequence_review_cafe_greeting_v1.webp"
         }
       ],
       "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
@@ -474,6 +474,7 @@
       "answer_audio_speaker": "male-character",
       "audio_speaker": "female-character",
       "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10",
+      "reply_image_timing": "after-prompt",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -489,7 +490,8 @@
         "spanish_translation",
         "answer_audio_speaker",
         "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "reply_image_timing"
       ]
     },
     {
@@ -959,20 +961,20 @@
       "options": [
         {
           "id": "n16-other-0",
-          "label": "Here is your tea. Thank you.",
+          "label": "Here are your coffee and bread. Thank you.",
           "image_url": ""
         },
         {
           "id": "n16-answer",
-          "label": "Here is your coffee. Thank you.",
+          "label": "Here are your coffee and eggs. Thank you.",
           "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
+      "spanish_translation": "Aquí están tu café y tus huevos. Gracias.",
       "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N16",
       "audio_turns": [
         {
-          "text": "Here is your coffee.",
+          "text": "Here are your coffee and eggs.",
           "speaker_role": "female-character",
           "image_url": "a1_u5_revision_review_cafe_handover_v1.webp"
         },
@@ -1005,16 +1007,16 @@
       "options": [
         {
           "id": "n17-answer",
-          "label": "Here are your coffee and eggs.",
+          "label": "Here is your coffee.",
           "image_url": ""
         },
         {
           "id": "n17-other-0",
-          "label": "Here are your coffee and bread.",
+          "label": "Here is your tea.",
           "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
+      "spanish_translation": "Aquí está tu café.",
       "audio_speaker": "female-character",
       "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N17",
       "field_order": [
@@ -1248,7 +1250,7 @@
         {
           "id": "s6-model",
           "label": "Can I have coffee and eggs, please?",
-          "image_url": "a1_u5_revision_review_cafe_request_v1.webp"
+          "image_url": "a1_u5_sequence_review_cafe_request_v1.webp"
         }
       ],
       "spanish_translation": "¿Me da café y huevos, por favor?",
@@ -1748,8 +1750,8 @@
   ],
   "source": {
     "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
-    "sha256": "22f45bb14fa0c43ae06d544abb6fa24e7618a488a0dde4897a23b055191b519c"
+    "sha256": "e237029af3bf14575d18adcfb1ffc0876d9b9077b627cf2da7101555eb8e2bea"
   },
   "draft": false,
-  "review_status": "Language, sequence, complete banks and source photographs reviewed by Codex. Installation requires whole-course validators. Recorded audio and phone acceptance remain separate verification steps; no human approval implied."
+  "review_status": "2026-10-08 user-directed sequence corrections. Exact language, speakers, chronological scenes and ordered moments authored through shared recipes. New generated pixels and phone-size views inspected by agents, with immutable provenance. Human review of the exact Preview remains pending; no publication or human approval is implied."
 }

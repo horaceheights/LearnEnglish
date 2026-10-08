@@ -371,16 +371,25 @@ def bind_lesson_audio_assets(lesson: Lesson) -> Lesson:
         if mission_game is not None:
             cue = str(getattr(mission_game, "cue_audio_text", "") or "").strip()
             if cue:
+                # The fallback is the same spoken cue when one authored turn
+                # owns it. Reuse that resolved contract, including Speak's mode
+                # and variant, rather than inventing a second narrator voice.
+                cue_turn = None
+                if len(card.audio_turns) == 1 and card.audio_turns[0].text == cue:
+                    cue_turn = next((
+                        asset for asset in card_assets
+                        if asset.purpose == "prompt-turn-1" and asset.text == cue
+                    ), None)
                 card_assets.insert(0, _asset(
                     lesson.id,
                     card_index,
                     card,
                     purpose="mission-cue",
                     text=cue,
-                    mode="prompt",
-                    variant="question" if cue.endswith("?") else "prompt",
+                    mode=cue_turn.mode if cue_turn else "prompt",
+                    variant=cue_turn.variant if cue_turn else ("question" if cue.endswith("?") else "prompt"),
                     semantic_role="question" if cue.endswith("?") else "teacher",
-                    speaker_role="teacher",
+                    speaker_role=cue_turn.speaker_role if cue_turn else "teacher",
                     revision=int(getattr(lesson, "content_revision", 1)),
                 ))
         card.audio_assets = card_assets

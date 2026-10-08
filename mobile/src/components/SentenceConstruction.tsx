@@ -9,6 +9,7 @@ import {
   type TileBounds, type TileFlightPath,
 } from '../sentenceConstruction';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { useManualSentenceTranslation } from '../hooks/useManualSentenceTranslation';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 import { isPhoneLandscape } from '../lessonViewportLayout';
@@ -64,9 +65,9 @@ function WordTile(props: WordProps) {
   return <View {...pan.panHandlers} onLayout={(event) => props.onWidth(id, event.nativeEvent.layout.width)}
     style={[styles.wordTile, { minWidth: width }]}>
     <Pressable ref={(view) => { tile.current = view; props.register(view); }} disabled={disabled && !props.onTranslate}
-      accessibilityRole={id ? 'button' : 'text'}
+      accessibilityRole={id || props.onTranslate ? 'button' : 'text'}
       accessibilityLabel={props.onTranslate ? `${label}. Mostrar traducción` : slot === undefined ? `Ficha ${label}` : `Espacio ${slot + 1}: ${label || 'vacío'}`}
-      accessibilityHint={disabled ? undefined : slot === undefined ? 'Toca para colocar, o arrastra a un espacio.' : 'Toca para devolver, o arrastra para mover esta palabra.'}
+      accessibilityHint={props.onTranslate ? 'Toca para ver la traducción completa.' : disabled ? undefined : slot === undefined ? 'Toca para colocar, o arrastra a un espacio.' : 'Toca para devolver, o arrastra para mover esta palabra.'}
       accessibilityActions={id && !disabled ? [
         ...Array.from({ length: props.count }, (_, index) => ({ name: `place-${index}`, label: `Mover al espacio ${index + 1}` })),
         ...(slot === undefined ? [] : [{ name: 'return', label: 'Devolver a las palabras disponibles' }]),
@@ -93,7 +94,7 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const celebrationLift = useConstructionCelebration(result === 'correct');
-  const [translated, setTranslated] = useState(false);
+  const translation = useManualSentenceTranslation(`${card.slide_id}:${card.spanish_translation}`);
   const [wordWidths, setWordWidths] = useState<Record<string, number>>({});
   const [feedbackHeight, setFeedbackHeight] = useState(24);
   const [size, setSize] = useState({ width: viewport.width - 12, height: viewport.height - 240 });
@@ -212,29 +213,34 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
     <Ionicons name="volume-high" color="#278c73" size={28} />
   </Pressable>;
   return <View ref={root} style={[styles.root, landscape ? styles.landscape : null]} onLayout={event => setSize(event.nativeEvent.layout)}>
-    <View style={[styles.importance, landscape ? styles.importancePhoneLandscape : null, wideSlots && !landscape ? styles.importanceWide : null]}>
-      <View style={landscape ? styles.constructionToolbar : null}>
+    <View testID="construction-sentence-surface" style={[styles.importance, landscape ? styles.importancePhoneLandscape : null, wideSlots && !landscape ? styles.importanceWide : null]}>
+      {landscape ? <View style={styles.constructionToolbar}>
       {landscape && result !== 'correct' ? <Pressable accessibilityRole="button" accessibilityLabel={result === 'wrong' ? 'Reintentar' : 'Deshacer último movimiento'}
         disabled={result !== 'wrong' && (locked || !history.current.length)} style={styles.control}
         onPress={() => { if (result === 'wrong') { history.current = []; cancel(); stopFlight(); onRetry(); }
           else { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } } }}>
         <Text maxFontSizeMultiplier={1.3} style={styles.controlText}>{result === 'wrong' ? 'Reintentar' : 'Deshacer'}</Text>
       </Pressable> : null}
-      <Pressable accessibilityRole="button" accessibilityLabel={translated ? 'Ocultar traducción' : 'Mostrar traducción'} accessibilityState={{ expanded: translated }}
-        style={{ minHeight: 48, justifyContent: 'center', flex: landscape ? 1 : undefined, paddingRight: wideSlots && !landscape ? 48 : 0 }} onPress={() => setTranslated(!translated)}>
-        <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={styles.instruction}>{translated ? card.spanish_translation : 'Traducir frase'}</Text>
-      </Pressable>
-      {landscape ? replayControl : null}
-      </View>
+      {replayControl}
+      </View> : null}
       <SlotsContainer ref={view => { slotPane.current = view; }}
-        style={landscape ? styles.slots : styles.slotScroll} accessibilityLabel={result === 'correct' ? 'Frase completada' : 'Frase en construcción'}
-        {...(!landscape ? { contentContainerStyle: styles.slots, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
-        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} accessibilityRole="button" accessibilityLabel={`${part.text}. Mostrar traducción`} onPress={() => setTranslated(value => !value)} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }, scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : null]}>{part.text}</Text> :
+        style={!landscape ? styles.slotScroll : undefined} accessibilityLabel={result === 'correct' ? 'Frase completada' : 'Frase en construcción'}
+        {...(!landscape ? { persistentScrollbar: true, scrollEnabled: !moving,
+          onContentSizeChange: () => {
+            if (translation.visible && slotPane.current && 'scrollToEnd' in slotPane.current) {
+              slotPane.current.scrollToEnd({ animated: false });
+            }
+          },
+        } : {})}>
+        <View style={styles.slots}>
+        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} accessibilityRole="button" accessibilityLabel={`${part.text}. Mostrar traducción`} onPress={translation.open} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }, scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : null]}>{part.text}</Text> :
           <WordTile key={`slot-${part.slot}`} {...common} slot={part.slot} suffix={part.suffix}
             id={slots[part.slot] || ''} label={card.options.find(option => option.id === slots[part.slot])?.label || ''}
             register={view => { slotsRef.current[part.slot] = view; }} active={hover === part.slot}
             hidden={moving?.id === slots[part.slot] || flight?.slot === part.slot} correct={result === 'correct'}
-            onTranslate={result === 'correct' ? () => setTranslated(value => !value) : undefined} />)}
+            onTranslate={result !== null || !slots[part.slot] ? translation.open : undefined} />)}
+        </View>
+        {translation.visible ? <Text accessibilityLiveRegion="polite" maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={styles.inlineTranslation}>{card.spanish_translation}</Text> : null}
       </SlotsContainer>
       {!landscape ? replayControl : null}
     </View>
@@ -288,10 +294,10 @@ const styles = StyleSheet.create({
   successReplaySpace: { height: 48 },
   replayPhoneLandscape: { position: 'relative', top: 0, right: 0 },
   importanceLandscape: { width: '48%', maxHeight: '100%', paddingRight: 40 },
-  importanceWide: { paddingRight: 8 },
+  importanceWide: { paddingRight: 8, paddingTop: 56 },
   slotScroll: { flexGrow: 0, flexShrink: 1 },
   importance: { flexShrink: 1, maxHeight: '50%', paddingVertical: 8, paddingLeft: 8, paddingRight: 48, borderRadius: 24, borderWidth: 2, borderColor: '#e9d6b8', backgroundColor: '#fcf9f3' },
-  instruction: { fontSize: 14, textAlign: 'center', fontWeight: '700', color: '#67583f', marginBottom: 6 },
+  inlineTranslation: { flexShrink: 0, color: '#58656b', fontSize: 13, fontWeight: '700', lineHeight: 17, marginTop: 2, textAlign: 'center' },
   slots: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center', alignItems: 'center' },
   slot: { flexShrink: 0, borderBottomWidth: 2, borderColor: '#b5a389', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8, borderRadius: 8 },
   scaffold: { color: '#26343b', fontWeight: '800' },

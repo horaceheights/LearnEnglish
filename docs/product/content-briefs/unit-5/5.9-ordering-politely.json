@@ -5,7 +5,7 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "2026-10-08 user-authorized review. The linked exact engine plan supersedes this brief's previous wording, order, banks and media. Preserve its complete contextual verb models, conversational turns and stage sequence when authoring.",
+  "note": "2026-10-08 subsequent user correction. The authoritative exact engine plan owns all card order, complete answer banks, speakers, contextual turns and image timing. Rebuild from that plan, not automatic exposure sorting or this historical item pool.",
   "target": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
   "lesson": {
     "id": "lesson-5-8-ordering-politely",
@@ -18,7 +18,7 @@
     "lesson_title": "Unit 5: Food, Drinks, and Shopping",
     "sub_lesson_id": "5.9",
     "sub_lesson_title": "Ordering Politely 1: At a Café",
-    "goal": "Complete a polite café exchange: greeting and help, request, handover and thanks.",
+    "goal": "Complete polite café exchanges for three different customers: greeting and help, request, matching handover and thanks; transfer from coffee to water and coffee with eggs.",
     "vocabulary": [
       "How can I help you?",
       "Can I have...?",
@@ -47,42 +47,46 @@
     "grammar_function": "Hello! How can I help you? Can I have coffee, please? Here is your coffee. Thank you. Can I have coffee and eggs, please? Here are your coffee and eggs.",
     "prerequisite": "3.1 greetings; 3.12 have; 5.2 food; 5.3 drinks; 5.6 wants and needs. Can I have and How can I help you are introduced here as polite fixed frames.",
     "speaking_outcome": "Request coffee, water or coffee and eggs politely, and complete the handover with thanks.",
-    "content_revision": 3,
+    "content_revision": 4,
     "purposeful_review_slides": [
       "R1",
-      "R2",
       "R3",
       "R4",
       "R5",
       "R6",
+      "R-water-thanks",
       "R7",
       "R8",
-      "R9",
-      "R10",
-      "A1",
+      "R-combo-thanks",
       "A2",
       "A3",
       "A4",
       "A5",
       "A6",
+      "A-water-thanks",
       "A7",
       "A8",
+      "A-combo-thanks",
       "S1",
       "S2",
       "S3",
       "S4",
       "S5",
       "S6",
+      "S-water-thanks",
       "S7",
       "S8",
+      "S-combo-thanks",
       "U1",
       "U2",
       "U3",
       "U4",
       "U5",
       "U6",
+      "U-water-thanks",
       "U7",
-      "U8"
+      "U8",
+      "U-combo-thanks"
     ],
     "learn_context_groups": [
       {
@@ -114,6 +118,10 @@
             "text": "Thank you."
           },
           {
+            "slide_id": "L-water-greeting",
+            "text": "Hello! How can I help you?"
+          },
+          {
             "slide_id": "L5",
             "text": "Water, please."
           },
@@ -122,12 +130,24 @@
             "text": "Here you are."
           },
           {
+            "slide_id": "L-water-thanks",
+            "text": "Thank you."
+          },
+          {
+            "slide_id": "L-combo-greeting",
+            "text": "Hello! How can I help you?"
+          },
+          {
             "slide_id": "L7",
             "text": "Can I have coffee and eggs, please?"
           },
           {
             "slide_id": "L8",
             "text": "Here are your coffee and eggs."
+          },
+          {
+            "slide_id": "L-combo-thanks",
+            "text": "Thank you."
           }
         ]
       }
@@ -141,6 +161,7 @@
   },
   "items": [
     {
+      "id": "L1",
       "text": "Hello! How can I help you?",
       "es": "¡Hola! ¿En qué puedo ayudarte?",
       "image": "a1_u5_revision_cafe_greeting_v1.webp",
@@ -150,15 +171,17 @@
       "speaker": "female-character"
     },
     {
+      "id": "L2",
       "text": "Can I have coffee, please?",
       "es": "¿Me da café, por favor?",
-      "image": "a1_u5_revision_cafe_coffee_request_v1.webp",
+      "image": "a1_u5_sequence_cafe_coffee_request_v1.webp",
       "kind": "contextual-model",
       "learn": true,
       "image_choices": false,
       "speaker": "male-character"
     },
     {
+      "id": "L3",
       "text": "Here is your coffee.",
       "es": "Aquí está tu café.",
       "image": "a1_u5_revision_cafe_coffee_handover_v1.webp",
@@ -168,6 +191,7 @@
       "speaker": "female-character"
     },
     {
+      "id": "L4",
       "text": "Thank you.",
       "es": "Gracias.",
       "image": "a1_u5_revision_cafe_thanks_v1.webp",
@@ -177,40 +201,84 @@
       "speaker": "male-character"
     },
     {
+      "id": "L-water-greeting",
+      "text": "Hello! How can I help you?",
+      "es": "¡Hola! ¿En qué puedo ayudarte?",
+      "image": "a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "L5",
       "text": "Water, please.",
       "es": "Agua, por favor.",
-      "image": "a1_u5_revision_cafe_water_request_v1.webp",
+      "image": "a1_u5_sequence_cafe_water_request_v1.webp",
       "kind": "contextual-model",
       "learn": true,
       "image_choices": false,
-      "speaker": "male-character"
+      "speaker": "female-character"
     },
     {
+      "id": "L6",
       "text": "Here you are.",
       "es": "Aquí tienes.",
-      "image": "a1_u5_revision_cafe_water_handover_v1.webp",
-      "kind": "contextual-model",
-      "learn": true,
-      "image_choices": false,
-      "speaker": "female-character"
-    },
-    {
-      "text": "Can I have coffee and eggs, please?",
-      "es": "¿Me da café y huevos, por favor?",
-      "image": "a1_u5_revision_cafe_combo_request_v1.webp",
+      "image": "a1_u5_sequence_cafe_water_handover_v1.webp",
       "kind": "contextual-model",
       "learn": true,
       "image_choices": false,
       "speaker": "male-character"
     },
     {
-      "text": "Here are your coffee and eggs.",
-      "es": "Aquí están tu café y tus huevos.",
-      "image": "a1_u5_revision_cafe_combo_handover_v1.webp",
+      "id": "L-water-thanks",
+      "text": "Thank you.",
+      "es": "Gracias.",
+      "image": "a1_u5_sequence_cafe_water_thanks_v1.webp",
       "kind": "contextual-model",
       "learn": true,
       "image_choices": false,
       "speaker": "female-character"
+    },
+    {
+      "id": "L-combo-greeting",
+      "text": "Hello! How can I help you?",
+      "es": "¡Hola! ¿En qué puedo ayudarte?",
+      "image": "a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "id": "L7",
+      "text": "Can I have coffee and eggs, please?",
+      "es": "¿Me da café y huevos, por favor?",
+      "image": "a1_u5_sequence_cafe_combo_request_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "L8",
+      "text": "Here are your coffee and eggs.",
+      "es": "Aquí están tu café y tus huevos.",
+      "image": "a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "id": "L-combo-thanks",
+      "text": "Thank you.",
+      "es": "Gracias.",
+      "image": "a1_u5_sequence_cafe_combo_thanks_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character"
     }
   ],
   "pool": [
@@ -236,5 +304,33 @@
     }
   ],
   "authoritative_plan": "docs/product/content-plans/unit5-review-2026-10-08/5.9.plan.json",
-  "review": []
+  "review": [],
+  "sequence_contract": {
+    "card_count": 50,
+    "stage_counts": {
+      "Learn": 12,
+      "Recognize": 9,
+      "Listen": 9,
+      "Speak": 10,
+      "Use": 10
+    },
+    "exchanges": [
+      "coffee",
+      "water",
+      "coffee and eggs"
+    ],
+    "scenario_cast": {
+      "coffee": "curly-haired man in navy shirt, original female server with ponytail/cream shirt/green apron",
+      "water": "woman around50, shoulder-length dark hair, plain teal blouse; male server around30, short brown hair/light stubble/white shirt/dark-green apron",
+      "combo": "Black man around35, short coily hair, glasses, mustard polo; original female server with ponytail/cream shirt/green apron"
+    },
+    "turn_order": [
+      "greeting and help",
+      "request",
+      "handover",
+      "thanks"
+    ],
+    "recognize_timing": "Initiating picture and audio, responding picture, then selection. Reply audio only on correct.",
+    "media_rule": "Three distinct customers; each customer's appearance and requested order stay consistent within the visit. Requested goods are not already in customer possession. The same speech act may reuse its reviewed scene across stages; different acts have distinct moments."
+  }
 }

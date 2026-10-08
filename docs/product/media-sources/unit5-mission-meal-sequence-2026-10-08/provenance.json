@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "provider": "openai-builtin-imagegen",
+  "tool": "image_gen.imagegen",
+  "model_id": null,
+  "request_id": null,
+  "usage": null,
+  "provider_metadata_note": "The built-in tool exposed output paths but no model ID, request ID, usage or billing.",
+  "task_scope": "Replace the contradictory one-table/multiple-meals mission scene with three chronological shared-meal scenes in an explicitly introduced recap.",
+  "approval_status": "pending-user-preview-review",
+  "continuity": {
+    "cast": "Same four adults, left-to-right denim woman, glasses/gray sweater man, mustard-cardigan woman, older blue-shirt/green-apron man.",
+    "time": "8:00 morning breakfast, 1:00 daytime lunch, 7:00 evening dinner; one meal/time per frame.",
+    "framing": "Complete uncropped 3:2 source, four distinct diners with reviewed crown anchors."
+  },
+  "assets": [
+    {
+      "filename": "a1_u5_sequence_mission_breakfast_v1.webp",
+      "role": "mission-breakfast-recap",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-50373fa5-5e4e-4ec0-b250-62dda723c1ff.png",
+      "prompt": "Create one photorealistic 3:2 landscape photograph, 1536x1024, for an adult English-learning lesson, not a collage. The supplied photo is the CAST and ROOM continuity reference, not the meal: preserve exactly these four adults in the same left-to-right order at the same wooden café dining table. Far left long brown-haired young woman wearing denim jacket over olive shirt; left-center Asian young man with black hair and glasses wearing gray sweater; right-center dark curly hair in bun woman wearing mustard cardigan and white blouse; far right older gray-haired bearded man in blue shirt and green apron. Keep these identities, clothing and approximate positions. Four distinct people, no extras, all four heads and individual place settings visible in one continuous scene. Friendly candid mealtime, looking at their own food/drink or neighboring diner, NEVER all facing the camera. Camera slight high eye-level facing the broad side of the table, plate tops clearly visible. Leave uncluttered wall/headroom above each person's head for interface markers. No text overlays, no captions, no labels, no signs, no UI, no arrows, no numbers on people. Keep wood, plants, large windows and natural photorealism. This frame is BREAKFAST at 8:00 in the morning. Warm low morning sunlight enters the windows; bright morning outdoors. Add a clearly visible natural round analog wall clock high on the center back wall, with minute hand straight at 12 and short hour hand exactly at 8. Replace ALL reference food and drinks with these four separate settings left to right: (1) denim woman has exactly TWO large distinct sunny-side-up fried eggs on an otherwise empty white plate, both yellow yolks clearly visible and separate; she holds fork near eggs. (2) glasses man drinks black COFFEE in a clear glass mug, a small French press with dark black coffee directly next to his setting; no food plate. (3) mustard woman has exactly ONE large sunny-side-up fried egg on an otherwise empty white plate, clearly one yellow yolk, fork in hand. (4) older man holds a clear glass teacup of transparent amber TEA, visible tea bag with string and small tag over rim, clear amber-filled teapot beside him; no food. Coffee is opaque near-black; tea is transparent golden amber. No extra food or drinks anywhere at the table, no rice, no chicken, no water glasses, no extra egg hidden under another. Each person's item belongs only to that person. All four share the same breakfast moment.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\Lessons\\Lesson1\\images\\a1_u5_market_v1_meals_table.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_market_v1_meals_table.webp",
+      "reference_sha256": "1b9268860b7e56617f427c9acf8acf847d7a2ae0f72347a03a3988cb8fd02af2",
+      "source_path": "docs/product/media-sources/unit5-mission-meal-sequence-2026-10-08/a1_u5_sequence_mission_breakfast_v1.png",
+      "source_sha256": "40039bc92428f25d45170d4c3cde82925249c9d44377b6cf27b2b05538643d0d",
+      "source_bytes": 2610618,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_breakfast_v1.webp",
+      "runtime_sha256": "64916860647f1a6014ea9dd1e3f44ef214707b938ac62834bbd7065bc369d66a",
+      "runtime_bytes": 439868,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:48:11.662646+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone-scales",
+        "note": "Morning daylight and a wall clock showing 8:00. Left-to-right: denim woman with two separate fried eggs/two yolks, glasses man holding near-black coffee with French press, mustard woman with one fried egg/one yolk, older man holding transparent amber tea with tea bag and amber-filled teapot. Same cast and room, no camera poses.",
+        "head_anchors": [
+          {
+            "x": 0.145,
+            "y": 0.183
+          },
+          {
+            "x": 0.38,
+            "y": 0.151
+          },
+          {
+            "x": 0.632,
+            "y": 0.131
+          },
+          {
+            "x": 0.886,
+            "y": 0.132
+          }
+        ],
+        "human_approval": false,
+        "reviewed_phone_widths": [
+          354,
+          284
+        ],
+        "layout_review": "The actual shared fitMissionHeadScene implementation passed complete 48dp target bounds, individual pulse envelope, crown association, face exclusion and non-overlap across six scene slots per image: 284x330, 328x410, 374x500, 480x190, 650x190, 840x230. This is source-pixel review and automated geometry evidence, not real-device or human approval."
+      }
+    },
+    {
+      "filename": "a1_u5_sequence_mission_lunch_v1.webp",
+      "role": "mission-lunch-recap",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-73d6a83c-fed0-4a75-a4cf-88968630f665.png",
+      "prompt": "Create one photorealistic 3:2 landscape photograph, 1536x1024, for an adult English-learning lesson, not a collage. The supplied photo is the CAST and ROOM continuity reference, not the meal: preserve exactly these four adults in the same left-to-right order at the same wooden café dining table. Far left long brown-haired young woman wearing denim jacket over olive shirt; left-center Asian young man with black hair and glasses wearing gray sweater; right-center dark curly hair in bun woman wearing mustard cardigan and white blouse; far right older gray-haired bearded man in blue shirt and green apron. Keep these identities, clothing and approximate positions. Four distinct people, no extras, all four heads and individual place settings visible in one continuous scene. Friendly candid mealtime, looking at their own food/drink or neighboring diner, NEVER all facing the camera. Camera slight high eye-level facing the broad side of the table, plate tops clearly visible. Leave uncluttered wall/headroom above each person's head for interface markers. No text overlays, no captions, no labels, no signs, no UI, no arrows, no numbers on people. Keep wood, plants, large windows and natural photorealism. This frame is LUNCH at 1:00 in the afternoon, a single shared lunch moment. Strong natural midday light enters windows; bright daytime outdoors. Add a clearly visible natural round analog wall clock high on the center back wall with minute hand straight at 12 and short hour hand exactly at 1. Replace ALL reference food/drinks with four individual settings left to right: (1) denim woman is eating one whole cooked FISH on a white plate, unmistakable fish body, head, tail, fins and silvery browned skin; fork by her plate. (2) glasses man is eating white RICE from a bowl with a spoon; no other food. (3) mustard woman is eating roast CHICKEN leg and breast on white plate, obvious golden-brown chicken shape, fork and knife. (4) older man is drinking plain clear WATER from transparent ordinary tall water glass held in his hand, with a clear water carafe and his otherwise empty setting. No coffee/tea cups, no tea bag, no eggs, no extra water glasses in other people's settings, no duplicate food among people. All four people are dining at the SAME lunch time. Visually distinguish the whole fish from roast chicken.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\Lessons\\Lesson1\\images\\a1_u5_market_v1_meals_table.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_market_v1_meals_table.webp",
+      "reference_sha256": "1b9268860b7e56617f427c9acf8acf847d7a2ae0f72347a03a3988cb8fd02af2",
+      "source_path": "docs/product/media-sources/unit5-mission-meal-sequence-2026-10-08/a1_u5_sequence_mission_lunch_v1.png",
+      "source_sha256": "29d7bd6d00d20e831516730bb3852599b659695934840928ad020130e7d93081",
+      "source_bytes": 2657282,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_lunch_v1.webp",
+      "runtime_sha256": "c3be77714fa024c2eca6f011ea339fbeea567715cf49c17ffc7d93e8231b6a8d",
+      "runtime_bytes": 446384,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:48:45.823807+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone-scales",
+        "note": "Daylight and a wall clock showing 1:00. Left-to-right: denim woman eating an unmistakable whole cooked fish with head and tail; glasses man eating white rice; mustard woman eating roast chicken; older man drinking clear water with water carafe. Each item belongs to one person and all are at one lunch table.",
+        "head_anchors": [
+          {
+            "x": 0.141,
+            "y": 0.17
+          },
+          {
+            "x": 0.381,
+            "y": 0.157
+          },
+          {
+            "x": 0.628,
+            "y": 0.157
+          },
+          {
+            "x": 0.881,
+            "y": 0.131
+          }
+        ],
+        "human_approval": false,
+        "reviewed_phone_widths": [
+          354,
+          284
+        ],
+        "layout_review": "The actual shared fitMissionHeadScene implementation passed complete 48dp target bounds, individual pulse envelope, crown association, face exclusion and non-overlap across six scene slots per image: 284x330, 328x410, 374x500, 480x190, 650x190, 840x230. This is source-pixel review and automated geometry evidence, not real-device or human approval."
+      }
+    },
+    {
+      "filename": "a1_u5_sequence_mission_dinner_v1.webp",
+      "role": "mission-dinner-recap",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-148a-7eb3-85c9-e870deede43a\\exec-6cfff88a-7389-4b90-8c2a-de4dc3e93f57.png",
+      "prompt": "Create one photorealistic 3:2 landscape photograph, 1536x1024, for an adult English-learning lesson, not a collage. The supplied photo is the CAST and ROOM continuity reference, not the meal: preserve exactly these four adults in the same left-to-right order at the same wooden café dining table. Far left long brown-haired young woman wearing denim jacket over olive shirt; left-center Asian young man with black hair and glasses wearing gray sweater; right-center dark curly hair in bun woman wearing mustard cardigan and white blouse; far right older gray-haired bearded man in blue shirt and green apron. Keep these identities, clothing and approximate positions. Four distinct people, no extras, all four heads and individual place settings visible in one continuous scene. Friendly candid mealtime, looking at their own food/drink or neighboring diner, NEVER all facing the camera. Camera slight high eye-level facing the broad side of the table, plate tops clearly visible. Leave uncluttered wall/headroom above each person's head for interface markers. No text overlays, no captions, no labels, no signs, no UI, no arrows, no numbers on people. Keep wood, plants, large windows and natural photorealism. This frame is DINNER at 7:00 in the evening, a single shared dinner moment. Dark blue evening sky outside both large windows, warm interior pendant lights turned on, warmly lit faces and dishes still very clear. Add a clearly visible natural round analog wall clock high on center back wall, minute hand straight at 12 and short hour hand exactly at 7. Replace ALL reference food/drinks with these four separate settings left to right: (1) denim woman eats exactly two sunny-side-up fried EGGS on otherwise empty white plate, two clear yellow yolks and egg whites; (2) glasses man eats white RICE from white bowl using spoon; no other food; (3) mustard woman eats roast CHICKEN leg and breast on white plate with fork and knife, obvious chicken shape; (4) older man drinks plain clear WATER from ordinary tall transparent water glass, with transparent water carafe by his setting. No coffee or tea, no teapot, no water at other people's settings, no duplicate food among people. All four at the SAME evening dinner. Make the evening lighting unambiguously different from a daytime meal, without making food or faces dark.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\Lessons\\Lesson1\\images\\a1_u5_market_v1_meals_table.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_market_v1_meals_table.webp",
+      "reference_sha256": "1b9268860b7e56617f427c9acf8acf847d7a2ae0f72347a03a3988cb8fd02af2",
+      "source_path": "docs/product/media-sources/unit5-mission-meal-sequence-2026-10-08/a1_u5_sequence_mission_dinner_v1.png",
+      "source_sha256": "131414e22977e0bb140130a85062dc30fcc6066413d9e8cb661cf0f1d149e70d",
+      "source_bytes": 2535950,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_mission_dinner_v1.webp",
+      "runtime_sha256": "c6a117002922868dbecc7705782878bfe9c4c11e9935c66bb17736c9ced3eb71",
+      "runtime_bytes": 411658,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:49:19.603490+00:00",
+      "agent_review": {
+        "status": "reviewed-full-resolution-and-phone-scales",
+        "note": "Dark blue sky through the windows, warm indoor lights, and wall clock showing 7:00. Left-to-right: denim woman with two fried eggs, glasses man with white rice, mustard woman with roast chicken, older man holding clear water with a water carafe. Same people and seats at one evening meal.",
+        "head_anchors": [
+          {
+            "x": 0.142,
+            "y": 0.172
+          },
+          {
+            "x": 0.383,
+            "y": 0.151
+          },
+          {
+            "x": 0.625,
+            "y": 0.135
+          },
+          {
+            "x": 0.884,
+            "y": 0.132
+          }
+        ],
+        "human_approval": false,
+        "reviewed_phone_widths": [
+          354,
+          284
+        ],
+        "layout_review": "The actual shared fitMissionHeadScene implementation passed complete 48dp target bounds, individual pulse envelope, crown association, face exclusion and non-overlap across six scene slots per image: 284x330, 328x410, 374x500, 480x190, 650x190, 840x230. This is source-pixel review and automated geometry evidence, not real-device or human approval."
+      }
+    }
+  ]
+}

@@ -121,6 +121,7 @@ import { useLessonAudioReadiness } from '../hooks/useLessonAudioReadiness';
 import { AudioConnectionNotice } from '../components/AudioConnectionNotice';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
+import { replyImageAfterPrompt } from '../lessonTurnImages';
 import { useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
@@ -324,6 +325,7 @@ export function LessonScreen({
   const missionIntroAwaitingRef = useRef(false);
   const missionIntroWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
+  const audioPlaybackStartedRequestRef = useRef<number | null>(null);
   const audioPlayerActiveRef = useRef(true);
   const cardAudioReadyRef = useRef(true);
   const audioPreloadRef = useRef<Map<AudioSource, Promise<boolean>>>(new Map());
@@ -391,6 +393,8 @@ export function LessonScreen({
   const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
   const [activeAudioSequence, setActiveAudioSequence] = useState<CourseAudioTurnPlayback[] | null>(null);
   const [activeTurnImageUrl, setActiveTurnImageUrl] = useState<string | null>(null);
+  const [replyImageAttempt, setReplyImageAttempt] = useState(0);
+  const [loadedPromptImageKey, setLoadedPromptImageKey] = useState<string | null>(null);
   const [pronunciationAudioReadyKey, setPronunciationAudioReadyKey] = useState<string | null>(null);
   const [pronunciationReplayAvailable, setPronunciationReplayAvailable] = useState(false);
   const [pronunciationReplayRequestId, setPronunciationReplayRequestId] = useState(0);
@@ -737,6 +741,7 @@ export function LessonScreen({
         const player = audioPlayerRef.current;
         player.pause();
         player.replace(source);
+        audioPlaybackStartedRequestRef.current = requestId;
         addDiagnosticBreadcrumb('audio_started', { mode, variant });
         player.play();
       })
@@ -1032,6 +1037,15 @@ export function LessonScreen({
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
+  const replyImage = replyImageAfterPrompt(currentCard);
+  const promptImageLoadKey = `${lessonId}:${cardIndex}:${cardRunId}:${replyImageAttempt}:${activeTurnImageUrl || currentCard?.prompt_image_url || ''}`;
+  const promptImageLoadKeyRef = useRef(promptImageLoadKey);
+  promptImageLoadKeyRef.current = promptImageLoadKey;
+  const replyScenePending = Boolean(replyImage
+    && (activeTurnImageUrl !== replyImage || loadedPromptImageKey !== promptImageLoadKey));
+  const onPromptImageReady = useCallback(() => {
+    if (promptImageLoadKeyRef.current === promptImageLoadKey) setLoadedPromptImageKey(promptImageLoadKey);
+  }, [promptImageLoadKey]);
   const missionOrder = useMemo(
     () => missionCueOrder(currentCard?.mission_game),
     [currentCard?.mission_game, cardRunId],
@@ -1336,6 +1350,15 @@ export function LessonScreen({
 
   const replayPrompt = useCallback(() => {
     if (!visiblePromptAudio.trim()) return;
+    if (replyImageAfterPrompt(currentCard)) {
+      setActiveTurnImageUrl(null);
+      setReplyImageAttempt((attempt) => attempt + 1);
+      setPromptAutoplayFinished(false);
+      if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
+      promptAutoplayFallbackTimerRef.current = null;
+      promptAutoplayAwaitingRef.current = true;
+      promptAutoplayWasPlayingRef.current = false;
+    }
     if (currentCard?.audio_turns?.length) {
       if (promptTurnSequence) {
         playAudioSequence(
@@ -1363,7 +1386,7 @@ export function LessonScreen({
       'prompt',
       visiblePromptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
     );
-  }, [completionPromptSource, currentCard?.audio_turns?.length, isPronunciation, playAudio, playAudioSequence, playAudioSource, promptHasVisualBlank, promptTurnSequence, visiblePromptAudio]);
+  }, [completionPromptSource, currentCard, isPronunciation, playAudio, playAudioSequence, playAudioSource, promptHasVisualBlank, promptTurnSequence, visiblePromptAudio]);
 
   const playMissionCueAt = useCallback((cueIndex: number) => {
     if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
@@ -1539,11 +1562,17 @@ export function LessonScreen({
       return;
     }
     if (correctRecognizeReplayText) {
+      if (currentCard?.answer_audio_turns?.length) {
+        const sequence = findCourseAudioTurnSequence(currentCard, 'answer');
+        if (sequence) playAudioSequence(sequence, 'prompt', 'answer-turns');
+        else addDiagnosticBreadcrumb('course_audio_turn_sequence_invalid', { purpose: 'answer' });
+        return;
+      }
       playAudio(correctRecognizeReplayText, 'prompt', 'answer');
       return;
     }
     replayPrompt();
-  }, [correctRecognizeReplayText, help.interact, isPronunciation, phraseReplayAvailable, playAudio, replayPrompt]);
+  }, [correctRecognizeReplayText, currentCard, help.interact, isPronunciation, phraseReplayAvailable, playAudio, playAudioSequence, replayPrompt]);
 
   useEffect(() => {
     if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
@@ -1641,9 +1670,15 @@ export function LessonScreen({
     }
     promptAutoplayAwaitingRef.current = true;
     promptAutoplayWasPlayingRef.current = false;
+    if (replyImageAfterPrompt(currentCard)) {
+      setActiveTurnImageUrl(null);
+      setReplyImageAttempt((attempt) => attempt + 1);
+    }
     promptAutoplayFallbackTimerRef.current = setTimeout(() => {
       promptAutoplayFallbackTimerRef.current = null;
-      promptAutoplayAwaitingRef.current = false;
+      // Recovery can offer replay, but a timeout neither proves the line finished
+      // nor prevents a slow, healthy reply prompt from finishing later.
+      if (!replyImageAfterPrompt(currentCard)) promptAutoplayAwaitingRef.current = false;
       setPromptAutoplayFinished(true);
     }, COURSE_AUDIO_FALLBACK_MS);
     const timer = setTimeout(() => {
@@ -1675,6 +1710,8 @@ export function LessonScreen({
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
+    const replyImage = replyImageAfterPrompt(currentCard);
+    if (replyImage && audioPlaybackStartedRequestRef.current !== audioPlaybackRequestRef.current) return;
     if (courseAudioPlaybackStatus.playing) promptAutoplayWasPlayingRef.current = true;
     if (
       !courseAudioPlaybackStatus.error &&
@@ -1688,7 +1725,10 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
     }
     setPromptAutoplayFinished(true);
-  }, [courseAudioPlaybackStatus.didJustFinish, courseAudioPlaybackStatus.error, courseAudioPlaybackStatus.playing]);
+    if (!courseAudioPlaybackStatus.error) {
+      if (replyImage) setActiveTurnImageUrl(replyImage);
+    }
+  }, [currentCard, courseAudioPlaybackStatus.didJustFinish, courseAudioPlaybackStatus.error, courseAudioPlaybackStatus.playing]);
 
   useEffect(() => {
     if (missionIntroAwaitingRef.current) {
@@ -2323,6 +2363,7 @@ export function LessonScreen({
   };
 
   const choose = (optionId: string) => {
+    if (replyScenePending) return;
     if (awaitingConstructionRetry(currentCard, result)) return;
     if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
@@ -3387,13 +3428,15 @@ export function LessonScreen({
             card={currentCard}
             key={`lesson-card-${cardIndex}-${cardRunId}`}
             onTeachingImageReady={learnTranslation.enabled ? () => setLoadedTeachingImageKey(helpCardKey) : undefined}
+            onPromptImageReady={replyImage ? onPromptImageReady : undefined}
+            promptImageLoadKey={replyImage ? promptImageLoadKey : undefined}
             level={lesson.level}
             lessonId={lesson.id}
             isAppActive={isAppActive && cardAudio.ready}
             pronunciationAutoplayReady={!isPageTurning}
             isOffline={isOffline}
             offlinePronunciationPracticeEnabled={isOffline && offlinePronunciationAccepted}
-            optionsInteractive={!isAutomaticSingleCard}
+            optionsInteractive={!isAutomaticSingleCard && !replyScenePending}
             pronunciationAudioTurns={pronunciationTurnSequence}
             missionVoiceGate={missionVoiceGateProgress}
             missionLandscapeHeader={usesMissionPhoneLandscape ? (

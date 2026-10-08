@@ -80,7 +80,7 @@
     "N20",
     "S7"
   ],
-  "content_revision": 3,
+  "content_revision": 4,
   "cards": [
     {
       "slide_id": "L1",
@@ -434,7 +434,7 @@
       "options": [
         {
           "id": "l8-model",
-          "image_url": "/lesson-assets/a1_u5_revision_review_cafe_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_review_cafe_greeting_v1.webp",
           "label": "Hello! How can I help you?"
         }
       ],
@@ -449,24 +449,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c008-prompt-abdc14c08811d6803b40",
+          "id": "lesson-5-9-unit-5-review-c008-prompt-1df96649f7e155f03c11",
           "purpose": "prompt",
           "text": "Hello! How can I help you?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_review_cafe_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_review_cafe_greeting_v1.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c008-answer-6ec76aa1baab754be158",
+          "id": "lesson-5-9-unit-5-review-c008-answer-74d0c9e394a803ed9d96",
           "purpose": "answer",
           "text": "Hello! How can I help you?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_review_cafe_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_review_cafe_greeting_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -961,6 +961,7 @@
           "image_url": "/lesson-assets/a1_u5_revision_review_neither_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
@@ -1884,24 +1885,24 @@
         {
           "id": "n16-other-0",
           "image_url": "",
-          "label": "Here is your tea. Thank you."
+          "label": "Here are your coffee and bread. Thank you."
         },
         {
           "id": "n16-answer",
           "image_url": "",
-          "label": "Here is your coffee. Thank you."
+          "label": "Here are your coffee and eggs. Thank you."
         }
       ],
-      "audio_text": "Here is your coffee. Thank you.",
+      "audio_text": "Here are your coffee and eggs. Thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
+      "spanish_translation": "Aqu\u00ed est\u00e1n tu caf\u00e9 y tus huevos. Gracias.",
       "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N16",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "Here is your coffee.",
+          "text": "Here are your coffee and eggs.",
           "speaker_role": "female-character",
           "image_url": "/lesson-assets/a1_u5_revision_review_cafe_handover_v1.webp"
         },
@@ -1915,9 +1916,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c035-prompt-turn-1-f0bfc976092d772a1d91",
+          "id": "lesson-5-9-unit-5-review-c035-prompt-turn-1-de7a590ddc9ebbeae8dc",
           "purpose": "prompt-turn-1",
-          "text": "Here is your coffee.",
+          "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u5_revision_review_cafe_handover_v1.webp",
@@ -1950,18 +1951,18 @@
         {
           "id": "n17-answer",
           "image_url": "",
-          "label": "Here are your coffee and eggs."
+          "label": "Here is your coffee."
         },
         {
           "id": "n17-other-0",
           "image_url": "",
-          "label": "Here are your coffee and bread."
+          "label": "Here is your tea."
         }
       ],
-      "audio_text": "Here are your coffee and eggs.",
+      "audio_text": "Here is your coffee.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
+      "spanish_translation": "Aqu\u00ed est\u00e1 tu caf\u00e9.",
       "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N17",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
@@ -1969,24 +1970,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c036-prompt-1222c72015d97161290b",
+          "id": "lesson-5-9-unit-5-review-c036-prompt-350461d57885e98b2cac",
           "purpose": "prompt",
-          "text": "Here are your coffee and eggs.",
+          "text": "Here is your coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:0c9e55efc522e826d322",
+          "image_ref": "text-only:d9c69e9dda86b685fc1a",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c036-answer-0fd0293b8f049eca3e74",
+          "id": "lesson-5-9-unit-5-review-c036-answer-fe24c5570527008b0c35",
           "purpose": "answer",
-          "text": "Here are your coffee and eggs.",
+          "text": "Here is your coffee.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:0c9e55efc522e826d322",
+          "image_ref": "text-only:d9c69e9dda86b685fc1a",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2437,7 +2438,7 @@
       "options": [
         {
           "id": "s6-model",
-          "image_url": "/lesson-assets/a1_u5_revision_review_cafe_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_review_cafe_request_v1.webp",
           "label": "Can I have coffee and eggs, please?"
         }
       ],
@@ -2452,24 +2453,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c045-prompt-667c222f4350df873d1d",
+          "id": "lesson-5-9-unit-5-review-c045-prompt-220b50aea3710cb04b07",
           "purpose": "prompt",
           "text": "Can I have coffee and eggs, please?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_revision_review_cafe_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_review_cafe_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c045-answer-ff5dcdefbeed6a32cc04",
+          "id": "lesson-5-9-unit-5-review-c045-answer-8bdbe7e76de81f6a781d",
           "purpose": "answer",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_review_cafe_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_review_cafe_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",

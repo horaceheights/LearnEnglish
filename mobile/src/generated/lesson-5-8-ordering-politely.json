@@ -9,7 +9,7 @@
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
   "sub_lesson_id": "5.9",
   "sub_lesson_title": "Ordering Politely 1: At a Caf\u00e9",
-  "goal": "Complete a polite caf\u00e9 exchange: greeting and help, request, handover and thanks.",
+  "goal": "Complete polite caf\u00e9 exchanges for three different customers: greeting and help, request, matching handover and thanks; transfer from coffee to water and coffee with eggs.",
   "vocabulary": [
     "How can I help you?",
     "Can I have...?",
@@ -40,41 +40,45 @@
   "speaking_outcome": "Request coffee, water or coffee and eggs politely, and complete the handover with thanks.",
   "purposeful_review_slides": [
     "R1",
-    "R2",
     "R3",
     "R4",
     "R5",
     "R6",
+    "R-water-thanks",
     "R7",
     "R8",
-    "R9",
-    "R10",
-    "A1",
+    "R-combo-thanks",
     "A2",
     "A3",
     "A4",
     "A5",
     "A6",
+    "A-water-thanks",
     "A7",
     "A8",
+    "A-combo-thanks",
     "S1",
     "S2",
     "S3",
     "S4",
     "S5",
     "S6",
+    "S-water-thanks",
     "S7",
     "S8",
+    "S-combo-thanks",
     "U1",
     "U2",
     "U3",
     "U4",
     "U5",
     "U6",
+    "U-water-thanks",
     "U7",
-    "U8"
+    "U8",
+    "U-combo-thanks"
   ],
-  "content_revision": 3,
+  "content_revision": 4,
   "cards": [
     {
       "slide_id": "L1",
@@ -93,7 +97,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L1",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -134,7 +138,7 @@
       "options": [
         {
           "id": "l2-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "label": "Can I have coffee, please?"
         }
       ],
@@ -142,31 +146,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfMe da caf\u00e9, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L2",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: coffee_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c002-prompt-765c7eb5b1776c0723b8",
+          "id": "lesson-5-8-ordering-politely-c002-prompt-e1e20cff3001d46cfb1b",
           "purpose": "prompt",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c002-answer-0b04c4fac790be62ee74",
+          "id": "lesson-5-8-ordering-politely-c002-answer-c56fb6994b2f1aad8120",
           "purpose": "answer",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -191,7 +195,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Aqu\u00ed est\u00e1 tu caf\u00e9.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L3",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: coffee_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -240,7 +244,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Gracias.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L4",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: coffee_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -273,6 +277,55 @@
       ]
     },
     {
+      "slide_id": "L-water-greeting",
+      "interaction_type": "teach",
+      "prompt": "Hello! How can I help you?",
+      "stage": "Learn",
+      "correct_option_id": "l-water-greeting-model",
+      "options": [
+        {
+          "id": "l-water-greeting-model",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+          "label": "Hello! How can I help you?"
+        }
+      ],
+      "audio_text": "Hello! How can I help you?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: water_greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c005-prompt-4fea7d37f76fca61c4ed",
+          "purpose": "prompt",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c005-answer-320a85368c27b9a04b06",
+          "purpose": "answer",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
       "slide_id": "L5",
       "interaction_type": "teach",
       "prompt": "Water, please.",
@@ -281,7 +334,7 @@
       "options": [
         {
           "id": "l5-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "label": "Water, please."
         }
       ],
@@ -289,33 +342,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L5",
-      "audio_speaker": "male-character",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: water_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c005-prompt-df1b6e4f70072d9a37ac",
+          "id": "lesson-5-8-ordering-politely-c006-prompt-f0aef424c6eea09bda9d",
           "purpose": "prompt",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c005-answer-8013f9156118ebb59cae",
+          "id": "lesson-5-8-ordering-politely-c006-answer-3ee820e3ecee5375860c",
           "purpose": "answer",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -330,7 +383,7 @@
       "options": [
         {
           "id": "l6-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
           "label": "Here you are."
         }
       ],
@@ -338,31 +391,129 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Aqu\u00ed tienes.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L6",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: water_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c007-prompt-56feaf3777cdceb769ff",
+          "purpose": "prompt",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c007-answer-552e66ff79b76279d750",
+          "purpose": "answer",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L-water-thanks",
+      "interaction_type": "teach",
+      "prompt": "Thank you.",
+      "stage": "Learn",
+      "correct_option_id": "l-water-thanks-model",
+      "options": [
+        {
+          "id": "l-water-thanks-model",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: water_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c006-prompt-be2c6280f1c455468613",
+          "id": "lesson-5-8-ordering-politely-c008-prompt-314e597f8f9eae9c13b8",
           "purpose": "prompt",
-          "text": "Here you are.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c006-answer-d941bd240bd75afbb7d9",
+          "id": "lesson-5-8-ordering-politely-c008-answer-7caa56d5916664cf51f1",
           "purpose": "answer",
-          "text": "Here you are.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L-combo-greeting",
+      "interaction_type": "teach",
+      "prompt": "Hello! How can I help you?",
+      "stage": "Learn",
+      "correct_option_id": "l-combo-greeting-model",
+      "options": [
+        {
+          "id": "l-combo-greeting-model",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+          "label": "Hello! How can I help you?"
+        }
+      ],
+      "audio_text": "Hello! How can I help you?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: combo_greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c009-prompt-69ae06619ba3859b629e",
+          "purpose": "prompt",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c009-answer-d3a10e6f1647a5403e39",
+          "purpose": "answer",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -379,7 +530,7 @@
       "options": [
         {
           "id": "l7-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "label": "Can I have coffee and eggs, please?"
         }
       ],
@@ -387,31 +538,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfMe da caf\u00e9 y huevos, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L7",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: combo_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c007-prompt-c31988c7a46491dc4fab",
+          "id": "lesson-5-8-ordering-politely-c010-prompt-4c46f41227b46195c21d",
           "purpose": "prompt",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c007-answer-3e0de566c6d056525220",
+          "id": "lesson-5-8-ordering-politely-c010-answer-b701ddda004f6bc9e431",
           "purpose": "answer",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -428,7 +579,7 @@
       "options": [
         {
           "id": "l8-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "label": "Here are your coffee and eggs."
         }
       ],
@@ -436,33 +587,82 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Aqu\u00ed est\u00e1n tu caf\u00e9 y tus huevos.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L8",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: combo_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c008-prompt-517e330d45fe4fcbb5a4",
+          "id": "lesson-5-8-ordering-politely-c011-prompt-296dba78ad0d395d6412",
           "purpose": "prompt",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c008-answer-eb2870eb07758ca9507f",
+          "id": "lesson-5-8-ordering-politely-c011-answer-0f90413bfd568d1403b5",
           "purpose": "answer",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L-combo-thanks",
+      "interaction_type": "teach",
+      "prompt": "Thank you.",
+      "stage": "Learn",
+      "correct_option_id": "l-combo-thanks-model",
+      "options": [
+        {
+          "id": "l-combo-thanks-model",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Learn: combo_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c012-prompt-64ff050783db61cb83f5",
+          "purpose": "prompt",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c012-answer-6e5a64907383c8f2a81a",
+          "purpose": "answer",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -476,94 +676,53 @@
       "correct_option_id": "r1-answer",
       "options": [
         {
-          "id": "r1-other-0",
-          "image_url": "",
-          "label": "Can I have tea, please?"
-        },
-        {
           "id": "r1-answer",
           "image_url": "",
           "label": "Can I have coffee, please?"
+        },
+        {
+          "id": "r1-other-0",
+          "image_url": "",
+          "label": "Can I have tea, please?"
         }
       ],
       "audio_text": "Hello! How can I help you?",
       "answer_audio_text": "Can I have coffee, please?",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
       "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R1",
+      "pedagogy_note": "coffee / Recognize: greeting -> coffee_request. Distinct initiating and responding moments; one coherent reply.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "male-character",
       "answer_audio_turns": [
         {
           "text": "Can I have coffee, please?",
           "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp"
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c009-prompt-99c9b8efdad6c1723580",
+          "id": "lesson-5-8-ordering-politely-c013-prompt-3f2605a166ec2515a6c7",
           "purpose": "prompt",
           "text": "Hello! How can I help you?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c009-answer-turn-1-fc52b51f2c8517e218f5",
+          "id": "lesson-5-8-ordering-politely-c013-answer-turn-1-b5c73394522aec9057a9",
           "purpose": "answer-turn-1",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "r2-answer",
-      "options": [
-        {
-          "id": "r2-answer",
-          "image_url": "",
-          "label": "Can I have coffee, please?"
-        },
-        {
-          "id": "r2-other-0",
-          "image_url": "",
-          "label": "Can I have tea, please?"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Can I have coffee, please?",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R2",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-8-ordering-politely-c010-answer-22e46b14bb71769eeecc",
-          "purpose": "answer",
-          "text": "Can I have coffee, please?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -591,9 +750,9 @@
       ],
       "audio_text": "Can I have coffee, please?",
       "answer_audio_text": "Here is your coffee.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
       "spanish_translation": "\u00bfMe da caf\u00e9, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R3",
+      "pedagogy_note": "coffee / Recognize: coffee_request -> coffee_handover. Distinct initiating and responding moments; one coherent reply.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "female-character",
       "answer_audio_turns": [
@@ -603,23 +762,24 @@
           "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c011-prompt-42f3c0473a1e9e886144",
+          "id": "lesson-5-8-ordering-politely-c014-prompt-84ff69d2a4d4a9d53e5d",
           "purpose": "prompt",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c011-answer-turn-1-58be3af2b608902ac77d",
+          "id": "lesson-5-8-ordering-politely-c014-answer-turn-1-742f8e02e8247699b09b",
           "purpose": "answer-turn-1",
           "text": "Here is your coffee.",
           "mode": "prompt",
@@ -647,14 +807,14 @@
         {
           "id": "r4-other-0",
           "image_url": "",
-          "label": "Goodbye."
+          "label": "Here is your coffee."
         }
       ],
       "audio_text": "Here is your coffee.",
       "answer_audio_text": "Thank you.",
       "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
       "spanish_translation": "Aqu\u00ed est\u00e1 tu caf\u00e9.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R4",
+      "pedagogy_note": "coffee / Recognize: coffee_handover -> coffee_thanks. Distinct initiating and responding moments; one coherent reply.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "male-character",
       "answer_audio_turns": [
@@ -664,11 +824,12 @@
           "image_url": "/lesson-assets/a1_u5_revision_cafe_thanks_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c012-prompt-bfcf1a8d61d3060a367f",
+          "id": "lesson-5-8-ordering-politely-c015-prompt-877367c540832aff89f0",
           "purpose": "prompt",
           "text": "Here is your coffee.",
           "mode": "prompt",
@@ -680,7 +841,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c012-answer-turn-1-ce5529201fb1c5dd4cb6",
+          "id": "lesson-5-8-ordering-politely-c015-answer-turn-1-5462b06cc40601add693",
           "purpose": "answer-turn-1",
           "text": "Thank you.",
           "mode": "prompt",
@@ -696,7 +857,7 @@
     {
       "slide_id": "R5",
       "interaction_type": "i2t2",
-      "prompt": "",
+      "prompt": "Hello! How can I help you?",
       "stage": "Recognize",
       "correct_option_id": "r5-answer",
       "options": [
@@ -711,25 +872,45 @@
           "label": "Water, please."
         }
       ],
-      "audio_text": "",
+      "audio_text": "Hello! How can I help you?",
       "answer_audio_text": "Water, please.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R5",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
+      "pedagogy_note": "water / Recognize: water_greeting -> water_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "answer_audio_turns": [
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c013-answer-36f727b577d5a725579e",
-          "purpose": "answer",
+          "id": "lesson-5-8-ordering-politely-c016-prompt-b608bc85fe9ba843ee9a",
+          "purpose": "prompt",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c016-answer-turn-1-123750e37bf318f647a4",
+          "purpose": "answer-turn-1",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -755,40 +936,103 @@
       ],
       "audio_text": "Water, please.",
       "answer_audio_text": "Here you are.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
       "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R6",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "water / Recognize: water_request -> water_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
       "answer_audio_turns": [
         {
           "text": "Here you are.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp"
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c014-prompt-1e0038171fe6138c0e1e",
+          "id": "lesson-5-8-ordering-politely-c017-prompt-93b4ba93b2a30f84cf8d",
           "purpose": "prompt",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c017-answer-turn-1-a2cf588c019e1b5e248a",
+          "purpose": "answer-turn-1",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R-water-thanks",
+      "interaction_type": "i2t2",
+      "prompt": "Here you are.",
+      "stage": "Recognize",
+      "correct_option_id": "r-water-thanks-answer",
+      "options": [
+        {
+          "id": "r-water-thanks-other-0",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "r-water-thanks-answer",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed tienes.",
+      "pedagogy_note": "water / Recognize: water_handover -> water_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "answer_audio_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c018-prompt-8f1b199b3e29e6142fb8",
+          "purpose": "prompt",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c014-answer-turn-1-bbbddd39a5444e1ddfec",
+          "id": "lesson-5-8-ordering-politely-c018-answer-turn-1-dd547e6142f0eb19ca0c",
           "purpose": "answer-turn-1",
-          "text": "Here you are.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -799,38 +1043,58 @@
     {
       "slide_id": "R7",
       "interaction_type": "i2t2",
-      "prompt": "",
+      "prompt": "Hello! How can I help you?",
       "stage": "Recognize",
       "correct_option_id": "r7-answer",
       "options": [
         {
-          "id": "r7-other-0",
-          "image_url": "",
-          "label": "Can I have coffee and bread, please?"
-        },
-        {
           "id": "r7-answer",
           "image_url": "",
           "label": "Can I have coffee and eggs, please?"
+        },
+        {
+          "id": "r7-other-0",
+          "image_url": "",
+          "label": "Can I have coffee and bread, please?"
         }
       ],
-      "audio_text": "",
+      "audio_text": "Hello! How can I help you?",
       "answer_audio_text": "Can I have coffee and eggs, please?",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R7",
-      "audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
+      "pedagogy_note": "combo / Recognize: combo_greeting -> combo_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": "male-character",
+      "answer_audio_turns": [
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c015-answer-da679851df4a4c14b968",
-          "purpose": "answer",
+          "id": "lesson-5-8-ordering-politely-c019-prompt-6aba8cb965b4b0d42b37",
+          "purpose": "prompt",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c019-answer-turn-1-ca2810491713a5bd8cf6",
+          "purpose": "answer-turn-1",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -846,155 +1110,53 @@
       "correct_option_id": "r8-answer",
       "options": [
         {
-          "id": "r8-answer",
-          "image_url": "",
-          "label": "Here are your coffee and eggs."
-        },
-        {
           "id": "r8-other-0",
           "image_url": "",
           "label": "Here are your coffee and bread."
-        }
-      ],
-      "audio_text": "Can I have coffee and eggs, please?",
-      "answer_audio_text": "Here are your coffee and eggs.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
-      "spanish_translation": "\u00bfMe da caf\u00e9 y huevos, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R8",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "female-character",
-      "answer_audio_turns": [
-        {
-          "text": "Here are your coffee and eggs.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp"
-        }
-      ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-8-ordering-politely-c016-prompt-81c844fbdce86888271d",
-          "purpose": "prompt",
-          "text": "Can I have coffee and eggs, please?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c016-answer-turn-1-0bf310ebecc30e28a499",
-          "purpose": "answer-turn-1",
-          "text": "Here are your coffee and eggs.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "r9-answer",
-      "options": [
-        {
-          "id": "r9-other-0",
-          "image_url": "",
-          "label": "Can I have coffee and bread, please?"
-        },
-        {
-          "id": "r9-answer",
-          "image_url": "",
-          "label": "Can I have coffee and eggs, please?"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Can I have coffee and eggs, please?",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R9",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-8-ordering-politely-c017-answer-fc3a52faffa30e7e99e8",
-          "purpose": "answer",
-          "text": "Can I have coffee and eggs, please?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "Can I have coffee and eggs, please?",
-      "stage": "Recognize",
-      "correct_option_id": "r10-answer",
-      "options": [
-        {
-          "id": "r10-other-0",
-          "image_url": "",
-          "label": "Here are your coffee and bread."
-        },
-        {
-          "id": "r10-answer",
+          "id": "r8-answer",
           "image_url": "",
           "label": "Here are your coffee and eggs."
         }
       ],
       "audio_text": "Can I have coffee and eggs, please?",
       "answer_audio_text": "Here are your coffee and eggs.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
       "spanish_translation": "\u00bfMe da caf\u00e9 y huevos, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10",
+      "pedagogy_note": "combo / Recognize: combo_request -> combo_handover. Distinct initiating and responding moments; one coherent reply.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "female-character",
       "answer_audio_turns": [
         {
           "text": "Here are your coffee and eggs.",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp"
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c018-prompt-59346adb90ca4c2014f5",
+          "id": "lesson-5-8-ordering-politely-c020-prompt-824b2a8e6af0230db327",
           "purpose": "prompt",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c018-answer-turn-1-c0fce3e671875af0348a",
+          "id": "lesson-5-8-ordering-politely-c020-answer-turn-1-87e7757613f856cc3fc8",
           "purpose": "answer-turn-1",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1003,54 +1165,62 @@
       ]
     },
     {
-      "slide_id": "A1",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "a1-answer",
+      "slide_id": "R-combo-thanks",
+      "interaction_type": "i2t2",
+      "prompt": "Here are your coffee and eggs.",
+      "stage": "Recognize",
+      "correct_option_id": "r-combo-thanks-answer",
       "options": [
         {
-          "id": "a1-answer",
+          "id": "r-combo-thanks-answer",
           "image_url": "",
-          "label": "Hello! How can I help you?"
+          "label": "Thank you."
         },
         {
-          "id": "a1-other-0",
+          "id": "r-combo-thanks-other-0",
           "image_url": "",
-          "label": "Hello! How are you?"
+          "label": "Here you are."
         }
       ],
-      "audio_text": "Hello! How can I help you?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A1",
+      "audio_text": "Here are your coffee and eggs.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed est\u00e1n tu caf\u00e9 y tus huevos.",
+      "pedagogy_note": "combo / Recognize: combo_handover -> combo_thanks. Distinct initiating and responding moments; one coherent reply.",
       "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "answer_audio_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c019-prompt-f3d6d58716e4aae956fb",
+          "id": "lesson-5-8-ordering-politely-c021-prompt-4fb9b4a4ecb3980aeea4",
           "purpose": "prompt",
-          "text": "Hello! How can I help you?",
+          "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:b529d6e1dae0fe423435",
-          "semantic_role": "question",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
+          "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c019-answer-d828ad59a79683813237",
-          "purpose": "answer",
-          "text": "Hello! How can I help you?",
+          "id": "lesson-5-8-ordering-politely-c021-answer-turn-1-4540d559557e1c0dddb9",
+          "purpose": "answer-turn-1",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:b529d6e1dae0fe423435",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1064,45 +1234,69 @@
       "correct_option_id": "a2-answer",
       "options": [
         {
-          "id": "a2-other-0",
-          "image_url": "",
-          "label": "Can I have tea, please?"
-        },
-        {
           "id": "a2-answer",
           "image_url": "",
           "label": "Can I have coffee, please?"
+        },
+        {
+          "id": "a2-other-0",
+          "image_url": "",
+          "label": "Can I have tea, please?"
         }
       ],
-      "audio_text": "Can I have coffee, please?",
+      "audio_text": "Hello! How can I help you? Can I have coffee, please?",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A2",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
+      "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte? \u00bfMe da caf\u00e9, por favor?",
+      "pedagogy_note": "coffee / Listen: greeting -> coffee_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp"
+        },
+        {
+          "text": "Can I have coffee, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c020-prompt-ede36d105c2c8ad22c8c",
-          "purpose": "prompt",
+          "id": "lesson-5-8-ordering-politely-c022-prompt-turn-1-ed826ef97975d73fb6be",
+          "purpose": "prompt-turn-1",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c022-prompt-turn-2-01f3dc0c5bb31e116a0e",
+          "purpose": "prompt-turn-2",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:4e42b4afdceb219730d0",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c020-answer-88ebd60f068756600c95",
+          "id": "lesson-5-8-ordering-politely-c022-answer-a2370ff42d311dec75c8",
           "purpose": "answer",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:4e42b4afdceb219730d0",
+          "image_ref": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1118,45 +1312,69 @@
       "correct_option_id": "a3-answer",
       "options": [
         {
-          "id": "a3-answer",
-          "image_url": "",
-          "label": "Here is your coffee."
-        },
-        {
           "id": "a3-other-0",
           "image_url": "",
           "label": "Here is your tea."
+        },
+        {
+          "id": "a3-answer",
+          "image_url": "",
+          "label": "Here is your coffee."
         }
       ],
-      "audio_text": "Here is your coffee.",
+      "audio_text": "Can I have coffee, please? Here is your coffee.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A3",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
+      "spanish_translation": "\u00bfMe da caf\u00e9, por favor? Aqu\u00ed est\u00e1 tu caf\u00e9.",
+      "pedagogy_note": "coffee / Listen: coffee_request -> coffee_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Can I have coffee, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp"
+        },
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c021-prompt-e85bc0a42b71dc93ba4a",
-          "purpose": "prompt",
+          "id": "lesson-5-8-ordering-politely-c023-prompt-turn-1-e6606c711016e1c68efb",
+          "purpose": "prompt-turn-1",
+          "text": "Can I have coffee, please?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c023-prompt-turn-2-9142823b0eeb071468e2",
+          "purpose": "prompt-turn-2",
           "text": "Here is your coffee.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:5b99c9ad702d429e4ca9",
+          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c021-answer-d846640ee4dcc4632dcd",
+          "id": "lesson-5-8-ordering-politely-c023-answer-6a18730a0f26c3b8670f",
           "purpose": "answer",
           "text": "Here is your coffee.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:5b99c9ad702d429e4ca9",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1172,45 +1390,69 @@
       "correct_option_id": "a4-answer",
       "options": [
         {
-          "id": "a4-other-0",
-          "image_url": "",
-          "label": "Goodbye."
-        },
-        {
           "id": "a4-answer",
           "image_url": "",
           "label": "Thank you."
+        },
+        {
+          "id": "a4-other-0",
+          "image_url": "",
+          "label": "Here is your coffee."
         }
       ],
-      "audio_text": "Thank you.",
+      "audio_text": "Here is your coffee. Thank you.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A4",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed est\u00e1 tu caf\u00e9. Gracias.",
+      "pedagogy_note": "coffee / Listen: coffee_handover -> coffee_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_thanks_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c022-prompt-b41f2f7272c7356ddd41",
-          "purpose": "prompt",
+          "id": "lesson-5-8-ordering-politely-c024-prompt-turn-1-de16a96e97d30ed56a6a",
+          "purpose": "prompt-turn-1",
+          "text": "Here is your coffee.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c024-prompt-turn-2-7650dbc264e7812c65fc",
+          "purpose": "prompt-turn-2",
           "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:6b34d0aed5b814c8782c",
+          "image_ref": "/lesson-assets/a1_u5_revision_cafe_thanks_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c022-answer-d76be0f55d3549d7befa",
+          "id": "lesson-5-8-ordering-politely-c024-answer-6051a726e8457f77c477",
           "purpose": "answer",
           "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:6b34d0aed5b814c8782c",
+          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1226,47 +1468,71 @@
       "correct_option_id": "a5-answer",
       "options": [
         {
-          "id": "a5-answer",
-          "image_url": "",
-          "label": "Water, please."
-        },
-        {
           "id": "a5-other-0",
           "image_url": "",
           "label": "Milk, please."
+        },
+        {
+          "id": "a5-answer",
+          "image_url": "",
+          "label": "Water, please."
         }
       ],
-      "audio_text": "Water, please.",
+      "audio_text": "Hello! How can I help you? Water, please.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A5",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte? Agua, por favor.",
+      "pedagogy_note": "water / Listen: water_greeting -> water_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp"
+        },
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c023-prompt-6b0c8858962c3db99623",
-          "purpose": "prompt",
-          "text": "Water, please.",
+          "id": "lesson-5-8-ordering-politely-c025-prompt-turn-1-d8c33e5ae4d8d9d4b8b1",
+          "purpose": "prompt-turn-1",
+          "text": "Hello! How can I help you?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:acc4752a8ded3a75ac83",
-          "semantic_role": "teacher",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+          "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c023-answer-3e9d394f2f13f094c3bf",
+          "id": "lesson-5-8-ordering-politely-c025-prompt-turn-2-7486770e0239ecee11bb",
+          "purpose": "prompt-turn-2",
+          "text": "Water, please.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c025-answer-f6ca41faa4081f48859b",
           "purpose": "answer",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:acc4752a8ded3a75ac83",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1280,45 +1546,147 @@
       "correct_option_id": "a6-answer",
       "options": [
         {
-          "id": "a6-other-0",
-          "image_url": "",
-          "label": "Thank you."
-        },
-        {
           "id": "a6-answer",
           "image_url": "",
           "label": "Here you are."
+        },
+        {
+          "id": "a6-other-0",
+          "image_url": "",
+          "label": "Thank you."
         }
       ],
-      "audio_text": "Here you are.",
+      "audio_text": "Water, please. Here you are.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A6",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
+      "spanish_translation": "Agua, por favor. Aqu\u00ed tienes.",
+      "pedagogy_note": "water / Listen: water_request -> water_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp"
+        },
+        {
+          "text": "Here you are.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c024-prompt-694ceb7dfedbbc2ef918",
-          "purpose": "prompt",
-          "text": "Here you are.",
+          "id": "lesson-5-8-ordering-politely-c026-prompt-turn-1-6cd5568b2330f925f370",
+          "purpose": "prompt-turn-1",
+          "text": "Water, please.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:30fd2b2160691f278064",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c024-answer-3654b44e32ba60b02209",
+          "id": "lesson-5-8-ordering-politely-c026-prompt-turn-2-2508c0eb0f362d8518df",
+          "purpose": "prompt-turn-2",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c026-answer-4ca4005036e9572645fe",
           "purpose": "answer",
           "text": "Here you are.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:30fd2b2160691f278064",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A-water-thanks",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-water-thanks-answer",
+      "options": [
+        {
+          "id": "a-water-thanks-other-0",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "a-water-thanks-answer",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Here you are. Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed tienes. Gracias.",
+      "pedagogy_note": "water / Listen: water_handover -> water_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Here you are.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c027-prompt-turn-1-c6aa7e120015254f9db3",
+          "purpose": "prompt-turn-1",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c027-prompt-turn-2-b3ddaca276ecc005ffa6",
+          "purpose": "prompt-turn-2",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c027-answer-2f9788e342bd2e31771f",
+          "purpose": "answer",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1344,35 +1712,59 @@
           "label": "Can I have coffee and bread, please?"
         }
       ],
-      "audio_text": "Can I have coffee and eggs, please?",
+      "audio_text": "Hello! How can I help you? Can I have coffee and eggs, please?",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A7",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte? \u00bfMe da caf\u00e9 y huevos, por favor?",
+      "pedagogy_note": "combo / Listen: combo_greeting -> combo_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp"
+        },
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c025-prompt-9e4f8aa663633a31b605",
-          "purpose": "prompt",
+          "id": "lesson-5-8-ordering-politely-c028-prompt-turn-1-c3041e563932848fce10",
+          "purpose": "prompt-turn-1",
+          "text": "Hello! How can I help you?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c028-prompt-turn-2-357c2b9692301e4d056f",
+          "purpose": "prompt-turn-2",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:04d5f25385e72d648f6e",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c025-answer-865879b7c7830f57a17e",
+          "id": "lesson-5-8-ordering-politely-c028-answer-e5ad52ca0030dd23d0cc",
           "purpose": "answer",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:04d5f25385e72d648f6e",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1398,37 +1790,139 @@
           "label": "Here are your coffee and eggs."
         }
       ],
-      "audio_text": "Here are your coffee and eggs.",
+      "audio_text": "Can I have coffee and eggs, please? Here are your coffee and eggs.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A8",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
+      "spanish_translation": "\u00bfMe da caf\u00e9 y huevos, por favor? Aqu\u00ed est\u00e1n tu caf\u00e9 y tus huevos.",
+      "pedagogy_note": "combo / Listen: combo_request -> combo_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
+      "audio_turns": [
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp"
+        },
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c026-prompt-d37e6d9f0000cf174450",
-          "purpose": "prompt",
+          "id": "lesson-5-8-ordering-politely-c029-prompt-turn-1-a25a9adbe4678cfd7131",
+          "purpose": "prompt-turn-1",
+          "text": "Can I have coffee and eggs, please?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c029-prompt-turn-2-2c0f7a24bf7e29d78f87",
+          "purpose": "prompt-turn-2",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:9266d934da546313a9e8",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c026-answer-c34b2839bc7cd5f7d7ec",
+          "id": "lesson-5-8-ordering-politely-c029-answer-22a30265430df0f867e9",
           "purpose": "answer",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:9266d934da546313a9e8",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A-combo-thanks",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a-combo-thanks-answer",
+      "options": [
+        {
+          "id": "a-combo-thanks-answer",
+          "image_url": "",
+          "label": "Thank you."
+        },
+        {
+          "id": "a-combo-thanks-other-0",
+          "image_url": "",
+          "label": "Here you are."
+        }
+      ],
+      "audio_text": "Here are your coffee and eggs. Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed est\u00e1n tu caf\u00e9 y tus huevos. Gracias.",
+      "pedagogy_note": "combo / Listen: combo_handover -> combo_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "audio_turns": [
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c030-prompt-turn-1-9b7753afb4f9cf2e5959",
+          "purpose": "prompt-turn-1",
+          "text": "Here are your coffee and eggs.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c030-prompt-turn-2-1b9f9735933e3a10cf6b",
+          "purpose": "prompt-turn-2",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c030-answer-802415f9a9a10543adc2",
+          "purpose": "answer",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1451,14 +1945,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S1",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c027-prompt-53fd53369d8cfa70edc3",
+          "id": "lesson-5-8-ordering-politely-c031-prompt-43e95cbd62b69915e5eb",
           "purpose": "prompt",
           "text": "Hello! How can I help you?",
           "mode": "pronunciation_slow",
@@ -1470,7 +1964,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c027-answer-29ec0018db3b9163b2f1",
+          "id": "lesson-5-8-ordering-politely-c031-answer-d2e322aae66cadb8ee94",
           "purpose": "answer",
           "text": "Hello! How can I help you?",
           "mode": "prompt",
@@ -1492,7 +1986,7 @@
       "options": [
         {
           "id": "s2-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "label": "Can I have coffee, please?"
         }
       ],
@@ -1500,31 +1994,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfMe da caf\u00e9, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S2",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: coffee_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c028-prompt-8efaaaa1e945a399eda2",
+          "id": "lesson-5-8-ordering-politely-c032-prompt-569255198946b8b75007",
           "purpose": "prompt",
           "text": "Can I have coffee, please?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c028-answer-3511ab10b3889f037bfc",
+          "id": "lesson-5-8-ordering-politely-c032-answer-4bf6750cbeadcf6b73e8",
           "purpose": "answer",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1549,14 +2043,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Aqu\u00ed est\u00e1 tu caf\u00e9.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S3",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: coffee_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c029-prompt-cb8c9ee7e61b4d5feb0b",
+          "id": "lesson-5-8-ordering-politely-c033-prompt-d8f7e59c4221fb62e41a",
           "purpose": "prompt",
           "text": "Here is your coffee.",
           "mode": "pronunciation_slow",
@@ -1568,7 +2062,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c029-answer-9fc9d442b9fce10ffcd3",
+          "id": "lesson-5-8-ordering-politely-c033-answer-20159154711eb55604a3",
           "purpose": "answer",
           "text": "Here is your coffee.",
           "mode": "prompt",
@@ -1598,14 +2092,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Gracias.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S4",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: coffee_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c030-prompt-44c48bdca0545a7435d2",
+          "id": "lesson-5-8-ordering-politely-c034-prompt-46932ae376e65102ad23",
           "purpose": "prompt",
           "text": "Thank you.",
           "mode": "pronunciation_slow",
@@ -1617,7 +2111,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c030-answer-945aef9da4150199b7bf",
+          "id": "lesson-5-8-ordering-politely-c034-answer-ad03e289008ed0c36387",
           "purpose": "answer",
           "text": "Thank you.",
           "mode": "prompt",
@@ -1639,7 +2133,7 @@
       "options": [
         {
           "id": "s5-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "label": "Water, please."
         }
       ],
@@ -1647,33 +2141,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S5",
-      "audio_speaker": "male-character",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: water_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c031-prompt-84e8f1701d37d483e533",
+          "id": "lesson-5-8-ordering-politely-c035-prompt-290f6f1e2f681e37a9e6",
           "purpose": "prompt",
           "text": "Water, please.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c031-answer-977059c94243cdb8c910",
+          "id": "lesson-5-8-ordering-politely-c035-answer-f1eb28cfdf86974c019c",
           "purpose": "answer",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1688,7 +2182,7 @@
       "options": [
         {
           "id": "s6-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
           "label": "Here you are."
         }
       ],
@@ -1696,31 +2190,80 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Aqu\u00ed tienes.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S6",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: water_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c036-prompt-1983cc6c46d8fd8ee250",
+          "purpose": "prompt",
+          "text": "Here you are.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c036-answer-3440f3b1ac1bce17d801",
+          "purpose": "answer",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S-water-thanks",
+      "interaction_type": "speak",
+      "prompt": "Thank you.",
+      "stage": "Speak",
+      "correct_option_id": "s-water-thanks-model",
+      "options": [
+        {
+          "id": "s-water-thanks-model",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: water_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c032-prompt-847efd461649705e2ed2",
+          "id": "lesson-5-8-ordering-politely-c037-prompt-b85175ca3063f3ce5f81",
           "purpose": "prompt",
-          "text": "Here you are.",
+          "text": "Thank you.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c032-answer-9ed1ea5e26974793da34",
+          "id": "lesson-5-8-ordering-politely-c037-answer-82484fafc6b605d0e258",
           "purpose": "answer",
-          "text": "Here you are.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1737,7 +2280,7 @@
       "options": [
         {
           "id": "s7-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "label": "Can I have coffee and eggs, please?"
         }
       ],
@@ -1745,31 +2288,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfMe da caf\u00e9 y huevos, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S7",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: combo_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c033-prompt-f118961ad0f7e6ab9852",
+          "id": "lesson-5-8-ordering-politely-c038-prompt-658fac99901fdfcb57c3",
           "purpose": "prompt",
           "text": "Can I have coffee and eggs, please?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c033-answer-2d9558164f9a979f221c",
+          "id": "lesson-5-8-ordering-politely-c038-answer-a2352ac2a661dbc2cadc",
           "purpose": "answer",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1786,7 +2329,7 @@
       "options": [
         {
           "id": "s8-model",
-          "image_url": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "label": "Here are your coffee and eggs."
         }
       ],
@@ -1794,33 +2337,82 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Aqu\u00ed est\u00e1n tu caf\u00e9 y tus huevos.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S8",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: combo_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c034-prompt-2e21b160b339010ae338",
+          "id": "lesson-5-8-ordering-politely-c039-prompt-1abdbd93baaad0db5000",
           "purpose": "prompt",
           "text": "Here are your coffee and eggs.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c034-answer-d6bb9848564072b0e8ae",
+          "id": "lesson-5-8-ordering-politely-c039-answer-cbd20af76d63b9c31584",
           "purpose": "answer",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S-combo-thanks",
+      "interaction_type": "speak",
+      "prompt": "Thank you.",
+      "stage": "Speak",
+      "correct_option_id": "s-combo-thanks-model",
+      "options": [
+        {
+          "id": "s-combo-thanks-model",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Speak: combo_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c040-prompt-fd8f1e7838bc7559e26f",
+          "purpose": "prompt",
+          "text": "Thank you.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c040-answer-aa8b5332c47ee9db66eb",
+          "purpose": "answer",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1852,14 +2444,14 @@
       "answer_audio_text": "Hello! How can I help you?",
       "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
       "spanish_translation": "\u00a1Hola! \u00bfEn qu\u00e9 puedo ayudarte?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U1",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: greeting.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c035-prompt-32450500a1b84a93ca40",
+          "id": "lesson-5-8-ordering-politely-c041-prompt-f97c3866d4eb08260afb",
           "purpose": "prompt",
           "text": "Hello! How can I help you?",
           "mode": "prompt",
@@ -1871,7 +2463,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c035-answer-bd460a1761e38a075851",
+          "id": "lesson-5-8-ordering-politely-c041-answer-5a24a2b2891d1caec72e",
           "purpose": "answer",
           "text": "Hello! How can I help you?",
           "mode": "prompt",
@@ -1908,33 +2500,33 @@
       ],
       "audio_text": "Can I have coffee, please?",
       "answer_audio_text": "Can I have coffee, please?",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
       "spanish_translation": "\u00bfMe da caf\u00e9, por favor?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U2",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: coffee_request.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c036-prompt-ae6cbb44fb21295eb97c",
+          "id": "lesson-5-8-ordering-politely-c042-prompt-4977ee7b99da83989497",
           "purpose": "prompt",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c036-answer-89e003c07fbc089fc986",
+          "id": "lesson-5-8-ordering-politely-c042-answer-530a46cd545a5340df37",
           "purpose": "answer",
           "text": "Can I have coffee, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_coffee_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1968,14 +2560,14 @@
       "answer_audio_text": "Here is your coffee.",
       "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
       "spanish_translation": "Aqu\u00ed est\u00e1 tu caf\u00e9.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U3",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: coffee_handover.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c037-prompt-a2bed941827f71bac23a",
+          "id": "lesson-5-8-ordering-politely-c043-prompt-f392d09cd6ec6191e7bb",
           "purpose": "prompt",
           "text": "Here is your coffee.",
           "mode": "prompt",
@@ -1987,7 +2579,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c037-answer-38c497f9ae25775c75da",
+          "id": "lesson-5-8-ordering-politely-c043-answer-f31e20fec5d2e7c54592",
           "purpose": "answer",
           "text": "Here is your coffee.",
           "mode": "prompt",
@@ -2026,14 +2618,14 @@
       "answer_audio_text": "Thank you.",
       "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_thanks_v1.webp",
       "spanish_translation": "Gracias.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U4",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: coffee_thanks.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c038-prompt-4d4796a9f4029c11a89b",
+          "id": "lesson-5-8-ordering-politely-c044-prompt-4715927df23be71b7a45",
           "purpose": "prompt",
           "text": "Thank you.",
           "mode": "prompt",
@@ -2045,7 +2637,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c038-answer-ca2e9bbf5691390e2bd1",
+          "id": "lesson-5-8-ordering-politely-c044-answer-ce17e0d7561dce5ac7ea",
           "purpose": "answer",
           "text": "Thank you.",
           "mode": "prompt",
@@ -2060,57 +2652,57 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete-sentence",
+      "interaction_type": "complete2",
       "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "water",
       "correct_option_ids": [
-        "word-1",
-        "word-2"
+        "water",
+        "please"
       ],
       "options": [
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "please"
-        },
-        {
-          "id": "word-1",
+          "id": "water",
           "image_url": "",
           "label": "Water"
+        },
+        {
+          "id": "please",
+          "image_url": "",
+          "label": "please"
         }
       ],
       "audio_text": "Water, please.",
       "answer_audio_text": "Water, please.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
       "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "Use: Water, please.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: water_request.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c039-prompt-22019a48df6a51c5da53",
+          "id": "lesson-5-8-ordering-politely-c045-prompt-e0744ccbbbcc3710ac9a",
           "purpose": "prompt",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c039-answer-8956b5728d358bbd4195",
+          "id": "lesson-5-8-ordering-politely-c045-answer-e81aacc9cce8db5a88bb",
           "purpose": "answer",
           "text": "Water, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2146,33 +2738,91 @@
       ],
       "audio_text": "Here you are.",
       "answer_audio_text": "Here you are.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
       "spanish_translation": "Aqu\u00ed tienes.",
-      "pedagogy_note": "Use: Here you are.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: water_handover.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c046-prompt-2e51c9c4f2b51f041124",
+          "purpose": "prompt",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c046-answer-7d09e506622aa78c75d7",
+          "purpose": "answer",
+          "text": "Here you are.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U-water-thanks",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Thank"
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: water_thanks.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c040-prompt-2b89f9240294202572a8",
+          "id": "lesson-5-8-ordering-politely-c047-prompt-3090f25f0599263f75c9",
           "purpose": "prompt",
-          "text": "Here you are.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c040-answer-b69328ce780faeaeda8f",
+          "id": "lesson-5-8-ordering-politely-c047-answer-b4a20bb4208b49f7402f",
           "purpose": "answer",
-          "text": "Here you are.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_water_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2234,33 +2884,33 @@
       ],
       "audio_text": "Can I have coffee and eggs, please?",
       "answer_audio_text": "Can I have coffee and eggs, please?",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
       "spanish_translation": "\u00bfMe da caf\u00e9 y huevos, por favor?",
-      "pedagogy_note": "Use: Can I have coffee and eggs, please?",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: combo_request.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c041-prompt-8edb99640c8c97f646bc",
+          "id": "lesson-5-8-ordering-politely-c048-prompt-6371bb9256eb23a4bb95",
           "purpose": "prompt",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c041-answer-8eb479ebbd8df6263550",
+          "id": "lesson-5-8-ordering-politely-c048-answer-82b1ced8310032164a8c",
           "purpose": "answer",
           "text": "Can I have coffee and eggs, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2316,35 +2966,93 @@
       ],
       "audio_text": "Here are your coffee and eggs.",
       "answer_audio_text": "Here are your coffee and eggs.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
       "spanish_translation": "Aqu\u00ed est\u00e1n tu caf\u00e9 y tus huevos.",
-      "pedagogy_note": "Use: Here are your coffee and eggs.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: combo_handover.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c042-prompt-0239796b4eaac3f91604",
+          "id": "lesson-5-8-ordering-politely-c049-prompt-614da9797af4b890ee73",
           "purpose": "prompt",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c042-answer-ce916f1e2bfec9285565",
+          "id": "lesson-5-8-ordering-politely-c049-answer-be90269ac48cd2510ca0",
           "purpose": "answer",
           "text": "Here are your coffee and eggs.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_cafe_combo_handover_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U-combo-thanks",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Thank"
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Ordered caf\u00e9 exchange / Use: combo_thanks.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-8-ordering-politely-c050-prompt-8f11c1c1c82dc54dde51",
+          "purpose": "prompt",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-8-ordering-politely-c050-answer-d11ee55b49dec5c9a313",
+          "purpose": "answer",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

@@ -131,7 +131,8 @@ test('both clients preserve the written task while using answer assets only afte
   assert.match(screen, /recognizeAnswerReplayText\(currentCard, result === 'correct'\)/);
   assert.match(screen, /!silentWrittenRecognize \|\| phraseReplayAvailable \? <Pressable/,
     'A silent written task advertises no speaker until answer replay exists.');
-  assert.match(screen, /if \(correctRecognizeReplayText\) \{\s*playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/);
+  assert.match(screen, /if \(correctRecognizeReplayText\) \{[\s\S]*?findCourseAudioTurnSequence\(currentCard, 'answer'\)[\s\S]*?playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/,
+    'Correct-answer replay keeps authored turns and the scalar answer fallback; callback behavior is covered by reply-image-sequence.');
   assert.match(cardView, /accessibilityLabel=\{isWrittenRecognize\(card\) && result !== 'correct'\s*\? card\.prompt/,
     'The upfront picture description must not leak the authored English answer to screen readers.');
   assert.match(screen, /if \(\(!promptAudio\.trim\(\) \|\| promptHasVisualBlank\) && !completionPromptSource && !promptTurnSequence\)/,
@@ -147,7 +148,7 @@ test('the actual web autoplay predicate pronounces written cues outside Unit 1 a
   const web = fs.readFileSync(path.join(root, '../frontend/components/LessonPlayer.js'), 'utf8');
   const expression = web.match(/const hasPromptAutoplay = ([^;]+);/)[1];
   const applies = new Function('isRecognitionLesson', 'currentCard', 'cardPromptText',
-    'cardPromptHasVisualBlank', 'isWrittenRecognize', `return Boolean(${expression});`);
+    'cardPromptHasVisualBlank', 'isWrittenRecognize', `const replyImage = null; return Boolean(${expression});`);
   const spoken = { ...card, prompt_presentation: 'written', audio_text: 'What day is it today? Monday' };
   assert.equal(applies(false, spoken, spoken.audio_text, false, isWrittenRecognize), true);
   assert.equal(applies(false, { ...card, prompt_presentation: 'written' }, '', false, isWrittenRecognize), false);

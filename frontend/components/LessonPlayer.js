@@ -30,7 +30,7 @@ import {
 } from "../../mobile/src/lessonInstructions";
 import { isWrittenRecognize, recognizeAnswerReplayText } from "../../mobile/src/lessonPromptPresentation";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
-import { teachingOptionImageUrl, visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
+import { replyImageAfterPrompt, teachingOptionImageUrl, visibleTurnImageUrl } from "../../mobile/src/lessonTurnImages";
 import { useLearnTranslationPreview } from "../../mobile/src/hooks/useLearnTranslationPreview";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
@@ -1444,6 +1444,7 @@ function useSpeech() {
 
     playAudioUrl(url, sequenceId)
       .then(() => {
+        if (speechSequenceRef.current === sequenceId) options.onAudioCompleted?.();
         if (speechSequenceRef.current === sequenceId && typeof options.onEnd === "function") {
           options.onEnd();
         }
@@ -2343,9 +2344,20 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }, [teachingCardKey]);
   const missionOrder = useMemo(() => missionCueOrder(currentCard?.mission_game), [currentCard]);
   const [playingTurnImageUrl, setActiveTurnImageUrl] = useState(null);
+  const [replyImageAttempt, setReplyImageAttempt] = useState(0);
+  const [loadedPromptImageKey, setLoadedPromptImageKey] = useState(null);
   // A speaker's picture never covers an answer-choice card's options (shared with mobile).
   const teachingImageUrl = currentCard ? teachingOptionImageUrl(currentCard, playingTurnImageUrl) : null;
   const activeTurnImageUrl = teachingImageUrl ? null : visibleTurnImageUrl(currentCard, playingTurnImageUrl);
+  const replyImage = replyImageAfterPrompt(currentCard);
+  const promptImageLoadKey = `${teachingCardKey}:${replyImageAttempt}:${activeTurnImageUrl || currentCard?.prompt_image_url || ""}`;
+  const promptImageLoadKeyRef = useRef(promptImageLoadKey);
+  promptImageLoadKeyRef.current = promptImageLoadKey;
+  const replyScenePending = Boolean(replyImage
+    && (playingTurnImageUrl !== replyImage || loadedPromptImageKey !== promptImageLoadKey));
+  const onPromptImageReady = useCallback(() => {
+    if (promptImageLoadKeyRef.current === promptImageLoadKey) setLoadedPromptImageKey(promptImageLoadKey);
+  }, [promptImageLoadKey]);
   const totalCards = activeLesson.cards.length;
   const finalMissionCard = isMissionExperience ? activeLesson.cards[activeLesson.cards.length - 1] : null;
   const finalMissionImageUrl = finalMissionCard?.prompt_image_url
@@ -2353,6 +2365,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     || finalMissionCard?.options?.find((option) => option.image_url)?.image_url
     || "";
   const isSentenceCard = isWordConstruction(currentCard);
+  const manualCompletionTranslation = currentCard?.stage === "Use" && !isSentenceCard;
   const isMissionTileCard = [
     "mission-word-parts",
     "mission-sentence",
@@ -2386,7 +2399,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     : "";
   const isRecognitionLesson = activeLesson.unit_id === "unit-1";
   const helpCardKey = `${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
-  const hasPromptAutoplay = (isRecognitionLesson || isWrittenRecognize(currentCard) || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
+  const hasPromptAutoplay = (isRecognitionLesson || isWrittenRecognize(currentCard) || replyImage || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
     && Boolean(cardPromptText.trim());
   const introduceHelp = !testMode && isFirstSectionHelpIntroduction(activeLesson, cardIndex);
   const help = useContextualHelp({
@@ -3657,7 +3670,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
 
   useEffect(() => {
     if (
-      (!isRecognitionLesson && !isWrittenRecognize(currentCard) && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
+      (!isRecognitionLesson && !isWrittenRecognize(currentCard) && !replyImage && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
       || isMissionGameExperience
       || isPageTurning
@@ -3685,12 +3698,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
             console.info("Course audio turn contract rejected", currentCard.prompt);
           }
         } else {
+          if (replyImage) {
+            setActiveTurnImageUrl(null);
+            setReplyImageAttempt((attempt) => attempt + 1);
+          }
           speakText(cardPromptText, {
             audioAssetId: cardAudioAsset(currentCard, { purpose: "prompt" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
             voiceMode: cardPromptVoiceMode,
             completionFullText: cardCompletionFullText,
             completionBlankText: cardCompletionBlankText,
             onEnd: () => setHelpAudioReadyKey(helpCardKey),
+            onAudioCompleted: () => { if (replyImage) setActiveTurnImageUrl(replyImage); },
           });
         }
       }
@@ -3699,6 +3717,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     return () => window.clearTimeout(timeoutId);
   }, [
     helpCardKey,
+    replyImage,
     activeLesson.id,
     cardIndex,
     cardPromptText,
@@ -4717,6 +4736,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
 
   const handleChoice = (optionId) => {
+    if (replyScenePending) return;
     if (awaitingConstructionRetry(currentCard, lastResult)) return;
     if (lastResult === "correct") return;
 
@@ -4803,6 +4823,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       return;
     }
     if (!cardPromptText.trim()) return;
+    if (replyImage) {
+      setActiveTurnImageUrl(null);
+      setReplyImageAttempt((attempt) => attempt + 1);
+    }
     const turns = cardAudioTurnSequence(currentCard, "prompt");
     if (currentCard.audio_turns?.length) {
       if (turns) playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode, onEnd: () => setHelpAudioReadyKey(helpCardKey) });
@@ -4815,6 +4839,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       completionFullText: cardCompletionFullText,
       completionBlankText: cardCompletionBlankText,
       onEnd: () => setHelpAudioReadyKey(helpCardKey),
+      onAudioCompleted: () => { if (replyImage) setActiveTurnImageUrl(replyImage); },
     });
   };
 
@@ -5569,7 +5594,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                   </span>
                 </button>
               </>
-            ) : learnTranslation.enabled ? (
+            ) : learnTranslation.enabled || manualCompletionTranslation ? (
               <div data-learn-translation-prompt style={{ position: "relative", textAlign: "center" }}>
                 <div style={{ color: "#8b765d", fontSize: 12, fontWeight: 900 }}>
                   {lessonLocationLabel(activeLesson)} · {lessonStageLabel(activeLesson.id, currentCard.stage)}
@@ -5578,11 +5603,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                   aria-label={`Ver traducción de ${currentCard.prompt}`}
                   style={{ border: 0, background: "transparent", color: "var(--text)", width: "100%", padding: "0 48px", cursor: "pointer" }}>
                   <h1 style={titleStyle}>{renderHighlightedTitle(currentCard.prompt)}</h1>
-                  <span data-learn-translation aria-hidden={!teachingTranslationVisible}
+                  {learnTranslation.enabled || teachingTranslationVisible ? <span data-learn-translation aria-hidden={!teachingTranslationVisible}
+                    aria-live={manualCompletionTranslation ? "polite" : undefined}
                     style={{ display: "block", minHeight: 20, fontSize: 14, lineHeight: "20px",
                       color: "#58656b", fontWeight: 700, visibility: teachingTranslationVisible ? "visible" : "hidden" }}>
                     {currentCard.spanish_translation}
-                  </span>
+                  </span> : null}
                 </button>
                 <button type="button" aria-label={`Repetir: ${cardReplayText}`} onClick={playCurrentCardPrompt}
                   style={{ position: "absolute", right: 0, top: "30%", width: 48, height: 48,
@@ -5686,7 +5712,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                 }}
               >
                 <img
+                  key={replyImage ? promptImageLoadKey : undefined}
                   src={lessonOptionImageSrc(activeTurnImageUrl || currentCard.prompt_image_url)}
+                  onLoad={replyImage ? onPromptImageReady : undefined}
                   alt={currentCard.prompt || (isMissionExperience ? `Escena visual del reto ${cardIndex + 1}` : "")}
                   data-written-recognition-media={fitWrittenRecognition ? true : undefined}
                   style={{
@@ -5846,7 +5874,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                 return (
                   <CardTag
                     key={option.id}
-                    {...(isPronunciationCard ? { role: "group" } : { type: "button" })}
+                    {...(isPronunciationCard ? { role: "group" } : { type: "button", disabled: replyScenePending })}
                     aria-pressed={!isPronunciationCard && isMissionTileCard ? isSelectedChoice : undefined}
                     style={{
                       ...cardStyleFor(option.id),

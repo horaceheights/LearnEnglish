@@ -86,7 +86,7 @@
     "U8",
     "U9"
   ],
-  "content_revision": 2,
+  "content_revision": 4,
   "cards": [
     {
       "slide_id": "L1",
@@ -195,7 +195,7 @@
       "options": [
         {
           "id": "l3-model",
-          "image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
           "label": "Do you want a bag?"
         }
       ],
@@ -203,31 +203,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "\u00bfQuieres una bolsa?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L3",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c003-prompt-63a269c794ebf2c628f9",
+          "id": "lesson-5-can-i-have-c003-prompt-0f045f5beddd6011a8bd",
           "purpose": "prompt",
           "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c003-answer-bccca50320aedfd58d9e",
+          "id": "lesson-5-can-i-have-c003-answer-9e24acee6266aaf99e19",
           "purpose": "answer",
           "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -244,7 +244,7 @@
       "options": [
         {
           "id": "l4-model",
-          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "label": "No, thank you."
         }
       ],
@@ -252,31 +252,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "No, gracias.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L4",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c004-prompt-efed07d984562bd9b436",
+          "id": "lesson-5-can-i-have-c004-prompt-ed75e19c3aa7a569dd5b",
           "purpose": "prompt",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c004-answer-4a9e9eb5df39769e1a0f",
+          "id": "lesson-5-can-i-have-c004-answer-1f0c2f51b629ddcd2707",
           "purpose": "answer",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -358,6 +358,7 @@
           "image_url": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
@@ -449,7 +450,7 @@
       ],
       "audio_text": "Do you want a bag?",
       "answer_audio_text": "Yes, please.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
       "spanish_translation": "\u00bfQuieres una bolsa?",
       "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R4",
       "audio_speaker": "male-character",
@@ -461,16 +462,17 @@
           "image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c008-prompt-14039669a4018b2c8570",
+          "id": "lesson-5-can-i-have-c008-prompt-ead4975381621194f993",
           "purpose": "prompt",
           "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -648,6 +650,7 @@
           "image_url": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
@@ -709,6 +712,7 @@
           "image_url": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
@@ -758,40 +762,41 @@
       ],
       "audio_text": "Do you want a bag?",
       "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
       "spanish_translation": "\u00bfQuieres una bolsa?",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "female-character",
       "answer_audio_turns": [
         {
           "text": "No, thank you.",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp"
+          "image_url": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp"
         }
       ],
+      "reply_image_timing": "after-prompt",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c014-prompt-4d8db5577bd58f81b15a",
+          "id": "lesson-5-can-i-have-c014-prompt-d74abf09c29227c7b132",
           "purpose": "prompt",
           "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c014-answer-turn-1-ead3be1794829230dea2",
+          "id": "lesson-5-can-i-have-c014-answer-turn-1-29b2adff597ffa53aa45",
           "purpose": "answer-turn-1",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1331,43 +1336,43 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A10",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
           "text": "Do you want a bag?",
           "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp"
+          "image_url": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp"
         },
         {
           "text": "No, thank you.",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp"
+          "image_url": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c024-prompt-turn-1-932bee5f41d54459416f",
+          "id": "lesson-5-can-i-have-c024-prompt-turn-1-ff9e3869e48ccbfdb9c6",
           "purpose": "prompt-turn-1",
           "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c024-prompt-turn-2-3b54442234803e9436ec",
+          "id": "lesson-5-can-i-have-c024-prompt-turn-2-3df32413b6f96ad469ea",
           "purpose": "prompt-turn-2",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1788,7 +1793,7 @@
       "options": [
         {
           "id": "s9-model",
-          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_url": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "label": "No, thank you."
         }
       ],
@@ -1796,31 +1801,31 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "No, gracias.",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S9",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c033-prompt-01a44c969e13a25a4aac",
+          "id": "lesson-5-can-i-have-c033-prompt-ad624c5122b0116f28bb",
           "purpose": "prompt",
           "text": "No, thank you.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c033-answer-7e414f03b297aac1008e",
+          "id": "lesson-5-can-i-have-c033-answer-4a6ab1991a8486268c6e",
           "purpose": "answer",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2406,33 +2411,33 @@
       ],
       "audio_text": "No, thank you.",
       "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
       "spanish_translation": "No, gracias.",
-      "pedagogy_note": "Use: No, thank you.",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c042-prompt-c65834823a7659600fce",
+          "id": "lesson-5-can-i-have-c042-prompt-7d8a6fca1f9e6020a7ab",
           "purpose": "prompt",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c042-answer-f1472b11d07a7e754701",
+          "id": "lesson-5-can-i-have-c042-answer-1e5f7de8d07584a3298d",
           "purpose": "answer",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",

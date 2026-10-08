@@ -79,6 +79,8 @@ type Props = {
   showHelp: boolean;
   onSelect: (optionId: string) => void;
   onTeachingImageReady?: () => void;
+  onPromptImageReady?: () => void;
+  promptImageLoadKey?: string;
   onPronunciationAttempted?: () => void;
   onPronunciationReplayAvailabilityChange?: (available: boolean) => void;
   onPronunciationPassed: (firstTry: boolean, accepted: boolean) => void;
@@ -114,6 +116,8 @@ export function LessonCardView({
   showHelp,
   onSelect,
   onTeachingImageReady,
+  onPromptImageReady,
+  promptImageLoadKey,
   onPronunciationAttempted,
   onPronunciationReplayAvailabilityChange,
   onPronunciationPassed,
@@ -481,10 +485,12 @@ export function LessonCardView({
           maxHeight={hasSidePrompt ? availableCardHeight - cardVerticalChrome - feedbackReservedHeight : promptImageHeight}
         >
           <OptionMediaImage
+            key={promptImageLoadKey}
             accessibilityLabel={isWrittenRecognize(card) && result !== 'correct'
               ? card.prompt
               : card.answer_audio_text || card.prompt}
             imageUrl={activeTurnImageUrl || card.prompt_image_url}
+            onLoad={onPromptImageReady}
           />
         </LessonMediaFrame>
       ) : null);

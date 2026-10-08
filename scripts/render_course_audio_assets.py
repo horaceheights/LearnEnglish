@@ -8,7 +8,7 @@ import os
 import sys
 import tempfile
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT))
 from backend.app.card_audio_assets import VISUAL_PLACEHOLDER_PATTERN, asset_index  # noqa: E402
 from backend.app.course_audio import (  # noqa: E402
     COMPLETION_PLACEHOLDER_PATTERN,
+    COMPLETION_ENDING_ARTICLE_MARKUP,
     _encode_mp3,
     assemble_completion_sequence_samples,
     completion_fragment_model,
@@ -31,6 +32,9 @@ from backend.app.course_audio import (  # noqa: E402
     normalize_course_audio,
 )
 from backend.app.course_audio_profile import (  # noqa: E402
+    COURSE_AUDIO_MODEL_ID,
+    DEFAULT_GENERATION_MODEL_ID,
+    generation_profile_for,
     NAMED_SPEAKER_ROLES,
     NEUTRAL_SPEAKER_ROLES,
     SPEAKER_NARRATORS,
@@ -59,6 +63,7 @@ RENDER_STAGING_SCHEMA_VERSION = 1
 @dataclass
 class RenderJob:
     kind: str
+    model_id: str = DEFAULT_GENERATION_MODEL_ID
     assets: list[CourseAudioAsset] = field(default_factory=list)
     text: str = ""
     visual_prompt: str | None = None
@@ -74,7 +79,11 @@ class RenderJob:
     @property
     def profile(self):
         asset = self.assets[0]
-        return render_profile_for(asset.speaker_role, asset.mode)
+        if self.model_id == COURSE_AUDIO_MODEL_ID:
+            return render_profile_for(asset.speaker_role, asset.mode)
+        if self.model_id != DEFAULT_GENERATION_MODEL_ID:
+            raise ValueError("Unsupported offline generation model.")
+        return generation_profile_for(asset.speaker_role, asset.mode)
 
     @property
     def completion_contract_metadata(self) -> dict[str, Any] | None:
@@ -98,7 +107,12 @@ class RenderJob:
             self.text,
             self.ordered_blank_texts,
         )
-        return completion_sequence_fragments(contract)
+        fragments = completion_sequence_fragments(contract)
+        if self.model_id == DEFAULT_GENERATION_MODEL_ID:
+            # V4 does not support SSML; preserve the visible article as plain text.
+            return tuple(part.replace(COMPLETION_ENDING_ARTICLE_MARKUP, "a") if part else part
+                         for part in fragments)
+        return fragments
 
     def request_fragments(self) -> list[tuple[str, str]]:
         if self.kind == "ordinary":
@@ -232,6 +246,7 @@ def selected_assets(args: argparse.Namespace) -> list[tuple[CourseAudioAsset, Le
 
 def render_jobs(args: argparse.Namespace) -> list[RenderJob]:
     grouped: dict[tuple[str, ...], RenderJob] = {}
+    model_id = COURSE_AUDIO_MODEL_ID if getattr(args, "legacy_backend_base_url", None) else DEFAULT_GENERATION_MODEL_ID
     for asset, card in selected_assets(args):
         profile = render_profile_for(asset.speaker_role, asset.mode)
         if asset.variant == "completion-prompt":
@@ -249,6 +264,7 @@ def render_jobs(args: argparse.Namespace) -> list[RenderJob]:
                 key,
                 RenderJob(
                     kind="completion",
+                    model_id=model_id,
                     text=asset.text,
                     visual_prompt=card.prompt,
                     blank_text=blanks[0] if len(blanks) == 1 else None,
@@ -257,7 +273,7 @@ def render_jobs(args: argparse.Namespace) -> list[RenderJob]:
             )
         else:
             key = ("ordinary", profile.voice_id, asset.text)
-            job = grouped.setdefault(key, RenderJob(kind="ordinary", text=asset.text))
+            job = grouped.setdefault(key, RenderJob(kind="ordinary", model_id=model_id, text=asset.text))
         job.assets.append(asset)
     return sorted(
         grouped.values(),
@@ -610,6 +626,9 @@ def deterministic_completion_silence(
 ) -> tuple[bytes, dict[str, Any]]:
     """Build an all-blank completion locally without a provider request."""
 
+    # Local silence is the existing deterministic asset, not a v4 speech render.
+    job = replace(job, model_id=COURSE_AUDIO_MODEL_ID)
+
     if job.kind != "completion" or job.request_fragments():
         raise ValueError("Deterministic silence is only valid for a completion with no visible speech.")
     generated_at = datetime.now(timezone.utc).isoformat()
@@ -672,7 +691,10 @@ def generate_take(
         fragments.append(payload)
         requests.append(request)
 
-    if job.kind == "ordinary":
+    if job.kind == "ordinary" and job.model_id == DEFAULT_GENERATION_MODEL_ID:
+        final_payload = fragments[0]
+        processing = ["Original ElevenLabs v4 provider bytes; no post-processing."]
+    elif job.kind == "ordinary":
         final_payload = normalize_course_audio(
             fragments[0],
             job.text,
@@ -726,6 +748,10 @@ def generate_take(
             "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31.",
         },
     }
+    if job.model_id == DEFAULT_GENERATION_MODEL_ID:
+        provenance["approved_at"] = None
+        provenance["review"] = {"status": "pending-listening-review",
+                                "basis": "Voice settings do not approve an individual recording."}
     return final_payload, provenance
 
 
@@ -757,6 +783,7 @@ def capture_legacy_backend_take(
     job: RenderJob,
     approved_at: str,
 ) -> tuple[bytes, dict[str, Any]]:
+    job = replace(job, model_id=COURSE_AUDIO_MODEL_ID)
     if not job.request_fragments():
         return deterministic_completion_silence(job, approved_at)
 
@@ -962,6 +989,30 @@ def add_generated_take(
     return take_id
 
 
+def approve_reviewed_take(registry: dict[str, Any], jobs: list[RenderJob], digest: str) -> None:
+    """Install a saved v4 audition only after an operator names its exact listened-to bytes."""
+    take = registry["takes"].get(digest)
+    if (not take or take.get("audio_sha256") != digest
+            or take.get("provenance", {}).get("model_id") != DEFAULT_GENERATION_MODEL_ID):
+        raise ValueError("Reviewed take must identify a saved v4 recording by SHA-256.")
+    selected = [job for job in jobs if take_metadata_matches(take, job)]
+    if not selected:
+        raise ValueError("Reviewed take does not match the selected audio contracts.")
+    candidate = copy.deepcopy(registry)
+    approved = candidate["takes"][digest]
+    if approved["provenance"].get("review", {}).get("status") == "pending-listening-review":
+        approved["provenance"]["approved_at"] = datetime.now(timezone.utc).isoformat()
+        approved["provenance"]["review"] = {
+            "status": "operator-listening-approved", "audio_sha256": digest,
+            "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take.",
+        }
+    for job in selected:
+        bind_take(candidate, digest, job, "Installed after explicit listening review of these exact bytes.")
+        for asset in job.assets:
+            resolve_approved_take(asset, candidate)
+    registry.update(candidate)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -992,6 +1043,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--promote", action="store_true")
+    parser.add_argument("--reviewed-take", action="append", default=[],
+                        help="Exact SHA-256 of a saved take listened to and approved; requires --promote without --execute.")
     parser.add_argument("--max-character-cost", type=int)
     return parser.parse_args()
 
@@ -1003,6 +1056,12 @@ def main() -> int:
             load_env_file(args.env_file.resolve())
         jobs = render_jobs(args)
         registry = load_approved_take_registry()
+        reviewed_takes = getattr(args, "reviewed_take", []) or []
+        if reviewed_takes and (not args.promote or args.execute):
+            raise ValueError("--reviewed-take requires --promote without --execute.")
+        legacy_base_url = str(args.legacy_backend_base_url or "").strip().rstrip("/")
+        for digest in reviewed_takes:
+            approve_reviewed_take(registry, jobs, digest)
         existing: list[tuple[RenderJob, str]] = []
         pending: list[RenderJob] = []
         for job in jobs:
@@ -1011,7 +1070,9 @@ def main() -> int:
                 existing.append((job, take_id))
             else:
                 pending.append(job)
-        legacy_base_url = str(args.legacy_backend_base_url or "").strip().rstrip("/")
+        if (args.execute and args.promote and not legacy_base_url
+                and any(job.request_fragments() for job in pending)):
+            raise ValueError("Generate with --execute first, listen, then use --promote --reviewed-take SHA256; no automatic listening approval.")
         provider_requests_needed = 0
         reusable_staged_fragments = 0
         estimated_cost = 0
@@ -1044,8 +1105,6 @@ def main() -> int:
             write_registry(registry)
         if not args.execute:
             return 0
-        if not args.promote:
-            raise ValueError("--execute requires --promote so paid output is persisted.")
         if args.max_character_cost is None or args.max_character_cost <= 0:
             raise ValueError("--execute requires a positive --max-character-cost.")
         if estimated_cost > args.max_character_cost:
@@ -1053,7 +1112,7 @@ def main() -> int:
                 f"Planned character cost {estimated_cost} exceeds budget {args.max_character_cost}."
             )
         api_key = os.getenv("ELEVENLABS_API_KEY", "").strip()
-        if not api_key and not legacy_base_url:
+        if not api_key and not legacy_base_url and provider_requests_needed:
             raise ValueError("ELEVENLABS_API_KEY is required for --execute.")
         if api_key and legacy_base_url:
             raise ValueError("Choose direct ELEVENLABS_API_KEY or --legacy-backend-base-url, not both.")
@@ -1104,15 +1163,15 @@ def main() -> int:
                     raise ValueError(
                         f"Provider-reported character cost exceeded budget after request {position}."
                     )
+                take_id = add_generated_take(registry, job, payload, provenance)
                 if args.promote:
-                    take_id = add_generated_take(registry, job, payload, provenance)
                     bind_take(
                         registry,
                         take_id,
                         job,
                         "Generated offline with the approved character voice and unchanged pinned parameters.",
                     )
-                    write_registry(registry)
+                write_registry(registry)
                 print(
                     f"rendered {position}/{len(pending)} "
                     f"({len(job.assets)} bindings, cumulative character ceiling {character_cost_upper_bound})",

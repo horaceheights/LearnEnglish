@@ -5,7 +5,7 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "2026-10-08 user-authorized review. The linked exact engine plan supersedes this brief's previous wording, order, banks and media. Preserve its complete contextual verb models, conversational turns and stage sequence when authoring.",
+  "note": "2026-10-08 subsequent user correction. The authoritative exact engine plan owns all card order, complete answer banks, speakers, contextual turns and image timing. Rebuild from that plan, not automatic exposure sorting or this historical item pool.",
   "target": "backend/lessons/unit_5/lesson-5-can-i-have.yaml",
   "lesson": {
     "id": "lesson-5-can-i-have",
@@ -55,7 +55,7 @@
     "grammar_function": "Can I have three apples, please? Here are your three apples. Do you want a bag? Yes, please. No, thank you. Can I have the blue bag, please? How much is the bag?",
     "prerequisite": "5.9 complete polite ordering sequence; 5.8 named prices; 2.6 quantities; 2.8 colors; 4.8 Do you questions.",
     "speaking_outcome": "Request familiar goods at a market and shop and accept or refuse an offered bag politely.",
-    "content_revision": 2,
+    "content_revision": 4,
     "purposeful_review_slides": [
       "R1",
       "R2",
@@ -153,9 +153,19 @@
       "speaker": "female-character"
     },
     {
+      "text": "Do you want a bag?",
+      "es": "¿Quieres una bolsa?",
+      "image": "a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "id": "second-customer-offer"
+    },
+    {
       "text": "No, thank you.",
       "es": "No, gracias.",
-      "image": "a1_u5_revision_shop_decline_bag_v1.webp",
+      "image": "a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
       "kind": "contextual-model",
       "learn": true,
       "image_choices": false,
@@ -229,5 +239,10 @@
     }
   ],
   "authoritative_plan": "docs/product/content-plans/unit5-review-2026-10-08/5.10.plan.json",
-  "review": []
+  "review": [],
+  "sequence_contract": {
+    "accepted_offer": "First customer: dark-haired woman in mustard cardigan, three apples.",
+    "declined_offer": "Separate second customer: older silver-haired woman in plum blouse, two oranges, her own cream tote.",
+    "rule": "Do not ask one customer the same offer twice with conflicting answers. Offer and response images show the same specific customer within each independent encounter."
+  }
 }

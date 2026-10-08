@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "provider": "openai-builtin-imagegen",
+  "tool": "image_gen.imagegen",
+  "model_id": null,
+  "request_id": null,
+  "provider_metadata_note": "Tool exposed output paths, not model ID, request ID, usage or billing.",
+  "recorded_at": "2026-10-08T22:38:08.944689+00:00",
+  "task_scope": "Three separate customer visits in Lesson 5.9. Coffee retains existing distinct greeting, handover and thanks; water and coffee/eggs have new consistent casts.",
+  "approval_status": "pending-user-preview-review",
+  "visual_review": {
+    "reviewer": "Codex actual-pixel inspection",
+    "status": "agent-reviewed",
+    "observations": [
+      "Coffee request points to a pictorial coffee-and-beans menu before receiving any drink.",
+      "Water customer in teal and male server retain identity in greeting, request, actual glass handover and received-glass thanks.",
+      "Coffee-and-eggs customer in mustard polo with glasses and original female server retain identity through all four moments.",
+      "Requests precede serving; handovers visibly transfer the named goods; thanks shows goods already received and server hands withdrawn.",
+      "Subjects face each other; no instructional text or captions. All nine encoded runtime files inspected together at 354x236: faces, pointing/menu contents, filled water glass, two eggs, handovers and received-order thanks remain legible."
+    ]
+  },
+  "assets": [
+    {
+      "key": "coffee_request",
+      "filename": "a1_u5_sequence_cafe_coffee_request_v1.webp",
+      "ref": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_cafe_greeting_v1.webp",
+      "prompt": "Edit this reference photo to create one photorealistic 3:2 landscape educational sequence frame. Preserve exactly the same man in navy button-up shirt, woman server in white shirt and dark green apron, faces, hairstyles, warm wooden counter, espresso machine, café setting, natural lighting, and camera direction. Frame both faces and the action large enough for a small phone. They interact with each other, no camera gaze. No captions, speech bubbles, text, logos, watermarks or extra people. Moment: BEFORE ordering or receiving any drink. The male customer is speaking politely to the female server, and clearly pointing with one hand to a small upright pictorial menu on the counter. That menu has ONE large photograph only: a white cup of dark black coffee with clearly visible roasted coffee beans beside it. No letters or numbers on menu. The server listens attentively with closed mouth, hands relaxed on her side. The counter on the customer side is empty: absolutely no real coffee cup, food, glass or tray has been served. His finger targets the coffee picture, not the server or background. The menu visibly indicates coffee, not tea.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-a17c02c5-c27d-4199-b4e3-f94020388766.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_coffee_request_v1.png",
+      "source_sha256": "fb696b414c0454d1bf3dad55c734945a19cac96108e66ca4adc177c23966f179",
+      "source_bytes": 2097208,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_coffee_request_v1.webp",
+      "runtime_sha256": "5ba0c69b14b79237777f88637d19f03ca396649f4bdb9bdaf6c5d6bb196653bf",
+      "runtime_bytes": 258104,
+      "reference_sha256": "f108b724b7fb1cad74a66d6de42ba0e88f7d5d17a25d87c2f15f2103f0fbf0b0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "water_greeting",
+      "filename": "a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "ref": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_cafe_greeting_v1.webp",
+      "prompt": "Create one photorealistic 3:2 landscape educational café dialogue frame based on this café reference. Keep warm wooden counter, espresso machine, natural daylight and camera angle, but this is a NEW customer and a DIFFERENT server on shift. Customer on LEFT is a friendly woman about50, shoulder-length dark brown hair, plain teal blouse. Server on RIGHT is a man30 with short brown hair, light stubble, white rolled-sleeve shirt and dark green apron. Only these two people. He is speaking a warm greeting and asking how he can help, with one open palm gesture. She listens with closed mouth, relaxed hands, meeting his eyes. Counter completely empty between them: no drinks or food served yet, no menu. No text,captions,logos,speech bubbles or camera gaze. Both faces and hand gesture large and clearly readable on a phone. This is first frame before her water order.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-65a88745-551e-47b9-8d55-72eae31e67da.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_water_greeting_v1.png",
+      "source_sha256": "bbfa222bb21a13331faacac9bbad138e69fa3b623086aee0322e1e8c20c56442",
+      "source_bytes": 2130884,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "runtime_sha256": "3f4eed6d5051ac224d4d977afc6edccb845064132256f472be5897231d93e307",
+      "runtime_bytes": 263296,
+      "reference_sha256": "f108b724b7fb1cad74a66d6de42ba0e88f7d5d17a25d87c2f15f2103f0fbf0b0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "combo_greeting",
+      "filename": "a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "ref": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_cafe_greeting_v1.webp",
+      "prompt": "Create one photorealistic 3:2 landscape educational café dialogue frame based on this reference. Preserve EXACT original woman server on RIGHT, white rolled-sleeve shirt and dark green apron, ponytail face, warm wooden counter, espresso machine, lighting and camera angle. Replace the man customer with a clearly DIFFERENT customer on LEFT: Black man35 with short coily hair, thin dark glasses, plain mustard-yellow polo shirt, warm friendly appearance. Only these two people. Server is speaking a welcoming greeting and asking how she can help, one open palm gesture. New customer listens with closed mouth and relaxed hands, meeting her eyes. Counter completely empty between them, no food or drinks served yet, no menu. No captions,text,logos,speech bubbles or camera gaze. Faces and gesture large enough for small phone. This is first frame before he orders coffee and eggs.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-4327a2e8-a203-4ea6-94e6-b4f421ef6a93.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_combo_greeting_v1.png",
+      "source_sha256": "d9ab338c4326c090913bf311fbe9ff9429f56796765d06a5deb3f990f61cd9db",
+      "source_bytes": 2051036,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "runtime_sha256": "3b8dda123e8cae83bdd013f69607dd1a141572272dc829586281980d4bbe20ba",
+      "runtime_bytes": 254058,
+      "reference_sha256": "f108b724b7fb1cad74a66d6de42ba0e88f7d5d17a25d87c2f15f2103f0fbf0b0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "water_request",
+      "filename": "a1_u5_sequence_cafe_water_request_v1.webp",
+      "ref": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-65a88745-551e-47b9-8d55-72eae31e67da.png",
+      "prompt": "Edit this exact café photograph into the next moment of the SAME visit, photorealistic3:2 landscape. Preserve exact woman customer onLEFT tealblouse shoulderlengthdarkhair and exact male server onRIGHT whiteshirt greenapron, faces,counter,café,camera,lighting. NOW the woman is speaking politely, mouth subtly open, her open hand clearly indicating a transparent glass pitcher of plain water and a single clear drinking glass both set well back near the SERVER. He listens with closed mouth and relaxed hands, looking at her. Customer's side remains empty: nothing served yet, her hands touch no glass. Pitcher is large enough to identify transparent water, no milk/colored liquid, no coffee, no food. No handover yet. No captions,text,speech bubbles or camera gaze. Keep both people and the indicated water clear at phone size.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-b28e795c-5f7c-40d9-ae6d-881110d7a77a.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_water_request_v1.png",
+      "source_sha256": "1b613d9082d4b7dee4dc787c482be3318481078394ea003dc1ae423ca0051e6d",
+      "source_bytes": 2106124,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_water_request_v1.webp",
+      "runtime_sha256": "9464d583699d41d96ca23be8eb8acada94d89a0c2faf605b4b14b08250675f01",
+      "runtime_bytes": 263766,
+      "reference_sha256": "bbfa222bb21a13331faacac9bbad138e69fa3b623086aee0322e1e8c20c56442",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "combo_request",
+      "filename": "a1_u5_sequence_cafe_combo_request_v1.webp",
+      "ref": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-4327a2e8-a203-4ea6-94e6-b4f421ef6a93.png",
+      "prompt": "Edit this exact café photo into the next moment of the SAME visit, photorealistic3:2 landscape. Preserve exact Black male customer onLEFT with glasses,mustard polo,shortcoilyhair; exact female server onRIGHT ponytail,white shirt,greenapron; same faces,counter,café,camera,lighting. The male customer NOW speaks politely and points directly at an upright physical pictorial menu on counter. Menu contains ONE large food photo only: a white cup filled with dark black coffee, recognizable roasted coffee beans beside it, NEXT TO a white plate with TWO sunny-side-up fried eggs with bright yellow yolks and white eggwhites. No letters/numbers/prices. Female server listens with closed mouth, relaxed hands. There is NO actual served cup,plate,tray orfood on counter, only the menu. No handover yet. His gesture clearly selects coffee AND eggs. No captions,logos,speech bubbles,camera gaze. Both faces, gesture,menu legible on smallphone.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-cceed0fc-74b3-4a1a-afff-4f1fa65f6d3b.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_combo_request_v1.png",
+      "source_sha256": "5261f7bb58b854964f130a76092fb53943fa48f034607b785006487fa4d16db7",
+      "source_bytes": 2070191,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_combo_request_v1.webp",
+      "runtime_sha256": "a00770e30b6b347379db2bc3fa6cfe02947390ebd9f274b6be6c370dd3f4c59c",
+      "runtime_bytes": 260624,
+      "reference_sha256": "d9ab338c4326c090913bf311fbe9ff9429f56796765d06a5deb3f990f61cd9db",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "water_handover",
+      "filename": "a1_u5_sequence_cafe_water_handover_v1.webp",
+      "ref": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-b28e795c-5f7c-40d9-ae6d-881110d7a77a.png",
+      "prompt": "Edit this exact photo into NEXT moment of SAME café visit, photorealistic3:2. Preserve exact tealblouse woman customer LEFT, same male server RIGHT with white shirt green apron, same faces,hair,café,counter,lighting,camera. The man server now SPEAKS warmly while actively extending the clear drinking glass FILLED with transparent water toward the woman across counter. She reaches with open hand to accept; glass is visibly BETWEEN their hands, transfer still happening. The same transparent water pitcher stays server-side on counter. Her mouth closed listening, his mouth slightly open speaking. Only one glass, one pitcher, no otherdrinks,food,menu. Natural hands realistic fingers. Clear central handover action with fullfaces, no text,captions,speech bubbles,camera gaze.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-e7b9372e-0829-4969-90e8-ab2c176cc22e.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_water_handover_v1.png",
+      "source_sha256": "3c90e96816401bfa394765542a62109c65a274f6b6ec2b135443ba9610853a39",
+      "source_bytes": 2092805,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_water_handover_v1.webp",
+      "runtime_sha256": "8623352f0474a4b46fcfbb5fe6d2a64915ab3e3ee0810ea40bc0e71016829b9a",
+      "runtime_bytes": 263532,
+      "reference_sha256": "1b613d9082d4b7dee4dc787c482be3318481078394ea003dc1ae423ca0051e6d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "combo_handover",
+      "filename": "a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "ref": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-cceed0fc-74b3-4a1a-afff-4f1fa65f6d3b.png",
+      "prompt": "Edit this exact photo into NEXT moment of SAME café visit, photorealistic3:2. Preserve exact Black male customer LEFT glasses mustardyellowpolo shortcoilyhair; exact woman server RIGHT ponytailwhite shirtgreenapron; same faces,café,counter,lighting,camera. REMOVE pictorial menu entirely now order is ready. Server SPEAKS warmly while using both hands to extend a small tray across counter toward customer, actively handing him his real order: ONE white cup of dark black coffee on saucer and ONE white plate with TWO sunny-side-up fried eggs, bright yellowyolks andwhiteeggwhites. Customer listens mouthclosed and reaches openhands to accept tray, not yet fully holding it. Tray is between them, supported by server, obvious transfer. No bread,nootherfood,noextra cup,no menu,text,labels,speech bubbles,camera gaze. Full faces and actual goods large central visible, hands anatomically natural.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-24290606-7c0f-42c5-9ef4-8f47111ed16f.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_combo_handover_v1.png",
+      "source_sha256": "0039886716346d63c7d3b189b06312d0d574b9963d9bf6438157ed58007d2a3e",
+      "source_bytes": 2040213,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "runtime_sha256": "5b1dbc1f7b4496b79535d5f042c28e06f6335a7a8a316bdda4dc240118c08c63",
+      "runtime_bytes": 256572,
+      "reference_sha256": "5261f7bb58b854964f130a76092fb53943fa48f034607b785006487fa4d16db7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "water_thanks",
+      "filename": "a1_u5_sequence_cafe_water_thanks_v1.webp",
+      "ref": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-e7b9372e-0829-4969-90e8-ab2c176cc22e.png",
+      "prompt": "Edit this exact café photograph into the immediately NEXT moment AFTER successful handover, photorealistic3:2. Preserve exact tealblouse woman LEFT, male server white shirtgreenapron RIGHT, faces,hair,lighting,camera,café and waterpitcher. Glass of plain transparent water is now COMPLETELY received and held ONLY by woman's one hand near her chest, clearly on HER side of counter. Her other open hand rests lightly over her chest in gratitude as she speaks warmly to server, slightly open mouth and thankful expression. Server has withdrawn BOTH hands, rests them on his own side of counter and listens with closed mouth and softsmile. He is no longer passing or touching the glass. Same water pitcher stays server-side. NO menu,food,coffee,extra glasses,text,caption,speechbubbles,camera gaze. Distinct thanks action, not duplicate handover. Natural hands, allfaces and glass central readable on smallphone.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-04ade48b-a26d-47ca-a64a-70650c984d4e.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_water_thanks_v1.png",
+      "source_sha256": "9d89084f213106d36fc81283201eb897f14f9521b7fa83bf9644d8f3e11ca101",
+      "source_bytes": 2111902,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_water_thanks_v1.webp",
+      "runtime_sha256": "bce22675ffc4ebaebef81e5d721428687c7bbc63ffabaec13ea6188264d2084c",
+      "runtime_bytes": 268350,
+      "reference_sha256": "3c90e96816401bfa394765542a62109c65a274f6b6ec2b135443ba9610853a39",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    },
+    {
+      "key": "combo_thanks",
+      "filename": "a1_u5_sequence_cafe_combo_thanks_v1.webp",
+      "ref": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-24290606-7c0f-42c5-9ef4-8f47111ed16f.png",
+      "prompt": "Edit this exact café photograph into the immediately NEXT moment AFTER successful handover, photorealistic3:2. Preserve exact Black man LEFT glassesmustardyellowpolo, exact ponytail female server RIGHTwhite shirtgreenapron, faces,hair,lighting,camera,café. Tray with SAME one white coffee cup on saucer and whiteplate of TWO fried eggs now rests flat on counter entirely on CUSTOMER side. Customer keeps one hand gently on tray and raises other hand to ownchest with warm thankful expression, speaking to her. Server has clearly withdrawn BOTHhands and rests them on her side of counter, closedmouth listens with softsmile. She no longer touches tray or goods. Eggyolkscoffee/tray allvisible. NO menu,bread,extrafood,extra cup,text,caption,speechbubble orcamera gaze. Distinct thanksmoment, not duplicatehandover. Natural fingers,hands; fullfaces and receivedgoods clear atphone size.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-04599224-da2f-48d7-b144-d9a7fcb08b4e.png",
+      "used": true,
+      "source_path": "docs/product/media-sources/unit5-cafe-sequence-2026-10-08/a1_u5_sequence_cafe_combo_thanks_v1.png",
+      "source_sha256": "cda42f38b632fe41135a56cded57424b8536a964e842851aabb7b4a18782d823",
+      "source_bytes": 2047919,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_cafe_combo_thanks_v1.webp",
+      "runtime_sha256": "7cefaf2ae630109be2bf8cb4618b1cf52f53b1ddad91e3b20c5adae88b8c6353",
+      "runtime_bytes": 256922,
+      "reference_sha256": "0039886716346d63c7d3b189b06312d0d574b9963d9bf6438157ed58007d2a3e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      }
+    }
+  ],
+  "unused_drafts": [
+    {
+      "key": "water_request",
+      "filename": "a1_u5_sequence_cafe_water_request_v1.webp",
+      "ref": "a1_u5_revision_cafe_greeting_v1.webp",
+      "prompt": "Edit this reference photo to create one photorealistic 3:2 landscape educational sequence frame. Preserve exactly the same man in navy button-up shirt, woman server in white shirt and dark green apron, faces, hairstyles, warm wooden counter, espresso machine, café setting, natural lighting, and camera direction. Frame both faces and the action large enough for a small phone. They interact with each other, no camera gaze. No captions, speech bubbles, text, logos, watermarks or extra people. Moment: customer politely asks for water BEFORE receiving it. The male customer speaks with a small friendly gesture clearly indicating a transparent glass pitcher of plain water and one clear empty glass, both set well back on the SERVER'S side of the counter near her. The server listens with closed mouth, hands relaxed. No handover yet: customer has no drink and his side of the counter is empty. The pitcher contains only transparent water, no colored liquid. Remove any coffee cups and all food from the counter. Preserve natural hands and clear visual eye contact.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-178cd674-cd2a-40d3-ba9d-af6a26561f09.png",
+      "used": false
+    },
+    {
+      "key": "combo_request",
+      "filename": "a1_u5_sequence_cafe_combo_request_v1.webp",
+      "ref": "a1_u5_revision_cafe_coffee_handover_v1.webp",
+      "prompt": "Edit this reference photo to create one photorealistic 3:2 landscape educational sequence frame. Preserve exactly the same man in navy button-up shirt, woman server in white shirt and dark green apron, faces, hairstyles, warm wooden counter, espresso machine, café setting, natural lighting, and camera direction. Frame both faces and the action large enough for a small phone. They interact with each other, no camera gaze. No captions, speech bubbles, text, logos, watermarks or extra people. Moment: BEFORE ordering or receiving food. The male customer speaks politely and points precisely to an upright pictorial menu on the counter. Menu has ONE large photograph only: a white cup of black coffee with coffee beans, NEXT TO a white plate with TWO obvious sunny-side-up fried eggs, bright round yellow yolks and white egg whites. No text or prices. The server listens with closed mouth, relaxed hands on her side. Customer-side counter is empty apart from menu: NO actual cups, plates, food, eggs or tray have been served. His gesture and the menu clearly show coffee AND eggs together, never bread. No handover yet.",
+      "original_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11c58-2384-7820-96df-7af0240b787a\\exec-e1eb667b-ec05-40ea-a317-691195ed0e00.png",
+      "used": false
+    }
+  ]
+}
