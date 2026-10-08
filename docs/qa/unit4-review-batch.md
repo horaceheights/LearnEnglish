@@ -28,6 +28,6 @@ The independent-answer correction supersedes the previous use of those four conn
 
 ## Verification
 
-Focused recording progression, native single-photo rendering, full-phrase vocabulary, instruction-role and image-layout regressions pass. The complete backend/mobile release checks and exact immutable-source snapshot check are run before pushing the final candidate. Frontend unit tests pass; the local full frontend build is unavailable because the pre-existing shared dependency installation lacks `@clerk/nextjs`.
+All 585 backend tests, 23 frontend tests, the complete mobile interaction suite, TypeScript and exact release fingerprint pass. CDN verification confirms 6,379 valid immutable audio contracts and 2,838 media objects with zero missing or invalid assets. The recording progression and single-photo tests execute production callbacks/components. Complete Preview preflight, including the Android production bundle export, passes; the local full frontend build is unavailable because the pre-existing shared dependency installation lacks `@clerk/nextjs`.
 
 Agent inspection and native Yoga checks do not claim physical Android rendering or microphone testing. Human image approvals remain pending. The exact published Preview should be checked on the learner’s phone for calendar legibility, pointing, yellow text and complete recording replay before any separately approved Production promotion.
