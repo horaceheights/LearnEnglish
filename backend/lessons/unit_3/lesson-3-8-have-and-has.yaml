@@ -1,6 +1,6 @@
 {
   "id": "lesson-3-8-have-and-has",
-  "title": "3.12 Have, Has, Mine, and Yours",
+  "title": "3.12 Have, Has, Mine, Yours, and Ours",
   "level": "Beginner A1",
   "unit_id": "unit-3",
   "unit_title": "Unit 3: Me and Other People",
@@ -8,13 +8,14 @@
   "lesson_id": "lesson-3",
   "lesson_title": "Unit 3: Me and Other People",
   "sub_lesson_id": "3.12",
-  "sub_lesson_title": "Have, Has, Mine, and Yours",
-  "goal": "Say who has something with have and has, and whose it is with mine and yours.",
+  "sub_lesson_title": "Have, Has, Mine, Yours, and Ours",
+  "goal": "Say who has familiar objects and distinguish mine, yours and ours.",
   "vocabulary": [
     "have",
     "has",
     "mine",
-    "yours"
+    "yours",
+    "ours"
   ],
   "review_vocabulary": [
     "I",
@@ -36,918 +37,886 @@
     "two",
     "the",
     "children",
-    "yes"
+    "yes",
+    "this",
+    "that",
+    "our",
+    "their",
+    "house",
+    "phones"
   ],
-  "grammar_function": "I/you/we/they have; he/she has. It is mine/yours. Is it yours? Yes, it is mine.",
+  "grammar_function": "He/she has; I/you/we/they have. This car is mine. This book is yours. That house is ours. Is this phone yours?",
   "prerequisite": "3.10-3.11 possessives, 3.4 yes/no questions, Unit 2 objects, plurals and colors.",
-  "speaking_outcome": "Say what people have and answer Is it yours? with Yes, it is mine.",
-  "content_revision": 2,
-  "purposeful_review_slides": [
-    "R4",
-    "R5",
-    "R6",
-    "R7",
-    "R8",
-    "R9",
-    "R10",
-    "R11",
-    "R12",
-    "A4",
-    "A5",
-    "A6",
-    "A7",
-    "A8",
-    "A9",
-    "A10",
-    "S1",
-    "S2",
-    "S3",
-    "S4",
-    "S5",
-    "S6",
-    "S7",
-    "S8",
-    "U1",
-    "U2",
-    "U3",
-    "U4",
-    "U5",
-    "U6",
-    "U7"
+  "speaking_outcome": "Name the object and its owner, and answer Is this phone yours? with Yes, this phone is mine.",
+  "content_revision": 3,
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "has",
+        "have"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "He has"
+        },
+        {
+          "slide_id": "L2",
+          "text": "They have"
+        },
+        {
+          "slide_id": "L3",
+          "text": "She has"
+        },
+        {
+          "slide_id": "L4",
+          "text": "We have"
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "mine",
+        "yours",
+        "ours"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "This is mine"
+        },
+        {
+          "slide_id": "L6",
+          "text": "This is yours"
+        },
+        {
+          "slide_id": "L7",
+          "text": "That is ours"
+        }
+      ]
+    }
   ],
   "cards": [
     {
       "slide_id": "L1",
-      "interaction_type": "teach",
-      "prompt": "Have",
       "stage": "Learn",
-      "correct_option_id": "have-learn",
+      "interaction_type": "teach",
+      "prompt": "He has",
+      "correct_option_id": "l1-target",
       "options": [
         {
-          "id": "have-learn",
-          "image_url": "a1_scene_we-have-books_190a845.webp",
-          "label": "Have"
+          "id": "l1-target",
+          "label": "He has",
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
         }
       ],
-      "audio_text": "Have",
+      "audio_text": "He has",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tener",
-      "pedagogy_note": "Story beat 01: Have"
+      "spanish_translation": "Él tiene",
+      "pedagogy_note": "Possession progression: He has",
+      "learn_translation_preview_ms": 2000
     },
     {
       "slide_id": "L2",
-      "interaction_type": "teach",
-      "prompt": "Has",
       "stage": "Learn",
-      "correct_option_id": "has-learn",
+      "interaction_type": "teach",
+      "prompt": "They have",
+      "correct_option_id": "l2-target",
       "options": [
         {
-          "id": "has-learn",
-          "image_url": "a1_scene_he-has-car_b3fa0ff.webp",
-          "label": "Has"
+          "id": "l2-target",
+          "label": "They have",
+          "image_url": "a1_scene_they-have-bags_aed386b.webp"
         }
       ],
-      "audio_text": "Has",
+      "audio_text": "They have",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tiene",
-      "pedagogy_note": "Story beat 02: Has",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Ellos tienen",
+      "pedagogy_note": "Possession progression: They have",
+      "audio_speaker": "co-teacher",
+      "learn_translation_preview_ms": 2000
     },
     {
       "slide_id": "L3",
-      "interaction_type": "teach",
-      "prompt": "Mine",
       "stage": "Learn",
-      "correct_option_id": "mine-learn",
+      "interaction_type": "teach",
+      "prompt": "She has",
+      "correct_option_id": "l3-target",
       "options": [
         {
-          "id": "mine-learn",
-          "image_url": "a1_photo_u3_mine_v1.webp",
-          "label": "Mine"
+          "id": "l3-target",
+          "label": "She has",
+          "image_url": "a1_scene_she-has-bike_b6f7660.webp"
         }
       ],
-      "audio_text": "Mine",
+      "audio_text": "She has",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Mío",
-      "pedagogy_note": "Story beat 03: Mine",
-      "audio_speaker": "luis"
+      "spanish_translation": "Ella tiene",
+      "pedagogy_note": "Possession progression: She has",
+      "learn_translation_preview_ms": 2000
     },
     {
       "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "Yours",
       "stage": "Learn",
-      "correct_option_id": "yours-learn",
+      "interaction_type": "teach",
+      "prompt": "We have",
+      "correct_option_id": "l4-target",
       "options": [
         {
-          "id": "yours-learn",
-          "image_url": "a1_photo_u3_yours_v1.webp",
-          "label": "Yours"
+          "id": "l4-target",
+          "label": "We have",
+          "image_url": "a1_scene_we-have-books_190a845.webp"
         }
       ],
-      "audio_text": "Yours",
+      "audio_text": "We have",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tuyo",
-      "pedagogy_note": "Story beat 04: Yours",
-      "audio_speaker": "ana"
+      "spanish_translation": "Nosotros tenemos",
+      "pedagogy_note": "Possession progression: We have",
+      "audio_speaker": "ana",
+      "learn_translation_preview_ms": 2000
+    },
+    {
+      "slide_id": "L5",
+      "stage": "Learn",
+      "interaction_type": "teach",
+      "prompt": "This is mine",
+      "correct_option_id": "l5-target",
+      "options": [
+        {
+          "id": "l5-target",
+          "label": "This is mine",
+          "image_url": "a1_photo_u3_mine_v1.webp"
+        }
+      ],
+      "audio_text": "This is mine",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Esto es mío",
+      "pedagogy_note": "Possession progression: This is mine",
+      "audio_speaker": "luis",
+      "audio_revision": 2,
+      "answer_audio_revision": 2,
+      "learn_translation_preview_ms": 2000
+    },
+    {
+      "slide_id": "L6",
+      "stage": "Learn",
+      "interaction_type": "teach",
+      "prompt": "This is yours",
+      "correct_option_id": "l6-target",
+      "options": [
+        {
+          "id": "l6-target",
+          "label": "This is yours",
+          "image_url": "a1_photo_u3_yours_v1.webp"
+        }
+      ],
+      "audio_text": "This is yours",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Esto es tuyo",
+      "pedagogy_note": "Possession progression: This is yours",
+      "audio_speaker": "ana",
+      "learn_translation_preview_ms": 2000
+    },
+    {
+      "slide_id": "L7",
+      "stage": "Learn",
+      "interaction_type": "teach",
+      "prompt": "That is ours",
+      "correct_option_id": "l7-target",
+      "options": [
+        {
+          "id": "l7-target",
+          "label": "That is ours",
+          "image_url": "a1_ownership_our_house_v1.webp"
+        }
+      ],
+      "audio_text": "That is ours",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Eso es nuestro",
+      "pedagogy_note": "Possession progression: That is ours",
+      "audio_speaker": "male-character",
+      "learn_translation_preview_ms": 2000
     },
     {
       "slide_id": "R1",
+      "stage": "Recognize",
       "interaction_type": "t2i2",
-      "prompt": "Has",
-      "stage": "Recognize",
-      "correct_option_id": "has-r1",
-      "options": [
-        {
-          "id": "have-r1",
-          "image_url": "a1_scene_we-have-books_190a845.webp",
-          "label": null
-        },
-        {
-          "id": "has-r1",
-          "image_url": "a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Has",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tiene",
-      "pedagogy_note": "Story beat 01: Has"
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "mine-r2",
-      "options": [
-        {
-          "id": "yours-r2",
-          "image_url": "",
-          "label": "Yours"
-        },
-        {
-          "id": "mine-r2",
-          "image_url": "",
-          "label": "Mine"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Mine",
-      "prompt_image_url": "a1_photo_u3_mine_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 02: Mine"
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "Yours",
-      "stage": "Recognize",
-      "correct_option_id": "yours-r3",
-      "options": [
-        {
-          "id": "yours-r3",
-          "image_url": "a1_photo_u3_yours_v1.webp",
-          "label": null
-        },
-        {
-          "id": "mine-r3",
-          "image_url": "a1_photo_u3_mine_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Yours",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tuyo",
-      "pedagogy_note": "Story beat 03: Yours",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-have-a-book-r4",
-      "options": [
-        {
-          "id": "you-have-a-phone-r4",
-          "image_url": "",
-          "label": "You have a phone."
-        },
-        {
-          "id": "i-have-a-book-r4",
-          "image_url": "",
-          "label": "I have a book."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I have a book.",
-      "prompt_image_url": "a1_scene_my-book-ana_7f764c0.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 04: I have a book."
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "You have a phone.",
-      "stage": "Recognize",
-      "correct_option_id": "you-have-a-phone-r5",
-      "options": [
-        {
-          "id": "i-have-a-book-r5",
-          "image_url": "a1_scene_my-book-ana_7f764c0.webp",
-          "label": null
-        },
-        {
-          "id": "you-have-a-phone-r5",
-          "image_url": "a1_scene_your-phone-luis_e8f060b.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "You have a phone.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tú tienes un teléfono.",
-      "pedagogy_note": "Story beat 05: You have a phone.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "we-have-two-books-r6",
-      "options": [
-        {
-          "id": "we-have-two-books-r6",
-          "image_url": "",
-          "label": "We have two books."
-        },
-        {
-          "id": "i-have-a-book-r6",
-          "image_url": "",
-          "label": "I have a book."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "We have two books.",
-      "prompt_image_url": "a1_scene_we-have-books_190a845.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 06: We have two books."
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "they-have-their-bags-r7",
-      "options": [
-        {
-          "id": "they-have-their-bags-r7",
-          "image_url": "",
-          "label": "They have their bags."
-        },
-        {
-          "id": "they-have-their-books-r7",
-          "image_url": "",
-          "label": "They have their books."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "They have their bags.",
-      "prompt_image_url": "a1_scene_they-have-bags_aed386b.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 07: They have their bags."
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "he-has-a-car-r8",
-      "options": [
-        {
-          "id": "he-has-a-car-r8",
-          "image_url": "",
-          "label": "He has a car."
-        },
-        {
-          "id": "she-has-a-bike-r8",
-          "image_url": "",
-          "label": "She has a bike."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "He has a car.",
-      "prompt_image_url": "a1_scene_he-has-car_b3fa0ff.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: He has a car."
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "t2i2",
-      "prompt": "She has a bike.",
-      "stage": "Recognize",
-      "correct_option_id": "she-has-a-bike-r9",
-      "options": [
-        {
-          "id": "she-has-a-bike-r9",
-          "image_url": "a1_scene_she-has-bike_b6f7660.webp",
-          "label": null
-        },
-        {
-          "id": "he-has-a-car-r9",
-          "image_url": "a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "She has a bike.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ella tiene una bicicleta.",
-      "pedagogy_note": "Story beat 09: She has a bike.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-teacher-has-a-book-r10",
-      "options": [
-        {
-          "id": "the-teacher-has-a-book-r10",
-          "image_url": "",
-          "label": "The teacher has a book."
-        },
-        {
-          "id": "the-teacher-has-a-phone-r10",
-          "image_url": "",
-          "label": "The teacher has a phone."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The teacher has a book.",
-      "prompt_image_url": "a1_scene_teacher-ana_0e983a0.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: The teacher has a book."
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "t2i2",
-      "prompt": "It is mine.",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-mine-r11",
-      "options": [
-        {
-          "id": "it-is-yours-r11",
-          "image_url": "a1_photo_u3_yours_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-mine-r11",
-          "image_url": "a1_photo_u3_mine_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is mine.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es mío.",
-      "pedagogy_note": "Story beat 11: It is mine.",
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "R12",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-yours-r12",
-      "options": [
-        {
-          "id": "it-is-yours-r12",
-          "image_url": "",
-          "label": "It is yours."
-        },
-        {
-          "id": "it-is-mine-r12",
-          "image_url": "",
-          "label": "It is mine."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "It is yours.",
-      "prompt_image_url": "a1_photo_u3_yours_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 12: It is yours."
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "have-a1",
-      "options": [
-        {
-          "id": "have-a1",
-          "image_url": "a1_scene_we-have-books_190a845.webp",
-          "label": null
-        },
-        {
-          "id": "has-a1",
-          "image_url": "a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Have",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Have",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mine-a2",
-      "options": [
-        {
-          "id": "mine-a2",
-          "image_url": "a1_photo_u3_mine_v1.webp",
-          "label": null
-        },
-        {
-          "id": "yours-a2",
-          "image_url": "a1_photo_u3_yours_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Mine",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Mine",
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "yours-a3",
-      "options": [
-        {
-          "id": "yours-a3",
-          "image_url": "",
-          "label": "Yours"
-        },
-        {
-          "id": "mine-a3",
-          "image_url": "",
-          "label": "Mine"
-        }
-      ],
-      "audio_text": "Yours",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Yours",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-have-a-book-a4",
-      "options": [
-        {
-          "id": "you-have-a-phone-a4",
-          "image_url": "a1_scene_your-phone-luis_e8f060b.webp",
-          "label": null
-        },
-        {
-          "id": "i-have-a-book-a4",
-          "image_url": "a1_scene_my-book-ana_7f764c0.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I have a book.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: I have a book.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "A5",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "you-have-a-phone-a5",
-      "options": [
-        {
-          "id": "you-have-a-phone-a5",
-          "image_url": "a1_scene_your-phone-luis_e8f060b.webp",
-          "label": null
-        },
-        {
-          "id": "i-have-a-book-a5",
-          "image_url": "a1_scene_my-book-ana_7f764c0.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "You have a phone.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: You have a phone.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "A6",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "he-has-a-car-a6",
-      "options": [
-        {
-          "id": "she-has-a-bike-a6",
-          "image_url": "",
-          "label": "She has a bike."
-        },
-        {
-          "id": "he-has-a-car-a6",
-          "image_url": "",
-          "label": "He has a car."
-        }
-      ],
-      "audio_text": "He has a car.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: He has a car."
-    },
-    {
-      "slide_id": "A7",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "she-has-a-bike-a7",
-      "options": [
-        {
-          "id": "he-has-a-car-a7",
-          "image_url": "a1_scene_he-has-car_b3fa0ff.webp",
-          "label": null
-        },
-        {
-          "id": "she-has-a-bike-a7",
-          "image_url": "a1_scene_she-has-bike_b6f7660.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "She has a bike.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: She has a bike.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-teacher-has-a-book-a8",
-      "options": [
-        {
-          "id": "the-teacher-has-a-phone-a8",
-          "image_url": "",
-          "label": "The teacher has a phone."
-        },
-        {
-          "id": "the-teacher-has-a-book-a8",
-          "image_url": "",
-          "label": "The teacher has a book."
-        }
-      ],
-      "audio_text": "The teacher has a book.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: The teacher has a book."
-    },
-    {
-      "slide_id": "A9",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-mine-a9",
-      "options": [
-        {
-          "id": "it-is-yours-a9",
-          "image_url": "",
-          "label": "It is yours."
-        },
-        {
-          "id": "it-is-mine-a9",
-          "image_url": "",
-          "label": "It is mine."
-        }
-      ],
-      "audio_text": "It is mine.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: It is mine.",
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "A10",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-yours-a10",
-      "options": [
-        {
-          "id": "it-is-mine-a10",
-          "image_url": "a1_photo_u3_mine_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-yours-a10",
-          "image_url": "a1_photo_u3_yours_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is yours.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: It is yours.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "speak",
-      "prompt": "I have a book.",
-      "stage": "Speak",
-      "correct_option_id": "i-have-a-book-speak",
-      "options": [
-        {
-          "id": "i-have-a-book-speak",
-          "image_url": "a1_scene_my-book-ana_7f764c0.webp",
-          "label": "I have a book."
-        }
-      ],
-      "audio_text": "I have a book.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tengo un libro.",
-      "pedagogy_note": "Story beat 01: I have a book.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "We have two books.",
-      "stage": "Speak",
-      "correct_option_id": "we-have-two-books-speak",
-      "options": [
-        {
-          "id": "we-have-two-books-speak",
-          "image_url": "a1_scene_we-have-books_190a845.webp",
-          "label": "We have two books."
-        }
-      ],
-      "audio_text": "We have two books.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tenemos dos libros.",
-      "pedagogy_note": "Story beat 02: We have two books.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "They have their bags.",
-      "stage": "Speak",
-      "correct_option_id": "they-have-their-bags-speak",
-      "options": [
-        {
-          "id": "they-have-their-bags-speak",
-          "image_url": "a1_scene_they-have-bags_aed386b.webp",
-          "label": "They have their bags."
-        }
-      ],
-      "audio_text": "They have their bags.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Ellos tienen sus bolsas.",
-      "pedagogy_note": "Story beat 03: They have their bags.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
       "prompt": "He has a car.",
-      "stage": "Speak",
-      "correct_option_id": "he-has-a-car-speak",
+      "correct_option_id": "he-has-a-car-r1",
       "options": [
         {
-          "id": "he-has-a-car-speak",
-          "image_url": "a1_scene_he-has-car_b3fa0ff.webp",
-          "label": "He has a car."
+          "id": "she-has-a-bike-r1",
+          "label": null,
+          "image_url": "a1_scene_she-has-bike_b6f7660.webp"
+        },
+        {
+          "id": "he-has-a-car-r1",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
         }
       ],
       "audio_text": "He has a car.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Él tiene un carro.",
-      "pedagogy_note": "Story beat 04: He has a car."
+      "pedagogy_note": "Possession progression: He has a car."
     },
     {
-      "slide_id": "S5",
-      "interaction_type": "speak",
-      "prompt": "She has a bike.",
-      "stage": "Speak",
-      "correct_option_id": "she-has-a-bike-speak",
+      "slide_id": "R2",
+      "stage": "Recognize",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "correct_option_id": "r2-target",
       "options": [
         {
-          "id": "she-has-a-bike-speak",
-          "image_url": "a1_scene_she-has-bike_b6f7660.webp",
-          "label": "She has a bike."
+          "id": "r2-target",
+          "label": "They have their bags.",
+          "image_url": ""
+        },
+        {
+          "id": "r2-contrast",
+          "label": "They have their books.",
+          "image_url": ""
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "They have their bags.",
+      "prompt_image_url": "a1_scene_they-have-bags_aed386b.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Possession progression: They have their bags.",
+      "answer_audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R3",
+      "stage": "Recognize",
+      "interaction_type": "t2i2",
+      "prompt": "She has a bike.",
+      "correct_option_id": "she-has-a-bike-r3",
+      "options": [
+        {
+          "id": "he-has-a-car-r3",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        },
+        {
+          "id": "she-has-a-bike-r3",
+          "label": null,
+          "image_url": "a1_scene_she-has-bike_b6f7660.webp"
         }
       ],
       "audio_text": "She has a bike.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Ella tiene una bicicleta.",
-      "pedagogy_note": "Story beat 05: She has a bike.",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Possession progression: She has a bike."
     },
     {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "It is mine.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-mine-speak",
+      "slide_id": "R4",
+      "stage": "Recognize",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "correct_option_id": "r4-target",
       "options": [
         {
-          "id": "it-is-mine-speak",
-          "image_url": "a1_photo_u3_mine_v1.webp",
-          "label": "It is mine."
+          "id": "r4-target",
+          "label": "We have books.",
+          "image_url": ""
+        },
+        {
+          "id": "r4-contrast",
+          "label": "We have phones.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is mine.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es mío.",
-      "pedagogy_note": "Story beat 06: It is mine.",
-      "audio_speaker": "luis"
+      "audio_text": "",
+      "answer_audio_text": "We have books.",
+      "prompt_image_url": "a1_scene_we-have-books_190a845.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Possession progression: We have books.",
+      "answer_audio_speaker": "ana"
     },
     {
-      "slide_id": "S7",
-      "interaction_type": "speak",
-      "prompt": "It is yours.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-yours-speak",
+      "slide_id": "R5",
+      "stage": "Recognize",
+      "interaction_type": "t2i2",
+      "prompt": "This car is mine.",
+      "correct_option_id": "this-car-is-mine-r5",
       "options": [
         {
-          "id": "it-is-yours-speak",
-          "image_url": "a1_photo_u3_yours_v1.webp",
-          "label": "It is yours."
+          "id": "this-car-is-ours-r5",
+          "label": null,
+          "image_url": "a1_ownership_our_car_v1.webp"
+        },
+        {
+          "id": "this-car-is-mine-r5",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
         }
       ],
-      "audio_text": "It is yours.",
+      "audio_text": "This car is mine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es tuyo.",
-      "pedagogy_note": "Story beat 07: It is yours.",
+      "spanish_translation": "Este carro es mío.",
+      "pedagogy_note": "Possession progression: This car is mine.",
+      "audio_speaker": "luis",
+      "audio_revision": 2,
+      "answer_audio_revision": 2
+    },
+    {
+      "slide_id": "R6",
+      "stage": "Recognize",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "correct_option_id": "r6-target",
+      "options": [
+        {
+          "id": "r6-target",
+          "label": "This phone is mine.",
+          "image_url": ""
+        },
+        {
+          "id": "r6-contrast",
+          "label": "This phone is yours.",
+          "image_url": ""
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "This phone is mine.",
+      "prompt_image_url": "a1_photo_u3_mine_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Possession progression: This phone is mine.",
+      "answer_audio_speaker": "luis",
+      "audio_revision": 2,
+      "answer_audio_revision": 2
+    },
+    {
+      "slide_id": "R7",
+      "stage": "Recognize",
+      "interaction_type": "t2i2",
+      "prompt": "This book is yours.",
+      "correct_option_id": "this-book-is-yours-r7",
+      "options": [
+        {
+          "id": "this-phone-is-mine-r7",
+          "label": null,
+          "image_url": "a1_photo_u3_mine_v1.webp"
+        },
+        {
+          "id": "this-book-is-yours-r7",
+          "label": null,
+          "image_url": "a1_photo_u3_yours_v1.webp"
+        }
+      ],
+      "audio_text": "This book is yours.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Este libro es tuyo.",
+      "pedagogy_note": "Possession progression: This book is yours.",
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "S8",
-      "interaction_type": "speak",
-      "prompt": "Is it yours? Yes, it is mine.",
-      "stage": "Speak",
-      "correct_option_id": "is-it-yours-yes-it-is-mine-speak",
+      "slide_id": "R8",
+      "stage": "Recognize",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "correct_option_id": "r8-target",
       "options": [
         {
-          "id": "is-it-yours-yes-it-is-mine-speak",
-          "image_url": "a1_photo_u3_is_it_yours_v1.webp",
-          "label": "Is it yours? Yes, it is mine."
+          "id": "r8-target",
+          "label": "That house is ours.",
+          "image_url": ""
+        },
+        {
+          "id": "r8-contrast",
+          "label": "That house is yours.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Is it yours? Yes, it is mine.",
+      "audio_text": "",
+      "answer_audio_text": "That house is ours.",
+      "prompt_image_url": "a1_ownership_our_house_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Possession progression: That house is ours.",
+      "answer_audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "R9",
+      "stage": "Recognize",
+      "interaction_type": "t2i2",
+      "prompt": "This car is ours.",
+      "correct_option_id": "this-car-is-ours-r9",
+      "options": [
+        {
+          "id": "this-car-is-mine-r9",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        },
+        {
+          "id": "this-car-is-ours-r9",
+          "label": null,
+          "image_url": "a1_ownership_our_car_v1.webp"
+        }
+      ],
+      "audio_text": "This car is ours.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "spanish_translation": "Este carro es nuestro.",
+      "pedagogy_note": "Possession progression: This car is ours.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "A1",
+      "stage": "Listen",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "he-has-a-car-a1",
+      "options": [
+        {
+          "id": "she-has-a-bike-a1",
+          "label": null,
+          "image_url": "a1_scene_she-has-bike_b6f7660.webp"
+        },
+        {
+          "id": "he-has-a-car-a1",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        }
+      ],
+      "audio_text": "He has a car.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: He has a car."
+    },
+    {
+      "slide_id": "A2",
+      "stage": "Listen",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "a2-target",
+      "options": [
+        {
+          "id": "a2-target",
+          "label": "They have their bags.",
+          "image_url": ""
+        },
+        {
+          "id": "a2-contrast",
+          "label": "They have their books.",
+          "image_url": ""
+        }
+      ],
+      "audio_text": "They have their bags.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: They have their bags.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "A3",
+      "stage": "Listen",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "she-has-a-bike-a3",
+      "options": [
+        {
+          "id": "he-has-a-car-a3",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        },
+        {
+          "id": "she-has-a-bike-a3",
+          "label": null,
+          "image_url": "a1_scene_she-has-bike_b6f7660.webp"
+        }
+      ],
+      "audio_text": "She has a bike.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: She has a bike."
+    },
+    {
+      "slide_id": "A4",
+      "stage": "Listen",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "we-have-books-a4",
+      "options": [
+        {
+          "id": "we-have-books-a4",
+          "label": null,
+          "image_url": "a1_scene_we-have-books_190a845.webp"
+        },
+        {
+          "id": "he-has-a-car-a4",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        }
+      ],
+      "audio_text": "We have books.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: We have books.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "A5",
+      "stage": "Listen",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "the-teacher-has-a-book-a5",
+      "options": [
+        {
+          "id": "he-has-a-car-a5",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        },
+        {
+          "id": "the-teacher-has-a-book-a5",
+          "label": null,
+          "image_url": "a1_scene_teacher-ana_0e983a0.webp"
+        }
+      ],
+      "audio_text": "The teacher has a book.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: The teacher has a book."
+    },
+    {
+      "slide_id": "A6",
+      "stage": "Listen",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "this-car-is-mine-a6",
+      "options": [
+        {
+          "id": "this-car-is-mine-a6",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        },
+        {
+          "id": "we-have-books-a6",
+          "label": null,
+          "image_url": "a1_scene_we-have-books_190a845.webp"
+        }
+      ],
+      "audio_text": "This car is mine.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: This car is mine.",
+      "audio_speaker": "luis",
+      "audio_revision": 2,
+      "answer_audio_revision": 2
+    },
+    {
+      "slide_id": "A7",
+      "stage": "Listen",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "a7-target",
+      "options": [
+        {
+          "id": "a7-contrast",
+          "label": "This phone is yours.",
+          "image_url": ""
+        },
+        {
+          "id": "a7-target",
+          "label": "This phone is mine.",
+          "image_url": ""
+        }
+      ],
+      "audio_text": "This phone is mine.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: This phone is mine.",
+      "audio_speaker": "luis",
+      "audio_revision": 2,
+      "answer_audio_revision": 2
+    },
+    {
+      "slide_id": "A8",
+      "stage": "Listen",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "this-book-is-yours-a8",
+      "options": [
+        {
+          "id": "this-book-is-yours-a8",
+          "label": null,
+          "image_url": "a1_photo_u3_yours_v1.webp"
+        },
+        {
+          "id": "this-phone-is-mine-a8",
+          "label": null,
+          "image_url": "a1_photo_u3_mine_v1.webp"
+        }
+      ],
+      "audio_text": "This book is yours.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: This book is yours.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "A9",
+      "stage": "Listen",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "a9-target",
+      "options": [
+        {
+          "id": "a9-contrast",
+          "label": "That house is yours.",
+          "image_url": ""
+        },
+        {
+          "id": "a9-target",
+          "label": "That house is ours.",
+          "image_url": ""
+        }
+      ],
+      "audio_text": "That house is ours.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: That house is ours.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "A10",
+      "stage": "Listen",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "correct_option_id": "this-car-is-ours-a10",
+      "options": [
+        {
+          "id": "this-car-is-ours-a10",
+          "label": null,
+          "image_url": "a1_ownership_our_car_v1.webp"
+        },
+        {
+          "id": "this-car-is-mine-a10",
+          "label": null,
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        }
+      ],
+      "audio_text": "This car is ours.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Possession progression: This car is ours.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "S1",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "He has a car.",
+      "correct_option_id": "s1-target",
+      "options": [
+        {
+          "id": "s1-target",
+          "label": "He has a car.",
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        }
+      ],
+      "audio_text": "He has a car.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Él tiene un carro.",
+      "pedagogy_note": "Possession progression: He has a car."
+    },
+    {
+      "slide_id": "S2",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "They have their bags.",
+      "correct_option_id": "s2-target",
+      "options": [
+        {
+          "id": "s2-target",
+          "label": "They have their bags.",
+          "image_url": "a1_scene_they-have-bags_aed386b.webp"
+        }
+      ],
+      "audio_text": "They have their bags.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Ellos tienen sus bolsas.",
+      "pedagogy_note": "Possession progression: They have their bags.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S3",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "She has a bike.",
+      "correct_option_id": "s3-target",
+      "options": [
+        {
+          "id": "s3-target",
+          "label": "She has a bike.",
+          "image_url": "a1_scene_she-has-bike_b6f7660.webp"
+        }
+      ],
+      "audio_text": "She has a bike.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Ella tiene una bicicleta.",
+      "pedagogy_note": "Possession progression: She has a bike."
+    },
+    {
+      "slide_id": "S4",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "We have books.",
+      "correct_option_id": "s4-target",
+      "options": [
+        {
+          "id": "s4-target",
+          "label": "We have books.",
+          "image_url": "a1_scene_we-have-books_190a845.webp"
+        }
+      ],
+      "audio_text": "We have books.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Tenemos libros.",
+      "pedagogy_note": "Possession progression: We have books.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "S5",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "This car is mine.",
+      "correct_option_id": "s5-target",
+      "options": [
+        {
+          "id": "s5-target",
+          "label": "This car is mine.",
+          "image_url": "a1_scene_he-has-car_b3fa0ff.webp"
+        }
+      ],
+      "audio_text": "This car is mine.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Este carro es mío.",
+      "pedagogy_note": "Possession progression: This car is mine.",
+      "audio_speaker": "luis",
+      "audio_revision": 2,
+      "answer_audio_revision": 2
+    },
+    {
+      "slide_id": "S6",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "This book is yours.",
+      "correct_option_id": "s6-target",
+      "options": [
+        {
+          "id": "s6-target",
+          "label": "This book is yours.",
+          "image_url": "a1_photo_u3_yours_v1.webp"
+        }
+      ],
+      "audio_text": "This book is yours.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Este libro es tuyo.",
+      "pedagogy_note": "Possession progression: This book is yours.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "S7",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "That house is ours.",
+      "correct_option_id": "s7-target",
+      "options": [
+        {
+          "id": "s7-target",
+          "label": "That house is ours.",
+          "image_url": "a1_ownership_our_house_v1.webp"
+        }
+      ],
+      "audio_text": "That house is ours.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Esa casa es nuestra.",
+      "pedagogy_note": "Possession progression: That house is ours.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "S8",
+      "stage": "Speak",
+      "interaction_type": "speak",
+      "prompt": "Is this phone yours? Yes, this phone is mine.",
+      "correct_option_id": "s8-target",
+      "options": [
+        {
+          "id": "s8-target",
+          "label": "Is this phone yours? Yes, this phone is mine.",
+          "image_url": "a1_photo_u3_is_it_yours_v1.webp"
+        }
+      ],
+      "audio_text": "Is this phone yours? Yes, this phone is mine.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Este teléfono es tuyo? Sí, este teléfono es mío.",
+      "pedagogy_note": "Possession progression: Is this phone yours? Yes, this phone is mine.",
+      "audio_revision": 2,
+      "answer_audio_revision": 2,
       "audio_turns": [
         {
-          "text": "Is it yours?",
+          "text": "Is this phone yours?",
           "speaker_role": "ana",
           "image_url": "a1_photo_u3_is_it_yours_v1.webp"
         },
         {
-          "text": "Yes, it is mine.",
+          "text": "Yes, this phone is mine.",
           "speaker_role": "luis",
           "image_url": "a1_photo_u3_mine_v1.webp"
         }
-      ],
-      "spanish_translation": "¿Es tuyo? Sí, es mío.",
-      "pedagogy_note": "Story beat 08: Is it yours? Yes, it is mine."
+      ]
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "You have ___ ___.",
       "stage": "Use",
-      "correct_option_id": "a",
+      "interaction_type": "complete2",
+      "prompt": "He ___ ___ car.",
+      "correct_option_id": "word-2",
+      "correct_option_ids": [
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "a",
+          "id": "word-3",
           "image_url": "",
           "label": "a"
         },
         {
-          "id": "phone",
+          "id": "word-2",
           "image_url": "",
-          "label": "phone"
-        }
-      ],
-      "audio_text": "You have a phone.",
-      "answer_audio_text": "You have a phone.",
-      "prompt_image_url": "a1_scene_your-phone-luis_e8f060b.webp",
-      "spanish_translation": "Tú tienes un teléfono.",
-      "translation": "Tú tienes un teléfono.",
-      "correct_option_ids": [
-        "a",
-        "phone"
-      ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 01: You have a phone.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "We have ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "two",
-      "options": [
-        {
-          "id": "two",
-          "image_url": "",
-          "label": "two"
-        },
-        {
-          "id": "books",
-          "image_url": "",
-          "label": "books"
-        }
-      ],
-      "audio_text": "We have two books.",
-      "answer_audio_text": "We have two books.",
-      "prompt_image_url": "a1_scene_we-have-books_190a845.webp",
-      "spanish_translation": "Tenemos dos libros.",
-      "translation": "Tenemos dos libros.",
-      "correct_option_ids": [
-        "two",
-        "books"
-      ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 02: We have two books.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "He has ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "a",
-      "options": [
-        {
-          "id": "a",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "car",
-          "image_url": "",
-          "label": "car"
+          "label": "has"
         }
       ],
       "audio_text": "He has a car.",
@@ -955,38 +924,59 @@
       "prompt_image_url": "a1_scene_he-has-car_b3fa0ff.webp",
       "spanish_translation": "Él tiene un carro.",
       "translation": "Él tiene un carro.",
-      "correct_option_ids": [
-        "a",
-        "car"
-      ],
-      "pedagogy_note": "Story beat 03: He has a car."
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences."
     },
     {
-      "slide_id": "U4",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "slide_id": "U2",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "interaction_type": "complete2",
+      "prompt": "They ___ ___ bags.",
+      "correct_option_id": "word-2",
+      "correct_option_ids": [
+        "word-2",
+        "word-3"
+      ],
       "options": [
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "their"
+        },
         {
           "id": "word-2",
           "image_url": "",
-          "label": "has"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "bike"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "She"
-        },
+          "label": "have"
+        }
+      ],
+      "audio_text": "They have their bags.",
+      "answer_audio_text": "They have their bags.",
+      "prompt_image_url": "a1_scene_they-have-bags_aed386b.webp",
+      "spanish_translation": "Ellos tienen sus bolsas.",
+      "translation": "Ellos tienen sus bolsas.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U3",
+      "stage": "Use",
+      "interaction_type": "complete2",
+      "prompt": "She ___ ___ bike.",
+      "correct_option_id": "word-2",
+      "correct_option_ids": [
+        "word-2",
+        "word-3"
+      ],
+      "options": [
         {
           "id": "word-3",
           "image_url": "",
           "label": "a"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "has"
         }
       ],
       "audio_text": "She has a bike.",
@@ -994,136 +984,224 @@
       "prompt_image_url": "a1_scene_she-has-bike_b6f7660.webp",
       "spanish_translation": "Ella tiene una bicicleta.",
       "translation": "Ella tiene una bicicleta.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences."
+    },
+    {
+      "slide_id": "U4",
+      "stage": "Use",
+      "interaction_type": "complete2",
+      "prompt": "We ___ ___.",
+      "correct_option_id": "word-2",
+      "correct_option_ids": [
+        "word-2",
+        "word-3"
+      ],
+      "options": [
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "books"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "have"
+        }
+      ],
+      "audio_text": "We have books.",
+      "answer_audio_text": "We have books.",
+      "prompt_image_url": "a1_scene_we-have-books_190a845.webp",
+      "spanish_translation": "Tenemos libros.",
+      "translation": "Tenemos libros.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U5",
+      "stage": "Use",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: She has a bike.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "teacher"
+          "label": "car"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "a"
+          "label": "mine"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "The"
+          "label": "This"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "has"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "book"
+          "label": "is"
         }
       ],
-      "audio_text": "The teacher has a book.",
-      "answer_audio_text": "The teacher has a book.",
-      "prompt_image_url": "a1_scene_teacher-ana_0e983a0.webp",
-      "spanish_translation": "La maestra tiene un libro.",
-      "translation": "La maestra tiene un libro.",
+      "audio_text": "This car is mine.",
+      "answer_audio_text": "This car is mine.",
+      "prompt_image_url": "a1_scene_he-has-car_b3fa0ff.webp",
+      "spanish_translation": "Este carro es mío.",
+      "translation": "Este carro es mío.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
+      "audio_revision": 2,
+      "answer_audio_revision": 2
+    },
+    {
+      "slide_id": "U6",
+      "stage": "Use",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4",
-        "word-5"
+        "word-4"
       ],
-      "pedagogy_note": "Story beat 05: The teacher has a book."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
+          "label": "book"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "yours"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "It"
+          "label": "This"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "mine"
+          "label": "is"
         }
       ],
-      "audio_text": "It is mine.",
-      "answer_audio_text": "It is mine.",
-      "prompt_image_url": "a1_photo_u3_mine_v1.webp",
-      "spanish_translation": "Es mío.",
-      "translation": "Es mío.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
-      ],
-      "answer_audio_speaker": "luis",
-      "pedagogy_note": "Story beat 06: It is mine.",
-      "audio_speaker": "luis"
+      "audio_text": "This book is yours.",
+      "answer_audio_text": "This book is yours.",
+      "prompt_image_url": "a1_photo_u3_yours_v1.webp",
+      "spanish_translation": "Este libro es tuyo.",
+      "translation": "Este libro es tuyo.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana"
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
       "stage": "Use",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
+          "label": "house"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "ours"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "It"
+          "label": "That"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "yours"
+          "label": "is"
         }
       ],
-      "audio_text": "It is yours.",
-      "answer_audio_text": "It is yours.",
-      "prompt_image_url": "a1_photo_u3_yours_v1.webp",
-      "spanish_translation": "Es tuyo.",
-      "translation": "Es tuyo.",
+      "audio_text": "That house is ours.",
+      "answer_audio_text": "That house is ours.",
+      "prompt_image_url": "a1_ownership_our_house_v1.webp",
+      "spanish_translation": "Esa casa es nuestra.",
+      "translation": "Esa casa es nuestra.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "U8",
+      "stage": "Use",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
+        "word-3",
+        "word-4"
       ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 07: It is yours.",
-      "audio_speaker": "ana"
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "car"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "ours"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "This car is ours.",
+      "answer_audio_text": "This car is ours.",
+      "prompt_image_url": "a1_ownership_our_car_v1.webp",
+      "spanish_translation": "Este carro es nuestro.",
+      "translation": "Este carro es nuestro.",
+      "pedagogy_note": "Guided agreement and possession, then complete ownership sentences.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character"
     }
+  ],
+  "purposeful_review_slides": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "A5",
+    "S8",
+    "U1",
+    "U2",
+    "U3",
+    "U4"
   ]
 }

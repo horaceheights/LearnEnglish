@@ -76,6 +76,17 @@ test('a.m. and p.m. keep their internal dots in one tile and teach number before
 // Reviewed grammar oracle, deliberately independent of the resolver's role tables.
 const progressiveVerbs = ['eating', 'drinking', 'reading', 'writing', 'running', 'walking', 'swimming', 'sitting', 'sleeping', 'playing', 'studying', 'working', 'cooking', 'talking', 'watching', 'listening'];
 
+test('possession sentences explain ours with its Spanish meaning and position', () => {
+  for (const target of ['That house is ours.', 'This car is ours.', 'These books are ours.']) {
+    const card = construction(target);
+    assert.equal(constructionTeachingPlan(card).supported, true, target);
+    const result = constructionMistakeHint(card, swap(card, 2, 3));
+    assert.match(result, /“ours” significa “nuestro”/);
+    assert.match(result, /va después de/);
+    assert.doesNotMatch(result, /tuyo|undefined/);
+  }
+});
+
 test('current-action questions teach the auxiliary, person and doing in every swapped position', () => {
   for (const target of ['What are you doing?', 'What is she doing?', 'What is he doing?', 'What are they doing?']) {
     assert.ok(constructionTeachingPlan(construction(target)).supported, target);

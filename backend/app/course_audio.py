@@ -328,6 +328,7 @@ COURSE_SYLLABLES.update({
     "their": 1,
     "our": 1,
     "yours": 1,
+    "ours": 1,
     "diego's": 3,
     "ana's": 2,
     "luis's": 3,

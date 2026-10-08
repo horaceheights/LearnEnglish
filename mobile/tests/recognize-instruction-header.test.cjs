@@ -44,7 +44,8 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  377, // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
+  374, // 2026-10-07: 3.12 now has four sentence-choice cards instead of seven (-3).
+  // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
   // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.
   // 2026-09-29: 3.3 replaces five empty prompts with questions and audio-choice instructions.
@@ -67,6 +68,11 @@ assert.equal(
 // localized before rendering. Audio may contain the English learning question,
 // but must never contain the task instruction.
 const englishInstructionPattern = /^(choose|select|pick|find|tap|listen)\b/i;
+assert.deepEqual(
+  emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-3-8-have-and-has').map(({ card }) => card.slide_id),
+  ['R2', 'R4', 'R6', 'R8'],
+  'Possession alternates full-sentence picture choices with the shared phrase-choice instruction.',
+);
 assert.ok(englishInstructionPattern.test('Listen and choose.'),
   'The instruction matcher must actually recognize its positive fixture.');
 const containsEnglishInstruction = (displayedPrompt, audioText) => [displayedPrompt, audioText ?? '']

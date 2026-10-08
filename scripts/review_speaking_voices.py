@@ -49,7 +49,7 @@ VOICES = frozenset({"male", "female", "narrator"})
 # only a fallback: the gate always plays its asker's own question turn.
 SKIPPED_PURPOSES = frozenset({"mission-intro", "mission-cue"})
 
-FIRST_PERSON = re.compile(r"\b(i|i'm|my|me|mine|we|we're|our|us)\b", re.IGNORECASE)
+FIRST_PERSON = re.compile(r"\b(i|i'm|my|me|mine|we|we're|our|ours|us)\b", re.IGNORECASE)
 SECOND_PERSON = re.compile(r"\b(you|your|you're|yours)\b", re.IGNORECASE)
 SOCIAL = re.compile(
     r"\b(hello|hi|good morning|good afternoon|good evening|good night|goodbye|bye|thank you|"

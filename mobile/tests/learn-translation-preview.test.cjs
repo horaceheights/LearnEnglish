@@ -44,6 +44,15 @@ h.set({key:'L2'});assert.equal(h.value.visible,true,'New Learn card gets its own
 h.tick(300);h.set({ready:false});h.tick(5000);assert.equal(h.value.visible,false);
 h.set({ready:true});h.tick(1699);assert.equal(h.value.visible,true);h.tick(1);assert.equal(h.value.visible,false,'Paused time is excluded.');
 h.set({key:'L1:restart'});h.tick(200);h.set({key:'R1',card:{...card,stage:'Recognize'}});assert.equal(h.value.enabled,false);h.tick(1000);assert.equal(h.value.visible,false);
-for(const invalid of [{...card,stage:'Listen'},{...card,learn_translation_preview_ms:undefined},{...card,spanish_translation:''},{...card,options:[]},{...card,options:[{image_url:''}]}]) assert.equal(h.api.learnTranslationPreviewDuration(invalid),0);
+for(const invalid of [{...card,stage:'Listen'},{...card,learn_translation_preview_ms:0},{...card,spanish_translation:''},{...card,options:[]},{...card,options:[{image_url:''}]}]) assert.equal(h.api.learnTranslationPreviewDuration(invalid),0);
+assert.equal(h.api.learnTranslationPreviewDuration({...card,learn_translation_preview_ms:undefined}),2000,'All Learn introductions default to two seconds, without lesson-specific metadata.');
+assert.equal(h.api.learnTranslationPreviewDuration({...card,learn_translation_preview_ms:null}),2000);
+const course=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../src/generated/a1-course.json'),'utf8'));
+const lessons=Array.isArray(course)?course:(course.lessons||Object.values(course));
+const units=new Set();let introductions=0;
+for(const lesson of lessons){for(const intro of lesson.cards||[]){if(intro.stage==='Learn'){
+  assert.equal(h.api.learnTranslationPreviewDuration(intro),2000,`${lesson.id}/${intro.slide_id}`);units.add(lesson.unit_id);introductions++;
+}}}
+assert.equal(units.size,new Set(lessons.map(lesson=>lesson.unit_id)).size,'Every unit is covered by the default.');assert.ok(introductions>300);
 h.set({key:'L2:restart',card});h.unmount();
 console.log('Learn translation preview: exact timing, readiness, pause, replay, reset and cleanup passed.');

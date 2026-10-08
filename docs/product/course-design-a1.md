@@ -127,9 +127,13 @@ Lessons:
 9. 3.9 Professions: `a teacher`, `a doctor`, `a cook`, `a driver`, `a farmer`, `a nurse`, `What is your job?`
 10. 3.10 My, Your, His, and Her
 11. 3.11 Our and Their
-12. 3.12 Have, Has, Mine, and Yours
+12. 3.12 Have, Has, Mine, Yours, and Ours
 13. 3.13 Unit 3 Review
 14. 3.14 Cenas cruzadas
+
+**2026-10-07 possession correction.** Lesson 3.12 has 42 cards: 7 Learn, 9 Recognize, 10 Listen, 8 Speak and 8 Use. Introduce `He has`, `They have`, `She has`, `We have`, `This is mine`, `This is yours`, and `That is ours`, in that order; only each new target word is yellow. The same progression returns through complete named-object recognition, listening, speaking and guided-to-full construction. Required examples include `We have books.`, `This car is mine.`, `This book is yours.` and `That house is ours.` The final exchange asks `Is this phone yours?` and answers `Yes, this phone is mine.` Review 3.13 retrieves `ours` on its own house scene and names the phone in its exchange; mission 3.14 retrieves `These books are ours.`, possession with `have/has` and the explicit phone exchange while retaining its story, scene geometry and five voice gates. The [3.12 plan](content-plans/3.12-possession-v1.plan.json) and matching 3.13/3.14 retrieval plans are the exact authoring sources.
+
+The same user decision extends the two-second Spanish translation preview to all Learn introductions in all units, including reviews, through the shared timer. This supersedes the pilot-only scope described below; assessment stages retain their existing translation controls.
 
 Core patterns:
 
