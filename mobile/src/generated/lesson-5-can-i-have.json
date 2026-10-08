@@ -1,6 +1,6 @@
 {
   "id": "lesson-5-can-i-have",
-  "title": "5.10 Can I Have...?",
+  "title": "5.10 Ordering Politely 2: At the Market and Shops",
   "level": "Beginner A1",
   "unit_id": "unit-5",
   "unit_title": "Unit 5: Food, Drinks, and Shopping",
@@ -8,10 +8,9 @@
   "lesson_id": "lesson-5",
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
   "sub_lesson_id": "5.10",
-  "sub_lesson_title": "Can I Have...?",
-  "goal": "Ask for food and drinks with Can I have ..., please?, and answer an offer with Yes, please. or No, thank you.",
+  "sub_lesson_title": "Ordering Politely 2: At the Market and Shops",
+  "goal": "Use polite requests with quantities and colors at a market and shop; accept or decline an offer.",
   "vocabulary": [
-    "Can I have...?",
     "Yes, please.",
     "No, thank you."
   ],
@@ -34,12 +33,22 @@
     "Ana",
     "is",
     "at",
-    "caf\u00e9"
+    "Can I have...?",
+    "Here is your...",
+    "Here are your...",
+    "How much is...?",
+    "How can I help you?",
+    "blue",
+    "bag",
+    "three",
+    "apples"
   ],
-  "grammar_function": "Can I have + food or drink + please? Do you want tea? Yes, please. / No, thank you.",
-  "prerequisite": "5.9 please and thank you; 5.6 want; 4.8 Do you...?; 5.2-5.3 food and drinks.",
-  "speaking_outcome": "Ask Can I have ..., please? and accept or refuse an offer politely.",
+  "grammar_function": "Can I have three apples, please? Here are your three apples. Do you want a bag? Yes, please. No, thank you. Can I have the blue bag, please? How much is the bag?",
+  "prerequisite": "5.9 complete polite ordering sequence; 5.8 named prices; 2.6 quantities; 2.8 colors; 4.8 Do you questions.",
+  "speaking_outcome": "Request familiar goods at a market and shop and accept or refuse an offered bag politely.",
   "purposeful_review_slides": [
+    "R1",
+    "R2",
     "R3",
     "R4",
     "R5",
@@ -48,8 +57,8 @@
     "R8",
     "R9",
     "R10",
-    "R11",
-    "R12",
+    "A1",
+    "A2",
     "A3",
     "A4",
     "A5",
@@ -58,6 +67,8 @@
     "A8",
     "A9",
     "A10",
+    "S1",
+    "S2",
     "S3",
     "S4",
     "S5",
@@ -65,6 +76,7 @@
     "S7",
     "S8",
     "S9",
+    "U1",
     "U2",
     "U3",
     "U4",
@@ -74,52 +86,52 @@
     "U8",
     "U9"
   ],
-  "content_revision": 1,
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Yes, please.",
+      "prompt": "Do you want a bag?",
       "stage": "Learn",
-      "correct_option_id": "yes-please-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "yes-please-learn",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": "Yes, please."
+          "id": "l1-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "label": "Do you want a bag?"
         }
       ],
-      "audio_text": "Yes, please.",
+      "audio_text": "Do you want a bag?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "S\u00ed, por favor.",
-      "pedagogy_note": "Story beat 01: Yes, please.",
-      "audio_speaker": "ana",
+      "spanish_translation": "\u00bfQuieres una bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L1",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c001-prompt-756ec48451d4e8c05521",
+          "id": "lesson-5-can-i-have-c001-prompt-949810471f04444d9980",
           "purpose": "prompt",
-          "text": "Yes, please.",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c001-answer-9324f60fb63ef8835d37",
+          "id": "lesson-5-can-i-have-c001-answer-fe4aa9e6c64bdcbbb8cb",
           "purpose": "answer",
-          "text": "Yes, please.",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -128,13 +140,111 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "No, thank you.",
+      "prompt": "Yes, please.",
       "stage": "Learn",
-      "correct_option_id": "no-thank-you-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "no-thank-you-learn",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "id": "l2-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "label": "Yes, please."
+        }
+      ],
+      "audio_text": "Yes, please.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "S\u00ed, por favor.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L2",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-can-i-have-c002-prompt-2ef04361dac12c2a0c7d",
+          "purpose": "prompt",
+          "text": "Yes, please.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c002-answer-6611b4028872b87e8f07",
+          "purpose": "answer",
+          "text": "Yes, please.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "Do you want a bag?",
+      "stage": "Learn",
+      "correct_option_id": "l3-model",
+      "options": [
+        {
+          "id": "l3-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "label": "Do you want a bag?"
+        }
+      ],
+      "audio_text": "Do you want a bag?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfQuieres una bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L3",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-can-i-have-c003-prompt-63a269c794ebf2c628f9",
+          "purpose": "prompt",
+          "text": "Do you want a bag?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c003-answer-bccca50320aedfd58d9e",
+          "purpose": "answer",
+          "text": "Do you want a bag?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "No, thank you.",
+      "stage": "Learn",
+      "correct_option_id": "l4-model",
+      "options": [
+        {
+          "id": "l4-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
           "label": "No, thank you."
         }
       ],
@@ -142,33 +252,33 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "No, gracias.",
-      "pedagogy_note": "Story beat 02: No, thank you.",
-      "audio_speaker": "ana",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L4",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c002-prompt-952f696a63a82b781f2f",
+          "id": "lesson-5-can-i-have-c004-prompt-efed07d984562bd9b436",
           "purpose": "prompt",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c002-answer-2adf61dd14256640da43",
+          "id": "lesson-5-can-i-have-c004-answer-4a9e9eb5df39769e1a0f",
           "purpose": "answer",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -176,53 +286,41 @@
     },
     {
       "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "Yes, please.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "yes-please-r1",
+      "correct_option_id": "r1-answer",
       "options": [
         {
-          "id": "no-thank-you-r1",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "label": null
+          "id": "r1-other-0",
+          "image_url": "",
+          "label": "Can I have two apples, please?"
         },
         {
-          "id": "yes-please-r1",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": null
+          "id": "r1-answer",
+          "image_url": "",
+          "label": "Can I have three apples, please?"
         }
       ],
-      "audio_text": "Yes, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "S\u00ed, por favor.",
-      "pedagogy_note": "Story beat 01: Yes, please.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "Can I have three apples, please?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R1",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c003-prompt-62fb80a8764f0491909d",
-          "purpose": "prompt",
-          "text": "Yes, please.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-can-i-have-c003-answer-7305988c49e1255a839e",
+          "id": "lesson-5-can-i-have-c005-answer-b3ee86f1e53203b777b0",
           "purpose": "answer",
-          "text": "Yes, please.",
+          "text": "Can I have three apples, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -231,40 +329,59 @@
     {
       "slide_id": "R2",
       "interaction_type": "i2t2",
-      "prompt": "",
+      "prompt": "Can I have three apples, please?",
       "stage": "Recognize",
-      "correct_option_id": "no-thank-you-r2",
+      "correct_option_id": "r2-answer",
       "options": [
         {
-          "id": "yes-please-r2",
+          "id": "r2-answer",
           "image_url": "",
-          "label": "Yes, please."
+          "label": "Here are your three apples."
         },
         {
-          "id": "no-thank-you-r2",
+          "id": "r2-other-0",
           "image_url": "",
-          "label": "No, thank you."
+          "label": "Here are your two apples."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 02: No, thank you.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
+      "audio_text": "Can I have three apples, please?",
+      "answer_audio_text": "Here are your three apples.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
+      "spanish_translation": "\u00bfMe da tres manzanas, por favor?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R2",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
+      "answer_audio_turns": [
+        {
+          "text": "Here are your three apples.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c004-answer-3836db274ec088ba6789",
-          "purpose": "answer",
-          "text": "No, thank you.",
+          "id": "lesson-5-can-i-have-c006-prompt-9ed1e942b25c3f7b9dd8",
+          "purpose": "prompt",
+          "text": "Can I have three apples, please?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c006-answer-turn-1-6d15b3f71e85f9a14e08",
+          "purpose": "answer-turn-1",
+          "text": "Here are your three apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -272,51 +389,39 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "Can I have water, please?",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-water-please-r3",
+      "correct_option_id": "r3-answer",
       "options": [
         {
-          "id": "can-i-have-water-please-r3",
-          "image_url": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
-          "label": null
+          "id": "r3-other-0",
+          "image_url": "",
+          "label": "Do you want some milk?"
         },
         {
-          "id": "can-i-have-milk-please-r3",
-          "image_url": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
-          "label": null
+          "id": "r3-answer",
+          "image_url": "",
+          "label": "Do you want a bag?"
         }
       ],
-      "audio_text": "Can I have water, please?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da agua, por favor?",
-      "pedagogy_note": "Story beat 03: Can I have water, please?",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "Do you want a bag?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R3",
+      "audio_speaker": null,
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c005-prompt-a0bfa19e19889ad60210",
-          "purpose": "prompt",
-          "text": "Can I have water, please?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
-          "semantic_role": "question",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-can-i-have-c005-answer-dd74cfe51a8e568bbeb2",
+          "id": "lesson-5-can-i-have-c007-answer-fdb3f50234a636012d16",
           "purpose": "answer",
-          "text": "Can I have water, please?",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -327,38 +432,57 @@
     {
       "slide_id": "R4",
       "interaction_type": "i2t2",
-      "prompt": "",
+      "prompt": "Do you want a bag?",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-juice-please-r4",
+      "correct_option_id": "r4-answer",
       "options": [
         {
-          "id": "can-i-have-tea-please-r4",
+          "id": "r4-answer",
           "image_url": "",
-          "label": "Can I have tea, please?"
+          "label": "Yes, please."
         },
         {
-          "id": "can-i-have-juice-please-r4",
+          "id": "r4-other-0",
           "image_url": "",
-          "label": "Can I have juice, please?"
+          "label": "No, thank you."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Can I have juice, please?",
-      "prompt_image_url": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 04: Can I have juice, please?",
-      "audio_speaker": null,
+      "audio_text": "Do you want a bag?",
+      "answer_audio_text": "Yes, please.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+      "spanish_translation": "\u00bfQuieres una bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R4",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": "female-character",
+      "answer_audio_turns": [
+        {
+          "text": "Yes, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c006-answer-7177cbae6d591dc3b7db",
-          "purpose": "answer",
-          "text": "Can I have juice, please?",
+          "id": "lesson-5-can-i-have-c008-prompt-14039669a4018b2c8570",
+          "purpose": "prompt",
+          "text": "Do you want a bag?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c008-answer-turn-1-07b7301c41ac98dff55c",
+          "purpose": "answer-turn-1",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -368,53 +492,41 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "Can I have coffee, please?",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-coffee-please-r5",
+      "correct_option_id": "r5-answer",
       "options": [
         {
-          "id": "can-i-have-tea-please-r5",
-          "image_url": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
-          "label": null
+          "id": "r5-other-0",
+          "image_url": "",
+          "label": "Goodbye."
         },
         {
-          "id": "can-i-have-coffee-please-r5",
-          "image_url": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
-          "label": null
+          "id": "r5-answer",
+          "image_url": "",
+          "label": "Thank you."
         }
       ],
-      "audio_text": "Can I have coffee, please?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da caf\u00e9, por favor?",
-      "pedagogy_note": "Story beat 05: Can I have coffee, please?",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R5",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c007-prompt-320be79ad91438688e01",
-          "purpose": "prompt",
-          "text": "Can I have coffee, please?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
-          "semantic_role": "question",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-can-i-have-c007-answer-eff94a75568a734b8bc0",
+          "id": "lesson-5-can-i-have-c009-answer-999701533e285cfae14e",
           "purpose": "answer",
-          "text": "Can I have coffee, please?",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -425,36 +537,36 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-tea-please-r6",
+      "correct_option_id": "r6-answer",
       "options": [
         {
-          "id": "can-i-have-tea-please-r6",
+          "id": "r6-answer",
           "image_url": "",
-          "label": "Can I have tea, please?"
+          "label": "Can I have the blue bag, please?"
         },
         {
-          "id": "can-i-have-coffee-please-r6",
+          "id": "r6-other-0",
           "image_url": "",
-          "label": "Can I have coffee, please?"
+          "label": "Can I have the red bag, please?"
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Can I have tea, please?",
-      "prompt_image_url": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
+      "answer_audio_text": "Can I have the blue bag, please?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: Can I have tea, please?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R6",
       "audio_speaker": null,
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c008-answer-e59420b6bd14c535de08",
+          "id": "lesson-5-can-i-have-c010-answer-2cb2932e9954e176f4e3",
           "purpose": "answer",
-          "text": "Can I have tea, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -464,61 +576,39 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "Can I have milk, please?",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-milk-please-r7",
+      "correct_option_id": "r7-answer",
       "options": [
         {
-          "id": "can-i-have-tea-please-r7",
-          "image_url": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
-          "label": null
+          "id": "r7-other-0",
+          "image_url": "",
+          "label": "How much is the bread?"
         },
         {
-          "id": "can-i-have-coffee-please-r7",
-          "image_url": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
-          "label": null
-        },
-        {
-          "id": "can-i-have-milk-please-r7",
-          "image_url": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
-          "label": null
-        },
-        {
-          "id": "can-i-have-water-please-r7",
-          "image_url": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
-          "label": null
+          "id": "r7-answer",
+          "image_url": "",
+          "label": "How much is the bag?"
         }
       ],
-      "audio_text": "Can I have milk, please?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da leche, por favor?",
-      "pedagogy_note": "Story beat 07: Can I have milk, please?",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "audio_text": "",
+      "answer_audio_text": "How much is the bag?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R7",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c009-prompt-36d928b39c8ea5f17fd1",
-          "purpose": "prompt",
-          "text": "Can I have milk, please?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
-          "semantic_role": "question",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-can-i-have-c009-answer-44703217b5006f8640ac",
+          "id": "lesson-5-can-i-have-c011-answer-3bfcec857e41f71ae405",
           "purpose": "answer",
-          "text": "Can I have milk, please?",
+          "text": "How much is the bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -528,46 +618,60 @@
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "i2t2",
+      "prompt": "How much is the bag?",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-a-banana-please-r8",
+      "correct_option_id": "r8-answer",
       "options": [
         {
-          "id": "can-i-have-a-pear-please-r8",
+          "id": "r8-answer",
           "image_url": "",
-          "label": "Can I have a pear, please?"
+          "label": "The bag is seven dollars."
         },
         {
-          "id": "can-i-have-a-banana-please-r8",
+          "id": "r8-other-0",
           "image_url": "",
-          "label": "Can I have a banana, please?"
-        },
-        {
-          "id": "can-i-have-an-orange-please-r8",
-          "image_url": "",
-          "label": "Can I have an orange, please?"
+          "label": "The bag is eight dollars."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Can I have a banana, please?",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: Can I have a banana, please?",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "audio_text": "How much is the bag?",
+      "answer_audio_text": "The bag is seven dollars.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+      "spanish_translation": "\u00bfCu\u00e1nto cuesta la bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R8",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
+      "answer_audio_turns": [
+        {
+          "text": "The bag is seven dollars.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c010-answer-575e6c621a5d3c2c107b",
-          "purpose": "answer",
-          "text": "Can I have a banana, please?",
+          "id": "lesson-5-can-i-have-c012-prompt-065a66b4cc542fabcf9f",
+          "purpose": "prompt",
+          "text": "How much is the bag?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c012-answer-turn-1-5cf3e3c7e84ebfa5352e",
+          "purpose": "answer-turn-1",
+          "text": "The bag is seven dollars.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -575,58 +679,60 @@
     },
     {
       "slide_id": "R9",
-      "interaction_type": "t2i3",
-      "prompt": "Can I have an orange, please?",
+      "interaction_type": "i2t2",
+      "prompt": "Can I have the blue bag, please?",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-an-orange-please-r9",
+      "correct_option_id": "r9-answer",
       "options": [
         {
-          "id": "can-i-have-a-banana-please-r9",
-          "image_url": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
-          "label": null
+          "id": "r9-other-0",
+          "image_url": "",
+          "label": "Here is your red bag."
         },
         {
-          "id": "can-i-have-an-orange-please-r9",
-          "image_url": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
-          "label": null
-        },
-        {
-          "id": "can-i-have-a-pear-please-r9",
-          "image_url": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
-          "label": null
+          "id": "r9-answer",
+          "image_url": "",
+          "label": "Here is your blue bag."
         }
       ],
-      "audio_text": "Can I have an orange, please?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da una naranja, por favor?",
-      "pedagogy_note": "Story beat 09: Can I have an orange, please?",
+      "audio_text": "Can I have the blue bag, please?",
+      "answer_audio_text": "Here is your blue bag.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+      "spanish_translation": "\u00bfMe da la bolsa azul, por favor?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R9",
       "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "male-character",
+      "answer_audio_turns": [
+        {
+          "text": "Here is your blue bag.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c011-prompt-f97a6d29e6a467461329",
+          "id": "lesson-5-can-i-have-c013-prompt-f3c838c443da47435e2d",
           "purpose": "prompt",
-          "text": "Can I have an orange, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c011-answer-813acb4ea20b1bc308a8",
-          "purpose": "answer",
-          "text": "Can I have an orange, please?",
+          "id": "lesson-5-can-i-have-c013-answer-turn-1-923a7aedbd62982e0528",
+          "purpose": "answer-turn-1",
+          "text": "Here is your blue bag.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -634,44 +740,58 @@
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "i2t2",
+      "prompt": "Do you want a bag?",
       "stage": "Recognize",
-      "correct_option_id": "can-i-have-a-pear-please-r10",
+      "correct_option_id": "r10-answer",
       "options": [
         {
-          "id": "can-i-have-a-pear-please-r10",
+          "id": "r10-other-0",
           "image_url": "",
-          "label": "Can I have a pear, please?"
+          "label": "Yes, please."
         },
         {
-          "id": "can-i-have-a-banana-please-r10",
+          "id": "r10-answer",
           "image_url": "",
-          "label": "Can I have a banana, please?"
-        },
-        {
-          "id": "can-i-have-an-orange-please-r10",
-          "image_url": "",
-          "label": "Can I have an orange, please?"
+          "label": "No, thank you."
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Can I have a pear, please?",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: Can I have a pear, please?",
-      "audio_speaker": null,
+      "audio_text": "Do you want a bag?",
+      "answer_audio_text": "No, thank you.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+      "spanish_translation": "\u00bfQuieres una bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": "female-character",
+      "answer_audio_turns": [
+        {
+          "text": "No, thank you.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c012-answer-380644ebc5172d9b37d7",
-          "purpose": "answer",
-          "text": "Can I have a pear, please?",
+          "id": "lesson-5-can-i-have-c014-prompt-4d8db5577bd58f81b15a",
+          "purpose": "prompt",
+          "text": "Do you want a bag?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c014-answer-turn-1-ead3be1794829230dea2",
+          "purpose": "answer-turn-1",
+          "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -680,186 +800,54 @@
       ]
     },
     {
-      "slide_id": "R11",
-      "interaction_type": "t2i2",
-      "prompt": "Do you want tea? Yes, please.",
-      "stage": "Recognize",
-      "correct_option_id": "do-you-want-tea-yes-please-r11",
-      "options": [
-        {
-          "id": "do-you-want-tea-no-thank-you-r11",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "label": null
-        },
-        {
-          "id": "do-you-want-tea-yes-please-r11",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Do you want tea? Yes, please.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfQuieres t\u00e9? S\u00ed, por favor.",
-      "pedagogy_note": "Story beat 11: Do you want tea? Yes, please.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Do you want tea?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp"
-        },
-        {
-          "text": "Yes, please.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp"
-        }
-      ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-can-i-have-c013-prompt-turn-1-72bc5e6b120d44179e93",
-          "purpose": "prompt-turn-1",
-          "text": "Do you want tea?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-can-i-have-c013-prompt-turn-2-323e7e4f391b6e551b6d",
-          "purpose": "prompt-turn-2",
-          "text": "Yes, please.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R12",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "do-you-want-tea-no-thank-you-r12",
-      "options": [
-        {
-          "id": "do-you-want-tea-no-thank-you-r12",
-          "image_url": "",
-          "label": "Do you want tea? No, thank you."
-        },
-        {
-          "id": "do-you-want-tea-yes-please-r12",
-          "image_url": "",
-          "label": "Do you want tea? Yes, please."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Do you want tea? No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 12: Do you want tea? No, thank you.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "answer_audio_turns": [
-        {
-          "text": "Do you want tea?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp"
-        },
-        {
-          "text": "No, thank you.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp"
-        }
-      ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-can-i-have-c014-answer-turn-1-202932fcebbc0ddaada7",
-          "purpose": "answer-turn-1",
-          "text": "Do you want tea?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-can-i-have-c014-answer-turn-2-31c6b3b62dc612f4d498",
-          "purpose": "answer-turn-2",
-          "text": "No, thank you.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "A1",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "yes-please-a1",
+      "correct_option_id": "a1-answer",
       "options": [
         {
-          "id": "yes-please-a1",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": null
+          "id": "a1-answer",
+          "image_url": "",
+          "label": "Can I have three apples, please?"
         },
         {
-          "id": "no-thank-you-a1",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "label": null
+          "id": "a1-other-0",
+          "image_url": "",
+          "label": "Can I have two apples, please?"
         }
       ],
-      "audio_text": "Yes, please.",
+      "audio_text": "Can I have three apples, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Yes, please.",
-      "audio_speaker": "ana",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A1",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c015-prompt-719d1e3dbe5f8f173d4a",
+          "id": "lesson-5-can-i-have-c015-prompt-93b7a655e54545349f37",
           "purpose": "prompt",
-          "text": "Yes, please.",
+          "text": "Can I have three apples, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "image_ref": "text-only:ed4bf17556289f6e4f6d",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c015-answer-d0c94c8a4a489fad18cd",
+          "id": "lesson-5-can-i-have-c015-answer-93fe38330bc8672f1d1f",
           "purpose": "answer",
-          "text": "Yes, please.",
+          "text": "Can I have three apples, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
+          "image_ref": "text-only:ed4bf17556289f6e4f6d",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -867,53 +855,53 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "no-thank-you-a2",
+      "correct_option_id": "a2-answer",
       "options": [
         {
-          "id": "no-thank-you-a2",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "label": null
+          "id": "a2-other-0",
+          "image_url": "",
+          "label": "Here are your two apples."
         },
         {
-          "id": "yes-please-a2",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": null
+          "id": "a2-answer",
+          "image_url": "",
+          "label": "Here are your three apples."
         }
       ],
-      "audio_text": "No, thank you.",
+      "audio_text": "Here are your three apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: No, thank you.",
-      "audio_speaker": "ana",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A2",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c016-prompt-8f79b5df87b0638b915a",
+          "id": "lesson-5-can-i-have-c016-prompt-4c84a42850d49e139435",
           "purpose": "prompt",
-          "text": "No, thank you.",
+          "text": "Here are your three apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "text-only:f73a3a0710bf87d006dc",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c016-answer-ffed3536841df7277340",
+          "id": "lesson-5-can-i-have-c016-answer-906420b6eed20bfcf8a0",
           "purpose": "answer",
-          "text": "No, thank you.",
+          "text": "Here are your three apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "text-only:f73a3a0710bf87d006dc",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -924,48 +912,48 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-i-have-water-please-a3",
+      "correct_option_id": "a3-answer",
       "options": [
         {
-          "id": "can-i-have-water-please-a3",
+          "id": "a3-answer",
           "image_url": "",
-          "label": "Can I have water, please?"
+          "label": "Do you want a bag?"
         },
         {
-          "id": "can-i-have-milk-please-a3",
+          "id": "a3-other-0",
           "image_url": "",
-          "label": "Can I have milk, please?"
+          "label": "Do you want some milk?"
         }
       ],
-      "audio_text": "Can I have water, please?",
+      "audio_text": "Do you want a bag?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Can I have water, please?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A3",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c017-prompt-ceb8cd5b6fa6863bbcb3",
+          "id": "lesson-5-can-i-have-c017-prompt-c01270b1c76cc7c8ff29",
           "purpose": "prompt",
-          "text": "Can I have water, please?",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:767d4b58dd5c3c9f3909",
+          "image_ref": "text-only:6c61faf6d0d8fd8702a1",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c017-answer-6b907f766d0ecb9418e5",
+          "id": "lesson-5-can-i-have-c017-answer-4c25dc9ff04badad945f",
           "purpose": "answer",
-          "text": "Can I have water, please?",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:767d4b58dd5c3c9f3909",
+          "image_ref": "text-only:6c61faf6d0d8fd8702a1",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -975,53 +963,77 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-i-have-juice-please-a4",
+      "correct_option_id": "a4-answer",
       "options": [
         {
-          "id": "can-i-have-tea-please-a4",
-          "image_url": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
-          "label": null
+          "id": "a4-other-0",
+          "image_url": "",
+          "label": "No, thank you."
         },
         {
-          "id": "can-i-have-juice-please-a4",
-          "image_url": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
-          "label": null
+          "id": "a4-answer",
+          "image_url": "",
+          "label": "Yes, please."
         }
       ],
-      "audio_text": "Can I have juice, please?",
+      "audio_text": "Do you want a bag? Yes, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: Can I have juice, please?",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A4",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Do you want a bag?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp"
+        },
+        {
+          "text": "Yes, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c018-prompt-d212ac0ffe4a2e4f32cc",
-          "purpose": "prompt",
-          "text": "Can I have juice, please?",
+          "id": "lesson-5-can-i-have-c018-prompt-turn-1-b42162748ae9428db806",
+          "purpose": "prompt-turn-1",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "question",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c018-prompt-turn-2-b40e6814fa3bb5a918e6",
+          "purpose": "prompt-turn-2",
+          "text": "Yes, please.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c018-answer-c19173b5e8878bf45578",
+          "id": "lesson-5-can-i-have-c018-answer-9df84821f7e6767c1201",
           "purpose": "answer",
-          "text": "Can I have juice, please?",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
+          "image_ref": "text-only:5e5e477d429249c94b89",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1029,53 +1041,53 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-i-have-coffee-please-a5",
+      "correct_option_id": "a5-answer",
       "options": [
         {
-          "id": "can-i-have-coffee-please-a5",
-          "image_url": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
-          "label": null
+          "id": "a5-answer",
+          "image_url": "",
+          "label": "Can I have an apple, please?"
         },
         {
-          "id": "can-i-have-tea-please-a5",
-          "image_url": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
-          "label": null
+          "id": "a5-other-0",
+          "image_url": "",
+          "label": "Can I have a banana, please?"
         }
       ],
-      "audio_text": "Can I have coffee, please?",
+      "audio_text": "Can I have an apple, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Can I have coffee, please?",
-      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A5",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c019-prompt-ffe07e623d4f5b37fc52",
+          "id": "lesson-5-can-i-have-c019-prompt-50b4c655e54cb2fbef8e",
           "purpose": "prompt",
-          "text": "Can I have coffee, please?",
+          "text": "Can I have an apple, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
+          "image_ref": "text-only:f847f103680a516ffd43",
           "semantic_role": "question",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c019-answer-4b2d1a32e919ca6b52d8",
+          "id": "lesson-5-can-i-have-c019-answer-f15ecf7b31544b74de2c",
           "purpose": "answer",
-          "text": "Can I have coffee, please?",
+          "text": "Can I have an apple, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
+          "image_ref": "text-only:f847f103680a516ffd43",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1083,56 +1095,51 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-i-have-tea-please-a6",
+      "correct_option_id": "a6-answer",
       "options": [
         {
-          "id": "can-i-have-tea-please-a6",
+          "id": "a6-other-0",
           "image_url": "",
-          "label": "Can I have tea, please?"
+          "label": "Can I have the red bag, please?"
         },
         {
-          "id": "can-i-have-coffee-please-a6",
+          "id": "a6-answer",
           "image_url": "",
-          "label": "Can I have coffee, please?"
-        },
-        {
-          "id": "can-i-have-milk-please-a6",
-          "image_url": "",
-          "label": "Can I have milk, please?"
+          "label": "Can I have the blue bag, please?"
         }
       ],
-      "audio_text": "Can I have tea, please?",
+      "audio_text": "Can I have the blue bag, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: Can I have tea, please?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A6",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c020-prompt-d3dad9e9c823ddcf63f9",
+          "id": "lesson-5-can-i-have-c020-prompt-4d64b60e52ab7eebf605",
           "purpose": "prompt",
-          "text": "Can I have tea, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:17163a918a29481c6268",
+          "image_ref": "text-only:42c27b75e30a1abe9acc",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c020-answer-27ee0f0ef60d7238cfa2",
+          "id": "lesson-5-can-i-have-c020-answer-e8d5cd22328e884e1fb0",
           "purpose": "answer",
-          "text": "Can I have tea, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:17163a918a29481c6268",
+          "image_ref": "text-only:42c27b75e30a1abe9acc",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1142,61 +1149,51 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-i-have-milk-please-a7",
+      "correct_option_id": "a7-answer",
       "options": [
         {
-          "id": "can-i-have-coffee-please-a7",
-          "image_url": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
-          "label": null
+          "id": "a7-answer",
+          "image_url": "",
+          "label": "Can I have a banana, please?"
         },
         {
-          "id": "can-i-have-milk-please-a7",
-          "image_url": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
-          "label": null
-        },
-        {
-          "id": "can-i-have-water-please-a7",
-          "image_url": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
-          "label": null
-        },
-        {
-          "id": "can-i-have-tea-please-a7",
-          "image_url": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
-          "label": null
+          "id": "a7-other-0",
+          "image_url": "",
+          "label": "Can I have a pear, please?"
         }
       ],
-      "audio_text": "Can I have milk, please?",
+      "audio_text": "Can I have a banana, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: Can I have milk, please?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A7",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c021-prompt-3ba14c696b7b00d68b6d",
+          "id": "lesson-5-can-i-have-c021-prompt-195c02733a7323c6f69f",
           "purpose": "prompt",
-          "text": "Can I have milk, please?",
+          "text": "Can I have a banana, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
+          "image_ref": "text-only:e27ac91026b177f63d4e",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c021-answer-e1f544e3542e00a0eccd",
+          "id": "lesson-5-can-i-have-c021-answer-37c56de0c03b38e756ed",
           "purpose": "answer",
-          "text": "Can I have milk, please?",
+          "text": "Can I have a banana, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
+          "image_ref": "text-only:e27ac91026b177f63d4e",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1206,58 +1203,53 @@
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "ana-is-at-the-caf-a8",
+      "correct_option_id": "a8-answer",
       "options": [
         {
-          "id": "ana-is-at-the-caf-a8",
+          "id": "a8-other-0",
           "image_url": "",
-          "label": "Ana is at the caf\u00e9."
+          "label": "Can I have an apple, please?"
         },
         {
-          "id": "ana-is-at-the-store-a8",
+          "id": "a8-answer",
           "image_url": "",
-          "label": "Ana is at the store."
-        },
-        {
-          "id": "ana-is-at-the-school-a8",
-          "image_url": "",
-          "label": "Ana is at the school."
+          "label": "Can I have an orange, please?"
         }
       ],
-      "audio_text": "Ana is at the caf\u00e9.",
+      "audio_text": "Can I have an orange, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: Ana is at the caf\u00e9.",
-      "audio_speaker": null,
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A8",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c022-prompt-11b78d2bccc926392b0c",
+          "id": "lesson-5-can-i-have-c022-prompt-adedd9ff9a6c0d762137",
           "purpose": "prompt",
-          "text": "Ana is at the caf\u00e9.",
+          "text": "Can I have an orange, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:ed7b149b575dd4833ce5",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "text-only:02a3f4b74682130d0338",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c022-answer-6d55eff2be2000b65660",
+          "id": "lesson-5-can-i-have-c022-answer-402b8f7490da4906e5c7",
           "purpose": "answer",
-          "text": "Ana is at the caf\u00e9.",
+          "text": "Can I have an orange, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:ed7b149b575dd4833ce5",
+          "image_ref": "text-only:02a3f4b74682130d0338",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1268,62 +1260,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "do-you-want-tea-yes-please-a9",
+      "correct_option_id": "a9-answer",
       "options": [
         {
-          "id": "do-you-want-tea-no-thank-you-a9",
+          "id": "a9-answer",
           "image_url": "",
-          "label": "Do you want tea? No, thank you."
+          "label": "Can I have a pear, please?"
         },
         {
-          "id": "do-you-want-tea-yes-please-a9",
+          "id": "a9-other-0",
           "image_url": "",
-          "label": "Do you want tea? Yes, please."
+          "label": "Can I have an orange, please?"
         }
       ],
-      "audio_text": "Do you want tea? Yes, please.",
+      "audio_text": "Can I have a pear, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Do you want tea? Yes, please.",
-      "audio_speaker": null,
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A9",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Do you want tea?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp"
-        },
-        {
-          "text": "Yes, please.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp"
-        }
-      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c023-prompt-turn-1-786b8fb5880ffabda07e",
-          "purpose": "prompt-turn-1",
-          "text": "Do you want tea?",
+          "id": "lesson-5-can-i-have-c023-prompt-c2aad0c5bf2acb984388",
+          "purpose": "prompt",
+          "text": "Can I have a pear, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp",
+          "image_ref": "text-only:cb315e64fb836e81f4dc",
           "semantic_role": "question",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c023-prompt-turn-2-f5e23e5e26aea7fb3f4c",
-          "purpose": "prompt-turn-2",
-          "text": "Yes, please.",
+          "id": "lesson-5-can-i-have-c023-answer-9d65dd59e6a9125845df",
+          "purpose": "answer",
+          "text": "Can I have a pear, please?",
           "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "variant": "answer",
+          "image_ref": "text-only:cb315e64fb836e81f4dc",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1331,65 +1311,77 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "do-you-want-tea-no-thank-you-a10",
+      "correct_option_id": "a10-answer",
       "options": [
         {
-          "id": "do-you-want-tea-yes-please-a10",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": null
+          "id": "a10-answer",
+          "image_url": "",
+          "label": "No, thank you."
         },
         {
-          "id": "do-you-want-tea-no-thank-you-a10",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "label": null
+          "id": "a10-other-0",
+          "image_url": "",
+          "label": "Yes, please."
         }
       ],
-      "audio_text": "Do you want tea? No, thank you.",
+      "audio_text": "Do you want a bag? No, thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Do you want tea? No, thank you.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A10",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "Do you want tea?",
+          "text": "Do you want a bag?",
           "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp"
+          "image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp"
         },
         {
           "text": "No, thank you.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp"
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c024-prompt-turn-1-2746f3d1364061cdeed2",
+          "id": "lesson-5-can-i-have-c024-prompt-turn-1-932bee5f41d54459416f",
           "purpose": "prompt-turn-1",
-          "text": "Do you want tea?",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c024-prompt-turn-2-20da478e38e2e51c840f",
+          "id": "lesson-5-can-i-have-c024-prompt-turn-2-3b54442234803e9436ec",
           "purpose": "prompt-turn-2",
           "text": "No, thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-can-i-have-c024-answer-5f8f04db3ed578307881",
+          "purpose": "answer",
+          "text": "No, thank you.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:dbd0bd94738c17475f5a",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1398,47 +1390,47 @@
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "Yes, please.",
+      "prompt": "Can I have three apples, please?",
       "stage": "Speak",
-      "correct_option_id": "yes-please-speak",
+      "correct_option_id": "s1-model",
       "options": [
         {
-          "id": "yes-please-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": "Yes, please."
+          "id": "s1-model",
+          "image_url": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
+          "label": "Can I have three apples, please?"
         }
       ],
-      "audio_text": "Yes, please.",
+      "audio_text": "Can I have three apples, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "S\u00ed, por favor.",
-      "pedagogy_note": "Story beat 01: Yes, please.",
-      "audio_speaker": "ana",
+      "spanish_translation": "\u00bfMe da tres manzanas, por favor?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S1",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c025-prompt-3a52e30dbf823e155d95",
+          "id": "lesson-5-can-i-have-c025-prompt-a45c477546879069d2c9",
           "purpose": "prompt",
-          "text": "Yes, please.",
+          "text": "Can I have three apples, please?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c025-answer-1e51250a8fb1a99cd103",
+          "id": "lesson-5-can-i-have-c025-answer-39a623be483f0306eb1c",
           "purpose": "answer",
-          "text": "Yes, please.",
+          "text": "Can I have three apples, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1447,47 +1439,47 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "No, thank you.",
+      "prompt": "Here are your three apples.",
       "stage": "Speak",
-      "correct_option_id": "no-thank-you-speak",
+      "correct_option_id": "s2-model",
       "options": [
         {
-          "id": "no-thank-you-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "label": "No, thank you."
+          "id": "s2-model",
+          "image_url": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp",
+          "label": "Here are your three apples."
         }
       ],
-      "audio_text": "No, thank you.",
+      "audio_text": "Here are your three apples.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No, gracias.",
-      "pedagogy_note": "Story beat 02: No, thank you.",
-      "audio_speaker": "ana",
+      "spanish_translation": "Aqu\u00ed est\u00e1n tus tres manzanas.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S2",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c026-prompt-f23e4755317ec747116c",
+          "id": "lesson-5-can-i-have-c026-prompt-b8aecaea967af7523ec6",
           "purpose": "prompt",
-          "text": "No, thank you.",
+          "text": "Here are your three apples.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c026-answer-97a8f48ce5dd479dceb3",
+          "id": "lesson-5-can-i-have-c026-answer-b0f829293c5ab2857829",
           "purpose": "answer",
-          "text": "No, thank you.",
+          "text": "Here are your three apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1496,45 +1488,45 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "Can I have water, please?",
+      "prompt": "Do you want a bag?",
       "stage": "Speak",
-      "correct_option_id": "can-i-have-water-please-speak",
+      "correct_option_id": "s3-model",
       "options": [
         {
-          "id": "can-i-have-water-please-speak",
-          "image_url": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
-          "label": "Can I have water, please?"
+          "id": "s3-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+          "label": "Do you want a bag?"
         }
       ],
-      "audio_text": "Can I have water, please?",
+      "audio_text": "Do you want a bag?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da agua, por favor?",
-      "pedagogy_note": "Story beat 03: Can I have water, please?",
+      "spanish_translation": "\u00bfQuieres una bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S3",
       "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c027-prompt-6af979beb4072cbad992",
+          "id": "lesson-5-can-i-have-c027-prompt-cd3d44636bcf5c12ba91",
           "purpose": "prompt",
-          "text": "Can I have water, please?",
+          "text": "Do you want a bag?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "question",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c027-answer-3547d88bf0d662b17254",
+          "id": "lesson-5-can-i-have-c027-answer-77cd00f2a2ef4d6eba72",
           "purpose": "answer",
-          "text": "Can I have water, please?",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1545,45 +1537,45 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "Can I have a banana, please?",
+      "prompt": "Yes, please.",
       "stage": "Speak",
-      "correct_option_id": "can-i-have-a-banana-please-speak",
+      "correct_option_id": "s4-model",
       "options": [
         {
-          "id": "can-i-have-a-banana-please-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
-          "label": "Can I have a banana, please?"
+          "id": "s4-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "label": "Yes, please."
         }
       ],
-      "audio_text": "Can I have a banana, please?",
+      "audio_text": "Yes, please.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da un pl\u00e1tano, por favor?",
-      "pedagogy_note": "Story beat 04: Can I have a banana, please?",
+      "spanish_translation": "S\u00ed, por favor.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S4",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c028-prompt-0057446778319582d26d",
+          "id": "lesson-5-can-i-have-c028-prompt-39efda4e8d7b93bae09b",
           "purpose": "prompt",
-          "text": "Can I have a banana, please?",
+          "text": "Yes, please.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
-          "semantic_role": "question",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c028-answer-66c30d52be65a5681af9",
+          "id": "lesson-5-can-i-have-c028-answer-bfa623d7e632f76a1165",
           "purpose": "answer",
-          "text": "Can I have a banana, please?",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1594,45 +1586,45 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "Can I have an orange, please?",
+      "prompt": "Can I have the blue bag, please?",
       "stage": "Speak",
-      "correct_option_id": "can-i-have-an-orange-please-speak",
+      "correct_option_id": "s5-model",
       "options": [
         {
-          "id": "can-i-have-an-orange-please-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
-          "label": "Can I have an orange, please?"
+          "id": "s5-model",
+          "image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+          "label": "Can I have the blue bag, please?"
         }
       ],
-      "audio_text": "Can I have an orange, please?",
+      "audio_text": "Can I have the blue bag, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da una naranja, por favor?",
-      "pedagogy_note": "Story beat 05: Can I have an orange, please?",
+      "spanish_translation": "\u00bfMe da la bolsa azul, por favor?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S5",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c029-prompt-58697f4ad3f95c046d0a",
+          "id": "lesson-5-can-i-have-c029-prompt-725244f2cf2a6f48f695",
           "purpose": "prompt",
-          "text": "Can I have an orange, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c029-answer-77e60f375c7675dcffa6",
+          "id": "lesson-5-can-i-have-c029-answer-8b9ea6f6dfe0eb2900c0",
           "purpose": "answer",
-          "text": "Can I have an orange, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1643,45 +1635,45 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "Can I have a pear, please?",
+      "prompt": "How much is the bag?",
       "stage": "Speak",
-      "correct_option_id": "can-i-have-a-pear-please-speak",
+      "correct_option_id": "s6-model",
       "options": [
         {
-          "id": "can-i-have-a-pear-please-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
-          "label": "Can I have a pear, please?"
+          "id": "s6-model",
+          "image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+          "label": "How much is the bag?"
         }
       ],
-      "audio_text": "Can I have a pear, please?",
+      "audio_text": "How much is the bag?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfMe da una pera, por favor?",
-      "pedagogy_note": "Story beat 06: Can I have a pear, please?",
+      "spanish_translation": "\u00bfCu\u00e1nto cuesta la bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S6",
       "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c030-prompt-ae3adba7bf972227300a",
+          "id": "lesson-5-can-i-have-c030-prompt-0f8f6f00eeb23ba61815",
           "purpose": "prompt",
-          "text": "Can I have a pear, please?",
+          "text": "How much is the bag?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c030-answer-f2977fcff821166666b2",
+          "id": "lesson-5-can-i-have-c030-answer-5d73c3147c89e2c26721",
           "purpose": "answer",
-          "text": "Can I have a pear, please?",
+          "text": "How much is the bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1692,47 +1684,47 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "Ana is at the caf\u00e9.",
+      "prompt": "The bag is seven dollars.",
       "stage": "Speak",
-      "correct_option_id": "ana-is-at-the-caf-speak",
+      "correct_option_id": "s7-model",
       "options": [
         {
-          "id": "ana-is-at-the-caf-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_can_i_have_v1.webp",
-          "label": "Ana is at the caf\u00e9."
+          "id": "s7-model",
+          "image_url": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp",
+          "label": "The bag is seven dollars."
         }
       ],
-      "audio_text": "Ana is at the caf\u00e9.",
+      "audio_text": "The bag is seven dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Ana est\u00e1 en el caf\u00e9.",
-      "pedagogy_note": "Story beat 07: Ana is at the caf\u00e9.",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "La bolsa cuesta siete d\u00f3lares.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S7",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c031-prompt-7da915d22053e2e06bbd",
+          "id": "lesson-5-can-i-have-c031-prompt-d6c563baac2e7cbc3414",
           "purpose": "prompt",
-          "text": "Ana is at the caf\u00e9.",
+          "text": "The bag is seven dollars.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_can_i_have_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c031-answer-4405ba64c9362ab6a735",
+          "id": "lesson-5-can-i-have-c031-answer-86cb5aa2ac62f92b417b",
           "purpose": "answer",
-          "text": "Ana is at the caf\u00e9.",
+          "text": "The bag is seven dollars.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_can_i_have_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1741,59 +1733,47 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "Do you want tea? Yes, please.",
+      "prompt": "Here is your blue bag.",
       "stage": "Speak",
-      "correct_option_id": "do-you-want-tea-yes-please-speak",
+      "correct_option_id": "s8-model",
       "options": [
         {
-          "id": "do-you-want-tea-yes-please-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "label": "Do you want tea? Yes, please."
+          "id": "s8-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp",
+          "label": "Here is your blue bag."
         }
       ],
-      "audio_text": "Do you want tea? Yes, please.",
+      "audio_text": "Here is your blue bag.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfQuieres t\u00e9? S\u00ed, por favor.",
-      "pedagogy_note": "Story beat 08: Do you want tea? Yes, please.",
-      "audio_speaker": null,
+      "spanish_translation": "Aqu\u00ed est\u00e1 tu bolsa azul.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S8",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Do you want tea?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp"
-        },
-        {
-          "text": "Yes, please.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp"
-        }
-      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c032-prompt-turn-1-7fa36546c5214fd2e6c1",
-          "purpose": "prompt-turn-1",
-          "text": "Do you want tea?",
+          "id": "lesson-5-can-i-have-c032-prompt-9872f745bf6a7a87c775",
+          "purpose": "prompt",
+          "text": "Here is your blue bag.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp",
-          "semantic_role": "question",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp",
+          "semantic_role": "teacher",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c032-prompt-turn-2-c1e8078997504c95b32c",
-          "purpose": "prompt-turn-2",
-          "text": "Yes, please.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_yes_please_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "id": "lesson-5-can-i-have-c032-answer-5bbdbe414e9141ac70c3",
+          "purpose": "answer",
+          "text": "Here is your blue bag.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1802,59 +1782,47 @@
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "Do you want tea? No, thank you.",
+      "prompt": "No, thank you.",
       "stage": "Speak",
-      "correct_option_id": "do-you-want-tea-no-thank-you-speak",
+      "correct_option_id": "s9-model",
       "options": [
         {
-          "id": "do-you-want-tea-no-thank-you-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "label": "Do you want tea? No, thank you."
+          "id": "s9-model",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "label": "No, thank you."
         }
       ],
-      "audio_text": "Do you want tea? No, thank you.",
+      "audio_text": "No, thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "\u00bfQuieres t\u00e9? No, gracias.",
-      "pedagogy_note": "Story beat 09: Do you want tea? No, thank you.",
-      "audio_speaker": null,
+      "spanish_translation": "No, gracias.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S9",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Do you want tea?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp"
-        },
-        {
-          "text": "No, thank you.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp"
-        }
-      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c033-prompt-turn-1-ce0812aed8b7b88221fb",
-          "purpose": "prompt-turn-1",
-          "text": "Do you want tea?",
+          "id": "lesson-5-can-i-have-c033-prompt-01a44c969e13a25a4aac",
+          "purpose": "prompt",
+          "text": "No, thank you.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_server_offers_tea_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "male-character",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c033-prompt-turn-2-ff1c171cda83704a75fd",
-          "purpose": "prompt-turn-2",
+          "id": "lesson-5-can-i-have-c033-answer-7e414f03b297aac1008e",
+          "purpose": "answer",
           "text": "No, thank you.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1863,56 +1831,56 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "No, ___ ___.",
+      "prompt": "Can I have three ___, ___?",
       "stage": "Use",
-      "correct_option_id": "thank",
+      "correct_option_id": "apples",
       "correct_option_ids": [
-        "thank",
-        "you"
+        "apples",
+        "please"
       ],
       "options": [
         {
-          "id": "thank",
+          "id": "apples",
           "image_url": "",
-          "label": "thank"
+          "label": "apples"
         },
         {
-          "id": "you",
+          "id": "please",
           "image_url": "",
-          "label": "you"
+          "label": "please"
         }
       ],
-      "audio_text": "No, thank you.",
-      "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-      "spanish_translation": "No, gracias.",
-      "pedagogy_note": "Story beat 01: No, thank you.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": "ana",
+      "audio_text": "Can I have three apples, please?",
+      "answer_audio_text": "Can I have three apples, please?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
+      "spanish_translation": "\u00bfMe da tres manzanas, por favor?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U1",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c034-prompt-54698db46aa224557292",
+          "id": "lesson-5-can-i-have-c034-prompt-bec878b055948f4b83e8",
           "purpose": "prompt",
-          "text": "No, thank you.",
+          "text": "Can I have three apples, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c034-answer-735c9a511fd7dfcdb47f",
+          "id": "lesson-5-can-i-have-c034-answer-5cb7b04d2208ae6f9a1e",
           "purpose": "answer",
-          "text": "No, thank you.",
+          "text": "Can I have three apples, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_ana_no_thank_you_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1921,54 +1889,54 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "Can I have ___, ___?",
+      "prompt": "Here are your ___ ___.",
       "stage": "Use",
-      "correct_option_id": "water",
+      "correct_option_id": "three",
       "correct_option_ids": [
-        "water",
-        "please"
+        "three",
+        "apples"
       ],
       "options": [
         {
-          "id": "water",
+          "id": "three",
           "image_url": "",
-          "label": "water"
+          "label": "three"
         },
         {
-          "id": "please",
+          "id": "apples",
           "image_url": "",
-          "label": "please"
+          "label": "apples"
         }
       ],
-      "audio_text": "Can I have water, please?",
-      "answer_audio_text": "Can I have water, please?",
-      "prompt_image_url": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
-      "spanish_translation": "\u00bfMe da agua, por favor?",
-      "pedagogy_note": "Story beat 02: Can I have water, please?",
+      "audio_text": "Here are your three apples.",
+      "answer_audio_text": "Here are your three apples.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed est\u00e1n tus tres manzanas.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U2",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c035-prompt-0e42b3e7bd6f24f05b1d",
+          "id": "lesson-5-can-i-have-c035-prompt-a2539808ce5a9f427d73",
           "purpose": "prompt",
-          "text": "Can I have water, please?",
+          "text": "Here are your three apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
-          "semantic_role": "question",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp",
+          "semantic_role": "teacher",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c035-answer-2217fe708d9a031632a9",
+          "id": "lesson-5-can-i-have-c035-answer-11de55bafa04bae05c30",
           "purpose": "answer",
-          "text": "Can I have water, please?",
+          "text": "Here are your three apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-water_37bb622.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_market_apples_handover_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1979,56 +1947,56 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "Can I have ___, ___?",
+      "prompt": "Do you want ___ ___?",
       "stage": "Use",
-      "correct_option_id": "juice",
+      "correct_option_id": "a",
       "correct_option_ids": [
-        "juice",
-        "please"
+        "a",
+        "bag"
       ],
       "options": [
         {
-          "id": "juice",
+          "id": "a",
           "image_url": "",
-          "label": "juice"
+          "label": "a"
         },
         {
-          "id": "please",
+          "id": "bag",
           "image_url": "",
-          "label": "please"
+          "label": "bag"
         }
       ],
-      "audio_text": "Can I have juice, please?",
-      "answer_audio_text": "Can I have juice, please?",
-      "prompt_image_url": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
-      "spanish_translation": "\u00bfMe da jugo, por favor?",
-      "pedagogy_note": "Story beat 03: Can I have juice, please?",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "Do you want a bag?",
+      "answer_audio_text": "Do you want a bag?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+      "spanish_translation": "\u00bfQuieres una bolsa?",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U3",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c036-prompt-4d92a573a2dfd5770e06",
+          "id": "lesson-5-can-i-have-c036-prompt-ce37a35c1aa28ba0f7b3",
           "purpose": "prompt",
-          "text": "Can I have juice, please?",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "question",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c036-answer-86067a75ed8c75d76be9",
+          "id": "lesson-5-can-i-have-c036-answer-59eaeb48a1837b8583cf",
           "purpose": "answer",
-          "text": "Can I have juice, please?",
+          "text": "Do you want a bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_juice-please_ee4b773.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2037,18 +2005,18 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "Can I have ___, ___?",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "coffee",
+      "correct_option_id": "yes",
       "correct_option_ids": [
-        "coffee",
+        "yes",
         "please"
       ],
       "options": [
         {
-          "id": "coffee",
+          "id": "yes",
           "image_url": "",
-          "label": "coffee"
+          "label": "Yes"
         },
         {
           "id": "please",
@@ -2056,37 +2024,37 @@
           "label": "please"
         }
       ],
-      "audio_text": "Can I have coffee, please?",
-      "answer_audio_text": "Can I have coffee, please?",
-      "prompt_image_url": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
-      "spanish_translation": "\u00bfMe da caf\u00e9, por favor?",
-      "pedagogy_note": "Story beat 04: Can I have coffee, please?",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
+      "audio_text": "Yes, please.",
+      "answer_audio_text": "Yes, please.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+      "spanish_translation": "S\u00ed, por favor.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U4",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c037-prompt-c16d7702be6d8bf991d2",
+          "id": "lesson-5-can-i-have-c037-prompt-b56a4bb296283ff4d38d",
           "purpose": "prompt",
-          "text": "Can I have coffee, please?",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
-          "semantic_role": "question",
-          "speaker_role": "male-character",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c037-answer-aa5ad9d493f74d29b3ef",
+          "id": "lesson-5-can-i-have-c037-answer-2c524a8701cc54e3cd84",
           "purpose": "answer",
-          "text": "Can I have coffee, please?",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-coffee_3164cd2.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2094,55 +2062,85 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "Can I have ___, ___?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___, ___?",
       "stage": "Use",
-      "correct_option_id": "tea",
+      "correct_option_id": "word-1",
       "correct_option_ids": [
-        "tea",
-        "please"
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
       ],
       "options": [
         {
-          "id": "tea",
+          "id": "word-2",
           "image_url": "",
-          "label": "tea"
+          "label": "I"
         },
         {
-          "id": "please",
+          "id": "word-4",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "bag"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Can"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "have"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "blue"
+        },
+        {
+          "id": "word-7",
           "image_url": "",
           "label": "please"
         }
       ],
-      "audio_text": "Can I have tea, please?",
-      "answer_audio_text": "Can I have tea, please?",
-      "prompt_image_url": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
-      "spanish_translation": "\u00bfMe da t\u00e9, por favor?",
-      "pedagogy_note": "Story beat 05: Can I have tea, please?",
+      "audio_text": "Can I have the blue bag, please?",
+      "answer_audio_text": "Can I have the blue bag, please?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+      "spanish_translation": "\u00bfMe da la bolsa azul, por favor?",
+      "pedagogy_note": "Use: Can I have the blue bag, please?",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c038-prompt-06e6c78306691ca8b660",
+          "id": "lesson-5-can-i-have-c038-prompt-f68aec8d1dbf3094f338",
           "purpose": "prompt",
-          "text": "Can I have tea, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c038-answer-980c95d5d5e77479148d",
+          "id": "lesson-5-can-i-have-c038-answer-a9ec8617d04f6afe0c23",
           "purpose": "answer",
-          "text": "Can I have tea, please?",
+          "text": "Can I have the blue bag, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-tea_14f7d45.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2153,7 +2151,7 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___, ___?",
+      "prompt": "___ ___ ___ ___ ___?",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -2167,58 +2165,58 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "I"
+          "label": "much"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "milk"
+          "label": "the"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Can"
+          "label": "How"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "have"
+          "label": "is"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "please"
+          "label": "bag"
         }
       ],
-      "audio_text": "Can I have milk, please?",
-      "answer_audio_text": "Can I have milk, please?",
-      "prompt_image_url": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
-      "spanish_translation": "\u00bfMe da leche, por favor?",
-      "pedagogy_note": "Story beat 06: Can I have milk, please?",
+      "audio_text": "How much is the bag?",
+      "answer_audio_text": "How much is the bag?",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
+      "spanish_translation": "\u00bfCu\u00e1nto cuesta la bolsa?",
+      "pedagogy_note": "Use: How much is the bag?",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c039-prompt-2433f835cb6364744408",
+          "id": "lesson-5-can-i-have-c039-prompt-ea23c6bf9a9fc05b382b",
           "purpose": "prompt",
-          "text": "Can I have milk, please?",
+          "text": "How much is the bag?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c039-answer-9fb6a0ed869a7c058d1c",
+          "id": "lesson-5-can-i-have-c039-answer-7ce6877f55963cd535bf",
           "purpose": "answer",
-          "text": "Can I have milk, please?",
+          "text": "How much is the bag?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_orders-milk_6835950.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_ask_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2229,7 +2227,7 @@
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___, ___?",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -2237,72 +2235,66 @@
         "word-2",
         "word-3",
         "word-4",
-        "word-5",
-        "word-6"
+        "word-5"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "I"
+          "label": "bag"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "please"
+          "label": "seven"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Can"
+          "label": "The"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "have"
+          "label": "is"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "banana"
+          "label": "dollars"
         }
       ],
-      "audio_text": "Can I have a banana, please?",
-      "answer_audio_text": "Can I have a banana, please?",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
-      "spanish_translation": "\u00bfMe da un pl\u00e1tano, por favor?",
-      "pedagogy_note": "Story beat 07: Can I have a banana, please?",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "The bag is seven dollars.",
+      "answer_audio_text": "The bag is seven dollars.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp",
+      "spanish_translation": "La bolsa cuesta siete d\u00f3lares.",
+      "pedagogy_note": "Use: The bag is seven dollars.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c040-prompt-c1ed1b92bf61e6a904ea",
+          "id": "lesson-5-can-i-have-c040-prompt-3611570e857762d9339d",
           "purpose": "prompt",
-          "text": "Can I have a banana, please?",
+          "text": "The bag is seven dollars.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "female-character",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c040-answer-868d4065181681958880",
+          "id": "lesson-5-can-i-have-c040-answer-b4ddf516c1d6ce0a0a48",
           "purpose": "answer",
-          "text": "Can I have a banana, please?",
+          "text": "The bag is seven dollars.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_banana_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_price_bag_reply_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2311,7 +2303,7 @@
     {
       "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___, ___?",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -2319,72 +2311,66 @@
         "word-2",
         "word-3",
         "word-4",
-        "word-5",
-        "word-6"
+        "word-5"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "I"
+          "label": "is"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "an"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "please"
+          "label": "blue"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Can"
+          "label": "Here"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "have"
+          "label": "your"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "orange"
+          "label": "bag"
         }
       ],
-      "audio_text": "Can I have an orange, please?",
-      "answer_audio_text": "Can I have an orange, please?",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
-      "spanish_translation": "\u00bfMe da una naranja, por favor?",
-      "pedagogy_note": "Story beat 08: Can I have an orange, please?",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "Here is your blue bag.",
+      "answer_audio_text": "Here is your blue bag.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed est\u00e1 tu bolsa azul.",
+      "pedagogy_note": "Use: Here is your blue bag.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c041-prompt-ed26955911543c1668da",
+          "id": "lesson-5-can-i-have-c041-prompt-20a8a6c4681d8398c5e0",
           "purpose": "prompt",
-          "text": "Can I have an orange, please?",
+          "text": "Here is your blue bag.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
-          "semantic_role": "question",
-          "speaker_role": "female-character",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c041-answer-3fd1a36571076d6466c3",
+          "id": "lesson-5-can-i-have-c041-answer-ab59242999b09e78aaa8",
           "purpose": "answer",
-          "text": "Can I have an orange, please?",
+          "text": "Here is your blue bag.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_orange_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_bag_handover_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2393,78 +2379,60 @@
     {
       "slide_id": "U9",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___, ___?",
+      "prompt": "___, ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
+        "word-3"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "please"
+          "label": "thank"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Can"
+          "label": "No"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "have"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "pear"
+          "label": "you"
         }
       ],
-      "audio_text": "Can I have a pear, please?",
-      "answer_audio_text": "Can I have a pear, please?",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
-      "spanish_translation": "\u00bfMe da una pera, por favor?",
-      "pedagogy_note": "Story beat 09: Can I have a pear, please?",
+      "audio_text": "No, thank you.",
+      "answer_audio_text": "No, thank you.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+      "spanish_translation": "No, gracias.",
+      "pedagogy_note": "Use: No, thank you.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-can-i-have-c042-prompt-e669c0119410db26eeca",
+          "id": "lesson-5-can-i-have-c042-prompt-c65834823a7659600fce",
           "purpose": "prompt",
-          "text": "Can I have a pear, please?",
+          "text": "No, thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
-          "semantic_role": "question",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
+          "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-can-i-have-c042-answer-b2fc4f5b774aee58cc7c",
+          "id": "lesson-5-can-i-have-c042-answer-f1472b11d07a7e754701",
           "purpose": "answer",
-          "text": "Can I have a pear, please?",
+          "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_stall_pear_request_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_shop_decline_bag_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",

@@ -30,6 +30,32 @@ function hint(target, a, b) {
   return constructionMistakeHint(card, swap(card, a, b));
 }
 
+test('polite requests, coordinated handovers and negative needs explain word order', () => {
+  for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
+    const card = construction(target);
+    assert.equal(constructionTeachingPlan(card).supported, true, target);
+    for (let a = 0; a < card.options.length; a++) for (let b = a + 1; b < card.options.length; b++) {
+      const explanation = constructionMistakeHint(card, swap(card, a, b));
+      assert.ok(explanation.length > 20 && explanation.length <= 230, `${target}: ${explanation}`);
+      assert.doesNotMatch(explanation, /undefined|unsupported/);
+    }
+  }
+  assert.match(hint('I do not want milk.', 2, 3), /“Not”.+después de “do”.+antes de “want”/);
+  assert.match(hint('I do not need juice.', 2, 3), /“Not”.+después de “do”.+antes de “need”/);
+  assert.match(hint('Can I have coffee and eggs, please?', 4, 5), /“and” une/);
+});
+
+test('agreement and physical money contrasts explain the actual mistake', () => {
+  for (const [right, wrong, meaning] of [['Me too.', 'Me neither.', /yo también/], ['Me neither.', 'Me too.', /yo tampoco/], ['A dollar', 'Dollars', /un solo dólar/], ['Dollars', 'A dollar', /varios dólares/]]) {
+    const card = {stage: 'Recognize', prompt: '', audio_text: '', correct_option_id: 'right',
+      options: [{id:'right', label:right}, {id:'wrong', label:wrong}]};
+    const result = lessonMistakeHint(card, 'wrong');
+    assert.match(result, meaning);
+    assert.ok(result.length <= 140, result);
+    assert.doesNotMatch(result, /^La respuesta es|^Aquí corresponde/);
+  }
+});
+
 function reviewSingleBlankCompletion(card, context) {
   assert.equal(card.interaction_type, 'complete', context);
   assert.equal(card.correct_option_ids?.length || 0, 0, context);

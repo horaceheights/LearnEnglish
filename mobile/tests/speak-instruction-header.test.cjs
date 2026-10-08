@@ -64,7 +64,7 @@ assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-aroun
 // The Unit 3 mission gained a fifth gate, Is it yours?, on 2026-09-25.
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 5);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-10-my-day-mission').length, 9);
-assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-5-10-cafe-mission').length, 4);
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-5-10-cafe-mission').length, 9);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-6-10-town-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-7-10-a1-final-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-3-am-is-and-are').length, 8);

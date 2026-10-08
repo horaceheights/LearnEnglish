@@ -12,6 +12,7 @@ from backend.app.course_audio_receipts import (
 )
 from backend.app.course_audio_registry import load_approved_take_registry, resolve_approved_take
 from backend.app.data import LESSONS
+from backend.app.schemas import CourseAudioAsset
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -20,10 +21,10 @@ ROOT = Path(__file__).resolve().parents[2]
 class PlayingAudioTests(unittest.TestCase):
     def setUp(self):
         self.registry = load_approved_take_registry()
-        self.assets = [asset for card in LESSONS["lesson-6-family-actions"].cards
-                       for asset in card.audio_assets if asset.text == "Playing"]
+        evidence = json.loads((ROOT / "docs/qa/playing-audio-2026-09-20.json").read_text(encoding="utf-8"))
+        self.assets = [CourseAudioAsset.model_validate(asset) for asset in evidence["retired_assets"]]
 
-    def test_fresh_bytes_and_revision_match_both_clients(self):
+    def test_historical_approved_bytes_are_preserved_after_contextual_replacement(self):
         self.assertEqual({asset.id for asset in self.assets}, NATURAL_PLAYING_ASSET_IDS)
         for asset in self.assets:
             with self.subTest(asset=asset.id):
@@ -38,7 +39,9 @@ class PlayingAudioTests(unittest.TestCase):
         lesson = next(item for item in course if item["id"] == "lesson-6-family-actions")
         embedded = [asset for card in lesson["cards"] for asset in card["audio_assets"]
                     if asset["text"] == "Playing"]
-        self.assertEqual(embedded, [asset.model_dump() for asset in self.assets])
+        self.assertEqual(embedded, [], "Bare verbs must not return to the active lesson.")
+        self.assertTrue(any(asset.text == "They are playing." for card in LESSONS["lesson-6-family-actions"].cards
+                            for asset in card.audio_assets))
 
     def test_natural_speed_exception_requires_exact_bytes_and_binding(self):
         asset = self.assets[0]
@@ -57,7 +60,7 @@ class PlayingAudioTests(unittest.TestCase):
         active = {asset.id for lesson in LESSONS.values() for card in lesson.cards
                   for asset in card.audio_assets
                   if self.registry["bindings"].get(asset.id, {}).get("take_id") == NATURAL_PLAYING_AUDIO_SHA256}
-        self.assertEqual(active, NATURAL_PLAYING_ASSET_IDS)
+        self.assertEqual(active, set(), "The standalone take is archived, never rebound to a new sentence.")
 
 
 if __name__ == "__main__":

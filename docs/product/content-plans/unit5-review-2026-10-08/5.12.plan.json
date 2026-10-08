@@ -1,0 +1,2040 @@
+{
+  "plan_version": 1,
+  "lesson": {
+    "id": "lesson-5-10-cafe-mission",
+    "title": "5.12 Un día en el mercado y el café",
+    "level": "Beginner A1",
+    "unit_id": "unit-5",
+    "unit_title": "Unit 5: Food, Drinks, and Shopping",
+    "unit_outcome": "Follow audio clues to identify market goods, food preferences, and complete café purchases.",
+    "lesson_id": "lesson-5",
+    "lesson_title": "Unit 5: Food, Drinks, and Shopping",
+    "sub_lesson_id": "5.12",
+    "sub_lesson_title": "Un día en el mercado y el café",
+    "experience_type": "mission",
+    "content_revision": 4,
+    "mission": {
+      "label": "MISIÓN FINAL · UNIDAD 5",
+      "title": "Un día en el mercado y el café",
+      "briefing": "Compra la comida del día, conversa sobre gustos y necesidades y completa tu pedido. Escucha cada pista y toca su respuesta. En los intercambios, escucha y responde en voz alta.",
+      "kickoff_image_url": "/lesson-assets/a1_u5_market_v1_kickoff.webp",
+      "objectives": [
+        "Encuentra alimentos y cantidades",
+        "Expresa acuerdos, gustos y necesidades",
+        "Pregunta precios y completa pedidos"
+      ],
+      "completion_title": "¡El mercado y el café están listos!",
+      "completion_message": "Compraste en el mercado, expresaste gustos y necesidades, entendiste los precios y completaste un pedido con cortesía.",
+      "chapters": [
+        {
+          "id": "mercado",
+          "title": "En el mercado",
+          "objective": "Escucha la pista y toca lo que hay."
+        },
+        {
+          "id": "gustos",
+          "title": "Gustos y disgustos",
+          "objective": "Escucha a quién le gusta cada cosa."
+        },
+        {
+          "id": "pide",
+          "title": "Lo que quiere cada quien",
+          "objective": "Escucha quién quiere o necesita algo."
+        },
+        {
+          "id": "comidas",
+          "title": "Comidas y precios",
+          "objective": "Escucha la comida y el precio."
+        },
+        {
+          "id": "cafe",
+          "title": "En el café",
+          "objective": "Escucha la pregunta y responde en voz alta."
+        }
+      ],
+      "voice_heading": "PIDE EN EL CAFÉ",
+      "voice_instruction": "Escucha la frase y responde en voz alta",
+      "voice_success_label": "PEDIDO CONFIRMADO"
+    },
+    "goal": "Complete market purchases and a café order, with spoken agreement, negative wants/needs, named prices and polite requests.",
+    "vocabulary": [],
+    "review_vocabulary": [
+      "fruit",
+      "apple",
+      "banana",
+      "orange",
+      "grapes",
+      "strawberry",
+      "pear",
+      "food",
+      "bread",
+      "rice",
+      "egg",
+      "chicken",
+      "fish",
+      "drinks",
+      "water",
+      "milk",
+      "juice",
+      "coffee",
+      "tea",
+      "drink",
+      "How many...?",
+      "some",
+      "like",
+      "do not like",
+      "Me too.",
+      "want",
+      "wants",
+      "need",
+      "needs",
+      "lunch",
+      "dinner",
+      "for",
+      "How much is it?",
+      "dollar",
+      "dollars",
+      "please",
+      "Here you are.",
+      "Thank you.",
+      "Can I have...?",
+      "Yes, please.",
+      "No, thank you.",
+      "Me neither.",
+      "do not want",
+      "do not need",
+      "How much is...?",
+      "How can I help you?",
+      "Here is your...",
+      "Here are your..."
+    ],
+    "grammar_function": "Integrate food wants/needs, purchasing actions, and polite requests.",
+    "prerequisite": "Lessons 5.1-5.11 completed.",
+    "speaking_outcome": "Speak polite café orders and price answers aloud across final voice gates.",
+    "purposeful_review_slides": [
+      "M01",
+      "M02",
+      "M03"
+    ]
+  },
+  "cards": [
+    {
+      "recipe": "mission",
+      "slide_id": "M01",
+      "mission_chapter_id": "mercado",
+      "stage": "Listen",
+      "prompt": "There are apples. There are bananas. There is bread. There is rice.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_market_stall.webp",
+      "spanish_translation": "Hay manzanas. Hay plátanos. Hay pan. Hay arroz.",
+      "pedagogy_note": "Mission beat 01/18: mercado — guided-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "market-stall-1",
+            "label_es": "Hay manzanas.",
+            "accepted_option_ids": [
+              "market-stall-1"
+            ],
+            "rect": {
+              "x": 0.005,
+              "y": 0.435,
+              "width": 0.32,
+              "height": 0.28
+            },
+            "head_anchors": [
+              {
+                "x": 0.165,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "id": "market-stall-2",
+            "label_es": "Hay plátanos.",
+            "accepted_option_ids": [
+              "market-stall-2"
+            ],
+            "rect": {
+              "x": 0.31,
+              "y": 0.13,
+              "width": 0.17,
+              "height": 0.31
+            },
+            "head_anchors": [
+              {
+                "x": 0.395,
+                "y": 0.14
+              }
+            ]
+          },
+          {
+            "id": "market-stall-3",
+            "label_es": "Hay pan.",
+            "accepted_option_ids": [
+              "market-stall-3"
+            ],
+            "rect": {
+              "x": 0.455,
+              "y": 0.45,
+              "width": 0.27,
+              "height": 0.33
+            },
+            "head_anchors": [
+              {
+                "x": 0.59,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "id": "market-stall-4",
+            "label_es": "Hay arroz.",
+            "accepted_option_ids": [
+              "market-stall-4"
+            ],
+            "rect": {
+              "x": 0.74,
+              "y": 0.4,
+              "width": 0.23,
+              "height": 0.39
+            },
+            "head_anchors": [
+              {
+                "x": 0.855,
+                "y": 0.41
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-market-stall-1",
+            "text": "There are apples.",
+            "answer_text": "There are apples.",
+            "target_id": "market-stall-1",
+            "option_id": "market-stall-1"
+          },
+          {
+            "id": "cue-market-stall-2",
+            "text": "There are bananas.",
+            "answer_text": "There are bananas.",
+            "target_id": "market-stall-2",
+            "option_id": "market-stall-2"
+          },
+          {
+            "id": "cue-market-stall-3",
+            "text": "There is bread.",
+            "answer_text": "There is bread.",
+            "target_id": "market-stall-3",
+            "option_id": "market-stall-3"
+          },
+          {
+            "id": "cue-market-stall-4",
+            "text": "There is rice.",
+            "answer_text": "There is rice.",
+            "target_id": "market-stall-4",
+            "option_id": "market-stall-4"
+          }
+        ],
+        "tutorial_mode": "guided-no-fail"
+      },
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M02",
+      "mission_chapter_id": "mercado",
+      "stage": "Listen",
+      "prompt": "There are five oranges. How many pears are there? There are two pears. There are grapes. There is a strawberry.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_fruit_counter.webp",
+      "spanish_translation": "Hay cinco naranjas. ¿Cuántas peras hay? Hay dos peras. Hay uvas. Hay una fresa.",
+      "pedagogy_note": "Mission beat 02/18: mercado — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "fruit-counter-1",
+            "label_es": "Hay cinco naranjas.",
+            "accepted_option_ids": [
+              "fruit-counter-1"
+            ],
+            "rect": {
+              "x": 0.01,
+              "y": 0.445,
+              "width": 0.285,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.45
+              }
+            ]
+          },
+          {
+            "id": "fruit-counter-2",
+            "label_es": "¿Cuántas peras hay? Hay dos peras.",
+            "accepted_option_ids": [
+              "fruit-counter-2"
+            ],
+            "rect": {
+              "x": 0.3,
+              "y": 0.505,
+              "width": 0.21,
+              "height": 0.19
+            },
+            "head_anchors": [
+              {
+                "x": 0.405,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "id": "fruit-counter-3",
+            "label_es": "Hay uvas.",
+            "accepted_option_ids": [
+              "fruit-counter-3"
+            ],
+            "rect": {
+              "x": 0.53,
+              "y": 0.505,
+              "width": 0.23,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.645,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "id": "fruit-counter-4",
+            "label_es": "Hay una fresa.",
+            "accepted_option_ids": [
+              "fruit-counter-4"
+            ],
+            "rect": {
+              "x": 0.775,
+              "y": 0.555,
+              "width": 0.22,
+              "height": 0.165
+            },
+            "head_anchors": [
+              {
+                "x": 0.872,
+                "y": 0.585
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-fruit-counter-1",
+            "text": "There are five oranges.",
+            "answer_text": "There are five oranges.",
+            "target_id": "fruit-counter-1",
+            "option_id": "fruit-counter-1"
+          },
+          {
+            "id": "cue-fruit-counter-2",
+            "text": "How many pears are there? There are two pears.",
+            "answer_text": "How many pears are there? There are two pears.",
+            "target_id": "fruit-counter-2",
+            "option_id": "fruit-counter-2"
+          },
+          {
+            "id": "cue-fruit-counter-3",
+            "text": "There are grapes.",
+            "answer_text": "There are grapes.",
+            "target_id": "fruit-counter-3",
+            "option_id": "fruit-counter-3"
+          },
+          {
+            "id": "cue-fruit-counter-4",
+            "text": "There is a strawberry.",
+            "answer_text": "There is a strawberry.",
+            "target_id": "fruit-counter-4",
+            "option_id": "fruit-counter-4"
+          }
+        ]
+      },
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M03",
+      "mission_chapter_id": "mercado",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m02a-response",
+          "label": "Can I have three apples, please?",
+          "image_url": "a1_u5_revision_mission_apples_request_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_mission_apples_request_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Me da tres manzanas, por favor?",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Hello! How can I help you?",
+        "targets": [
+          {
+            "id": "m02a-response",
+            "label_es": "¿Me da tres manzanas, por favor?",
+            "accepted_option_ids": [
+              "m02a-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m02a-response",
+            "text": "Hello! How can I help you?",
+            "answer_text": "Can I have three apples, please?",
+            "target_id": "m02a-response",
+            "option_id": "m02a-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 03/18: mercado — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M04",
+      "mission_chapter_id": "mercado",
+      "stage": "Listen",
+      "prompt": "There is water. There is milk. There is juice. There is coffee.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_drinks_fridge.webp",
+      "spanish_translation": "Hay agua. Hay leche. Hay jugo. Hay café.",
+      "pedagogy_note": "Mission beat 04/18: mercado — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "drinks-fridge-1",
+            "label_es": "Hay agua.",
+            "accepted_option_ids": [
+              "drinks-fridge-1"
+            ],
+            "rect": {
+              "x": 0.04,
+              "y": 0.22,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.108,
+                "y": 0.23
+              }
+            ]
+          },
+          {
+            "id": "drinks-fridge-2",
+            "label_es": "Hay leche.",
+            "accepted_option_ids": [
+              "drinks-fridge-2"
+            ],
+            "rect": {
+              "x": 0.255,
+              "y": 0.23,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.322,
+                "y": 0.24
+              }
+            ]
+          },
+          {
+            "id": "drinks-fridge-3",
+            "label_es": "Hay jugo.",
+            "accepted_option_ids": [
+              "drinks-fridge-3"
+            ],
+            "rect": {
+              "x": 0.46,
+              "y": 0.23,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.527,
+                "y": 0.24
+              }
+            ]
+          },
+          {
+            "id": "drinks-fridge-4",
+            "label_es": "Hay café.",
+            "accepted_option_ids": [
+              "drinks-fridge-4"
+            ],
+            "rect": {
+              "x": 0.62,
+              "y": 0.37,
+              "width": 0.345,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.73,
+                "y": 0.38
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-drinks-fridge-1",
+            "text": "There is water.",
+            "answer_text": "There is water.",
+            "target_id": "drinks-fridge-1",
+            "option_id": "drinks-fridge-1"
+          },
+          {
+            "id": "cue-drinks-fridge-2",
+            "text": "There is milk.",
+            "answer_text": "There is milk.",
+            "target_id": "drinks-fridge-2",
+            "option_id": "drinks-fridge-2"
+          },
+          {
+            "id": "cue-drinks-fridge-3",
+            "text": "There is juice.",
+            "answer_text": "There is juice.",
+            "target_id": "drinks-fridge-3",
+            "option_id": "drinks-fridge-3"
+          },
+          {
+            "id": "cue-drinks-fridge-4",
+            "text": "There is coffee.",
+            "answer_text": "There is coffee.",
+            "target_id": "drinks-fridge-4",
+            "option_id": "drinks-fridge-4"
+          }
+        ]
+      },
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M05",
+      "mission_chapter_id": "gustos",
+      "stage": "Listen",
+      "prompt": "I like fish. I do not like fish. I like chicken. I do not like milk.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_likes_table.webp",
+      "spanish_translation": "Me gusta el pescado. No me gusta el pescado. Me gusta el pollo. No me gusta la leche.",
+      "pedagogy_note": "Mission beat 05/18: gustos — contrast-hunt; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "likes-table-1",
+            "label_es": "Me gusta el pescado.",
+            "accepted_option_ids": [
+              "likes-table-1"
+            ],
+            "rect": {
+              "x": 0.06,
+              "y": 0.15,
+              "width": 0.19,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.155
+              }
+            ]
+          },
+          {
+            "id": "likes-table-2",
+            "label_es": "No me gusta el pescado.",
+            "accepted_option_ids": [
+              "likes-table-2"
+            ],
+            "rect": {
+              "x": 0.29,
+              "y": 0.15,
+              "width": 0.165,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.355,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "id": "likes-table-3",
+            "label_es": "Me gusta el pollo.",
+            "accepted_option_ids": [
+              "likes-table-3"
+            ],
+            "rect": {
+              "x": 0.545,
+              "y": 0.13,
+              "width": 0.19,
+              "height": 0.81
+            },
+            "head_anchors": [
+              {
+                "x": 0.625,
+                "y": 0.14
+              }
+            ]
+          },
+          {
+            "id": "likes-table-4",
+            "label_es": "No me gusta la leche.",
+            "accepted_option_ids": [
+              "likes-table-4"
+            ],
+            "rect": {
+              "x": 0.81,
+              "y": 0.16,
+              "width": 0.17,
+              "height": 0.79
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.17
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-likes-table-1",
+            "text": "I like fish.",
+            "answer_text": "I like fish.",
+            "target_id": "likes-table-1",
+            "option_id": "likes-table-1"
+          },
+          {
+            "id": "cue-likes-table-2",
+            "text": "I do not like fish.",
+            "answer_text": "I do not like fish.",
+            "target_id": "likes-table-2",
+            "option_id": "likes-table-2"
+          },
+          {
+            "id": "cue-likes-table-3",
+            "text": "I like chicken.",
+            "answer_text": "I like chicken.",
+            "target_id": "likes-table-3",
+            "option_id": "likes-table-3"
+          },
+          {
+            "id": "cue-likes-table-4",
+            "text": "I do not like milk.",
+            "answer_text": "I do not like milk.",
+            "target_id": "likes-table-4",
+            "option_id": "likes-table-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "female-character",
+        "male-character",
+        "male-character",
+        "female-character"
+      ],
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M06",
+      "mission_chapter_id": "gustos",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m04a-response",
+          "label": "Me too.",
+          "image_url": "a1_u5_revision_mission_agreement_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "I like coffee.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_mission_agreement_v1.webp"
+        }
+      ],
+      "spanish_translation": "Yo también.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "I like coffee.",
+        "targets": [
+          {
+            "id": "m04a-response",
+            "label_es": "Yo también.",
+            "accepted_option_ids": [
+              "m04a-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m04a-response",
+            "text": "I like coffee.",
+            "answer_text": "Me too.",
+            "target_id": "m04a-response",
+            "option_id": "m04a-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 06/18: gustos — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M07",
+      "mission_chapter_id": "gustos",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m04b-response",
+          "label": "Me neither.",
+          "image_url": "a1_u5_revision_mission_disagreement_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "I do not like milk.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_mission_disagreement_v1.webp"
+        }
+      ],
+      "spanish_translation": "Yo tampoco.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "I do not like milk.",
+        "targets": [
+          {
+            "id": "m04b-response",
+            "label_es": "Yo tampoco.",
+            "accepted_option_ids": [
+              "m04b-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m04b-response",
+            "text": "I do not like milk.",
+            "answer_text": "Me neither.",
+            "target_id": "m04b-response",
+            "option_id": "m04b-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 07/18: gustos — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M08",
+      "mission_chapter_id": "pide",
+      "stage": "Listen",
+      "prompt": "I want two eggs. I want some rice. I want three apples. He wants some water.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_wants_counter.webp",
+      "spanish_translation": "Quiero dos huevos. Quiero un poco de arroz. Quiero tres manzanas. Él quiere un poco de agua.",
+      "pedagogy_note": "Mission beat 08/18: pide — action-hunt; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "wants-counter-1",
+            "label_es": "Quiero dos huevos.",
+            "accepted_option_ids": [
+              "wants-counter-1"
+            ],
+            "rect": {
+              "x": 0.05,
+              "y": 0.115,
+              "width": 0.165,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.12
+              }
+            ]
+          },
+          {
+            "id": "wants-counter-2",
+            "label_es": "Quiero un poco de arroz.",
+            "accepted_option_ids": [
+              "wants-counter-2"
+            ],
+            "rect": {
+              "x": 0.295,
+              "y": 0.05,
+              "width": 0.165,
+              "height": 0.87
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.055
+              }
+            ]
+          },
+          {
+            "id": "wants-counter-3",
+            "label_es": "Quiero tres manzanas.",
+            "accepted_option_ids": [
+              "wants-counter-3"
+            ],
+            "rect": {
+              "x": 0.55,
+              "y": 0.085,
+              "width": 0.165,
+              "height": 0.85
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.09
+              }
+            ]
+          },
+          {
+            "id": "wants-counter-4",
+            "label_es": "Él quiere un poco de agua.",
+            "accepted_option_ids": [
+              "wants-counter-4"
+            ],
+            "rect": {
+              "x": 0.815,
+              "y": 0.225,
+              "width": 0.145,
+              "height": 0.68
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.23
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-wants-counter-1",
+            "text": "I want two eggs.",
+            "answer_text": "I want two eggs.",
+            "target_id": "wants-counter-1",
+            "option_id": "wants-counter-1"
+          },
+          {
+            "id": "cue-wants-counter-2",
+            "text": "I want some rice.",
+            "answer_text": "I want some rice.",
+            "target_id": "wants-counter-2",
+            "option_id": "wants-counter-2"
+          },
+          {
+            "id": "cue-wants-counter-3",
+            "text": "I want three apples.",
+            "answer_text": "I want three apples.",
+            "target_id": "wants-counter-3",
+            "option_id": "wants-counter-3"
+          },
+          {
+            "id": "cue-wants-counter-4",
+            "text": "He wants some water.",
+            "answer_text": "He wants some water.",
+            "target_id": "wants-counter-4",
+            "option_id": "wants-counter-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "female-character",
+        "male-character",
+        "female-character",
+        "teacher"
+      ],
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M09",
+      "mission_chapter_id": "pide",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m05a-response",
+          "label": "I do not want milk.",
+          "image_url": "a1_u5_revision_mission_refuse_milk_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "Do you want milk?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_mission_refuse_milk_v1.webp"
+        }
+      ],
+      "spanish_translation": "No quiero leche.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you want milk?",
+        "targets": [
+          {
+            "id": "m05a-response",
+            "label_es": "No quiero leche.",
+            "accepted_option_ids": [
+              "m05a-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m05a-response",
+            "text": "Do you want milk?",
+            "answer_text": "I do not want milk.",
+            "target_id": "m05a-response",
+            "option_id": "m05a-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 09/18: pide — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M10",
+      "mission_chapter_id": "pide",
+      "stage": "Listen",
+      "prompt": "I need milk. I need bread. I need eggs. She needs juice.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_needs_list.webp",
+      "spanish_translation": "Necesito leche. Necesito pan. Necesito huevos. Ella necesita jugo.",
+      "pedagogy_note": "Mission beat 10/18: pide — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "needs-list-1",
+            "label_es": "Necesito leche.",
+            "accepted_option_ids": [
+              "needs-list-1"
+            ],
+            "rect": {
+              "x": 0.11,
+              "y": 0.05,
+              "width": 0.18,
+              "height": 0.9
+            },
+            "head_anchors": [
+              {
+                "x": 0.195,
+                "y": 0.055
+              }
+            ]
+          },
+          {
+            "id": "needs-list-2",
+            "label_es": "Necesito pan.",
+            "accepted_option_ids": [
+              "needs-list-2"
+            ],
+            "rect": {
+              "x": 0.32,
+              "y": 0.055,
+              "width": 0.165,
+              "height": 0.89
+            },
+            "head_anchors": [
+              {
+                "x": 0.4,
+                "y": 0.06
+              }
+            ]
+          },
+          {
+            "id": "needs-list-3",
+            "label_es": "Necesito huevos.",
+            "accepted_option_ids": [
+              "needs-list-3"
+            ],
+            "rect": {
+              "x": 0.55,
+              "y": 0.18,
+              "width": 0.125,
+              "height": 0.76
+            },
+            "head_anchors": [
+              {
+                "x": 0.61,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "id": "needs-list-4",
+            "label_es": "Ella necesita jugo.",
+            "accepted_option_ids": [
+              "needs-list-4"
+            ],
+            "rect": {
+              "x": 0.72,
+              "y": 0.07,
+              "width": 0.175,
+              "height": 0.88
+            },
+            "head_anchors": [
+              {
+                "x": 0.805,
+                "y": 0.075
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-needs-list-1",
+            "text": "I need milk.",
+            "answer_text": "I need milk.",
+            "target_id": "needs-list-1",
+            "option_id": "needs-list-1"
+          },
+          {
+            "id": "cue-needs-list-2",
+            "text": "I need bread.",
+            "answer_text": "I need bread.",
+            "target_id": "needs-list-2",
+            "option_id": "needs-list-2"
+          },
+          {
+            "id": "cue-needs-list-3",
+            "text": "I need eggs.",
+            "answer_text": "I need eggs.",
+            "target_id": "needs-list-3",
+            "option_id": "needs-list-3"
+          },
+          {
+            "id": "cue-needs-list-4",
+            "text": "She needs juice.",
+            "answer_text": "She needs juice.",
+            "target_id": "needs-list-4",
+            "option_id": "needs-list-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "male-character",
+        "female-character",
+        "male-character",
+        "teacher"
+      ],
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M11",
+      "mission_chapter_id": "pide",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m06a-response",
+          "label": "I do not need juice.",
+          "image_url": "a1_u5_revision_mission_refuse_juice_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "Do you need juice?",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_mission_refuse_juice_v1.webp"
+        }
+      ],
+      "spanish_translation": "No necesito jugo.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you need juice?",
+        "targets": [
+          {
+            "id": "m06a-response",
+            "label_es": "No necesito jugo.",
+            "accepted_option_ids": [
+              "m06a-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m06a-response",
+            "text": "Do you need juice?",
+            "answer_text": "I do not need juice.",
+            "target_id": "m06a-response",
+            "option_id": "m06a-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 11/18: pide — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M12",
+      "mission_chapter_id": "comidas",
+      "stage": "Listen",
+      "prompt": "I eat eggs for breakfast. I eat rice for lunch. I eat chicken for dinner. I drink tea for breakfast.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_meals_table.webp",
+      "spanish_translation": "Desayuno huevos. Como arroz en el almuerzo. Ceno pollo. Tomo té en el desayuno.",
+      "pedagogy_note": "Mission beat 12/18: comidas — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "meals-table-1",
+            "label_es": "Desayuno huevos.",
+            "accepted_option_ids": [
+              "meals-table-1"
+            ],
+            "rect": {
+              "x": 0.055,
+              "y": 0.18,
+              "width": 0.2,
+              "height": 0.78
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "id": "meals-table-2",
+            "label_es": "Como arroz en el almuerzo.",
+            "accepted_option_ids": [
+              "meals-table-2"
+            ],
+            "rect": {
+              "x": 0.285,
+              "y": 0.13,
+              "width": 0.195,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.135
+              }
+            ]
+          },
+          {
+            "id": "meals-table-3",
+            "label_es": "Ceno pollo.",
+            "accepted_option_ids": [
+              "meals-table-3"
+            ],
+            "rect": {
+              "x": 0.54,
+              "y": 0.14,
+              "width": 0.19,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.625,
+                "y": 0.145
+              }
+            ]
+          },
+          {
+            "id": "meals-table-4",
+            "label_es": "Tomo té en el desayuno.",
+            "accepted_option_ids": [
+              "meals-table-4"
+            ],
+            "rect": {
+              "x": 0.785,
+              "y": 0.14,
+              "width": 0.19,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.15
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-meals-table-1",
+            "text": "I eat eggs for breakfast.",
+            "answer_text": "I eat eggs for breakfast.",
+            "target_id": "meals-table-1",
+            "option_id": "meals-table-1"
+          },
+          {
+            "id": "cue-meals-table-2",
+            "text": "I eat rice for lunch.",
+            "answer_text": "I eat rice for lunch.",
+            "target_id": "meals-table-2",
+            "option_id": "meals-table-2"
+          },
+          {
+            "id": "cue-meals-table-3",
+            "text": "I eat chicken for dinner.",
+            "answer_text": "I eat chicken for dinner.",
+            "target_id": "meals-table-3",
+            "option_id": "meals-table-3"
+          },
+          {
+            "id": "cue-meals-table-4",
+            "text": "I drink tea for breakfast.",
+            "answer_text": "I drink tea for breakfast.",
+            "target_id": "meals-table-4",
+            "option_id": "meals-table-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "female-character",
+        "male-character",
+        "female-character",
+        "male-character"
+      ],
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M13",
+      "mission_chapter_id": "comidas",
+      "stage": "Listen",
+      "prompt": "The apples are one dollar. The bananas are two dollars. The bread is three dollars. The milk is five dollars.",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_mission_price_board_v1.webp",
+      "spanish_translation": "Cuesta un dólar. Cuesta dos dólares. Cuesta tres dólares. Cuesta cinco dólares.",
+      "pedagogy_note": "Mission beat 13/18: comidas — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "price-board-1",
+            "label_es": "Las manzanas cuestan un dólar.",
+            "accepted_option_ids": [
+              "price-board-1"
+            ],
+            "rect": {
+              "x": 0.015,
+              "y": 0.45,
+              "width": 0.2,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.115,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "id": "price-board-2",
+            "label_es": "Los plátanos cuestan dos dólares.",
+            "accepted_option_ids": [
+              "price-board-2"
+            ],
+            "rect": {
+              "x": 0.27,
+              "y": 0.45,
+              "width": 0.2,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "id": "price-board-3",
+            "label_es": "El pan cuesta tres dólares.",
+            "accepted_option_ids": [
+              "price-board-3"
+            ],
+            "rect": {
+              "x": 0.55,
+              "y": 0.45,
+              "width": 0.19,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.645,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "id": "price-board-4",
+            "label_es": "La leche cuesta cinco dólares.",
+            "accepted_option_ids": [
+              "price-board-4"
+            ],
+            "rect": {
+              "x": 0.795,
+              "y": 0.45,
+              "width": 0.195,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.89,
+                "y": 0.455
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-price-board-1",
+            "text": "The apples are one dollar.",
+            "answer_text": "The apples are one dollar.",
+            "target_id": "price-board-1",
+            "option_id": "price-board-1"
+          },
+          {
+            "id": "cue-price-board-2",
+            "text": "The bananas are two dollars.",
+            "answer_text": "The bananas are two dollars.",
+            "target_id": "price-board-2",
+            "option_id": "price-board-2"
+          },
+          {
+            "id": "cue-price-board-3",
+            "text": "The bread is three dollars.",
+            "answer_text": "The bread is three dollars.",
+            "target_id": "price-board-3",
+            "option_id": "price-board-3"
+          },
+          {
+            "id": "cue-price-board-4",
+            "text": "The milk is five dollars.",
+            "answer_text": "The milk is five dollars.",
+            "target_id": "price-board-4",
+            "option_id": "price-board-4"
+          }
+        ]
+      },
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M14",
+      "mission_chapter_id": "comidas",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m10-response",
+          "label": "The fruit is four dollars.",
+          "image_url": "a1_u5_revision_mission_fruit_price_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "How much is the fruit?",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_mission_fruit_price_v1.webp"
+        }
+      ],
+      "spanish_translation": "La fruta cuesta cuatro dólares.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "How much is the fruit?",
+        "targets": [
+          {
+            "id": "m10-response",
+            "label_es": "La fruta cuesta cuatro dólares.",
+            "accepted_option_ids": [
+              "m10-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m10-response",
+            "text": "How much is the fruit?",
+            "answer_text": "The fruit is four dollars.",
+            "target_id": "m10-response",
+            "option_id": "m10-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 14/18: comidas — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M15",
+      "mission_chapter_id": "cafe",
+      "stage": "Listen",
+      "prompt": "Can I have water, please? Yes, please. No, thank you. Tea, please.",
+      "prompt_image_url": "/lesson-assets/a1_u5_market_v1_cafe_counter.webp",
+      "spanish_translation": "¿Me da agua, por favor? Sí, por favor. No, gracias. Té, por favor.",
+      "pedagogy_note": "Mission beat 15/18: cafe — crowd-search; retrieve taught food, preference, quantity and polite-order language.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "cafe-counter-v2-1",
+            "label_es": "¿Me da agua, por favor?",
+            "accepted_option_ids": [
+              "cafe-counter-v2-1"
+            ],
+            "rect": {
+              "x": 0.05,
+              "y": 0.095,
+              "width": 0.17,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.125,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "id": "cafe-counter-v2-2",
+            "label_es": "Sí, por favor.",
+            "accepted_option_ids": [
+              "cafe-counter-v2-2"
+            ],
+            "rect": {
+              "x": 0.35,
+              "y": 0.09,
+              "width": 0.17,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.42,
+                "y": 0.095
+              }
+            ]
+          },
+          {
+            "id": "cafe-counter-v2-3",
+            "label_es": "No, gracias.",
+            "accepted_option_ids": [
+              "cafe-counter-v2-3"
+            ],
+            "rect": {
+              "x": 0.58,
+              "y": 0.105,
+              "width": 0.16,
+              "height": 0.81
+            },
+            "head_anchors": [
+              {
+                "x": 0.655,
+                "y": 0.11
+              }
+            ]
+          },
+          {
+            "id": "cafe-counter-v2-4",
+            "label_es": "Té, por favor.",
+            "accepted_option_ids": [
+              "cafe-counter-v2-4"
+            ],
+            "rect": {
+              "x": 0.75,
+              "y": 0.17,
+              "width": 0.15,
+              "height": 0.75
+            },
+            "head_anchors": [
+              {
+                "x": 0.815,
+                "y": 0.175
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-cafe-counter-v2-1",
+            "text": "Can I have water, please?",
+            "answer_text": "Can I have water, please?",
+            "target_id": "cafe-counter-v2-1",
+            "option_id": "cafe-counter-v2-1"
+          },
+          {
+            "id": "cue-cafe-counter-v2-2",
+            "text": "Yes, please.",
+            "answer_text": "Yes, please.",
+            "target_id": "cafe-counter-v2-2",
+            "option_id": "cafe-counter-v2-2"
+          },
+          {
+            "id": "cue-cafe-counter-v2-3",
+            "text": "No, thank you.",
+            "answer_text": "No, thank you.",
+            "target_id": "cafe-counter-v2-3",
+            "option_id": "cafe-counter-v2-3"
+          },
+          {
+            "id": "cue-cafe-counter-v2-4",
+            "text": "Tea, please.",
+            "answer_text": "Tea, please.",
+            "target_id": "cafe-counter-v2-4",
+            "option_id": "cafe-counter-v2-4"
+          }
+        ]
+      },
+      "cue_speakers": [
+        "female-character",
+        "male-character",
+        "female-character",
+        "male-character"
+      ],
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "correct_option_ids",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "pedagogy_note",
+        "mission_game"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M16",
+      "mission_chapter_id": "cafe",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m11-response",
+          "label": "Can I have coffee and eggs, please?",
+          "image_url": "a1_u5_revision_mission_cafe_request_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_mission_cafe_request_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Me da café y huevos, por favor?",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Hello! How can I help you?",
+        "targets": [
+          {
+            "id": "m11-response",
+            "label_es": "¿Me da café y huevos, por favor?",
+            "accepted_option_ids": [
+              "m11-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m11-response",
+            "text": "Hello! How can I help you?",
+            "answer_text": "Can I have coffee and eggs, please?",
+            "target_id": "m11-response",
+            "option_id": "m11-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 16/18: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M17",
+      "mission_chapter_id": "cafe",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m12-response",
+          "label": "No, thank you.",
+          "image_url": "a1_u5_revision_mission_cafe_decline_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "Do you want milk?",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_mission_cafe_decline_v1.webp"
+        }
+      ],
+      "spanish_translation": "No, gracias.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Do you want milk?",
+        "targets": [
+          {
+            "id": "m12-response",
+            "label_es": "No, gracias.",
+            "accepted_option_ids": [
+              "m12-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m12-response",
+            "text": "Do you want milk?",
+            "answer_text": "No, thank you.",
+            "target_id": "m12-response",
+            "option_id": "m12-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 17/18: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "mission",
+      "slide_id": "M18",
+      "mission_chapter_id": "cafe",
+      "interaction_type": "mission-finale",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "m13-response",
+          "label": "Thank you.",
+          "image_url": "a1_u5_revision_mission_cafe_handover_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "Here you are. Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_mission_cafe_handover_v1.webp"
+        }
+      ],
+      "spanish_translation": "Gracias.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha. Después responde en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Here you are. Here are your coffee and eggs.",
+        "targets": [
+          {
+            "id": "m13-response",
+            "label_es": "Gracias.",
+            "accepted_option_ids": [
+              "m13-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-m13-response",
+            "text": "Here you are. Here are your coffee and eggs.",
+            "answer_text": "Thank you.",
+            "target_id": "m13-response",
+            "option_id": "m13-response"
+          }
+        ]
+      },
+      "pedagogy_note": "Mission beat 18/18: cafe — voice-gate; retrieve taught food, preference, quantity and polite-order language.",
+      "field_order": [
+        "slide_id",
+        "mission_chapter_id",
+        "interaction_type",
+        "stage",
+        "prompt",
+        "prompt_image_url",
+        "options",
+        "correct_option_id",
+        "audio_text",
+        "answer_audio_text",
+        "audio_turns",
+        "spanish_translation",
+        "mission_game",
+        "pedagogy_note"
+      ]
+    }
+  ],
+  "source": {
+    "path": "backend/lessons/unit_5/lesson-5-10-cafe-mission.yaml",
+    "sha256": "0b8d60bb7689d24329e143abcbe304173505e67b02f23d15b6bdeba305d0b753"
+  },
+  "draft": false,
+  "review_status": "Language, sequence, complete banks and source photographs reviewed by Codex. Installation requires whole-course validators. Recorded audio and phone acceptance remain separate verification steps; no human approval implied."
+}

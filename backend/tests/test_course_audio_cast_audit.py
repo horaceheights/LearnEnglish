@@ -88,9 +88,10 @@ EXACT_ROLE_CHANGES = {
 # speakers for its existing question and reply (-5 net scalar assignments).
 # 3.11 adds 17 ownership-speaker assignments after the template correction.
 # 4.3 Listen A1 reuses the approved natural female teacher In take (-1 co-teacher field).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1927
+# 2026-10-08: contextual verbs and Unit 5 exchanges, with per-turn voices.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1979
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "dab46834d7abfd2be94b22c0b79f48a2a23cd27cdd62286cfb7a7e797dccdf42"
+    "8ecda948fae02175d92126ba823236d91ca03cd8c2a5212049247ee3b0fc2d6a"
 )
 
 

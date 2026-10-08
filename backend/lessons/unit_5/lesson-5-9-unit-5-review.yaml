@@ -9,7 +9,7 @@
   "lesson_title": "Unit 5: Food, Drinks, and Shopping",
   "sub_lesson_id": "5.11",
   "sub_lesson_title": "Unit 5 Review",
-  "goal": "Retrieve Unit 5 fruit, food, drinks, how many and some, likes and Me too, wants and needs, meals, prices and polite café requests from fresh review scenes, with no new vocabulary.",
+  "goal": "Retrieve food, quantities, meals, positive and negative agreement, wants/needs and complete market/café purchases.",
   "vocabulary": [],
   "review_vocabulary": [
     "fruit",
@@ -47,13 +47,19 @@
     "How much is it?",
     "dollar",
     "dollars",
-    "café",
     "please",
     "Here you are.",
     "Thank you.",
     "Can I have...?",
     "Yes, please.",
-    "No, thank you."
+    "No, thank you.",
+    "Me neither.",
+    "do not want",
+    "do not need",
+    "How much is...?",
+    "How can I help you?",
+    "Here is your...",
+    "Here are your..."
   ],
   "grammar_function": "Spiral review of there is/there are, How many ... are there?, some, like and do not like, Me too, want and need, meals with for, prices with dollars, and Can I have ..., please?",
   "prerequisite": "Lessons 5.1 to 5.10.",
@@ -194,40 +200,42 @@
     {
       "slide_id": "L7",
       "interaction_type": "teach",
-      "prompt": "It is two dollars.",
+      "prompt": "The bread is four dollars.",
       "stage": "Learn",
-      "correct_option_id": "it-is-two-dollars-1",
+      "correct_option_id": "l7-model",
       "options": [
         {
-          "id": "it-is-two-dollars-1",
-          "image_url": "a1_u5_review_v1_price_two_dollars.webp",
-          "label": "It is two dollars."
+          "id": "l7-model",
+          "label": "The bread is four dollars.",
+          "image_url": "a1_u5_revision_review_bread_price_v1.webp"
         }
       ],
-      "audio_text": "It is two dollars.",
+      "audio_text": "The bread is four dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Cuesta dos dólares.",
-      "pedagogy_note": "fresh review station"
+      "spanish_translation": "El pan cuesta cuatro dólares.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L7"
     },
     {
       "slide_id": "L8",
       "interaction_type": "teach",
-      "prompt": "At the café",
+      "prompt": "Hello! How can I help you?",
       "stage": "Learn",
-      "correct_option_id": "at-the-café-1",
+      "correct_option_id": "l8-model",
       "options": [
         {
-          "id": "at-the-café-1",
-          "image_url": "a1_u5_review_v1_cafe.webp",
-          "label": "At the café"
+          "id": "l8-model",
+          "label": "Hello! How can I help you?",
+          "image_url": "a1_u5_revision_review_cafe_request_v1.webp"
         }
       ],
-      "audio_text": "At the café",
+      "audio_text": "Hello! How can I help you?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "En el café",
-      "pedagogy_note": "fresh review station"
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L8"
     },
     {
       "slide_id": "R1",
@@ -279,57 +287,54 @@
     },
     {
       "slide_id": "R3",
-      "interaction_type": "i2t3",
-      "prompt": "How much is it?",
+      "interaction_type": "i2t2",
+      "prompt": "How much is the bread?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-four-dollars-2",
+      "correct_option_id": "r3-answer",
       "options": [
         {
-          "id": "it-is-two-dollars-1",
-          "image_url": "",
-          "label": "It is two dollars."
+          "id": "r3-other-0",
+          "label": "The bread is two dollars.",
+          "image_url": ""
         },
         {
-          "id": "it-is-four-dollars-2",
-          "image_url": "",
-          "label": "It is four dollars."
-        },
-        {
-          "id": "it-is-five-dollars-3",
-          "image_url": "",
-          "label": "It is five dollars."
+          "id": "r3-answer",
+          "label": "The bread is four dollars.",
+          "image_url": ""
         }
       ],
-      "audio_text": "How much is it?",
-      "answer_audio_text": "It is four dollars.",
-      "prompt_image_url": "a1_u5_review_v1_price_four_dollars.webp",
-      "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "fresh scene, answer frame"
+      "audio_text": "How much is the bread?",
+      "answer_audio_text": "The bread is four dollars.",
+      "prompt_image_url": "a1_u5_revision_review_bread_price_v1.webp",
+      "spanish_translation": "¿Cuánto cuesta el pan?",
+      "answer_audio_speaker": "male-character",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R3"
     },
     {
       "slide_id": "R4",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-do-not-like-fish-1",
+      "correct_option_id": "r4-answer",
       "options": [
         {
-          "id": "i-do-not-like-fish-1",
-          "image_url": "",
-          "label": "I do not like fish."
+          "id": "r4-answer",
+          "label": "I do not want milk.",
+          "image_url": ""
         },
         {
-          "id": "i-like-fish-2",
-          "image_url": "",
-          "label": "I like fish."
+          "id": "r4-other-0",
+          "label": "I want milk.",
+          "image_url": ""
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I do not like fish.",
-      "prompt_image_url": "a1_u5_review_v1_dislikes_fish.webp",
+      "answer_audio_text": "I do not want milk.",
+      "prompt_image_url": "a1_u5_revision_review_decline_milk_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "empty-prompt recognition",
-      "answer_audio_speaker": "male-character"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R4"
     },
     {
       "slide_id": "R5",
@@ -461,28 +466,35 @@
     {
       "slide_id": "R10",
       "interaction_type": "i2t2",
-      "prompt": "I like juice.",
+      "prompt": "I do not like milk.",
       "stage": "Recognize",
-      "correct_option_id": "me-too-2",
+      "correct_option_id": "r10-answer",
       "options": [
         {
-          "id": "goodbye-1",
-          "image_url": "",
-          "label": "Goodbye."
+          "id": "r10-other-0",
+          "label": "Me too.",
+          "image_url": ""
         },
         {
-          "id": "me-too-2",
-          "image_url": "",
-          "label": "Me too."
+          "id": "r10-answer",
+          "label": "Me neither.",
+          "image_url": ""
         }
       ],
-      "audio_text": "I like juice.",
-      "answer_audio_text": "Me too.",
-      "prompt_image_url": "a1_u5_review_v2_me_too_juice.webp",
-      "spanish_translation": "Me gusta el jugo.",
-      "pedagogy_note": "fresh scene, agree with Me too",
+      "audio_text": "I do not like milk.",
+      "answer_audio_text": "Me neither.",
+      "answer_audio_turns": [
+        {
+          "text": "Me neither.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_review_neither_v1.webp"
+        }
+      ],
+      "prompt_image_url": "a1_u5_revision_review_dislike_milk_v1.webp",
+      "spanish_translation": "No me gusta la leche.",
+      "answer_audio_speaker": "male-character",
       "audio_speaker": "female-character",
-      "answer_audio_speaker": "male-character"
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10"
     },
     {
       "slide_id": "R11",
@@ -608,28 +620,28 @@
     },
     {
       "slide_id": "N5",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "dislikes-milk-1",
+      "correct_option_id": "n5-answer",
       "options": [
         {
-          "id": "dislikes-milk-1",
-          "image_url": "a1_u5_review_v1_dislikes_milk.webp",
-          "label": null
+          "id": "n5-other-0",
+          "label": "I need juice.",
+          "image_url": ""
         },
         {
-          "id": "likes-and-needs-2",
-          "image_url": "a1_photo_u5_review_likes_and_needs_v1.webp",
-          "label": null
+          "id": "n5-answer",
+          "label": "I do not need juice.",
+          "image_url": ""
         }
       ],
-      "audio_text": "I do not like milk.",
+      "audio_text": "I do not need juice.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No me gusta la leche.",
-      "pedagogy_note": "text hidden; fresh scenes",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Escucha y elige.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N5"
     },
     {
       "slide_id": "N6",
@@ -649,60 +661,73 @@
           "label": null
         }
       ],
-      "audio_text": "I like fish.",
+      "audio_text": "I like fish. Me too.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Me gusta el pescado.",
       "pedagogy_note": "text hidden; fresh scenes",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "I like fish.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_review_v1_likes_fish.webp"
+        },
+        {
+          "text": "Me too.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_review_fish_agreement_v1.webp"
+        }
+      ]
     },
     {
       "slide_id": "N7",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "cafe-1",
+      "correct_option_id": "n7-answer",
       "options": [
         {
-          "id": "cafe-1",
-          "image_url": "a1_u5_review_v1_cafe.webp",
-          "label": null
+          "id": "n7-other-0",
+          "label": "Can I have coffee and bread, please?",
+          "image_url": ""
         },
         {
-          "id": "meals-2",
-          "image_url": "a1_scene_breakfast-lunch-and-dinner_797cd61.webp",
-          "label": null
+          "id": "n7-answer",
+          "label": "Can I have coffee and eggs, please?",
+          "image_url": ""
         }
       ],
-      "audio_text": "At the café",
+      "audio_text": "Can I have coffee and eggs, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "En el café",
-      "pedagogy_note": "text hidden; fresh scenes"
+      "spanish_translation": "Escucha y elige.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N7"
     },
     {
       "slide_id": "N8",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "price-four-dollars-2",
+      "correct_option_id": "n8-answer",
       "options": [
         {
-          "id": "price-two-dollars-1",
-          "image_url": "a1_u5_review_v1_price_two_dollars.webp",
-          "label": null
+          "id": "n8-answer",
+          "label": "The bread is four dollars.",
+          "image_url": ""
         },
         {
-          "id": "price-four-dollars-2",
-          "image_url": "a1_u5_review_v1_price_four_dollars.webp",
-          "label": null
+          "id": "n8-other-0",
+          "label": "The bread is two dollars.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is four dollars.",
+      "audio_text": "The bread is four dollars.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Cuesta cuatro dólares.",
-      "pedagogy_note": "text hidden; fresh scenes"
+      "spanish_translation": "Escucha y elige.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N8"
     },
     {
       "slide_id": "N9",
@@ -760,33 +785,28 @@
     },
     {
       "slide_id": "N11",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-want-a-strawberry-1",
+      "correct_option_id": "n11-answer",
       "options": [
         {
-          "id": "i-want-a-strawberry-1",
-          "image_url": "",
-          "label": "I want a strawberry."
+          "id": "n11-answer",
+          "label": "I do not want a strawberry.",
+          "image_url": ""
         },
         {
-          "id": "i-want-an-orange-2",
-          "image_url": "",
-          "label": "I want an orange."
-        },
-        {
-          "id": "i-want-a-pear-3",
-          "image_url": "",
-          "label": "I want a pear."
+          "id": "n11-other-0",
+          "label": "I want a strawberry.",
+          "image_url": ""
         }
       ],
-      "audio_text": "I want a strawberry.",
+      "audio_text": "I do not want a strawberry.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Quiero una fresa.",
-      "pedagogy_note": "audio-to-English retrieval without a picture",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Escucha y elige.",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N11"
     },
     {
       "slide_id": "N12",
@@ -848,33 +868,28 @@
     },
     {
       "slide_id": "N14",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "how-much-is-it-2",
+      "correct_option_id": "n14-answer",
       "options": [
         {
-          "id": "here-you-are-1",
-          "image_url": "",
-          "label": "Here you are."
+          "id": "n14-other-0",
+          "label": "How much is the milk?",
+          "image_url": ""
         },
         {
-          "id": "how-much-is-it-2",
-          "image_url": "",
-          "label": "How much is it?"
-        },
-        {
-          "id": "thank-you-3",
-          "image_url": "",
-          "label": "Thank you."
+          "id": "n14-answer",
+          "label": "How much is the bread?",
+          "image_url": ""
         }
       ],
-      "audio_text": "How much is it?",
+      "audio_text": "How much is the bread?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "audio-to-English retrieval without a picture",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Escucha y elige.",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N14"
     },
     {
       "slide_id": "N15",
@@ -908,67 +923,64 @@
     },
     {
       "slide_id": "N16",
-      "interaction_type": "listen-image",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "coffee-seven-1",
+      "correct_option_id": "n16-answer",
       "options": [
         {
-          "id": "coffee-five-2",
-          "image_url": "a1_scene_coffee-5_c9b98e0_four-card.webp",
-          "label": null
+          "id": "n16-other-0",
+          "label": "Here is your tea. Thank you.",
+          "image_url": ""
         },
         {
-          "id": "price-four-dollars-4",
-          "image_url": "a1_u5_review_v1_price_four_dollars.webp",
-          "label": null
-        },
-        {
-          "id": "coffee-seven-1",
-          "image_url": "a1_scene_coffee-7_6481821_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "price-two-dollars-3",
-          "image_url": "a1_u5_review_v1_price_two_dollars.webp",
-          "label": null
+          "id": "n16-answer",
+          "label": "Here is your coffee. Thank you.",
+          "image_url": ""
         }
       ],
-      "audio_text": "The coffee is seven dollars.",
+      "audio_text": "Here is your coffee. Thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El café cuesta siete dólares.",
-      "pedagogy_note": "four prices to listen for; the two coffee reframes stay in a four-card set"
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N16",
+      "audio_turns": [
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_review_cafe_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_review_cafe_thanks_v1.webp"
+        }
+      ]
     },
     {
       "slide_id": "N17",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "coffee--please-2",
+      "correct_option_id": "n17-answer",
       "options": [
         {
-          "id": "water--please-1",
-          "image_url": "",
-          "label": "Water, please."
+          "id": "n17-answer",
+          "label": "Here are your coffee and eggs.",
+          "image_url": ""
         },
         {
-          "id": "coffee--please-2",
-          "image_url": "",
-          "label": "Coffee, please."
-        },
-        {
-          "id": "tea--please-3",
-          "image_url": "",
-          "label": "Tea, please."
+          "id": "n17-other-0",
+          "label": "Here are your coffee and bread.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Coffee, please.",
+      "audio_text": "Here are your coffee and eggs.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un café, por favor.",
-      "pedagogy_note": "audio-to-English retrieval without a picture",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Escucha y elige.",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / N17"
     },
     {
       "slide_id": "N18",
@@ -1080,43 +1092,54 @@
     },
     {
       "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "I do not like milk.",
+      "interaction_type": "speak",
+      "prompt": "I do not like milk. Me neither.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-like-milk-1",
+      "correct_option_id": "s2-model",
       "options": [
         {
-          "id": "i-do-not-like-milk-1",
-          "image_url": "a1_u5_review_v1_dislikes_milk.webp",
-          "label": "I do not like milk."
+          "id": "s2-model",
+          "label": "I do not like milk. Me neither.",
+          "image_url": "a1_u5_revision_review_neither_v1.webp"
         }
       ],
-      "audio_text": "I do not like milk.",
+      "audio_text": "I do not like milk. Me neither.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No me gusta la leche.",
-      "pedagogy_note": "single-image speaking",
-      "audio_speaker": "male-character"
+      "spanish_translation": "No me gusta la leche. Yo tampoco.",
+      "audio_turns": [
+        {
+          "text": "I do not like milk.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_review_dislike_milk_v1.webp"
+        },
+        {
+          "text": "Me neither.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_review_neither_v1.webp"
+        }
+      ],
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S2"
     },
     {
       "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "I need water.",
+      "interaction_type": "speak",
+      "prompt": "I do not need juice.",
       "stage": "Speak",
-      "correct_option_id": "i-need-water-1",
+      "correct_option_id": "s3-model",
       "options": [
         {
-          "id": "i-need-water-1",
-          "image_url": "a1_photo_u5_review_water_v1.webp",
-          "label": "I need water."
+          "id": "s3-model",
+          "label": "I do not need juice.",
+          "image_url": "a1_u5_revision_review_decline_juice_v1.webp"
         }
       ],
-      "audio_text": "I need water.",
+      "audio_text": "I do not need juice.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Necesito agua.",
-      "pedagogy_note": "single-image speaking",
-      "audio_speaker": "female-character"
+      "spanish_translation": "No necesito jugo.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S3"
     },
     {
       "slide_id": "S4",
@@ -1140,63 +1163,63 @@
     },
     {
       "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "How much is it?",
+      "interaction_type": "speak",
+      "prompt": "How much is the bread?",
       "stage": "Speak",
-      "correct_option_id": "how-much-is-it-1",
+      "correct_option_id": "s5-model",
       "options": [
         {
-          "id": "how-much-is-it-1",
-          "image_url": "a1_scene_it-is-seven-dollars_ec36472.webp",
-          "label": "How much is it?"
+          "id": "s5-model",
+          "label": "How much is the bread?",
+          "image_url": "a1_u5_revision_review_bread_price_v1.webp"
         }
       ],
-      "audio_text": "How much is it?",
+      "audio_text": "How much is the bread?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "single-image speaking",
-      "audio_speaker": "male-character"
+      "spanish_translation": "¿Cuánto cuesta el pan?",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S5"
     },
     {
       "slide_id": "S6",
-      "interaction_type": "repeat",
-      "prompt": "Coffee, please. Thank you.",
+      "interaction_type": "speak",
+      "prompt": "Can I have coffee and eggs, please?",
       "stage": "Speak",
-      "correct_option_id": "coffee--please--thank-you-1",
+      "correct_option_id": "s6-model",
       "options": [
         {
-          "id": "coffee--please--thank-you-1",
-          "image_url": "a1_u5_review_v1_cafe_order.webp",
-          "label": "Coffee, please. Thank you."
+          "id": "s6-model",
+          "label": "Can I have coffee and eggs, please?",
+          "image_url": "a1_u5_revision_review_cafe_request_v1.webp"
         }
       ],
-      "audio_text": "Coffee, please. Thank you.",
+      "audio_text": "Can I have coffee and eggs, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un café, por favor. Gracias.",
-      "pedagogy_note": "single-image speaking",
-      "audio_speaker": "female-character"
+      "spanish_translation": "¿Me da café y huevos, por favor?",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S6"
     },
     {
       "slide_id": "S7",
-      "interaction_type": "repeat",
-      "prompt": "Here you are.",
+      "interaction_type": "speak",
+      "prompt": "Here you are. Here are your coffee and eggs.",
       "stage": "Speak",
-      "correct_option_id": "here-you-are-1",
+      "correct_option_id": "s7-model",
       "options": [
         {
-          "id": "here-you-are-1",
-          "image_url": "a1_u5_review_v1_cafe_order.webp",
-          "label": "Here you are."
+          "id": "s7-model",
+          "label": "Here you are. Here are your coffee and eggs.",
+          "image_url": "a1_u5_revision_review_cafe_handover_v1.webp"
         }
       ],
-      "audio_text": "Here you are.",
+      "audio_text": "Here you are. Here are your coffee and eggs.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Aquí tienes.",
-      "pedagogy_note": "single-image speaking",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Aquí tienes. Aquí están tu café y tus huevos.",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S7"
     },
     {
       "slide_id": "U1",
@@ -1230,31 +1253,33 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "She ___ ___.",
+      "prompt": "I do not ___ ___.",
       "stage": "Use",
-      "correct_option_id": "wants",
-      "correct_option_ids": [
-        "wants",
-        "juice"
-      ],
+      "correct_option_id": "want",
       "options": [
         {
-          "id": "juice",
+          "id": "want",
           "image_url": "",
-          "label": "juice"
+          "label": "want"
         },
         {
-          "id": "wants",
+          "id": "milk",
           "image_url": "",
-          "label": "wants"
+          "label": "milk"
         }
       ],
-      "audio_text": "She wants juice.",
-      "answer_audio_text": "She wants juice.",
-      "prompt_image_url": "a1_u5_review_v1_wants_juice.webp",
-      "spanish_translation": "Ella quiere jugo.",
-      "translation": "Ella quiere jugo.",
-      "pedagogy_note": "guided review completion"
+      "audio_text": "I do not want milk.",
+      "answer_audio_text": "I do not want milk.",
+      "prompt_image_url": "a1_u5_revision_review_decline_milk_v1.webp",
+      "spanish_translation": "No quiero leche.",
+      "translation": "No quiero leche.",
+      "correct_option_ids": [
+        "want",
+        "milk"
+      ],
+      "answer_audio_speaker": "female-character",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U2"
     },
     {
       "slide_id": "U3",
@@ -1288,62 +1313,116 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
+      "prompt": "The bread is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "two",
-      "correct_option_ids": [
-        "two",
-        "dollars"
-      ],
+      "correct_option_id": "four",
       "options": [
+        {
+          "id": "four",
+          "image_url": "",
+          "label": "four"
+        },
         {
           "id": "dollars",
           "image_url": "",
           "label": "dollars"
-        },
-        {
-          "id": "two",
-          "image_url": "",
-          "label": "two"
         }
       ],
-      "audio_text": "It is two dollars.",
-      "answer_audio_text": "It is two dollars.",
-      "prompt_image_url": "a1_u5_review_v1_price_two_dollars.webp",
-      "spanish_translation": "Cuesta dos dólares.",
-      "translation": "Cuesta dos dólares.",
-      "pedagogy_note": "guided review completion"
+      "audio_text": "The bread is four dollars.",
+      "answer_audio_text": "The bread is four dollars.",
+      "prompt_image_url": "a1_u5_revision_review_bread_price_v1.webp",
+      "spanish_translation": "El pan cuesta cuatro dólares.",
+      "translation": "El pan cuesta cuatro dólares.",
+      "correct_option_ids": [
+        "four",
+        "dollars"
+      ],
+      "answer_audio_speaker": "male-character",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U4"
     },
     {
       "slide_id": "U5",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___.",
+      "prompt": "___ ___ ___ ___ ___. ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2"
-      ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "you"
+          "label": "do"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "Me"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Thank"
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "milk"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "neither"
         }
       ],
-      "audio_text": "Thank you.",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "a1_u5_review_v1_cafe_order.webp",
-      "spanish_translation": "Gracias.",
-      "translation": "Gracias.",
-      "pedagogy_note": "full construction over a fresh scene",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character"
+      "audio_text": "I do not like milk. Me neither.",
+      "answer_audio_text": "I do not like milk. Me neither.",
+      "prompt_image_url": "a1_u5_revision_review_neither_v1.webp",
+      "spanish_translation": "No me gusta la leche. Yo tampoco.",
+      "translation": "No me gusta la leche. Yo tampoco.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
+      "pedagogy_note": "Use: I do not like milk. Me neither.",
+      "answer_audio_turns": [
+        {
+          "text": "I do not like milk.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_review_dislike_milk_v1.webp"
+        },
+        {
+          "text": "Me neither.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_review_neither_v1.webp"
+        }
+      ],
+      "audio_turns": [
+        {
+          "text": "I do not like milk.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_review_dislike_milk_v1.webp"
+        },
+        {
+          "text": "Me neither.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_review_neither_v1.webp"
+        }
+      ]
     },
     {
       "slide_id": "U6",
@@ -1378,43 +1457,57 @@
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
+          "label": "are"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "dollars"
+          "label": "coffee"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "eggs"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "It"
+          "label": "Here"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "four"
+          "label": "your"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "and"
         }
       ],
-      "audio_text": "It is four dollars.",
-      "answer_audio_text": "It is four dollars.",
-      "prompt_image_url": "a1_u5_review_v1_price_four_dollars.webp",
-      "spanish_translation": "Cuesta cuatro dólares.",
-      "translation": "Cuesta cuatro dólares.",
-      "pedagogy_note": "full construction over a fresh scene"
+      "audio_text": "Here are your coffee and eggs.",
+      "answer_audio_text": "Here are your coffee and eggs.",
+      "prompt_image_url": "a1_u5_revision_review_cafe_handover_v1.webp",
+      "spanish_translation": "Aquí están tu café y tus huevos.",
+      "translation": "Aquí están tu café y tus huevos.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Use: Here are your coffee and eggs.",
+      "audio_speaker": "female-character"
     },
     {
       "slide_id": "U8",
@@ -1422,13 +1515,6 @@
       "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
       "options": [
         {
           "id": "word-2",
@@ -1438,7 +1524,7 @@
         {
           "id": "word-4",
           "image_url": "",
-          "label": "like"
+          "label": "need"
         },
         {
           "id": "word-1",
@@ -1453,18 +1539,25 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "fish"
+          "label": "juice"
         }
       ],
-      "audio_text": "I do not like fish.",
-      "answer_audio_text": "I do not like fish.",
-      "prompt_image_url": "a1_u5_review_v1_dislikes_fish.webp",
-      "spanish_translation": "No me gusta el pescado.",
-      "translation": "No me gusta el pescado.",
-      "pedagogy_note": "full construction over a fresh scene",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character"
+      "audio_text": "I do not need juice.",
+      "answer_audio_text": "I do not need juice.",
+      "prompt_image_url": "a1_u5_revision_review_decline_juice_v1.webp",
+      "spanish_translation": "No necesito jugo.",
+      "translation": "No necesito jugo.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Use: I do not need juice.",
+      "audio_speaker": "male-character"
     }
   ],
-  "content_revision": 2
+  "content_revision": 3
 }

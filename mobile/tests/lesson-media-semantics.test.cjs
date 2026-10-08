@@ -17,7 +17,7 @@ const expectedParallelTextBanks = [
   ['1.2', 'R6', ['The man is drinking. He is drinking.', 'The boy is eating. He is eating.', 'The girl is reading. She is reading.']],
   ['1.2', 'R8', ['The girl is reading. She is reading.', 'The man is drinking. He is drinking.', 'The woman is writing. She is writing.']],
   ['1.2', 'R10', ['The woman is writing. She is writing.', 'The boy is eating. He is eating.', 'The girl is reading. She is reading.']],
-  ['1.2', 'A3', ['Drinking', 'Eating', 'Reading']],
+  ['1.2', 'A3', ['He is drinking.', 'He is eating.', 'She is reading.']],
   ['1.2', 'A6', ['The girl is reading. She is reading.', 'The man is drinking. He is drinking.', 'The woman is writing. She is writing.']],
   ['1.3', 'R2', ['They', 'He', 'She']],
   ['1.3', 'R5', ['The man is sitting.', 'The man is drinking.', 'The boy is swimming.']],

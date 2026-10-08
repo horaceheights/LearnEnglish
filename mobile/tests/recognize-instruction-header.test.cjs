@@ -44,7 +44,7 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  374, // 2026-10-07: 3.12 now has four sentence-choice cards instead of seven (-3).
+  373, // 2026-10-08: Unit 5 reply exchanges retain their written initiating sentences.
   // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
   // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.

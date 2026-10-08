@@ -5,11 +5,11 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). New lesson (A1 basic Can I have...?, planned for Unit 5 in the 2026-09-23 tune-up). Learn holds Can I have...?, Yes, please. and No, thank you.; Ana asks at the counter and answers a server's offer of tea. Requests reuse the 5.9 order photos with one more phrase; their wrong options change only the drink.",
+  "note": "2026-10-08 user-authorized review. The linked exact engine plan supersedes this brief's previous wording, order, banks and media. Preserve its complete contextual verb models, conversational turns and stage sequence when authoring.",
   "target": "backend/lessons/unit_5/lesson-5-can-i-have.yaml",
   "lesson": {
     "id": "lesson-5-can-i-have",
-    "title": "5.10 Can I Have...?",
+    "title": "5.10 Ordering Politely 2: At the Market and Shops",
     "level": "Beginner A1",
     "unit_id": "unit-5",
     "unit_title": "Unit 5: Food, Drinks, and Shopping",
@@ -17,10 +17,9 @@
     "lesson_id": "lesson-5",
     "lesson_title": "Unit 5: Food, Drinks, and Shopping",
     "sub_lesson_id": "5.10",
-    "sub_lesson_title": "Can I Have...?",
-    "goal": "Ask for food and drinks with Can I have ..., please?, and answer an offer with Yes, please. or No, thank you.",
+    "sub_lesson_title": "Ordering Politely 2: At the Market and Shops",
+    "goal": "Use polite requests with quantities and colors at a market and shop; accept or decline an offer.",
     "vocabulary": [
-      "Can I have...?",
       "Yes, please.",
       "No, thank you."
     ],
@@ -43,214 +42,178 @@
       "Ana",
       "is",
       "at",
-      "café"
+      "Can I have...?",
+      "Here is your...",
+      "Here are your...",
+      "How much is...?",
+      "How can I help you?",
+      "blue",
+      "bag",
+      "three",
+      "apples"
     ],
-    "grammar_function": "Can I have + food or drink + please? Do you want tea? Yes, please. / No, thank you.",
-    "prerequisite": "5.9 please and thank you; 5.6 want; 4.8 Do you...?; 5.2-5.3 food and drinks.",
-    "speaking_outcome": "Ask Can I have ..., please? and accept or refuse an offer politely.",
-    "content_revision": 1
+    "grammar_function": "Can I have three apples, please? Here are your three apples. Do you want a bag? Yes, please. No, thank you. Can I have the blue bag, please? How much is the bag?",
+    "prerequisite": "5.9 complete polite ordering sequence; 5.8 named prices; 2.6 quantities; 2.8 colors; 4.8 Do you questions.",
+    "speaking_outcome": "Request familiar goods at a market and shop and accept or refuse an offered bag politely.",
+    "content_revision": 2,
+    "purposeful_review_slides": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9",
+      "R10",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9",
+      "A10",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "U1",
+      "U2",
+      "U3",
+      "U4",
+      "U5",
+      "U6",
+      "U7",
+      "U8",
+      "U9"
+    ],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "Yes, please.",
+          "No, thank you."
+        ],
+        "support_targets": [
+          "Do you want a bag?"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Do you want a bag?"
+          },
+          {
+            "slide_id": "L2",
+            "text": "Yes, please."
+          },
+          {
+            "slide_id": "L3",
+            "text": "Do you want a bag?"
+          },
+          {
+            "slide_id": "L4",
+            "text": "No, thank you."
+          }
+        ]
+      }
+    ]
   },
   "layout": {
-    "Recognize": 12,
+    "Recognize": 10,
     "Listen": 10,
     "Speak": 9,
     "Use": 9
   },
   "items": [
     {
+      "text": "Do you want a bag?",
+      "es": "¿Quieres una bolsa?",
+      "image": "a1_u5_revision_shop_offer_bag_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
       "text": "Yes, please.",
       "es": "Sí, por favor.",
-      "image": "a1_photo_u5_ana_yes_please_v1.webp",
-      "kind": "offer-answer",
-      "speaker": "ana",
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      }
+      "image": "a1_u5_revision_shop_accept_bag_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
     },
     {
       "text": "No, thank you.",
       "es": "No, gracias.",
-      "image": "a1_photo_u5_ana_no_thank_you_v1.webp",
-      "kind": "offer-answer",
-      "speaker": "ana",
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      }
+      "image": "a1_u5_revision_shop_decline_bag_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
     },
     {
-      "text": "Can I have water, please?",
-      "es": "¿Me da agua, por favor?",
-      "image": "a1_scene_orders-water_37bb622.webp",
-      "kind": "can-i-have",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "male-character",
-      "prefer": [
-        "Can I have milk, please?"
-      ]
-    },
-    {
-      "text": "Can I have juice, please?",
-      "es": "¿Me da jugo, por favor?",
-      "image": "a1_scene_juice-please_ee4b773.webp",
-      "kind": "can-i-have",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Can I have tea, please?"
-      ]
-    },
-    {
-      "text": "Can I have coffee, please?",
-      "es": "¿Me da café, por favor?",
-      "image": "a1_scene_orders-coffee_3164cd2.webp",
-      "kind": "can-i-have",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "male-character",
-      "prefer": [
-        "Can I have tea, please?"
-      ]
-    },
-    {
-      "text": "Can I have tea, please?",
-      "es": "¿Me da té, por favor?",
-      "image": "a1_scene_orders-tea_14f7d45.webp",
-      "kind": "can-i-have",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Can I have coffee, please?"
-      ]
-    },
-    {
-      "text": "Can I have milk, please?",
-      "es": "¿Me da leche, por favor?",
-      "image": "a1_scene_orders-milk_6835950.webp",
-      "kind": "can-i-have",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Can I have water, please?"
-      ]
-    },
-    {
-      "text": "Can I have a banana, please?",
-      "es": "¿Me da un plátano, por favor?",
-      "image": "a1_photo_u5_stall_banana_request_v1.webp",
-      "kind": "can-i-have-fruit",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Can I have an orange, please?"
-      ]
-    },
-    {
-      "text": "Can I have an orange, please?",
-      "es": "¿Me da una naranja, por favor?",
-      "image": "a1_photo_u5_stall_orange_request_v1.webp",
-      "kind": "can-i-have-fruit",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Can I have a pear, please?"
-      ]
-    },
-    {
-      "text": "Can I have a pear, please?",
-      "es": "¿Me da una pera, por favor?",
-      "image": "a1_photo_u5_stall_pear_request_v1.webp",
-      "kind": "can-i-have-fruit",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Can I have a banana, please?"
-      ]
-    },
-    {
-      "text": "Ana is at the café.",
-      "es": "Ana está en el café.",
-      "image": "a1_photo_u5_ana_can_i_have_v1.webp",
-      "kind": "at-place",
+      "text": "Can I have three apples, please?",
+      "es": "¿Me da tres manzanas, por favor?",
+      "image": "a1_u5_revision_market_apples_request_v1.webp",
+      "kind": "contextual-model",
       "learn": false,
       "image_choices": false,
-      "use": false,
-      "prefer": [
-        "Ana is at the store.",
-        "Ana is at the school."
-      ]
+      "speaker": "female-character"
     },
     {
-      "text": "Do you want tea? Yes, please.",
-      "es": "¿Quieres té? Sí, por favor.",
-      "image": "a1_photo_u5_ana_yes_please_v1.webp",
-      "kind": "offer-exchange",
+      "text": "Here are your three apples.",
+      "es": "Aquí están tus tres manzanas.",
+      "image": "a1_u5_revision_market_apples_handover_v1.webp",
+      "kind": "contextual-model",
       "learn": false,
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      },
-      "turns": [
-        {
-          "text": "Do you want tea?",
-          "speaker": "male-character",
-          "image": "a1_photo_u5_server_offers_tea_v1.webp"
-        },
-        {
-          "text": "Yes, please.",
-          "speaker": "ana",
-          "image": "a1_photo_u5_ana_yes_please_v1.webp"
-        }
-      ],
-      "prefer": [
-        "Do you want tea? No, thank you."
-      ]
+      "image_choices": false,
+      "speaker": "male-character"
     },
     {
-      "text": "Do you want tea? No, thank you.",
-      "es": "¿Quieres té? No, gracias.",
-      "image": "a1_photo_u5_ana_no_thank_you_v1.webp",
-      "kind": "offer-exchange",
+      "text": "Can I have the blue bag, please?",
+      "es": "¿Me da la bolsa azul, por favor?",
+      "image": "a1_u5_revision_price_bag_ask_v1.webp",
+      "kind": "contextual-model",
       "learn": false,
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      },
-      "turns": [
-        {
-          "text": "Do you want tea?",
-          "speaker": "male-character",
-          "image": "a1_photo_u5_server_offers_tea_v1.webp"
-        },
-        {
-          "text": "No, thank you.",
-          "speaker": "ana",
-          "image": "a1_photo_u5_ana_no_thank_you_v1.webp"
-        }
-      ],
-      "prefer": [
-        "Do you want tea? Yes, please."
-      ]
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "How much is the bag?",
+      "es": "¿Cuánto cuesta la bolsa?",
+      "image": "a1_u5_revision_price_bag_ask_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "The bag is seven dollars.",
+      "es": "La bolsa cuesta siete dólares.",
+      "image": "a1_u5_revision_price_bag_reply_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "text": "Here is your blue bag.",
+      "es": "Aquí está tu bolsa azul.",
+      "image": "a1_u5_revision_shop_bag_handover_v1.webp",
+      "kind": "contextual-model",
+      "learn": false,
+      "image_choices": false,
+      "speaker": "male-character"
     }
   ],
   "pool": [
@@ -264,5 +227,7 @@
       "es": "Ana está en la escuela.",
       "kind": "at-place"
     }
-  ]
+  ],
+  "authoritative_plan": "docs/product/content-plans/unit5-review-2026-10-08/5.10.plan.json",
+  "review": []
 }

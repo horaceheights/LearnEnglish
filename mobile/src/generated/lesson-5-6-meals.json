@@ -75,35 +75,84 @@
     "U8",
     "U9"
   ],
-  "content_revision": 2,
+  "content_revision": 3,
   "cards": [
+    {
+      "slide_id": "LB",
+      "interaction_type": "teach",
+      "prompt": "I eat eggs for breakfast.",
+      "stage": "Learn",
+      "correct_option_id": "lb-model",
+      "options": [
+        {
+          "id": "lb-model",
+          "image_url": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
+          "label": "I eat eggs for breakfast."
+        }
+      ],
+      "audio_text": "I eat eggs for breakfast.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Como huevos en el desayuno.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / LB",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c001-prompt-215f7e988521d1ae2586",
+          "purpose": "prompt",
+          "text": "I eat eggs for breakfast.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c001-answer-a942f7b6d93875b706cf",
+          "purpose": "answer",
+          "text": "I eat eggs for breakfast.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Lunch",
+      "prompt": "They eat rice for lunch.",
       "stage": "Learn",
-      "correct_option_id": "lunch-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "lunch-learn",
+          "id": "l1-model",
           "image_url": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
-          "label": "Lunch"
+          "label": "They eat rice for lunch."
         }
       ],
-      "audio_text": "Lunch",
+      "audio_text": "They eat rice for lunch.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Almuerzo",
-      "pedagogy_note": "Story beat 01: Lunch",
+      "spanish_translation": "Ellos comen arroz en el almuerzo.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L1",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c001-prompt-38400a206843d1aa6fbb",
+          "id": "lesson-5-6-meals-c002-prompt-e7fd0c8161a3cea19749",
           "purpose": "prompt",
-          "text": "Lunch",
+          "text": "They eat rice for lunch.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
@@ -113,9 +162,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c001-answer-2f2500aae73e7e84efb5",
+          "id": "lesson-5-6-meals-c002-answer-c02d698aaa6be36aad61",
           "purpose": "answer",
-          "text": "Lunch",
+          "text": "They eat rice for lunch.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
@@ -129,99 +178,45 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Dinner",
+      "prompt": "They eat chicken for dinner.",
       "stage": "Learn",
-      "correct_option_id": "dinner-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "dinner-learn",
+          "id": "l2-model",
           "image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
-          "label": "Dinner"
+          "label": "They eat chicken for dinner."
         }
       ],
-      "audio_text": "Dinner",
+      "audio_text": "They eat chicken for dinner.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Cena",
-      "pedagogy_note": "Story beat 02: Dinner",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c002-prompt-db0850bd96d151cba3d3",
-          "purpose": "prompt",
-          "text": "Dinner",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c002-answer-dd2fa52fb2c2968c7662",
-          "purpose": "answer",
-          "text": "Dinner",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "Lunch",
-      "stage": "Recognize",
-      "correct_option_id": "lunch-r1",
-      "options": [
-        {
-          "id": "dinner-r1",
-          "image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
-          "label": null
-        },
-        {
-          "id": "lunch-r1",
-          "image_url": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Lunch",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Almuerzo",
-      "pedagogy_note": "Story beat 01: Lunch",
+      "spanish_translation": "Ellos comen pollo en la cena.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L2",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c003-prompt-23054738a4864781c375",
+          "id": "lesson-5-6-meals-c003-prompt-90054cf180222c8c895b",
           "purpose": "prompt",
-          "text": "Lunch",
+          "text": "They eat chicken for dinner.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c003-answer-7927225129719c73195b",
+          "id": "lesson-5-6-meals-c003-answer-592855dfd6d7b51e06b5",
           "purpose": "answer",
-          "text": "Lunch",
+          "text": "They eat chicken for dinner.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -230,42 +225,47 @@
       ]
     },
     {
-      "slide_id": "R2",
-      "interaction_type": "i2t2",
+      "slide_id": "RB",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "dinner-r2",
+      "correct_option_id": "rb-answer",
       "options": [
         {
-          "id": "lunch-r2",
+          "id": "rb-answer",
+          "image_url": "",
+          "label": "Breakfast"
+        },
+        {
+          "id": "rb-other-0",
           "image_url": "",
           "label": "Lunch"
         },
         {
-          "id": "dinner-r2",
+          "id": "rb-other-1",
           "image_url": "",
           "label": "Dinner"
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Dinner",
-      "prompt_image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+      "answer_audio_text": "Breakfast",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 02: Dinner",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / RB",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c004-answer-1d4789a770261cbc482c",
+          "id": "lesson-5-6-meals-c004-answer-1f05936c71f0ea84668a",
           "purpose": "answer",
-          "text": "Dinner",
+          "text": "Breakfast",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -326,48 +326,6 @@
       ]
     },
     {
-      "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-eat-eggs-for-dinner-r4",
-      "options": [
-        {
-          "id": "i-eat-eggs-for-breakfast-r4",
-          "image_url": "",
-          "label": "I eat eggs for breakfast."
-        },
-        {
-          "id": "i-eat-eggs-for-dinner-r4",
-          "image_url": "",
-          "label": "I eat eggs for dinner."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I eat eggs for dinner.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 04: I eat eggs for dinner.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c006-answer-820b9179eea0ef3292f8",
-          "purpose": "answer",
-          "text": "I eat eggs for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "R5",
       "interaction_type": "i2t2",
       "prompt": "",
@@ -396,7 +354,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c007-answer-acee96d1d6279f110277",
+          "id": "lesson-5-6-meals-c006-answer-5c93937a7207324840c3",
           "purpose": "answer",
           "text": "I drink tea for breakfast.",
           "mode": "prompt",
@@ -410,42 +368,101 @@
       ]
     },
     {
-      "slide_id": "R6",
-      "interaction_type": "i2t2",
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-drink-coffee-for-breakfast-r6",
+      "correct_option_id": "i-eat-an-egg-for-breakfast-r10",
       "options": [
         {
-          "id": "i-drink-coffee-for-breakfast-r6",
+          "id": "i-eat-an-egg-for-breakfast-r10",
           "image_url": "",
-          "label": "I drink coffee for breakfast."
+          "label": "I eat an egg for breakfast."
         },
         {
-          "id": "i-drink-coffee-for-dinner-r6",
+          "id": "i-eat-an-egg-for-dinner-r10",
           "image_url": "",
-          "label": "I drink coffee for dinner."
+          "label": "I eat an egg for dinner."
+        },
+        {
+          "id": "i-eat-an-egg-for-lunch-r10",
+          "image_url": "",
+          "label": "I eat an egg for lunch."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I drink coffee for breakfast.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_coffee_breakfast_v1.webp",
+      "answer_audio_text": "I eat an egg for breakfast.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: I drink coffee for breakfast.",
+      "pedagogy_note": "Story beat 10: I eat an egg for breakfast.",
       "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c008-answer-e54c2b58147a98af6700",
+          "id": "lesson-5-6-meals-c007-answer-231154bed3f904e873a3",
           "purpose": "answer",
-          "text": "I drink coffee for breakfast.",
+          "text": "I eat an egg for breakfast.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_coffee_breakfast_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "t2i2",
+      "prompt": "Lunch",
+      "stage": "Recognize",
+      "correct_option_id": "lunch-r1",
+      "options": [
+        {
+          "id": "dinner-r1",
+          "image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "label": null
+        },
+        {
+          "id": "lunch-r1",
+          "image_url": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Lunch",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Almuerzo",
+      "pedagogy_note": "Story beat 01: Lunch",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c008-prompt-d5488856f2da76fa6704",
+          "purpose": "prompt",
+          "text": "Lunch",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c008-answer-7b92b00d21033ef6e3a4",
+          "purpose": "answer",
+          "text": "Lunch",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -506,48 +523,6 @@
       ]
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "they-eat-chicken-for-dinner-r8",
-      "options": [
-        {
-          "id": "they-eat-chicken-for-dinner-r8",
-          "image_url": "",
-          "label": "They eat chicken for dinner."
-        },
-        {
-          "id": "they-eat-chicken-for-lunch-r8",
-          "image_url": "",
-          "label": "They eat chicken for lunch."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "They eat chicken for dinner.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: They eat chicken for dinner.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c010-answer-8314b3fa98849eabbbcb",
-          "purpose": "answer",
-          "text": "They eat chicken for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "R9",
       "interaction_type": "i2t3",
       "prompt": "",
@@ -581,7 +556,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c011-answer-ef81f8bdc584cdedff54",
+          "id": "lesson-5-6-meals-c010-answer-16d22cb66898c773041b",
           "purpose": "answer",
           "text": "They eat rice for lunch.",
           "mode": "prompt",
@@ -589,53 +564,6 @@
           "image_ref": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t3",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-eat-an-egg-for-breakfast-r10",
-      "options": [
-        {
-          "id": "i-eat-an-egg-for-breakfast-r10",
-          "image_url": "",
-          "label": "I eat an egg for breakfast."
-        },
-        {
-          "id": "i-eat-an-egg-for-dinner-r10",
-          "image_url": "",
-          "label": "I eat an egg for dinner."
-        },
-        {
-          "id": "i-eat-an-egg-for-lunch-r10",
-          "image_url": "",
-          "label": "I eat an egg for lunch."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I eat an egg for breakfast.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: I eat an egg for breakfast.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c012-answer-df6d721c2abd648181e2",
-          "purpose": "answer",
-          "text": "I eat an egg for breakfast.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -666,33 +594,40 @@
       ],
       "audio_text": "I eat rice for lunch.",
       "answer_audio_text": "Me too.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_revision_rice_lunch_statement_v1.webp",
       "spanish_translation": "Como arroz en el almuerzo.",
       "pedagogy_note": "Story beat 11: Me too.",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "male-character",
+      "answer_audio_turns": [
+        {
+          "text": "Me too.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_rice_lunch_reply_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c013-prompt-073f911227f9acd77840",
+          "id": "lesson-5-6-meals-c011-prompt-8e32fcb4e72538c80ea0",
           "purpose": "prompt",
           "text": "I eat rice for lunch.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_rice_lunch_statement_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c013-answer-bdd4a38fcb4f46fd8ca6",
-          "purpose": "answer",
+          "id": "lesson-5-6-meals-c011-answer-turn-1-692fab27a839ee0bf8e9",
+          "purpose": "answer-turn-1",
           "text": "Me too.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
+          "image_ref": "/lesson-assets/a1_u5_revision_rice_lunch_reply_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -734,7 +669,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c014-answer-5ac154141f675094f096",
+          "id": "lesson-5-6-meals-c012-answer-63fd6c8e2029b293d482",
           "purpose": "answer",
           "text": "They eat lunch at one o'clock.",
           "mode": "prompt",
@@ -748,108 +683,185 @@
       ]
     },
     {
-      "slide_id": "A1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "lunch-a1",
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "dinner-r2",
       "options": [
         {
-          "id": "lunch-a1",
-          "image_url": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
-          "label": null
+          "id": "lunch-r2",
+          "image_url": "",
+          "label": "Lunch"
         },
         {
-          "id": "dinner-a1",
-          "image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
-          "label": null
+          "id": "dinner-r2",
+          "image_url": "",
+          "label": "Dinner"
         }
       ],
-      "audio_text": "Lunch",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Lunch",
+      "audio_text": "",
+      "answer_audio_text": "Dinner",
+      "prompt_image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: Dinner",
       "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c015-prompt-08cc08339e2edfe35787",
-          "purpose": "prompt",
-          "text": "Lunch",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c015-answer-a026915fd5d389579699",
+          "id": "lesson-5-6-meals-c013-answer-963927bc12a428d237fa",
           "purpose": "answer",
-          "text": "Lunch",
+          "text": "Dinner",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "A2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "dinner-a2",
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-eat-eggs-for-dinner-r4",
       "options": [
         {
-          "id": "dinner-a2",
-          "image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
-          "label": null
+          "id": "i-eat-eggs-for-breakfast-r4",
+          "image_url": "",
+          "label": "I eat eggs for breakfast."
         },
         {
-          "id": "lunch-a2",
-          "image_url": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
-          "label": null
+          "id": "i-eat-eggs-for-dinner-r4",
+          "image_url": "",
+          "label": "I eat eggs for dinner."
         }
       ],
-      "audio_text": "Dinner",
+      "audio_text": "",
+      "answer_audio_text": "I eat eggs for dinner.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 04: I eat eggs for dinner.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "female-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c014-answer-b1d8e120745027bb2408",
+          "purpose": "answer",
+          "text": "I eat eggs for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "they-eat-chicken-for-dinner-r8",
+      "options": [
+        {
+          "id": "they-eat-chicken-for-dinner-r8",
+          "image_url": "",
+          "label": "They eat chicken for dinner."
+        },
+        {
+          "id": "they-eat-chicken-for-lunch-r8",
+          "image_url": "",
+          "label": "They eat chicken for lunch."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "They eat chicken for dinner.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: They eat chicken for dinner.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c015-answer-d518d7c5f93a044560bc",
+          "purpose": "answer",
+          "text": "They eat chicken for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "AB",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "ab-answer",
+      "options": [
+        {
+          "id": "ab-other-0",
+          "image_url": "",
+          "label": "Lunch"
+        },
+        {
+          "id": "ab-other-1",
+          "image_url": "",
+          "label": "Dinner"
+        },
+        {
+          "id": "ab-answer",
+          "image_url": "",
+          "label": "Breakfast"
+        }
+      ],
+      "audio_text": "Breakfast",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Dinner",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / AB",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c016-prompt-ee701e8885de1e184c36",
+          "id": "lesson-5-6-meals-c016-prompt-f3cc7e3ba96f477ee1ed",
           "purpose": "prompt",
-          "text": "Dinner",
+          "text": "Breakfast",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "image_ref": "text-only:c4b887a3cda2ef1549c4",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c016-answer-d03860d4a3b1641fc2e2",
+          "id": "lesson-5-6-meals-c016-answer-b1fccfec1c9cb2da48a5",
           "purpose": "answer",
-          "text": "Dinner",
+          "text": "Breakfast",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "image_ref": "text-only:c4b887a3cda2ef1549c4",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -910,60 +922,6 @@
       ]
     },
     {
-      "slide_id": "A4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-eat-eggs-for-dinner-a4",
-      "options": [
-        {
-          "id": "i-eat-eggs-for-breakfast-a4",
-          "image_url": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
-          "label": null
-        },
-        {
-          "id": "i-eat-eggs-for-dinner-a4",
-          "image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I eat eggs for dinner.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: I eat eggs for dinner.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c018-prompt-255cc01e610f0c2946e2",
-          "purpose": "prompt",
-          "text": "I eat eggs for dinner.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c018-answer-262739f547c0911ffa02",
-          "purpose": "answer",
-          "text": "I eat eggs for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "A5",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
@@ -992,7 +950,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c019-prompt-a554573be4cc7b310b53",
+          "id": "lesson-5-6-meals-c018-prompt-5bd319438dd6665de4c4",
           "purpose": "prompt",
           "text": "I drink tea for breakfast.",
           "mode": "prompt",
@@ -1004,7 +962,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c019-answer-e9cd9eb368f2f75060f1",
+          "id": "lesson-5-6-meals-c018-answer-ab6e8ff1d67ed78f619c",
           "purpose": "answer",
           "text": "I drink tea for breakfast.",
           "mode": "prompt",
@@ -1018,59 +976,54 @@
       ]
     },
     {
-      "slide_id": "A6",
-      "interaction_type": "a2t3",
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-drink-coffee-for-breakfast-a6",
+      "correct_option_id": "lunch-a1",
       "options": [
         {
-          "id": "i-drink-coffee-for-breakfast-a6",
-          "image_url": "",
-          "label": "I drink coffee for breakfast."
+          "id": "lunch-a1",
+          "image_url": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "label": null
         },
         {
-          "id": "i-drink-coffee-for-dinner-a6",
-          "image_url": "",
-          "label": "I drink coffee for dinner."
-        },
-        {
-          "id": "i-drink-coffee-for-lunch-a6",
-          "image_url": "",
-          "label": "I drink coffee for lunch."
+          "id": "dinner-a1",
+          "image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "label": null
         }
       ],
-      "audio_text": "I drink coffee for breakfast.",
+      "audio_text": "Lunch",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: I drink coffee for breakfast.",
-      "audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 01: Lunch",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c020-prompt-0a197f26577c556f2eee",
+          "id": "lesson-5-6-meals-c019-prompt-9daba63af08d0f67ff8b",
           "purpose": "prompt",
-          "text": "I drink coffee for breakfast.",
+          "text": "Lunch",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:189a52e2ed166976e60e",
+          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c020-answer-0c05341341e439ee1f05",
+          "id": "lesson-5-6-meals-c019-answer-1d99cc8ce5188be25221",
           "purpose": "answer",
-          "text": "I drink coffee for breakfast.",
+          "text": "Lunch",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:189a52e2ed166976e60e",
+          "image_ref": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1105,7 +1058,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c021-prompt-02134289594957d2ce03",
+          "id": "lesson-5-6-meals-c020-prompt-a9fdb07613f921dcafbf",
           "purpose": "prompt",
           "text": "They eat chicken for lunch.",
           "mode": "prompt",
@@ -1117,7 +1070,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c021-answer-2ae7f40caeb7270e7427",
+          "id": "lesson-5-6-meals-c020-answer-a8a888117076334c3f29",
           "purpose": "answer",
           "text": "They eat chicken for lunch.",
           "mode": "prompt",
@@ -1125,60 +1078,6 @@
           "image_ref": "/lesson-assets/a1_photo_u5_chicken_lunch_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "they-eat-chicken-for-dinner-a8",
-      "options": [
-        {
-          "id": "they-eat-chicken-for-lunch-a8",
-          "image_url": "/lesson-assets/a1_photo_u5_chicken_lunch_v1.webp",
-          "label": null
-        },
-        {
-          "id": "they-eat-chicken-for-dinner-a8",
-          "image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "They eat chicken for dinner.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: They eat chicken for dinner.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c022-prompt-dcb3de8ef5f29a071f08",
-          "purpose": "prompt",
-          "text": "They eat chicken for dinner.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c022-answer-87a9c8df92c9cc630cc3",
-          "purpose": "answer",
-          "text": "They eat chicken for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1218,7 +1117,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c023-prompt-4e53dc80185ce88474c3",
+          "id": "lesson-5-6-meals-c021-prompt-a9106ad99dac7b34626a",
           "purpose": "prompt",
           "text": "They eat rice for lunch.",
           "mode": "prompt",
@@ -1230,7 +1129,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c023-answer-9166ebcef26b424de27f",
+          "id": "lesson-5-6-meals-c021-answer-054091cb832a886cc1ed",
           "purpose": "answer",
           "text": "They eat rice for lunch.",
           "mode": "prompt",
@@ -1277,7 +1176,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c024-prompt-c1f2416ce99f01b1dd4e",
+          "id": "lesson-5-6-meals-c022-prompt-3cc93641499a988d658b",
           "purpose": "prompt",
           "text": "They eat lunch at one o'clock.",
           "mode": "prompt",
@@ -1289,12 +1188,174 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c024-answer-0404590e21585ba664a6",
+          "id": "lesson-5-6-meals-c022-answer-8d820c64b4ac983d4dda",
           "purpose": "answer",
           "text": "They eat lunch at one o'clock.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "text-only:b2b6a4fad12a9c690d9d",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "dinner-a2",
+      "options": [
+        {
+          "id": "dinner-a2",
+          "image_url": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "label": null
+        },
+        {
+          "id": "lunch-a2",
+          "image_url": "/lesson-assets/a1_scene_lunch-scene_f025a1a.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Dinner",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: Dinner",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c023-prompt-9da4adb58510212272a9",
+          "purpose": "prompt",
+          "text": "Dinner",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c023-answer-6b788d670e867d828d4c",
+          "purpose": "answer",
+          "text": "Dinner",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_dinner-scene_0fbb004.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-eat-eggs-for-dinner-a4",
+      "options": [
+        {
+          "id": "i-eat-eggs-for-breakfast-a4",
+          "image_url": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
+          "label": null
+        },
+        {
+          "id": "i-eat-eggs-for-dinner-a4",
+          "image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I eat eggs for dinner.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: I eat eggs for dinner.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c024-prompt-a57f136174c8b3b9f308",
+          "purpose": "prompt",
+          "text": "I eat eggs for dinner.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c024-answer-2ddf1f7b778ce441e4d8",
+          "purpose": "answer",
+          "text": "I eat eggs for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "they-eat-chicken-for-dinner-a8",
+      "options": [
+        {
+          "id": "they-eat-chicken-for-lunch-a8",
+          "image_url": "/lesson-assets/a1_photo_u5_chicken_lunch_v1.webp",
+          "label": null
+        },
+        {
+          "id": "they-eat-chicken-for-dinner-a8",
+          "image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "They eat chicken for dinner.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: They eat chicken for dinner.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c025-prompt-148cc1ad6dd414ec4d31",
+          "purpose": "prompt",
+          "text": "They eat chicken for dinner.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c025-answer-a94fda75b52b0d3c2da0",
+          "purpose": "answer",
+          "text": "They eat chicken for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1326,7 +1387,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c025-prompt-ec725df134ada29ec5ce",
+          "id": "lesson-5-6-meals-c026-prompt-798e04b0aa28b95a0d14",
           "purpose": "prompt",
           "text": "I eat eggs for breakfast.",
           "mode": "pronunciation_slow",
@@ -1338,61 +1399,12 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c025-answer-2131b040377a6da97cb5",
+          "id": "lesson-5-6-meals-c026-answer-3504db31e3aac5bc0522",
           "purpose": "answer",
           "text": "I eat eggs for breakfast.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "I eat eggs for dinner.",
-      "stage": "Speak",
-      "correct_option_id": "i-eat-eggs-for-dinner-speak",
-      "options": [
-        {
-          "id": "i-eat-eggs-for-dinner-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "label": "I eat eggs for dinner."
-        }
-      ],
-      "audio_text": "I eat eggs for dinner.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Como huevos en la cena.",
-      "pedagogy_note": "Story beat 02: I eat eggs for dinner.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c026-prompt-0444bcaf26a2467155cf",
-          "purpose": "prompt",
-          "text": "I eat eggs for dinner.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c026-answer-737792b62ca078b6b8e7",
-          "purpose": "answer",
-          "text": "I eat eggs for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1450,49 +1462,49 @@
       ]
     },
     {
-      "slide_id": "S4",
+      "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I drink coffee for breakfast.",
+      "prompt": "I eat an egg for breakfast.",
       "stage": "Speak",
-      "correct_option_id": "i-drink-coffee-for-breakfast-speak",
+      "correct_option_id": "i-eat-an-egg-for-breakfast-speak",
       "options": [
         {
-          "id": "i-drink-coffee-for-breakfast-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_coffee_breakfast_v1.webp",
-          "label": "I drink coffee for breakfast."
+          "id": "i-eat-an-egg-for-breakfast-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
+          "label": "I eat an egg for breakfast."
         }
       ],
-      "audio_text": "I drink coffee for breakfast.",
+      "audio_text": "I eat an egg for breakfast.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Tomo caf\u00e9 en el desayuno.",
-      "pedagogy_note": "Story beat 04: I drink coffee for breakfast.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Como un huevo en el desayuno.",
+      "pedagogy_note": "Story beat 08: I eat an egg for breakfast.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c028-prompt-9ab5595a5339dc857ec8",
+          "id": "lesson-5-6-meals-c028-prompt-fc0a73b9310a27b68403",
           "purpose": "prompt",
-          "text": "I drink coffee for breakfast.",
+          "text": "I eat an egg for breakfast.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_coffee_breakfast_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c028-answer-a2d4fb707d9962c44b1a",
+          "id": "lesson-5-6-meals-c028-answer-a7507cc7d142dcd46211",
           "purpose": "answer",
-          "text": "I drink coffee for breakfast.",
+          "text": "I eat an egg for breakfast.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_coffee_breakfast_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1548,55 +1560,6 @@
       ]
     },
     {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "They eat chicken for dinner.",
-      "stage": "Speak",
-      "correct_option_id": "they-eat-chicken-for-dinner-speak",
-      "options": [
-        {
-          "id": "they-eat-chicken-for-dinner-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "label": "They eat chicken for dinner."
-        }
-      ],
-      "audio_text": "They eat chicken for dinner.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Comen pollo en la cena.",
-      "pedagogy_note": "Story beat 06: They eat chicken for dinner.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c030-prompt-26bcf8c2e769cc74876f",
-          "purpose": "prompt",
-          "text": "They eat chicken for dinner.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c030-answer-c0cee4d57e214f98298f",
-          "purpose": "answer",
-          "text": "They eat chicken for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "S7",
       "interaction_type": "speak",
       "prompt": "They eat rice for lunch.",
@@ -1620,7 +1583,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c031-prompt-3f7b70827df18e507f56",
+          "id": "lesson-5-6-meals-c030-prompt-4d2d804218833159418e",
           "purpose": "prompt",
           "text": "They eat rice for lunch.",
           "mode": "pronunciation_slow",
@@ -1632,7 +1595,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c031-answer-722adbec6da074f32db8",
+          "id": "lesson-5-6-meals-c030-answer-4dafd94ce4d83cf0ab03",
           "purpose": "answer",
           "text": "They eat rice for lunch.",
           "mode": "prompt",
@@ -1640,55 +1603,6 @@
           "image_ref": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S8",
-      "interaction_type": "speak",
-      "prompt": "I eat an egg for breakfast.",
-      "stage": "Speak",
-      "correct_option_id": "i-eat-an-egg-for-breakfast-speak",
-      "options": [
-        {
-          "id": "i-eat-an-egg-for-breakfast-speak",
-          "image_url": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-          "label": "I eat an egg for breakfast."
-        }
-      ],
-      "audio_text": "I eat an egg for breakfast.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Como un huevo en el desayuno.",
-      "pedagogy_note": "Story beat 08: I eat an egg for breakfast.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c032-prompt-ed703e79d24a2b190d8c",
-          "purpose": "prompt",
-          "text": "I eat an egg for breakfast.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c032-answer-711d64f82411df2994f6",
-          "purpose": "answer",
-          "text": "I eat an egg for breakfast.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1718,7 +1632,7 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c033-prompt-07f9068ad206eb1a34c2",
+          "id": "lesson-5-6-meals-c031-prompt-b25c4922d8aaaca2fac8",
           "purpose": "prompt",
           "text": "They eat lunch at one o'clock.",
           "mode": "pronunciation_slow",
@@ -1730,12 +1644,110 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c033-answer-664782a40235ec3f6b33",
+          "id": "lesson-5-6-meals-c031-answer-f2aa840484adbedbb788",
           "purpose": "answer",
           "text": "They eat lunch at one o'clock.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "I eat eggs for dinner.",
+      "stage": "Speak",
+      "correct_option_id": "i-eat-eggs-for-dinner-speak",
+      "options": [
+        {
+          "id": "i-eat-eggs-for-dinner-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "label": "I eat eggs for dinner."
+        }
+      ],
+      "audio_text": "I eat eggs for dinner.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Como huevos en la cena.",
+      "pedagogy_note": "Story beat 02: I eat eggs for dinner.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c032-prompt-ef1e47cf4f9f8ff3f7bf",
+          "purpose": "prompt",
+          "text": "I eat eggs for dinner.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c032-answer-56fbc2774ffc38462488",
+          "purpose": "answer",
+          "text": "I eat eggs for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "They eat chicken for dinner.",
+      "stage": "Speak",
+      "correct_option_id": "they-eat-chicken-for-dinner-speak",
+      "options": [
+        {
+          "id": "they-eat-chicken-for-dinner-speak",
+          "image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+          "label": "They eat chicken for dinner."
+        }
+      ],
+      "audio_text": "They eat chicken for dinner.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Comen pollo en la cena.",
+      "pedagogy_note": "Story beat 06: They eat chicken for dinner.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c033-prompt-292e6d75f3067a9aae69",
+          "purpose": "prompt",
+          "text": "They eat chicken for dinner.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c033-answer-bfcef466f203eee69fd5",
+          "purpose": "answer",
+          "text": "They eat chicken for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1769,7 +1781,7 @@
       "answer_audio_text": "I eat eggs for breakfast.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_eggs_breakfast_v1.webp",
       "spanish_translation": "Como huevos en el desayuno.",
-      "pedagogy_note": "Story beat 01: I eat eggs for breakfast.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U1",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
@@ -1804,64 +1816,6 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I eat eggs ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "for",
-      "correct_option_ids": [
-        "for",
-        "dinner"
-      ],
-      "options": [
-        {
-          "id": "for",
-          "image_url": "",
-          "label": "for"
-        },
-        {
-          "id": "dinner",
-          "image_url": "",
-          "label": "dinner"
-        }
-      ],
-      "audio_text": "I eat eggs for dinner.",
-      "answer_audio_text": "I eat eggs for dinner.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-      "spanish_translation": "Como huevos en la cena.",
-      "pedagogy_note": "Story beat 02: I eat eggs for dinner.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c035-prompt-2a4b0bc422418b0bdb6a",
-          "purpose": "prompt",
-          "text": "I eat eggs for dinner.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c035-answer-972953b51d3876d76827",
-          "purpose": "answer",
-          "text": "I eat eggs for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
       "prompt": "I drink tea ___ ___.",
       "stage": "Use",
       "correct_option_id": "for",
@@ -1885,14 +1839,14 @@
       "answer_audio_text": "I drink tea for breakfast.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_tea_breakfast_v1.webp",
       "spanish_translation": "Tomo t\u00e9 en el desayuno.",
-      "pedagogy_note": "Story beat 03: I drink tea for breakfast.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U2",
       "audio_speaker": "female-character",
       "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c036-prompt-0f1353e84063fc163a4f",
+          "id": "lesson-5-6-meals-c035-prompt-15e354a01e62152c0701",
           "purpose": "prompt",
           "text": "I drink tea for breakfast.",
           "mode": "prompt",
@@ -1904,7 +1858,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c036-answer-6a0afce85805733d60f1",
+          "id": "lesson-5-6-meals-c035-answer-1a21d873a96d301c66a2",
           "purpose": "answer",
           "text": "I drink tea for breakfast.",
           "mode": "prompt",
@@ -1918,7 +1872,7 @@
       ]
     },
     {
-      "slide_id": "U4",
+      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "I drink coffee ___ ___.",
       "stage": "Use",
@@ -1943,14 +1897,14 @@
       "answer_audio_text": "I drink coffee for breakfast.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_coffee_breakfast_v1.webp",
       "spanish_translation": "Tomo caf\u00e9 en el desayuno.",
-      "pedagogy_note": "Story beat 04: I drink coffee for breakfast.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U3",
       "audio_speaker": "male-character",
       "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c037-prompt-f7365595de2414d3e994",
+          "id": "lesson-5-6-meals-c036-prompt-15fdb41b4ab836fdc36d",
           "purpose": "prompt",
           "text": "I drink coffee for breakfast.",
           "mode": "prompt",
@@ -1962,7 +1916,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c037-answer-c4f8bbc66d39c4fb8fa6",
+          "id": "lesson-5-6-meals-c036-answer-d1d76f21dfaa7a847d8d",
           "purpose": "answer",
           "text": "I drink coffee for breakfast.",
           "mode": "prompt",
@@ -1976,14 +1930,14 @@
       ]
     },
     {
-      "slide_id": "U5",
+      "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "They eat chicken ___ ___.",
+      "prompt": "I eat an egg ___ ___.",
       "stage": "Use",
       "correct_option_id": "for",
       "correct_option_ids": [
         "for",
-        "lunch"
+        "breakfast"
       ],
       "options": [
         {
@@ -1992,7 +1946,83 @@
           "label": "for"
         },
         {
-          "id": "lunch",
+          "id": "breakfast",
+          "image_url": "",
+          "label": "breakfast"
+        }
+      ],
+      "audio_text": "I eat an egg for breakfast.",
+      "answer_audio_text": "I eat an egg for breakfast.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
+      "spanish_translation": "Como un huevo en el desayuno.",
+      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U4",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c037-prompt-f1a5349fa9a8b63cc809",
+          "purpose": "prompt",
+          "text": "I eat an egg for breakfast.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c037-answer-3d9d46cfbee6784b6547",
+          "purpose": "answer",
+          "text": "I eat an egg for breakfast.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "eat"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "for"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "They"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "chicken"
+        },
+        {
+          "id": "word-5",
           "image_url": "",
           "label": "lunch"
         }
@@ -2001,7 +2031,7 @@
       "answer_audio_text": "They eat chicken for lunch.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_chicken_lunch_v1.webp",
       "spanish_translation": "Comen pollo en el almuerzo.",
-      "pedagogy_note": "Story beat 05: They eat chicken for lunch.",
+      "pedagogy_note": "Use: They eat chicken for lunch.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -2065,82 +2095,6 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "chicken"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "dinner"
-        }
-      ],
-      "audio_text": "They eat chicken for dinner.",
-      "answer_audio_text": "They eat chicken for dinner.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-      "spanish_translation": "Comen pollo en la cena.",
-      "pedagogy_note": "Story beat 06: They eat chicken for dinner.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c039-prompt-99dc0eafa019771b165d",
-          "purpose": "prompt",
-          "text": "They eat chicken for dinner.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c039-answer-6d6689a7c295a30f9e30",
-          "purpose": "answer",
-          "text": "They eat chicken for dinner.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "eat"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "for"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "They"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
           "label": "rice"
         },
         {
@@ -2153,14 +2107,14 @@
       "answer_audio_text": "They eat rice for lunch.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
       "spanish_translation": "Comen arroz en el almuerzo.",
-      "pedagogy_note": "Story beat 07: They eat rice for lunch.",
+      "pedagogy_note": "Use: They eat rice for lunch.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c040-prompt-a8ae0cf88086013b3741",
+          "id": "lesson-5-6-meals-c039-prompt-6f853c49daa95fb6ed5e",
           "purpose": "prompt",
           "text": "They eat rice for lunch.",
           "mode": "prompt",
@@ -2172,7 +2126,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c040-answer-7d799aecc0860b376f07",
+          "id": "lesson-5-6-meals-c039-answer-26e849931ac8f8def309",
           "purpose": "answer",
           "text": "They eat rice for lunch.",
           "mode": "prompt",
@@ -2186,89 +2140,7 @@
       ]
     },
     {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "eat"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "egg"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "breakfast"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "an"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "for"
-        }
-      ],
-      "audio_text": "I eat an egg for breakfast.",
-      "answer_audio_text": "I eat an egg for breakfast.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-      "spanish_translation": "Como un huevo en el desayuno.",
-      "pedagogy_note": "Story beat 08: I eat an egg for breakfast.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-5-6-meals-c041-prompt-7c386424588cefa6eb6a",
-          "purpose": "prompt",
-          "text": "I eat an egg for breakfast.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-5-6-meals-c041-answer-537b19f4a9c2bca74607",
-          "purpose": "answer",
-          "text": "I eat an egg for breakfast.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u5_one_egg_breakfast_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U9",
+      "slide_id": "U7",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -2317,14 +2189,14 @@
       "answer_audio_text": "They eat lunch at one o'clock.",
       "prompt_image_url": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
       "spanish_translation": "Almuerzan a la una.",
-      "pedagogy_note": "Story beat 09: They eat lunch at one o'clock.",
+      "pedagogy_note": "Use: They eat lunch at one o'clock.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-6-meals-c042-prompt-7428afee22bd1970a7df",
+          "id": "lesson-5-6-meals-c040-prompt-64e9f59b077cb4e54afb",
           "purpose": "prompt",
           "text": "They eat lunch at one o'clock.",
           "mode": "prompt",
@@ -2336,12 +2208,164 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-6-meals-c042-answer-1e98d17f14670fdc425d",
+          "id": "lesson-5-6-meals-c040-answer-b417315ca7d3ca56e78d",
           "purpose": "answer",
           "text": "They eat lunch at one o'clock.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u5_rice_lunch_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "eat"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "for"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "eggs"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "dinner"
+        }
+      ],
+      "audio_text": "I eat eggs for dinner.",
+      "answer_audio_text": "I eat eggs for dinner.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+      "spanish_translation": "Como huevos en la cena.",
+      "pedagogy_note": "Use: I eat eggs for dinner.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c041-prompt-36f8e83709499ce19e6a",
+          "purpose": "prompt",
+          "text": "I eat eggs for dinner.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c041-answer-e6f3b777a726db0b9fee",
+          "purpose": "answer",
+          "text": "I eat eggs for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_eggs_dinner_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "eat"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "for"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "They"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "chicken"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "dinner"
+        }
+      ],
+      "audio_text": "They eat chicken for dinner.",
+      "answer_audio_text": "They eat chicken for dinner.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+      "spanish_translation": "Comen pollo en la cena.",
+      "pedagogy_note": "Use: They eat chicken for dinner.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-5-6-meals-c042-prompt-b2e76fb151faca210d97",
+          "purpose": "prompt",
+          "text": "They eat chicken for dinner.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-5-6-meals-c042-answer-704ef59c98c667a65517",
+          "purpose": "answer",
+          "text": "They eat chicken for dinner.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u5_chicken_dinner_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",

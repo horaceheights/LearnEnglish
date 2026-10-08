@@ -55,19 +55,20 @@ class AnswerChoiceFormTests(unittest.TestCase):
             if card.stage not in {"Recognize", "Listen"} or any(o.image_url for o in card.options):
                 continue
             labels = [o.label for o in card.options]
-            if all(len(label.split()) == 1 for label in labels):
-                continue
             checked.append(card.slide_id)
             parsed = [re.fullmatch(r"(.+) (?:is|are) (\w+ing)\.", label) for label in labels]
             self.assertTrue(all(parsed), (card.slide_id, labels))
-            self.assertEqual(len(labels), len({match[1] for match in parsed}))
+            # Contextual action models may repeat He/She while distinct actions
+            # keep the alternatives exclusive; no isolated verb options remain.
+            if card.slide_id in {"R2", "R4", "R6", "R8", "A6"}:
+                self.assertEqual(len(labels), len({match[1] for match in parsed}))
             self.assertEqual(len(labels), len({match[2] for match in parsed}))
             counts = [len(label.split()) for label in labels]
             self.assertLessEqual(max(counts) - min(counts), 1)
-        self.assertEqual(["R2", "R4", "R6", "R8", "A6"], checked)
+        self.assertEqual(["R2", "R4", "R6", "R8", "A3", "A6"], checked)
         for slide_id in ("R1", "R3", "R5", "R7", "R9"):
             card = next(card for card in lesson.cards if card.slide_id == slide_id)
-            self.assertTrue(all(len(option.label.split()) == 1 for option in card.options))
+            self.assertTrue(all(re.fullmatch(r"(?:He is|She is|They are) \w+ing\.", option.label) for option in card.options))
 
     def test_both_mobile_exports_match_canonical_choices(self):
         # The canonical lesson file is the authoring record since the engine replaced

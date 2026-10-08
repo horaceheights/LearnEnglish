@@ -5,11 +5,11 @@
     "teacher",
     "co-teacher"
   ],
-  "note": "2026-09-26 Unit 5 rebuild (user direction: rebuild Units 5-7 through the engine, new photos approved). Learn holds café, please, Here you are. and Thank you. Every order is said in the pictured customer's voice, and the server's Here you are. and the customer's Thank you. keep their own voices.",
+  "note": "2026-10-08 user-authorized review. The linked exact engine plan supersedes this brief's previous wording, order, banks and media. Preserve its complete contextual verb models, conversational turns and stage sequence when authoring.",
   "target": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
   "lesson": {
     "id": "lesson-5-8-ordering-politely",
-    "title": "5.9 Ordering Politely",
+    "title": "5.9 Ordering Politely 1: At a Café",
     "level": "Beginner A1",
     "unit_id": "unit-5",
     "unit_title": "Unit 5: Food, Drinks, and Shopping",
@@ -17,11 +17,14 @@
     "lesson_id": "lesson-5",
     "lesson_title": "Unit 5: Food, Drinks, and Shopping",
     "sub_lesson_id": "5.9",
-    "sub_lesson_title": "Ordering Politely",
-    "goal": "Recognize a café and order a drink with please, and say Here you are. and Thank you.",
+    "sub_lesson_title": "Ordering Politely 1: At a Café",
+    "goal": "Complete a polite café exchange: greeting and help, request, handover and thanks.",
     "vocabulary": [
-      "café",
+      "How can I help you?",
+      "Can I have...?",
       "please",
+      "Here is your...",
+      "Here are your...",
       "Here you are.",
       "Thank you."
     ],
@@ -34,171 +37,180 @@
       "coffee",
       "tea",
       "milk",
-      "hello"
+      "hello",
+      "eggs",
+      "and",
+      "your",
+      "I",
+      "you"
     ],
-    "grammar_function": "This is a café. Coffee, please. Here you are. Thank you.",
-    "prerequisite": "3.1 hello; 2.5 this; 5.3 drinks.",
-    "speaking_outcome": "Order a drink with please, and say Here you are. and Thank you.",
-    "content_revision": 2
+    "grammar_function": "Hello! How can I help you? Can I have coffee, please? Here is your coffee. Thank you. Can I have coffee and eggs, please? Here are your coffee and eggs.",
+    "prerequisite": "3.1 greetings; 3.12 have; 5.2 food; 5.3 drinks; 5.6 wants and needs. Can I have and How can I help you are introduced here as polite fixed frames.",
+    "speaking_outcome": "Request coffee, water or coffee and eggs politely, and complete the handover with thanks.",
+    "content_revision": 3,
+    "purposeful_review_slides": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9",
+      "R10",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "U1",
+      "U2",
+      "U3",
+      "U4",
+      "U5",
+      "U6",
+      "U7",
+      "U8"
+    ],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "How can I help you?",
+          "Can I have...?",
+          "please",
+          "Here is your...",
+          "Here are your...",
+          "Here you are.",
+          "Thank you."
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Hello! How can I help you?"
+          },
+          {
+            "slide_id": "L2",
+            "text": "Can I have coffee, please?"
+          },
+          {
+            "slide_id": "L3",
+            "text": "Here is your coffee."
+          },
+          {
+            "slide_id": "L4",
+            "text": "Thank you."
+          },
+          {
+            "slide_id": "L5",
+            "text": "Water, please."
+          },
+          {
+            "slide_id": "L6",
+            "text": "Here you are."
+          },
+          {
+            "slide_id": "L7",
+            "text": "Can I have coffee and eggs, please?"
+          },
+          {
+            "slide_id": "L8",
+            "text": "Here are your coffee and eggs."
+          }
+        ]
+      }
+    ]
   },
   "layout": {
-    "Recognize": 11,
-    "Listen": 9,
-    "Speak": 9,
-    "Use": 9
+    "Recognize": 10,
+    "Listen": 8,
+    "Speak": 8,
+    "Use": 8
   },
   "items": [
     {
-      "text": "A café",
-      "es": "Un café (lugar)",
-      "image": "a1_scene_hello_19bd437.webp",
-      "kind": "place-word",
-      "choices": false
+      "text": "Hello! How can I help you?",
+      "es": "¡Hola! ¿En qué puedo ayudarte?",
+      "image": "a1_u5_revision_cafe_greeting_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
     },
     {
-      "text": "Please",
-      "es": "Por favor",
-      "image": "a1_photo_u5_request_water_v1.webp",
-      "kind": "polite-word",
-      "speaker": "female-character",
-      "choices": false
+      "text": "Can I have coffee, please?",
+      "es": "¿Me da café, por favor?",
+      "image": "a1_u5_revision_cafe_coffee_request_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character"
     },
     {
-      "text": "Here you are.",
-      "es": "Aquí tienes.",
-      "image": "a1_scene_here-you-are_4ab9749.webp",
-      "kind": "polite",
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      },
-      "speaker": "female-character",
-      "question": "Juice, please.",
-      "question_es": "Jugo, por favor.",
-      "question_speaker": "male-character",
-      "image_choices": false
+      "text": "Here is your coffee.",
+      "es": "Aquí está tu café.",
+      "image": "a1_u5_revision_cafe_coffee_handover_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
     },
     {
       "text": "Thank you.",
       "es": "Gracias.",
-      "image": "a1_scene_thank-you_a6f59e1.webp",
-      "kind": "polite",
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      },
-      "speaker": "male-character",
-      "question": "Here you are.",
-      "question_es": "Aquí tienes.",
-      "question_speaker": "female-character",
-      "image_choices": false
-    },
-    {
-      "text": "This is a café.",
-      "es": "Este es un café.",
-      "image": "a1_scene_hello_19bd437.webp",
-      "kind": "this-place",
-      "learn": false,
+      "image": "a1_u5_revision_cafe_thanks_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
       "image_choices": false,
-      "use": false,
-      "prefer": [
-        "This is a store.",
-        "This is a school."
-      ]
+      "speaker": "male-character"
     },
     {
       "text": "Water, please.",
       "es": "Agua, por favor.",
-      "image": "a1_scene_orders-water_37bb622.webp",
-      "kind": "order",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "male-character",
-      "prefer": [
-        "Milk, please."
-      ]
-    },
-    {
-      "text": "Juice, please.",
-      "es": "Jugo, por favor.",
-      "image": "a1_scene_juice-please_ee4b773.webp",
-      "kind": "order",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Tea, please."
-      ]
-    },
-    {
-      "text": "Coffee, please.",
-      "es": "Café, por favor.",
-      "image": "a1_scene_orders-coffee_3164cd2.webp",
-      "kind": "order",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "male-character",
-      "prefer": [
-        "Tea, please."
-      ]
-    },
-    {
-      "text": "Tea, please.",
-      "es": "Té, por favor.",
-      "image": "a1_scene_orders-tea_14f7d45.webp",
-      "kind": "order",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Coffee, please."
-      ]
-    },
-    {
-      "text": "Milk, please.",
-      "es": "Leche, por favor.",
-      "image": "a1_scene_orders-milk_6835950.webp",
-      "kind": "order",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "Polite requests with please are what this lesson teaches; they are complete requests by nature, and only the drink changes."
-      },
-      "speaker": "female-character",
-      "prefer": [
-        "Water, please."
-      ]
-    },
-    {
-      "text": "Here you are. Thank you.",
-      "es": "Aquí tienes. Gracias.",
-      "image": "a1_scene_here-you-are_4ab9749.webp",
-      "kind": "handoff",
-      "learn": false,
-      "accepts": {
-        "conversational-response": "These are the short polite responses this lesson teaches; they are complete responses by nature."
-      },
-      "turns": [
-        {
-          "text": "Here you are.",
-          "speaker": "female-character",
-          "image": "a1_scene_here-you-are_4ab9749.webp"
-        },
-        {
-          "text": "Thank you.",
-          "speaker": "male-character",
-          "image": "a1_scene_thank-you_a6f59e1.webp"
-        }
-      ],
+      "image": "a1_u5_revision_cafe_water_request_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
       "image_choices": false,
-      "prefer": [
-        "Here you are. Hello."
-      ]
+      "speaker": "male-character"
+    },
+    {
+      "text": "Here you are.",
+      "es": "Aquí tienes.",
+      "image": "a1_u5_revision_cafe_water_handover_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "text": "Can I have coffee and eggs, please?",
+      "es": "¿Me da café y huevos, por favor?",
+      "image": "a1_u5_revision_cafe_combo_request_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "text": "Here are your coffee and eggs.",
+      "es": "Aquí están tu café y tus huevos.",
+      "image": "a1_u5_revision_cafe_combo_handover_v1.webp",
+      "kind": "contextual-model",
+      "learn": true,
+      "image_choices": false,
+      "speaker": "female-character"
     }
   ],
   "pool": [
@@ -222,5 +234,7 @@
       "es": "Hola.",
       "kind": "polite"
     }
-  ]
+  ],
+  "authoritative_plan": "docs/product/content-plans/unit5-review-2026-10-08/5.9.plan.json",
+  "review": []
 }

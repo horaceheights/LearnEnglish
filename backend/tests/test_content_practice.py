@@ -36,6 +36,27 @@ def rules(findings, rule):
 
 
 class ContentPracticeTests(unittest.TestCase):
+    def test_verbs_need_context_but_nouns_commands_and_construction_tiles_remain_valid(self):
+        settings = {**STANDARDS, "verbs_require_subject": ["want", "eating", "need"]}
+        bad = card("Listen", "Want", "Need")
+        bad["slide_id"] = "bare"
+        good = [
+            card("Learn", "I want water.", "I need water."),
+            card("Learn", "Water", "Milk"),
+            card("Learn", "Open the door.", "Close the door."),
+            {**card("Use", "I ___ water.", "need"), "interaction_type": "complete2"},
+        ]
+        good[-1]["options"][0]["label"] = "want"
+        group = lesson("7.1", [], [bad, *good], role="review")
+        self.assertEqual(rules(audit([group], settings), "verb-context"),
+                         {("7.1", "bare:want"), ("7.1", "bare:need")})
+
+    def test_answer_dialogue_turns_count_as_successful_practice(self):
+        from scripts.content_engine.practice import card_evidence
+        c = card("Recognize", "I do not like milk.", "Me too.")
+        c["answer_audio_turns"] = [{"text": "Me neither.", "speaker_role": "luis"}]
+        self.assertIn("me neither.", card_evidence(c))
+
     def test_current_course_matches_the_reviewed_baseline(self):
         standards = load_standards(ROOT, "a1")
         keys = {finding.key for finding in audit(load_catalog(ROOT, standards), standards)}

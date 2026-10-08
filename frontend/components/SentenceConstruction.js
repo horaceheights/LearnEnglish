@@ -121,18 +121,17 @@ export default function SentenceConstruction({ card, vocabulary = [], selected, 
   return <section ref={setRoot} data-lesson-page className={styles.activity} aria-label="Construye la frase">
     <div className={`${styles.importance} ${wideSlots ? styles.wideSlots : ""}`}>
       <div className={styles.location}>{location} · COMPLETA</div>
-      {result === "correct" && wideSlots && !translated ? <div className={styles.successReplaySpace} aria-hidden="true" /> : null}
-      {result !== "correct" || translated ? <button type="button" className={styles.translation} aria-label="Mostrar traducción" onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Escucha y forma la frase."}</button> : null}
+      <button type="button" className={styles.translation} aria-label={translated ? "Ocultar traducción" : "Mostrar traducción"} aria-expanded={translated} onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Traducir frase"}</button>
       <div className={styles.slots} aria-label={result === "correct" ? "Frase completada" : "Frase en construcción"}>
         {parts.map((part, index) => {
-          if ("text" in part) return <span key={`text-${index}`} className={styles.scaffold} style={scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : undefined}>{part.text}</span>;
+          if ("text" in part) return <button type="button" key={`text-${index}`} className={styles.scaffold} aria-label={`${part.text}. Mostrar traducción`} onClick={() => setTranslated(value => !value)} style={scaffoldIndexes.has(index) ? { color: NEW_VOCABULARY_COLOR } : undefined}>{part.text}</button>;
           const id = slots[part.slot];
           const label = card.options.find(option => option.id === id)?.label || "";
           return <button key={`slot-${part.slot}`} type="button" ref={element => { slotRefs.current[part.slot] = element; }}
             className={`${styles.slot} ${result === "correct" ? styles.correct : ""} ${hover === part.slot ? styles.target : ""}`}
             aria-label={result === "correct" ? `${label}. Mostrar traducción` : `Espacio ${part.slot + 1}: ${label || "vacío"}`}
             aria-describedby={result === "correct" ? undefined : "word-correction-help"} disabled={result !== "correct" && (locked || !id)}
-            {...(result === "correct" ? { onClick: () => setTranslated(value => !value) } : handlers(id, label, part.slot))}><span style={{ visibility: moving?.id === id ? "hidden" : "visible", color: result !== "correct" && vocabularyIds.has(id) ? NEW_VOCABULARY_COLOR : undefined }}>{label || "___"}{part.suffix}</span></button>;
+            {...(result === "correct" ? { onClick: () => setTranslated(value => !value) } : handlers(id, label, part.slot))}><span style={{ visibility: moving?.id === id ? "hidden" : "visible", color: vocabularyIds.has(id) ? NEW_VOCABULARY_COLOR : undefined }}>{label || "___"}{part.suffix}</span></button>;
         })}
       </div>
       <button className={styles.replay} type="button" aria-label="Repetir frase en inglés" onClick={onReplay}>

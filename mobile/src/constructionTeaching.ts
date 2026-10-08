@@ -40,8 +40,16 @@ function teachClause(text: string): ClausePlan {
   };
   const nominal = (start: number, end: number): boolean => {
     if (start >= end) return false;
+    const and = keys.indexOf('and', start);
+    if (and > start && and < end) {
+      if (!nominal(start, and) || !nominal(and + 1, end)) return false;
+      teach(and, and + 1, `En ${quote(phrase(start, end))}, “and” une las dos cosas y va entre ellas.`);
+      relations.push({ start, end, explanation: `En ${quote(phrase(start, end))}, “and” une las dos cosas y va entre ellas.` });
+      return true;
+    }
     let head = start;
     if (DETERMINERS.has(keys[head]) || NUMBERS.has(keys[head]) || keys[head] === 'some') head++;
+    if (head > start && DETERMINERS.has(keys[start]) && NUMBERS.has(keys[head])) head++;
     const owner = keys[head]?.endsWith("'s") && NOUNS.has(keys[head].slice(0, -2)) ? head : -1;
     if (owner >= 0) head++;
     if (keys[head] === 'united' && keys[head + 1] === 'states') head++;
@@ -199,6 +207,10 @@ function teachClause(text: string): ClausePlan {
 
   const joined = keys.join(' ');
   const fixed: Record<string, string> = {
+    hello: '“Hello” abre el saludo antes de ofrecer ayuda o hacer un pedido.',
+    'me too': '“Me too” significa yo también: primero “Me” y después “too”. Responde a una afirmación positiva.',
+    'me neither': '“Me neither” significa yo tampoco: primero “Me” y después “neither”. Responde a una afirmación negativa.',
+    'how can i help you': 'Para ofrecer ayuda, primero “How”, después “can I”, luego “help” y al final “you”, la persona a quien ayudamos.',
     'thank you': '“Thank you” significa gracias: “thank” va antes de “you”, la persona a quien agradecemos.',
     'excuse me': '“Excuse me” significa disculpe: primero “excuse” y después “me”, quien pide permiso o atención.',
     'here you are': 'Para entregar algo decimos “Here you are”: primero “here”, después “you” y al final “are”. Es una expresión fija.',
@@ -218,6 +230,12 @@ function teachClause(text: string): ClausePlan {
   if (fixed[joined]) {
     teach(0, keys.length, fixed[joined]);
     return { explanations, relations, supported: true };
+  }
+  if (/^here (is|are) your .+/.test(joined)) {
+    teach(0, keys.length, 'Al entregar algo, primero “Here”, después “is” para una cosa o “are” para varias, y luego “your” y lo que entregamos.');
+    teach(0, 2, `“Here ${tokens[1]}” presenta lo que entregamos y va antes de nombrarlo.`);
+    const supported = nominal(2, keys.length);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   if (/^(yes|water|juice|coffee) please$/.test(joined)) {
     teach(0, keys.length, `Primero ${quote(tokens[0])} indica lo que aceptamos o pedimos; después “please” añade cortesía: ${quote(tokens.join(' '))}.`);
@@ -265,7 +283,7 @@ function teachClause(text: string): ClausePlan {
     const supported = nominal(2, keys.length - 2);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
-  // Lesson 5.10 asks politely with "Can I have ..., please?" as a fixed request frame.
+  // Polite requests use the taught "Can I have ..., please?" frame.
   const canHave = /^can i have (.+) please$/.exec(joined);
   if (canHave && text.trim().endsWith('?')) {
     teach(0, keys.length, 'Para pedir algo con cortesía decimos “Can I have …, please?”: primero “Can I have”, después lo que pedimos y al final “please”.');
@@ -367,7 +385,7 @@ function teachClause(text: string): ClausePlan {
     rest++;
   }
   if (['do', 'can', 'cannot'].includes(verb)) {
-    if (!['like', 'understand', 'walk', 'turn', 'go', 'cross'].includes(keys[rest])) return { explanations, relations, supported: false };
+    if (!['like', 'want', 'need', 'understand', 'walk', 'turn', 'go', 'cross'].includes(keys[rest])) return { explanations, relations, supported: false };
     teach(rest, rest + 1, `${quote(tokens[rest])} es la acción y va después de ${quote(phrase(verbIndex, rest))}.`);
     const action = keys[rest++];
     if (rest === keys.length) return { explanations, relations, supported: true };

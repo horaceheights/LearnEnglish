@@ -1,8 +1,20 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-10-06
+Last reviewed: 2026-10-08
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
+
+### Unit 5 review and reusable corrections (approved 2026-10-08)
+
+- GPT's built-in image generator is the standing default for new images and edits unless the user chooses otherwise. ElevenLabs remains the course-audio default. Reuse these choices without asking again; preserve healthy assets and immutable provenance.
+- Teach verbs and verb phrases with an explicit subject and the complement needed to make their meaning clear: `I want juice.`, `I need water.`, `He is eating.` Bare `Want`, `Need`, `Doing` and action labels are not teaching or picture-selection cues. Concrete nouns can stand alone. Intentional commands such as `Stop.` and `Turn left.` remain complete speech acts. This newer decision supersedes older bare-action introductions and infinitive-only models; familiar supporting words remain ordinary text. Bind contextual Learn models exactly and validate their language boundary through the shared engine.
+- Keep a statement and its agreement in conversational order, with consistent people, food, setting and gender-consistent voices: `I like coffee. / Me too.` and `I do not like milk. / Me neither.` Preserve already coherent question-and-answer recognition cards. Do not mechanically split every existing dialogue.
+- A reply-selection scene shows the initiating speaker first. Only a correct reply changes the same image slot to the responding person and plays the reply; wrong answers retain the initiating frame. Speakers face each other or the shared object, not the camera. Pointing hands and the listener's gaze identify the same object.
+- Lesson 5.6 introduces affirmative and negative wants and needs, including `I do not want milk.` and `I do not need juice.`, across the five stages. Preserve he/she/they practice. Replace the rejected isolated `Want` audio with contextual English recordings whose initial /w/ is reviewed.
+- Lesson 5.7 revisits breakfast, then lunch, then dinner in every stage. Breakfast is earlier supporting language, not new vocabulary. Hunger remains in 7.2. The rice-for-lunch response uses two connected speaker images within one activity.
+- Lesson 5.8 teaches physical dollar bills for `a dollar` and `dollars`; price scenes show market customers and vendors exchanging named-item questions and answers, such as `How much is the bread? / The bread is five dollars.` Reuse familiar nouns, quantities and attributes. A pronoun is appropriate when its antecedent is clear; do not ban it throughout the course.
+- Rebuild 5.9 as **Ordering Politely 1: At a Café** and 5.10 as **Ordering Politely 2: At the Market and Shops**. Introduce `Can I have ..., please?` in 5.9, within greeting/help → request → handover → thanks. Model `Water, please.` in context. Extend 5.10 to familiar goods, quantities, attributes, prices, and accepting/refusing an offer. The greeting `How can I help you?` is an approved fixed phrase here; later ability/help lessons expand its grammar.
+- Unit 5 review and mission must retrieve the revised agreement, negative needs/wants, named prices and complete service exchanges on their successful paths. Keep stable lesson IDs, increment content revisions, preserve all lessons, and keep review media fresh.
 
 The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](course-design-a1.md). This file defines the reusable rules that the implementation must preserve.
 
@@ -242,7 +254,7 @@ The following bullets record the earlier, now-superseded proposal:
 - Lesson 1.5 exception (2026-09-20): preserve its three guided Use cards and five full constructions, 43 cards total. The closing sequence is `He is the grandfather.`, `She is the grandmother.`, then `They are the grandparents.`, each on its own slide with the corresponding established portrait or pair photo. The grandmother construction follows the grandfather directly; never append it to the grandparents sentence. This requested extra slide overrides the 50/50 count only for this lesson.
 - Upfront spoken model and translation contract:
   - Every card in Completa auto-plays the complete target English sentence upfront on card mount and on replay.
-  - Tapping the prompt in Completa displays the complete Spanish sentence without visual blanks (`___`).
+  - Tapping the fixed top sentence text or its persistent translation control in Completa displays the complete authored Spanish sentence without visual blanks (`___`), even with no words placed, a partial attempt, a wrong answer or a completed answer. Never derive the translation from the current tile arrangement. Keep placement/removal, drag, retry and English replay independent of translation.
   - Tile banks contain only the exact words required with no distractors; interchangeable identical tiles are accepted for duplicate words.
   - Narrative story order and visual semantics are preserved across all cards.
 - Construction tiles and placed words must stay on one line without splitting, clipping, ellipsizing, or shrinking the readable text. Let the tile grow to its actual label width and wrap whole tiles into another row. A fixed character-width estimate is only a minimum, never a cap on native text width; include font scaling and punctuation when verifying fit.
@@ -275,6 +287,7 @@ Do not force every word through every step in a single lesson when that would ma
 - A new question frame on Learn may contain an already-taught object name. This is a narrow exception to Learn's new-word-only rule: the current lesson must declare the frame, every visible/spoken line must fit its exact course-configured question template, and its object words must already be known from earlier lessons. It does not permit ordinary repeated statements or untaught nouns. The practice audit enforces this through `learn_question_frames` in the course standards.
 
 - Words and complete phrases declared in the lesson vocabulary contract use the shared readable yellow emphasis throughout all lesson stages. Only `Learn` introduction cards add one brief shine/stretch animation. The animation plays once per card, never loops, never shifts layout, and respects reduced-motion settings.
+- Match declared phrase words despite authoring ellipses and terminal punctuation (`How many...?` → `How many?` or `How many apples are there?`). Keep complete phrases together; declaring `there is` must not color unrelated occurrences of `is`. Completa applies the same vocabulary to fixed words, every candidate tile and the completed sentence; color must never identify the correct option.
 - When `not` is the active new concept in Lesson 1.7, keep it larger and in the shared yellow new-word treatment throughout visible teaching and recognition prompts. Outside `Learn`, the emphasis is static rather than replaying the introduction animation.
 
 ### Practice and pacing standards (approved 2026-09-23)

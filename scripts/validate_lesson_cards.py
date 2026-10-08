@@ -226,7 +226,7 @@ MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
     "lesson-3-10-introduction-mission": 14,
     "lesson-4-10-my-day-mission": 17,
-    "lesson-5-10-cafe-mission": 13,
+    "lesson-5-10-cafe-mission": 18,
     "lesson-6-10-town-mission": 13,
 }
 MISSION_REQUIRED_INTERACTIONS = {
@@ -262,7 +262,7 @@ MISSION_HERO_PREFIXES = {
     "lesson-3-10-introduction-mission": ("a1_u3_dinner_v1_", "a1_u3_dinner_v2_"),
     # Approved family-visit reconstruction owns fresh mission-only v2 views.
     "lesson-4-10-my-day-mission": "a1_u4_home_v2_",
-    "lesson-5-10-cafe-mission": "a1_u5_market_v1_",
+    "lesson-5-10-cafe-mission": ("a1_u5_market_v1_", "a1_u5_revision_mission_"),
     "lesson-6-10-town-mission": "a1_u6_town_v1_",
 }
 MISSION_REQUIRED_KINDS = {
@@ -325,10 +325,11 @@ MISSION_KIND_SEQUENCE = {
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-5-10-cafe-mission": [
-        "guided-search", "crowd-search", "crowd-search",
-        "contrast-hunt", "action-hunt", "crowd-search",
-        "crowd-search", "crowd-search", "crowd-search",
-        "voice-gate", "voice-gate", "voice-gate", "voice-gate",
+        "guided-search", "crowd-search", "voice-gate", "crowd-search",
+        "contrast-hunt", "voice-gate", "voice-gate",
+        "action-hunt", "voice-gate", "crowd-search", "voice-gate",
+        "crowd-search", "crowd-search", "voice-gate",
+        "crowd-search", "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-6-10-town-mission": [
         "guided-search", "crowd-search", "contrast-hunt",
@@ -352,7 +353,7 @@ MISSION_CHAPTER_SEQUENCE = {
         ["home"] * 4 + ["morning"] * 2 + ["help"] * 2 + ["welcome"] * 9
     ),
     "lesson-5-10-cafe-mission": (
-        ["mercado"] * 3 + ["gustos"] + ["pide"] * 2 + ["comidas"] * 2 + ["cafe"] * 5
+        ["mercado"] * 4 + ["gustos"] * 3 + ["pide"] * 4 + ["comidas"] * 3 + ["cafe"] * 4
     ),
     "lesson-6-10-town-mission": (
         ["lugares"] * 2 + ["donde"] * 2 + ["camino"] * 2 + ["ayuda"] + ["horarios"] * 2 + ["pregunta"] * 4

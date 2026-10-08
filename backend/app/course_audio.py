@@ -374,6 +374,7 @@ COURSE_SYLLABLES.update({
     "near": 1,
     "need": 1,
     "needs": 1,
+    "neither": 2,
     "next": 1,
     "night": 1,
     "nine": 1,
