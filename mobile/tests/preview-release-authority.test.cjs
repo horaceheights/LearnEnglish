@@ -480,7 +480,7 @@ test('Production preflight preserves npm arguments on Windows and blocks on a fa
         }
         ConvertTo-Json -InputObject $outcome -Compress
       `], { encoding: 'utf8', env: {
-        ...process.env,
+        ...Object.fromEntries(Object.entries(process.env).filter(([key]) => key.toLowerCase() !== 'path')),
         Path: `${directory}${path.delimiter}${process.env.Path || process.env.PATH}`,
         PRODUCTION_PREFLIGHT_GUARD: path.join(repositoryRoot, 'mobile/scripts/release-guard.ps1'),
         PRODUCTION_PREFLIGHT_SCRIPT: path.join(repositoryRoot, 'mobile/scripts/promote-preview.ps1'),
