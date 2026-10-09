@@ -226,8 +226,17 @@ MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
     "lesson-3-10-introduction-mission": 14,
     "lesson-4-10-my-day-mission": 17,
-    "lesson-5-10-cafe-mission": 18,
+    "lesson-5-10-cafe-mission": 20,
     "lesson-6-10-town-mission": 13,
+}
+# New meal beats retain the identities of every already-shipped Unit 5 card.
+# This pins the approved revision's order, not a cap on future mission coverage.
+MISSION_SLIDE_SEQUENCE = {
+    "lesson-5-10-cafe-mission": (
+        [f"M{index:02d}" for index in range(1, 13)]
+        + ["M12L", "M12D"]
+        + [f"M{index:02d}" for index in range(13, 19)]
+    ),
 }
 MISSION_REQUIRED_INTERACTIONS = {
     "lesson-10-family-mission": frozenset({
@@ -262,7 +271,9 @@ MISSION_HERO_PREFIXES = {
     "lesson-3-10-introduction-mission": ("a1_u3_dinner_v1_", "a1_u3_dinner_v2_"),
     # Approved family-visit reconstruction owns fresh mission-only v2 views.
     "lesson-4-10-my-day-mission": "a1_u4_home_v2_",
-    "lesson-5-10-cafe-mission": ("a1_u5_market_v1_", "a1_u5_revision_mission_"),
+    "lesson-5-10-cafe-mission": (
+        "a1_u5_market_v1_", "a1_u5_revision_mission_", "a1_u5_sequence_mission_",
+    ),
     "lesson-6-10-town-mission": "a1_u6_town_v1_",
 }
 MISSION_REQUIRED_KINDS = {
@@ -328,8 +339,9 @@ MISSION_KIND_SEQUENCE = {
         "guided-search", "crowd-search", "voice-gate", "crowd-search",
         "contrast-hunt", "voice-gate", "voice-gate",
         "action-hunt", "voice-gate", "crowd-search", "voice-gate",
-        "crowd-search", "crowd-search", "voice-gate",
-        "crowd-search", "voice-gate", "voice-gate", "voice-gate",
+        "crowd-search", "crowd-search", "crowd-search",
+        "crowd-search", "voice-gate", "voice-gate",
+        "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-6-10-town-mission": [
         "guided-search", "crowd-search", "contrast-hunt",
@@ -353,7 +365,8 @@ MISSION_CHAPTER_SEQUENCE = {
         ["home"] * 4 + ["morning"] * 2 + ["help"] * 2 + ["welcome"] * 9
     ),
     "lesson-5-10-cafe-mission": (
-        ["mercado"] * 4 + ["gustos"] * 3 + ["pide"] * 4 + ["comidas"] * 3 + ["cafe"] * 4
+        ["mercado"] * 4 + ["gustos"] * 3 + ["pide"] * 4
+        + ["comidas"] * 3 + ["precios"] * 3 + ["cafe"] * 3
     ),
     "lesson-6-10-town-mission": (
         ["lugares"] * 2 + ["donde"] * 2 + ["camino"] * 2 + ["ayuda"] + ["horarios"] * 2 + ["pregunta"] * 4
@@ -574,18 +587,18 @@ def validate_mission_contracts(lessons=None) -> list[str]:
         expected_chapters = MISSION_CHAPTER_SEQUENCE.get(lesson.id)
         if expected_chapters is not None and card_chapters != list(expected_chapters):
             errors.append(
-                f"{lesson.id} must preserve the approved five-act beat map; "
+                f"{lesson.id} must preserve the approved chapter beat map; "
                 f"found {card_chapters}."
             )
 
-        expected_slide_ids = [
+        expected_slide_ids = MISSION_SLIDE_SEQUENCE.get(lesson.id, [
             f"M{index:02d}" for index in range(1, len(lesson.cards) + 1)
-        ]
+        ])
         actual_slide_ids = [str(card.slide_id or "") for card in lesson.cards]
         if actual_slide_ids != expected_slide_ids:
             errors.append(
-                f"{lesson.id} mission beat IDs must be contiguous M01.."
-                f"M{len(lesson.cards):02d}; found {actual_slide_ids}."
+                f"{lesson.id} mission beat IDs must preserve the approved sequence "
+                f"{expected_slide_ids}; found {actual_slide_ids}."
             )
         for index, card in enumerate(lesson.cards, 1):
             expected_note = rf"^Mission beat {index:02d}/{len(lesson.cards):02d}:"

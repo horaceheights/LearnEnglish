@@ -73,8 +73,8 @@ assert.match(
 
 assert.match(
   lessonScreenSource,
-  /optionsInteractive=\{!isAutomaticSingleCard\}/,
-  'Automatic single-card lessons must disable answer selection.',
+  /optionsInteractive=\{!isAutomaticSingleCard && !replyScenePending\}/,
+  'Automatic single-card lessons and reply cards awaiting their response image must disable answer selection.',
 );
 
 assert.match(

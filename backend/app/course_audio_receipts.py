@@ -11,6 +11,8 @@ from typing import Any
 import av
 
 from .course_audio_profile import (
+    DEFAULT_GENERATION_MODEL_ID,
+    generation_profile_for,
     LOCATION_WORD_CORRECTION_MODEL_ID,
     LOCATION_WORD_CORRECTION_SPEED,
     NEUTRAL_SPEAKER_ROLES,
@@ -196,7 +198,8 @@ def receipt_path(audio_path: Path) -> Path:
 def _profile_mismatch(
     asset: CourseAudioAsset, provenance: dict[str, Any], audio_sha256: str | None = None,
 ) -> str | None:
-    expected = render_profile_for(asset.speaker_role, asset.mode).as_provenance_contract()
+    factory = generation_profile_for if provenance.get("model_id") == DEFAULT_GENERATION_MODEL_ID else render_profile_for
+    expected = factory(asset.speaker_role, asset.mode).as_provenance_contract()
     if audio_sha256 == NATURAL_OUR_AUDIO_SHA256 and asset.id in NATURAL_OUR_ASSET_IDS:
         expected["model_id"] = OUR_CORRECTION_MODEL_ID
         expected["settings"]["speed"] = OUR_CORRECTION_SPEED
@@ -235,6 +238,13 @@ def validate_provenance(
         raise ValueError("Course audio provenance stored_media must be an object.")
     if not isinstance(provenance.get("processing"), list):
         raise ValueError("Course audio provenance processing must be a list.")
+    if provenance.get("model_id") == DEFAULT_GENERATION_MODEL_ID:
+        review = provenance.get("review") or {}
+        if (not isinstance(review, dict)
+                or review.get("status") not in {"user-listening-approved", "operator-listening-approved"}
+                or not audio_sha256 or review.get("audio_sha256") != audio_sha256
+                or not review.get("basis") or not provenance.get("approved_at")):
+            raise ValueError("V4 audio requires listening approval bound to the exact recording checksum.")
     character_cost = provenance.get("character_cost")
     if character_cost is not None and (
         not isinstance(character_cost, int) or isinstance(character_cost, bool) or character_cost < 0

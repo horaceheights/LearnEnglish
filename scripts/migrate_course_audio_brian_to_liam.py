@@ -237,6 +237,7 @@ def exact_liam_job(index: dict[str, CourseAudioAsset]) -> RenderJob:
         raise ValueError("The current My-eyes completion asset contract drifted from its pinned review.")
     job = RenderJob(
         kind="completion",
+        model_id=PINNED_PROFILE_CONTRACT["model_id"],
         assets=[asset],
         text="My eyes.",
         visual_prompt="My [blank].",

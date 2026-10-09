@@ -326,7 +326,7 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-06: approved 4.10 scenes have the woman ask and Luis answer
         # (+12 net male assets, seven exact answer takes, 187 characters).
         self.assertEqual(
-            Counter({"male-character": 733, "luis": 261, "diego": 16}),
+            Counter({"male-character": 762, "luis": 261, "diego": 17}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
@@ -338,11 +338,16 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-07: full possession phrases and ours in 3.12-3.14 add 17
         # male bindings and four distinct takes; superseded audio is retained.
         # 2026-10-08: contextual verb models and the revised Unit 5 exchanges.
-        self.assertEqual(1010, len(selected))
-        self.assertEqual(195, len(jobs))
-        self.assertEqual(195, sum(len(job.request_fragments()) for job in jobs))
+        # Follow-up: 13 ordering bindings, three new mission content bindings,
+        # and 14 mission-cue fallbacks now retain their actual male speaker.
+        # Four distinct male lines enter and two leave the active inventory:
+        # 197 jobs, +58 characters. QA records the exact texts and baseline.
+        # These are reviewed inventory pins, not spending approval or a cap.
+        self.assertEqual(1040, len(selected))
+        self.assertEqual(197, len(jobs))
+        self.assertEqual(197, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
-        self.assertEqual(4015, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(4073, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
@@ -1100,18 +1105,42 @@ class PersistentCardAudioTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Staged provider fragment is invalid"):
                 load_staged_fragment(job, job.text, job.profile.model_id)
 
-    def test_paid_renderer_refuses_to_discard_output(self):
+    def test_paid_renderer_saves_unbound_output_until_listening_review(self):
+        asset = next(
+            asset for asset in asset_index(LESSONS).values()
+            if asset.speaker_role == "ana" and asset.text == "Hello." and asset.mode == "prompt"
+        )
+        job = RenderJob(kind="ordinary", assets=[asset], text=asset.text)
+        payload = reviewed_hello_bytes()
         arguments = [
             "render_course_audio_assets.py",
             "--all-missing-after-reviewed-seed",
             "--execute",
             "--max-character-cost",
-            "1",
+            str(len(job.text)),
         ]
-        with patch("sys.argv", arguments), patch(
-            "scripts.render_course_audio_assets.render_jobs", return_value=[]
-        ):
-            self.assertEqual(1, render_audio_main())
+        registry = {"schema_version": 1, "takes": {}, "bindings": {}}
+        with TemporaryDirectory() as directory:
+            folder = Path(directory)
+            with patch("sys.argv", arguments), \
+                 patch("scripts.render_course_audio_assets.render_jobs", return_value=[job]), \
+                 patch("scripts.render_course_audio_assets.load_approved_take_registry", return_value=registry), \
+                 patch("scripts.render_course_audio_assets.approved_audio_dir", return_value=folder), \
+                 patch.dict("os.environ", {"ELEVENLABS_API_KEY": "test-key"}), \
+                 patch("scripts.render_course_audio_assets.httpx.Client") as client:
+                request = client.return_value.__enter__.return_value.post
+                request.return_value = SimpleNamespace(
+                    content=payload, headers={"character-cost": str(len(job.text))},
+                    raise_for_status=lambda: None,
+                )
+                self.assertEqual(0, render_audio_main())
+                request.assert_called_once()
+            saved = load_approved_take_registry(folder)
+            take = saved["takes"][sha256_bytes(payload)]
+            self.assertEqual(payload, (folder / take["file"]).read_bytes())
+            self.assertEqual("pending-listening-review", take["provenance"]["review"]["status"])
+            self.assertIsNone(take["provenance"]["approved_at"])
+            self.assertEqual({}, saved["bindings"])
 
     def test_legacy_seed_never_satisfies_named_or_completion_assets(self):
         neutral = CourseAudioAsset(

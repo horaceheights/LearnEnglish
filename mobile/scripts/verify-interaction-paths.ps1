@@ -59,6 +59,9 @@ try {
   & node --test tests/sentence-construction.test.cjs tests/sentence-native-layout.test.mjs tests/construction-celebration.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Sentence construction regression failed.' }
 
+  & node --test tests/manual-sentence-translation.test.cjs tests/web-legacy-completion-translation.test.cjs tests/reply-image-sequence.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Sentence translation and pre-choice reply sequencing failed.' }
+
   & node --test tests/section-briefing.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de las pantallas de transición entre secciones.' }
 

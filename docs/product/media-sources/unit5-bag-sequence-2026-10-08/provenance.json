@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "provider": "openai-builtin-imagegen",
+  "tool": "image_gen.imagegen",
+  "model_id": null,
+  "request_id": null,
+  "usage": null,
+  "provider_metadata_note": "The built-in tool exposed image output paths but no model ID, request ID, token usage or billing.",
+  "task_scope": "Lesson 5.10 second customer bag offer and refusal sequence, requested in Unit 5 review.",
+  "continuity": {
+    "vendor": "Same dark-shirt man with teal apron at the same market counter.",
+    "customer": "Distinct older woman with short silver hair, plum blouse and cream reusable tote.",
+    "objects": "Same paper bag and two oranges in the same tray across both views.",
+    "order": [
+      "vendor-offers-bag",
+      "customer-declines-with-own-tote"
+    ]
+  },
+  "approval_status": "pending-user-preview-review",
+  "visual_review": {
+    "reviewer": "Codex visual inspection of actual generated originals and encoded runtime files at 354x236",
+    "status": "operator-reviewed; user Preview review remains pending",
+    "phone_render_size": [354, 236],
+    "observations": [
+      "Offer: vendor holds a paper bag and gestures toward it; customer listens with relaxed hands and her own cream tote visible.",
+      "Refusal: the same customer raises an open palm toward the offered paper bag and lifts her cream tote; vendor closes his mouth and lowers his free hand to listen.",
+      "Both frames retain the same vendor, older silver-haired customer, plum blouse, cream tote, stall, tray and exactly two oranges.",
+      "The new customer is visibly distinct from the original mustard-cardigan customer. Both people look toward the exchange, not at the camera.",
+      "Paper bag, refusal palm, tote and two oranges remain clear at 354px. The source's top-edge framing of the vendor's hair remains, while the entire face and all teaching gestures are visible."
+    ]
+  },
+  "assets": [
+    {
+      "filename": "a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-47cb-7b30-b4f9-b99b3ff55f99\\exec-b910c5f2-138e-484d-8408-445e8122b7da.png",
+      "prompt": "Edit this exact reference into one photorealistic landscape 3:2 English lesson photo of a SECOND, DISTINCT CUSTOMER encounter. Preserve the male vendor with dark shirt and teal apron and the same market stall. Replace the mustard-cardigan customer with a clearly different older woman around 65 with short silver hair and plain plum blouse carrying her own cream cloth tote bag. Replace the first customer's three-apple tray with exactly two oranges together on the server side. The male vendor speaks and holds out a paper bag; the customer listens with mouth closed and hands relaxed, NOT refusing yet. This is a new encounter, not the first customer changing her mind. Same older customer appearance/clothing and oranges must persist across offer and refusal frames. Both people look at one another/bag, no camera gaze. Large central hands/faces, physically natural gestures, readable at 354px. No typography, captions, speech bubbles or collage. Output a single 1536x1024 photograph. Frame both full heads with a little space above them and keep both important hands, the two oranges, offered paper bag and her cream reusable tote fully visible. The tote hangs from her forearm; her hands remain relaxed on this first listening frame. No brown leather shoulder handbag on this new customer. Do not imitate the previous woman's face; this second customer has unmistakable silver cropped hair, older facial features and a plain plum blouse.",
+      "reference_tool_path": "C:\\Users\\gorre\\Documents\\Code Projects\\LearnEnglish\\.codex-task-worktrees\\eleven-v4-some\\output\\ordering-audit\\a1_u5_revision_shop_offer_bag_v1.webp",
+      "reference_repo_path": "Lessons/Lesson1/images/a1_u5_revision_shop_offer_bag_v1.webp",
+      "role": "vendor-offers-bag",
+      "sequence_index": 1,
+      "source_path": "docs/product/media-sources/unit5-bag-sequence-2026-10-08/a1_u5_sequence_shop_offer_bag_second_customer_v1.png",
+      "source_sha256": "d8c0217e9d6bb7199d604ea014e26a6661f7007b443c8d52c49f2c493c21808a",
+      "source_bytes": 2283318,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
+      "runtime_sha256": "888bf22862b3294c58b65f544348877cdc5172a2de3bcda493a03780166fd377",
+      "runtime_bytes": 297196,
+      "reference_sha256": "67492f60d4b4bc4cc8893acb3ffc50747860d4aa333ec0317276bfa4656294cc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:26:29.925024+00:00"
+    },
+    {
+      "filename": "a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
+      "generated_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-47cb-7b30-b4f9-b99b3ff55f99\\exec-4d2062d1-1765-4f2c-b16c-39a8688315a3.png",
+      "prompt": "Use case: identity-preserve. This image is the immediately following response frame in one two-frame English lesson exchange. Edit the attached OFFER FRAME, preserving this exact older woman with short silver hair, plum blouse and cream cloth tote, the exact same young male vendor with dark shirt and teal apron, the same stall, daylight, camera angle, wooden counter and tray containing EXACTLY TWO ORANGES on the server side. Do not restore the younger mustard-cardigan customer or any apples. Change only the conversation beat: the older female customer now speaks a polite refusal with a soft smile, one clearly open palm facing toward the offered paper bag to say no thanks, and her other hand lifting or pointing to the cream reusable tote she already brought. Lift the tote enough that its body is clearly visible above the lower frame edge. The male vendor now listens with mouth closed, keeping the SAME paper bag offered in the same central position. His listening pose must differ clearly from the speaking offer. They look at each other and the shared bags, never at the camera. Keep both faces, the refusal hand, paper bag, cream tote and two oranges readable and unambiguous at 354px phone size; natural hands and anatomy. Single photorealistic landscape 3:2 photograph at 1536x1024. No captions, written words, labels, speech bubbles, logos, panels or collage. Preserve the identities and entire setting; no new people or objects.",
+      "reference_tool_path": "C:\\Users\\gorre\\.codex\\generated_images\\01a11d94-47cb-7b30-b4f9-b99b3ff55f99\\exec-b910c5f2-138e-484d-8408-445e8122b7da.png",
+      "reference_repo_path": "docs/product/media-sources/unit5-bag-sequence-2026-10-08/a1_u5_sequence_shop_offer_bag_second_customer_v1.png",
+      "role": "customer-declines-with-own-tote",
+      "sequence_index": 2,
+      "source_path": "docs/product/media-sources/unit5-bag-sequence-2026-10-08/a1_u5_sequence_shop_decline_bag_second_customer_v1.png",
+      "source_sha256": "e83fcc886ddb9053b732c5383c4f320b21d2b71475694e1db52716f424b667e5",
+      "source_bytes": 2247555,
+      "runtime_path": "Lessons/Lesson1/images/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
+      "runtime_sha256": "94b0f34d903823ae4c452c2b28ce498964f9c346ee6e9377aca5914676160037",
+      "runtime_bytes": 295916,
+      "reference_sha256": "d8c0217e9d6bb7199d604ea014e26a6661f7007b443c8d52c49f2c493c21808a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "runtime_encoding": {
+        "format": "WEBP",
+        "quality": 94,
+        "method": 6,
+        "crop": null,
+        "rescale": null
+      },
+      "generated_at_recorded_utc": "2026-10-08T22:26:31.026265+00:00"
+    }
+  ]
+}

@@ -9299,14 +9299,16 @@
       "bytes": 44685,
       "text": "Who is he? He is the grandfather.",
       "compatible_speaker_roles": [
-        "answer"
+        "answer",
+        "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
         "prompt"
       ],
       "compatible_variants": [
-        "answer"
+        "answer",
+        "prompt"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -110607,10 +110609,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
-        "prompt"
+        "answer",
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -148688,6 +148693,7 @@
       ],
       "compatible_variants": [
         "answer",
+        "prompt",
         "split-ing"
       ],
       "provenance": {
@@ -184577,9 +184583,12 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
+        "prompt",
         "pronunciation_slow"
       ],
       "compatible_variants": [
+        "answer",
+        "prompt",
         "split-ing"
       ],
       "provenance": {
@@ -185524,6 +185533,445 @@
         "review": {
           "status": "approved-profile-render",
           "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3": {
+      "file": "takes/c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3.mp3",
+      "audio_sha256": "c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3",
+      "bytes": 13836,
+      "text": "Some",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [],
+        "generated_at": "2026-10-08T21:36:13.426777+00:00",
+        "approved_at": "2026-10-08T21:44:33.964445+00:00",
+        "request_id": "HC28dR8KK0raUwgDRhzu",
+        "trace_id": null,
+        "history_item_id": "za3Qer6BdBikznYdWWGL",
+        "character_cost": 0,
+        "incremental_character_cost": 0,
+        "review": {
+          "status": "user-listening-approved",
+          "audio_sha256": "c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3",
+          "basis": "User heard the attached audition and replied: yes looks good lets use V4"
+        },
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "Some",
+            "request_id": "HC28dR8KK0raUwgDRhzu",
+            "character_cost": 0,
+            "incremental_character_cost": 0,
+            "character_cost_source": "provider-header"
+          }
+        ]
+      }
+    },
+    "75ef3410085ae7e0310194093f26c9232da1a32dd8c1847962bae0e0d9ae26a9": {
+      "file": "takes/75ef3410085ae7e0310194093f26c9232da1a32dd8c1847962bae0e0d9ae26a9.mp3",
+      "audio_sha256": "75ef3410085ae7e0310194093f26c9232da1a32dd8c1847962bae0e0d9ae26a9",
+      "bytes": 30555,
+      "text": "I eat chicken for lunch.",
+      "compatible_speaker_roles": [
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-10-08T22:57:05.540556+00:00",
+        "approved_at": "2026-10-08T23:23:07.544693+00:00",
+        "request_id": "uC5WaSoKL9eisvJXI26s",
+        "trace_id": "50039245564d1044de402571f6cc12f9",
+        "character_cost": 3,
+        "incremental_character_cost": 3,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "I eat chicken for lunch.",
+            "character_cost": 3,
+            "incremental_character_cost": 3,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "3",
+            "staged_reuse": false,
+            "request_id": "uC5WaSoKL9eisvJXI26s",
+            "trace_id": "50039245564d1044de402571f6cc12f9"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "75ef3410085ae7e0310194093f26c9232da1a32dd8c1847962bae0e0d9ae26a9",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "dca2bbe60d257a8b8db5b71fb9dcdf23ec3c956bcd3b7ff8d0eadf1b6262b51f": {
+      "file": "takes/dca2bbe60d257a8b8db5b71fb9dcdf23ec3c956bcd3b7ff8d0eadf1b6262b51f.mp3",
+      "audio_sha256": "dca2bbe60d257a8b8db5b71fb9dcdf23ec3c956bcd3b7ff8d0eadf1b6262b51f",
+      "bytes": 29301,
+      "text": "I eat fish for lunch.",
+      "compatible_speaker_roles": [
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-10-08T22:57:06.579699+00:00",
+        "approved_at": "2026-10-08T23:23:07.469133+00:00",
+        "request_id": "Sv3gDiY7FK5NuhQHtP5G",
+        "trace_id": "1e620879e9a57b23de402571f6cc1692",
+        "character_cost": 3,
+        "incremental_character_cost": 3,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "I eat fish for lunch.",
+            "character_cost": 3,
+            "incremental_character_cost": 3,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "3",
+            "staged_reuse": false,
+            "request_id": "Sv3gDiY7FK5NuhQHtP5G",
+            "trace_id": "1e620879e9a57b23de402571f6cc1692"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "dca2bbe60d257a8b8db5b71fb9dcdf23ec3c956bcd3b7ff8d0eadf1b6262b51f",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "3981b825256f66123f06a6f0967d1517018efa0a83db08da5e0e2ca8825e53b4": {
+      "file": "takes/3981b825256f66123f06a6f0967d1517018efa0a83db08da5e0e2ca8825e53b4.mp3",
+      "audio_sha256": "3981b825256f66123f06a6f0967d1517018efa0a83db08da5e0e2ca8825e53b4",
+      "bytes": 35570,
+      "text": "I eat two eggs for breakfast.",
+      "compatible_speaker_roles": [
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-10-08T22:57:07.807248+00:00",
+        "approved_at": "2026-10-08T23:23:07.377079+00:00",
+        "request_id": "ZhLXx07SpkZr3dMFnUuh",
+        "trace_id": "6421c9f39c9bf20dde402571f6cc17b0",
+        "character_cost": 4,
+        "incremental_character_cost": 4,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "I eat two eggs for breakfast.",
+            "character_cost": 4,
+            "incremental_character_cost": 4,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "4",
+            "staged_reuse": false,
+            "request_id": "ZhLXx07SpkZr3dMFnUuh",
+            "trace_id": "6421c9f39c9bf20dde402571f6cc17b0"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "3981b825256f66123f06a6f0967d1517018efa0a83db08da5e0e2ca8825e53b4",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "bb9fbba3857b046ee47d0ead56a1f3bb77fd29c5892eccda500fcdfa385bf8fa": {
+      "file": "takes/bb9fbba3857b046ee47d0ead56a1f3bb77fd29c5892eccda500fcdfa385bf8fa.mp3",
+      "audio_sha256": "bb9fbba3857b046ee47d0ead56a1f3bb77fd29c5892eccda500fcdfa385bf8fa",
+      "bytes": 28047,
+      "text": "I drink water for dinner.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-10-08T22:57:08.994267+00:00",
+        "approved_at": "2026-10-08T23:23:07.790986+00:00",
+        "request_id": "qLECPPOEy015Qtio0qwN",
+        "trace_id": "647da146e73413c8de402571f6cc1729",
+        "character_cost": 3,
+        "incremental_character_cost": 3,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "I drink water for dinner.",
+            "character_cost": 3,
+            "incremental_character_cost": 3,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "3",
+            "staged_reuse": false,
+            "request_id": "qLECPPOEy015Qtio0qwN",
+            "trace_id": "647da146e73413c8de402571f6cc1729"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "bb9fbba3857b046ee47d0ead56a1f3bb77fd29c5892eccda500fcdfa385bf8fa",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "9d7477e4eca0146c344f9977a52b68812fcc3689d728c27bb68eaf259c52a996": {
+      "file": "takes/9d7477e4eca0146c344f9977a52b68812fcc3689d728c27bb68eaf259c52a996.mp3",
+      "audio_sha256": "9d7477e4eca0146c344f9977a52b68812fcc3689d728c27bb68eaf259c52a996",
+      "bytes": 29301,
+      "text": "I drink water for lunch.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-10-08T22:57:10.100460+00:00",
+        "approved_at": "2026-10-08T23:23:07.621957+00:00",
+        "request_id": "zFZpmalJQ8kruOS3U0h8",
+        "trace_id": "c54e0b14c3156a71de402571f6cc135f",
+        "character_cost": 3,
+        "incremental_character_cost": 3,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "I drink water for lunch.",
+            "character_cost": 3,
+            "incremental_character_cost": 3,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "3",
+            "staged_reuse": false,
+            "request_id": "zFZpmalJQ8kruOS3U0h8",
+            "trace_id": "c54e0b14c3156a71de402571f6cc135f"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "9d7477e4eca0146c344f9977a52b68812fcc3689d728c27bb68eaf259c52a996",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
+        }
+      }
+    },
+    "b59615a61fd6cdb0892875d4456f99366017e74d6ea3fb54f14a8933ae7078a6": {
+      "file": "takes/b59615a61fd6cdb0892875d4456f99366017e74d6ea3fb54f14a8933ae7078a6.mp3",
+      "audio_sha256": "b59615a61fd6cdb0892875d4456f99366017e74d6ea3fb54f14a8933ae7078a6",
+      "bytes": 26793,
+      "text": "I eat rice for dinner.",
+      "compatible_speaker_roles": [
+        "male-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_v4",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Original ElevenLabs v4 provider bytes; no post-processing."
+        ],
+        "generated_at": "2026-10-08T22:57:11.325767+00:00",
+        "approved_at": "2026-10-08T23:23:07.713486+00:00",
+        "request_id": "ITpQrnkoyNlIgpE8x6Qy",
+        "trace_id": "8b170caeb38b1ce9de402571f6cc1de9",
+        "character_cost": 3,
+        "incremental_character_cost": 3,
+        "provider_requests": [
+          {
+            "model_id": "eleven_v4",
+            "text": "I eat rice for dinner.",
+            "character_cost": 3,
+            "incremental_character_cost": 3,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "3",
+            "staged_reuse": false,
+            "request_id": "ITpQrnkoyNlIgpE8x6Qy",
+            "trace_id": "8b170caeb38b1ce9de402571f6cc1de9"
+          }
+        ],
+        "review": {
+          "status": "operator-listening-approved",
+          "audio_sha256": "b59615a61fd6cdb0892875d4456f99366017e74d6ea3fb54f14a8933ae7078a6",
+          "basis": "Operator explicitly confirmed this recording's natural pronunciation with --reviewed-take."
         }
       }
     }
@@ -187939,6 +188387,11 @@
       "approved_at": "2026-09-03T04:15:01.200798+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-10-family-mission-c019-mission-cue-e2d763273b29ccc7037a": {
+      "take_id": "d0163b4d83184381eff652049991effb9898a748310d595c82b129afed605dfc",
+      "approved_at": "2026-09-08T20:19:25.894711+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-10-family-mission-c019-mission-cue-ec851db3d1a278011f1e": {
       "take_id": "ac11aeb7cd2cf53ee7230fa5202c5533c03e9b983d3b9cfa910d7d21b87f307e",
       "approved_at": "2026-09-07T20:11:30.015620+00:00",
@@ -188024,6 +188477,11 @@
       "approved_at": "2026-09-07T02:19:10.028800+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-10-family-mission-c020-mission-cue-fda490a20f2123f88bde": {
+      "take_id": "8da98abba04712e861ff572dd64960ea721c594222742f06a5c91c43ef55f038",
+      "approved_at": "2026-09-08T20:19:25.894711+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-10-family-mission-c020-mission-instruction-6e3ce6857923167b38fe": {
       "take_id": "983def586c24b94119d92a95b82024287f40a27ff72e20950d416d8007ff188e",
       "approved_at": "2026-09-07T02:19:10.028800+00:00",
@@ -188084,6 +188542,11 @@
       "approved_at": "2026-09-07T20:11:30.015620+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-10-family-mission-c021-mission-cue-5e9aab9c0519be2b97c1": {
+      "take_id": "7aa3c0ad5f37b308957c3d5eacf9e0f8bd3500bb7dbb7c8023e82927ddfaedc0",
+      "approved_at": "2026-09-08T20:19:25.894711+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-10-family-mission-c021-mission-cue-63f60fa49645e06818bc": {
       "take_id": "4347bc0d041e827b0675742c061009f5917f7c4ed2686d9f2cc1846d169f7c2c",
       "approved_at": "2026-09-07T02:19:10.028800+00:00",
@@ -188143,6 +188606,11 @@
       "take_id": "4347bc0d041e827b0675742c061009f5917f7c4ed2686d9f2cc1846d169f7c2c",
       "approved_at": "2026-09-07T02:19:10.028800+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-10-family-mission-c022-mission-cue-81963b999d2f66104400": {
+      "take_id": "7aa3c0ad5f37b308957c3d5eacf9e0f8bd3500bb7dbb7c8023e82927ddfaedc0",
+      "approved_at": "2026-09-08T20:19:25.894711+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-10-family-mission-c022-mission-cue-832732eda1489dc6bc84": {
       "take_id": "e15e0d0d129a0d55733e359201037ac4421bef9504f98e9101bd721828788bf0",
@@ -188929,6 +189397,11 @@
       "approved_at": "2026-09-24T23:57:26.014437+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-2-10-around-me-mission-c010-mission-cue-bd7c75545c7939f36bcd": {
+      "take_id": "00a9521551043c62f797487fe3fad33c719f5493dddf2a80b414dccd2f631deb",
+      "approved_at": "2026-09-25T00:00:21.390619+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-2-10-around-me-mission-c010-prompt-turn-1-17acaba047beca7191fc": {
       "take_id": "00a9521551043c62f797487fe3fad33c719f5493dddf2a80b414dccd2f631deb",
       "approved_at": "2026-09-25T00:00:21.390619+00:00",
@@ -188938,6 +189411,11 @@
       "take_id": "061729e708eb986c648dc683e351ca276c37467fc490721645042928d9d83068",
       "approved_at": "2026-09-13T19:28:37.402682+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-10-around-me-mission-c011-mission-cue-a907ee9e617110f98f0e": {
+      "take_id": "be4226b076fc2799d6dfa9810c8b5311e3277ee3469e69217ee4b3e82b683c34",
+      "approved_at": "2026-09-24T23:57:26.014437+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-2-10-around-me-mission-c011-mission-cue-d66e139abb657dbf7422": {
       "take_id": "973614fc74b27a4d8e0229f6a4e4052904caf12d3f4db30cbc65a0d0ee17e6c0",
@@ -188954,10 +189432,20 @@
       "approved_at": "2026-09-13T19:28:37.402682+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-2-10-around-me-mission-c012-mission-cue-3f926b686a47f2c911a8": {
+      "take_id": "061729e708eb986c648dc683e351ca276c37467fc490721645042928d9d83068",
+      "approved_at": "2026-09-13T19:28:37.402682+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-2-10-around-me-mission-c012-prompt-turn-1-40e7605c1f9fd3c3c5ac": {
       "take_id": "061729e708eb986c648dc683e351ca276c37467fc490721645042928d9d83068",
       "approved_at": "2026-09-13T19:28:37.402682+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-10-around-me-mission-c013-mission-cue-8957f37c41a5e9237d0e": {
+      "take_id": "061729e708eb986c648dc683e351ca276c37467fc490721645042928d9d83068",
+      "approved_at": "2026-09-13T19:28:37.402682+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-2-10-around-me-mission-c013-prompt-turn-1-1fa35f167b4473fed16e": {
       "take_id": "061729e708eb986c648dc683e351ca276c37467fc490721645042928d9d83068",
@@ -194464,6 +194952,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-10-introduction-mission-c010-mission-cue-d8bbc6aa5c74e2d02a87": {
+      "take_id": "2445159127e87c1875be77fea15bf400717ef17bab8d4799e01dbf87080309d8",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-3-10-introduction-mission-c010-mission-cue-d97dcbea116653658485": {
       "take_id": "401a85fe0bb627697a94b8b8342072e11d6d30619febef5866ff22986dbe3a2d",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -194483,6 +194976,11 @@
       "take_id": "363c85b5f2d36b81828a394fa8b4be577a2ebd72c6b542f3b1f095dd5e50a073",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c011-mission-cue-6eaa5a1fefd106355682": {
+      "take_id": "3bb37b4f3a18cbc8625bd03fb8c503ad715ed4075ece9fb32f253ea08e76da4e",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-3-10-introduction-mission-c011-mission-cue-76c49310f5cf0870703e": {
       "take_id": "f88fcbe2c745b38cb2a5d4e3698617af79bb0b22de6cf2f20034e6a7d8d3f1e5",
@@ -194524,6 +195022,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-10-introduction-mission-c012-mission-cue-cd24b4d9ea182e4c6543": {
+      "take_id": "39bc3f5030a901520d8b3af1d171246c72a9c6e44b5fc05199c142f0e3f17f7f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-3-10-introduction-mission-c012-mission-cue-ce777e8b37110fe9743e": {
       "take_id": "7e8892886e6c7a822353960cba6920bab5ee885822c5d90ab5b122a78229d022",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -194548,6 +195051,11 @@
       "take_id": "99f1b8c3757f5107ca907b086a2638d7b401855e88a0fece6dfb39ea3aa77539",
       "approved_at": "2026-09-26T01:57:28.303064+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c013-mission-cue-149528a3d325bf2a6cb1": {
+      "take_id": "174f671e69df47f42514ce90110c31c139068ff368c069e18b04dae6e2a5ee38",
+      "approved_at": "2026-10-07T23:28:59.083764+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-3-10-introduction-mission-c013-mission-cue-98aba5ad46826331c2c4": {
       "take_id": "305ab47145d54371bedc8bc6ad8ce6d2eb18fa96d0a4dd397a15e7dfacd5adb8",
@@ -194588,6 +195096,11 @@
       "take_id": "f821bffd6c584f878e0a61ed9088481df7da93d3b4caf9ea7bf8f6c41c5b7fb4",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c014-mission-cue-2004ab6afae01b509bdd": {
+      "take_id": "2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-3-10-introduction-mission-c014-mission-cue-b31cdd70058c01aaed2b": {
       "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
@@ -208279,6 +208792,11 @@
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-4-10-my-day-mission-c009-mission-cue-7c1b7b968d8ba2a19924": {
+      "take_id": "90b57a6968d78ccf289198f15e4be5b03f3e6798c5b1e82f2a583e2e4e4f0bc0",
+      "approved_at": "2026-10-02T02:38:49.959328+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-4-10-my-day-mission-c009-mission-cue-8ff9985dff42e5206fd2": {
       "take_id": "e55fd0345dd400fa078e2ca7dcef946bd312c96c84c393322d0987467c39282a",
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
@@ -208339,6 +208857,11 @@
       "approved_at": "2026-09-12T00:08:32.385193+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-4-10-my-day-mission-c010-mission-cue-f3dce29a23b29433cfba": {
+      "take_id": "1fbc51aeaa05ef5341bf5a80b9fb453ac5c1bd69c73a0de2e46508f63009c949",
+      "approved_at": "2026-10-02T02:38:49.959328+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-4-10-my-day-mission-c010-prompt-turn-1-150b7a1a15ef2558692b": {
       "take_id": "e27eb45fd2b3ecaf94174c2b76b607fd07f9899c68ed9647c09fefceb71b54d1",
       "approved_at": "2026-09-12T00:08:32.385193+00:00",
@@ -208358,6 +208881,11 @@
       "take_id": "42d21f8602a77b0a0c072f431f5ca727e4d4e0252c8bfdebb419742edcf1f02f",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-4-10-my-day-mission-c011-mission-cue-6c5de04cb8559ad34b37": {
+      "take_id": "23e2b1591596ba7fcc08618e67a47cfe855b909edf217c3973b43b8c947c73bf",
+      "approved_at": "2026-10-02T02:38:49.959328+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-4-10-my-day-mission-c011-mission-cue-7b87a8f46623bd2a8475": {
       "take_id": "42d21f8602a77b0a0c072f431f5ca727e4d4e0252c8bfdebb419742edcf1f02f",
@@ -208404,6 +208932,11 @@
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-4-10-my-day-mission-c012-mission-cue-b6fdec027d94f37c62b4": {
+      "take_id": "a35646910a1128fa3b23d98466d2878860ae4b609375782856778022f0d3895f",
+      "approved_at": "2026-10-02T02:38:49.959328+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-4-10-my-day-mission-c012-mission-cue-c0c29a66f84133a40e4f": {
       "take_id": "848569f670f571de19314971d9d0e4099af7aca3f4a945f14ec5b751ba9a9f12",
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
@@ -208443,6 +208976,11 @@
       "take_id": "ae1d21ebae21beddb0229f270a88da0be9f04327656ee90182683602a8573fac",
       "approved_at": "2026-09-26T21:34:59.208304+00:00",
       "approval_note": "Exact approved audio reused after the user-requested photo correction; spoken text, purpose, variant, profile, voice and revision are unchanged."
+    },
+    "lesson-4-10-my-day-mission-c013-mission-cue-418a3cbc145f7949aed8": {
+      "take_id": "722b414da2c1a7d9a8ebc006d92995ea568235210fdffc7a8bd99d37c735ddb1",
+      "approved_at": "2026-09-26T21:34:59.208304+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-4-10-my-day-mission-c013-mission-cue-5320aef26d06719a2359": {
       "take_id": "ae1d21ebae21beddb0229f270a88da0be9f04327656ee90182683602a8573fac",
@@ -208484,6 +209022,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-4-10-my-day-mission-c014-mission-cue-1cc464d722e11bd421cb": {
+      "take_id": "e27eb45fd2b3ecaf94174c2b76b607fd07f9899c68ed9647c09fefceb71b54d1",
+      "approved_at": "2026-09-12T00:08:32.385193+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-4-10-my-day-mission-c014-mission-cue-2bb559b2c0f8ccf58134": {
       "take_id": "e23e218b0b99f78c2debd10820cb05e7661d3ed9b206ae76eeb763e2dcaa8557",
       "approved_at": "2026-09-12T00:08:32.385193+00:00",
@@ -208514,6 +209057,11 @@
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-4-10-my-day-mission-c015-mission-cue-840e08078b52c2f956d4": {
+      "take_id": "15d0a49028f8acc875bc66163aa509ab2d99801569680b4a2107155e36e70e3a",
+      "approved_at": "2026-10-02T02:38:49.959328+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-4-10-my-day-mission-c015-mission-cue-b0a91b5ebc08eb1c269d": {
       "take_id": "8fec6dc01e80729b3781f26d9ea48f554a1e465c708aaa12414df7f6268f67dd",
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
@@ -208539,6 +209087,11 @@
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-4-10-my-day-mission-c016-mission-cue-cfaf62331f8a15404a15": {
+      "take_id": "3234d2d0ac030ed118f29f9137c23f4c20e9d9281d8c0ea2731db9daa9304d7d",
+      "approved_at": "2026-10-02T02:38:49.959328+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-4-10-my-day-mission-c016-mission-cue-d67988ace815793b5279": {
       "take_id": "95ad4a20442c8c64299096236f5ca9cb8155b2efcab56b511e9bbcd35e40d5cb",
       "approved_at": "2026-10-02T02:38:49.959328+00:00",
@@ -208558,6 +209111,11 @@
       "take_id": "1c1d04323b50402a9b336cb3f67ddafbe33b7eae96d7a4e3746a3e161e8fc505",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-4-10-my-day-mission-c017-mission-cue-55ae93de1c8d776afb9e": {
+      "take_id": "b3e23697320a108b3336a6206894b8bded6d35d20ae731413107ea435d1407ef",
+      "approved_at": "2026-10-02T02:38:49.959328+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-4-10-my-day-mission-c017-mission-cue-6ae8af19737a8a179ebc": {
       "take_id": "e95ee27f277ee323189e6771be662f9aa9a84b005b1fe9d680de07654a7f1118",
@@ -225364,6 +225922,11 @@
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-10-cafe-mission-c001-mission-intro-fed36782c7d555a1c975": {
+      "take_id": "d9f5b5cb839aa10484354f329a644f6ad11176b7ffbbbd36076f932f78bbd1c2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c001-prompt-bdb4c5cff1cb21aa5d55": {
       "take_id": "50356e61c91bcad7e7070a13808d77c8b3770128bfb1722ed83667354d95d6ee",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -225529,6 +226092,11 @@
       "approved_at": "2026-09-12T00:14:02.540049+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c003-mission-cue-b90c24ae8082c9fd2085": {
+      "take_id": "250278809ff46d0d7426efdc18abbb2b797e8d61b1ca8508ea857ab701dce253",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c003-mission-cue-fb573db6dc5e2d0f205d": {
       "take_id": "68a5a6af54fc434a8ca096ba3b2c55241030bb759f68ea3341b9173dcc0e54e2",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
@@ -225558,6 +226126,11 @@
       "take_id": "2a28259a10587f3d76ee77944bd53d5a4e868be47b4deb897bf4d129681cb494",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c003-prompt-turn-1-ac942732cd547a89752f": {
+      "take_id": "250278809ff46d0d7426efdc18abbb2b797e8d61b1ca8508ea857ab701dce253",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c003-prompt-turn-2-d27155980bfc22960bf3": {
       "take_id": "21c603ab976021bfc3fa5f9bd5393a0d3d445df54a055e012c733c2ce2d29b17",
@@ -225684,6 +226257,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c006-mission-cue-4b8c4e5a89ee850fea92": {
+      "take_id": "8f83d5a5e0c53535190ab0fe4b8ab54c4afd439de8ab2106772f0e7604ae482c",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c006-mission-cue-dff9972f7a001e0a48b6": {
       "take_id": "ab53d3a1e4b52ca75f4b96730d944813d63aa67fd8e873de5eb170c0b772cff0",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
@@ -225718,6 +226296,11 @@
       "take_id": "0e5ef824a3b240b8b482f01baaaa5f25ff56050c4bed83d9510e426b2042e971",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c007-mission-cue-45b45b49dc7664f65ffd": {
+      "take_id": "5f3aecad7b2af7e46effbb1533dc39bc374eeac1c79142d35e3d2c0e2fa3dbb7",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c007-mission-cue-48890d0d0968a5ca2d94": {
       "take_id": "82cb4dbe5649c65ba2697f69b5c1da3c551dd0371c9c02d7404a04bca571a8bb",
@@ -225809,6 +226392,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c009-mission-cue-af63919b2763e8cdb4e2": {
+      "take_id": "71393f95f5309338781306560821e3bf7ae06a0a511cea3b02da4725951f3577",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c009-prompt-turn-1-1b599049b6852d169226": {
       "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
@@ -225894,6 +226482,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-10-cafe-mission-c011-mission-cue-c17e785c6fcb86647a0a": {
+      "take_id": "1a81e19dce8cef1f8a7bcd7ea9589eff26871b3d5daf26470e88f960ad5fca50",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c011-mission-cue-cd58ff210a90535b5205": {
       "take_id": "31cc05d5ec1516586194f17ff6f6d24f55d18d9c14f8ce00c5c4affbc946aa47",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -225944,6 +226537,21 @@
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-10-cafe-mission-c012-prompt-turn-1-534bb6da436935066120": {
+      "take_id": "3981b825256f66123f06a6f0967d1517018efa0a83db08da5e0e2ca8825e53b4",
+      "approved_at": "2026-10-08T23:23:07.377079+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-5-10-cafe-mission-c012-prompt-turn-1-68ee66cf662ad29fb348": {
+      "take_id": "3b3788eb4f130c1cef629cbd818a8e112a2f72c5a1b5e485546104d20ed2a2b2",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-10-cafe-mission-c012-prompt-turn-2-63b6f93502ffe5a680cc": {
+      "take_id": "4f2b22f648ff0a7683f610369ae4cf88f9722480881fc7b1271c9f68ffe149f9",
+      "approved_at": "2026-09-19T00:50:52.366394+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c012-prompt-turn-2-d10b0dd8ceba125fc500": {
       "take_id": "e547f1ea847c4f90fb5ca1c42fed8efda139430451d69dd4378bb15c435a22e1",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
@@ -225953,6 +226561,16 @@
       "take_id": "d8e3ce712bc5e3f46164ad5d716cac89f7ae0d1cd4fac558331d4739a7a2a4c4",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-10-cafe-mission-c012-prompt-turn-3-96d5cd5554c92c252d50": {
+      "take_id": "004bcf7a7adad635def42d65612db8d89776137b76a464ecc7eecbbfef2a7f1a",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-10-cafe-mission-c012-prompt-turn-4-65241b6995064ede4603": {
+      "take_id": "9e70141e52cf3dc4aa546c6dd26dbdb90e7f8afcc2cd23e2e05855e1af6578ab",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c012-prompt-turn-4-c289bd73ecb519cb438f": {
       "take_id": "9e70141e52cf3dc4aa546c6dd26dbdb90e7f8afcc2cd23e2e05855e1af6578ab",
@@ -225989,6 +226607,16 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-10-cafe-mission-c013-prompt-turn-1-9575fbab11fa795634e5": {
+      "take_id": "dca2bbe60d257a8b8db5b71fb9dcdf23ec3c956bcd3b7ff8d0eadf1b6262b51f",
+      "approved_at": "2026-10-08T23:23:07.469133+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-5-10-cafe-mission-c013-prompt-turn-2-0a0ec13b4eb2d02e0ea6": {
+      "take_id": "e547f1ea847c4f90fb5ca1c42fed8efda139430451d69dd4378bb15c435a22e1",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c013-prompt-turn-2-26eab3ed27b9b5a5a3ab": {
       "take_id": "734bf0871c9b91500c3ff7fc9550339c7cdc01a9355d38498de6c8017f739288",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
@@ -225999,10 +226627,20 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c013-prompt-turn-3-c1cb14c84da09ff22ef6": {
+      "take_id": "75ef3410085ae7e0310194093f26c9232da1a32dd8c1847962bae0e0d9ae26a9",
+      "approved_at": "2026-10-08T23:23:07.544693+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-5-10-cafe-mission-c013-prompt-turn-4-6aaee91624f2ca6b43c3": {
       "take_id": "872a6efbe780f87196fa03be493b30070608e653576009b21012da741e9c4758",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c013-prompt-turn-4-a0a8be62c1ffc383c5f3": {
+      "take_id": "9d7477e4eca0146c344f9977a52b68812fcc3689d728c27bb68eaf259c52a996",
+      "approved_at": "2026-10-08T23:23:07.621957+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
     },
     "lesson-5-10-cafe-mission-c014-answer-bad16a02b0eadcccb6c3": {
       "take_id": "82cb4dbe5649c65ba2697f69b5c1da3c551dd0371c9c02d7404a04bca571a8bb",
@@ -226024,6 +226662,26 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c014-prompt-turn-1-e47bc01eac2428ff27c5": {
+      "take_id": "14456ade7ac8119936b490bf4eba4ef19ffb1ff7d4b79d637eb4fa26d0d76567",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-10-cafe-mission-c014-prompt-turn-2-58abcfa9198e6763ba46": {
+      "take_id": "b59615a61fd6cdb0892875d4456f99366017e74d6ea3fb54f14a8933ae7078a6",
+      "approved_at": "2026-10-08T23:23:07.713486+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
+    "lesson-5-10-cafe-mission-c014-prompt-turn-3-99046696308ff44b9a26": {
+      "take_id": "d8e3ce712bc5e3f46164ad5d716cac89f7ae0d1cd4fac558331d4739a7a2a4c4",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-10-cafe-mission-c014-prompt-turn-4-0478ea73f1cea99633e4": {
+      "take_id": "bb9fbba3857b046ee47d0ead56a1f3bb77fd29c5892eccda500fcdfa385bf8fa",
+      "approved_at": "2026-10-08T23:23:07.790986+00:00",
+      "approval_note": "Installed after explicit listening review of these exact bytes."
+    },
     "lesson-5-10-cafe-mission-c015-answer-b47b34cc344cedf209f2": {
       "take_id": "3ba9f4607744f0d22deda1037e226654c26f69cf509ff2aa13a0269aeb172046",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -226039,6 +226697,16 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-10-cafe-mission-c015-prompt-turn-1-ec3a49b8639e92d2446b": {
+      "take_id": "6833caa53c9eac708f6337b0853d852a6829631981cf3739bd7bae1d2bc3c443",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-10-cafe-mission-c015-prompt-turn-2-4b308f5a353e24eb7d10": {
+      "take_id": "734bf0871c9b91500c3ff7fc9550339c7cdc01a9355d38498de6c8017f739288",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c015-prompt-turn-2-863df089af65a9919391": {
       "take_id": "74728edb713f44b44050f4688efcbfdfa9d04119a59e4385299f69496750bd05",
       "approved_at": "2026-09-19T00:50:52.366394+00:00",
@@ -226048,6 +226716,16 @@
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-10-cafe-mission-c015-prompt-turn-3-6d26b014a0a46a44dfb8": {
+      "take_id": "fab623213c4dfc37ad5ac880b65658cb1d6a4964793219493c67d2c711567d88",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-10-cafe-mission-c015-prompt-turn-4-96a51e093a3b021f87ac": {
+      "take_id": "872a6efbe780f87196fa03be493b30070608e653576009b21012da741e9c4758",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c015-prompt-turn-4-fb665a655f1d7bc6aad8": {
       "take_id": "763c58ce4cfed7747e7fdbec18fb6986d782a7f5645e92feb8c92ea0a0b6f47a",
@@ -226059,15 +226737,35 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c016-mission-cue-50d21d08c6bce709d5e2": {
+      "take_id": "68a5a6af54fc434a8ca096ba3b2c55241030bb759f68ea3341b9173dcc0e54e2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c016-mission-cue-d6a70f235e1f9d3e8ddc": {
       "take_id": "68a5a6af54fc434a8ca096ba3b2c55241030bb759f68ea3341b9173dcc0e54e2",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c016-mission-cue-fccc28855fd808db7de8": {
+      "take_id": "8bf5ad2e9a9bab80220eac7de9f2decab417ef07bcef182cbaa0f8fb9c93cad8",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c016-prompt-eb9d2a34c64a3d0e7e69": {
       "take_id": "734a40912fbf63aabbc066c0eb6675fa023917ad3fb542d78314cb16747b3378",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c016-prompt-turn-1-4e16eccbac1063d4b9ef": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-10-cafe-mission-c016-prompt-turn-1-b44e5399f58668d885e7": {
+      "take_id": "8bf5ad2e9a9bab80220eac7de9f2decab417ef07bcef182cbaa0f8fb9c93cad8",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c016-prompt-turn-1-cc025425be05d43cb1f8": {
       "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
@@ -226084,25 +226782,50 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c017-mission-cue-5a60c921d3ab36f1d4e1": {
+      "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c017-prompt-2f6ffef72d576abd4007": {
       "take_id": "755a041e9f52f40b8ebf8af8b3a3035961047c2aaa886ce8d3f741059d148428",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c017-prompt-turn-1-703f81b87c5df3c9e134": {
+      "take_id": "9ced85317e4c4aa7de964f53902dc5e17b292214f9f34ddb991cb9d37b4c57b0",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c017-prompt-turn-1-7c702a05340e725f0638": {
       "take_id": "9ced85317e4c4aa7de964f53902dc5e17b292214f9f34ddb991cb9d37b4c57b0",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c017-prompt-turn-1-f505bebae396f1611f32": {
+      "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c018-answer-0cee0af0637f50c0fa6e": {
       "take_id": "70eafcd7099b27674e07450366040a79941d96a8635c0bb91712424d1b25db14",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c018-mission-cue-56a91e05533a9c594b98": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c018-mission-cue-b6a5d63afa10a4da34da": {
       "take_id": "d40d133dae00f7936159dad7e399cdbeb3fa34895954ae97fc1ca8a2a77902dc",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c018-mission-cue-ed0b0676e8b47006d457": {
+      "take_id": "d40d133dae00f7936159dad7e399cdbeb3fa34895954ae97fc1ca8a2a77902dc",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c018-prompt-e218afb1812dfb9af262": {
       "take_id": "70eafcd7099b27674e07450366040a79941d96a8635c0bb91712424d1b25db14",
@@ -226114,25 +226837,50 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c018-prompt-turn-1-aa96af5892275afcd4a2": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c019-answer-0a53f3046e7e074c9d73": {
       "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c019-mission-cue-99c1656fe6fcd484af29": {
+      "take_id": "9ced85317e4c4aa7de964f53902dc5e17b292214f9f34ddb991cb9d37b4c57b0",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c019-prompt-93fed24f9da85b8f4532": {
       "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c019-prompt-turn-1-1191211fc996eeb42dd6": {
+      "take_id": "9ced85317e4c4aa7de964f53902dc5e17b292214f9f34ddb991cb9d37b4c57b0",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c020-answer-72539c99b8e6c59dc873": {
       "take_id": "b2b52c41c39f97d6eda461eedf4792d6bef53d94dce06258e4ded7123aa28aeb",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-10-cafe-mission-c020-mission-cue-4afbaa65bb82ea9513fb": {
+      "take_id": "324ef6476c08446b6ef072843e172061a5e3919fe3b60f0e5936c9e7e96a0f37",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-10-cafe-mission-c020-prompt-103212379695f9b81a0e": {
       "take_id": "b2b52c41c39f97d6eda461eedf4792d6bef53d94dce06258e4ded7123aa28aeb",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-10-cafe-mission-c020-prompt-turn-1-4a03edc05bae1cd24b37": {
+      "take_id": "324ef6476c08446b6ef072843e172061a5e3919fe3b60f0e5936c9e7e96a0f37",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-10-cafe-mission-c021-answer-9daaf12158e993ead8ab": {
       "take_id": "0e5ef824a3b240b8b482f01baaaa5f25ff56050c4bed83d9510e426b2042e971",
@@ -227459,14 +228207,14 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-3-food-quantities-c002-answer-628c3c0dd538b4c56f62": {
+      "take_id": "c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3",
+      "approved_at": "2026-10-08T21:44:33.964445+00:00",
+      "approval_note": "Exact unprocessed Eleven v4 audition approved by the user in chat."
+    },
     "lesson-5-3-food-quantities-c002-answer-69d3077e866ce1a47465": {
       "take_id": "c48cbd688581448c6126249112ae6b2a7eb17d5e1c5d6eb96cc19e81641f418e",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
-      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
-    },
-    "lesson-5-3-food-quantities-c002-answer-b37b8cf0172a2d625927": {
-      "take_id": "2bd48c8baf3e3b7d28a57e4bac97a8d14aff470c60ec57ea2e96fb76f01803f6",
-      "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-5-3-food-quantities-c002-prompt-03bcde39d0245a16975b": {
@@ -227474,15 +228222,15 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
-    "lesson-5-3-food-quantities-c002-prompt-56f8f427a76f8879424e": {
-      "take_id": "2bd48c8baf3e3b7d28a57e4bac97a8d14aff470c60ec57ea2e96fb76f01803f6",
-      "approved_at": "2026-09-27T04:03:27.656811+00:00",
-      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
-    },
     "lesson-5-3-food-quantities-c002-prompt-76122e1c472006d4d399": {
       "take_id": "c48cbd688581448c6126249112ae6b2a7eb17d5e1c5d6eb96cc19e81641f418e",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-3-food-quantities-c002-prompt-ea5039f1f11cd5fa6d73": {
+      "take_id": "c72c28830d479b4cd42478e9d9d6dc70fb70954a82913d98b3d1b5fe64b503d3",
+      "approved_at": "2026-10-08T21:44:33.964445+00:00",
+      "approval_note": "Exact unprocessed Eleven v4 audition approved by the user in chat."
     },
     "lesson-5-3-food-quantities-c003-answer-0df6e8f2499e2e40656d": {
       "take_id": "bbb662ac78a9a787be2c31b4d587145f50e0006e0c13944fdc4a957749fba12d",
@@ -234039,6 +234787,11 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c002-answer-c56fb6994b2f1aad8120": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c002-prompt-1a15b657bb582a4f9c3a": {
       "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -234053,6 +234806,11 @@
       "take_id": "923ebc893af5dc577ee74d9768aa5575df73ea9c9f1f1eb4211d0b7f2ded12b0",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c002-prompt-e1e20cff3001d46cfb1b": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c003-answer-3a6df0bfda034a9385e5": {
       "take_id": "31cc05d5ec1516586194f17ff6f6d24f55d18d9c14f8ce00c5c4affbc946aa47",
@@ -234114,6 +234872,11 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c005-answer-320a85368c27b9a04b06": {
+      "take_id": "250278809ff46d0d7426efdc18abbb2b797e8d61b1ca8508ea857ab701dce253",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c005-answer-46e73e88264ee4c34d06": {
       "take_id": "25ae5313edb033206f1d91581b2b090e45dff823044040b29ca9e9685fecd615",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -234144,6 +234907,11 @@
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c005-prompt-4fea7d37f76fca61c4ed": {
+      "take_id": "250278809ff46d0d7426efdc18abbb2b797e8d61b1ca8508ea857ab701dce253",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c005-prompt-bdeb074ff2107e83c002": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -234158,6 +234926,11 @@
       "take_id": "755a041e9f52f40b8ebf8af8b3a3035961047c2aaa886ce8d3f741059d148428",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c006-answer-3ee820e3ecee5375860c": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c006-answer-9e1c8465274fbb7c4638": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
@@ -234184,6 +234957,11 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c006-prompt-f0aef424c6eea09bda9d": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c007-answer-3096318b9d34895609e3": {
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -234199,6 +234977,11 @@
       "approved_at": "2026-09-19T00:50:52.366394+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c007-answer-552e66ff79b76279d750": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c007-answer-74d9d26162b9fd40cc99": {
       "take_id": "3d469d8b389e3f72d680e2042ae23cea6d37ac0025ee2a50f110ec06a8ea325f",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
@@ -234208,6 +234991,11 @@
       "take_id": "bfd319654ee9cb5857154bfcf19f2d8bd11e359821e307fa468da45d51a68503",
       "approved_at": "2026-09-19T00:50:52.366394+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c007-prompt-56feaf3777cdceb769ff": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c007-prompt-c31988c7a46491dc4fab": {
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
@@ -234224,10 +235012,20 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c008-answer-7caa56d5916664cf51f1": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c008-answer-eb2870eb07758ca9507f": {
       "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c008-prompt-314e597f8f9eae9c13b8": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c008-prompt-517e330d45fe4fcbb5a4": {
       "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
@@ -234259,6 +235057,11 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c009-answer-d3a10e6f1647a5403e39": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c009-answer-ec13d44292a15bccc8f9": {
       "take_id": "952071cce7efc232a8d1ffa2f25250000b97cdcdd10cc1db4a750ccc731f99da",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -234273,6 +235076,11 @@
       "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c009-prompt-69ae06619ba3859b629e": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c009-prompt-99c9b8efdad6c1723580": {
       "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
@@ -234309,15 +235117,30 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c010-answer-b701ddda004f6bc9e431": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c010-prompt-321eb931a3cac5963ae6": {
       "take_id": "8a794ad5af0d9a55a0cf4bfa0a56f241e9626e2dc1b043b43c370e309b6d18ea",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c010-prompt-4c46f41227b46195c21d": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c011-answer-0b465546cc20030d1737": {
       "take_id": "755a041e9f52f40b8ebf8af8b3a3035961047c2aaa886ce8d3f741059d148428",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c011-answer-0f90413bfd568d1403b5": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c011-answer-9b7cb008ea0ba79d30fa": {
       "take_id": "1bfe0834d84d07f836ee093e36100582c108e7ded63496192a23c8313ba5b40f",
@@ -234334,6 +235157,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c011-prompt-296dba78ad0d395d6412": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c011-prompt-3b88df1f9c7e662f97c7": {
       "take_id": "1bfe0834d84d07f836ee093e36100582c108e7ded63496192a23c8313ba5b40f",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
@@ -234343,6 +235171,11 @@
       "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c012-answer-6e5a64907383c8f2a81a": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c012-answer-e880d7501e4217e221a1": {
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
@@ -234363,6 +235196,11 @@
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c012-prompt-64ff050783db61cb83f5": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c012-prompt-bfcf1a8d61d3060a367f": {
       "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
@@ -234389,6 +235227,11 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c013-answer-turn-1-b5c73394522aec9057a9": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c013-answer-turn-2-043ae1a4ddc9566591d5": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -234398,6 +235241,11 @@
       "take_id": "87e07e0004b274ee9ae658598e7205ee9553584e53f30c46a206645138eb8766",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c013-prompt-3f2605a166ec2515a6c7": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c013-prompt-b901d4faa8b8d7394932": {
       "take_id": "87e07e0004b274ee9ae658598e7205ee9553584e53f30c46a206645138eb8766",
@@ -234419,6 +235267,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c014-answer-turn-1-742f8e02e8247699b09b": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c014-answer-turn-1-bbbddd39a5444e1ddfec": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -234428,6 +235281,11 @@
       "take_id": "0440ba2efb2396b55f57483acb19cc3ef035f6cb191392cff8b7dc92f5d017b1",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c014-prompt-84ff69d2a4d4a9d53e5d": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c015-answer-a6ba16908a288b04eb87": {
       "take_id": "755a041e9f52f40b8ebf8af8b3a3035961047c2aaa886ce8d3f741059d148428",
@@ -234439,6 +235297,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c015-answer-turn-1-5462b06cc40601add693": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c015-answer-turn-1-a2f77424054aebe508ed": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -234448,6 +235311,11 @@
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c015-prompt-877367c540832aff89f0": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c016-answer-21f8d5e37c1756733f33": {
       "take_id": "7fc91f60485dfc3ae4685114a1297f6b1e25b72230e82ccff60b627de4333f25",
@@ -234469,6 +235337,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c016-answer-turn-1-123750e37bf318f647a4": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c016-prompt-81c844fbdce86888271d": {
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
@@ -234478,6 +235351,11 @@
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c016-prompt-b608bc85fe9ba843ee9a": {
+      "take_id": "250278809ff46d0d7426efdc18abbb2b797e8d61b1ca8508ea857ab701dce253",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c017-answer-4f05a144324f70513658": {
       "take_id": "31cc05d5ec1516586194f17ff6f6d24f55d18d9c14f8ce00c5c4affbc946aa47",
@@ -234494,10 +235372,20 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c017-answer-turn-1-a2cf588c019e1b5e248a": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c017-prompt-6c98bb265f715701e8a2": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c017-prompt-93b4ba93b2a30f84cf8d": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c017-prompt-e741f18322af377612d6": {
       "take_id": "31cc05d5ec1516586194f17ff6f6d24f55d18d9c14f8ce00c5c4affbc946aa47",
@@ -234519,6 +235407,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c018-answer-turn-1-dd547e6142f0eb19ca0c": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c018-prompt-2dc0d44ea4a40d9315d4": {
       "take_id": "3d469d8b389e3f72d680e2042ae23cea6d37ac0025ee2a50f110ec06a8ea325f",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
@@ -234533,6 +235426,11 @@
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c018-prompt-8f1b199b3e29e6142fb8": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c019-answer-00a4b82dddfca56f4c5c": {
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
@@ -234554,10 +235452,20 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c019-answer-turn-1-ca2810491713a5bd8cf6": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c019-prompt-39ae240cb437d480acaf": {
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c019-prompt-6aba8cb965b4b0d42b37": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c019-prompt-9beb76fe17eddc2d0eca": {
       "take_id": "0440ba2efb2396b55f57483acb19cc3ef035f6cb191392cff8b7dc92f5d017b1",
@@ -234589,6 +235497,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c020-answer-turn-1-87e7757613f856cc3fc8": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c020-prompt-24b11cf30d00545a649b": {
       "take_id": "a24433fa036bca5ce5a794bf9a1ec596fe86567f0a7f0e96d6cd03292ee9a0cd",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
@@ -234598,6 +235511,11 @@
       "take_id": "25ae5313edb033206f1d91581b2b090e45dff823044040b29ca9e9685fecd615",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c020-prompt-824b2a8e6af0230db327": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c020-prompt-ede36d105c2c8ad22c8c": {
       "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
@@ -234623,6 +235541,16 @@
       "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c021-answer-turn-1-4540d559557e1c0dddb9": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c021-prompt-4fb9b4a4ecb3980aeea4": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c021-prompt-8c56d31feaca2e1ae3eb": {
       "take_id": "d8986118c775df1a00dca72f2d388cd9fddc61a877beaa3b730e1698d6555018",
@@ -234654,6 +235582,11 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c022-answer-a2370ff42d311dec75c8": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c022-answer-d76be0f55d3549d7befa": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -234674,10 +235607,25 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c022-prompt-turn-1-ed826ef97975d73fb6be": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c022-prompt-turn-2-01f3dc0c5bb31e116a0e": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c023-answer-3e9d394f2f13f094c3bf": {
       "take_id": "0440ba2efb2396b55f57483acb19cc3ef035f6cb191392cff8b7dc92f5d017b1",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c023-answer-6a18730a0f26c3b8670f": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c023-answer-7f3b5e1d0acaa3bbca62": {
       "take_id": "53ee19095004f44f3c1afabd0dcb4d35c3d9aa45185b0b65bdf666005c9d6b93",
@@ -234704,15 +235652,35 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c023-prompt-turn-1-e6606c711016e1c68efb": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c023-prompt-turn-2-9142823b0eeb071468e2": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c024-answer-175f79ff6eb3f3cf60a2": {
       "take_id": "0440ba2efb2396b55f57483acb19cc3ef035f6cb191392cff8b7dc92f5d017b1",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c024-answer-1e030929752d6e5d1fde": {
+      "take_id": "25ae5313edb033206f1d91581b2b090e45dff823044040b29ca9e9685fecd615",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c024-answer-3654b44e32ba60b02209": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c024-answer-6051a726e8457f77c477": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c024-answer-b122bcf915acf0837a96": {
       "take_id": "952071cce7efc232a8d1ffa2f25250000b97cdcdd10cc1db4a750ccc731f99da",
@@ -234739,10 +235707,20 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c024-prompt-turn-1-de16a96e97d30ed56a6a": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c024-prompt-turn-2-4dcc684a9afc7d838aec": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c024-prompt-turn-2-7650dbc264e7812c65fc": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c025-answer-865879b7c7830f57a17e": {
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
@@ -234759,6 +235737,16 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c025-answer-c9c9535291550bc16c32": {
+      "take_id": "952071cce7efc232a8d1ffa2f25250000b97cdcdd10cc1db4a750ccc731f99da",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c025-answer-f6ca41faa4081f48859b": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c025-prompt-9e4f8aa663633a31b605": {
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
@@ -234773,6 +235761,21 @@
       "take_id": "501f159a358b04823141189948e502227204d29847e3a5f393a2e9ebefe5a12f",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c025-prompt-turn-1-d8c33e5ae4d8d9d4b8b1": {
+      "take_id": "250278809ff46d0d7426efdc18abbb2b797e8d61b1ca8508ea857ab701dce253",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c025-prompt-turn-2-7486770e0239ecee11bb": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c026-answer-4ca4005036e9572645fe": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c026-answer-60a9fe12a3622e216003": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
@@ -234794,6 +235797,11 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c026-answer-f78e2922d1d01ca50c24": {
+      "take_id": "8a794ad5af0d9a55a0cf4bfa0a56f241e9626e2dc1b043b43c370e309b6d18ea",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c026-prompt-51b33829e5c32f153a86": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -234814,6 +235822,16 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c026-prompt-turn-1-6cd5568b2330f925f370": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c026-prompt-turn-2-2508c0eb0f362d8518df": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c027-answer-1b53b2848ab24c972818": {
       "take_id": "755a041e9f52f40b8ebf8af8b3a3035961047c2aaa886ce8d3f741059d148428",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -234823,6 +235841,16 @@
       "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c027-answer-2b3e10c643e1aeff3381": {
+      "take_id": "25ae5313edb033206f1d91581b2b090e45dff823044040b29ca9e9685fecd615",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c027-answer-2f9788e342bd2e31771f": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c027-answer-d8e1484f7274a3ce3892": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
@@ -234844,6 +235872,16 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c027-prompt-turn-1-c6aa7e120015254f9db3": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c027-prompt-turn-2-b3ddaca276ecc005ffa6": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c028-answer-3511ab10b3889f037bfc": {
       "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
@@ -234858,6 +235896,11 @@
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c028-answer-e5ad52ca0030dd23d0cc": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c028-answer-fcacc4533773d07a7fae": {
       "take_id": "bfd319654ee9cb5857154bfcf19f2d8bd11e359821e307fa468da45d51a68503",
@@ -234883,6 +235926,21 @@
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c028-prompt-turn-1-c3041e563932848fce10": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c028-prompt-turn-2-357c2b9692301e4d056f": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c029-answer-22a30265430df0f867e9": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c029-answer-2c2c876bba43fea7867f": {
       "take_id": "8a794ad5af0d9a55a0cf4bfa0a56f241e9626e2dc1b043b43c370e309b6d18ea",
@@ -234919,6 +235977,16 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c029-prompt-turn-1-a25a9adbe4678cfd7131": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c029-prompt-turn-2-2c0f7a24bf7e29d78f87": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c030-answer-6ab20f530af1ab4ea1f4": {
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -234928,6 +235996,11 @@
       "take_id": "952071cce7efc232a8d1ffa2f25250000b97cdcdd10cc1db4a750ccc731f99da",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c030-answer-802415f9a9a10543adc2": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c030-answer-945aef9da4150199b7bf": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
@@ -234948,6 +236021,11 @@
       "take_id": "d05643620016b42b17b35a01cb3b4e5c6086dd1f26a9ccb1641227ba40b59c56",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c030-answer-e870165b3c553dbe0a73": {
+      "take_id": "25ae5313edb033206f1d91581b2b090e45dff823044040b29ca9e9685fecd615",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c030-prompt-33f9e7e6f74b84171667": {
       "take_id": "a24433fa036bca5ce5a794bf9a1ec596fe86567f0a7f0e96d6cd03292ee9a0cd",
@@ -234979,6 +236057,16 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c030-prompt-turn-1-9b7753afb4f9cf2e5959": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c030-prompt-turn-2-1b9f9735933e3a10cf6b": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c031-answer-74fbde60d4a0da64999c": {
       "take_id": "de474a6849cafdca009b116fc5e136e162d949990c25d545b1856cc3f1bb6bfc",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -235004,10 +236092,20 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c031-answer-d2e322aae66cadb8ee94": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c031-prompt-1faabc331215553a83d9": {
       "take_id": "de474a6849cafdca009b116fc5e136e162d949990c25d545b1856cc3f1bb6bfc",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c031-prompt-43e95cbd62b69915e5eb": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c031-prompt-75245e16ffa56c6b6668": {
       "take_id": "952071cce7efc232a8d1ffa2f25250000b97cdcdd10cc1db4a750ccc731f99da",
@@ -235028,6 +236126,11 @@
       "take_id": "1687b28fada30fc4fb2fd5a5217eb979b01b8ccc380636576360a96b6cbfcf70",
       "approved_at": "2026-09-19T00:50:52.366394+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c032-answer-4bf6750cbeadcf6b73e8": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c032-answer-5d12bbc226da3701d045": {
       "take_id": "ab8b72ac900583258ae09d6d41bef1285beb277a15197511731050e212853b12",
@@ -235064,6 +236167,11 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c032-prompt-569255198946b8b75007": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c032-prompt-847efd461649705e2ed2": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -235078,6 +236186,11 @@
       "take_id": "ab8b72ac900583258ae09d6d41bef1285beb277a15197511731050e212853b12",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c033-answer-20159154711eb55604a3": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c033-answer-2d9558164f9a979f221c": {
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
@@ -235098,6 +236211,11 @@
       "take_id": "952071cce7efc232a8d1ffa2f25250000b97cdcdd10cc1db4a750ccc731f99da",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c033-prompt-d8f7e59c4221fb62e41a": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c033-prompt-f118961ad0f7e6ab9852": {
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
@@ -235129,6 +236247,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c034-answer-ad03e289008ed0c36387": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c034-answer-d4a0acc58030f3c851b7": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -235143,6 +236266,11 @@
       "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c034-prompt-46932ae376e65102ad23": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c034-prompt-bf29ad32c803586f4adb": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
@@ -235179,10 +236307,20 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c035-answer-f1eb28cfdf86974c019c": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c035-prompt-01f7f1dd3f697d6c00fd": {
       "take_id": "31cc05d5ec1516586194f17ff6f6d24f55d18d9c14f8ce00c5c4affbc946aa47",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c035-prompt-290f6f1e2f681e37a9e6": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c035-prompt-32450500a1b84a93ca40": {
       "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
@@ -235214,6 +236352,11 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c036-answer-3440f3b1ac1bce17d801": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c036-answer-3fcc2a3e58d604874ae6": {
       "take_id": "25ae5313edb033206f1d91581b2b090e45dff823044040b29ca9e9685fecd615",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -235223,6 +236366,11 @@
       "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c036-prompt-1983cc6c46d8fd8ee250": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c036-prompt-8902a63614950d7a7cb1": {
       "take_id": "25ae5313edb033206f1d91581b2b090e45dff823044040b29ca9e9685fecd615",
@@ -235254,6 +236402,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c037-answer-82484fafc6b605d0e258": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c037-answer-93eb7c1fa3f2bab9fdd2": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -235269,10 +236422,20 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c037-prompt-b85175ca3063f3ce5f81": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c038-answer-81e86aa2e950bc253c8d": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c038-answer-a2352ac2a661dbc2cadc": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c038-answer-ca2e9bbf5691390e2bd1": {
       "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
@@ -235289,6 +236452,11 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c038-prompt-658fac99901fdfcb57c3": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c039-answer-8956b5728d358bbd4195": {
       "take_id": "0440ba2efb2396b55f57483acb19cc3ef035f6cb191392cff8b7dc92f5d017b1",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -235299,6 +236467,16 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c039-answer-cbd20af76d63b9c31584": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c039-prompt-1abdbd93baaad0db5000": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c039-prompt-22019a48df6a51c5da53": {
       "take_id": "0440ba2efb2396b55f57483acb19cc3ef035f6cb191392cff8b7dc92f5d017b1",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -235308,6 +236486,11 @@
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-8-ordering-politely-c040-answer-aa8b5332c47ee9db66eb": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-8-ordering-politely-c040-answer-b69328ce780faeaeda8f": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
@@ -235329,6 +236512,16 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-8-ordering-politely-c040-prompt-fd8f1e7838bc7559e26f": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c041-answer-5a24a2b2891d1caec72e": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c041-answer-5dedc2b7467314ff3f48": {
       "take_id": "76906a812e4104e28056c203fb6823eb40613079c0fb2a1213d3da2715a516ff",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -235349,6 +236542,16 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-8-ordering-politely-c041-prompt-f97c3866d4eb08260afb": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c042-answer-530a46cd545a5340df37": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-8-ordering-politely-c042-answer-ce916f1e2bfec9285565": {
       "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
@@ -235368,6 +236571,91 @@
       "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-8-ordering-politely-c042-prompt-4977ee7b99da83989497": {
+      "take_id": "fe8a776cc3c8842291d3c39af78c0590a6d8e98b377ea1e233aaa882d56378ce",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c043-answer-f31e20fec5d2e7c54592": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c043-prompt-f392d09cd6ec6191e7bb": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c044-answer-ce17e0d7561dce5ac7ea": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c044-prompt-4715927df23be71b7a45": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c045-answer-e81aacc9cce8db5a88bb": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c045-prompt-e0744ccbbbcc3710ac9a": {
+      "take_id": "3cab4c3fe4cbbcc1c095579292720280f3cfa2853b6118186659632cfb128eac",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c046-answer-7d09e506622aa78c75d7": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c046-prompt-2e51c9c4f2b51f041124": {
+      "take_id": "b22b573c9867591f5caae4498da8e919ebe1dbd2bea792eb12de7db5eb83cd1d",
+      "approved_at": "2026-09-27T04:03:27.656811+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c047-answer-b4a20bb4208b49f7402f": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c047-prompt-3090f25f0599263f75c9": {
+      "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c048-answer-82b1ced8310032164a8c": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c048-prompt-6371bb9256eb23a4bb95": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c049-answer-be90269ac48cd2510ca0": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c049-prompt-614da9797af4b890ee73": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c050-answer-d11ee55b49dec5c9a313": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
+    "lesson-5-8-ordering-politely-c050-prompt-8f11c1c1c82dc54dde51": {
+      "take_id": "c5e18e1948a0117d52dc7735d03e6c38c69433dda67739c53b5e57ffc429e6a6",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-9-unit-5-review-c001-answer-2c18e626a07601fa4569": {
       "take_id": "4c7feab09834798d5b63863cf0eb1eb365aa78b00039f2f1d6230ef971db116f",
@@ -235544,6 +236832,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-9-unit-5-review-c008-answer-74d0c9e394a803ed9d96": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-9-unit-5-review-c008-answer-ba14198bdac65e973584": {
       "take_id": "bf621ebcc9e6a440dfeec7d270da7c5a5893d5661c625becda3e4275f3bb7909",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -235553,6 +236846,11 @@
       "take_id": "50356e61c91bcad7e7070a13808d77c8b3770128bfb1722ed83667354d95d6ee",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-9-unit-5-review-c008-prompt-1df96649f7e155f03c11": {
+      "take_id": "7d8bbbe808df56ef9d3548dab37f509f3b1b766a10e5c1d5085083aa0767b73b",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-9-unit-5-review-c008-prompt-37d2bbed1867cbc6fce8": {
       "take_id": "50356e61c91bcad7e7070a13808d77c8b3770128bfb1722ed83667354d95d6ee",
@@ -236594,6 +237892,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-9-unit-5-review-c035-prompt-turn-1-de7a590ddc9ebbeae8dc": {
+      "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-9-unit-5-review-c035-prompt-turn-1-f0bfc976092d772a1d91": {
       "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
@@ -236619,6 +237922,11 @@
       "approved_at": "2026-09-19T00:50:52.366394+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-9-unit-5-review-c036-answer-fe24c5570527008b0c35": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-9-unit-5-review-c036-prompt-081fd4281aa66b703e2f": {
       "take_id": "984ab3716004a5a5ceedc772a1e46f58bdcc96ae4cd22bf761dcefa322d7c675",
       "approved_at": "2026-09-19T00:50:52.366394+00:00",
@@ -236628,6 +237936,11 @@
       "take_id": "e11bc46e45d8822ec1e9eea9343432faf624ec3592b89a904b7281c343cc224c",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-9-unit-5-review-c036-prompt-350461d57885e98b2cac": {
+      "take_id": "d83378319106c441f1d1e0fe473edf235778043d2d713205b02841304e860254",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-9-unit-5-review-c036-prompt-45c8f93e84eacf3668a8": {
       "take_id": "1687b28fada30fc4fb2fd5a5217eb979b01b8ccc380636576360a96b6cbfcf70",
@@ -236824,6 +238137,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-5-9-unit-5-review-c045-answer-8bdbe7e76de81f6a781d": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-9-unit-5-review-c045-answer-bc9c97e120161204d8af": {
       "take_id": "a6802af4941c2fecba25fa62d593ed06806e95e81517f97710c4e3a85d3a41e3",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
@@ -236838,6 +238156,11 @@
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-9-unit-5-review-c045-prompt-220b50aea3710cb04b07": {
+      "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-9-unit-5-review-c045-prompt-667c222f4350df873d1d": {
       "take_id": "8b5bba99c1c477c15450a8332bd3b48b16b640360f0c578d0c0ac37e941574d2",
@@ -237089,10 +238412,20 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-can-i-have-c003-answer-9e24acee6266aaf99e19": {
+      "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-can-i-have-c003-answer-bccca50320aedfd58d9e": {
       "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-can-i-have-c003-prompt-0f045f5beddd6011a8bd": {
+      "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-can-i-have-c003-prompt-62fb80a8764f0491909d": {
       "take_id": "0d923681d0db5207bb44de7a1b155ec392155cecc77c61497ac727b0377411c1",
@@ -237104,6 +238437,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-can-i-have-c004-answer-1f0c2f51b629ddcd2707": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-can-i-have-c004-answer-3836db274ec088ba6789": {
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
@@ -237113,6 +238451,11 @@
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-can-i-have-c004-prompt-ed75e19c3aa7a569dd5b": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-can-i-have-c004-prompt-efed07d984562bd9b436": {
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
@@ -237178,6 +238521,11 @@
       "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-can-i-have-c008-prompt-ead4975381621194f993": {
+      "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-can-i-have-c009-answer-44703217b5006f8640ac": {
       "take_id": "35515be81d0b680bff267dae3d47745d0580ea744b0fff6b5088dd80dea3f2d5",
@@ -237259,6 +238607,11 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-can-i-have-c014-answer-turn-1-29b2adff597ffa53aa45": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-can-i-have-c014-answer-turn-1-ead3be1794829230dea2": {
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
@@ -237273,6 +238626,11 @@
       "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-can-i-have-c014-prompt-d74abf09c29227c7b132": {
+      "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-can-i-have-c015-answer-93fe38330bc8672f1d1f": {
       "take_id": "d51fc7e42ce4045c180a1b0c45f42a5d287e0c8722c67ba8c28eed2989132df8",
@@ -237474,6 +238832,11 @@
       "approved_at": "2026-10-08T19:24:43.407401+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-can-i-have-c024-prompt-turn-1-ff9e3869e48ccbfdb9c6": {
+      "take_id": "33f313c030013c25e2683946791a9b31b6d531f4d46377ab125e9b96472628da",
+      "approved_at": "2026-10-08T19:24:43.407401+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-can-i-have-c024-prompt-turn-2-20da478e38e2e51c840f": {
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
@@ -237483,6 +238846,11 @@
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-can-i-have-c024-prompt-turn-2-3df32413b6f96ad469ea": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-can-i-have-c025-answer-1e51250a8fb1a99cd103": {
       "take_id": "0d923681d0db5207bb44de7a1b155ec392155cecc77c61497ac727b0377411c1",
@@ -237644,6 +239012,11 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-can-i-have-c033-answer-4a6ab1991a8486268c6e": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-can-i-have-c033-answer-7e414f03b297aac1008e": {
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
@@ -237653,6 +239026,11 @@
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-can-i-have-c033-prompt-ad624c5122b0116f28bb": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-can-i-have-c033-prompt-turn-1-ce0812aed8b7b88221fb": {
       "take_id": "35433b835c9e23233268b0a4dc5eb83f6b7e1cbc86f37ea5cdb5680a33a0e938",
@@ -237824,6 +239202,11 @@
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-5-can-i-have-c042-answer-1e5f7de8d07584a3298d": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-5-can-i-have-c042-answer-b2fc4f5b774aee58cc7c": {
       "take_id": "3b464e6d4acf9502099b868fd280a50188fdb20e86220cf2ac7524d7a5c7e438",
       "approved_at": "2026-09-27T04:03:27.656811+00:00",
@@ -237833,6 +239216,11 @@
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
       "approved_at": "2026-09-21T08:45:47.342185+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-can-i-have-c042-prompt-7d8a6fca1f9e6020a7ab": {
+      "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
+      "approved_at": "2026-09-21T08:45:47.342185+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-5-can-i-have-c042-prompt-c65834823a7659600fce": {
       "take_id": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd",
@@ -240409,6 +241797,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-6-10-town-mission-c010-mission-cue-219646180cf75b6bc4b1": {
+      "take_id": "a73bf7aee7af9901e33c00d12ce1cea8330ba987f0b018dea47b494e641e7b62",
+      "approved_at": "2026-09-12T00:19:40.016664+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-6-10-town-mission-c010-mission-cue-fcf3c4da9bd1e655103e": {
       "take_id": "123967ea981e9fbc231101beef190f396186cce5ee7cc57caa9a46a37250b808",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -240423,6 +241816,11 @@
       "take_id": "6308f339d40a65a8895377b85c4fa432bdc1833ee1c8f046eb77f2cb1502501b",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-6-10-town-mission-c011-mission-cue-c330b0db3baa72828c0d": {
+      "take_id": "c132e64a55ad4498479af9a8e89dc310848d0906805e758eaa9525c7dcf166fb",
+      "approved_at": "2026-09-22T02:08:49.761661+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-6-10-town-mission-c011-mission-cue-d986d74176b9a811fe35": {
       "take_id": "e32bcdce10d6309e83b045833599f816d46af3e3dd938e9b5bc79d86ed0785c0",
@@ -240439,6 +241837,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-6-10-town-mission-c012-mission-cue-9f8b5a7fae4a6499f8cf": {
+      "take_id": "2e3c377f6ffdb939f9d5d4655cc6407f12b3adf94e45cdec5759c50b665f9666",
+      "approved_at": "2026-09-22T02:08:49.761661+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-6-10-town-mission-c012-mission-cue-ae70fb3ceb0839349cf4": {
       "take_id": "dfd3210607bc5b9cd9f6350f9693dcea99e2c6f760f7971ee8b32bc0d31191fe",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -240453,6 +241856,11 @@
       "take_id": "ba9acc52a461baa43050e5efcf51296546ea71256fabf1b720e6247272f5d61a",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-6-10-town-mission-c013-mission-cue-23838378849d0d27621d": {
+      "take_id": "381e9837bc48f16c7835c508dcdae7ab577e7fc76e24a51ba5e221b34c07fdde",
+      "approved_at": "2026-09-22T02:08:49.761661+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-6-10-town-mission-c013-mission-cue-bcaad63d473334fba66c": {
       "take_id": "a7a2e2c75196653196c8d7117004278a5ce33dd5c7f44d043f33ec32e483528d",
@@ -250589,6 +251997,11 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c010-mission-cue-bdd4a05afaa6e036c6ff": {
+      "take_id": "721517bf7cd87de26669044a6c0013833a4ad9e21ac104eea664333d4f2e1f4e",
+      "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-7-10-a1-final-mission-c010-prompt-turn-1-2c761877fe8750034e77": {
       "take_id": "721517bf7cd87de26669044a6c0013833a4ad9e21ac104eea664333d4f2e1f4e",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
@@ -250603,6 +252016,11 @@
       "take_id": "5be61ce5494a8730d078d312fde85bd1357ff45df2aba07c49ea6fc5aa1dfb14",
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-7-10-a1-final-mission-c011-mission-cue-c39eb7932d1a6d688609": {
+      "take_id": "9e204360726780a415512baee4868a0112031f1c2d057a272c3f31ea30ad1c02",
+      "approved_at": "2026-09-22T16:34:50.468975+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-7-10-a1-final-mission-c011-mission-cue-f8b796f188e1eebfaa84": {
       "take_id": "5be61ce5494a8730d078d312fde85bd1357ff45df2aba07c49ea6fc5aa1dfb14",
@@ -250639,6 +252057,11 @@
       "approved_at": "2026-09-22T16:34:50.468975+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-7-10-a1-final-mission-c012-mission-cue-ef9f4516a4e55066af27": {
+      "take_id": "d4f4ff71bb1f2db5ccbe8d88a355beb245ff563c4218cdea57c8ffca70cf3f04",
+      "approved_at": "2026-09-23T16:37:41.156323+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
+    },
     "lesson-7-10-a1-final-mission-c012-prompt-turn-1-6c05bcc3cbbd58083f35": {
       "take_id": "d4f4ff71bb1f2db5ccbe8d88a355beb245ff563c4218cdea57c8ffca70cf3f04",
       "approved_at": "2026-09-23T16:37:41.156323+00:00",
@@ -250653,6 +252076,11 @@
       "take_id": "c70f9f5e821f37d0bbc5525946938a2fc4935863763186b1e935e42e2f6b8b8d",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-7-10-a1-final-mission-c013-mission-cue-b80a96206a72f37f8150": {
+      "take_id": "2d31053f26589d2dc747e5270939a1f2754ecd5a6018e426a15865ec4f5c97f3",
+      "approved_at": "2026-09-19T00:50:52.366394+00:00",
+      "approval_note": "Reused exact existing approved recording, unchanged text, voice and completion contract for the user-directed ordering sequence rebuild. No new generation."
     },
     "lesson-7-10-a1-final-mission-c013-mission-cue-ee3d65db855d2076cb78": {
       "take_id": "c70f9f5e821f37d0bbc5525946938a2fc4935863763186b1e935e42e2f6b8b8d",

@@ -2,6 +2,13 @@ import type { LessonCard } from './types';
 
 type TurnImageCard = Pick<LessonCard, 'stage' | 'interaction_type' | 'prompt_image_url'>;
 
+/** Authored visual evidence for a reply choice, revealed after the initiating line. */
+export function replyImageAfterPrompt(card: LessonCard | null | undefined) {
+  return card?.reply_image_timing === 'after-prompt' && card.stage === 'Recognize'
+    && card.prompt_image_url && card.answer_audio_turns?.length === 1
+    ? card.answer_audio_turns[0].image_url : null;
+}
+
 // Recognize and Listen cards ask the learner to choose an answer. Missions stage their own
 // scenes, so their choice beats keep showing each speaker.
 function isAnswerChoiceCard(card: TurnImageCard) {

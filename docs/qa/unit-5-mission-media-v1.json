@@ -1815,6 +1815,44 @@
       "human_approval": "pending",
       "runtime_sha256": "8cf6d2594b0627ff4d3b8490acfc43bedbdfa087b92352557cbd125c59519d8a",
       "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/order-response.png"
+    },
+    {
+      "asset_id": "vendor-offers-bag",
+      "runtime_filename": "a1_u5_sequence_mission_bag_offer_v1.webp",
+      "runtime_sha256": "6c7bb97cd8effcf38dac014ab1eadbc5e16bac2386b0971f276787f7b4eb4074",
+      "source_path": "docs/product/media-sources/unit5-mission-bag-sequence-2026-10-08/a1_u5_sequence_mission_bag_offer_v1.png",
+      "source_sha256": "61686d514f67bfbe568f21c700ab4c7480d973b79cd0505788a49a459b446d8f",
+      "generation_provenance_file": "docs/product/media-sources/unit5-mission-bag-sequence-2026-10-08/provenance.json",
+      "agent_review": {
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "At the market stall, the older plaid-shirt vendor in an olive apron speaks while holding out an open paper bag. The coral-blouse customer listens with relaxed hands. Three apples remain in the same woven basket on the wooden counter under the green canopy."
+      },
+      "change_control": {
+        "kind": "user-approved-speaker-sequence-repair",
+        "date": "2026-10-08",
+        "reason": "2026-10-08 explicit user correction: the later cafe-counter crowd gives no reliable evidence for which person says a generic polite reply. Preserve the original stub scene and the superseded crowd photo byte-for-byte. The current 20-beat mission retrieves acceptance in M15 through an older vendor offering a paper bag and the same coral-blouse customer visibly accepting it, using two distinct mission-only images."
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "customer-accepts-bag",
+      "runtime_filename": "a1_u5_sequence_mission_bag_accept_v1.webp",
+      "runtime_sha256": "a1a59bbb3702a13f77637d03ee045eeec836590f16c6d864758c16e2e64ae92a",
+      "source_path": "docs/product/media-sources/unit5-mission-bag-sequence-2026-10-08/a1_u5_sequence_mission_bag_accept_v1.png",
+      "source_sha256": "ebade003658786e092714f94f912faf2212b02f34fff97788a4f38892dd0a698",
+      "generation_provenance_file": "docs/product/media-sources/unit5-mission-bag-sequence-2026-10-08/provenance.json",
+      "agent_review": {
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "The same coral-blouse customer speaks and reaches to grip the offered paper bag's rim, accepting it. The older olive-apron vendor listens with his mouth closed and supports the bag from below. Three apples remain in the same woven basket and the market stall is unchanged."
+      },
+      "change_control": {
+        "kind": "user-approved-speaker-sequence-repair",
+        "date": "2026-10-08",
+        "reason": "2026-10-08 explicit user correction: the later cafe-counter crowd gives no reliable evidence for which person says a generic polite reply. Preserve the original stub scene and the superseded crowd photo byte-for-byte. The current 20-beat mission retrieves acceptance in M15 through an older vendor offering a paper bag and the same coral-blouse customer visibly accepting it, using two distinct mission-only images."
+      },
+      "human_approval": "pending"
     }
   ],
   "paid_attempts": [
@@ -3581,8 +3619,10 @@
       "old_sha256": "b395fcfe120079437406a4ce1703f7183d8c78bb0739616a98bc6d362ab25d5c",
       "issue": "The four-beat stub mission is rebuilt to the approved Unit 5 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
       "observation": "Inspected: the stub mission's café-counter hotspot scene used by its only voice gate; kept byte-for-byte together with its inspected full-frame edit.",
-      "replacement_filename": "a1_u5_market_v1_cafe_counter.webp",
-      "original_action": "preserve-byte-for-byte"
+      "replacement_filename": "a1_u5_sequence_mission_bag_accept_v1.webp",
+      "original_action": "preserve-byte-for-byte",
+      "current_replacement_reason": "2026-10-08 explicit user correction: the later cafe-counter crowd gives no reliable evidence for which person says a generic polite reply. Preserve the original stub scene and the superseded crowd photo byte-for-byte. The current 20-beat mission retrieves acceptance in M15 through an older vendor offering a paper bag and the same coral-blouse customer visibly accepting it, using two distinct mission-only images.",
+      "superseded_replacement_filename": "a1_u5_market_v1_cafe_counter.webp"
     },
     {
       "lesson_id": "lesson-5-10-cafe-mission",

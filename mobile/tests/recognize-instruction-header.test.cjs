@@ -44,7 +44,7 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  373, // 2026-10-08: Unit 5 reply exchanges retain their written initiating sentences.
+  369, // 2026-10-08: four Unit 5 service replies now have authored initiating lines and response images.
   // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
   // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.
@@ -56,7 +56,7 @@ assert.equal(
 );
 assert.equal(
   affectedLessons.size,
-  70, // 2026-10-07: 3.3, 4.8 and the Unit 4 review join the shared Lesson 1.1 instruction.
+  69, // 2026-10-08: 5.9 now gives every service reply an initiating English line.
   // 2026-10-01: rebuilt Unit 4 context cards carry explicit instructions/questions.
   // 3.3 now uses explicit questions and audio-choice instructions instead of an empty prompt.
   // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;

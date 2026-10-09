@@ -30,9 +30,15 @@ test('Completa translates the full authored target in empty, partial, wrong and 
         card, selected, result, disabled: false, onChange: () => changes++, onReplay: () => replays++, onRetry: noop,
       }), 378, 530, preserve);
       let records = render(false);
-      records.find(r => r.props.accessibilityLabel === 'Mostrar traducción').props.onPress();
+      assert.ok(!records.some(r => r.text === card.spanish_translation), 'No automatic assessment translation.');
+      assert.ok(!records.some(r => r.text === 'Traducir frase' || r.props.accessibilityLabel === 'Mostrar traducción'), 'No extra translation control.');
+      records.find(r => r.props.accessibilityLabel?.endsWith('. Mostrar traducción')).props.onPress();
       records = render(true);
       assert.ok(records.some(r => r.text === card.spanish_translation), `Unit ${unit}, ${type}, ${state}`);
+      const spanish = records.find(r => r.text === card.spanish_translation);
+      const sentence = records.find(r => r.props.testID === 'construction-sentence-surface');
+      assert.ok(spanish.box.top >= sentence.box.top && spanish.box.top + spanish.box.height <= sentence.box.top + sentence.box.height + 1,
+        `Spanish stays inside the sentence surface: ${JSON.stringify({unit, type, state, spanish: spanish.box, sentence: sentence.box})}`);
       assert.equal(changes, 0, 'Translation must never place, remove or grade a tile.');
       records.find(r => r.props.accessibilityLabel === 'Repetir frase en inglés').props.onPress();
       assert.equal(replays, 1);
@@ -80,6 +86,50 @@ test('native guided and full constructions celebrate only graded success and ret
   }
 });
 
+test('long manual translations fit the native sentence surface in portrait and short landscape', () => {
+  const catalog = JSON.parse(fs.readFileSync(new URL('../src/generated/a1-course.json', import.meta.url), 'utf8'));
+  const cards = ['complete2', 'complete-sentence'].flatMap(type => catalog.flatMap(lesson => lesson.cards)
+    .filter(card => card.interaction_type === type)
+    .sort((a, b) => b.spanish_translation.length - a.spanish_translation.length).slice(0, 2));
+  for (const [width, height] of [[320, 568], [390, 844], [740, 360], [915, 412]]) for (const fontScale of [1, 2]) {
+    const viewport = { width, height, fontScale }, h = lessonHarness(viewport);
+    const { SentenceConstruction } = h.load('components/SentenceConstruction.tsx');
+    const landscape = width > height;
+    const paneWidth = landscape ? (width - 56) * .72 - 8 : width - 20;
+    const paneHeight = landscape ? height - 32 : height - 300;
+    for (const card of cards) for (const result of [null, 'correct']) {
+      const selected = result ? card.correct_option_ids : [];
+      const render = preserve => h.render(() => e(SentenceConstruction, {
+        card, selected, result, disabled: false, onChange: noop, onReplay: noop, onRetry: noop,
+      }), paneWidth, paneHeight, preserve);
+      let records = render(false);
+      records.find(r => r.props.accessibilityLabel?.endsWith('. Mostrar traducción')).props.onPress();
+      records = render(true);
+      const spanish = records.find(r => r.text === card.spanish_translation);
+      const sentence = records.find(r => r.props.testID === 'construction-sentence-surface');
+      const context = `${width}/${height}/${fontScale}/${card.slide_id}/${result}`;
+      const sentenceScroll = records.find(r => r.type === 'ScrollView' && r.props.accessibilityLabel?.startsWith('Frase'));
+      if (landscape) assert.ok(spanish.box.top >= sentence.box.top && spanish.box.top + spanish.box.height <= sentence.box.top + sentence.box.height + 1,
+        `${context}: Spanish remains within the sentence surface: ${JSON.stringify({spanish: spanish.box, sentence: sentence.box, text: spanish.text})}`);
+      else {
+        assert.ok(sentenceScroll.box.top >= sentence.box.top && sentenceScroll.box.top + sentenceScroll.box.height <= sentence.box.top + sentence.box.height + 1,
+          `${context}: enlarged sentence content stays within its existing portrait scroll surface.`);
+        let shown = 0;
+        sentenceScroll.props.ref({ scrollToEnd: () => shown++ });
+        sentenceScroll.props.onContentSizeChange();
+        assert.equal(shown, 1, 'Opening Spanish brings it into view in the existing scroll surface.');
+      }
+      assert.ok(spanish.textHeight <= spanish.box.height + 1, `${context}: full Spanish remains readable.`);
+      assert.ok(sentence.box.top + sentence.box.height <= paneHeight + 1, `${context}: sentence fits the activity pane.`);
+      if (landscape) for (const record of records) {
+        assert.ok(record.box.top + record.box.height <= paneHeight + 1,
+          `${context}: ${record.text || record.props.accessibilityLabel || record.type} extends beyond the activity pane: ${JSON.stringify(record.box)}`);
+        if (record.text.trim()) assert.ok(record.textHeight <= record.box.height + 1.5, `${context}: ${record.text} is clipped.`);
+      }
+    }
+  }
+});
+
 // Render the actual web components, rather than testing source conditionals.
 const require = createRequire(import.meta.url);
 const ts = require('typescript');
@@ -91,7 +141,7 @@ function loadWeb(file) {
   const exports = {}; modules.set(file, exports);
   const source = ts.transpileModule(fs.readFileSync(file, 'utf8'), { fileName: file.endsWith('.js') ? file + 'x' : file,
     compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, target: ts.ScriptTarget.ES2020 } }).outputText;
-  vm.runInNewContext(source, { exports, require: id => {
+  vm.runInNewContext(source, { exports, setTimeout, clearTimeout, requestAnimationFrame: noop, require: id => {
     if (id === 'react') return react;
     if (id === 'react/jsx-runtime') return { jsx: e, jsxs: e, Fragment: 'Fragment' };
     if (id.endsWith('.css')) return { default: new Proxy({}, { get: (_, key) => key }) };
@@ -146,14 +196,20 @@ test('web translation remains interactive for both construction types in all sev
             onChange: () => edits++, onReplay: () => replays++, onRetry: noop}));
         };
         let nodes = render();
-        nodes.find(n => n['aria-label'] === 'Mostrar traducción').onClick();
+        assert.ok(!nodes.includes(card.spanish_translation));
+        assert.ok(!nodes.includes('Traducir frase'));
+        assert.ok(!nodes.some(n => n['aria-label'] === 'Mostrar traducción'));
+        nodes.find(n => n['aria-label']?.endsWith('. Mostrar traducción')).onClick();
         nodes = render();
         assert.ok(nodes.includes(card.spanish_translation), `Unit ${unit}/${type}/${state}`);
         assert.equal(edits, 0);
         nodes.find(n => n['aria-label'] === 'Repetir frase en inglés').onClick();
         assert.equal(replays, 1);
-        nodes.find(n => n['aria-label'] === 'Ocultar traducción').onClick();
-        assert.ok(!render().includes(card.spanish_translation));
+        if (state === 'partial') {
+          nodes.find(n => n['aria-label']?.startsWith('Espacio 1:')).onClick({ detail: 0 });
+          assert.equal(edits, 1, 'Keyboard activation still returns a placed word while Spanish is visible.');
+        }
+        assert.ok(!nodes.some(n => n['aria-label'] === 'Ocultar traducción'), 'Translation is inline text, not another button.');
       }
     }
   } finally { react.useState = originalState; }

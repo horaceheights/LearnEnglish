@@ -85,7 +85,7 @@ test('group capsules follow reviewed members rather than translated display labe
   }
 });
 
-test('remaining-unit group endpoints are pinned to visually inspected image bytes', () => {
+test('remaining-unit target endpoints are pinned to visually inspected image bytes', () => {
   const registry = JSON.parse(fs.readFileSync(path.join(root, 'docs/qa/units-2-7-mission-target-reviews.json'), 'utf8'));
   for (const review of registry.reviews) {
     const unit = review.lesson_id.match(/^lesson-([2-7])-/)[1];
@@ -106,9 +106,55 @@ test('remaining-unit group endpoints are pinned to visually inspected image byte
       assert.ok(frame && frame.height <= height);
       for (const [id, anchors] of Object.entries(review.targets)) {
         const marker = frame.markers.find(marker => marker.id === id);
-        assert.equal(marker.collective, true);
+        assert.equal(marker.collective, anchors.length > 1);
         assert.equal(marker.heads.length, anchors.length);
         assert.ok(marker.x >= 0 && marker.y >= 0 && marker.x + marker.width <= width && marker.y + marker.height <= height);
+      }
+    }
+  }
+});
+
+test('meal recap targets keep full 48dp touch and pulse bounds clear of faces on phones', () => {
+  const lesson = JSON.parse(fs.readFileSync(path.join(root,
+    'backend/lessons/unit_5/lesson-5-10-cafe-mission.yaml'), 'utf8'));
+  const registry = JSON.parse(fs.readFileSync(path.join(root,
+    'docs/qa/units-2-7-mission-target-reviews.json'), 'utf8'));
+  const overlap = (a, b) => a.x < b.x + b.width && a.x + a.width > b.x
+    && a.y < b.y + b.height && a.y + a.height > b.y;
+  for (const id of ['M12', 'M12L', 'M12D']) {
+    const card = lesson.cards.find(card => card.slide_id === id);
+    if (id === 'M12') {
+      assert.equal(card.mission_game.cues[0].text, 'I eat two eggs for breakfast.');
+      assert.equal(card.mission_game.cues[2].text, 'I eat an egg for breakfast.');
+      assert.equal(card.mission_game.targets[0].label_es, 'Como dos huevos en el desayuno.');
+    }
+    const review = registry.reviews.find(item => item.lesson_id === lesson.id && item.slide_id === id);
+    assert.ok(review, id + ' needs an exact-image crown review');
+    const bytes = fs.readFileSync(path.join(root, 'Lessons/Lesson1/images', review.filename));
+    assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), review.sha256);
+    assert.equal(card.mission_game.targets.length, 4);
+    for (const [width, height] of [[284, 330], [328, 410], [374, 500], [480, 190], [650, 190], [840, 230]]) {
+      const frame = fitMissionHeadScene(width, height, card.mission_game.targets);
+      assert.ok(frame && frame.height <= height, `${id}: ${width}x${height}`);
+      assert.ok(Math.abs(frame.imageWidth / frame.imageHeight - 1.5) < 0.0001);
+      const faces = frame.markers.flatMap(marker => marker.heads).map(head => ({
+        x: head.x - frame.imageWidth * .04, y: head.y,
+        width: frame.imageWidth * .08, height: frame.imageHeight * .16,
+      }));
+      for (const marker of frame.markers) {
+        assert.equal(marker.collective, false);
+        assert.ok(marker.width >= 48 && marker.height >= 48);
+        assert.ok(marker.x >= 0 && marker.y >= 0
+          && marker.x + marker.width <= width && marker.y + marker.height <= height);
+        assert.ok(38 * 1.12 <= marker.width && 38 * 1.12 <= marker.height,
+          'the maximum individual pulse stays inside its touch target');
+        assert.equal(marker.heads.length, 1);
+        const crown = review.targets[marker.id][0];
+        assert.ok(Math.abs(marker.heads[0].x - (frame.imageX + crown.x * frame.imageWidth)) < .001);
+        assert.ok(Math.abs(marker.heads[0].y - (frame.imageY + crown.y * frame.imageHeight)) < .001);
+        for (const face of faces) assert.ok(!overlap(marker, face), `${id}: marker covers a face`);
+        for (const other of frame.markers) if (marker.id !== other.id)
+          assert.ok(!overlap(marker, other), `${id}: touch targets overlap`);
       }
     }
   }

@@ -48,7 +48,7 @@
     "grammar_function": "Can I have three apples, please? Here are your three apples. Do you want a bag? Yes, please. No, thank you. Can I have the blue bag, please? How much is the bag?",
     "prerequisite": "5.9 complete polite ordering sequence; 5.8 named prices; 2.6 quantities; 2.8 colors; 4.8 Do you questions.",
     "speaking_outcome": "Request familiar goods at a market and shop and accept or refuse an offered bag politely.",
-    "content_revision": 2,
+    "content_revision": 4,
     "purposeful_review_slides": [
       "R1",
       "R2",
@@ -187,12 +187,12 @@
         {
           "id": "l3-model",
           "label": "Do you want a bag?",
-          "image_url": "a1_u5_revision_shop_offer_bag_v1.webp"
+          "image_url": "a1_u5_sequence_shop_offer_bag_second_customer_v1.webp"
         }
       ],
       "spanish_translation": "¿Quieres una bolsa?",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L3",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -216,12 +216,12 @@
         {
           "id": "l4-model",
           "label": "No, thank you.",
-          "image_url": "a1_u5_revision_shop_decline_bag_v1.webp"
+          "image_url": "a1_u5_sequence_shop_decline_bag_second_customer_v1.webp"
         }
       ],
       "spanish_translation": "No, gracias.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L4",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -289,6 +289,7 @@
       "answer_audio_speaker": "male-character",
       "audio_speaker": "female-character",
       "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R2",
+      "reply_image_timing": "after-prompt",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -303,7 +304,8 @@
         "spanish_translation",
         "answer_audio_speaker",
         "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "reply_image_timing"
       ]
     },
     {
@@ -353,11 +355,12 @@
           "image_url": "a1_u5_revision_shop_accept_bag_v1.webp"
         }
       ],
-      "prompt_image_url": "a1_u5_revision_shop_accept_bag_v1.webp",
+      "prompt_image_url": "a1_u5_revision_shop_offer_bag_v1.webp",
       "spanish_translation": "¿Quieres una bolsa?",
       "answer_audio_speaker": "female-character",
       "audio_speaker": "male-character",
       "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R4",
+      "reply_image_timing": "after-prompt",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -372,7 +375,8 @@
         "spanish_translation",
         "answer_audio_speaker",
         "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "reply_image_timing"
       ]
     },
     {
@@ -472,6 +476,7 @@
       "answer_audio_speaker": "male-character",
       "audio_speaker": "female-character",
       "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R8",
+      "reply_image_timing": "after-prompt",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -486,7 +491,8 @@
         "spanish_translation",
         "answer_audio_speaker",
         "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "reply_image_timing"
       ]
     },
     {
@@ -518,6 +524,7 @@
       "answer_audio_speaker": "male-character",
       "audio_speaker": "female-character",
       "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R9",
+      "reply_image_timing": "after-prompt",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -533,7 +540,8 @@
         "spanish_translation",
         "answer_audio_speaker",
         "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "reply_image_timing"
       ]
     },
     {
@@ -557,14 +565,15 @@
         {
           "text": "No, thank you.",
           "speaker_role": "female-character",
-          "image_url": "a1_u5_revision_shop_decline_bag_v1.webp"
+          "image_url": "a1_u5_sequence_shop_decline_bag_second_customer_v1.webp"
         }
       ],
-      "prompt_image_url": "a1_u5_revision_shop_decline_bag_v1.webp",
+      "prompt_image_url": "a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
       "spanish_translation": "¿Quieres una bolsa?",
       "answer_audio_speaker": "female-character",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
+      "reply_image_timing": "after-prompt",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -580,7 +589,8 @@
         "spanish_translation",
         "answer_audio_speaker",
         "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "reply_image_timing"
       ]
     },
     {
@@ -925,15 +935,15 @@
         {
           "text": "Do you want a bag?",
           "speaker_role": "male-character",
-          "image_url": "a1_u5_revision_shop_offer_bag_v1.webp"
+          "image_url": "a1_u5_sequence_shop_offer_bag_second_customer_v1.webp"
         },
         {
           "text": "No, thank you.",
           "speaker_role": "female-character",
-          "image_url": "a1_u5_revision_shop_decline_bag_v1.webp"
+          "image_url": "a1_u5_sequence_shop_decline_bag_second_customer_v1.webp"
         }
       ],
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A10",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1189,12 +1199,12 @@
         {
           "id": "s9-model",
           "label": "No, thank you.",
-          "image_url": "a1_u5_revision_shop_decline_bag_v1.webp"
+          "image_url": "a1_u5_sequence_shop_decline_bag_second_customer_v1.webp"
         }
       ],
       "spanish_translation": "No, gracias.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S9",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1626,7 +1636,7 @@
         }
       ],
       "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "a1_u5_revision_shop_decline_bag_v1.webp",
+      "prompt_image_url": "a1_u5_sequence_shop_decline_bag_second_customer_v1.webp",
       "spanish_translation": "No, gracias.",
       "correct_option_ids": [
         "word-1",
@@ -1634,7 +1644,7 @@
         "word-3"
       ],
       "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Use: No, thank you.",
+      "pedagogy_note": "Separate second customer: older woman with silver hair, plum blouse, two oranges and her own cream tote declines a paper bag. The first customer accepted; this is not a reversal of her answer.",
       "audio_speaker": "female-character",
       "mirror_translation": true
     }
@@ -1663,8 +1673,8 @@
   ],
   "source": {
     "path": "backend/lessons/unit_5/lesson-5-can-i-have.yaml",
-    "sha256": "9380255868ee9eb39954ea60f49dc9a7f9aaf368f9107b9fead015da8eddb08d"
+    "sha256": "e337c5368c10642b58eeaded74ecd31baa1e3117f4e9c4789cca830ccb543557"
   },
   "draft": false,
-  "review_status": "Language, sequence, complete banks and source photographs reviewed by Codex. Installation requires whole-course validators. Recorded audio and phone acceptance remain separate verification steps; no human approval implied."
+  "review_status": "2026-10-08 user-directed sequence corrections. Exact language, speakers, chronological scenes and ordered moments authored through shared recipes. New generated pixels and phone-size views inspected by agents, with immutable provenance. Human review of the exact Preview remains pending; no publication or human approval is implied."
 }

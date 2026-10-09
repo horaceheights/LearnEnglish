@@ -69,6 +69,7 @@ class LessonCard(BaseModel):
     answer_audio_speaker: str | None = None
     audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
     answer_audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
+    reply_image_timing: Literal["after-prompt"] | None = None
     audio_revision: int = Field(default=1, ge=1)
     answer_audio_revision: int = Field(default=1, ge=1)
     audio_assets: list[CourseAudioAsset] = Field(default_factory=list)
@@ -80,6 +81,8 @@ class LessonCard(BaseModel):
             payload.pop("prompt_presentation", None)
         if self.learn_translation_preview_ms is None:
             payload.pop("learn_translation_preview_ms", None)
+        if self.reply_image_timing is None:
+            payload.pop("reply_image_timing", None)
         return payload
 
     @model_validator(mode="after")
@@ -90,6 +93,20 @@ class LessonCard(BaseModel):
             or not (self.spanish_translation or "").strip()
         ):
             raise ValueError("An automatic translation preview needs one Learn image and authored Spanish.")
+        return self
+
+    @model_validator(mode="after")
+    def require_reply_image_sequence(self):
+        if self.reply_image_timing is not None and (
+            self.stage != "Recognize" or not self.prompt_image_url.strip()
+            or not (self.audio_text or "").strip() or self.audio_turns
+            or len(self.answer_audio_turns) != 1
+            or len(self.options) < 2 or any(option.image_url for option in self.options)
+        ):
+            raise ValueError("A pre-choice reply image needs a spoken prompt, one response turn and text choices.")
+        if (self.reply_image_timing is not None
+                and self.answer_audio_turns[0].image_url == self.prompt_image_url):
+            raise ValueError("A pre-choice reply must show a distinct response image.")
         return self
 
     @model_validator(mode="after")

@@ -1,0 +1,981 @@
+{
+  "scope": "Only changed/new ordering answer banks; original unaffected contracts preserved.",
+  "removed_redundant_banks": [
+    "lesson-5-8-ordering-politely|Listen|A1",
+    "lesson-5-8-ordering-politely|Recognize|R2",
+    "lesson-5-8-ordering-politely|Recognize|R9",
+    "lesson-5-8-ordering-politely|Recognize|R10"
+  ],
+  "banks": [
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R1",
+      "sha256": "49fc136af3f110f17e8249d3cbae28018fbca0de71191d2c2116f25d42cceedd",
+      "prompt": "Hello! How can I help you?",
+      "heard": "Hello! How can I help you?",
+      "answer": "Can I have coffee, please?",
+      "correct": "Can I have coffee, please?",
+      "options": [
+        {
+          "id": "r1-answer",
+          "image_url": "",
+          "label": "Can I have coffee, please?"
+        },
+        {
+          "id": "r1-other-0",
+          "image_url": "",
+          "label": "Can I have tea, please?"
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Can I have coffee, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact polite-order bank contrasts already-taught items within the same complete request or handover frame. Both alternatives are parallel; the pictured order or heard response distinguishes coffee/tea, water/milk, or eggs/bread."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R3",
+      "sha256": "3a011e7b66f89e9d89e6af35406d430d962b6ab25323d84c4cfac3525dad08ba",
+      "prompt": "Can I have coffee, please?",
+      "heard": "Can I have coffee, please?",
+      "answer": "Here is your coffee.",
+      "correct": "Here is your coffee.",
+      "options": [
+        {
+          "id": "r3-other-0",
+          "image_url": "",
+          "label": "Here is your tea."
+        },
+        {
+          "id": "r3-answer",
+          "image_url": "",
+          "label": "Here is your coffee."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp"
+        }
+      ],
+      "analysis": [
+        "sentences",
+        [],
+        {}
+      ],
+      "teaching_reasons": {},
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R4",
+      "sha256": "29215030718bdeaf5881126ecf785143fe21cad11d8eeabfab3f70865e5e653f",
+      "prompt": "Here is your coffee.",
+      "heard": "Here is your coffee.",
+      "answer": "Thank you.",
+      "correct": "Thank you.",
+      "options": [
+        {
+          "id": "r4-answer",
+          "image_url": "",
+          "label": "Thank you."
+        },
+        {
+          "id": "r4-other-0",
+          "image_url": "",
+          "label": "Here is your coffee."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_thanks_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R5",
+      "sha256": "e84959f7739d1b281a5ebee0a162795a9a8a58fb3110055ba873c583d6851cf2",
+      "prompt": "Hello! How can I help you?",
+      "heard": "Hello! How can I help you?",
+      "answer": "Water, please.",
+      "correct": "Water, please.",
+      "options": [
+        {
+          "id": "r5-other-0",
+          "image_url": "",
+          "label": "Milk, please."
+        },
+        {
+          "id": "r5-answer",
+          "image_url": "",
+          "label": "Water, please."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact polite-order bank contrasts already-taught items within the same complete request or handover frame. Both alternatives are parallel; the pictured order or heard response distinguishes coffee/tea, water/milk, or eggs/bread."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R6",
+      "sha256": "cb42525885cb9fb2d5eaedf1cab34d1899d334e02041d9e56577fa8660c74b0a",
+      "prompt": "Water, please.",
+      "heard": "Water, please.",
+      "answer": "Here you are.",
+      "correct": "Here you are.",
+      "options": [
+        {
+          "id": "r6-answer",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "r6-other-0",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Here you are.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R-water-thanks",
+      "sha256": "3d59c855a3ba64697592ce85dccba819de4bafcfe07ac739bde059a1682bb592",
+      "prompt": "Here you are.",
+      "heard": "Here you are.",
+      "answer": "Thank you.",
+      "correct": "Thank you.",
+      "options": [
+        {
+          "id": "r-water-thanks-other-0",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "r-water-thanks-answer",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R7",
+      "sha256": "3669bf85a947520b7e377e6ad9ff407b70dc7259ababfcb4581f70e6c4463e5c",
+      "prompt": "Hello! How can I help you?",
+      "heard": "Hello! How can I help you?",
+      "answer": "Can I have coffee and eggs, please?",
+      "correct": "Can I have coffee and eggs, please?",
+      "options": [
+        {
+          "id": "r7-answer",
+          "image_url": "",
+          "label": "Can I have coffee and eggs, please?"
+        },
+        {
+          "id": "r7-other-0",
+          "image_url": "",
+          "label": "Can I have coffee and bread, please?"
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact polite-order bank contrasts already-taught items within the same complete request or handover frame. Both alternatives are parallel; the pictured order or heard response distinguishes coffee/tea, water/milk, or eggs/bread."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R8",
+      "sha256": "56dc3ea79071540b22d331c7f6b2d5524d04fa50a05c2c7fff27182f9d0813cd",
+      "prompt": "Can I have coffee and eggs, please?",
+      "heard": "Can I have coffee and eggs, please?",
+      "answer": "Here are your coffee and eggs.",
+      "correct": "Here are your coffee and eggs.",
+      "options": [
+        {
+          "id": "r8-other-0",
+          "image_url": "",
+          "label": "Here are your coffee and bread."
+        },
+        {
+          "id": "r8-answer",
+          "image_url": "",
+          "label": "Here are your coffee and eggs."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp"
+        }
+      ],
+      "analysis": [
+        "sentences",
+        [],
+        {}
+      ],
+      "teaching_reasons": {},
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Recognize|R-combo-thanks",
+      "sha256": "7abae5365796287398e95cdca8f036fe3d37c5711f8711f5ab056799d8ba81a4",
+      "prompt": "Here are your coffee and eggs.",
+      "heard": "Here are your coffee and eggs.",
+      "answer": "Thank you.",
+      "correct": "Thank you.",
+      "options": [
+        {
+          "id": "r-combo-thanks-answer",
+          "image_url": "",
+          "label": "Thank you."
+        },
+        {
+          "id": "r-combo-thanks-other-0",
+          "image_url": "",
+          "label": "Here you are."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A2",
+      "sha256": "a2e0e9e3993ffb595c94c8590f3f7eb11a6d92902fd0af1649d2a7283fb94f29",
+      "prompt": "Listen and choose.",
+      "heard": "Hello! How can I help you? Can I have coffee, please?",
+      "answer": null,
+      "correct": "Can I have coffee, please?",
+      "options": [
+        {
+          "id": "a2-answer",
+          "image_url": "",
+          "label": "Can I have coffee, please?"
+        },
+        {
+          "id": "a2-other-0",
+          "image_url": "",
+          "label": "Can I have tea, please?"
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_greeting_v1.webp"
+        },
+        {
+          "text": "Can I have coffee, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact polite-order bank contrasts already-taught items within the same complete request or handover frame. Both alternatives are parallel; the pictured order or heard response distinguishes coffee/tea, water/milk, or eggs/bread."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A3",
+      "sha256": "8e77626baa1663914d382d6339fa69fe7002e8e5848c0016c2dde9846d9f558a",
+      "prompt": "Listen and choose.",
+      "heard": "Can I have coffee, please? Here is your coffee.",
+      "answer": null,
+      "correct": "Here is your coffee.",
+      "options": [
+        {
+          "id": "a3-other-0",
+          "image_url": "",
+          "label": "Here is your tea."
+        },
+        {
+          "id": "a3-answer",
+          "image_url": "",
+          "label": "Here is your coffee."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Can I have coffee, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_coffee_request_v1.webp"
+        },
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "sentences",
+        [],
+        {}
+      ],
+      "teaching_reasons": {},
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A4",
+      "sha256": "85a4260561c73bacbe56abafa7ef3a952ceed40d1578118408a091555174206f",
+      "prompt": "Listen and choose.",
+      "heard": "Here is your coffee. Thank you.",
+      "answer": null,
+      "correct": "Thank you.",
+      "options": [
+        {
+          "id": "a4-answer",
+          "image_url": "",
+          "label": "Thank you."
+        },
+        {
+          "id": "a4-other-0",
+          "image_url": "",
+          "label": "Here is your coffee."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_coffee_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_cafe_thanks_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A5",
+      "sha256": "0051287bb6348fb89e16f7a2b87bbd00a1409aa7e31e7e717041736db0dfca84",
+      "prompt": "Listen and choose.",
+      "heard": "Hello! How can I help you? Water, please.",
+      "answer": null,
+      "correct": "Water, please.",
+      "options": [
+        {
+          "id": "a5-other-0",
+          "image_url": "",
+          "label": "Milk, please."
+        },
+        {
+          "id": "a5-answer",
+          "image_url": "",
+          "label": "Water, please."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_greeting_v1.webp"
+        },
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact polite-order bank contrasts already-taught items within the same complete request or handover frame. Both alternatives are parallel; the pictured order or heard response distinguishes coffee/tea, water/milk, or eggs/bread."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A6",
+      "sha256": "050ddd54e46ff214148d03aa938adb2e381114357e80d090bfc3ca475e7a453b",
+      "prompt": "Listen and choose.",
+      "heard": "Water, please. Here you are.",
+      "answer": null,
+      "correct": "Here you are.",
+      "options": [
+        {
+          "id": "a6-answer",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "a6-other-0",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_request_v1.webp"
+        },
+        {
+          "text": "Here you are.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A-water-thanks",
+      "sha256": "31387cc5eafd2c4a152131efb7093055a0d49b15748780dc75a7de738d218617",
+      "prompt": "Listen and choose.",
+      "heard": "Here you are. Thank you.",
+      "answer": null,
+      "correct": "Thank you.",
+      "options": [
+        {
+          "id": "a-water-thanks-other-0",
+          "image_url": "",
+          "label": "Here you are."
+        },
+        {
+          "id": "a-water-thanks-answer",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Here you are.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A7",
+      "sha256": "3f459daf2c833e112951f8519aa4ba5f548ebb64ac589af0e96871abc9b18695",
+      "prompt": "Listen and choose.",
+      "heard": "Hello! How can I help you? Can I have coffee and eggs, please?",
+      "answer": null,
+      "correct": "Can I have coffee and eggs, please?",
+      "options": [
+        {
+          "id": "a7-answer",
+          "image_url": "",
+          "label": "Can I have coffee and eggs, please?"
+        },
+        {
+          "id": "a7-other-0",
+          "image_url": "",
+          "label": "Can I have coffee and bread, please?"
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_greeting_v1.webp"
+        },
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact polite-order bank contrasts already-taught items within the same complete request or handover frame. Both alternatives are parallel; the pictured order or heard response distinguishes coffee/tea, water/milk, or eggs/bread."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A8",
+      "sha256": "4606869aac5833a24e68fd60da2123c87aae20790071f82cc18f888fe2c06a51",
+      "prompt": "Listen and choose.",
+      "heard": "Can I have coffee and eggs, please? Here are your coffee and eggs.",
+      "answer": null,
+      "correct": "Here are your coffee and eggs.",
+      "options": [
+        {
+          "id": "a8-other-0",
+          "image_url": "",
+          "label": "Here are your coffee and bread."
+        },
+        {
+          "id": "a8-answer",
+          "image_url": "",
+          "label": "Here are your coffee and eggs."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_request_v1.webp"
+        },
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "sentences",
+        [],
+        {}
+      ],
+      "teaching_reasons": {},
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-8-ordering-politely|Listen|A-combo-thanks",
+      "sha256": "ca7387c12bef7a4a13641170718e0eeca880a15adde6ae01cfe445eaf61dd619",
+      "prompt": "Listen and choose.",
+      "heard": "Here are your coffee and eggs. Thank you.",
+      "answer": null,
+      "correct": "Thank you.",
+      "options": [
+        {
+          "id": "a-combo-thanks-answer",
+          "image_url": "",
+          "label": "Thank you."
+        },
+        {
+          "id": "a-combo-thanks-other-0",
+          "image_url": "",
+          "label": "Here you are."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "prompt_turns": [
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact service-exchange bank distinguishes the speaker's handover from the recipient's thanks. Both choices are complete taught speech acts with balanced reading load; the shown person and ordered prior turn determine the reply."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-can-i-have|Recognize|R4",
+      "sha256": "54ad244db0caf8314fd14b04e96296b62219800012f527c94fa8a99d46c875d0",
+      "prompt": "Do you want a bag?",
+      "heard": "Do you want a bag?",
+      "answer": "Yes, please.",
+      "correct": "Yes, please.",
+      "options": [
+        {
+          "id": "r4-answer",
+          "image_url": "",
+          "label": "Yes, please."
+        },
+        {
+          "id": "r4-other-0",
+          "image_url": "",
+          "label": "No, thank you."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_revision_shop_offer_bag_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "Yes, please.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_shop_accept_bag_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact offer bank uses the complete taught acceptance/refusal replies. A distinct customer's visible response establishes the choice: the first customer accepts a paper bag; the second has her own tote and politely refuses. These are separate encounters."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-can-i-have|Recognize|R10",
+      "sha256": "a6b2999424ca7f3eaac9eaec6bcb257ebb4754fe9673b7a293ccc79c9ff65d2d",
+      "prompt": "Do you want a bag?",
+      "heard": "Do you want a bag?",
+      "answer": "No, thank you.",
+      "correct": "No, thank you.",
+      "options": [
+        {
+          "id": "r10-other-0",
+          "image_url": "",
+          "label": "Yes, please."
+        },
+        {
+          "id": "r10-answer",
+          "image_url": "",
+          "label": "No, thank you."
+        }
+      ],
+      "prompt_image": "/lesson-assets/a1_u5_sequence_shop_offer_bag_second_customer_v1.webp",
+      "prompt_turns": [],
+      "reply_turns": [
+        {
+          "text": "No, thank you.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_sequence_shop_decline_bag_second_customer_v1.webp"
+        }
+      ],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact offer bank uses the complete taught acceptance/refusal replies. A distinct customer's visible response establishes the choice: the first customer accepts a paper bag; the second has her own tote and politely refuses. These are separate encounters."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-9-unit-5-review|Listen|N16",
+      "sha256": "22fe348a6e3b15994f25daa98bc3f4232c2443b327a8d01a01c232bc0ccc65cb",
+      "prompt": "Listen and choose.",
+      "heard": "Here are your coffee and eggs. Thank you.",
+      "answer": null,
+      "correct": "Here are your coffee and eggs. Thank you.",
+      "options": [
+        {
+          "id": "n16-other-0",
+          "image_url": "",
+          "label": "Here are your coffee and bread. Thank you."
+        },
+        {
+          "id": "n16-answer",
+          "image_url": "",
+          "label": "Here are your coffee and eggs. Thank you."
+        }
+      ],
+      "prompt_image": "",
+      "prompt_turns": [
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u5_revision_review_cafe_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u5_revision_review_cafe_thanks_v1.webp"
+        }
+      ],
+      "reply_turns": [],
+      "analysis": [
+        "utterances",
+        [],
+        {
+          "conversational-response": "uses complete conversational responses or instructions"
+        }
+      ],
+      "teaching_reasons": {
+        "conversational-response": "This exact heard café handover and thanks bank retrieves the full service exchange. Both alternatives have matching utterance counts and parallel item wording; coffee with eggs matches the audio and fresh review handover, whereas coffee with bread does not."
+      },
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    },
+    {
+      "key": "lesson-5-9-unit-5-review|Listen|N17",
+      "sha256": "250f83c45df68904b3de9bc9cf50b7a623ed4caa124621aad7c62cc32f7d217a",
+      "prompt": "Listen and choose.",
+      "heard": "Here is your coffee.",
+      "answer": null,
+      "correct": "Here is your coffee.",
+      "options": [
+        {
+          "id": "n17-answer",
+          "image_url": "",
+          "label": "Here is your coffee."
+        },
+        {
+          "id": "n17-other-0",
+          "image_url": "",
+          "label": "Here is your tea."
+        }
+      ],
+      "prompt_image": "",
+      "prompt_turns": [],
+      "reply_turns": [],
+      "analysis": [
+        "sentences",
+        [],
+        {}
+      ],
+      "teaching_reasons": {},
+      "reviewer": "Codex agent",
+      "reviewed_at": "2026-10-08",
+      "decision": "language-and-sequence-reviewed",
+      "media_status": "Exact source and phone-size pictures were inspected by agents. Per-turn image hashes and observations are recorded in docs/qa/ordering-sequence-media-review-2026-10-08.json; human review of the exact Preview remains pending."
+    }
+  ]
+}

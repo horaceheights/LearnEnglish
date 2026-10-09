@@ -2,6 +2,7 @@
 import json
 import re
 import unittest
+from copy import deepcopy
 from pathlib import Path
 
 from scripts.content_engine.plan import compose_lesson
@@ -100,9 +101,38 @@ class UnitFiveReviewTests(unittest.TestCase):
                            "Can I have coffee and eggs, please?", "Thank you."):
                 self.assertIn(phrase, text, number)
         mission = LESSONS["5.12"]["cards"]
-        self.assertEqual(len(mission), 18)
-        self.assertEqual(sum(c["mission_game"]["kind"] == "voice-gate" for c in mission), 9)
-        self.assertEqual([c["slide_id"] for c in mission], [f"M{i:02}" for i in range(1, 19)])
+        self.assertEqual(len(mission), 20)
+        self.assertEqual(sum(c["mission_game"]["kind"] == "voice-gate" for c in mission), 10)
+        self.assertEqual([c["slide_id"] for c in mission],
+                         [*[f"M{i:02}" for i in range(1, 13)], "M12L", "M12D",
+                          *[f"M{i:02}" for i in range(13, 19)]])
+
+    def test_mission_contract_preserves_recap_order_card_identity_and_mission_media(self):
+        from scripts.validate_lesson_cards import LESSONS as canonical, validate_mission_contracts
+
+        self.assertEqual(validate_mission_contracts(canonical), [])
+        mission_id = "lesson-5-10-cafe-mission"
+        cases = (
+            ("missing meal", "must contain exactly 20 mission beats"),
+            ("renumbered stable card", "mission beat IDs must preserve the approved sequence"),
+            ("market inside recap", "approved chapter beat map"),
+            ("teaching hero", "namespace"),
+        )
+        for name, expected_error in cases:
+            with self.subTest(regression=name):
+                lesson = deepcopy(canonical[mission_id])
+                lunch = next(card for card in lesson.cards if card.slide_id == "M12L")
+                if name == "missing meal":
+                    lesson.cards.remove(lunch)
+                elif name == "renumbered stable card":
+                    for index, card in enumerate(lesson.cards, 1):
+                        card.slide_id = f"M{index:02d}"
+                elif name == "market inside recap":
+                    lunch.mission_chapter_id = "precios"
+                else:
+                    lunch.prompt_image_url = "/lesson-assets/a1_u5_sequence_cafe_lunch_v1.webp"
+                errors = validate_mission_contracts({**canonical, mission_id: lesson})
+                self.assertTrue(any(expected_error in error for error in errors), errors)
 
     def test_price_cues_hit_their_own_physical_tag(self):
         card = next(c for c in LESSONS["5.12"]["cards"] if c["slide_id"] == "M13")

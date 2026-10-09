@@ -11,7 +11,7 @@
     "lesson_title": "Unit 5: Food, Drinks, and Shopping",
     "sub_lesson_id": "5.9",
     "sub_lesson_title": "Ordering Politely 1: At a Café",
-    "goal": "Complete a polite café exchange: greeting and help, request, handover and thanks.",
+    "goal": "Complete polite café exchanges for three different customers: greeting and help, request, matching handover and thanks; transfer from coffee to water and coffee with eggs.",
     "vocabulary": [
       "How can I help you?",
       "Can I have...?",
@@ -40,42 +40,46 @@
     "grammar_function": "Hello! How can I help you? Can I have coffee, please? Here is your coffee. Thank you. Can I have coffee and eggs, please? Here are your coffee and eggs.",
     "prerequisite": "3.1 greetings; 3.12 have; 5.2 food; 5.3 drinks; 5.6 wants and needs. Can I have and How can I help you are introduced here as polite fixed frames.",
     "speaking_outcome": "Request coffee, water or coffee and eggs politely, and complete the handover with thanks.",
-    "content_revision": 3,
+    "content_revision": 4,
     "purposeful_review_slides": [
       "R1",
-      "R2",
       "R3",
       "R4",
       "R5",
       "R6",
+      "R-water-thanks",
       "R7",
       "R8",
-      "R9",
-      "R10",
-      "A1",
+      "R-combo-thanks",
       "A2",
       "A3",
       "A4",
       "A5",
       "A6",
+      "A-water-thanks",
       "A7",
       "A8",
+      "A-combo-thanks",
       "S1",
       "S2",
       "S3",
       "S4",
       "S5",
       "S6",
+      "S-water-thanks",
       "S7",
       "S8",
+      "S-combo-thanks",
       "U1",
       "U2",
       "U3",
       "U4",
       "U5",
       "U6",
+      "U-water-thanks",
       "U7",
-      "U8"
+      "U8",
+      "U-combo-thanks"
     ],
     "learn_context_groups": [
       {
@@ -107,6 +111,10 @@
             "text": "Thank you."
           },
           {
+            "slide_id": "L-water-greeting",
+            "text": "Hello! How can I help you?"
+          },
+          {
             "slide_id": "L5",
             "text": "Water, please."
           },
@@ -115,12 +123,24 @@
             "text": "Here you are."
           },
           {
+            "slide_id": "L-water-thanks",
+            "text": "Thank you."
+          },
+          {
+            "slide_id": "L-combo-greeting",
+            "text": "Hello! How can I help you?"
+          },
+          {
             "slide_id": "L7",
             "text": "Can I have coffee and eggs, please?"
           },
           {
             "slide_id": "L8",
             "text": "Here are your coffee and eggs."
+          },
+          {
+            "slide_id": "L-combo-thanks",
+            "text": "Thank you."
           }
         ]
       }
@@ -140,7 +160,7 @@
       ],
       "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L1",
+      "pedagogy_note": "Ordered café exchange / Learn: greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -164,12 +184,12 @@
         {
           "id": "l2-model",
           "label": "Can I have coffee, please?",
-          "image_url": "a1_u5_revision_cafe_coffee_request_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp"
         }
       ],
       "spanish_translation": "¿Me da café, por favor?",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L2",
+      "pedagogy_note": "Ordered café exchange / Learn: coffee_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -198,7 +218,7 @@
       ],
       "spanish_translation": "Aquí está tu café.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L3",
+      "pedagogy_note": "Ordered café exchange / Learn: coffee_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -227,7 +247,36 @@
       ],
       "spanish_translation": "Gracias.",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L4",
+      "pedagogy_note": "Ordered café exchange / Learn: coffee_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "audio_speaker",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "teach",
+      "slide_id": "L-water-greeting",
+      "stage": "Learn",
+      "options": [
+        {
+          "id": "l-water-greeting-model",
+          "label": "Hello! How can I help you?",
+          "image_url": "a1_u5_sequence_cafe_water_greeting_v1.webp"
+        }
+      ],
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "Ordered café exchange / Learn: water_greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -251,12 +300,12 @@
         {
           "id": "l5-model",
           "label": "Water, please.",
-          "image_url": "a1_u5_revision_cafe_water_request_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_water_request_v1.webp"
         }
       ],
       "spanish_translation": "Agua, por favor.",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L5",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "Ordered café exchange / Learn: water_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -280,12 +329,70 @@
         {
           "id": "l6-model",
           "label": "Here you are.",
-          "image_url": "a1_u5_revision_cafe_water_handover_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_water_handover_v1.webp"
         }
       ],
       "spanish_translation": "Aquí tienes.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "Ordered café exchange / Learn: water_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "audio_speaker",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "teach",
+      "slide_id": "L-water-thanks",
+      "stage": "Learn",
+      "options": [
+        {
+          "id": "l-water-thanks-model",
+          "label": "Thank you.",
+          "image_url": "a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "spanish_translation": "Gracias.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L6",
+      "pedagogy_note": "Ordered café exchange / Learn: water_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "audio_speaker",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "teach",
+      "slide_id": "L-combo-greeting",
+      "stage": "Learn",
+      "options": [
+        {
+          "id": "l-combo-greeting-model",
+          "label": "Hello! How can I help you?",
+          "image_url": "a1_u5_sequence_cafe_combo_greeting_v1.webp"
+        }
+      ],
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "Ordered café exchange / Learn: combo_greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -309,12 +416,12 @@
         {
           "id": "l7-model",
           "label": "Can I have coffee and eggs, please?",
-          "image_url": "a1_u5_revision_cafe_combo_request_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_combo_request_v1.webp"
         }
       ],
       "spanish_translation": "¿Me da café y huevos, por favor?",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L7",
+      "pedagogy_note": "Ordered café exchange / Learn: combo_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -338,12 +445,41 @@
         {
           "id": "l8-model",
           "label": "Here are your coffee and eggs.",
-          "image_url": "a1_u5_revision_cafe_combo_handover_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp"
         }
       ],
       "spanish_translation": "Aquí están tu café y tus huevos.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Learn / L8",
+      "pedagogy_note": "Ordered café exchange / Learn: combo_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "audio_speaker",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "teach",
+      "slide_id": "L-combo-thanks",
+      "stage": "Learn",
+      "options": [
+        {
+          "id": "l-combo-thanks-model",
+          "label": "Thank you.",
+          "image_url": "a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "spanish_translation": "Gracias.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "Ordered café exchange / Learn: combo_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -366,29 +502,29 @@
       "stage": "Recognize",
       "options": [
         {
-          "id": "r1-other-0",
-          "label": "Can I have tea, please?",
-          "image_url": ""
-        },
-        {
           "id": "r1-answer",
           "label": "Can I have coffee, please?",
           "image_url": ""
+        },
+        {
+          "id": "r1-other-0",
+          "label": "Can I have tea, please?",
+          "image_url": ""
         }
       ],
+      "prompt_image_url": "a1_u5_revision_cafe_greeting_v1.webp",
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
+      "pedagogy_note": "coffee / Recognize: greeting -> coffee_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
       "answer_audio_turns": [
         {
           "text": "Can I have coffee, please?",
           "speaker_role": "male-character",
-          "image_url": "a1_u5_revision_cafe_coffee_request_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp"
         }
       ],
-      "prompt_image_url": "a1_u5_revision_cafe_coffee_request_v1.webp",
-      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
-      "answer_audio_speaker": "male-character",
-      "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R1",
-      "answer": 1,
+      "reply_image_timing": "after-prompt",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -398,35 +534,14 @@
         "options",
         "audio_text",
         "answer_audio_text",
-        "answer_audio_turns",
         "prompt_image_url",
         "spanish_translation",
-        "answer_audio_speaker",
+        "pedagogy_note",
         "audio_speaker",
-        "pedagogy_note"
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
       ]
-    },
-    {
-      "recipe": "choice",
-      "slide_id": "R2",
-      "prompt": "",
-      "stage": "Recognize",
-      "options": [
-        {
-          "id": "r2-answer",
-          "label": "Can I have coffee, please?",
-          "image_url": ""
-        },
-        {
-          "id": "r2-other-0",
-          "label": "Can I have tea, please?",
-          "image_url": ""
-        }
-      ],
-      "prompt_image_url": "a1_u5_revision_cafe_coffee_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R2"
     },
     {
       "recipe": "choice",
@@ -445,6 +560,11 @@
           "image_url": ""
         }
       ],
+      "prompt_image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp",
+      "spanish_translation": "¿Me da café, por favor?",
+      "pedagogy_note": "coffee / Recognize: coffee_request -> coffee_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
       "answer_audio_turns": [
         {
           "text": "Here is your coffee.",
@@ -452,11 +572,7 @@
           "image_url": "a1_u5_revision_cafe_coffee_handover_v1.webp"
         }
       ],
-      "prompt_image_url": "a1_u5_revision_cafe_coffee_request_v1.webp",
-      "spanish_translation": "¿Me da café, por favor?",
-      "answer_audio_speaker": "female-character",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R3",
+      "reply_image_timing": "after-prompt",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -467,12 +583,13 @@
         "options",
         "audio_text",
         "answer_audio_text",
-        "answer_audio_turns",
         "prompt_image_url",
         "spanish_translation",
-        "answer_audio_speaker",
+        "pedagogy_note",
         "audio_speaker",
-        "pedagogy_note"
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
       ]
     },
     {
@@ -488,10 +605,15 @@
         },
         {
           "id": "r4-other-0",
-          "label": "Goodbye.",
+          "label": "Here is your coffee.",
           "image_url": ""
         }
       ],
+      "prompt_image_url": "a1_u5_revision_cafe_coffee_handover_v1.webp",
+      "spanish_translation": "Aquí está tu café.",
+      "pedagogy_note": "coffee / Recognize: coffee_handover -> coffee_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
       "answer_audio_turns": [
         {
           "text": "Thank you.",
@@ -499,11 +621,7 @@
           "image_url": "a1_u5_revision_cafe_thanks_v1.webp"
         }
       ],
-      "prompt_image_url": "a1_u5_revision_cafe_coffee_handover_v1.webp",
-      "spanish_translation": "Aquí está tu café.",
-      "answer_audio_speaker": "male-character",
-      "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R4",
+      "reply_image_timing": "after-prompt",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -513,18 +631,19 @@
         "options",
         "audio_text",
         "answer_audio_text",
-        "answer_audio_turns",
         "prompt_image_url",
         "spanish_translation",
-        "answer_audio_speaker",
+        "pedagogy_note",
         "audio_speaker",
-        "pedagogy_note"
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
       ]
     },
     {
       "recipe": "choice",
       "slide_id": "R5",
-      "prompt": "",
+      "prompt": "Hello! How can I help you?",
       "stage": "Recognize",
       "options": [
         {
@@ -538,11 +657,37 @@
           "image_url": ""
         }
       ],
-      "prompt_image_url": "a1_u5_revision_cafe_water_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R5",
-      "answer": 1
+      "prompt_image_url": "a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
+      "pedagogy_note": "water / Recognize: water_greeting -> water_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "answer_audio_turns": [
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_water_request_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
+      "answer": 1,
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "audio_speaker",
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
+      ]
     },
     {
       "recipe": "choice",
@@ -561,18 +706,19 @@
           "image_url": ""
         }
       ],
+      "prompt_image_url": "a1_u5_sequence_cafe_water_request_v1.webp",
+      "spanish_translation": "Agua, por favor.",
+      "pedagogy_note": "water / Recognize: water_request -> water_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "male-character",
       "answer_audio_turns": [
         {
           "text": "Here you are.",
-          "speaker_role": "female-character",
-          "image_url": "a1_u5_revision_cafe_water_handover_v1.webp"
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_water_handover_v1.webp"
         }
       ],
-      "prompt_image_url": "a1_u5_revision_cafe_water_request_v1.webp",
-      "spanish_translation": "Agua, por favor.",
-      "answer_audio_speaker": "female-character",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R6",
+      "reply_image_timing": "after-prompt",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -582,36 +728,111 @@
         "options",
         "audio_text",
         "answer_audio_text",
-        "answer_audio_turns",
         "prompt_image_url",
         "spanish_translation",
-        "answer_audio_speaker",
+        "pedagogy_note",
         "audio_speaker",
-        "pedagogy_note"
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
+      ]
+    },
+    {
+      "recipe": "choice",
+      "slide_id": "R-water-thanks",
+      "prompt": "Here you are.",
+      "stage": "Recognize",
+      "options": [
+        {
+          "id": "r-water-thanks-other-0",
+          "label": "Here you are.",
+          "image_url": ""
+        },
+        {
+          "id": "r-water-thanks-answer",
+          "label": "Thank you.",
+          "image_url": ""
+        }
+      ],
+      "prompt_image_url": "a1_u5_sequence_cafe_water_handover_v1.webp",
+      "spanish_translation": "Aquí tienes.",
+      "pedagogy_note": "water / Recognize: water_handover -> water_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
+      "answer_audio_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
+      "answer": 1,
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "audio_speaker",
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
       ]
     },
     {
       "recipe": "choice",
       "slide_id": "R7",
-      "prompt": "",
+      "prompt": "Hello! How can I help you?",
       "stage": "Recognize",
       "options": [
-        {
-          "id": "r7-other-0",
-          "label": "Can I have coffee and bread, please?",
-          "image_url": ""
-        },
         {
           "id": "r7-answer",
           "label": "Can I have coffee and eggs, please?",
           "image_url": ""
+        },
+        {
+          "id": "r7-other-0",
+          "label": "Can I have coffee and bread, please?",
+          "image_url": ""
         }
       ],
-      "prompt_image_url": "a1_u5_revision_cafe_combo_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
+      "pedagogy_note": "combo / Recognize: combo_greeting -> combo_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "female-character",
       "answer_audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R7",
-      "answer": 1
+      "answer_audio_turns": [
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_combo_request_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "audio_speaker",
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
+      ]
     },
     {
       "recipe": "choice",
@@ -620,97 +841,29 @@
       "stage": "Recognize",
       "options": [
         {
-          "id": "r8-answer",
-          "label": "Here are your coffee and eggs.",
-          "image_url": ""
-        },
-        {
           "id": "r8-other-0",
           "label": "Here are your coffee and bread.",
           "image_url": ""
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "Here are your coffee and eggs.",
-          "speaker_role": "female-character",
-          "image_url": "a1_u5_revision_cafe_combo_handover_v1.webp"
-        }
-      ],
-      "prompt_image_url": "a1_u5_revision_cafe_combo_request_v1.webp",
-      "spanish_translation": "¿Me da café y huevos, por favor?",
-      "answer_audio_speaker": "female-character",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R8",
-      "field_order": [
-        "slide_id",
-        "interaction_type",
-        "prompt",
-        "stage",
-        "correct_option_id",
-        "options",
-        "audio_text",
-        "answer_audio_text",
-        "answer_audio_turns",
-        "prompt_image_url",
-        "spanish_translation",
-        "answer_audio_speaker",
-        "audio_speaker",
-        "pedagogy_note"
-      ]
-    },
-    {
-      "recipe": "choice",
-      "slide_id": "R9",
-      "prompt": "",
-      "stage": "Recognize",
-      "options": [
-        {
-          "id": "r9-other-0",
-          "label": "Can I have coffee and bread, please?",
-          "image_url": ""
         },
         {
-          "id": "r9-answer",
-          "label": "Can I have coffee and eggs, please?",
-          "image_url": ""
-        }
-      ],
-      "prompt_image_url": "a1_u5_revision_cafe_combo_request_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R9",
-      "answer": 1
-    },
-    {
-      "recipe": "choice",
-      "slide_id": "R10",
-      "prompt": "Can I have coffee and eggs, please?",
-      "stage": "Recognize",
-      "options": [
-        {
-          "id": "r10-other-0",
-          "label": "Here are your coffee and bread.",
-          "image_url": ""
-        },
-        {
-          "id": "r10-answer",
+          "id": "r8-answer",
           "label": "Here are your coffee and eggs.",
           "image_url": ""
         }
       ],
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_request_v1.webp",
+      "spanish_translation": "¿Me da café y huevos, por favor?",
+      "pedagogy_note": "combo / Recognize: combo_request -> combo_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "female-character",
       "answer_audio_turns": [
         {
           "text": "Here are your coffee and eggs.",
           "speaker_role": "female-character",
-          "image_url": "a1_u5_revision_cafe_combo_handover_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp"
         }
       ],
-      "prompt_image_url": "a1_u5_revision_cafe_combo_request_v1.webp",
-      "spanish_translation": "¿Me da café y huevos, por favor?",
-      "answer_audio_speaker": "female-character",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Recognize / R10",
+      "reply_image_timing": "after-prompt",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -721,33 +874,45 @@
         "options",
         "audio_text",
         "answer_audio_text",
-        "answer_audio_turns",
         "prompt_image_url",
         "spanish_translation",
-        "answer_audio_speaker",
+        "pedagogy_note",
         "audio_speaker",
-        "pedagogy_note"
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
       ]
     },
     {
       "recipe": "choice",
-      "slide_id": "A1",
-      "stage": "Listen",
+      "slide_id": "R-combo-thanks",
+      "prompt": "Here are your coffee and eggs.",
+      "stage": "Recognize",
       "options": [
         {
-          "id": "a1-answer",
-          "label": "Hello! How can I help you?",
+          "id": "r-combo-thanks-answer",
+          "label": "Thank you.",
           "image_url": ""
         },
         {
-          "id": "a1-other-0",
-          "label": "Hello! How are you?",
+          "id": "r-combo-thanks-other-0",
+          "label": "Here you are.",
           "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "spanish_translation": "Aquí están tu café y tus huevos.",
+      "pedagogy_note": "combo / Recognize: combo_handover -> combo_thanks. Distinct initiating and responding moments; one coherent reply.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A1",
+      "answer_audio_speaker": "male-character",
+      "answer_audio_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "reply_image_timing": "after-prompt",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -759,8 +924,11 @@
         "answer_audio_text",
         "prompt_image_url",
         "spanish_translation",
+        "pedagogy_note",
         "audio_speaker",
-        "pedagogy_note"
+        "answer_audio_speaker",
+        "answer_audio_turns",
+        "reply_image_timing"
       ]
     },
     {
@@ -769,20 +937,32 @@
       "stage": "Listen",
       "options": [
         {
-          "id": "a2-other-0",
-          "label": "Can I have tea, please?",
-          "image_url": ""
-        },
-        {
           "id": "a2-answer",
           "label": "Can I have coffee, please?",
           "image_url": ""
+        },
+        {
+          "id": "a2-other-0",
+          "label": "Can I have tea, please?",
+          "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A2",
-      "answer": 1,
+      "prompt_image_url": "a1_u5_revision_cafe_greeting_v1.webp",
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte? ¿Me da café, por favor?",
+      "pedagogy_note": "coffee / Listen: greeting -> coffee_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_cafe_greeting_v1.webp"
+        },
+        {
+          "text": "Can I have coffee, please?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "male-character",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -794,8 +974,9 @@
         "answer_audio_text",
         "prompt_image_url",
         "spanish_translation",
-        "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
       ]
     },
     {
@@ -804,19 +985,33 @@
       "stage": "Listen",
       "options": [
         {
-          "id": "a3-answer",
-          "label": "Here is your coffee.",
-          "image_url": ""
-        },
-        {
           "id": "a3-other-0",
           "label": "Here is your tea.",
           "image_url": ""
+        },
+        {
+          "id": "a3-answer",
+          "label": "Here is your coffee.",
+          "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A3",
+      "prompt_image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp",
+      "spanish_translation": "¿Me da café, por favor? Aquí está tu café.",
+      "pedagogy_note": "coffee / Listen: coffee_request -> coffee_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Can I have coffee, please?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp"
+        },
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_cafe_coffee_handover_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "female-character",
+      "answer": 1,
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -828,8 +1023,9 @@
         "answer_audio_text",
         "prompt_image_url",
         "spanish_translation",
-        "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
       ]
     },
     {
@@ -838,20 +1034,32 @@
       "stage": "Listen",
       "options": [
         {
-          "id": "a4-other-0",
-          "label": "Goodbye.",
-          "image_url": ""
-        },
-        {
           "id": "a4-answer",
           "label": "Thank you.",
           "image_url": ""
+        },
+        {
+          "id": "a4-other-0",
+          "label": "Here is your coffee.",
+          "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A4",
-      "answer": 1,
+      "prompt_image_url": "a1_u5_revision_cafe_coffee_handover_v1.webp",
+      "spanish_translation": "Aquí está tu café. Gracias.",
+      "pedagogy_note": "coffee / Listen: coffee_handover -> coffee_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Here is your coffee.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_revision_cafe_coffee_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_revision_cafe_thanks_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "male-character",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -863,8 +1071,9 @@
         "answer_audio_text",
         "prompt_image_url",
         "spanish_translation",
-        "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
       ]
     },
     {
@@ -873,53 +1082,32 @@
       "stage": "Listen",
       "options": [
         {
-          "id": "a5-answer",
-          "label": "Water, please.",
-          "image_url": ""
-        },
-        {
           "id": "a5-other-0",
           "label": "Milk, please.",
           "image_url": ""
-        }
-      ],
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A5",
-      "field_order": [
-        "slide_id",
-        "interaction_type",
-        "prompt",
-        "stage",
-        "correct_option_id",
-        "options",
-        "audio_text",
-        "answer_audio_text",
-        "prompt_image_url",
-        "spanish_translation",
-        "audio_speaker",
-        "pedagogy_note"
-      ]
-    },
-    {
-      "recipe": "choice",
-      "slide_id": "A6",
-      "stage": "Listen",
-      "options": [
-        {
-          "id": "a6-other-0",
-          "label": "Thank you.",
-          "image_url": ""
         },
         {
-          "id": "a6-answer",
-          "label": "Here you are.",
+          "id": "a5-answer",
+          "label": "Water, please.",
           "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A6",
+      "prompt_image_url": "a1_u5_sequence_cafe_water_greeting_v1.webp",
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte? Agua, por favor.",
+      "pedagogy_note": "water / Listen: water_greeting -> water_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_water_greeting_v1.webp"
+        },
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_water_request_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "female-character",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -932,8 +1120,106 @@
         "answer_audio_text",
         "prompt_image_url",
         "spanish_translation",
-        "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
+      ]
+    },
+    {
+      "recipe": "choice",
+      "slide_id": "A6",
+      "stage": "Listen",
+      "options": [
+        {
+          "id": "a6-answer",
+          "label": "Here you are.",
+          "image_url": ""
+        },
+        {
+          "id": "a6-other-0",
+          "label": "Thank you.",
+          "image_url": ""
+        }
+      ],
+      "prompt_image_url": "a1_u5_sequence_cafe_water_request_v1.webp",
+      "spanish_translation": "Agua, por favor. Aquí tienes.",
+      "pedagogy_note": "water / Listen: water_request -> water_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Water, please.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_water_request_v1.webp"
+        },
+        {
+          "text": "Here you are.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_water_handover_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "male-character",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
+      ]
+    },
+    {
+      "recipe": "choice",
+      "slide_id": "A-water-thanks",
+      "stage": "Listen",
+      "options": [
+        {
+          "id": "a-water-thanks-other-0",
+          "label": "Here you are.",
+          "image_url": ""
+        },
+        {
+          "id": "a-water-thanks-answer",
+          "label": "Thank you.",
+          "image_url": ""
+        }
+      ],
+      "prompt_image_url": "a1_u5_sequence_cafe_water_handover_v1.webp",
+      "spanish_translation": "Aquí tienes. Gracias.",
+      "pedagogy_note": "water / Listen: water_handover -> water_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Here you are.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_water_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "female-character",
+      "answer": 1,
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
       ]
     },
     {
@@ -952,9 +1238,22 @@
           "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A7",
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_greeting_v1.webp",
+      "spanish_translation": "¡Hola! ¿En qué puedo ayudarte? ¿Me da café y huevos, por favor?",
+      "pedagogy_note": "combo / Listen: combo_greeting -> combo_request. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Hello! How can I help you?",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_combo_greeting_v1.webp"
+        },
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_combo_request_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "male-character",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -966,8 +1265,9 @@
         "answer_audio_text",
         "prompt_image_url",
         "spanish_translation",
-        "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
       ]
     },
     {
@@ -986,9 +1286,22 @@
           "image_url": ""
         }
       ],
-      "spanish_translation": "Escucha y elige.",
-      "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Listen / A8",
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_request_v1.webp",
+      "spanish_translation": "¿Me da café y huevos, por favor? Aquí están tu café y tus huevos.",
+      "pedagogy_note": "combo / Listen: combo_request -> combo_handover. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Can I have coffee and eggs, please?",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_combo_request_v1.webp"
+        },
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "female-character",
       "answer": 1,
       "field_order": [
         "slide_id",
@@ -1001,8 +1314,57 @@
         "answer_audio_text",
         "prompt_image_url",
         "spanish_translation",
-        "audio_speaker",
-        "pedagogy_note"
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
+      ]
+    },
+    {
+      "recipe": "choice",
+      "slide_id": "A-combo-thanks",
+      "stage": "Listen",
+      "options": [
+        {
+          "id": "a-combo-thanks-answer",
+          "label": "Thank you.",
+          "image_url": ""
+        },
+        {
+          "id": "a-combo-thanks-other-0",
+          "label": "Here you are.",
+          "image_url": ""
+        }
+      ],
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp",
+      "spanish_translation": "Aquí están tu café y tus huevos. Gracias.",
+      "pedagogy_note": "combo / Listen: combo_handover -> combo_thanks. Distinct initiating and responding moments; one coherent reply.",
+      "audio_turns": [
+        {
+          "text": "Here are your coffee and eggs.",
+          "speaker_role": "female-character",
+          "image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "male-character",
+          "image_url": "a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "answer_audio_speaker": "male-character",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "pedagogy_note",
+        "audio_turns",
+        "answer_audio_speaker"
       ]
     },
     {
@@ -1018,7 +1380,7 @@
       ],
       "spanish_translation": "¡Hola! ¿En qué puedo ayudarte?",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S1",
+      "pedagogy_note": "Ordered café exchange / Speak: greeting. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1042,12 +1404,12 @@
         {
           "id": "s2-model",
           "label": "Can I have coffee, please?",
-          "image_url": "a1_u5_revision_cafe_coffee_request_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp"
         }
       ],
       "spanish_translation": "¿Me da café, por favor?",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S2",
+      "pedagogy_note": "Ordered café exchange / Speak: coffee_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1076,7 +1438,7 @@
       ],
       "spanish_translation": "Aquí está tu café.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S3",
+      "pedagogy_note": "Ordered café exchange / Speak: coffee_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1105,7 +1467,7 @@
       ],
       "spanish_translation": "Gracias.",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S4",
+      "pedagogy_note": "Ordered café exchange / Speak: coffee_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1129,12 +1491,12 @@
         {
           "id": "s5-model",
           "label": "Water, please.",
-          "image_url": "a1_u5_revision_cafe_water_request_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_water_request_v1.webp"
         }
       ],
       "spanish_translation": "Agua, por favor.",
-      "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S5",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "Ordered café exchange / Speak: water_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1158,12 +1520,41 @@
         {
           "id": "s6-model",
           "label": "Here you are.",
-          "image_url": "a1_u5_revision_cafe_water_handover_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_water_handover_v1.webp"
         }
       ],
       "spanish_translation": "Aquí tienes.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "Ordered café exchange / Speak: water_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "audio_speaker",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "speak",
+      "slide_id": "S-water-thanks",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "s-water-thanks-model",
+          "label": "Thank you.",
+          "image_url": "a1_u5_sequence_cafe_water_thanks_v1.webp"
+        }
+      ],
+      "spanish_translation": "Gracias.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S6",
+      "pedagogy_note": "Ordered café exchange / Speak: water_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1187,12 +1578,12 @@
         {
           "id": "s7-model",
           "label": "Can I have coffee and eggs, please?",
-          "image_url": "a1_u5_revision_cafe_combo_request_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_combo_request_v1.webp"
         }
       ],
       "spanish_translation": "¿Me da café y huevos, por favor?",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S7",
+      "pedagogy_note": "Ordered café exchange / Speak: combo_request. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1216,12 +1607,41 @@
         {
           "id": "s8-model",
           "label": "Here are your coffee and eggs.",
-          "image_url": "a1_u5_revision_cafe_combo_handover_v1.webp"
+          "image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp"
         }
       ],
       "spanish_translation": "Aquí están tu café y tus huevos.",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Speak / S8",
+      "pedagogy_note": "Ordered café exchange / Speak: combo_handover. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "audio_speaker",
+        "pedagogy_note"
+      ]
+    },
+    {
+      "recipe": "speak",
+      "slide_id": "S-combo-thanks",
+      "stage": "Speak",
+      "options": [
+        {
+          "id": "s-combo-thanks-model",
+          "label": "Thank you.",
+          "image_url": "a1_u5_sequence_cafe_combo_thanks_v1.webp"
+        }
+      ],
+      "spanish_translation": "Gracias.",
+      "audio_speaker": "male-character",
+      "pedagogy_note": "Ordered café exchange / Speak: combo_thanks. Same speaker, setting and order within this customer's visit; requests precede handovers and thanks follows receipt.",
       "field_order": [
         "slide_id",
         "interaction_type",
@@ -1264,7 +1684,7 @@
       ],
       "answer_audio_speaker": "female-character",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U1",
+      "pedagogy_note": "Ordered café exchange / Use: greeting.",
       "mirror_translation": true,
       "field_order": [
         "slide_id",
@@ -1303,7 +1723,7 @@
         }
       ],
       "answer_audio_text": "Can I have coffee, please?",
-      "prompt_image_url": "a1_u5_revision_cafe_coffee_request_v1.webp",
+      "prompt_image_url": "a1_u5_sequence_cafe_coffee_request_v1.webp",
       "spanish_translation": "¿Me da café, por favor?",
       "correct_option_ids": [
         "coffee",
@@ -1311,7 +1731,7 @@
       ],
       "answer_audio_speaker": "male-character",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U2",
+      "pedagogy_note": "Ordered café exchange / Use: coffee_request.",
       "mirror_translation": true,
       "field_order": [
         "slide_id",
@@ -1358,7 +1778,7 @@
       ],
       "answer_audio_speaker": "female-character",
       "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U3",
+      "pedagogy_note": "Ordered café exchange / Use: coffee_handover.",
       "mirror_translation": true,
       "field_order": [
         "slide_id",
@@ -1405,7 +1825,7 @@
       ],
       "answer_audio_speaker": "male-character",
       "audio_speaker": "male-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U4",
+      "pedagogy_note": "Ordered café exchange / Use: coffee_thanks.",
       "mirror_translation": true,
       "field_order": [
         "slide_id",
@@ -1428,32 +1848,49 @@
     {
       "recipe": "complete",
       "slide_id": "U5",
-      "interaction_type": "complete-sentence",
+      "interaction_type": "complete2",
       "prompt": "___, ___.",
       "stage": "Use",
       "options": [
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "please"
-        },
-        {
-          "id": "word-1",
+          "id": "water",
           "image_url": "",
           "label": "Water"
+        },
+        {
+          "id": "please",
+          "image_url": "",
+          "label": "please"
         }
       ],
       "answer_audio_text": "Water, please.",
-      "prompt_image_url": "a1_u5_revision_cafe_water_request_v1.webp",
+      "prompt_image_url": "a1_u5_sequence_cafe_water_request_v1.webp",
       "spanish_translation": "Agua, por favor.",
       "correct_option_ids": [
-        "word-1",
-        "word-2"
+        "water",
+        "please"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Use: Water, please.",
-      "audio_speaker": "male-character",
-      "mirror_translation": true
+      "answer_audio_speaker": "female-character",
+      "audio_speaker": "female-character",
+      "pedagogy_note": "Ordered café exchange / Use: water_request.",
+      "mirror_translation": true,
+      "field_order": [
+        "slide_id",
+        "interaction_type",
+        "prompt",
+        "stage",
+        "correct_option_id",
+        "options",
+        "audio_text",
+        "answer_audio_text",
+        "prompt_image_url",
+        "spanish_translation",
+        "translation",
+        "correct_option_ids",
+        "answer_audio_speaker",
+        "audio_speaker",
+        "pedagogy_note"
+      ]
     },
     {
       "recipe": "complete",
@@ -1479,15 +1916,45 @@
         }
       ],
       "answer_audio_text": "Here you are.",
-      "prompt_image_url": "a1_u5_revision_cafe_water_handover_v1.webp",
+      "prompt_image_url": "a1_u5_sequence_cafe_water_handover_v1.webp",
       "spanish_translation": "Aquí tienes.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3"
       ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Ordered café exchange / Use: water_handover.",
+      "audio_speaker": "male-character",
+      "mirror_translation": true
+    },
+    {
+      "recipe": "complete",
+      "slide_id": "U-water-thanks",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Thank"
+        }
+      ],
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "a1_u5_sequence_cafe_water_thanks_v1.webp",
+      "spanish_translation": "Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Use: Here you are.",
+      "pedagogy_note": "Ordered café exchange / Use: water_thanks.",
       "audio_speaker": "female-character",
       "mirror_translation": true
     },
@@ -1535,7 +2002,7 @@
         }
       ],
       "answer_audio_text": "Can I have coffee and eggs, please?",
-      "prompt_image_url": "a1_u5_revision_cafe_combo_request_v1.webp",
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_request_v1.webp",
       "spanish_translation": "¿Me da café y huevos, por favor?",
       "correct_option_ids": [
         "word-1",
@@ -1547,7 +2014,7 @@
         "word-7"
       ],
       "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Use: Can I have coffee and eggs, please?",
+      "pedagogy_note": "Ordered café exchange / Use: combo_request.",
       "audio_speaker": "male-character",
       "mirror_translation": true
     },
@@ -1590,7 +2057,7 @@
         }
       ],
       "answer_audio_text": "Here are your coffee and eggs.",
-      "prompt_image_url": "a1_u5_revision_cafe_combo_handover_v1.webp",
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_handover_v1.webp",
       "spanish_translation": "Aquí están tu café y tus huevos.",
       "correct_option_ids": [
         "word-1",
@@ -1601,8 +2068,38 @@
         "word-6"
       ],
       "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Use: Here are your coffee and eggs.",
+      "pedagogy_note": "Ordered café exchange / Use: combo_handover.",
       "audio_speaker": "female-character",
+      "mirror_translation": true
+    },
+    {
+      "recipe": "complete",
+      "slide_id": "U-combo-thanks",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Thank"
+        }
+      ],
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "a1_u5_sequence_cafe_combo_thanks_v1.webp",
+      "spanish_translation": "Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Ordered café exchange / Use: combo_thanks.",
+      "audio_speaker": "male-character",
       "mirror_translation": true
     }
   ],
@@ -1630,8 +2127,8 @@
   ],
   "source": {
     "path": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
-    "sha256": "d9e49385fdc29c68f2657edb286543d4325f0f07a9d8e7373e8ac37e9edf5bea"
+    "sha256": "6b54ade8e5374c7670c7fcb4994d435186966a34a1274d4bf2a4f7d6cf1c67ee"
   },
   "draft": false,
-  "review_status": "Language, sequence, complete banks and source photographs reviewed by Codex. Installation requires whole-course validators. Recorded audio and phone acceptance remain separate verification steps; no human approval implied."
+  "review_status": "2026-10-08 user-directed sequence corrections. Exact language, speakers, chronological scenes and ordered moments authored through shared recipes. New generated pixels and phone-size views inspected by agents, with immutable provenance. Human review of the exact Preview remains pending; no publication or human approval is implied."
 }

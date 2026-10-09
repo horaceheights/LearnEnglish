@@ -89,9 +89,13 @@ EXACT_ROLE_CHANGES = {
 # 3.11 adds 17 ownership-speaker assignments after the template correction.
 # 4.3 Listen A1 reuses the approved natural female teacher In take (-1 co-teacher field).
 # 2026-10-08: contextual verbs and Unit 5 exchanges, with per-turn voices.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1979
+# The ordering sequence follow-up adds 13 net scalar assignments and recasts
+# its pictured speakers; M15's bag acceptance adds one female answer field.
+# Per-turn speakers are audited separately. These pin this reviewed snapshot,
+# not a cap on new content; exact deltas are in the matching QA inventory.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1993
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "8ecda948fae02175d92126ba823236d91ca03cd8c2a5212049247ee3b0fc2d6a"
+    "eb33c858050d6e055c473112c489f2d8eda08807eeb7ab2488c6b7e7074049b8"
 )
 
 
