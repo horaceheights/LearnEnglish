@@ -67,8 +67,8 @@ assert.match(
 
 assert.match(
   frontendLessonPlayerSource,
-  /\(!isRecognitionLesson && !isWrittenRecognize\(currentCard\) && !cardPromptHasVisualBlank && !currentCard\?\.audio_turns\?\.length\)[\s\S]*?\|\| isPronunciationCard/,
-  'Web autoplay outside Unit 1 must support explicit written recognition, completion cards and authored turn sequences without enabling every ordinary card.',
+  /\(!isRecognitionLesson && !isWrittenRecognize\(currentCard\) && !replyImage && !cardPromptHasVisualBlank && !currentCard\?\.audio_turns\?\.length\)[\s\S]*?\|\| isPronunciationCard/,
+  'Web autoplay outside Unit 1 must support explicit written recognition, reply-image sequences, completion cards and authored turn sequences without enabling every ordinary card.',
 );
 
 let completionCardCount = 0;
@@ -156,16 +156,32 @@ for (const filename of fs.readdirSync(generatedRoot)) {
         expectedRevision,
         `${filename} ${card.slide_id} audio revision is not bound to its card purpose.`,
       );
-      const expectedSpeaker = isMissionAsset
+      const missionCueTurn = asset.purpose === 'mission-cue'
+        && card.audio_turns?.length === 1
+        && card.audio_turns[0].text === card.mission_game?.cue_audio_text?.trim()
+        ? card.audio_turns[0]
+        : null;
+      const expectedSpeaker = missionCueTurn?.speaker_role || (isMissionAsset
         ? 'teacher'
         : authoredTurn?.speaker_role || (isAnswerAsset
           ? (card.answer_audio_speaker || card.audio_speaker || asset.semantic_role)
-          : (card.audio_speaker || asset.semantic_role));
+          : (card.audio_speaker || asset.semantic_role)));
       assert.equal(
         asset.speaker_role,
         expectedSpeaker,
         `${filename} ${card.slide_id} audio speaker is not bound to its card purpose.`,
       );
+      if (asset.purpose === 'mission-cue') {
+        const promptTurnAsset = missionCueTurn
+          ? card.audio_assets.find((candidate) => candidate.purpose === 'prompt-turn-1')
+          : null;
+        if (missionCueTurn) {
+          assert.ok(promptTurnAsset, `${lesson.id} ${card.slide_id} needs its authoritative prompt-turn asset.`);
+          assert.equal(asset.text, promptTurnAsset.text);
+        }
+        assert.equal(asset.mode, promptTurnAsset?.mode || 'prompt');
+        assert.equal(asset.variant, promptTurnAsset?.variant || (asset.text.endsWith('?') ? 'question' : 'prompt'));
+      }
       const correctOption = card.options.find((option) => option.id === card.correct_option_id);
       const cardImageRef = card.prompt_image_url?.trim() || correctOption?.image_url?.trim() || null;
       const pronunciationOptionMatch = asset.purpose.match(/^pronunciation-option-(\d+)$/);
