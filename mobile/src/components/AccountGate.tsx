@@ -2,8 +2,7 @@ import { ClerkProvider, useAuth } from '@clerk/expo';
 import { tokenCache } from '@clerk/expo/token-cache';
 import { resourceCache } from '@clerk/expo/resource-cache';
 import { useHostedAuth } from '@clerk/expo/hosted-auth';
-import Constants from 'expo-constants';
-import { makeRedirectUri } from 'expo-auth-session';
+import { getNativeAuthRedirectUrl } from '../nativeAuthRedirect';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { AppState, Pressable, Text, View } from 'react-native';
@@ -135,7 +134,7 @@ function Gate({ children }: Props) {
   </View>;
   const open = async (mode: 'sign-in' | 'sign-up') => {
     setBusy(true); setError('');
-    try { await startHostedAuth({ mode, redirectUrl: makeRedirectUri({ scheme: String(Constants.expoConfig?.scheme || 'spanglish'), path: 'auth-callback' }) }); }
+    try { await startHostedAuth({ mode, redirectUrl: getNativeAuthRedirectUrl() }); }
     catch { setError('No pudimos abrir el acceso a tu cuenta. Inténtalo otra vez.'); }
     finally { setBusy(false); }
   };

@@ -19,7 +19,7 @@ preserved, including an explicitly chosen `Student`.
 | Backend / Render | `CLERK_SECRET_KEY`, `CLERK_ISSUER`, `CLERK_AUTHORIZED_PARTIES`, `CLERK_WEBHOOK_SIGNING_SECRET` |
 | Vercel server | `CLERK_SECRET_KEY` |
 | Browser / Vercel | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `NEXT_PUBLIC_API_BASE_URL` |
-| Expo Preview environment | `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` |
+| Expo Preview and Production environments | `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` |
 
 Use keys from the same Clerk instance. `CLERK_ISSUER` is that instance's HTTPS
 Frontend API origin. `CLERK_AUTHORIZED_PARTIES` is a comma-separated list of
@@ -45,16 +45,22 @@ whenever upgrading the pinned Clerk Expo SDK.
 Enable email verification, account recovery and the chosen sign-in methods in
 Clerk. Google is enabled in the SpanGlish development instance; Production
 uses its own Google OAuth client. Native API is enabled, and the user
-approved and saved these exact mobile redirect URLs in both instances:
+approved and saved the Preview and development callbacks in both instances;
+Production also includes its store-app callback:
 
 - `spanglish-preview://auth-callback`
 - `spanglish-dev://auth-callback`
+- `spanglish://auth-callback` (Production)
 
 The app uses PKCE and the SDK's hosted-auth callback validation. These schemes
-match `APP_VARIANT` in `mobile/app.config.js`. A future Production rollout needs
-its own instance/domain configuration, production keys, and
-`spanglish://auth-callback`; development keys are not Production readiness.
-Use a new native build for these dependency and configuration changes.
+match `APP_VARIANT` in `mobile/app.config.js`. The callback reads the installed
+binary's embedded native configuration, because a promoted Preview OTA retains
+Preview's manifest scheme even when installed in the Production binary. Test
+sign-in after Settings → Actualizar, including with both variants installed.
+Matching production keys are configured in EAS Preview and Production. Clerk
+Production includes bundle/package `com.gorre.spanglish`, Apple team
+`DAM23Q7964`, the Google Play app-signing certificate, and the Production
+callback. Use a new native build for dependency or native configuration changes.
 
 Create a Clerk webhook endpoint for `user.deleted` at
 `https://learnenglish-fxki.onrender.com/api/webhooks/clerk`, and save its signing

@@ -38,6 +38,9 @@ try {
   & node tests/lesson-result.test.cjs (Join-Path $outputDirectory 'lessonResult.js')
   if ($LASTEXITCODE -ne 0) { throw 'Lesson results and durable recovery tests failed.' }
 
+  & node --test tests/native-auth-redirect.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Native authentication callbacks must return to the installed app after OTA updates.' }
+
   & node tests/account-sync.test.cjs (Join-Path $outputDirectory 'accountSyncStore.js')
   if ($LASTEXITCODE -ne 0) { throw 'Account isolation, offline synchronization, and conflict recovery tests failed.' }
 
