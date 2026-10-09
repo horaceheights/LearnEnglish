@@ -670,6 +670,8 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 
 ## 11. Release Rules
 
+- On the authorized Windows runner, the Production publisher invokes `npm.cmd run verify:production` explicitly. Node 24.3.0's `npm.ps1` wrapper misread `& npm` as the command `pm` during the 2026-10-09 promotion attempt. Preserve the preflight's arguments and fail-closed exit handling with an executable regression test; never skip the preflight to work around a wrapper failure.
+
 - Protected Preview and Production scripts invoke the `eas` executable installed at the workflow's pinned version by the Expo setup action. Do not resolve a separate CLI through `npx eas-cli` during publication or metadata verification; the 2026-10-08 Production attempt failed at that command before promotion. Keep the executable choice covered by the release-authority regression tests.
 
 - Native updates must stay within Expo's 1,000-assets-per-platform limit, counting both the metadata's media assets and the launch bundle. Validate that total before upload. Import used icon families directly instead of bundling the entire icon library; retain all approved lesson images and offline media. The 2026-10-07 lesson 3.11 publication exposed this limit with 1,002 assets.
