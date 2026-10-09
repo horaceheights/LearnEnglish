@@ -8,8 +8,8 @@ const root = path.resolve(__dirname, '../..');
 const nativeFile = 'mobile/src/screens/LessonScreen.tsx';
 const webFile = 'frontend/components/LessonPlayer.js';
 const course = JSON.parse(fs.readFileSync(path.join(root, 'mobile/src/generated/a1-course.json'), 'utf8'));
-const lesson = course.find(l => l.sub_lesson_id === '5.5');
-const cards = lesson.cards.filter(c => c.reply_image_timing === 'after-prompt');
+const cards = course.flatMap(lesson => lesson.cards.filter(c => c.reply_image_timing === 'after-prompt'));
+const lessonForCard = new Map(course.flatMap(lesson => lesson.cards.map(card => [card, lesson])));
 const shared = {};
 vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(root, 'mobile/src/lessonTurnImages.ts'), 'utf8'),
   {compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText, {exports:shared});
@@ -50,8 +50,8 @@ function value(file, name, context) {
   return exports.value;
 }
 
-test('both agreement choices author a pre-choice response picture and retain existing audio bindings', () => {
-  assert.deepEqual(cards.map(c => c.slide_id), ['R2', 'R4']);
+test('every authored pre-choice reply has a distinct response picture and matching audio', () => {
+  assert.ok(cards.length > 0, 'The catalog must exercise the shared pre-choice reply behavior.');
   for (const card of cards) {
     assert.ok(card.audio_text);
     assert.notEqual(card.prompt_image_url, shared.replyImageAfterPrompt(card));
@@ -103,7 +103,8 @@ test('web prompt replay shows the first frame and reveals the response only on c
       setReplyImageAttempt(){},
       setActiveTurnImageUrl:value=>{image=value;}, cardAudioTurnSequence:()=>null,
       cardAudioAsset:()=>({id:'bound-prompt'}), speakText:(text,options)=>{spoken={text,options};},
-      cardPromptVoiceMode:'prompt',cardCompletionFullText:'',cardCompletionBlankText:'',helpCardKey:'5.5:R4',
+      cardPromptVoiceMode:'prompt',cardCompletionFullText:'',cardCompletionBlankText:'',
+      helpCardKey:`${lessonForCard.get(currentCard).id}:${currentCard.slide_id}`,
     });
     replay(); assert.equal(image,null); assert.equal(spoken.text,currentCard.audio_text);
     spoken.options.onEnd(); assert.equal(image,null,'Recovery callback cannot reveal the response.');
@@ -147,20 +148,22 @@ test('native correct-answer replay preserves authored turn audio and scalar fall
   assert.deepEqual(diagnostics,['course_audio_turn_sequence_invalid']);
 });
 
-test('web automatically plays these authored exchanges outside Unit 1 without requiring a manual replay', () => {
+test('web automatically plays authored pre-choice exchanges without requiring a manual replay', () => {
   for (const currentCard of cards) {
+    const activeLesson = lessonForCard.get(currentCard);
     let pending, spoken, image=null;
     const mount=callback(webFile,null,'spokenPromptKeyRef.current = promptKey',{
       currentCard, replyImage:shared.replyImageAfterPrompt(currentCard), isRecognitionLesson:false,
       setReplyImageAttempt(){},
       isWrittenRecognize:()=>false,cardPromptHasVisualBlank:false,isPronunciationCard:false,
       isMissionGameExperience:false,isPageTurning:false,started:true,isComplete:false,lastResult:null,
-      activeLesson:lesson,cardIndex:1,spokenPromptKeyRef:{current:null},
+      activeLesson,cardIndex:activeLesson.cards.indexOf(currentCard),spokenPromptKeyRef:{current:null},
       window:{setTimeout:fn=>{pending=fn;return 1;},clearTimeout(){}},
       cardPromptText:currentCard.audio_text,cardAudioTurnSequence:()=>null,
       setActiveTurnImageUrl:v=>{image=v;},speakText:(text,options)=>{spoken={text,options};},
       cardAudioAsset:()=>({id:'bound-prompt'}),cardPromptVoiceMode:'prompt',
-      cardCompletionFullText:'',cardCompletionBlankText:'',setHelpAudioReadyKey(){},helpCardKey:'5.5:R4',
+      cardCompletionFullText:'',cardCompletionBlankText:'',setHelpAudioReadyKey(){},
+      helpCardKey:`${activeLesson.id}:${currentCard.slide_id}`,
     });
     mount();assert.equal(typeof pending,'function');pending();
     assert.equal(spoken.text,currentCard.audio_text);assert.equal(image,null);
