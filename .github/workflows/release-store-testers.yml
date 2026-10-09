@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: Prepare store binaries or submit exact approved build IDs
+        description: Build binaries, verify IDs for console upload, or submit with EAS
         required: true
         type: choice
         default: build
-        options: [build, submit]
+        options: [build, verify, submit]
       platform:
         description: Platforms to build or submit (select one to retry a partial release)
         required: true
@@ -16,13 +16,13 @@ on:
         default: all
         options: [all, android, ios]
       android_build_id:
-        description: Verified production Android build ID (submit only)
+        description: Verified production Android build ID (verify/submit only)
         type: string
       ios_build_id:
-        description: Verified production iOS build ID (submit only)
+        description: Verified production iOS build ID (verify/submit only)
         type: string
       group_id:
-        description: Exact tested and approved Preview group (submit only)
+        description: Exact tested and approved Preview group (verify/submit only)
         type: string
       confirmed:
         description: User approved this exact tested Preview for the existing store tester tracks
@@ -56,7 +56,7 @@ jobs:
               $env:DISPATCH_REF_PROTECTED -cne 'true') {
             throw 'Store release requires manually dispatched protected main.'
           }
-          if ($env:RELEASE_ACTION -eq 'submit' -and $env:RELEASE_CONFIRMED -cne 'true') {
+          if ($env:RELEASE_ACTION -ne 'build' -and $env:RELEASE_CONFIRMED -cne 'true') {
             throw 'Store submission requires explicit approval of the exact tested Preview.'
           }
 

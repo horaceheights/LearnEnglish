@@ -128,11 +128,15 @@ test('protected workflow separates builds from exact-ID submissions and retains 
     assert.match(line, /uses: [\w/-]+@[0-9a-f]{40}/);
   }
   assert.doesNotMatch(workflow, /run:.*\$\{\{ inputs\./);
+  assert.match(workflow, /options: \[build, verify, submit\]/);
+  assert.match(workflow, /RELEASE_ACTION -ne 'build'/);
   assert.match(script, /Assert-SharedBackendRelease/);
   assert.match(script, /Assert-CleanReleaseCommit/);
   assert.match(script, /Assert-MainReleaseLineage/);
   assert.match(script, /eas submit --platform \$target --profile production --id \$ids\[\$target\] --non-interactive --wait/);
   assert.doesNotMatch(script, /--latest|--auto-submit|eas update|EAS_NO_VCS|npx/);
+  assert.ok(script.indexOf('Assert-StoreBuild -Build $build -ExpectedId $ids[$target]') < script.indexOf("if ($Action -eq 'verify')"));
+  assert.ok(script.indexOf('Assert-StorePreviewApproval -GroupId') < script.indexOf("if ($Action -eq 'verify')"));
   assert.ok(script.indexOf('Assert-StoreBuild -Build $build -ExpectedId $ids[$target]') < script.indexOf('& eas submit'));
   const submitLoop = script.slice(script.lastIndexOf('foreach ($target in $platforms)'));
   assert.ok(submitLoop.indexOf('Assert-StoreReleaseAuthority') < submitLoop.indexOf('& eas submit'));

@@ -1,5 +1,5 @@
 param(
-  [Parameter(Mandatory = $true)][ValidateSet('build', 'submit')][string]$Action,
+  [Parameter(Mandatory = $true)][ValidateSet('build', 'verify', 'submit')][string]$Action,
   [ValidateSet('all', 'android', 'ios')][string]$Platform = 'all',
   [string]$AndroidBuildId,
   [string]$IosBuildId,
@@ -50,6 +50,14 @@ try {
     if ($ids[$target] -notmatch '^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$') { throw "Missing valid $target build ID." }
     $build = Invoke-StoreEasJson -Arguments @('build:view', $ids[$target], '--json')
     Assert-StoreBuild -Build $build -ExpectedId $ids[$target] -ExpectedCommit $authority.Commit -ExpectedVersion $version -Platform $target
+  }
+  if ($Action -eq 'verify') {
+    $authority = Assert-StoreReleaseAuthority
+    foreach ($target in $platforms) {
+      "- Verified for store-console upload: ${target} build $($ids[$target]), commit $($authority.Commit), Preview $GroupId." | Add-Content $env:GITHUB_STEP_SUMMARY
+    }
+    'Upload only these exact CI-built binaries to the existing tester tracks. Verify remote main again immediately before store submission.' | Add-Content $env:GITHUB_STEP_SUMMARY
+    return
   }
   foreach ($target in $platforms) {
     # Recheck after a potentially long previous submission; never submit a stale second platform.
