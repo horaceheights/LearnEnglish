@@ -232,7 +232,8 @@ try {
   Assert-TestedPreviewGroup -ExpectedGroup $GroupId -ExpectedCommit $authority.Commit
   Write-Host 'Verificando integridad de Production; la aprobación corresponde al Preview exacto...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'Promoción bloqueada. Falló la integridad de contenido o el preflight de Production.' -Command {
-    & npm run verify:production
+    # The authorized runner is Windows. Avoid npm.ps1 misparsing the call operator.
+    & npm.cmd run verify:production
   }
 
   $authority = Assert-GitHubProductionPublishAuthority

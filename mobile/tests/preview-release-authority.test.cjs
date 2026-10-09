@@ -418,18 +418,18 @@ test('Production promotion verifies integrity and user approval of the exact Pre
   assert.match(promoteScriptSource, /Assert-MainReleaseLineage/);
   const promotionBody = promoteScriptSource.slice(promoteScriptSource.indexOf('$authority = Assert-GitHubProductionPublishAuthority'));
   assert.ok(
-    promotionBody.indexOf('Assert-TestedPreviewGroup') < promotionBody.indexOf('npm run verify:production'),
+    promotionBody.indexOf('Assert-TestedPreviewGroup') < promotionBody.indexOf('npm.cmd run verify:production'),
     'The group approved by the user must be verified before promotion preflight.',
   );
   assert.match(promoteScriptSource, /Assert-SharedBackendRelease/);
-  assert.match(promoteScriptSource, /npm run verify:production/);
+  assert.match(promoteScriptSource, /npm\.cmd run verify:production/);
   assert.match(promoteScriptSource, /eas update:view \$ExpectedGroup --json/);
   assert.match(promoteScriptSource, /PSObject\.Properties\['gitCommitHash'\]/);
   assert.match(promoteScriptSource, /\$observedPlatforms -contains 'android'/);
   assert.match(promoteScriptSource, /\$observedPlatforms -contains 'ios'/);
   assert.match(
     promoteScriptSource,
-    /npm run verify:production[\s\S]*?Assert-SharedBackendRelease[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas update:republish[\s\S]*?Assert-PublishedProductionCommit/,
+    /npm\.cmd run verify:production[\s\S]*?Assert-SharedBackendRelease[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas update:republish[\s\S]*?Assert-PublishedProductionCommit/,
     'Content integrity and immutable Preview binding must finish before promotion.',
   );
 });
@@ -442,6 +442,61 @@ test('Production uses the EAS executable pinned by the protected workflow for ev
     [...promoteScriptSource.matchAll(/& eas (update:[a-z]+)/g)].map(match => match[1]),
     ['update:list', 'update:view', 'update:list', 'update:view', 'update:republish'],
   );
+});
+
+test('Production preflight preserves npm arguments on Windows and blocks on a failed check', () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'spanglish-npm-preflight-'));
+  const argumentsPath = path.join(directory, 'arguments.txt');
+  // npm.ps1 takes precedence over npm.cmd for an unqualified npm invocation.
+  // Node 24.3.0's PowerShell wrapper misparses the call operator as "pm".
+  fs.writeFileSync(path.join(directory, 'npm.ps1'), "throw 'Unexpected npm PowerShell wrapper.'\n");
+  fs.writeFileSync(path.join(directory, 'npm.cmd'), [
+    '@echo off',
+    '> "%PRODUCTION_PREFLIGHT_ARGUMENTS%" echo %*',
+    'exit /b %PRODUCTION_PREFLIGHT_EXIT_CODE%',
+    '',
+  ].join('\r\n'));
+  try {
+    for (const exitCode of [0, 37]) {
+      const result = spawnSync('pwsh.exe', ['-NoProfile', '-Command', `
+        $ErrorActionPreference = 'Stop'
+        . $env:PRODUCTION_PREFLIGHT_GUARD
+        $tokens = $null
+        $parseErrors = $null
+        $ast = [System.Management.Automation.Language.Parser]::ParseFile(
+          $env:PRODUCTION_PREFLIGHT_SCRIPT, [ref]$tokens, [ref]$parseErrors)
+        if ($parseErrors.Count) { throw 'Production script does not parse.' }
+        $command = $ast.Find({ param($item)
+          $item -is [System.Management.Automation.Language.CommandAst] -and
+          $item.GetCommandName() -eq 'Invoke-CheckedCommand' -and
+          $item.Extent.Text -match 'verify:production'
+        }, $true)
+        if (-not $command) { throw 'Production preflight is missing.' }
+        try {
+          & ([scriptblock]::Create($command.Extent.Text))
+          $outcome = @{ accepted = $true; error = '' }
+        } catch {
+          $outcome = @{ accepted = $false; error = $_.Exception.Message }
+        }
+        ConvertTo-Json -InputObject $outcome -Compress
+      `], { encoding: 'utf8', env: {
+        ...Object.fromEntries(Object.entries(process.env).filter(([key]) => key.toLowerCase() !== 'path')),
+        Path: `${directory}${path.delimiter}${process.env.Path || process.env.PATH}`,
+        PRODUCTION_PREFLIGHT_GUARD: path.join(repositoryRoot, 'mobile/scripts/release-guard.ps1'),
+        PRODUCTION_PREFLIGHT_SCRIPT: path.join(repositoryRoot, 'mobile/scripts/promote-preview.ps1'),
+        PRODUCTION_PREFLIGHT_ARGUMENTS: argumentsPath,
+        PRODUCTION_PREFLIGHT_EXIT_CODE: String(exitCode),
+      } });
+      assert.equal(result.status, 0, result.stderr);
+      const outcome = JSON.parse(result.stdout);
+      assert.equal(outcome.accepted, exitCode === 0, outcome.error);
+      assert.equal(fs.readFileSync(argumentsPath, 'utf8').trim(), 'run verify:production');
+      if (exitCode !== 0) assert.match(outcome.error, /Falló la integridad de contenido o el preflight de Production/);
+    }
+  } finally {
+    assert.equal(path.dirname(directory), path.resolve(os.tmpdir()));
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
 });
 
 test('Production group binding rejects an old group, wrong commit, wrong branch and missing platform', () => {
