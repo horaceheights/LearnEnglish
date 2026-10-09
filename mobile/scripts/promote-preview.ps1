@@ -111,7 +111,7 @@ function Assert-TestedPreviewGroup {
   )
 
   Write-Host 'Confirmando que este es el Preview más reciente y coincide con el commit verificado...' -ForegroundColor Cyan
-  $jsonLines = @(& npx eas-cli update:list --branch preview --limit 1 --non-interactive --json)
+  $jsonLines = @(& eas update:list --branch preview --limit 1 --non-interactive --json)
   if ($LASTEXITCODE -ne 0) {
     throw 'No se pudo consultar el Preview más reciente.'
   }
@@ -132,7 +132,7 @@ function Assert-TestedPreviewGroup {
     throw "Promoción bloqueada. El GroupId indicado no es el Preview más reciente ($latestGroup)."
   }
 
-  $detailLines = @(& npx eas-cli update:view $ExpectedGroup --json)
+  $detailLines = @(& eas update:view $ExpectedGroup --json)
   if ($LASTEXITCODE -ne 0) {
     throw 'No se pudieron verificar los updates inmutables del grupo de Preview.'
   }
@@ -179,7 +179,7 @@ function Assert-PublishedProductionCommit {
     [string]$ExpectedCommit
   )
 
-  $summaryLines = @(& npx eas-cli update:list --branch production --limit 1 --non-interactive --json)
+  $summaryLines = @(& eas update:list --branch production --limit 1 --non-interactive --json)
   if ($LASTEXITCODE -ne 0) {
     throw 'Publicación bloqueada después de subir: no se pudo consultar Production.'
   }
@@ -190,7 +190,7 @@ function Assert-PublishedProductionCommit {
   }
 
   $groupId = [string]$latest[0].group
-  $detailLines = @(& npx eas-cli update:view $groupId --json)
+  $detailLines = @(& eas update:view $groupId --json)
   if ($LASTEXITCODE -ne 0) {
     throw 'Publicación bloqueada después de subir: no se pudo verificar el grupo de Production.'
   }
@@ -246,7 +246,7 @@ try {
 
   Write-Host 'Enviando el bundle probado a Production...' -ForegroundColor Yellow
   Invoke-CheckedCommand -FailureMessage 'Expo no pudo promover Preview a Production.' -Command {
-    & npx eas-cli update:republish --group $GroupId --destination-channel production --message 'Promovido después de aprobación explícita en Preview'
+    & eas update:republish --group $GroupId --destination-channel production --message 'Promovido después de aprobación explícita en Preview' --non-interactive
   }
   Assert-PublishedProductionCommit -ExpectedCommit $authority.Commit
 

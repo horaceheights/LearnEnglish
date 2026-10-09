@@ -423,14 +423,24 @@ test('Production promotion verifies integrity and user approval of the exact Pre
   );
   assert.match(promoteScriptSource, /Assert-SharedBackendRelease/);
   assert.match(promoteScriptSource, /npm run verify:production/);
-  assert.match(promoteScriptSource, /eas-cli update:view \$ExpectedGroup --json/);
+  assert.match(promoteScriptSource, /eas update:view \$ExpectedGroup --json/);
   assert.match(promoteScriptSource, /PSObject\.Properties\['gitCommitHash'\]/);
   assert.match(promoteScriptSource, /\$observedPlatforms -contains 'android'/);
   assert.match(promoteScriptSource, /\$observedPlatforms -contains 'ios'/);
   assert.match(
     promoteScriptSource,
-    /npm run verify:production[\s\S]*?Assert-SharedBackendRelease[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas-cli update:republish[\s\S]*?Assert-PublishedProductionCommit/,
+    /npm run verify:production[\s\S]*?Assert-SharedBackendRelease[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas update:republish[\s\S]*?Assert-PublishedProductionCommit/,
     'Content integrity and immutable Preview binding must finish before promotion.',
+  );
+});
+
+test('Production uses the EAS executable pinned by the protected workflow for every Expo operation', () => {
+  assert.match(productionWorkflowSource, /eas-version: 21\.4\.0/);
+  assert.doesNotMatch(promoteScriptSource, /\bnpx\b|\beas-cli\b/);
+  assert.match(promoteScriptSource, /& eas update:republish --group \$GroupId --destination-channel production[^\r\n]+--non-interactive/);
+  assert.deepEqual(
+    [...promoteScriptSource.matchAll(/& eas (update:[a-z]+)/g)].map(match => match[1]),
+    ['update:list', 'update:view', 'update:list', 'update:view', 'update:republish'],
   );
 });
 
@@ -460,7 +470,8 @@ test('Production group binding rejects an old group, wrong commit, wrong branch 
       $item -is [System.Management.Automation.Language.FunctionDefinitionAst] -and $item.Name -eq 'Assert-TestedPreviewGroup'
     }, $true)
     Invoke-Expression $functionAst.Extent.Text
-    function npx {
+    function npx { throw 'Production must use the EAS executable installed by CI.' }
+    function eas {
       if ($args -contains 'update:list') {
         $response = @{ currentPage = @(@{ group = $script:groupCase.latest }) }
       } else { $response = @($script:groupCase.updates) }
