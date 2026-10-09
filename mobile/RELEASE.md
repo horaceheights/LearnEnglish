@@ -117,6 +117,18 @@ En ese caso, incrementa la versión de la app y crea el build de Preview antes d
 
 Para un build nativo, ejecuta **Publish SpanGlish Preview** desde el head protegido de `main` con `delivery: native-build`. El mismo gate de curso y backend verifica el candidato; EAS compila las plataformas solicitadas (`native_platform: all` por defecto, o `android` para la revisión Android aprobada) con el perfil interno `preview`, conserva el hash Git y lo incluye en la etiqueta de la app. El workflow exige exactamente un resultado terminado por plataforma, con el commit, canal, perfil y versión correctos, y entrega los enlaces de instalación. Esta opción no ejecuta una OTA ni publica en Production. Instala el nuevo build: **Actualizar** no puede agregar módulos nativos. La revisión Android no da por verificado iOS ni cambia las condiciones de promoción a Production.
 
+## Google Play y Apple TestFlight
+
+Confirmado el 2026-10-09: los destinos siguen siendo **Google Play internal testing** y **Apple TestFlight**, incluido el grupo existente **First iPhone Testers**. Una OTA de Expo Production no sube un AAB ni un IPA a las tiendas.
+
+1. Integra los cambios mediante PR y ejecuta **Release SpanGlish Store Testers** desde `main`, con `action: build` y `platform: all`. El workflow protegido valida contenido, backend y medios; EAS crea los binarios nativos con el perfil `production`, sin enviarlos a las tiendas. El resumen entrega los IDs exactos, versiones y commit.
+2. Publica y prueba el Preview del mismo commit. La configuración o las dependencias nativas nuevas requieren primero el build Preview correspondiente. Cualquier commit nuevo exige probar y aprobar un nuevo grupo Preview antes de enviar los binarios a testers.
+3. Después de la aprobación explícita, ejecuta el mismo workflow con `action: submit`, los IDs exactos de Android/iOS, el `group_id` aprobado y `confirmed: true`. Verifica de nuevo el head remoto y los metadatos de cada build; nunca usa `--latest`. Se puede seleccionar una sola plataforma para reintentar una entrega parcial sin repetir la otra.
+4. Android usa `com.gorre.spanglish`, track `internal` y estado `completed`; iOS usa App Store Connect `6800510214` y EAS Submit carga el build en TestFlight. Las credenciales de firma deben estar configuradas en EAS. El envío automático también requiere las credenciales de envío existentes. Si falta una clave de envío, usa `action: verify` con los mismos IDs, grupo y confirmación para validar los binarios en CI; luego carga únicamente el artefacto verificado mediante la consola oficial ya autenticada, después de comprobar de nuevo el head remoto. No se guardan claves en Git, no se compila localmente ni se cambia ningún canal Expo desde la consola.
+5. Confirma en Play Console que la versión está disponible en pruebas internas. En App Store Connect, espera el procesamiento y agrega el build al grupo existente **First iPhone Testers**; completa la revisión beta si Apple la requiere. No se crean nuevos grupos ni se amplía la audiencia. Una carga exitosa todavía no confirma disponibilidad para testers.
+
+Este workflow no modifica las OTA ni envía una versión pública a Google Play o App Store. La promoción OTA conserva el workflow y el grupo inmutable aprobados de la sección anterior.
+
 ## Si un cambio falla
 
 No lo publiques en Production. Corrige el problema, integra otro pull request en `main` y publica otro Preview. Si un problema ya llegó a Production, usa el panel de Expo o `eas update:rollback` para regresar al update anterior.

@@ -186,6 +186,9 @@ try {
   & node tests/preview-release-lineage.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la línea canónica de Preview.' }
 
+  & node tests/store-release-authority.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Store release authority checks failed.' }
+
   & node tests/preview-release-authority.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la autoridad protegida de publicación de Preview.' }
 
