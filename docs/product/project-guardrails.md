@@ -670,6 +670,8 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 
 ## 11. Release Rules
 
+- Existing store tester destinations (confirmed 2026-10-09): Google Play internal testing and Apple TestFlight, including the existing First iPhone Testers group. An Expo Production OTA does not upload native binaries to either store. Prepare native store builds through the protected `Release SpanGlish Store Testers` workflow on exact remote main, then submit explicit finished build IDs after exact Preview testing and user approval. Validate the project, platform, production profile/channel, STORE distribution, app/runtime version and Git commit before submission. Never select `--latest`, silently fall back to a local publisher, submit a public Play track, or submit an App Store public review. Record upload completion separately from store processing, beta review and actual tester availability; preserve the existing tester audience.
+
 - On the authorized Windows runner, the Production publisher invokes `npm.cmd run verify:production` explicitly. Node 24.3.0's `npm.ps1` wrapper misread `& npm` as the command `pm` during the 2026-10-09 promotion attempt. Preserve the preflight's arguments and fail-closed exit handling with an executable regression test; never skip the preflight to work around a wrapper failure.
 
 - Protected Preview and Production scripts invoke the `eas` executable installed at the workflow's pinned version by the Expo setup action. Do not resolve a separate CLI through `npx eas-cli` during publication or metadata verification; the 2026-10-08 Production attempt failed at that command before promotion. Keep the executable choice covered by the release-authority regression tests.
