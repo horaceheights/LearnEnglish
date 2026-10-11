@@ -59,11 +59,16 @@ foreach ($branchName in $remoteBranches) {
 
 Write-Output ''
 Write-Output 'Registered worktrees:'
-$worktreePaths = git worktree list --porcelain |
-    Select-String '^worktree ' |
-    ForEach-Object { $_.Line.Substring(9) }
+$worktreeListing = @(git worktree list --porcelain)
+if ($LASTEXITCODE -ne 0) { throw 'Could not list registered worktrees.' }
+$worktreeRecords = @((($worktreeListing -join "`n") -split "`n`n") | Where-Object { $_ -match '^worktree ' })
+$completedWorktrees = 0
 
-foreach ($worktreePath in $worktreePaths) {
+for ($index = 0; $index -lt $worktreeRecords.Count; $index++) {
+    $record = $worktreeRecords[$index]
+    $worktreePath = ($record -split "`n")[0].Substring(9)
+    $isPrimary = $index -eq 0
+    $isLocked = $record -match '(?m)^locked(?: |$)'
     if (-not (Test-Path -LiteralPath $worktreePath)) {
         Write-Output "  MISSING: $worktreePath"
         $findings++
@@ -71,16 +76,35 @@ foreach ($worktreePath in $worktreePaths) {
     }
 
     $worktreeBranch = git -C $worktreePath branch --show-current
-    if (-not $worktreeBranch) {
-        $worktreeBranch = '(detached)'
-    }
-    $dirtyCount = @(git -C $worktreePath status --porcelain=v1).Count
-    $state = if ($dirtyCount -eq 0) { 'clean' } else { "dirty ($dirtyCount paths)" }
-    Write-Output "  $worktreeBranch - $state - $worktreePath"
-    if ($dirtyCount -gt 0) {
+    if ($LASTEXITCODE -ne 0) { throw "Could not read branch: $worktreePath" }
+    if (-not $worktreeBranch) { $worktreeBranch = '(detached)' }
+    $dirtyPaths = @(git -C $worktreePath status --porcelain=v1 --untracked-files=all)
+    if ($LASTEXITCODE -ne 0) { throw "Could not read working-tree state: $worktreePath" }
+    $dirtyCount = $dirtyPaths.Count
+    $unmergedCount = git -C $worktreePath rev-list --count "$BaseRef..HEAD"
+    if ($LASTEXITCODE -ne 0) { throw "Could not verify integration: $worktreePath" }
+    $ignoredPaths = @(git -C $worktreePath ls-files --others --ignored --exclude-standard --directory)
+    if ($LASTEXITCODE -ne 0) { throw "Could not inspect ignored files: $worktreePath" }
+
+    $state = if ($dirtyCount -eq 0) { 'clean' } else { "dirty ($dirtyCount paths); preserve" }
+    if ($isPrimary -or $worktreeBranch -eq 'main') {
+        $state += '; primary/main checkout; keep'
+    } elseif ($isLocked) {
+        $state += '; locked worktree; keep'
+    } elseif ([int]$unmergedCount -gt 0) {
+        $state += "; $unmergedCount unmerged commits; preserve"
+    } elseif ($dirtyCount -eq 0) {
+        $state += '; integrated; cleanup candidate after activity/ignored-file review'
+        $completedWorktrees++
         $findings++
     }
+    Write-Output "  $worktreeBranch - $state - $worktreePath"
+    if ($ignoredPaths.Count -gt 0) {
+        Write-Output "    Ignored local paths: $($ignoredPaths.Count); inspect and preserve unique data before removal."
+    }
+    if ($dirtyCount -gt 0) { $findings++ }
 }
+Write-Output "Completed worktrees requiring cleanup review: $completedWorktrees"
 
 Write-Output ''
 Write-Output "Findings requiring review: $findings"
