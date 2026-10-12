@@ -48,6 +48,17 @@ class ContentEngineAuthorTests(unittest.TestCase):
         self.assertEqual([stage for index, stage in enumerate(stages) if index == 0 or stages[index - 1] != stage],
                          ["Learn", "Recognize", "Listen", "Speak", "Use"])
 
+    def test_generated_future_lesson_inherits_safe_tutor_context(self):
+        from backend.app.tutor_context import build_tutor_context, tutor_contract_errors
+        lesson = Lesson(**{**self.lesson, 'id': 'future-authored-lesson'})
+        self.assertEqual([], tutor_contract_errors(lesson))
+        for card in lesson.cards:
+            context = build_tutor_context(lesson, card)
+            self.assertEqual('before_answer', context['mode'])
+            if card.stage in ('Recognize', 'Listen'):
+                self.assertNotIn('heard_model', context)
+                self.assertNotIn('expected_words', context)
+
     def test_a_brief_requires_a_positive_content_revision(self):
         lesson = {key: value for key, value in self.brief["lesson"].items() if key != "content_revision"}
         with self.assertRaisesRegex(BriefError, "positive integer content_revision"):

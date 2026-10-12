@@ -120,7 +120,7 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
   const { optionIds: vocabularyIds, scaffoldIndexes } = constructionVocabulary(parts, card, vocabulary);
   const landscape = isPhoneLandscape(viewport.width, viewport.height);
   const layout = landscape
-    ? { ...sentenceLayout(size.width, size.height, Math.min(1.3, viewport.fontScale), slots.length, feedbackHeight + (result === 'wrong' && onTutor ? 54 : 0)),
+    ? { ...sentenceLayout(size.width, size.height, Math.min(1.3, viewport.fontScale), slots.length, feedbackHeight),
         textSize: 16, tileWidth: 48, tileHeight: 48, scrollBank: false, imageHeight: 0 }
     : sentenceLayout(size.width - 40, size.height, viewport.fontScale, slots.length, feedbackHeight + (result === 'wrong' && onTutor ? 54 : 0));
   const paneWidth = size.width;
@@ -223,6 +223,7 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
           else { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } } }}>
         <Text maxFontSizeMultiplier={1.3} style={styles.controlText}>{result === 'wrong' ? 'Reintentar' : 'Deshacer'}</Text>
       </Pressable> : null}
+      {result === 'wrong' && onTutor ? <TutorButton more onPress={onTutor} /> : null}
       {replayControl}
       </View> : null}
       <SlotsContainer ref={view => { slotPane.current = view; }}
@@ -269,11 +270,12 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
         onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
         {result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{mistakeHint}</> : ' '}
       </Text>
-      {result === 'wrong' && onTutor ? <TutorButton more onPress={onTutor} /> : null}
-      {!landscape && result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
+      {!landscape && result === 'wrong' ? <View style={styles.controls}>
+      {onTutor ? <TutorButton more onPress={onTutor} /> : null}
+      <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
         style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>
         <Text style={[styles.controlText, styles.retryControlText]}>Reintentar</Text>
-      </Pressable> : null}
+      </Pressable></View> : null}
       </>}
     </CardContainer>
     {moving ? <Animated.View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" pointerEvents="none"

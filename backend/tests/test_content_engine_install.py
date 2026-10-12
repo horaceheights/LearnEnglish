@@ -6,7 +6,9 @@ from pathlib import Path
 from scripts.content_engine.install import InstallRefused, install, lesson_text, source_record
 from scripts.content_engine.plan import import_lesson
 
-LESSON = {"id": "lesson-x", "sub_lesson_id": "9.1", "cards": [
+LESSON = {"id": "lesson-x", "sub_lesson_id": "9.1", "title": "Future lesson", "level": "A1+",
+    "unit_id": "unit-9", "unit_title": "Future unit", "lesson_id": "lesson-9", "lesson_title": "New lesson",
+    "sub_lesson_title": "Cats", "goal": "Name a cat", "vocabulary": ["cat"], "content_revision": 1, "cards": [
     {"slide_id": "L1", "interaction_type": "teach", "prompt": "A cat", "stage": "Learn",
      "correct_option_id": "cat", "options": [{"id": "cat", "image_url": "cat.webp", "label": "A cat"}],
      "audio_text": "A cat", "answer_audio_text": None, "prompt_image_url": "", "spanish_translation": "Un gato"},
@@ -67,6 +69,25 @@ class ContentEngineInstallTests(unittest.TestCase):
         install(self.root, [plan], validate=passes)
         written = json.loads(self.path.read_text(encoding="utf-8"))
         self.assertEqual(written["cards"][0]["spanish_translation"], "Un gatito")
+
+    def test_tutor_contract_blocks_unsupported_activity_before_writing(self):
+        before = self.path.read_bytes()
+        lesson = json.loads(json.dumps(LESSON))
+        lesson['cards'][0].update(stage='New activity', interaction_type='unsupported')
+        plan = {**import_lesson(lesson), 'source': source_record(self.root, self.path)}
+        with self.assertRaisesRegex(InstallRefused, 'shared tutor context policy'):
+            install(self.root, [plan], validate=passes)
+        self.assertEqual(before, self.path.read_bytes())
+
+    def test_installed_future_lesson_uses_runtime_tutor_without_registration(self):
+        from backend.app.schemas import Lesson
+        from backend.app.tutor_context import build_tutor_context
+        install(self.root, [self.plan()], validate=passes)
+        lesson = Lesson(**json.loads(self.path.read_text(encoding='utf-8')))
+        context = build_tutor_context(lesson, lesson.cards[0])
+        self.assertEqual('A1+', context['level'])
+        self.assertEqual('A cat', context['visible_model'])
+        self.assertEqual('before_answer', context['mode'])
 
 
 if __name__ == "__main__":

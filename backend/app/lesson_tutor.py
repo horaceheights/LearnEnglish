@@ -20,9 +20,9 @@ from starlette.concurrency import run_in_threadpool
 
 from . import accounts
 from .data import LESSONS
+from .tutor_context import build_tutor_context
 
 router = APIRouter(prefix="/api/account/tutor", tags=["lesson-tutor"])
-POC_LESSONS = frozenset({"lesson-1-people-actions"})
 OPENROUTER_URL = "https://openrouter.ai/api/v1"
 MAX_AUDIO_BYTES = 4 * 1024 * 1024
 TUTOR_TTS_MODEL = "google/gemini-3.8-flash-tts"
@@ -44,6 +44,8 @@ class CardContext(BaseModel):
     content_revision: int = Field(ge=1)
     # Present only for an actually submitted attempt, never an unfinished selection.
     selected_option_ids: list[str] = Field(default_factory=list, max_length=12)
+    mission_cue_index: int | None = Field(default=None, ge=0)
+    mission_target_id: str | None = Field(default=None, min_length=1, max_length=120)
 
 
 class Message(BaseModel):
@@ -87,49 +89,20 @@ async def tutor_account(request: Request):
 
 
 def resolve_context(payload: CardContext):
-    if payload.lesson_id not in POC_LESSONS:
-        raise HTTPException(404, "El tutor todavía no está disponible en esta lección.")
     lesson = LESSONS.get(payload.lesson_id)
+    if lesson is None:
+        raise HTTPException(404, "No encontramos esta lección.")
     if lesson is None or lesson.content_revision != payload.content_revision:
         raise HTTPException(409, "La lección cambió. Vuelve a abrirla para usar el tutor.")
     card = next((c for c in lesson.cards if c.slide_id == payload.slide_id), None)
     if card is None:
         raise HTTPException(404, "No encontramos esta tarjeta.")
-    options = {o.id: o.label or "" for o in card.options}
-    selected = payload.selected_option_ids
-    expected = card.correct_option_ids or [card.correct_option_id]
-    if selected and (len(selected) != len(expected) or len(set(selected)) != len(selected)
-                     or any(i not in options for i in selected)):
-        raise HTTPException(422, "La respuesta de esta tarjeta no es válida.")
-    selected_words = [options[i].casefold().strip() for i in selected]
-    expected_words = [options[i].casefold().strip() for i in expected]
-    mode = "before_answer" if not selected else "after_correct" if selected_words == expected_words else "after_error"
-    context = {
-        "lesson": lesson.sub_lesson_title, "level": lesson.level,
-        "goal": lesson.goal, "vocabulary": lesson.vocabulary,
-        "grammar": lesson.grammar_function, "prerequisite": lesson.prerequisite,
-        "stage": card.stage, "activity": card.interaction_type, "mode": mode,
-    }
-    if card.interaction_type.startswith("i2t"):
-        context["task"] = "Choose the written phrase matching the image. Do not construct a sentence."
-    elif card.interaction_type.startswith("t2i"):
-        context["task"] = "Choose the image matching the English phrase."
-    elif card.stage == "Listen":
-        context["task"] = "Listen again and choose the matching option; the heard target is hidden."
-    elif card.stage == "Use":
-        context["task"] = "Place whole word tiles into the blank spaces in order."
-        context["visible_scaffold"] = card.prompt
-    if selected:
-        context.update({"prompt": card.prompt, "heard_model": card.audio_text,
-                        "submitted_words": [options[i] for i in selected],
-                        "expected_words": [options[i] for i in expected],
-                        "answer_model": card.answer_audio_text,
-                        "authored_teaching_note": card.pedagogy_note})
-    elif card.stage in ("Learn", "Speak"):
-        context["visible_model"] = card.prompt
-    # Recognition/listening targets, translations, image names and answer IDs are
-    # deliberately absent before an attempt. Never infer a scene from its filename.
-    return context
+    try:
+        return build_tutor_context(lesson, card, payload.selected_option_ids,
+                                   payload.mission_cue_index, payload.mission_target_id)
+    except ValueError:
+        raise HTTPException(422, "La respuesta de esta tarjeta no es válida.") from None
+
 
 
 SYSTEM_PROMPT = """Eres el Tutor IA de SpanGlish para una persona principiante de inglés.
@@ -148,6 +121,10 @@ Responde solo la duda concreta, sin preámbulos ni repetir la pregunta. La respu
 caber aproximadamente en media pantalla de teléfono: 30 a 50 palabras en total, una explicación
 de una o dos frases y, después de un error, dos ejemplos breves, uno por línea. Evita párrafos
 adicionales, recapitulaciones y traducciones que repitan lo ya explicado. Una pista puede ser más corta.
+Después de un error compara solo las palabras que cambian, sin copiar y traducir las dos frases
+completas. La interfaz ya muestra la respuesta enviada. Mantén el total inicial en 50 palabras
+como máximo incluso con frases largas: una explicación breve y dos ejemplos de 3 a 8 palabras.
+No añadas el título 'Ejemplos' ni una pregunta de cierre.
 Las preguntas de seguimiento también son breves. Solo si piden profundizar, explica hasta 90 palabras;
 no vuelvas a explicar todo desde el principio. La interfaz ya ofrece sugerencias para ampliar.
 Distingue be copulativo de auxiliar; en 'He is a boy' is expresa identidad. No introduzcas

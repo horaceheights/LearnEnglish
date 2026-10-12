@@ -64,8 +64,8 @@ assert.match(
 );
 assert.match(
   lessonScreenSource,
-  /if \(isPronunciation\) return;\s+setCardRunId/,
-  'Pronunciation must recover internally instead of being remounted on foreground.',
+  /if \(isPronunciation\) return;\s+if \(!usesMissionGameSurface\) setCardRunId/,
+  'Pronunciation and an in-progress mission must recover without remounting on foreground or tutor close.',
 );
 assert.match(
   lessonScreenSource,

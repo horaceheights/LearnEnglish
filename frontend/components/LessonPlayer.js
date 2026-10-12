@@ -22,7 +22,7 @@ import LessonTutor from "./LessonTutor";
 import { TutorButton } from "./TutorButton";
 import { FloatingTutorButton } from "./FloatingTutorButton";
 import { primeTutorAudio } from "../lib/tutorAudio";
-import { tutorCardContext, tutorEnabled } from "../../mobile/src/lessonTutor";
+import { tutorSubmittedAnswer, tutorCardContext } from "../../mobile/src/lessonTutor";
 import { useLessonTutor } from "../../mobile/src/hooks/useLessonTutor";
 import { askTutor } from "../lib/tutorApi";
 import { HELP_STORAGE_PREFIX, useContextualHelp } from "../../mobile/src/hooks/useContextualHelp";
@@ -2336,9 +2336,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }, [playUiSfx]);
 
   const currentCard = activeLesson.cards[cardIndex];
-  const tutorContext = useMemo(() => tutorEnabled(activeLesson.id) && currentCard
-    ? tutorCardContext(activeLesson, currentCard, lastResult, selectedOptionIds.length ? selectedOptionIds : [selectedOptionId].filter(Boolean))
-    : null, [activeLesson, currentCard, lastResult, selectedOptionId, selectedOptionIds]);
+  const [tutorMission, setTutorMission] = useState(null);
+  const missionTutorAnchor = useRef(null);
+  const missionCuePosition = useRef({ card: null, index: 0 });
+  const tutorContext = useMemo(() => currentCard
+    ? tutorCardContext(activeLesson, currentCard, lastResult, selectedOptionIds.length ? selectedOptionIds : [selectedOptionId].filter(Boolean), tutorMission)
+    : null, [activeLesson, currentCard, lastResult, selectedOptionId, selectedOptionIds, tutorMission]);
   const tutor = useLessonTutor(`${profile?.userId || 'guest'}:${lessonSessionId}`, tutorContext, askTutor);
   const tutorInterruptionRef = useRef(0);
   const teachingCardKey = `${lessonSessionId}:${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
@@ -3667,9 +3670,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       return;
     }
     const instructionKey = `${activeLesson.id}:${activeLesson.content_revision}:${currentCard.slide_id}`;
+    if (tutor.visible || !helpDocumentVisible) { missionInstructionPlaybackKeyRef.current = ""; return; }
     if (missionInstructionPlaybackKeyRef.current === instructionKey) return;
     missionInstructionPlaybackKeyRef.current = instructionKey;
-    const timeoutId = window.setTimeout(playMissionDirections, 180);
+    const timeoutId = window.setTimeout(() => playMissionDirections(missionCuePosition.current.card === currentCard.slide_id ? missionCuePosition.current.index : 0), 180);
     return () => window.clearTimeout(timeoutId);
   }, [
     activeLesson.content_revision,
@@ -3679,6 +3683,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     isMissionGameExperience,
     isPageTurning,
     missionIntroComplete,
+    tutor.visible,
+    helpDocumentVisible,
     playMissionDirections,
     started,
   ]);
@@ -5494,7 +5500,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
   const tutorSheet = tutorContext ? <LessonTutor tutor={tutor} context={tutorContext}
     title={`Lección ${activeLesson.sub_lesson_id} · ${{Learn:'Aprende',Recognize:'Reconoce',Listen:'Escucha',Speak:'Habla',Use:'Completa'}[currentCard.stage] || ''}`}
-    answer={tutorContext.selected_option_ids.map(id => currentCard.options.find(option => option.id === id)?.label || '').join(' ')} /> : null;
+    answer={tutorSubmittedAnswer(currentCard, tutorContext)} /> : null;
 
   const helpPopup = <LessonHelpPopup mode={help.mode}
     message={currentCard.mission_game?.instruction_es || (awaitingConstructionRetry(currentCard, lastResult)
@@ -5506,7 +5512,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       <div onPointerDownCapture={help.touchStart} onPointerUpCapture={help.touchEnd}
         onPointerCancelCapture={help.touchEnd} onKeyDownCapture={help.interact} ref={pageRef} data-lesson-page inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
         {helpPopup}
+        {tutorSheet}
+        {tutorContext ? <FloatingTutorButton key={activeLesson.id} anchorRef={missionTutorAnchor} onClick={openTutor}
+          visible={missionIntroComplete && helpDocumentVisible && !showHelp && !tutor.visible && !isPageTurning} /> : null}
         <CelebrationMission
+          key={currentCard.slide_id}
+          paused={tutor.visible || showHelp || !helpDocumentVisible || isPageTurning}
+          onTutor={openTutor}
+          onTutorFocus={setTutorMission}
+          tutorAnchorRef={missionTutorAnchor}
           cueOrder={missionOrder}
           card={currentCard}
           cardIndex={cardIndex}
@@ -5526,7 +5540,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
           onHelp={help.open}
           onMisstep={recordMissionMisstep}
           onPrepareSpeech={prepareMissionSpeech}
-          onReplayEnglish={(cueIndex) => playMissionDirections(cueIndex)}
+          onReplayEnglish={(cueIndex) => { missionCuePosition.current = { card: currentCard.slide_id, index: cueIndex }; playMissionDirections(cueIndex); }}
           onReplayIntro={playMissionIntroNarration}
           onRetrySpeech={() => beginPronunciationRecording({ isRetry: true })}
           onScenePlacement={() => playUiSfx("tilePlace", { debounceMs: 140, volume: 0.64 })}

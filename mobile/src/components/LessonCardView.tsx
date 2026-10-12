@@ -312,7 +312,7 @@ export function LessonCardView({
   const feedbackReservedHeight = !isPronunciation && (optionsInteractive || Boolean(result))
     ? Math.max(
         feedbackMeasurement.key === feedbackLayoutKey ? feedbackMeasurement.height + 12 : 0,
-        (needsPortraitImageFeedbackSpace ? 76 : 58) + (result === 'wrong' && onTutor ? 53 : 0),
+        (needsPortraitImageFeedbackSpace ? 76 : 58) + (result === 'wrong' && onTutor && !hasSidePrompt ? 32 : 0),
       )
     : 0;
   const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
@@ -485,7 +485,7 @@ export function LessonCardView({
             hasSidePrompt ? styles.promptImageSide : null,
             useDensePortraitTextLayout ? styles.promptImageFrameDensePortrait : null,
           ]}
-          maxHeight={hasSidePrompt ? availableCardHeight - cardVerticalChrome - feedbackReservedHeight : promptImageHeight}
+          maxHeight={hasSidePrompt ? availableCardHeight - cardVerticalChrome - feedbackReservedHeight - (result === 'wrong' && onTutor ? 53 : 0) : promptImageHeight}
         >
           <OptionMediaImage
             key={promptImageLoadKey}
@@ -514,8 +514,10 @@ export function LessonCardView({
                   ? previous : { key: feedbackLayoutKey, height });
               }}
             >
+              <View style={result === 'wrong' && onTutor && !hasSidePrompt ? styles.feedbackActions : undefined}>
               <Text maxFontSizeMultiplier={1.3} style={[
                 styles.feedbackText,
+                result === 'wrong' && onTutor && !hasSidePrompt ? { flex: 1 } : null,
                 isTabletLandscape ? styles.feedbackTextTablet : null,
                 result === 'correct' ? styles.correctText : styles.wrongText,
               ]}>
@@ -523,6 +525,8 @@ export function LessonCardView({
                   ? correctChoiceFeedback
                   : 'Cuando te equivocas, también aprendes.'}
               </Text>
+              {result === 'wrong' && onTutor && !hasSidePrompt ? <TutorButton more onPress={onTutor} /> : null}
+              </View>
               {result === 'wrong' && mistakeHint ? (
                 <Text maxFontSizeMultiplier={1.3} style={[
                   styles.educationHint,
@@ -531,7 +535,6 @@ export function LessonCardView({
                   {mistakeHint}
                 </Text>
               ) : null}
-              {result === 'wrong' && onTutor ? <TutorButton more onPress={onTutor} /> : null}
               {awaitingRetry ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
                 onPress={onResetSelection} style={styles.retryButton}>
                 <Text style={styles.retryButtonText}>Reintentar</Text>
@@ -835,7 +838,7 @@ export function LessonCardView({
         </View>
       ) : null}
       {hasSidePrompt ? <><View style={styles.phonePromptBody}>
-        <View style={styles.phonePromptMedia}>{promptMedia}</View>
+        <View style={styles.phonePromptMedia}>{promptMedia}{result === 'wrong' && onTutor ? <TutorButton more onPress={onTutor} /> : null}</View>
         <View style={styles.phonePromptAnswers}>{activityContent}</View>
       </View>{answerFeedback}</> : <>{promptMedia}{activityContent}</>}
 
@@ -1525,6 +1528,7 @@ const styles = StyleSheet.create({
     width: 28,
   },
   wrongIcon: { backgroundColor: '#c95e55' },
+  feedbackActions: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   feedback: { gap: 6, marginTop: 5 },
   feedbackText: { fontSize: 13, fontWeight: '800', textAlign: 'center' },
   feedbackTextTablet: { fontSize: 16, lineHeight: 21 },

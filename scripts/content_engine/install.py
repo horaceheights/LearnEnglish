@@ -15,6 +15,8 @@ import sys
 from pathlib import Path
 
 from scripts.content_engine.plan import compose_lesson
+from backend.app.schemas import Lesson, MissionLesson
+from backend.app.tutor_context import tutor_contract_errors
 
 VALIDATORS = (
     ["scripts/validate_lesson_cards.py", "--semantic-review-policy", "preview"],
@@ -68,7 +70,15 @@ def install(root: Path, plans: list[dict], validate=run_validators) -> list[str]
                 raise InstallRefused(f"{name}: {source['path']} already exists; import it before replacing it.")
         elif not path.exists() or digest(path.read_bytes()) != expected:
             raise InstallRefused(f"{name}: {source['path']} changed after this plan was taken; re-import it.")
-        pending[path] = lesson_text(compose_lesson(plan))
+        composed = compose_lesson(plan)
+        try:
+            model = MissionLesson if composed.get("experience_type") == "mission" else Lesson
+            tutor_errors = tutor_contract_errors(model(**composed))
+        except ValueError as error:
+            raise InstallRefused(f"{name}: invalid lesson/tutor contract: {error}") from error
+        if tutor_errors:
+            raise InstallRefused("\n".join(tutor_errors))
+        pending[path] = lesson_text(composed)
 
     originals = {path: path.read_bytes() if path.exists() else None for path in pending}
     try:

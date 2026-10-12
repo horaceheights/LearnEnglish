@@ -94,7 +94,7 @@ test('short mission cues use a stable dedicated player and status subscription',
   );
 });
 
-test('the tap layer is gated only by interaction readiness', () => {
+test('the tap layer respects interruption and interaction readiness', () => {
   assert.match(
     missionSurface,
     /pointerEvents=\{disabled \? 'none' : 'box-none'\}/,
@@ -102,7 +102,7 @@ test('the tap layer is gated only by interaction readiness', () => {
   );
   assert.match(
     missionSurface,
-    /const disabled = !interactionReady/,
+    /const disabled = paused \|\| !interactionReady/,
     'Readiness remains the gate that the LessonScreen contract above must satisfy.',
   );
 });
