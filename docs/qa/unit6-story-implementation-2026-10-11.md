@@ -1,6 +1,6 @@
 # Unit 6 story implementation — 2026-10-11
 
-The approved rebuild is installed in the isolated `codex/unit6-story-rebuild` branch. It is not published. Its authoring review is available locally at `http://127.0.0.1:8770/unit-6-review.html`.
+The approved rebuild is installed in the isolated `codex/unit6-story-rebuild` branch and pushed as [draft PR #264](https://github.com/horaceheights/LearnEnglish/pull/264). It is not published. Its authoring review is available locally at `http://127.0.0.1:8770/unit-6-review.html`.
 
 ## Scope and learner behavior
 
@@ -38,6 +38,7 @@ Current `origin/main` at `19206562` was inspected and merged. Its cleanup-policy
 - Speaker review: zero unreviewed, mismatched or stale picture/voice assignments; 2,212 scalar assignments independently pinned.
 - Mistake feedback: 9,324 wrong attempts checked across all 85 lessons.
 - Mission geometry: 30 supported-size layouts pass touch-bound and overlap checks.
+- Complete `verify-interaction-paths.ps1 -ReviewPolicy Preview`: passes, including all nine native viewport tests and the later audio/playback/recovery suites.
 - TypeScript and versioned release integrity: pass (85 lessons, seven units).
 - Android production bundle export: passes locally; this is a build check, not a Preview publication.
 - Backend suite on the merged current-main candidate: 646 tests, 644 pass and exactly two fail closed: the persistent catalog still describes the last approved course, and 905 new asset bindings require reviewed audio. Both are the expected audio release blockers; neither test was weakened or skipped.
