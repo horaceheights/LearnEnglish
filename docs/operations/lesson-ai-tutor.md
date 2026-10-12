@@ -15,7 +15,7 @@ Configure the existing Render service through its environment settings. Credenti
 | `OPENROUTER_TUTOR_MODEL` | `openai/gpt-4.1-mini` |
 | `OPENROUTER_TUTOR_STT_MODEL` | `openai/whisper-large-v3-turbo` |
 | `OPENROUTER_TUTOR_TTS_MODEL` | `google/gemini-3.8-flash-tts` |
-| `OPENROUTER_TUTOR_VOICE` | `Sulafat` |
+| `OPENROUTER_TUTOR_VOICE` | `Sulafat` — Voice A, approved by the user on 2026-10-12 |
 
 All three providers route through OpenRouter with `data_collection: deny`. This routing preference is not a promise of zero retention. No learner identity is included in model requests. Chat history remains in memory, clears on card/attempt/account changes, and is limited to the most recent 12 messages. Temporary mobile audio files and browser object URLs are removed when stopped or closed. Text/recordings are not written to the progress database; raw provider error bodies are not logged or returned. The privacy page describes the optional processing.
 
