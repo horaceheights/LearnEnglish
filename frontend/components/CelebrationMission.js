@@ -6,6 +6,9 @@ import { missionChapterProgress, missionProgressPercent } from "../lib/missionEx
 import { fitMissionHeadScene } from "../lib/missionTargetInteraction.cjs";
 import { missionChallengeLabel, missionVoiceProgress } from "../lib/missionPresentation.cjs";
 
+import { useMissionTransition } from "../../mobile/src/hooks/useMissionTransition";
+import { TutorButton } from "./TutorButton";
+
 const ACT_ICONS = ["◉", "∿", "➤", "✦", "●"];
 const ACT_COLORS = ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"];
 function buttonStyle(disabled = false) {
@@ -125,6 +128,10 @@ export default function CelebrationMission({
   cardIndex,
   imageSrc,
   interactionReady,
+  paused = false,
+  onTutor,
+  onTutorFocus,
+  tutorAnchorRef,
   introComplete,
   introReady,
   isMobile,
@@ -148,7 +155,8 @@ export default function CelebrationMission({
   const [feedback, setFeedback] = useState("");
   const [solvedTargets, setSolvedTargets] = useState([]);
   const [wrongTarget, setWrongTarget] = useState("");
-  const timerRef = useRef(null);
+  const scheduleTransition = useMissionTransition(paused, card.slide_id);
+  const [submittedTarget, setSubmittedTarget] = useState(undefined);
   const selectionLockRef = useRef(false);
   const sceneSlotRef = useRef(null);
   const [slotSize, setSlotSize] = useState({ width: 0, height: 0 });
@@ -159,7 +167,7 @@ export default function CelebrationMission({
   const heroImage = isVoiceGate && speech.asking
     ? resolveImage(card.audio_turns?.[0]?.image_url || "")
     : imageSrc || resolveImage(card.options?.find((option) => option.image_url)?.image_url || "");
-  const locked = !interactionReady || Boolean(feedback) || lastResult === "correct";
+  const locked = paused || !interactionReady || Boolean(feedback) || lastResult === "correct";
   const missionProgress = missionProgressPercent(lesson, cardIndex, lastResult === "correct");
   const cueProgress = useMemo(() => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`, [cueIndex, game.cues.length]);
   const headScene = useMemo(() => fitMissionHeadScene(slotSize.width, slotSize.height, game.targets),
@@ -181,12 +189,12 @@ export default function CelebrationMission({
     setSolvedTargets([]);
     setWrongTarget("");
     selectionLockRef.current = false;
-    if (timerRef.current) window.clearTimeout(timerRef.current);
+    setSubmittedTarget(undefined);
   }, [card.slide_id]);
 
-  useEffect(() => () => {
-    if (timerRef.current) window.clearTimeout(timerRef.current);
-  }, []);
+  useEffect(() => {
+    if (!isVoiceGate) onTutorFocus?.({ slide_id: card.slide_id, cue_index: cueOrder[cueIndex] ?? cueIndex, target_id: submittedTarget });
+  }, [card.slide_id, cueOrder, cueIndex, submittedTarget, onTutorFocus, isVoiceGate]);
 
   if (!introComplete) {
     return <MissionIntro introReady={introReady} isMobile={isMobile} lesson={lesson} onBegin={onBegin} onExit={onExit} onReplayIntro={onReplayIntro} resolveImage={resolveImage} />;
@@ -195,11 +203,12 @@ export default function CelebrationMission({
   const chooseTarget = (target) => {
     if (locked || !cue || isVoiceGate || solvedTargets.includes(target.id) || selectionLockRef.current) return;
     selectionLockRef.current = true;
+    setSubmittedTarget(target.id);
     if (target.id !== cue.target_id) {
       setWrongTarget(target.id);
       setFeedback("Escucha otra vez. Tus aciertos siguen guardados.");
       onMisstep([target.id]);
-      timerRef.current = window.setTimeout(() => {
+      scheduleTransition(() => {
         setWrongTarget("");
         setFeedback("");
         selectionLockRef.current = false;
@@ -211,9 +220,10 @@ export default function CelebrationMission({
     setSolvedTargets((current) => [...new Set([...current, target.id])]);
     setFeedback(cue.answer_text);
     onScenePlacement?.();
-    timerRef.current = window.setTimeout(() => {
+    scheduleTransition(() => {
       const nextCue = cueIndex + 1;
       if (nextCue < game.cues.length) {
+        setSubmittedTarget(undefined);
         setCueIndex(nextCue);
         setFeedback("");
         selectionLockRef.current = false;
@@ -244,10 +254,10 @@ export default function CelebrationMission({
       ) : <section className="cue-panel">
         <div><small>{missionChallengeLabel(game)}</small><b>{game.instruction_es}</b></div>
         <span>PISTA {cueProgress}</span>
-        <button aria-label="Repetir la frase en inglés" disabled={Boolean(feedback)} onClick={() => onReplayEnglish(cueIndex)} type="button">🔊</button>
+        <button aria-label="Repetir la frase en inglés" disabled={paused || Boolean(feedback)} onClick={() => onReplayEnglish(cueIndex)} type="button">🔊</button>
       </section>}
 
-      <div className="scene-slot" ref={sceneSlotRef}>
+      <div className="scene-slot" ref={element => { sceneSlotRef.current = element; if (tutorAnchorRef) tutorAnchorRef.current = element; }}>
         <section className={`scene ${isVoiceGate ? "voice-scene" : "head-scene"} ${isVoiceGate && speech.outcome?.accepted ? "voice-scene-open" : ""}`}
           style={!isVoiceGate ? { width: headScene?.width || 0, height: headScene?.height || 0 }
             : { width: Math.max(0, Math.min(slotSize.width - 8, (slotSize.height - 8) * 1.5)) + 8,
@@ -289,6 +299,7 @@ export default function CelebrationMission({
         </section>
       </div>
 
+      {!isVoiceGate && submittedTarget && submittedTarget !== cue?.target_id && onTutor ? <div style={{ display: "flex", justifyContent: "center", flexShrink: 0 }}><TutorButton more onClick={onTutor} /></div> : null}
       {isVoiceGate ? <VoiceGateConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} successLabel={missionVoiceProgress(lesson, cardIndex).successLabel} /> : (
         <div className="cue-dots" aria-label={`Pista ${cueProgress}`}>{game.cues.map((item, index) => <i className={index < cueIndex ? "done" : index === cueIndex ? "current" : ""} key={item.id} />)}</div>
       )}

@@ -84,9 +84,9 @@ class LessonTutorTests(unittest.TestCase):
             self.assertNotIn('test.clerk.accounts.dev', sent['messages'][0]['content'])
             self.assertEqual('¿Por qué?', sent['messages'][-1]['content'])
 
-    def test_invalid_and_out_of_scope_context_never_reaches_provider(self):
+    def test_invalid_context_never_reaches_provider(self):
         with patch.object(tutor, 'provider_request', new_callable=AsyncMock) as provider:
-            for change, code in (({'lesson_id': 'lesson-2-family'}, 404),
+            for change, code in (({'lesson_id': 'missing-lesson'}, 404),
                                  ({'content_revision': self.lesson.content_revision + 1}, 409),
                                  ({'slide_id': 'missing'}, 404),
                                  ({'selected_option_ids': ['fabricated']}, 422),
@@ -96,6 +96,51 @@ class LessonTutorTests(unittest.TestCase):
             self.assertEqual(422, self.post(message='Ayuda', slide_id=construction.slide_id,
                                             selected_option_ids=[construction.correct_option_ids[0]]).status_code)
             provider.assert_not_awaited()
+
+    def test_every_catalog_card_and_future_lesson_inherit_tutor_context(self):
+        for lesson in LESSONS.values():
+            for card in lesson.cards:
+                body = dict(lesson_id=lesson.id, slide_id=card.slide_id, content_revision=lesson.content_revision)
+                context = tutor.resolve_context(tutor.CardContext(**body))
+                self.assertEqual('before_answer', context['mode'])
+                self.assertEqual(lesson.goal, context['goal'])
+                if card.stage in ('Recognize', 'Listen'):
+                    self.assertFalse(set(context) & {'prompt', 'visible_model', 'heard_model', 'answer_model',
+                                                    'expected_words', 'submitted_words', 'authored_teaching_note'})
+                selected = card.correct_option_ids or [card.correct_option_id]
+                solved = tutor.resolve_context(tutor.CardContext(**body, selected_option_ids=selected))
+                self.assertEqual('after_correct', solved['mode'], body)
+        future = self.lesson.model_copy(update={'id': 'future-unit-99-lesson', 'level': 'A1+'})
+        with patch.dict(LESSONS, {future.id: future}):
+            context = tutor.resolve_context(tutor.CardContext(**{**self.body, 'lesson_id': future.id}))
+            self.assertEqual('A1+', context['level'])
+
+    def test_mission_attempt_explains_only_the_current_authored_cue(self):
+        for lesson in LESSONS.values():
+            for card in lesson.cards:
+                game = getattr(card, 'mission_game', None)
+                if not game or game.kind == 'voice-gate':
+                    continue
+                body = dict(lesson_id=lesson.id, slide_id=card.slide_id, content_revision=lesson.content_revision)
+                for index, cue in enumerate(game.cues):
+                    before = tutor.resolve_context(tutor.CardContext(**body, mission_cue_index=index))
+                    self.assertEqual('before_answer', before['mode'])
+                    self.assertNotIn('heard_model', before)
+                    for target in game.targets:
+                        context = tutor.resolve_context(tutor.CardContext(**body, mission_cue_index=index,
+                                                                          mission_target_id=target.id))
+                        self.assertEqual('after_correct' if target.id == cue.target_id else 'after_error', context['mode'])
+                        self.assertEqual(cue.text, context['heard_model'])
+                        self.assertEqual(cue.answer_text, context['answer_model'])
+                        self.assertNotIn('prompt', context)
+                        self.assertNotIn('authored_teaching_note', context)
+                for focus in ({'mission_cue_index': len(game.cues)}, {'mission_target_id': game.targets[0].id},
+                              {'mission_cue_index': 0, 'mission_target_id': 'fabricated'}):
+                    with self.assertRaises(HTTPException) as error:
+                        tutor.resolve_context(tutor.CardContext(**body, **focus))
+                    self.assertEqual(422, error.exception.status_code)
+        with self.assertRaises(HTTPException):
+            tutor.resolve_context(tutor.CardContext(**self.body, mission_cue_index=0))
 
     def test_shared_quota_and_safe_error_recovery(self):
         with patch.object(tutor, 'provider_request', new_callable=AsyncMock,

@@ -1,8 +1,8 @@
-# Lesson AI tutor POC
+# Lesson AI tutor
 
-The shared tutor is enabled only for `lesson-1-people-actions` (Lesson 1.1). Both clients and the backend have an explicit rollout allowlist. Other lessons retain their existing UI. Lesson content, assets, grading and release fingerprints are unchanged.
+The shared tutor is available on every canonical lesson in all units, including reviews and missions, and is inherited by future engine-authored lessons. There is no lesson-ID allowlist. Unknown lessons/cards and stale revisions are rejected by the backend. Lesson content, assets, grading and release fingerprints are unchanged.
 
-The authenticated FastAPI endpoints are `POST /api/account/tutor/chat`, `/transcribe` and `/speech`. They load the canonical lesson by ID, revision and stable slide ID. Only a submitted, complete selection is accepted as an attempt. Before an attempt, recognition/listening answers, image filenames, translations and teaching notes are excluded from the provider context. The tutor cannot modify progress or call tools.
+The authenticated FastAPI endpoints are `POST /api/account/tutor/chat`, `/transcribe` and `/speech`. They load the canonical lesson by ID, revision and stable slide ID. Only a submitted, complete selection is accepted as a standard-card attempt. Mission searches additionally accept `mission_cue_index` (the authored index, after applying playback shuffle) and `mission_target_id` for a submitted scene tap; the server checks both and reveals only that clue after an attempt. Omit the target before a tap. The tutor does not receive screen geometry or media URLs. Before an attempt, recognition/listening answers, image filenames, translations and teaching notes are excluded from the provider context. The tutor cannot modify progress or call tools.
 
 ## Backend configuration
 

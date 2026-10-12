@@ -10,8 +10,22 @@ const lesson = require('../src/generated/a1-course.json').find(l => l.id === 'le
 const card = lesson.cards.find(c => c.slide_id === 'U4');
 const context = contract.tutorCardContext(lesson, card, null, ['he']);
 assert.deepEqual(context.selected_option_ids, [], 'An unfinished choice is never presented as a submitted answer.');
-assert.deepEqual(contract.TUTOR_LESSON_IDS, [lesson.id]);
-assert.equal(contract.tutorEnabled('another-lesson'), false);
+for (const item of require('../src/generated/a1-course.json')) {
+  for (const c of item.cards) {
+    assert.equal(contract.tutorCardContext(item, c, null, []).lesson_id, item.id);
+  }
+}
+assert.equal(contract.tutorCardContext({...lesson,id:'future-lesson'},card,null,[]).lesson_id, 'future-lesson');
+const mission = require('../src/generated/a1-course.json').find(l => l.experience_type === 'mission');
+const search = mission.cards.find(c => c.mission_game.kind !== 'voice-gate');
+const focus = {slide_id:search.slide_id,cue_index:1,target_id:search.mission_game.targets[0].id};
+const missionContext = contract.tutorCardContext(mission,search,'correct',search.correct_option_ids,focus);
+assert.equal(missionContext.mission_cue_index,1);
+assert.equal(missionContext.mission_target_id,focus.target_id);
+assert.deepEqual(missionContext.selected_option_ids,[],'A focused cue never submits a whole-card attempt too.');
+assert.equal(contract.tutorCardContext(lesson,card,null,[],{...focus,slide_id:card.slide_id}).mission_target_id,undefined);
+assert.ok(contract.tutorSubmittedAnswer(search,missionContext),'Mission target attempts are shown as the submitted answer.');
+assert.match(contract.tutorOpeningQuestion(missionContext),/mi respuesta/);
 assert.deepEqual(contract.tutorCardContext(lesson, card, 'wrong', ['a', 'man', 'he', 'is']).selected_option_ids, ['a', 'man', 'he', 'is']);
 
 function harness() {

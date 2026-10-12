@@ -56,7 +56,7 @@ import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { LessonTutorSheet } from '../components/LessonTutorSheet';
 import { FloatingTutorButton } from '../components/FloatingTutorButton';
 import { useLessonTutor } from '../hooks/useLessonTutor';
-import { tutorCardContext, tutorEnabled } from '../lessonTutor';
+import { tutorSubmittedAnswer, tutorCardContext, type TutorMissionFocus } from '../lessonTutor';
 import { askTutor } from '../tutorApi';
 import { HELP_STORAGE_PREFIX, useContextualHelp } from '../hooks/useContextualHelp';
 import { COMPLETION_RETRY_HELP, isFirstSectionHelpIntroduction, lessonHelpText } from '../lessonHelp';
@@ -301,6 +301,7 @@ export function LessonScreen({
   const isPortrait = viewportHeight >= viewportWidth;
   const [lessonBodyWidth, setLessonBodyWidth] = useState(0);
   const [tutorPromptInset, setTutorPromptInset] = useState(0);
+  const [tutorMissionInset, setTutorMissionInset] = useState(0);
   const useCompactPhoneLayout = isPhoneLandscape(viewportWidth, viewportHeight);
   const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
   const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 190;
@@ -378,9 +379,11 @@ export function LessonScreen({
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isForegroundActive, setIsAppActive] = useState(AppState.currentState === 'active');
-  const tutorContext = useMemo(() => lesson?.cards[cardIndex] && tutorEnabled(lesson.id)
-    ? tutorCardContext(lesson, lesson.cards[cardIndex], result, selectedIds.length ? selectedIds : selectedId ? [selectedId] : []) : null,
-  [lesson, cardIndex, result, selectedIds, selectedId]);
+  const [tutorMission, setTutorMission] = useState<TutorMissionFocus | null>(null);
+  const missionCuePosition = useRef({ card: -1, index: 0 });
+  const tutorContext = useMemo(() => lesson?.cards[cardIndex]
+    ? tutorCardContext(lesson, lesson.cards[cardIndex], result, selectedIds.length ? selectedIds : selectedId ? [selectedId] : [], tutorMission) : null,
+  [lesson, cardIndex, result, selectedIds, selectedId, tutorMission]);
   const tutor = useLessonTutor(`${profile.userId || 'guest'}:${lessonId}`, tutorContext, askTutor);
   // Use the engine's existing interruption/replay lifecycle for the tutor too.
   const isAppActive = isForegroundActive && !tutor.visible;
@@ -1408,6 +1411,7 @@ export function LessonScreen({
   }, [completionPromptSource, currentCard, isPronunciation, playAudio, playAudioSequence, playAudioSource, promptHasVisualBlank, promptTurnSequence, visiblePromptAudio]);
 
   const playMissionCueAt = useCallback((cueIndex: number) => {
+    missionCuePosition.current = { card: cardIndex, index: cueIndex };
     if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
     // Assessed English speech owns the audio session. Decorative transition
     // sounds must never mask or race the clue the learner needs to answer.
@@ -1484,7 +1488,7 @@ export function LessonScreen({
       setMissionCueUnavailable(true);
       setMissionInteractionReady(true);
     });
-  }, [ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, missionOrder, promptTurnSequence, replayPrompt, stopMissionSound]);
+  }, [cardIndex, ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, missionOrder, promptTurnSequence, replayPrompt, stopMissionSound]);
 
   useEffect(() => {
     if (!showMissionKickoff || !isAppActive || !cardAudio.ready) return undefined;
@@ -1506,7 +1510,7 @@ export function LessonScreen({
       || !isAppActive
       || !cardAudio.ready
     ) return undefined;
-    const timer = setTimeout(() => playMissionCueAt(0), 180);
+    const timer = setTimeout(() => playMissionCueAt(missionCuePosition.current.card === cardIndex ? missionCuePosition.current.index : 0), 180);
     return () => clearTimeout(timer);
   }, [cardAudio.ready, cardIndex, currentCard?.mission_game, isAppActive, isPageTurning, missionChapterBreak, missionExperience, playMissionCueAt, result, showMissionKickoff, usesMissionGameSurface]);
 
@@ -2043,7 +2047,7 @@ export function LessonScreen({
       card_number: cardIndex + 1,
     });
     if (isPronunciation) return;
-    setCardRunId((current) => current + 1);
+    if (!usesMissionGameSurface) setCardRunId((current) => current + 1);
 
     if (qaMode && !qaAutoAdvance) return;
     if (answerAudioAwaitingRef.current && result === 'correct' && correctAnswerAudio) {
@@ -3435,6 +3439,10 @@ export function LessonScreen({
                 />
               ) : null}
               onCueRequest={playMissionCueAt}
+              paused={!isAppActive || showHelp || isPageTurning}
+              onTutorFocus={setTutorMission}
+              onTutorInset={setTutorMissionInset}
+              onTutor={openTutor}
               cueOrder={missionOrder}
               key={`mission-${cardIndex}-${cardRunId}`}
               onTargetFound={() => playMissionSound('tile-place')}
@@ -3502,8 +3510,8 @@ export function LessonScreen({
             />
           ) : null}
         </Animated.View>
-        {tutorContext ? <FloatingTutorButton onPress={openTutor} topInset={wideLandscapePrompt ? tutorPromptInset : 0}
-          visible={isAppActive && !showHelp && !isPageTurning && !isCompletedSectionPicker && !showMissionLandscapeMenu && completedLessonMode !== 'prompt'} /> : null}
+        {tutorContext ? <FloatingTutorButton onPress={openTutor} topInset={usesMissionGameSurface ? tutorMissionInset : wideLandscapePrompt ? tutorPromptInset : 0}
+          visible={isAppActive && !showHelp && !isPageTurning && !isCompletedSectionPicker && !showMissionLandscapeMenu && !missionChapterBreak && !sectionBriefing && completedLessonMode !== 'prompt'} /> : null}
       </View>
     </View>
   );
@@ -3511,7 +3519,7 @@ export function LessonScreen({
     <SafeAreaView style={styles.safeArea} onTouchStart={help.touchStart} onTouchEnd={help.touchEnd} onTouchCancel={help.touchEnd}>
       {tutorContext ? <LessonTutorSheet tutor={tutor} context={tutorContext} active={isForegroundActive}
         title={`Lección ${lesson.sub_lesson_id} · ${lessonStageLabel(lesson.id, currentCard.stage)}`}
-        answer={tutorContext.selected_option_ids.map(id => currentCard.options.find(option => option.id === id)?.label || '').join(' ')} /> : null}
+        answer={tutorSubmittedAnswer(currentCard, tutorContext)} /> : null}
       <AudioConnectionNotice
         visible={isAppActive && !isCompletedSectionPicker && !cardAudio.ready}
         waiting={cardAudio.waiting}

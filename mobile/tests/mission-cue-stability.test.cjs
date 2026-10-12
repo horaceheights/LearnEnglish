@@ -89,7 +89,7 @@ test('every mission clue dependency survives a render unchanged', () => {
 test('the clue effect still restarts only when the card or callback changes', () => {
   assert.match(
     lessonScreen,
-    /const timer = setTimeout\(\(\) => playMissionCueAt\(0\), 180\);/u,
-    'The mission clue is expected to start from a short timer after the card settles.',
+    /const timer = setTimeout\(\(\) => playMissionCueAt\(missionCuePosition\.current\.card === cardIndex \? missionCuePosition\.current\.index : 0\), 180\);/u,
+    'The current clue must resume after interruption, with a short timer after the card settles.',
   );
 });

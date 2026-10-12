@@ -45,7 +45,7 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
   const landscape = isPhoneLandscape(viewport.width, viewport.height);
   const helpSheet = landscape || (viewport.height >= viewport.width && card.stage !== 'Speak' && card.options.length > 0 && card.options.every(o => o.image_url));
   const construction = card.interaction_type === 'complete-sentence' || card.stage === 'Use' && card.interaction_type === 'complete2';
-  const onTutor = card.lessonId === 'lesson-1-people-actions' ? noop : undefined;
+  const onTutor = noop;
   const body = construction ? e(SentenceConstruction, { card, selected, result, disabled: false, onTutor, onChange: noop, onReplay: noop, onRetry: noop })
     : e(LessonCardView, { card, lessonId: card.lessonId, onTutor, result, selectedId: selected[0] || null, selectedIds: selected,
       level: 'A1', showHelp: false, userId: 'layout-test', onSelect: noop, onResetSelection: noop, optionsInteractive: card.options.length > 1,

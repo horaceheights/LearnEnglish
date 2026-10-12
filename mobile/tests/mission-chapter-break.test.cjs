@@ -130,8 +130,8 @@ test('the countdown bar fills across the whole moment', () => {
 
 test('the clue waits for the act moment to pass', () => {
   const cueEffect = lessonScreen.slice(
-    lessonScreen.indexOf('const timer = setTimeout(() => playMissionCueAt(0), 180);') - 900,
-    lessonScreen.indexOf('const timer = setTimeout(() => playMissionCueAt(0), 180);'),
+    lessonScreen.indexOf('const timer = setTimeout(() => playMissionCueAt(') - 900,
+    lessonScreen.indexOf('const timer = setTimeout(() => playMissionCueAt('),
   );
   assert.match(
     cueEffect,

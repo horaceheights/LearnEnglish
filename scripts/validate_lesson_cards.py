@@ -21,6 +21,7 @@ sys.path.insert(0, str(BACKEND_DIR))
 sys.path.insert(0, str(ROOT))
 
 from app.data import LESSONS  # noqa: E402
+from app.tutor_context import tutor_contract_errors  # noqa: E402
 from scripts.build_a1_media_semantic_review import (  # noqa: E402
     ASSET_HASH_ALGORITHM,
     CONTRACT_FIELDS,
@@ -3118,6 +3119,7 @@ def main(argv: list[str] | None = None) -> int:
     arguments = parser.parse_args(argv)
     warnings: list[str] = []
     errors = [
+        *[error for lesson in LESSONS.values() for error in tutor_contract_errors(lesson)],
         *validate_option_ids(),
         *validate_text_tile_option_limit(),
         *validate_answer_choice_forms(),

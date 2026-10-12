@@ -7,6 +7,9 @@ import { fitMissionHeadScene, type HeadMarker } from '../missionTargetInteractio
 import { missionChallengeLabel } from '../missionPresentation';
 import type { LessonCard, MissionGame, MissionGameTarget } from '../types';
 import { OptionMediaImage } from './OptionMediaImage';
+import { TutorButton } from './TutorButton';
+import { useMissionTransition } from '../hooks/useMissionTransition';
+import type { TutorMissionFocus } from '../lessonTutor';
 
 type Result = 'correct' | 'wrong' | null;
 
@@ -15,6 +18,10 @@ type Props = {
   cueOrder: number[];
   cueUnavailable: boolean;
   interactionReady: boolean;
+  paused?: boolean;
+  onTutor?: () => void;
+  onTutorInset?: (height: number) => void;
+  onTutorFocus?: (focus: TutorMissionFocus) => void;
   landscapeHeader?: ReactNode;
   onCueRequest: (cueIndex: number) => void;
   onMisstep: (optionIds: string[]) => void;
@@ -123,6 +130,10 @@ export function MissionGameSurface({
   cueUnavailable,
   interactionReady,
   landscapeHeader,
+  paused = false,
+  onTutor,
+  onTutorFocus,
+  onTutorInset,
   onCueRequest,
   onMisstep,
   onTargetFound,
@@ -136,7 +147,8 @@ export function MissionGameSurface({
   const [solvedTargetIds, setSolvedTargetIds] = useState<string[]>([]);
   const [wrongTargetId, setWrongTargetId] = useState<string | null>(null);
   const [sceneSlotSize, setSceneSlotSize] = useState({ height: 0, width: 0 });
-  const transitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const scheduleTransition = useMissionTransition(paused, card.slide_id);
+  const [submittedTarget, setSubmittedTarget] = useState<string | undefined>();
   const selectionLockRef = useRef(false);
   const currentCue = game.cues[cueOrder[cueIndex] ?? cueIndex] ?? game.cues[0];
   const heroImageUrl = card.prompt_image_url
@@ -151,7 +163,7 @@ export function MissionGameSurface({
       ? 'Escucha y toca a la persona o al grupo.'
       : 'Escucha y toca a la persona.';
   const resolving = Boolean(feedback);
-  const disabled = !interactionReady || resolving || result === 'correct';
+  const disabled = paused || !interactionReady || resolving || result === 'correct';
   const cueProgress = useMemo(
     () => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`,
     [cueIndex, game.cues.length],
@@ -171,21 +183,22 @@ export function MissionGameSurface({
     setSolvedTargetIds([]);
     setWrongTargetId(null);
     selectionLockRef.current = false;
-    if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+    setSubmittedTarget(undefined);
   }, [card.slide_id]);
 
-  useEffect(() => () => {
-    if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
-  }, []);
+  useEffect(() => {
+    onTutorFocus?.({ slide_id: card.slide_id || '', cue_index: cueOrder[cueIndex] ?? cueIndex, target_id: submittedTarget });
+  }, [card.slide_id, cueOrder, cueIndex, submittedTarget, onTutorFocus]);
 
   const chooseTarget = useCallback((target: MissionGameTarget) => {
     if (disabled || !currentCue || selectionLockRef.current) return;
     selectionLockRef.current = true;
+    setSubmittedTarget(target.id);
     if (target.id !== currentCue.target_id) {
       setWrongTargetId(target.id);
       setFeedback('Escucha otra vez. Tus aciertos siguen guardados.');
       onMisstep([target.id]);
-      transitionTimerRef.current = setTimeout(() => {
+      scheduleTransition(() => {
         setWrongTargetId(null);
         setFeedback('');
         selectionLockRef.current = false;
@@ -199,9 +212,10 @@ export function MissionGameSurface({
     setWrongTargetId(null);
     setFeedback(currentCue.answer_text);
     onTargetFound();
-    transitionTimerRef.current = setTimeout(() => {
+    scheduleTransition(() => {
       const nextCueIndex = cueIndex + 1;
       if (nextCueIndex < game.cues.length) {
+        setSubmittedTarget(undefined);
         setCueIndex(nextCueIndex);
         setFeedback('');
         selectionLockRef.current = false;
@@ -210,12 +224,14 @@ export function MissionGameSurface({
       }
       onSubmit(game.cues.map((cue) => cue.option_id));
     }, 2200);
-  }, [cueIndex, currentCue, disabled, game.cues, onCueRequest, onMisstep, onSubmit, onTargetFound, solvedTargetIds]);
+  }, [cueIndex, currentCue, disabled, game.cues, onCueRequest, onMisstep, onSubmit, onTargetFound, solvedTargetIds, scheduleTransition]);
 
   if (!currentCue || !heroImageUrl) return null;
 
+  const moreHelp = submittedTarget && submittedTarget !== currentCue.target_id && onTutor
+    ? <TutorButton more onPress={onTutor} /> : null;
   const instructionPanel = (
-    <View style={[
+    <View onLayout={event => onTutorInset?.(useLandscapeGameRail ? 0 : event.nativeEvent.layout.height + 8)} style={[
       styles.instructionPanel,
       useLandscapeGameRail ? styles.instructionPanelLandscape : null,
       useLandscapeGameRail && feedback ? (wrongTargetId ? styles.landscapeWrong : styles.landscapeCorrect) : null,
@@ -235,7 +251,7 @@ export function MissionGameSurface({
         accessibilityHint="Reproduce otra vez la frase en inglés."
         accessibilityLabel="Repetir la frase"
         accessibilityRole="button"
-        disabled={resolving || result === 'correct'}
+        disabled={paused || resolving || result === 'correct'}
       hitSlop={useLandscapeGameRail ? 0 : 7}
         onPress={() => onCueRequest(cueIndex)}
         style={({ pressed }) => [
@@ -276,6 +292,7 @@ export function MissionGameSurface({
         <View style={styles.landscapeRail}>
           {landscapeHeader}
           {instructionPanel}
+          {moreHelp}
         </View>
       ) : instructionPanel}
 
@@ -354,7 +371,7 @@ export function MissionGameSurface({
         ) : null}
       </View>
 
-      {!useLandscapeGameRail ? progressDots : null}
+      {!useLandscapeGameRail ? <>{moreHelp}{progressDots}</> : null}
     </View>
   );
 }
