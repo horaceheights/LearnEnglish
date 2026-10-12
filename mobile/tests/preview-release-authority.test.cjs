@@ -346,6 +346,21 @@ test('native export requests both native bundles in the Preview environment with
   assert.match(publishScriptSource, /export-native-preview\.cjs'[\s\S]*?Assert-GitHubPreviewPublishAuthority[\s\S]*?eas update --channel preview/);
 });
 
+test('Android preflight enforces the same asset limit before protected publication', () => {
+  withNativeExportFixture((directory, metadata, writeMetadata) => {
+    delete metadata.fileMetadata.ios;
+    metadata.fileMetadata.android.assets = Array.from({ length: 999 }, () => ({ path: 'asset.png', ext: 'png' }));
+    writeMetadata();
+    assert.doesNotThrow(() => assertNativeExport(directory, ['android']));
+    assert.throws(() => assertNativeExport(directory), /exactly Android and iOS/);
+    metadata.fileMetadata.android.assets.push({ path: 'asset.png', ext: 'png' });
+    writeMetadata();
+    assert.throws(() => assertNativeExport(directory, ['android']), /1001 assets/);
+  });
+  const preflight = fs.readFileSync(path.join(__dirname, '../scripts/verify-preview.ps1'), 'utf8');
+  assert.match(preflight, /export-native-preview\.cjs'\) --check-android \$exportDirectory/);
+});
+
 test('a failed export or a mismatched release identity cannot continue', () => {
   const commit = 'a'.repeat(40);
   const environment = { APP_VARIANT: 'preview', GITHUB_SHA: commit, EXPO_PUBLIC_RELEASE_COMMIT: commit };

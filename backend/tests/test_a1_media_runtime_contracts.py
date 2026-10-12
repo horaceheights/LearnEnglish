@@ -245,6 +245,7 @@ class A1MediaRuntimeContractTests(unittest.TestCase):
                     "mobile/src/components/LessonMediaFrame.tsx",
                     "mobile/src/lessonViewportLayout.ts",
                     "mobile/src/lessonImageSources.ts",
+                    "mobile/src/packedLessonImages.ts",
                     "mobile/src/lessonTurnImages.ts",
                 ]:
                     before = signatures()

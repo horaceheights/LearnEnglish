@@ -2,10 +2,10 @@ const { spawnSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 
-function assertNativeExport(outputDirectory) {
+function assertNativeExport(outputDirectory, expectedPlatforms = ['android', 'ios']) {
   const metadata = JSON.parse(fs.readFileSync(path.join(outputDirectory, 'metadata.json'), 'utf8'));
   const platforms = Object.keys(metadata.fileMetadata || {}).sort();
-  if (platforms.join(',') !== 'android,ios') {
+  if (platforms.join(',') !== expectedPlatforms.join(',')) {
     throw new Error('Preview export must contain exactly Android and iOS.');
   }
   for (const platform of platforms) {
@@ -16,7 +16,7 @@ function assertNativeExport(outputDirectory) {
     // Expo counts the launch bundle as an asset in each platform's update.
     const assetCount = files.assets.length + 1;
     if (assetCount > 1000) {
-      throw new Error(`${platform} export contains ${assetCount} assets including its launch bundle; Expo permits at most 1000 per update. Remove unused bundle dependencies before publishing.`);
+      throw new Error(`${platform} export contains ${assetCount} assets including its launch bundle; Expo permits at most 1000 per update. Check offline media packaging and unused bundle dependencies before publishing.`);
     }
     for (const relativePath of [files.bundle, ...files.assets.map(asset => asset.path)]) {
       if (typeof relativePath !== 'string' || !relativePath) throw new Error('Missing export file path.');
@@ -53,7 +53,11 @@ function exportNativePreview({
 
 if (require.main === module) {
   try {
-    exportNativePreview();
+    if (process.argv[2] === '--check-android') {
+      assertNativeExport(process.argv[3], ['android']);
+    } else {
+      exportNativePreview();
+    }
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;

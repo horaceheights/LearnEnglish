@@ -139,6 +139,7 @@ SHARED_LESSON_RENDER_FILES = (
     "mobile/src/lessonViewportLayout.ts",
     "mobile/src/promptChoiceLayout.ts",
     "mobile/src/lessonImageSources.ts",
+    "mobile/src/packedLessonImages.ts",
     "mobile/src/lessonTurnImages.ts",
     "frontend/components/LessonPlayer.js",
     "frontend/lib/mediaUrl.js",
@@ -224,6 +225,7 @@ RENDER_PROFILE_FILES = {
         profile: (
             "mobile/src/screens/CourseScreen.tsx",
             "mobile/src/lessonImageSources.ts",
+            "mobile/src/packedLessonImages.ts",
         )
         for profile in RENDER_PROFILE_SPECS
         if profile.startswith("course-browser-")

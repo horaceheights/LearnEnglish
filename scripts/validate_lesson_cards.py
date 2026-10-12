@@ -3064,7 +3064,22 @@ def validate_mobile_a1_semantic_parity() -> list[str]:
             f"{MOBILE_IMAGE_SOURCES_PATH.relative_to(ROOT)}."
         )
         return errors
-    source_registry = MOBILE_IMAGE_SOURCES_PATH.read_text(encoding="utf-8")
+    pack_index_path = ROOT / "mobile" / "src" / "generated" / "bundled-image-packs.json"
+    try:
+        pack_index = json.loads(pack_index_path.read_text(encoding="utf-8"))
+        try:
+            from scripts.lesson_image_packs import build_index
+        except ModuleNotFoundError:
+            from lesson_image_packs import build_index
+
+        if pack_index != build_index(
+            ROOT / "mobile" / "assets" / "lesson-assets",
+            list(pack_index["images"]),
+        ):
+            errors.append("Mobile image packs differ from the exact bundled images; re-export them.")
+    except (OSError, ValueError, KeyError) as exc:
+        errors.append(f"Cannot validate mobile offline image packs: {exc}.")
+        return errors
     try:
         required_filenames = {
             filename for filename, _context in _runtime_media_context_counts().keys()
@@ -3072,20 +3087,17 @@ def validate_mobile_a1_semantic_parity() -> list[str]:
     except ValueError as exc:
         errors.append(f"Cannot derive required mobile stills: {exc}.")
         return errors
-    missing_requires = [
+    missing_packed_images = [
         filename
         for filename in sorted(required_filenames)
-        if not re.search(
-            rf"['\"]{re.escape(filename)}['\"]\s*:\s*require\(",
-            source_registry,
-        )
+        if filename not in pack_index["images"]
     ]
-    if missing_requires:
-        preview = ", ".join(missing_requires[:12])
-        if len(missing_requires) > 12:
-            preview += f", and {len(missing_requires) - 12} more"
+    if missing_packed_images:
+        preview = ", ".join(missing_packed_images[:12])
+        if len(missing_packed_images) > 12:
+            preview += f", and {len(missing_packed_images) - 12} more"
         errors.append(
-            f"Mobile Metro registry is missing {len(missing_requires)} runtime/resolved "
+            f"Mobile offline image packs are missing {len(missing_packed_images)} runtime/resolved "
             f"lesson stills: {preview}."
         )
     return errors

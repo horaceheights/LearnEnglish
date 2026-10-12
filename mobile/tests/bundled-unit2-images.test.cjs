@@ -7,7 +7,7 @@ const mobileRoot = path.resolve(__dirname, '..');
 const generatedRoot = path.join(mobileRoot, 'src', 'generated');
 const bundledRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
 const sourcePath = path.join(mobileRoot, 'src', 'lessonImageSources.ts');
-const source = fs.readFileSync(sourcePath, 'utf8');
+const images = require('../src/generated/bundled-image-packs.json').images;
 const referencedImages = new Set();
 // Lesson ids are stable across renumbering, so the unit and number come from the snapshot.
 const snapshotNumber = new Map();
@@ -42,8 +42,8 @@ assert.ok(referencedImages.size > 0, 'Unit 2 snapshots must reference their appr
 for (const image of [...referencedImages].sort()) {
   assert.ok(fs.existsSync(path.join(bundledRoot, image)), `${image} is missing from the mobile OTA assets.`);
   assert.ok(
-    source.includes(`require('../assets/lesson-assets/${image}')`),
-    `${image} is missing a literal Metro require in lessonImageSources.ts.`,
+    Object.hasOwn(images, image),
+    `${image} is missing from the offline image packs.`,
   );
 }
 
