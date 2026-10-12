@@ -1,6 +1,6 @@
 # Unit 6 story implementation — 2026-10-11
 
-The approved rebuild is installed in the isolated `codex/unit6-story-rebuild` branch and pushed as [draft PR #264](https://github.com/horaceheights/LearnEnglish/pull/264). It is not published. Its authoring review is available locally at `http://127.0.0.1:8770/unit-6-review.html`.
+The approved rebuild is installed in the isolated `codex/unit6-story-rebuild` branch and tracked in [PR #264](https://github.com/horaceheights/LearnEnglish/pull/264). It is not published. Its authoring review is available locally at `http://127.0.0.1:8770/unit-6-review.html`.
 
 ## Scope and learner behavior
 
@@ -19,17 +19,17 @@ The station arrival keeps Ana visible with her established voice. Distinct depar
 - Briefs, plans, individual exports, course export, browser descriptions, media contracts and the complete release integrity catalog agree. Three historical Unit 5 follow-up plans point to their revised Unit 6 successors, preserving the original authoring history.
 - 260 earlier image uses are explicitly retired through the existing preservation contract. Original hashes and files remain unchanged; 218 earlier media-change records remain in the package history.
 
-## Audio status and release gate
+## Approved media and release preparation
 
-New recordings use ElevenLabs `eleven_v4`, the existing character voices and original provider bytes. The separate healthy legacy noun recording of `station` is preserved. The corrected Ana station arrival and current-destination recordings use revision 2 and exact checksums in `character-continuity-correction.json`.
+On 2026-10-11, the user approved the current audio and images and explicitly authorized Preview publication. [The approval inventory](../product/content-plans/unit6-story-2026-10-10/user-media-approval-2026-10-11.json) pins all 264 current staged recording checksums and 155 current image checksums. Superseded takes and the rejected angled-train generation are excluded. The bounded renderer promoted those exact v4 bytes and reused existing approved takes: zero provider requests, 905 new card bindings, and every older binding preserved.
 
-The bounded renderer reused 54 already-approved render contracts, adding 195 bindings with no provider requests. Every older binding remains unchanged. There are 289 newly staged take records, including superseded authoring takes; 264 are current unique recordings awaiting listening review. None of these new takes has been approved or bound to learners. The review page can play every current card using staged or previously approved audio, but it is not the app player.
+The 09:00 and 10:00 train departure images now show a right-facing front matching the arrow, with the wheels aligned to the rails. Both clocks remain exact; the two alternatives use matching geometry. Lesson 6.12 is revision 5. Canonical, web and mobile image bytes match, and its three changed answer-bank contracts were re-reviewed. The remaining six arrival/bus schedule images were inspected and retained. [Direction evidence](../product/content-plans/unit6-story-2026-10-10/schedule-direction-review.json) preserves the rejected originals and accepted checksums; the regression guard rejects stale image evidence or an unreviewed four-card crop. See [the corrected review card](unit6-train-departure-review.jpg).
 
-The persistent catalog and complete reviewed-audio tests must remain red until the exact pending recordings are heard and approved. Do not merge this draft or publish Preview with those failures. Settings and metadata cannot establish pronunciation quality. The governing rule is [Audio Guardrails](../product/project-guardrails.md#7-audio-guardrails): “Stage new v4 takes for listening review before binding them to learners.”
+All 14 plans reproduce the installed canonical lessons. The persistent audio catalog contains 6,779 assets and is pinned to content commit `94e527a5`. The review page has zero pending recordings and zero missing audio. Human media approval does not imply acceptance of an installed Preview build or approval to publish Production.
 
-After the listener exports the review-page decisions, promote only approved exact checksums through the existing bounded renderer, repair rejected takes, export the persistent catalog, publish and verify immutable media/audio inventories, rerun required checks, and integrate current main. Preview must use the protected workflow from exact remote main. Final phone acceptance and any separately authorized Production promotion follow that same immutable Preview commit.
+Media publication, final checks, main integration and the protected Preview workflow are being completed. Publication must come from the exact remote head of protected main; Production requires separate approval after that exact Preview is tested.
 
-## Verification
+## Initial draft verification
 
 Current `origin/main` at `19206562` was inspected and merged. Its cleanup-policy change overlapped only a separate guardrail paragraph; no curriculum or runtime conflict was found.
 
@@ -49,4 +49,8 @@ The native test harness exercises the actual components with Yoga, including ful
 
 The final hygiene audit reports six existing/concurrent repository findings. The primary checkout and other tasks were preserved. This task's unmerged branch and worktree remain for listening review and release completion; no worktree or branch was deleted.
 
-Human image approval, listening approval and device acceptance are separate from these checks.
+The initial draft audio failures above are historical. The user approval and catalog preparation described earlier supersede the draft listening gate; current release verification is recorded below.
+
+## Approved candidate verification
+
+Complete local Preview preflight passes: content, media, TypeScript, phone layout and interaction tests, and Android bundle export. All 42 focused backend checks pass, including the corrected answer banks, exact source catalog, historical receipt recovery, and current inventory. Media upload includes 140 new files; audio publication contains 6,779 validated contracts. All previously published object descriptors remain unchanged. Two returning 6.2 train audio IDs already existed in historical storage; their audio and receipt JSON semantics matched, but local receipt formatting differed. The publisher now resolves returning IDs through checksum-pinned history, and the exact original receipt bytes were recovered without overwriting remote objects. Six publisher regression tests pass. Full CDN checksum verification passes: 6,779 audio assets and 3,052 media objects, zero missing, invalid or errors. Protected GitHub checks and Preview publication are next.

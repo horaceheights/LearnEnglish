@@ -42,6 +42,21 @@ def restore_published_pair(client, bucket, path, entry):
             raise RuntimeError(f'Published immutable {kind} checksum mismatch: {path.stem}')
 
 
+def published_entry(previous, asset_id):
+    """A returning contract retains its original bytes, including receipt formatting."""
+    active = previous.get('assets', {}).get(asset_id)
+    if active is not None:
+        return active
+    key = f'course-audio/elevenlabs-v2/{asset_id}'
+    history = previous.get('historical_objects', {})
+    audio, receipt = history.get(key + '.mp3'), history.get(key + '.json')
+    if audio is None and receipt is None:
+        return None
+    if audio is None or receipt is None:
+        raise RuntimeError(f'Incomplete published immutable history: {asset_id}')
+    return {'key': key + '.mp3', 'audio': audio, 'receipt': receipt}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--apply', action='store_true')
@@ -70,7 +85,7 @@ def main():
     recoveries = []
     for asset in indexed.values():
         path = destination / f'{asset.id}.mp3'
-        prior = previous.get('assets', {}).get(asset.id)
+        prior = published_entry(previous, asset.id)
         if not path.exists() or not path.with_suffix('.json').exists():
             if prior:
                 recoveries.append((path, prior))
@@ -85,7 +100,7 @@ def main():
         list(pool.map(lambda item: restore_published_pair(client, env['R2_BUCKET'], *item), recoveries))
     for asset in indexed.values():
         path = destination / f'{asset.id}.mp3'
-        prior = previous.get('assets', {}).get(asset.id)
+        prior = published_entry(previous, asset.id)
         if prior:
             restore_published_pair(client, env['R2_BUCKET'], path, prior)
         valid, reason, _ = validate_stored_asset(asset, path)
