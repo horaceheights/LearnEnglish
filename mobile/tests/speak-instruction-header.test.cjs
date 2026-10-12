@@ -48,7 +48,8 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // 2026-10-03: 4.10 uses eight time-exchange cards instead of nine routine drills.
 // 2026-10-05: four day foundations precede the preserved eight time-exchange cards in 4.10.
 // 2026-10-08: the Unit 5 service revision adds two spoken thanks and the market acceptance gate.
-assert.equal(speakCards.length, 627, 'The Speak inventory preserves every lesson and the revised Unit 5 mission gates.');
+// 2026-10-11: Unit 6 grows from 83 to 132 spoken cards, retaining four final mission gates.
+assert.equal(speakCards.length, 676, 'The Speak inventory preserves every lesson and the approved Unit 6 expansion.');
 const timeSpeakCards = speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-what-time-is-it');
 assert.equal(timeSpeakCards.length, 12);
 assert.deepEqual(

@@ -31,4 +31,21 @@ After the listener exports the review-page decisions, promote only approved exac
 
 ## Verification
 
-The final check results are recorded below after the current-main integration check. Human image approval, listening approval and device acceptance are separate from agent inspection and automated tests.
+Current `origin/main` at `19206562` was inspected and merged. Its cleanup-policy change overlapped only a separate guardrail paragraph; no curriculum or runtime conflict was found.
+
+- Canonical content and mobile parity: all fifteen scoped validators pass; all fourteen engine plans reproduce installed content.
+- Practice: zero new findings; the existing course baseline has 91 findings. Unit 6 has zero draft findings or missing images.
+- Speaker review: zero unreviewed, mismatched or stale picture/voice assignments; 2,212 scalar assignments independently pinned.
+- Mistake feedback: 9,324 wrong attempts checked across all 85 lessons.
+- Mission geometry: 30 supported-size layouts pass touch-bound and overlap checks.
+- TypeScript and versioned release integrity: pass (85 lessons, seven units).
+- Android production bundle export: passes locally; this is a build check, not a Preview publication.
+- Backend suite on the merged current-main candidate: 646 tests, 644 pass and exactly two fail closed: the persistent catalog still describes the last approved course, and 905 new asset bindings require reviewed audio. Both are the expected audio release blockers; neither test was weakened or skipped.
+- Release lineage checks retain the historical `657ab194` recovery baseline while pinning the new 85-lesson candidate. All eleven lineage tests pass.
+- Media upload preflight: all existing local objects match the committed inventory; 138 additional objects are confined to the new Unit 6 namespace. Upload follows the audio-approval gate.
+
+The native test harness exercises the actual components with Yoga, including full content bounds, enlarged text, rotation, retry and feedback. Agent review of [the corrected station card](unit6-station-arrival-review.jpg) is on the HTML authoring page. Neither substitutes for exact Preview testing on a device.
+
+The final hygiene audit reports six existing/concurrent repository findings. The primary checkout and other tasks were preserved. This task's unmerged branch and worktree remain for listening review and release completion; no worktree or branch was deleted.
+
+Human image approval, listening approval and device acceptance are separate from these checks.
