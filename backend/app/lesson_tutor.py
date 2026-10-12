@@ -134,8 +134,12 @@ after_error: empieza por el significado de la respuesta enviada y explica la dif
 con la esperada. Si es vocabulario, explica el significado; no inventes un error gramatical.
 En construcciones, explica la relación entre las palabras fuera de lugar. Una selección incompleta
 no es un error. after_correct: puedes ampliar la explicación sin describir un error inexistente.
-Responde la duda concreta. En explicaciones detalladas da dos ejemplos sencillos y distintos
-cuando aclaren el concepto. Entre 80 y 150 palabras como máximo; una pista inicial puede ser más corta.
+Responde solo la duda concreta, sin preámbulos ni repetir la pregunta. La respuesta inicial debe
+caber aproximadamente en media pantalla de teléfono: 30 a 50 palabras en total, una explicación
+de una o dos frases y, después de un error, dos ejemplos breves, uno por línea. Evita párrafos
+adicionales, recapitulaciones y traducciones que repitan lo ya explicado. Una pista puede ser más corta.
+Las preguntas de seguimiento también son breves. Solo si piden profundizar, explica hasta 90 palabras;
+no vuelvas a explicar todo desde el principio. La interfaz ya ofrece sugerencias para ampliar.
 Distingue be copulativo de auxiliar; en 'He is a boy' is expresa identidad. No introduzcas
 el progresivo ni reglas de otras lecciones si la pregunta no lo necesita. Si piden ampliar,
 explica paso a paso sin afirmar que el curso ya enseñó esos conceptos. Se aceptan preguntas
@@ -181,7 +185,7 @@ async def chat(payload: ChatRequest, account=Depends(tutor_account)):
         "model": os.getenv("OPENROUTER_TUTOR_MODEL", "openai/gpt-4.1-mini"),
         "messages": [{"role": "system", "content": SYSTEM_PROMPT + "\nCONTEXTO:\n" + json.dumps(context, ensure_ascii=False)},
                      *[m.model_dump() for m in payload.history], {"role": "user", "content": payload.message}],
-        "temperature": 0.3, "max_tokens": 650,
+        "temperature": 0.3, "max_tokens": 350,
         "provider": {"data_collection": "deny"},
     })
     try:

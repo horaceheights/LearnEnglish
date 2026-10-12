@@ -19,6 +19,7 @@ Used the real production web lesson components at phone portrait and landscape s
 - Speaking an explanation returned audio successfully through the speech endpoint and browser playback had no console error. A separate real-provider round trip generated a Spanish question and transcribed its MP3 through OpenRouter. This verifies provider compatibility, not a physical device microphone.
 - U4 with only `He` placed opens as unanswered. Closing during its request preserves that word and the enabled Undo control.
 - Stopping the loopback API produces a Spanish connection error with `Reintentar`; the typed follow-up remains in the composer. The conversation and lesson remain available. Restoring the API and tapping `Reintentar` successfully answers the preserved question.
+- After the user's compact-response review, shortened the response guidance to 30–50 words by default and reduced the provider output limit to 350 tokens. A fresh live R2 mistake explanation returned 58 words; at 390×844 its text occupied 255 px and the entire first reply, both examples, all three suggestions and composer fit without internal scrolling. This is observed model behavior, not a guaranteed word count. Longer history and accessible text still retain scrolling. The 11 tutor/privacy tests passed again.
 
 ## Required Preview device review
 
