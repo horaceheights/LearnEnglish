@@ -1,5 +1,6 @@
 """Regression contracts for the corrected journey protagonist, independent of audio approval."""
 import json
+import hashlib
 import re
 import unittest
 from pathlib import Path
@@ -70,6 +71,23 @@ class Unit6JourneyCharacterTests(unittest.TestCase):
         for number in range(1, 14):
             plan = json.loads((PLANS / f"6.{number}.plan.json").read_text(encoding="utf-8"))
             self.assertEqual(54 if number == 13 else 42, len(compose_lesson(plan)["cards"]))
+
+    def test_departure_images_keep_the_exact_reviewed_direction_corrections(self):
+        review = json.loads((PLANS / "schedule-direction-review.json").read_text(encoding="utf-8"))
+        lesson = compose_lesson(json.loads((PLANS / "6.12.plan.json").read_text(encoding="utf-8")))
+        rendered = json.dumps(lesson)
+        # Pixel meaning is reviewed by a person; this guard prevents stale evidence,
+        # rejected substitutions, or a new crop from silently reusing that review.
+        for row in review["replacements"]:
+            self.assertNotIn(row["old_image"], rendered)
+            self.assertIn(row["new_image"], rendered)
+            for version in ("old", "new"):
+                image = ROOT / "Lessons/Lesson1/images" / row[f"{version}_image"]
+                self.assertEqual(row[f"{version}_sha256"], hashlib.sha256(image.read_bytes()).hexdigest())
+            for card in lesson["cards"]:
+                if row["new_image"] in json.dumps(card):
+                    self.assertLessEqual(len(card.get("options", [])), 2)
+        self.assertNotIn("train_leaves_ten_v2.webp", rendered)
 
 if __name__ == "__main__":
     unittest.main()

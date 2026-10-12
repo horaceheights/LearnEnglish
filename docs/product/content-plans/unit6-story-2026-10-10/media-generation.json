@@ -1101,7 +1101,7 @@
       "name": "train_leaves_nine",
       "revision": 1,
       "prompt": "1536x1024 landscape 3:2. A precise functional teaching diagram explaining a train DEPARTURE at exactly 09:00. Realistic miniature architectural illustration, clean light background, no words labels or caption. One large silver TRAIN on railway tracks beside a railway station platform, left-to-right spatial diagram. Station/shelter on LEFT and vehicle on RIGHT. ONE large clear BLUE arrow between them pointing RIGHT from station toward departing vehicle, away from station. The vehicle's motion and nose orient the same RIGHTWARD departing direction. Above centered, one large digital timetable clock with EXACT digits '09:00', no other times or text. Vehicle, clock and arrow large and central all fit centered 4:5 crop; visible station edge identifies origin/destination. Clock is photographed physical display. Only digits as requested; no people, border, watermark, answer captions or split collage. Educational spatial illustration communicates motion and time together.",
-      "status": "generated; original visually inspected; phone crop pending",
+      "status": "Superseded: user identified opposing arrow and train orientation. Original preserved unchanged.",
       "semantic_observations": "Digital 09:00, platform left, silver train right with blue arrow pointing away from platform. Left cab can be rear of bidirectional train; movement is indicated by arrow.",
       "original": "Lessons/Lesson1/images/unit6-story-2026-10-10-sources/train_leaves_nine-v1.png",
       "runtime": "Lessons/Lesson1/images/a1_photo_u6_story_train_leaves_nine_v1.webp",
@@ -1112,7 +1112,7 @@
       "name": "train_leaves_ten",
       "revision": 1,
       "prompt": "1536x1024 landscape 3:2. A precise functional teaching diagram explaining a train DEPARTURE at exactly 10:00. Realistic miniature architectural illustration, clean light background, no words labels or caption. One large silver TRAIN on railway tracks beside a railway station platform, left-to-right spatial diagram. Station/shelter on LEFT and vehicle on RIGHT. ONE large clear BLUE arrow between them pointing RIGHT from station toward departing vehicle, away from station. The vehicle's motion and nose orient the same RIGHTWARD departing direction. Above centered, one large digital timetable clock with EXACT digits '10:00', no other times or text. Vehicle, clock and arrow large and central all fit centered 4:5 crop; visible station edge identifies origin/destination. Clock is photographed physical display. Only digits as requested; no people, border, watermark, answer captions or split collage. Educational spatial illustration communicates motion and time together.",
-      "status": "generated; original visually inspected; phone crop pending",
+      "status": "Superseded: user identified opposing arrow and train orientation. Original preserved unchanged.",
       "semantic_observations": "Digital 10:00, platform left and silver train right, rightward arrow away from platform.",
       "original": "Lessons/Lesson1/images/unit6-story-2026-10-10-sources/train_leaves_ten-v1.png",
       "runtime": "Lessons/Lesson1/images/a1_photo_u6_story_train_leaves_ten_v1.webp",
@@ -1767,6 +1767,28 @@
       "runtime": "Lessons/Lesson1/images/a1_photo_u6_story_train_arrives_ten_v2.webp",
       "original_sha256": "77b35d59b80d0f9921ff8494abb53e6c099c93fa62f01d93a4867ab885fa09db",
       "runtime_sha256": "505789460c3a2be3d45249292860c0c93dfc7fe5da4420e44248dd25400e5bff"
+    },
+    {
+      "name": "train_leaves_nine",
+      "revision": 2,
+      "prompt": "Use case: precise-object-edit. Edit this course teaching image. Correct the contradictory train direction: the blue arrow points RIGHT, so the clearly visible train FRONT/nose must also point RIGHT, departing AWAY from the shelter left. Redraw only the train as a recognizably right-facing silver-blue passenger train, a leading cab on its RIGHT end, carriages trailing LEFT toward the platform. No left-facing cab visible. Move/reframe the train enough to show its right-facing nose wholly in frame and unmistakably, keep train large. Retain platform/shelter on LEFT, one blue RIGHT arrow, exact centered digital clock '09:00', photo-real appearance, daylight, track and colors. No written labels. LANDSCAPE 1536x1024 exactly, 3:2. Preserve clock and arrow legibility and clear separation between platform and departing nose. Do not just flip the whole image: clock must remain 09:00 and arrow must remain rightward.",
+      "status": "Agent inspected source; not human approval",
+      "semantic_observations": "Side-on silver-blue train faces right, wheels rest on continuous horizontal rail; rightward arrow agrees; shelter behind on left; exact 09:00 clock. All uses are full 3:2, no four-image crop.",
+      "original": "Lessons/Lesson1/images/unit6-story-2026-10-10-sources/train_leaves_nine-v2.png",
+      "runtime": "Lessons/Lesson1/images/a1_photo_u6_story_train_leaves_nine_v2.webp",
+      "original_sha256": "dfa0877fb7198748823bb858c08de9b823bef71c2e982fd80b975f4a6b50b486",
+      "runtime_sha256": "d2aeb7c6aab8122ea13803867499215e8a9cbb51e008c7db0cea47e4d9d9239c"
+    },
+    {
+      "name": "train_leaves_ten",
+      "revision": 3,
+      "prompt": "Use case: precise-object-edit. This is the corrected SIDE-ON train departure picture. Change ONLY the digital clock digits from '09:00' to '10:00'. Preserve exactly the straight side-on orientation of the train and railway tracks: every visible wheel rests on the same continuous near rail, axles aligned with the parallel rails. Preserve the silver-blue train leading nose facing RIGHT, carriage body trailing LEFT, station/shelter on LEFT behind it, and blue arrow RIGHT. Do not rotate the train into an angled three-quarter perspective. Preserve the exact scene geometry, photoreal appearance, daylight, colors, clock position and 1536x1024 landscape 3:2 dimensions. No added objects, words, labels or logos. Only clock digits change.",
+      "status": "Agent inspected source; not human approval",
+      "semantic_observations": "Side-on silver-blue train faces right, wheels rest on continuous horizontal rail; rightward arrow agrees; shelter behind on left; exact 10:00 clock. Matches 09:00 composition for time discrimination.",
+      "original": "Lessons/Lesson1/images/unit6-story-2026-10-10-sources/train_leaves_ten-v3.png",
+      "runtime": "Lessons/Lesson1/images/a1_photo_u6_story_train_leaves_ten_v3.webp",
+      "original_sha256": "0fe0407033dd96ec4ac0ef83cb879e7174b853e34b98c4b8ed461cb4f03bb06d",
+      "runtime_sha256": "f45fa2c7d93ff56cbf62d6573b0069b6a432f87f55cfa1bd725bb8e30773471a"
     }
   ]
 }
