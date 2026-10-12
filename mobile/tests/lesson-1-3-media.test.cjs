@@ -7,7 +7,7 @@ const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
 const imageName = 'they_boy_girl_are_running.webp';
 const imagePath = path.join(mobileRoot, 'assets', 'lesson-assets', imageName);
-const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
+const images = require('../src/generated/bundled-image-packs.json').images;
 const audioSources = fs.readFileSync(path.join(mobileRoot, 'src', 'courseAudioSources.ts'), 'utf8');
 const lessonScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'LessonScreen.tsx'), 'utf8');
 const lesson = JSON.parse(fs.readFileSync(
@@ -27,8 +27,8 @@ const staticAudioRoot = path.join(repositoryRoot, 'frontend', 'public', 'audio-c
 assert.ok(fs.existsSync(imagePath), 'The Lesson 1.3 Are still must travel in the Preview OTA.');
 assert.ok(fs.statSync(imagePath).size > 100_000, 'The bundled Are still appears incomplete.');
 assert.ok(
-  imageSources.includes(`require('../assets/lesson-assets/${imageName}')`),
-  'The Lesson 1.3 Are still needs a literal Metro require.',
+  Object.hasOwn(images, imageName),
+  'The Lesson 1.3 Are still needs to travel in an offline image pack.',
 );
 
 const correctedCards = [

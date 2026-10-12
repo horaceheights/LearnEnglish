@@ -72,6 +72,9 @@ try {
     Invoke-CheckedCommand -FailureMessage 'Expo no pudo exportar el bundle Android.' -Command {
       & node $expoCli export --platform android --output-dir $exportDirectory
     }
+    Invoke-CheckedCommand -FailureMessage 'El export Android supera el límite de assets o está incompleto.' -Command {
+      & node (Join-Path $PSScriptRoot 'export-native-preview.cjs') --check-android $exportDirectory
+    }
   } finally {
     $resolvedExportDirectory = [System.IO.Path]::GetFullPath($exportDirectory)
     if (-not $resolvedExportDirectory.StartsWith($temporaryRoot, [System.StringComparison]::OrdinalIgnoreCase)) {

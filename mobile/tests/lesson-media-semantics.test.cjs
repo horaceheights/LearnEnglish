@@ -9,7 +9,7 @@ const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
 const course = require(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'));
 const mediaManifest = require(path.join(repositoryRoot, 'docs', 'product', 'a1-media-manifest.json'));
-const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
+const images = require('../src/generated/bundled-image-packs.json').images;
 const courseScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'CourseScreen.tsx'), 'utf8');
 const mediaBuilder = fs.readFileSync(path.join(repositoryRoot, 'scripts', 'build_a1_media_composites.py'), 'utf8');
 
@@ -604,11 +604,7 @@ for (const filename of requiredAssets) {
   ]) {
     assert.ok(fs.existsSync(path.join(root, filename)), `${filename} must exist in ${root}`);
   }
-  assert.match(
-    imageSources,
-    new RegExp(`['"]${filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\\s*:\\s*require\\(`),
-    `${filename} must be bundled through a literal Metro require`,
-  );
+  assert.ok(Object.hasOwn(images, filename), `${filename} must travel in an offline image pack`);
 }
 
 const semanticAssetFilenames = [...new Set(mediaManifest.assets.map((asset) => asset.filename))];

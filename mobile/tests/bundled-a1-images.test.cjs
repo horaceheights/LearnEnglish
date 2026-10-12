@@ -6,7 +6,7 @@ const mobileRoot = path.resolve(__dirname, '..');
 const generatedRoot = path.join(mobileRoot, 'src', 'generated');
 const bundledRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
 const sourcePath = path.join(mobileRoot, 'src', 'lessonImageSources.ts');
-const source = fs.readFileSync(sourcePath, 'utf8');
+const images = require('../src/generated/bundled-image-packs.json').images;
 const referencedImages = new Set([
   'family_all_members.webp',
   'place_park.webp',
@@ -35,8 +35,8 @@ for (const image of [...referencedImages].sort()) {
   assert.ok(fs.existsSync(bundledPath), `${image} is missing from the mobile OTA assets.`);
   assert.ok(fs.statSync(bundledPath).size > 0, `${image} is empty in the mobile OTA assets.`);
   assert.ok(
-    source.includes(`require('../assets/lesson-assets/${image}')`),
-    `${image} is missing a literal Metro require in lessonImageSources.ts.`,
+    Object.hasOwn(images, image),
+    `${image} is missing from the offline image packs.`,
   );
 }
 

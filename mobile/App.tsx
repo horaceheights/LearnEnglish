@@ -12,6 +12,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConnectivityBanner } from './src/components/ConnectivityBanner';
 import { AccountGate } from './src/components/AccountGate';
+import { BundledLessonImagesGate } from './src/components/BundledLessonImagesGate';
 import { PlayfulLoading } from './src/components/PlayfulLoading';
 import {
   addDiagnosticBreadcrumb,
@@ -241,7 +242,9 @@ export default function App() {
         <ConnectivityBanner />
         <AppErrorBoundary>
           <StartupUpdateGate>
-            <AccountGate>{(profile, signOut) => <AppContent key={profile.userId} accountProfile={profile} signOut={signOut} />}</AccountGate>
+            <BundledLessonImagesGate>
+              <AccountGate>{(profile, signOut) => <AppContent key={profile.userId} accountProfile={profile} signOut={signOut} />}</AccountGate>
+            </BundledLessonImagesGate>
           </StartupUpdateGate>
         </AppErrorBoundary>
       </View>

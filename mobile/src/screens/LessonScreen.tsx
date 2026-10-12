@@ -58,8 +58,8 @@ import { COMPLETION_RETRY_HELP, isFirstSectionHelpIntroduction, lessonHelpText }
 import { LessonLandscapeRail } from '../components/LessonLandscapeRail';
 import { isPhoneLandscape, landscapePromptIsWide } from '../lessonViewportLayout';
 import { StageJourney } from '../components/StageJourney';
+import { lessonOptionImageSource } from '../lessonImageSources';
 import {
-  absoluteMediaUrl,
   courseAudioAssetVoice,
   hasVisualAudioPlaceholder,
 } from '../config';
@@ -607,8 +607,15 @@ export function LessonScreen({
   }, [ensureAudioPreloaded, isOffline]);
 
   const ensureImagePreloaded = useCallback((path: string) => {
-    if (!path || isOffline) return Promise.resolve();
-    const url = absoluteMediaUrl(path);
+    if (!path) return Promise.resolve();
+    let url: string | undefined;
+    try {
+      url = Image.resolveAssetSource(lessonOptionImageSource(path))?.uri;
+    } catch (error) {
+      captureDiagnosticError(error, 'lesson_image_preload', { path }, 'warning');
+      return Promise.resolve();
+    }
+    if (!url || (isOffline && /^https?:/.test(url))) return Promise.resolve();
     const existing = imagePreloadRef.current.get(url);
     if (existing) return existing;
 

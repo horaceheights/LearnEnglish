@@ -42,6 +42,8 @@ npm run verify:preview
 
 Este comando valida las tarjetas y sus archivos multimedia, comprueba TypeScript y exporta el bundle Android de producción en un directorio temporal.
 
+También comprueba el límite de 1.000 assets, incluido el bundle. Las imágenes del curso viajan sin modificar en paquetes binarios offline: Metro los reconstruye desde los WebP aprobados y el índice versionado, verificando sus hashes. La app lee cada imagen localmente cuando la necesita y conserva sus dimensiones. Agregar lecciones o imágenes no exige un APK nuevo por sí solo; este empaquetado usa los módulos nativos ya instalados. No edites los paquetes generados: vuelve a exportar las imágenes con `scripts/export_mobile_preview_lessons.py` cuando cambie el catálogo.
+
 La política de Preview permite que una decisión humana marcada `pending`, la evidencia de recorte 4:5 pendiente y una firma de renderizador obsoleta por cambios de interfaz aparezcan como advertencias. La advertencia sirve para que la revisión pueda hacerse en la app real; no significa que la imagen esté aprobada. Un rechazo, contrato o archivo ausente, hash semántico, de bytes o de vínculo de activo obsoleto que no sea solamente la firma del renderizador, copia distinta, respuesta ambigua, medio inválido o curso incompleto sigue deteniendo Preview.
 
 ### 2. Integrar solamente en `main`

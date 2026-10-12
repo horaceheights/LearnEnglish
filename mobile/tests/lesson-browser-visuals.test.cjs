@@ -8,7 +8,7 @@ const mobileRoot = path.resolve(__dirname, '..');
 const course = JSON.parse(fs.readFileSync(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'), 'utf8'));
 const courseScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'CourseScreen.tsx'), 'utf8');
 const lessonPlayer = fs.readFileSync(path.join(mobileRoot, '..', 'frontend', 'components', 'LessonPlayer.js'), 'utf8');
-const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
+const images = require('../src/generated/bundled-image-packs.json').images;
 const assetRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
 const semanticRegistry = JSON.parse(fs.readFileSync(
   path.join(mobileRoot, '..', 'docs', 'qa', 'a1-media-semantic-approvals.json'),
@@ -77,8 +77,8 @@ for (const surface of titleSurfaces) {
   assert.ok(fs.existsSync(imagePath), `${id} references missing title image ${image}.`);
   assert.deepEqual(webpDimensions(imagePath), [1536, 1024], `${id} title image ${image} must use the 3:2 course canvas.`);
   assert.ok(
-    imageSources.includes(`require('../assets/lesson-assets/${image}')`),
-    `${id} title image ${image} must use a literal Metro require.`,
+    Object.hasOwn(images, image),
+    `${id} title image ${image} must be available in an offline image pack.`,
   );
   assert.ok(!usedImages.has(image), `${id} and ${usedImages.get(image)} reuse title image ${image}.`);
   usedImages.set(image, id);

@@ -15,7 +15,7 @@ const pronunciation = fs.readFileSync(path.join(mobileRoot, 'src/components/Pron
 const voicePresentation = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionVoicePresentation.tsx'), 'utf8');
 const kickoff = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionKickoff.tsx'), 'utf8');
 const screen = fs.readFileSync(path.join(mobileRoot, 'src/screens/LessonScreen.tsx'), 'utf8');
-const images = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
+const images = require('../src/generated/bundled-image-packs.json').images;
 
 assert.equal(mission.cards.length, 22);
 assert.equal(mission.content_revision, 6);
@@ -87,7 +87,7 @@ assert.match(
   /const waitsForGrammarAnimation = shouldWaitForGrammarAnimation\([\s\S]*?usesMissionGameSurface[^)]*\);/,
 );
 
-const bundledReunionImages = images.match(/'a1_u1_reunion_[^']+\.webp': require/g) || [];
+const bundledReunionImages = Object.keys(images).filter(name => /^a1_u1_reunion_.*\.webp$/.test(name));
 assert.equal(bundledReunionImages.length, 27);
 
 assert.match(lessonCard, /\{missionVoiceGate\.heading\}/);
