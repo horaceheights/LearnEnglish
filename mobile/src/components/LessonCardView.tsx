@@ -1,3 +1,4 @@
+import { TutorButton } from './TutorButton';
 import { vocabularyText } from './VocabularyText';
 import { Animated, Easing, PanResponder, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -57,6 +58,7 @@ export function textAnswerStackNeedsScroll(
 }
 
 type Props = {
+  onTutor?: () => void;
   vocabulary?: readonly string[];
   audioProvider: CourseAudioProvider;
   audioVoice: CourseAudioVoice;
@@ -115,6 +117,7 @@ export function LessonCardView({
   result,
   showHelp,
   onSelect,
+  onTutor,
   onTeachingImageReady,
   onPromptImageReady,
   promptImageLoadKey,
@@ -309,7 +312,7 @@ export function LessonCardView({
   const feedbackReservedHeight = !isPronunciation && (optionsInteractive || Boolean(result))
     ? Math.max(
         feedbackMeasurement.key === feedbackLayoutKey ? feedbackMeasurement.height + 12 : 0,
-        needsPortraitImageFeedbackSpace ? 76 : 58,
+        (needsPortraitImageFeedbackSpace ? 76 : 58) + (result === 'wrong' && onTutor ? 53 : 0),
       )
     : 0;
   const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
@@ -501,9 +504,9 @@ export function LessonCardView({
     : 'Correcto. Vamos a la siguiente tarjeta…';
   const answerFeedback = (result ? (
             <View
-              accessible={!awaitingRetry}
+              accessible={!awaitingRetry && !(result === 'wrong' && onTutor)}
               accessibilityLiveRegion="polite"
-              accessibilityRole={awaitingRetry ? undefined : 'text'}
+              accessibilityRole={awaitingRetry || (result === 'wrong' && onTutor) ? undefined : 'text'}
               style={styles.feedback}
               onLayout={(event) => {
                 const height = Math.ceil(event.nativeEvent.layout.height);
@@ -528,6 +531,7 @@ export function LessonCardView({
                   {mistakeHint}
                 </Text>
               ) : null}
+              {result === 'wrong' && onTutor ? <TutorButton more onPress={onTutor} /> : null}
               {awaitingRetry ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
                 onPress={onResetSelection} style={styles.retryButton}>
                 <Text style={styles.retryButtonText}>Reintentar</Text>

@@ -1,0 +1,31 @@
+.tutorButton { position:relative; display:inline-flex; align-items:center; justify-content:center; gap:5px; min-width:58px; min-height:48px; padding:8px; flex-shrink:0; color:#176f73; background:#e8f4ed; border:1px solid #85bdb0; border-radius:16px; font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; }
+.glow { animation:tutorGlow 3.6s ease-in-out infinite; }
+@keyframes tutorGlow { 0%,100% { box-shadow:0 0 0 2px #b3e5d844; background:#f6fbf4; } 50% { box-shadow:0 0 12px 3px #80cdb766; background:#d4eee4; } }
+@media(prefers-reduced-motion:reduce) { .glow { animation:none; box-shadow:0 0 0 2px #b3e5d844; } }
+.more { margin-top:7px; padding-inline:14px; }
+.dialog { padding:0; border:1px solid #d5e0d7; border-radius:24px; width:min(640px, calc(100vw - 20px)); max-width:none; height:min(820px, calc(100dvh - 24px)); max-height:calc(100dvh - 24px); background:#fffdf7; color:#203c37; box-shadow:0 20px 70px #163b5c44; overflow:hidden; }
+.dialog[open] { display:flex; flex-direction:column; }
+.dialog::backdrop { background:#163b5c66; }
+.header { display:flex; align-items:center; gap:12px; padding:14px 18px; border-bottom:1px solid #e8e4d8; flex-shrink:0; }
+.header>div { flex:1; min-width:0; } .header h2 { margin:0; font-size:23px; color:#245f53; } .header p { margin:3px 0 0; font-size:13px; color:#5a7069; }
+.iconButton { background:none; border:0; font-size:30px; color:#245f53; min-width:48px; min-height:48px; cursor:pointer; }
+.messages { flex:1; overflow-y:auto; min-height:0; padding:16px; display:flex; flex-direction:column; gap:12px; overscroll-behavior:contain; }
+.context { margin:0; padding:12px; border-radius:14px; background:#fff0d6; font-size:15px; }
+.bubble { max-width:94%; align-self:flex-start; background:#eaf0e6; border-radius:18px; padding:14px; }
+.bubble p { margin:0; font-size:17px; line-height:1.5; white-space:pre-wrap; overflow-wrap:anywhere; }
+.user { align-self:flex-end; background:#f8ddc8; }
+.speaker { display:block; margin-left:auto; color:#176f73; background:transparent; border:0; min-height:48px; cursor:pointer; font-weight:700; }
+.suggestions { display:flex; flex-wrap:wrap; gap:7px; }
+.suggestions button,.footer>button,.error button,.recording button { padding:10px 12px; min-height:48px; border:1px solid #b8d3c8; border-radius:14px; color:#176f73; background:#fffdf7; cursor:pointer; font-size:15px; font-weight:700; }
+.footer { padding:8px 14px max(10px, env(safe-area-inset-bottom)); border-top:1px solid #e8e4d8; flex-shrink:0; }
+.voicePreference { display:flex; align-items:center; justify-content:space-between; min-height:40px; font-size:14px; color:#52655d; }
+.voicePreference input { width:24px; height:24px; accent-color:#278c73; }
+.composer { display:flex; align-items:center; gap:6px; }
+.composer textarea { flex:1; min-width:0; max-height:100px; resize:vertical; border:1px solid #b8d3c8; border-radius:16px; padding:10px; font-family:inherit; font-size:16px; color:#203c37; background:white; }
+.composer button { min-width:48px; min-height:48px; border:0; border-radius:24px; background:#278c73; color:white; font-size:23px; cursor:pointer; }
+.dialog button:disabled { opacity:0.45; cursor:default; }
+.dialog button:focus-visible,.dialog textarea:focus-visible,.tutorButton:focus-visible { outline:3px solid #dd6844; outline-offset:2px; }
+.footer small { display:block; text-align:center; font-size:11px; color:#748179; margin-top:7px; }
+.error { color:#a34842; font-size:15px; } .error button { display:block; margin-top:6px; }
+.recording { color:#176f73; text-align:center; } .recording p { margin:6px; } .recording button { margin:3px; }
+@media(max-height:460px) { .header { padding:5px 12px; } .header h2 { font-size:18px; } .footer { padding-top:2px; } .voicePreference { min-height:28px; } .composer textarea { height:48px; } }

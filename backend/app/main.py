@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response, RedirectResponse
 
 from .api_auth import api_request_is_authorized
-from . import accounts, account_routes, clerk_webhooks
+from . import accounts, account_routes, clerk_webhooks, lesson_tutor
 from .diagnostics import initialize_diagnostics
 from .course_audio import audio_debug, ready_cue_wav
 from . import cloudflare_media
@@ -58,6 +58,7 @@ app = FastAPI(title="Learn English API", version="0.1.0")
 init_db()
 accounts.init_account_db()
 app.include_router(account_routes.router)
+app.include_router(lesson_tutor.router)
 app.add_api_route('/api/webhooks/clerk', clerk_webhooks.receive, methods=['POST'])
 
 APP_API_KEY = os.getenv("APP_API_KEY", "").strip()

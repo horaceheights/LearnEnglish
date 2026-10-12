@@ -18,6 +18,11 @@ import {
 } from "../lib/api";
 import { awaitingConstructionRetry } from "../../mobile/src/constructionTeaching";
 import LessonHelpPopup from "./LessonHelpPopup";
+import LessonTutor from "./LessonTutor";
+import { TutorButton } from "./TutorButton";
+import { tutorCardContext, tutorEnabled } from "../../mobile/src/lessonTutor";
+import { useLessonTutor } from "../../mobile/src/hooks/useLessonTutor";
+import { askTutor } from "../lib/tutorApi";
 import { HELP_STORAGE_PREFIX, useContextualHelp } from "../../mobile/src/hooks/useContextualHelp";
 import { COMPLETION_RETRY_HELP, isFirstSectionHelpIntroduction, lessonHelpText } from "../../mobile/src/lessonHelp";
 import {
@@ -2329,6 +2334,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }, [playUiSfx]);
 
   const currentCard = activeLesson.cards[cardIndex];
+  const tutorContext = useMemo(() => tutorEnabled(activeLesson.id) && currentCard
+    ? tutorCardContext(activeLesson, currentCard, lastResult, selectedOptionIds.length ? selectedOptionIds : [selectedOptionId].filter(Boolean))
+    : null, [activeLesson, currentCard, lastResult, selectedOptionId, selectedOptionIds]);
+  const tutor = useLessonTutor(`${profile?.userId || 'guest'}:${lessonSessionId}`, tutorContext, askTutor);
+  const tutorInterruptionRef = useRef(0);
   const teachingCardKey = `${lessonSessionId}:${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
   const [loadedTeachingImageKey, setLoadedTeachingImageKey] = useState("");
   const [manualTeachingTranslationKey, setManualTeachingTranslationKey] = useState("");
@@ -2407,7 +2417,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     introKey: introduceHelp ? activeLesson.id : undefined,
     storageKey: `${HELP_STORAGE_PREFIX}:${profile?.userId || profile?.displayName?.trim().toLowerCase() || "guest"}`,
     storage: helpStorage,
-    ready: started && !isComplete && !isPageTurning && helpDocumentVisible
+    ready: started && !isComplete && !isPageTurning && helpDocumentVisible && !tutor.visible
       && !isPronunciationCard && (introduceHelp || currentCard?.options.length > 1) && lastResult === null
       && (isMissionGameExperience ? missionIntroComplete && missionInstructionReady
         : !hasPromptAutoplay || helpAudioReadyKey === helpCardKey),
@@ -2415,7 +2425,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const showHelp = help.visible;
   const learnTranslation = useLearnTranslationPreview(currentCard, teachingCardKey,
     loadedTeachingImageKey === teachingCardKey && started && !isComplete && !isPageTurning
-      && helpDocumentVisible && !showHelp);
+      && helpDocumentVisible && !showHelp && !tutor.visible);
   const teachingTranslationVisible = learnTranslation.visible || manualTeachingTranslationKey === teachingCardKey;
   useEffect(() => {
     const visibility = () => setHelpDocumentVisible(document.visibilityState === "visible");
@@ -2426,6 +2436,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
 
 
   const playCourseTurnSequence = useCallback((sequence, options = {}) => {
+    if (tutor.visibleRef.current) return 0;
     if (!sequence?.length) {
       if (typeof options.onEnd === "function") options.onEnd();
       return 0;
@@ -2434,7 +2445,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     const runId = courseTurnRunRef.current + 1;
     courseTurnRunRef.current = runId;
     const playTurn = (index) => {
-      if (courseTurnRunRef.current !== runId) return;
+      if (courseTurnRunRef.current !== runId || tutor.visibleRef.current) return;
       if (index >= sequence.length) {
         if (typeof options.onEnd === "function") options.onEnd();
         return;
@@ -3548,6 +3559,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
 
   const handlePronunciationNoSpeech = () => {
+    if (tutor.visibleRef.current) return;
     pronunciationNoSpeechRoundRef.current += 1;
     setPronunciationAttempt((current) => Math.max(0, current - 1));
     setPronunciationResult(null);
@@ -3575,11 +3587,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
 
   useEffect(() => {
-    if (!started || showHelp || lastResult !== "correct") {
+    if (!started || showHelp || tutor.visible || lastResult !== "correct") {
       return undefined;
     }
 
     const timeoutId = window.setTimeout(() => {
+      if (tutor.visibleRef.current) return;
       const nextIndex = reviewQueue.length ? reviewQueue[reviewQueue.indexOf(cardIndex) + 1] : cardIndex + 1;
       if (nextIndex === undefined || nextIndex >= totalCards) {
         setCelebrateResult(true);
@@ -3599,7 +3612,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     }, autoAdvanceDelayMs);
 
     return () => window.clearTimeout(timeoutId);
-  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, started, startPageTurn, totalCards, reviewQueue]);
+  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, tutor.visible, started, startPageTurn, totalCards, reviewQueue]);
 
   useEffect(() => {
     resetPronunciationPractice();
@@ -3669,6 +3682,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   ]);
 
   useEffect(() => {
+    if (tutor.visible) return;
     if (
       (!isRecognitionLesson && !isWrittenRecognize(currentCard) && !replyImage && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
@@ -3735,6 +3749,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     playCourseTurnSequence,
     speakText,
     started,
+    tutor.visible,
   ]);
 
   useEffect(() => {
@@ -3786,6 +3801,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }, [started]);
 
   useEffect(() => {
+    if (tutor.visible) return;
     if (
       !isPronunciationCard
       || !started
@@ -3828,10 +3844,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     missionIntroComplete,
     missionSpeechReady,
     started,
+    tutor.visible,
   ]);
 
   useEffect(() => {
     const resultCardKey = `${activeLesson.id}-${cardIndex}-${activePronunciationOptionIndex}-${activePronunciationPrompt}`;
+    if (tutor.visible) return;
     if (
       !isPronunciationCard ||
       !started ||
@@ -3904,10 +3922,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     completeScoredCard,
     wrongAttempts,
     started,
+    tutor.visible,
   ]);
 
   useEffect(() => {
     const resultCardKey = `${activeLesson.id}-${cardIndex}-${activePronunciationOptionIndex}-${activePronunciationPrompt}`;
+    if (tutor.visible) return;
     if (
       !isPronunciationCard ||
       !started ||
@@ -3950,9 +3970,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     pronunciationOutcome.accepted,
     pronunciationResult,
     started,
+    tutor.visible,
   ]);
 
   const scorePronunciationBlob = async (audioBlob) => {
+    const tutorRun = tutorInterruptionRef.current;
+    const isCurrent = () => tutorRun === tutorInterruptionRef.current && !tutor.visibleRef.current;
+    if (!isCurrent()) return;
     if (!audioBlob || !currentCard) {
       return;
     }
@@ -3969,12 +3993,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         level: activeLesson.level,
         exerciseType: pronunciationExerciseType(activePronunciationPrompt),
       });
+      if (!isCurrent()) return;
       if (result?._client_timing) {
         console.info("Pronunciation scoring timing", result._client_timing);
       }
       setPronunciationResult(result);
       setPronunciationStatus("Checked.");
     } catch (error) {
+      if (!isCurrent()) return;
       console.error("Pronunciation scoring failed", error);
       if (error.code === "error_no_speech" || error.message === "NO_SPEECH_DETECTED") {
         handlePronunciationNoSpeech();
@@ -3986,7 +4012,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         setPronunciationStatus("Pronunciation scoring failed.");
       }
     } finally {
-      setIsPronunciationScoring(false);
+      if (isCurrent()) setIsPronunciationScoring(false);
     }
   };
 
@@ -4013,7 +4039,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     return promise;
   };
 
-  const scorePronunciationWithAzureStreaming = async (preparedStreaming) => {
+  const scorePronunciationWithAzureStreaming = async (preparedStreaming, isCurrent = () => true) => {
     const startedAt = window.performance.now();
     let SpeechSDK;
     let tokenInfo;
@@ -4025,6 +4051,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       return false;
     }
 
+    if (!isCurrent()) return true;
     let recognizer = null;
     let audioConfig = null;
     let assessmentConfig = null;
@@ -4083,12 +4110,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       assessmentConfig.enableProsodyAssessment?.();
       assessmentConfig.applyTo(recognizer);
       recognizer.sessionStarted = () => {
+        if (!isCurrent()) return;
         setPronunciationSpokenWordCount(0);
         setPronunciationRecognizedSyllableKeys([]);
         setIsPronunciationRecording(true);
         setPronunciationStatus("Now you say it.");
       };
       recognizer.recognizing = (_sender, event) => {
+        if (!isCurrent()) return;
         const recognizedText = String(event?.result?.text || "");
         if (recognizedText) {
           const firstSpeech = !pronunciationHasSpeechRef.current;
@@ -4132,6 +4161,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     setIsPronunciationRecording(false);
     setPronunciationStatus("Get ready...");
     await playReadyCue();
+    if (!isCurrent()) { closeRecognizer(); return true; }
 
     return new Promise((resolve) => {
       const finish = async (callback) => {
@@ -4140,6 +4170,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         }
         settled = true;
         closeRecognizer();
+        if (!isCurrent()) { resolve(true); return; }
         setIsPronunciationRecording(false);
         await callback();
         resolve(true);
@@ -4178,15 +4209,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                 result.text,
                 window.performance.now() - startedAt
               ));
+              if (!isCurrent()) return;
               console.info("Pronunciation streaming timing", normalized._client_timing);
               setPronunciationResult(normalized);
               setPronunciationStatus("Checked.");
             } catch (error) {
+              if (!isCurrent()) return;
               console.error("Could not read Azure pronunciation result", error);
               setPronunciationError("No pude revisar eso. Intentalo otra vez.");
               setPronunciationStatus("Pronunciation scoring failed.");
             } finally {
-              setIsPronunciationScoring(false);
+              if (isCurrent()) setIsPronunciationScoring(false);
             }
           });
         },
@@ -4203,7 +4236,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
 
   const beginPronunciationRecording = async ({ isRetry = false, preserveNoSpeechRounds = false } = {}) => {
-    if (!currentCard || !activePronunciationPrompt || isPronunciationRecording || isPronunciationScoring) {
+    if (tutor.visibleRef.current || !currentCard || !activePronunciationPrompt || isPronunciationRecording || isPronunciationScoring) {
       return;
     }
     const turnSequence = cardAudioTurnSequence(currentCard, "prompt");
@@ -4242,9 +4275,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       // The existing recorded-audio path remains available as a fallback.
     });
 
+    const tutorRun = tutorInterruptionRef.current;
+    const isCurrent = () => tutorRun === tutorInterruptionRef.current && !tutor.visibleRef.current;
     let listeningStarted = false;
     const prepareCapture = async () => {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (!isCurrent()) { stream.getTracks().forEach(track => track.stop()); throw new Error("Interrupted"); }
       const recorder = new WavAudioRecorder(stream);
       const AudioContextClass = window.AudioContext || window.webkitAudioContext;
       if (!AudioContextClass) {
@@ -4254,6 +4290,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       if (audioContext.state === "suspended") {
         await audioContext.resume().catch(() => {});
       }
+      if (!isCurrent()) { stream.getTracks().forEach(track => track.stop()); void audioContext.close(); throw new Error("Interrupted"); }
       const source = audioContext.createMediaStreamSource(stream);
       const analyser = audioContext.createAnalyser();
       const samples = new Uint8Array(analyser.fftSize);
@@ -4266,7 +4303,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       return { stream, recorder, analyser, samples };
     };
     const scheduleListeningStart = (delayMs) => {
-      if (listeningStarted) {
+      if (listeningStarted || !isCurrent()) {
         return;
       }
       if (pronunciationStartTimeoutRef.current) {
@@ -4275,7 +4312,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       pronunciationStartTimeoutRef.current = window.setTimeout(startListening, delayMs);
     };
     const startListening = async () => {
-      if (listeningStarted) {
+      if (listeningStarted || !isCurrent()) {
         return;
       }
       listeningStarted = true;
@@ -4287,8 +4324,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
 
       try {
         setPronunciationStatus("Get ready...");
-        const handledByAzureStreaming = await scorePronunciationWithAzureStreaming(azureStreamingPreparation);
-        if (handledByAzureStreaming) {
+        const handledByAzureStreaming = await scorePronunciationWithAzureStreaming(azureStreamingPreparation, isCurrent);
+        if (handledByAzureStreaming || !isCurrent()) {
           return;
         }
         const { stream, recorder, analyser, samples } = await prepareCapture();
@@ -4300,7 +4337,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         };
 
         recorder.onstop = () => {
-          const shouldScore = pronunciationShouldScoreRef.current;
+          const shouldScore = pronunciationShouldScoreRef.current && isCurrent();
           clearPronunciationMonitoring();
           stream.getTracks().forEach((track) => track.stop());
           pronunciationStreamRef.current = null;
@@ -4318,6 +4355,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         };
 
         await playReadyCue();
+        if (!isCurrent()) { stream.getTracks().forEach(track => track.stop()); return; }
         recorder.start();
         setIsPronunciationRecording(true);
         setPronunciationStatus("Now you say it.");
@@ -4388,6 +4426,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
           }
         }, NO_SPEECH_LISTEN_MS);
       } catch (error) {
+        if (!isCurrent()) return;
         stopPronunciationCapture({ shouldScore: false });
         setPronunciationError(error.message || "Could not start recording.");
         setPronunciationStatus("Recording failed.");
@@ -4405,6 +4444,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       rate: isRetry ? 0.56 : 0.62,
       pitch: isRetry ? 1.04 : undefined,
       onPartStart: (part) => {
+        if (!isCurrent()) return;
         setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id });
       },
       onEnd: () => {
@@ -4690,6 +4730,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       );
       if (currentCard.answer_audio_text) {
         window.setTimeout(() => {
+          if (tutor.visibleRef.current) return;
           const answerTurns = cardAudioTurnSequence(currentCard, "answer");
           let answerSpeechMs = 0;
           if (currentCard.answer_audio_turns?.length) {
@@ -4715,6 +4756,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         }, 0);
       } else if (!isMissionGameExperience) {
         window.setTimeout(() => {
+          if (tutor.visibleRef.current) return;
           speakText(praise, {
             rate: 0.75,
             pitch: praisePitch,
@@ -4730,6 +4772,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     setWrongAttempts((current) => ({ ...current, [cardIndex]: true }));
     setLastResult("wrong");
     window.setTimeout(() => {
+      if (tutor.visibleRef.current) return;
       playUiSfx("tryAgain", { debounceMs: 280, volume: 0.48 });
       speakText("Try again", { voiceMode: "feedback", rate: 0.72, pitch: 0.94 });
     }, 0);
@@ -4803,6 +4846,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
 
   const playCurrentCardPrompt = () => {
+    if (tutor.visibleRef.current) return;
     help.interact();
     setHelpAudioReadyKey("");
     if (isPronunciationCard) {
@@ -5428,6 +5472,27 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       onExit={() => void leaveResult(() => setShowGoodbye(true))} /> : <p role="status">Guardando tu resultado…</p>;
   }
 
+  const openTutor = () => {
+    if (!tutorContext || isPageTurning) return;
+    tutorInterruptionRef.current++;
+    courseTurnRunRef.current++;
+    help.dismiss();
+    spokenPromptKeyRef.current = "";
+    pronunciationFeedbackCueKeyRef.current = "";
+    if (isPronunciationCard && !pronunciationResult) {
+      pronunciationCardKeyRef.current = "";
+      setPronunciationAttempt(value => Math.max(0, value - 1));
+    }
+    stopPronunciationCapture({ shouldScore: false });
+    setIsPronunciationRecording(false);
+    setIsPronunciationScoring(false);
+    stopSpeech(); stopUiSfx();
+    tutor.open();
+  };
+  const tutorSheet = tutorContext ? <LessonTutor tutor={tutor} context={tutorContext}
+    title={`Lección ${activeLesson.sub_lesson_id} · ${{Learn:'Aprende',Recognize:'Reconoce',Listen:'Escucha',Speak:'Habla',Use:'Completa'}[currentCard.stage] || ''}`}
+    answer={tutorContext.selected_option_ids.map(id => currentCard.options.find(option => option.id === id)?.label || '').join(' ')} /> : null;
+
   const helpPopup = <LessonHelpPopup mode={help.mode}
     message={currentCard.mission_game?.instruction_es || (awaitingConstructionRetry(currentCard, lastResult)
       ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, isSentenceCard ? "translation-on-tap" : "replay-on-tap"))}
@@ -5484,6 +5549,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       onPointerCancelCapture={help.touchEnd} onKeyDownCapture={help.interact}
       inert={isPageTurning} ref={writtenRecognitionPageRef} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
       {helpPopup}
+      {tutorSheet}
       <div style={shellStyle}>
           <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
@@ -5538,6 +5604,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                   </h1>
                 </button>
               ) : null}
+              {tutorContext ? <TutorButton onClick={openTutor} /> : null}
               <button
                 type="button"
                 aria-label={showHelp ? "Ocultar ayuda" : "Mostrar ayuda"}
@@ -5690,7 +5757,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
           </section>
 
           {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} vocabulary={activeLesson.vocabulary || []} surfaceRef={pageRef}
-            selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={false} helpOpen={showHelp}
+            selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={false} helpOpen={showHelp || tutor.visible}
+            onTutor={tutorContext ? openTutor : undefined}
             onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt} onRetry={resetMissionSelection}
             imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)} /> : (
           <section ref={pageRef} data-lesson-page style={boardStyle}>
@@ -6157,6 +6225,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                   >
                     {getLessonMistakeHint(currentCard, selectedOptionIds.length ? selectedOptionIds : selectedOptionId)}
                   </div>
+                  {tutorContext ? <TutorButton more onClick={openTutor} /> : null}
                   {awaitingConstructionRetry(currentCard, lastResult) ? <button type="button"
                     onClick={resetMissionSelection} style={{ ...styles.subtleButton, minHeight: 48, marginTop: 8 }}>Reintentar</button> : null}
                 </div>

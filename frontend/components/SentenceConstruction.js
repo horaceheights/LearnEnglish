@@ -2,13 +2,14 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { availableSentenceWords, placeSentenceWord, returnSentenceWord, sentenceHint, sentenceParts, sentenceSlots } from "../../mobile/src/sentenceConstruction";
+import { TutorButton } from './TutorButton';
 import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
 import { constructionVocabulary, NEW_VOCABULARY_COLOR } from "../../mobile/src/lessonVocabulary";
 import { useManualSentenceTranslation } from "../../mobile/src/hooks/useManualSentenceTranslation";
 import styles from "./SentenceConstruction.module.css";
 import ConstructionCelebration from "./ConstructionCelebration";
 
-export default function SentenceConstruction({ card, vocabulary = [], selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, helpOpen, surfaceRef }) {
+export default function SentenceConstruction({ card, vocabulary = [], selected, result, onChange, onReplay, onRetry, onTutor, imageSrc, location, showHelp, helpOpen, surfaceRef }) {
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
@@ -157,7 +158,7 @@ export default function SentenceConstruction({ card, vocabulary = [], selected, 
           onClick={() => { const previous = history.current.pop(); if (previous && !locked) onChange(previous); }}>Deshacer</button>
       </div> : null}
       <div className={styles.feedback} role="status">{result === "wrong" ? <><span className={styles.wrongIcon} role="img" aria-label="Respuesta incorrecta">×</span> {sentenceHint(card, slots)}</> : ""}</div>
-      {result === "wrong" ? <div className={styles.controls}><button className={styles.retry} type="button"
+      {result === "wrong" ? <div className={styles.controls}>{onTutor ? <TutorButton more onClick={onTutor} /> : null}<button className={styles.retry} type="button"
         onClick={() => { history.current = []; cancel(); onRetry(); }}>Reintentar</button></div> : null}
       </>}
     </div>

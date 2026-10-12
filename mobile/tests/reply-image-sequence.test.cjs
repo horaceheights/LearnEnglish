@@ -30,7 +30,7 @@ function callback(file, name, contains, context) {
   visit(ast); assert.ok(found, name || contains);
   const exports = {};
   vm.runInNewContext(ts.transpileModule('exports.run = ' + found.getText(ast),
-    {compilerOptions:{target:ts.ScriptTarget.ES2020}}).outputText, {exports, ...context});
+    {compilerOptions:{target:ts.ScriptTarget.ES2020}}).outputText, {exports, tutor: { visible: false, visibleRef: { current: false } }, ...context});
   return exports.run;
 }
 
@@ -287,4 +287,15 @@ test('web confirmed-completion callback is never fired for failed or cancelled a
     await new Promise(resolve=>setImmediate(resolve));
     assert.equal(completed,outcome==='finished'?1:0);
   }
+});
+
+
+test('opening the tutor prevents manual prompt replay and its image callbacks', () => {
+  let plays = 0;
+  const replay = callback(webFile, 'playCurrentCardPrompt', null, {
+    tutor: { visibleRef: { current: true } },
+    speakText: () => { plays++; },
+  });
+  replay();
+  assert.equal(plays, 0);
 });

@@ -28,7 +28,7 @@ export function lessonHarness(viewport, options = {}) {
   const react = { useState: state, useRef: value => state({ current: value })[0], useMemo: fn => fn(), useCallback: fn => fn, useEffectEvent: fn => fn,
     useEffect: () => {}, useLayoutEffect: () => {}, Fragment: 'Fragment' };
   class Value { setValue() {} interpolate() { return 0; } getTranslateTransform() { return []; } }
-  const rn = { Modal: props => props.visible ? element('Fragment', { children: props.children }) : null, View: 'View', Text: 'Text', Pressable: 'Pressable', ScrollView: 'ScrollView', Image: 'Image',
+  const rn = { Platform: { OS: 'android' }, KeyboardAvoidingView: 'View', ActivityIndicator: 'View', Switch: 'Switch', TextInput: 'TextInput', Modal: props => props.visible ? element('Fragment', { children: props.children }) : null, View: 'View', Text: 'Text', Pressable: 'Pressable', ScrollView: 'ScrollView', Image: 'Image',
     useWindowDimensions: () => viewport, StyleSheet: { create: x => x, absoluteFill: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 } },
     Animated: { Value, ValueXY: Value, View: 'View', Text: 'Text' }, Easing: {}, PanResponder: { create: () => ({ panHandlers: {} }) } };
   function load(file) {
@@ -58,7 +58,7 @@ export function lessonHarness(viewport, options = {}) {
       if (id === 'expo-audio') return { RecordingPresets: { HIGH_QUALITY: {} },
         createAudioPlayer: () => { stats.audioPlayers++; return {}; }, createAudioPlaylist: () => ({}), useAudioPlaylistStatus: () => ({}),
         useAudioPlayer: () => ({}), useAudioPlayerStatus: () => ({}), useAudioRecorder: () => ({}), useAudioRecorderState: () => ({}) };
-      if (id.endsWith('/api') || id.endsWith('/diagnostics') || id.endsWith('/lessonAudioCache') || id.includes('spanglish-speech/src')) return new Proxy({}, { get: () => () => false });
+      if (id.endsWith('/api') || id.endsWith('/tutorApi') || id.endsWith('/diagnostics') || id.endsWith('/lessonAudioCache') || id.includes('spanglish-speech/src')) return new Proxy({}, { get: () => () => false });
       if (id === 'expo-video') return { VideoView: 'View', useVideoPlayer: () => ({}) };
       if (id.endsWith('/useReducedMotion')) return { useReducedMotion: () => true };
       if (id.endsWith('/actionVideos')) return { lessonActionVideo: () => null };

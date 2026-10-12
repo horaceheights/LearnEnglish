@@ -44,8 +44,9 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
   const landscape = isPhoneLandscape(viewport.width, viewport.height);
   const helpSheet = landscape || (viewport.height >= viewport.width && card.stage !== 'Speak' && card.options.length > 0 && card.options.every(o => o.image_url));
   const construction = card.interaction_type === 'complete-sentence' || card.stage === 'Use' && card.interaction_type === 'complete2';
-  const body = construction ? e(SentenceConstruction, { card, selected, result, disabled: false, onChange: noop, onReplay: noop, onRetry: noop })
-    : e(LessonCardView, { card, lessonId: card.lessonId, result, selectedId: selected[0] || null, selectedIds: selected,
+  const onTutor = card.lessonId === 'lesson-1-people-actions' ? noop : undefined;
+  const body = construction ? e(SentenceConstruction, { card, selected, result, disabled: false, onTutor, onChange: noop, onReplay: noop, onRetry: noop })
+    : e(LessonCardView, { card, lessonId: card.lessonId, onTutor, result, selectedId: selected[0] || null, selectedIds: selected,
       level: 'A1', showHelp: false, userId: 'layout-test', onSelect: noop, onResetSelection: noop, optionsInteractive: card.options.length > 1,
       onPronunciationPassed: noop, onPronunciationUnavailable: noop, onGrammarAnimationComplete: noop });
   const { usesCompactListenInstruction, usesCompactRecognizeInstruction, usesCompactSpeakInstruction,
@@ -63,7 +64,7 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
     ...(landscape ? [e('Pressable', { accessibilityRole: 'button', style: { height: 48, width: 48 }, children: e('Text', { children: 'Audio' }) })] : []),
   ] });
   const chrome = landscape ? e(LessonLandscapeRail, { location: 'UNIT 1 | LESSON 1.3', stage: { Learn: 'APRENDE', Recognize: 'RECONOCE', Listen: 'ESCUCHA', Speak: 'HABLA', Use: 'COMPLETA' }[card.stage], color: '#df765b', progress: '12 / 42',
-    onBack: noop, onHome: noop, onMenu: noop, imageUrl: construction ? card.prompt_image_url : null, children: construction || widePrompt ? null : header })
+    onBack: noop, onHome: noop, onMenu: noop, onTutor, imageUrl: construction ? card.prompt_image_url : null, children: construction || widePrompt ? null : header })
     : e('View', { style: { gap: 7 }, children: [e('View', { style: screen.qaToolbar }), e('View', { style: { height: 174 } }), header] });
   return () => e('View', { style: { paddingTop: landscape ? 0 : 24, paddingBottom: 24, paddingHorizontal: landscape ? 24 : 0 }, children:
     e('View', { style: [screen.page, landscape ? screen.pageCompact : screen.pagePortrait], children:
@@ -96,6 +97,22 @@ test('visual recognition and listening directions retain compact semibold typogr
       assert.equal(header.style.fontWeight, '600');
       assert.ok(header.textWidth <= header.box.width + 1, 'Keep the whole direction within its header.');
       assert.ok(header.textHeight <= header.box.height + 1, 'Do not clip the direction vertically.');
+    }
+  }
+});
+
+test('tutor rollout preserves all Lesson 1.1 landscape cards and wrong-answer controls', () => {
+  for (const fontScale of [1, 1.3, 2]) {
+    const viewport = { width: 740, height: 360, fontScale }, h = lessonHarness(viewport);
+    for (const card of cards.filter(c => c.lessonId === 'lesson-1-people-actions' && c.stage !== 'Speak')) {
+      for (const result of card.stage === 'Learn' ? [null] : [null, 'wrong']) {
+        const selected = result ? card.correct_option_ids?.length
+          ? [...card.correct_option_ids].reverse() : [card.options.find(o => o.id !== card.correct_option_id)?.id] : [];
+        const records = h.render(lessonFactory(h, card, viewport, result, selected), viewport.width, viewport.height);
+        within(records, viewport.width, viewport.height - 24, `tutor/${card.slide_id}/${fontScale}/${result}`);
+        assert.equal(records.filter(r => r.props.accessibilityLabel === 'Abrir tutor IA').length, 1);
+        if (result === 'wrong') assert.equal(records.filter(r => r.props.accessibilityLabel === 'Saber más con el tutor IA').length, 1);
+      }
     }
   }
 });
