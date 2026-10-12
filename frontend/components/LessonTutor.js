@@ -3,13 +3,20 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { TUTOR_SUGGESTIONS, tutorContextKey } from '../../mobile/src/lessonTutor';
 import { speakTutor, transcribeTutor } from '../lib/tutorApi';
 import styles from './LessonTutor.module.css';
-import { TutorIcon } from './TutorButton';
+import { TutorActivity } from './TutorActivity';
+import { getTutorAudio } from '../lib/tutorAudio';
+import { useTutorVoicePreference } from '../../mobile/src/hooks/useTutorVoicePreference';
+
+const voiceStorage = {
+  getItem: async key => window.localStorage.getItem(key),
+  setItem: async (key, value) => window.localStorage.setItem(key, value),
+};
 
 export default function LessonTutor({ tutor, context, title, answer }) {
   const dialog = useRef(null);
   const body = useRef(null);
   const [draft, setDraft] = useState('');
-  const [voiceReplies, setVoiceReplies] = useState(false);
+  const { enabled: voiceReplies, ready: voicePreferenceReady, setEnabled: setVoiceReplies } = useTutorVoicePreference(voiceStorage);
   const [phase, setPhase] = useState('idle');
   const [voiceError, setVoiceError] = useState('');
   const [seconds, setSeconds] = useState(0);
@@ -27,7 +34,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
     if (recording.current?.state === 'recording') recording.current.stop();
     recording.current = null;
     stream.current?.getTracks().forEach(track => track.stop()); stream.current = null;
-    player.current?.pause(); player.current = null;
+    if (player.current) { player.current.onended = null; player.current.onerror = null; player.current.pause(); player.current = null; }
     if (audioUrl.current) URL.revokeObjectURL(audioUrl.current); audioUrl.current = null;
     setPhase('idle');
   }, []);
@@ -44,7 +51,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
   }, [stopVoice]);
   useEffect(() => { body.current?.scrollTo({ top: body.current.scrollHeight }); }, [tutor.messages, tutor.busy]);
   const play = useCallback(async text => {
-    stopVoice(); setPhase('speaking'); setVoiceError('');
+    stopVoice(); setPhase('loading'); setVoiceError('');
     const run = epoch.current;
     const controller = new AbortController(); abort.current = controller;
     const timeout = setTimeout(() => controller.abort(), 45000);
@@ -52,18 +59,21 @@ export default function LessonTutor({ tutor, context, title, answer }) {
       const blob = await speakTutor(context, text, controller.signal);
       if (run !== epoch.current || !visible.current || document.hidden) return;
       audioUrl.current = URL.createObjectURL(blob);
-      const audio = new Audio(audioUrl.current); player.current = audio;
+      const audio = getTutorAudio(); audio.src = audioUrl.current; player.current = audio;
       audio.onended = () => { if (run === epoch.current) setPhase('idle'); };
+      audio.onerror = () => { if (run === epoch.current && visible.current) { setPhase('idle'); setVoiceError('No pudimos reproducir la voz. Toca la bocina para reintentar.'); } };
       await audio.play();
+      if (run === epoch.current && visible.current && !document.hidden) setPhase('speaking');
     } catch {
       if (run === epoch.current && visible.current) { setVoiceError('No pudimos reproducir la voz. Toca la bocina para reintentar.'); setPhase('idle'); }
     } finally { clearTimeout(timeout); if (run === epoch.current) abort.current = null; }
   }, [context, stopVoice]);
   useEffect(() => {
     const last = tutor.messages.at(-1);
-    if (!tutor.visible || !voiceReplies || tutor.busy || last?.role !== 'assistant' || lastSpoken.current === last.content || document.hidden) return;
-    lastSpoken.current = last.content; void play(last.content);
-  }, [play, tutor.busy, tutor.messages, tutor.visible, voiceReplies]);
+    const messageKey = `${key}:${tutor.messages.length}:${last?.content}`;
+    if (!tutor.visible || !voicePreferenceReady || !voiceReplies || tutor.busy || phase !== 'idle' || last?.role !== 'assistant' || lastSpoken.current === messageKey || document.hidden) return;
+    lastSpoken.current = messageKey; void play(last.content);
+  }, [key, phase, play, tutor.busy, tutor.messages, tutor.visible, voicePreferenceReady, voiceReplies]);
   const finishRecording = useCallback(() => {
     if (recording.current?.state === 'recording') { setPhase('transcribing'); recording.current.stop(); }
   }, []);
@@ -103,7 +113,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
         } catch { if (run === epoch.current && visible.current) setVoiceError('No pudimos transcribir tu pregunta. Graba otra vez o escríbela.'); }
         finally { clearTimeout(timeout); if (run === epoch.current) { abort.current = null; setPhase('idle'); } }
       };
-      recorder.start(); lastSpoken.current = tutor.messages.at(-1)?.content || ''; setVoiceReplies(true); setPhase('recording');
+      recorder.start(); lastSpoken.current = `${key}:${tutor.messages.length}:${tutor.messages.at(-1)?.content}`; setPhase('recording');
     } catch {
       if (run === epoch.current) { stopVoice(); setVoiceError('No pudimos abrir el micrófono. Revisa el permiso del navegador o escribe tu pregunta.'); }
     }
@@ -111,27 +121,33 @@ export default function LessonTutor({ tutor, context, title, answer }) {
   const send = async text => { stopVoice(); setVoiceError(''); if (await tutor.send(text)) setDraft(''); };
   const voiceBusy = ['preparing', 'recording', 'transcribing'].includes(phase);
   return <dialog ref={dialog} className={styles.dialog} aria-labelledby="tutor-title" onCancel={event => { event.preventDefault(); tutor.close(); }}>
-    <header className={styles.header}><TutorIcon /><div><h2 id="tutor-title">Tutor IA</h2><p>{title} · Lección en pausa</p></div>
-      <button type="button" className={styles.iconButton} aria-label="Cerrar tutor y volver a la lección" onClick={tutor.close}>×</button></header>
+    <header className={styles.header}><div className={styles.headingRow}><h2 id="tutor-title">Tutor IA</h2>
+      <button type="button" role="switch" aria-checked={voiceReplies} aria-label="Respuestas con voz" className={styles.voiceToggle}
+        onClick={() => { setVoiceReplies(!voiceReplies); if (voiceReplies && ['loading', 'speaking'].includes(phase)) stopVoice(); }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M11 4 6 8H2v8h4l5 4V4Z" />
+          {voiceReplies ? <path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /> : <path d="m16 9 6 6m0-6-6 6" />}</svg><span>{voiceReplies ? 'Voz' : 'Sin voz'}</span></button>
+      <button type="button" className={styles.iconButton} aria-label="Cerrar tutor y volver a la lección" onClick={tutor.close}>×</button></div>
+      <p>{title} · Lección en pausa</p></header>
     <div ref={body} className={styles.messages} aria-live="polite">
       <p className={styles.context}>{answer ? `Tu respuesta: ${answer}` : 'Una pista para esta tarjeta. Tú eliges la respuesta.'}</p>
       {tutor.messages.map((message, index) => <div key={index} className={`${styles.bubble} ${message.role === 'user' ? styles.user : ''}`}>
         <p>{message.content}</p>{message.role === 'assistant' ? <button type="button" className={styles.speaker} disabled={voiceBusy} aria-label="Escuchar explicación" onClick={() => void play(message.content)}>♪ Escuchar</button> : null}
       </div>)}
-      {tutor.busy ? <p role="status">Preparando tu explicación…</p> : null}
+      {tutor.busy || ['loading', 'speaking'].includes(phase) ? <div className={styles.aiStatus} role="status">
+        <TutorActivity state={phase === 'speaking' ? 'speaking' : 'thinking'} active={tutor.visible} />
+        <span>{tutor.busy ? 'Pensando…' : phase === 'loading' ? 'Preparando voz…' : 'Hablando…'}</span></div> : null}
       {tutor.error ? <div role="status" className={styles.error}>{tutor.error}<button type="button" onClick={tutor.retry}>Reintentar</button></div> : null}
       {!tutor.busy && tutor.messages.length ? <div className={styles.suggestions}>{TUTOR_SUGGESTIONS.map(text => <button type="button" key={text} disabled={voiceBusy} onClick={() => void send(text)}>{text}</button>)}</div> : null}
     </div>
     <footer className={styles.footer}>
-      <label className={styles.voicePreference}>Responder con voz <input type="checkbox" checked={voiceReplies} onChange={event => { setVoiceReplies(event.target.checked); if (!event.target.checked) stopVoice(); }} /></label>
       {voiceError ? <p role="status" className={styles.error}>{voiceError}</p> : null}
       {voiceBusy ? <div className={styles.recording}><p role="status">{phase === 'recording' ? `Grabando… ${seconds} s` : phase === 'transcribing' ? 'Transcribiendo…' : 'Abriendo micrófono…'}</p>
-        {phase === 'recording' ? <button type="button" onClick={finishRecording}>Terminar grabación</button> : null}<button type="button" onClick={stopVoice}>Cancelar</button></div>
+        {phase === 'recording' ? <><div className={styles.recordingVisual}><TutorActivity state="listening" active={tutor.visible} /></div><button type="button" onClick={finishRecording}>Terminar grabación</button></> : null}<button type="button" onClick={stopVoice}>Cancelar</button></div>
         : <form className={styles.composer} onSubmit={event => { event.preventDefault(); void send(draft); }}>
           <textarea aria-label="Tu pregunta para el tutor" placeholder="Escribe tu pregunta…" value={draft} onChange={event => setDraft(event.target.value)} maxLength={1200} rows={2} />
           <button type="button" aria-label="Grabar pregunta" disabled={tutor.busy} onClick={() => void startRecording()}>🎙</button>
           <button type="submit" aria-label="Enviar pregunta" disabled={tutor.busy || !draft.trim()}>➤</button></form>}
-      {phase === 'speaking' ? <button type="button" onClick={stopVoice}>Detener voz</button> : null}
+      {['loading', 'speaking'].includes(phase) ? <button type="button" onClick={stopVoice}>Detener voz</button> : null}
       <small>Tutor con IA · Puede equivocarse. Se necesita internet.</small>
     </footer>
   </dialog>;

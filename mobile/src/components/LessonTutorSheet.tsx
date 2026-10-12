@@ -1,20 +1,23 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, AppState, KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, AppState, KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AudioModule, RecordingPresets, setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus, useAudioRecorder, useAudioRecorderState } from 'expo-audio';
 import { File, Paths } from 'expo-file-system';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TUTOR_SUGGESTIONS, tutorContextKey, type TutorContext } from '../lessonTutor';
 import type { useLessonTutor } from '../hooks/useLessonTutor';
 import { speakTutor, transcribeTutor } from '../tutorApi';
+import { useTutorVoicePreference } from '../hooks/useTutorVoicePreference';
+import { TutorActivity } from './TutorActivity';
 
 type Props = { tutor: ReturnType<typeof useLessonTutor>; context: TutorContext; title: string; answer: string; active: boolean };
 export function LessonTutorSheet({ tutor, context, title, answer, active }: Props) {
   const insets = useSafeAreaInsets();
   const [draft, setDraft] = useState('');
-  const [voiceReplies, setVoiceReplies] = useState(false);
+  const { enabled: voiceReplies, ready: voicePreferenceReady, setEnabled: setVoiceReplies } = useTutorVoicePreference(AsyncStorage);
   const [voiceError, setVoiceError] = useState('');
-  const [phase, setPhase] = useState<'idle' | 'preparing' | 'recording' | 'transcribing' | 'speaking'>('idle');
+  const [phase, setPhase] = useState<'idle' | 'preparing' | 'recording' | 'transcribing' | 'loading' | 'speaking'>('idle');
   const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const recording = useAudioRecorderState(recorder, 200);
   const player = useAudioPlayer(null);
@@ -31,6 +34,7 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
     return task;
   }, []);
   const lastSpoken = useRef('');
+  const foreground = useRef(AppState.currentState === 'active');
   const visible = useRef(tutor.visible && active);
   visible.current = tutor.visible && active;
   const cardKey = tutorContextKey(context);
@@ -55,24 +59,24 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
   }, [tutor.visible, active, cardKey, stopVoice]);
   useEffect(() => { setDraft(''); setVoiceError(''); lastSpoken.current = ''; }, [cardKey]);
   useEffect(() => {
-    const subscription = AppState.addEventListener('change', state => { if (state !== 'active') stopVoice(); });
+    const subscription = AppState.addEventListener('change', state => { foreground.current = state === 'active'; if (!foreground.current) stopVoice(); });
     return () => subscription.remove();
   }, [stopVoice]);
   useEffect(() => { if (playback.didJustFinish) setPhase('idle'); }, [playback.didJustFinish]);
 
   const play = useCallback(async (text: string) => {
-    stopVoice(); setVoiceError(''); setPhase('speaking');
+    stopVoice(); setVoiceError(''); setPhase('loading');
     const generation = run.current;
     const controller = new AbortController(); voiceAbort.current = controller;
     const timer = setTimeout(() => controller.abort(), 45000);
     try {
       const bytes = await speakTutor(context, text, controller.signal);
-      if (generation !== run.current || !visible.current) return;
+      if (generation !== run.current || !visible.current || !foreground.current) return;
       const file = new File(Paths.cache, `lesson-tutor-${Date.now()}.mp3`);
       file.write(bytes); audioFile.current = file;
       await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: false });
-      if (generation !== run.current || !visible.current) return;
-      player.replace({ uri: file.uri }); player.play();
+      if (generation !== run.current || !visible.current || !foreground.current) return;
+      player.replace({ uri: file.uri }); player.play(); setPhase('speaking');
     } catch {
       if (generation === run.current && visible.current) {
         setVoiceError('No pudimos reproducir la voz. Puedes leer la explicación o volver a tocar la bocina.'); setPhase('idle');
@@ -81,10 +85,11 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
   }, [context, player, stopVoice]);
   useEffect(() => {
     const last = tutor.messages[tutor.messages.length - 1];
-    if (!tutor.visible || !active || !voiceReplies || tutor.busy || last?.role !== 'assistant' || lastSpoken.current === last.content) return;
-    lastSpoken.current = last.content;
+    const messageKey = `${cardKey}:${tutor.messages.length}:${last?.content}`;
+    if (!tutor.visible || !active || !foreground.current || !voicePreferenceReady || !voiceReplies || tutor.busy || phase !== 'idle' || last?.role !== 'assistant' || lastSpoken.current === messageKey) return;
+    lastSpoken.current = messageKey;
     void play(last.content);
-  }, [active, play, tutor.busy, tutor.messages, tutor.visible, voiceReplies]);
+  }, [active, cardKey, phase, play, tutor.busy, tutor.messages, tutor.visible, voicePreferenceReady, voiceReplies]);
 
   const startRecording = async () => {
     stopVoice(); setVoiceError(''); setPhase('preparing');
@@ -106,8 +111,8 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
         recorder.record(); recordingStarted.current = true;
       });
       if (generation !== run.current || !visible.current) return;
-      lastSpoken.current = tutor.messages.at(-1)?.content || '';
-      setVoiceReplies(true); setPhase('recording');
+      lastSpoken.current = `${cardKey}:${tutor.messages.length}:${tutor.messages.at(-1)?.content}`;
+      setPhase('recording');
     } catch (cause) {
       if (generation === run.current && visible.current) { setPhase('idle'); setVoiceError(cause instanceof Error ? cause.message : 'No pudimos abrir el micrófono.'); }
     }
@@ -153,9 +158,16 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
   return <Modal visible={tutor.visible} transparent animationType="fade" onRequestClose={close}>
     <View style={[styles.backdrop, { paddingTop: insets.top + 8, paddingBottom: insets.bottom + 8 }]}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.sheet}>
-        <View style={styles.heading}><View style={styles.headingText}><Text accessibilityRole="header" style={styles.title}>✦ Tutor IA</Text>
-          <Text style={styles.subheading}>{title} · Lección en pausa</Text></View>
-          <Pressable accessibilityRole="button" accessibilityLabel="Cerrar tutor y volver a la lección" onPress={close} style={styles.iconButton}><Ionicons name="close" size={26} color="#245f53" /></Pressable></View>
+        <View style={styles.heading}>
+          <View style={styles.headingRow}><View style={styles.headingText}><Text accessibilityRole="header" style={styles.title}>Tutor IA</Text></View>
+            <Pressable accessibilityRole="switch" accessibilityLabel="Respuestas con voz" accessibilityState={{ checked: voiceReplies }}
+              onPress={() => { setVoiceReplies(!voiceReplies); if (voiceReplies && (phase === 'speaking' || phase === 'loading')) stopVoice(); }} style={styles.voiceToggle}>
+              <Ionicons name={voiceReplies ? 'volume-high-outline' : 'volume-mute-outline'} size={23} color="#176f73" />
+              <Text maxFontSizeMultiplier={1.3} style={styles.preferenceText}>{voiceReplies ? 'Voz' : 'Sin voz'}</Text>
+            </Pressable>
+            <Pressable accessibilityRole="button" accessibilityLabel="Cerrar tutor y volver a la lección" onPress={close} style={styles.iconButton}><Ionicons name="close" size={26} color="#245f53" /></Pressable>
+          </View><Text style={styles.subheading}>{title} · Lección en pausa</Text>
+        </View>
         <ScrollView ref={scroll} style={styles.messages} contentContainerStyle={styles.messageContent} keyboardShouldPersistTaps="handled"
           onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: false })}>
           {answer ? <Text style={styles.context}>Tu respuesta: {answer}</Text> : <Text style={styles.context}>Una pista para esta tarjeta. Tú eliges la respuesta.</Text>}
@@ -164,24 +176,25 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
             {message.role === 'assistant' ? <Pressable accessibilityRole="button" accessibilityLabel="Escuchar explicación" disabled={voiceBusy}
               onPress={() => void play(message.content)} style={styles.speaker}><Ionicons name="volume-medium-outline" size={24} color="#176f73" /></Pressable> : null}
           </View>)}
-          {tutor.busy ? <View style={styles.status}><ActivityIndicator color="#176f73" /><Text style={styles.statusText}>Preparando tu explicación…</Text></View> : null}
+          {tutor.busy || phase === 'loading' || phase === 'speaking' ? <View style={styles.status}>
+            <TutorActivity state={phase === 'speaking' && playback.playing ? 'speaking' : 'thinking'} active={tutor.visible && active} />
+            <Text accessibilityLiveRegion="polite" style={styles.statusText}>{tutor.busy ? 'Pensando…' : phase === 'loading' ? 'Preparando voz…' : 'Hablando…'}</Text></View> : null}
           {tutor.error ? <View accessibilityLiveRegion="polite"><Text style={styles.error}>{tutor.error}</Text><Pressable accessibilityRole="button" onPress={tutor.retry} style={styles.chip}><Text style={styles.chipText}>Reintentar</Text></Pressable></View> : null}
           {!tutor.busy && tutor.messages.length > 0 ? <View style={styles.suggestions}>{TUTOR_SUGGESTIONS.map(text => <Pressable key={text} accessibilityRole="button" disabled={voiceBusy}
             onPress={() => void send(text)} style={styles.chip}><Text style={styles.chipText}>{text}</Text></Pressable>)}</View> : null}
         </ScrollView>
         <View style={styles.composer}>
-          <View style={styles.voicePreference}><Text style={styles.preferenceText}>Responder con voz</Text><Switch accessibilityLabel="Responder con voz" value={voiceReplies} onValueChange={value => { setVoiceReplies(value); if (!value) stopVoice(); }} /></View>
           {voiceError ? <Text accessibilityLiveRegion="polite" style={styles.error}>{voiceError}</Text> : null}
           {voiceBusy ? <View style={styles.recording}>
             <Text accessibilityLiveRegion="polite" style={styles.statusText}>{phase === 'recording' ? `Grabando… ${Math.floor(recording.durationMillis / 1000)} s` : phase === 'transcribing' ? 'Transcribiendo…' : 'Abriendo micrófono…'}</Text>
-            {phase === 'recording' ? <><View style={[styles.level, { width: `${Math.max(10, Math.min(100, ((recording.metering ?? -60) + 60) * 1.7))}%` }]} /><Pressable accessibilityRole="button" onPress={() => void finishRecording()} style={styles.finish}><Text style={styles.finishText}>Terminar grabación</Text></Pressable></> : <ActivityIndicator color="#176f73" />}
+            {phase === 'recording' ? <><View style={styles.recordingVisual}><TutorActivity state="listening" active={tutor.visible && active} level={Math.max(0.2, ((recording.metering ?? -60) + 60) / 45)} /></View><Pressable accessibilityRole="button" onPress={() => void finishRecording()} style={styles.finish}><Text style={styles.finishText}>Terminar grabación</Text></Pressable></> : <ActivityIndicator color="#176f73" />}
             <Pressable accessibilityRole="button" onPress={stopVoice} style={styles.chip}><Text style={styles.chipText}>Cancelar</Text></Pressable>
           </View> : <View style={styles.inputRow}>
             <TextInput accessibilityLabel="Tu pregunta para el tutor" placeholder="Escribe tu pregunta…" multiline maxLength={1200} value={draft} onChangeText={setDraft} style={styles.input} />
             <Pressable accessibilityRole="button" accessibilityLabel="Grabar pregunta" disabled={tutor.busy} onPress={() => void startRecording()} style={styles.iconButton}><Ionicons name="mic-outline" size={25} color="#176f73" /></Pressable>
             <Pressable accessibilityRole="button" accessibilityLabel="Enviar pregunta" disabled={tutor.busy || !draft.trim()} onPress={() => void send()} style={[styles.send, (tutor.busy || !draft.trim()) && styles.disabled]}><Ionicons name="send" size={23} color="white" /></Pressable>
           </View>}
-          {phase === 'speaking' ? <Pressable accessibilityRole="button" onPress={stopVoice} style={styles.chip}><Text style={styles.chipText}>Detener voz</Text></Pressable> : null}
+          {phase === 'speaking' || phase === 'loading' ? <Pressable accessibilityRole="button" onPress={stopVoice} style={styles.chip}><Text style={styles.chipText}>Detener voz</Text></Pressable> : null}
           <Text style={styles.notice}>Tutor con IA · Puede equivocarse. Se necesita internet.</Text>
         </View>
       </KeyboardAvoidingView>
@@ -191,16 +204,18 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
 const styles = StyleSheet.create({
   backdrop: { flex: 1, backgroundColor: '#163b5c66', paddingHorizontal: 10, alignItems: 'center', justifyContent: 'center' },
   sheet: { flex: 1, width: '100%', maxWidth: 680, maxHeight: 880, borderRadius: 24, backgroundColor: '#fffdf7', overflow: 'hidden' },
-  heading: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 8, borderBottomWidth: 1, borderColor: '#e8e4d8' },
+  heading: { paddingHorizontal: 16, paddingVertical: 8, borderBottomWidth: 1, borderColor: '#e8e4d8' },
+  headingRow: { flexDirection: 'row', alignItems: 'center' },
+  voiceToggle: { minWidth: 64, minHeight: 48, borderRadius: 14, backgroundColor: '#eaf0e6', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 6 },
   headingText: { flex: 1 }, title: { color: '#245f53', fontSize: 23, fontWeight: '900' }, subheading: { color: '#5a7069', fontSize: 13, marginTop: 2 },
   messages: { flex: 1, minHeight: 0 }, messageContent: { gap: 12, padding: 16 }, context: { backgroundColor: '#fff0d6', borderRadius: 14, padding: 12, color: '#52655d', fontSize: 15 },
   bubble: { alignSelf: 'flex-start', maxWidth: '96%', backgroundColor: '#eaf0e6', padding: 14, borderRadius: 18 }, userBubble: { alignSelf: 'flex-end', backgroundColor: '#f8ddc8' },
   message: { color: '#203c37', fontSize: 17, lineHeight: 25 }, speaker: { alignSelf: 'flex-end', minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center' },
   status: { flexDirection: 'row', gap: 8, alignItems: 'center' }, statusText: { color: '#176f73', fontSize: 16, fontWeight: '700' },
   suggestions: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 }, chip: { minHeight: 48, borderWidth: 1, borderColor: '#b8d3c8', borderRadius: 16, padding: 10, justifyContent: 'center', alignSelf: 'flex-start' }, chipText: { color: '#176f73', fontSize: 15, fontWeight: '700' },
-  composer: { paddingHorizontal: 12, paddingBottom: 8, borderTopWidth: 1, borderColor: '#e8e4d8' }, voicePreference: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, preferenceText: { color: '#52655d', fontSize: 14 },
+  composer: { paddingHorizontal: 12, paddingTop: 8, paddingBottom: 8, borderTopWidth: 1, borderColor: '#e8e4d8' }, preferenceText: { color: '#176f73', fontSize: 12, fontWeight: '700' },
   inputRow: { flexDirection: 'row', gap: 4, alignItems: 'center' }, input: { flex: 1, minHeight: 48, maxHeight: 100, backgroundColor: 'white', borderWidth: 1, borderColor: '#b8d3c8', borderRadius: 16, paddingHorizontal: 12, fontSize: 16, color: '#203c37' },
   iconButton: { minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center' }, send: { width: 48, height: 48, backgroundColor: '#278c73', borderRadius: 24, alignItems: 'center', justifyContent: 'center' }, disabled: { opacity: 0.4 },
   error: { color: '#a34842', fontSize: 15, paddingVertical: 4 }, notice: { color: '#748179', fontSize: 11, textAlign: 'center', marginTop: 6 },
-  recording: { gap: 7 }, level: { height: 6, backgroundColor: '#279487', borderRadius: 3 }, finish: { backgroundColor: '#dd6844', borderRadius: 14, padding: 12, minHeight: 48, alignItems: 'center' }, finishText: { color: 'white', fontSize: 16, fontWeight: '800' },
+  recording: { gap: 7 }, recordingVisual: { alignItems: 'center', padding: 6 }, finish: { backgroundColor: '#dd6844', borderRadius: 14, padding: 12, minHeight: 48, alignItems: 'center' }, finishText: { color: 'white', fontSize: 16, fontWeight: '800' },
 });

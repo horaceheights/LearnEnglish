@@ -111,11 +111,45 @@ class LessonTutorTests(unittest.TestCase):
             provider.assert_not_awaited()
             result = self.post('transcribe', audio=base64.b64encode(b'audio').decode(), format='m4a')
             self.assertEqual({'text': '¿Por qué is?'}, result.json())
-        with patch.object(tutor, 'provider_request', new_callable=AsyncMock, return_value=b'mp3'):
-            response = self.post('speech', text='Una explicación.')
+        with patch.object(tutor, 'provider_request', new_callable=AsyncMock, return_value=bytes(4800)) as provider:
+            text = 'Con "he" usamos "is": "He is a boy."'
+            response = self.post('speech', text=text)
             self.assertEqual(200, response.status_code)
             self.assertEqual('audio/mpeg', response.headers['content-type'])
             self.assertEqual('no-store', response.headers['cache-control'])
+            self.assertTrue(response.content.startswith(b'ID3') or response.content.startswith(b'\xff'))
+            sent = provider.call_args.args[1]
+            self.assertEqual('pcm', sent['response_format'])
+            self.assertEqual('google/gemini-3.8-flash-tts', sent['model'])
+            self.assertEqual('Sulafat', sent['voice'])
+            self.assertEqual(text, sent['input'], 'Learner text is not rewritten into phonetic Spanish.')
+            self.assertIn('español latinoamericano neutro', sent['instructions'])
+            self.assertIn('palabras aisladas', sent['instructions'])
+            self.assertIn('/hiː/', sent['instructions'])
+            self.assertIn('/ɑɹ/', sent['instructions'])
+
+    def test_speech_encoding_failure_is_safe_and_does_not_retry_provider(self):
+        with patch.object(tutor.imageio_ffmpeg, 'get_ffmpeg_exe', side_effect=RuntimeError('private')), \
+                patch.object(tutor, 'provider_request', new_callable=AsyncMock) as provider:
+            self.assertEqual(503, self.post('speech', text='Hola').status_code)
+            provider.assert_not_awaited()
+        with patch.object(tutor, 'provider_request', new_callable=AsyncMock, return_value=b'odd') as provider:
+            response = self.post('speech', text='Hola')
+            self.assertEqual(503, response.status_code)
+            self.assertEqual(1, provider.await_count)
+        with patch.object(tutor.subprocess, 'run', side_effect=tutor.subprocess.TimeoutExpired('encoder', 10)):
+            with self.assertRaises(HTTPException) as error:
+                tutor.pcm_to_mp3(bytes(4800), 'encoder')
+            self.assertEqual(503, error.exception.status_code)
+            self.assertNotIn('encoder', error.exception.detail)
+
+    def test_configured_mp3_provider_remains_compatible(self):
+        with patch.dict('os.environ', {'OPENROUTER_TUTOR_TTS_MODEL': 'elevenlabs/eleven-flash-v2.5', 'OPENROUTER_TUTOR_VOICE': 'liam'}), \
+                patch.object(tutor, 'provider_request', new_callable=AsyncMock, return_value=b'mp3') as provider, \
+                patch.object(tutor, 'pcm_to_mp3') as encode:
+            self.assertEqual(b'mp3', self.post('speech', text='Hola').content)
+            self.assertEqual('mp3', provider.call_args.args[1]['response_format'])
+            encode.assert_not_called()
 
     def test_provider_errors_never_expose_raw_details(self):
         for response in (httpx.Response(500, json={'secret': 'private'}),
