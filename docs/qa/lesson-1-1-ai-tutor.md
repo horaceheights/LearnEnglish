@@ -6,7 +6,8 @@ Scope: `lesson-1-people-actions`, with shared web/mobile components and authenti
 
 - Backend: canonical lesson revision/card validation, POC allowlist, complete submitted selections, before-answer redaction, wrong/correct grounding, authentication (including rejection of an admin/public key alone), shared usage limits, missing-key/kill-switch behavior, provider error sanitization, speech/transcription payload validation, and privacy disclosure.
 - Shared hook: no request on mount or an error event, explicit opening, double-tap deduplication, same-card history, follow-up context, retry, cancellation and stale replies after close/card/account changes. Unfinished construction is never a submitted answer.
-- Native Yoga: visible composer/close controls at 390×844, 360×640, 740×360 and 844×390, including enlarged text and safe areas. All Lesson 1.1 non-speaking cards with the extra header and wrong-answer controls are checked at 740×360 with font scales 1, 1.3 and 2. Other lesson layout suites remain in the release gate. These checks estimate native text metrics and do not substitute for installed-device testing.
+- Native Yoga: visible composer/close/top-mute controls at 390×844, 360×640, 740×360 and 844×390, including enlarged text and safe areas. All Lesson 1.1 non-speaking cards with the floating button and wrong-answer controls are checked at 740×360 with font scales 1, 1.3 and 2; wide prompts remain above the floating target. Dragging, resize clamping and accessibility reset exercise the actual component. Other lesson layout suites remain in the release gate. These checks estimate native text metrics and do not substitute for installed-device testing.
+- Production web/native voice components: no playback before manual opening, once-only autoplay for each new reply (including repeated text), close/reopen, stale completion after background/close, mute cancellation, delayed preference loading, persisted mute and dictation preserving mute. The shared preference hook is exercised with real asynchronous state changes and mocked storage/platform I/O.
 - Existing prompt-replay regression tests now include the paused tutor state. New tutor suites run in `verify-interaction-paths.ps1` and protected CI.
 
 ## Live local verification, 2026-10-12
@@ -24,6 +25,16 @@ Used the real production web lesson components at phone portrait and landscape s
 ## Required Preview device review
 
 After the protected CI release, test the exact commit on Android Chrome and the installed Expo Preview app; review iOS too before claiming iOS success. Verify microphone permission denial, recording/stop/cancel, editable dictation, explicit send, speaker playback and stop, Bluetooth/silent-mode routing, keyboard clearance in both orientations, app background/return during each voice phase, rapid open/close, and opening during a Speak model/recording. Confirm the lesson resumes without lost selections, duplicate scoring, unexpected advancement or two active microphones. No physical-device result is claimed by the local browser or Yoga evidence.
+
+## Floating button and bilingual voice follow-up, 2026-10-12
+
+- Real OpenRouter speech: an initial MP3 format probe was rejected with HTTP 400; the explicitly corrected Gemini PCM probe succeeded. Two planned mixed-language samples using Sulafat and Kore were generated and presented for human audition. Sulafat is the provisional default; provider success does not establish human approval of the accent. Review Spanish fluency and isolated English `he`, `she`, `is`, `are` on Preview.
+- Backend default speech requests include bilingual delivery instructions while preserving the exact visible explanation. Real PCM-to-MP3 conversion, missing/failed encoder handling, no paid retry, and configured legacy MP3 passthrough are covered. The full backend suite passed 660 tests.
+- Live production web components at 390×844 and 740×360: the floating control starts by the answer area, leaves the logo clear, drags without opening, resets through the keyboard, and stays reachable after rotation. The top sound control persists across close/reopen. Real chat and speech calls succeeded without browser console errors; a new follow-up plays after the learner enables voice.
+- Before-answer R2 remains a hint. On image-choice R1, selecting `A man` preserves regular authored feedback and only tapping `Saber más` opens an explanation of that exact error. The initial reply, suggestions and composer fit at normal portrait size. Screenshots are retained with the local task artifacts.
+- Disposable loopback-only QA routes and account fixtures were removed before the production build. No curriculum, immutable recording, native permission or dependency was changed.
+- The first broad native layout run found an outdated fixture still mounting the old header button. The fixture now mounts the production floating control, including measured wide-prompt clearance, while preserving all original fit and wrong-answer assertions.
+- Final local checks passed: all 23 frontend tests and its production build, mobile TypeScript and complete interaction verification, Android export and export-integrity validation, and the unchanged 85-lesson / 7-unit release fingerprint. Installed-device and human voice review remain pending on Preview.
 
 
 ## Local verification results

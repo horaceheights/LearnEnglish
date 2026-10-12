@@ -40,6 +40,7 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
   const { LessonCardView } = h.load('components/LessonCardView.tsx');
   const { SentenceConstruction } = h.load('components/SentenceConstruction.tsx');
   const { LessonLandscapeRail } = h.load('components/LessonLandscapeRail.tsx');
+  const { FloatingTutorButton } = h.load('components/FloatingTutorButton.tsx');
   const { isPhoneLandscape, landscapePromptIsWide } = h.load('lessonViewportLayout.ts');
   const landscape = isPhoneLandscape(viewport.width, viewport.height);
   const helpSheet = landscape || (viewport.height >= viewport.width && card.stage !== 'Speak' && card.options.length > 0 && card.options.every(o => o.image_url));
@@ -64,12 +65,18 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
     ...(landscape ? [e('Pressable', { accessibilityRole: 'button', style: { height: 48, width: 48 }, children: e('Text', { children: 'Audio' }) })] : []),
   ] });
   const chrome = landscape ? e(LessonLandscapeRail, { location: 'UNIT 1 | LESSON 1.3', stage: { Learn: 'APRENDE', Recognize: 'RECONOCE', Listen: 'ESCUCHA', Speak: 'HABLA', Use: 'COMPLETA' }[card.stage], color: '#df765b', progress: '12 / 42',
-    onBack: noop, onHome: noop, onMenu: noop, onTutor, imageUrl: construction ? card.prompt_image_url : null, children: construction || widePrompt ? null : header })
+    onBack: noop, onHome: noop, onMenu: noop, imageUrl: construction ? card.prompt_image_url : null, children: construction || widePrompt ? null : header })
     : e('View', { style: { gap: 7 }, children: [e('View', { style: screen.qaToolbar }), e('View', { style: { height: 174 } }), header] });
-  return () => e('View', { style: { paddingTop: landscape ? 0 : 24, paddingBottom: 24, paddingHorizontal: landscape ? 24 : 0 }, children:
+  function Layout() {
+    const [promptInset, setPromptInset] = h.useState(0);
+    return e('View', { style: { paddingTop: landscape ? 0 : 24, paddingBottom: 24, paddingHorizontal: landscape ? 24 : 0 }, children:
     e('View', { style: [screen.page, landscape ? screen.pageCompact : screen.pagePortrait], children:
       e('View', { style: [screen.lessonBody, landscape ? screen.lessonBodyLandscape : null], children: [chrome,
-        e('View', { style: screen.activityColumn, children: [widePrompt ? header : null, e('View', { style: screen.cardCarousel, children: body }, 'lesson-activity')] })] }) }) });
+        e('View', { style: screen.activityColumn, children: [widePrompt ? e('View', { onLayout: event => setPromptInset(event.nativeEvent.layout.height + 6), children: header }) : null,
+          e('View', { style: screen.cardCarousel, children: body }, 'lesson-activity'),
+          onTutor ? e(FloatingTutorButton, { onPress: onTutor, visible: true, topInset: widePrompt ? promptInset : 0 }) : null] })] }) }) });
+  }
+  return () => e(Layout);
 }
 
 test('visual recognition and listening directions retain compact semibold typography and fit enlarged phone text', () => {
@@ -111,6 +118,11 @@ test('tutor rollout preserves all Lesson 1.1 landscape cards and wrong-answer co
         const records = h.render(lessonFactory(h, card, viewport, result, selected), viewport.width, viewport.height);
         within(records, viewport.width, viewport.height - 24, `tutor/${card.slide_id}/${fontScale}/${result}`);
         assert.equal(records.filter(r => r.props.accessibilityLabel === 'Abrir tutor IA').length, 1);
+        const opener = records.find(r => r.props.accessibilityLabel === 'Abrir tutor IA');
+        const prompt = records.find(r => r.type === 'Text' && r.text === card.prompt);
+        if (prompt && opener.box.left < prompt.box.left + prompt.box.width && opener.box.left + opener.box.width > prompt.box.left) {
+          assert.ok(opener.box.top >= prompt.box.top + prompt.box.height, 'Floating tutor must remain below a wide prompt.');
+        }
         if (result === 'wrong') assert.equal(records.filter(r => r.props.accessibilityLabel === 'Saber más con el tutor IA').length, 1);
       }
     }

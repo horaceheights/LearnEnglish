@@ -5,12 +5,14 @@ import base64
 import json
 import os
 import re
+import subprocess
 import threading
 import time
 from collections import defaultdict, deque
 from typing import Literal
 
 import httpx
+import imageio_ffmpeg
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import Response
 from pydantic import BaseModel, ConfigDict, Field
@@ -23,6 +25,14 @@ router = APIRouter(prefix="/api/account/tutor", tags=["lesson-tutor"])
 POC_LESSONS = frozenset({"lesson-1-people-actions"})
 OPENROUTER_URL = "https://openrouter.ai/api/v1"
 MAX_AUDIO_BYTES = 4 * 1024 * 1024
+TUTOR_TTS_MODEL = "google/gemini-3.8-flash-tts"
+TUTOR_TTS_VOICE = "Sulafat"
+TUTOR_SPEECH_INSTRUCTIONS = """Eres una profesora bilingüe de inglés cuya lengua materna es el español latinoamericano neutro.
+Habla español con acento latinoamericano natural, cálido y claro, sin acento estadounidense ni peninsular.
+Cambia a pronunciación nativa del inglés estadounidense para cada palabra o ejemplo en inglés, incluso palabras aisladas dentro de una oración española.
+En inglés he es /hiː/, she /ʃiː/, is /ɪz/, are /ɑɹ/, a /ə/: nunca leas he como la e española ni are como a-re.
+Conserva una sola identidad vocal al cambiar de idioma. Ritmo conversacional tranquilo, con breves pausas alrededor de los ejemplos.
+Lee exactamente el texto, sin traducir, agregar palabras ni leer estas instrucciones."""
 _hits: dict[str, deque] = defaultdict(deque)
 _lock = threading.Lock()
 
@@ -164,7 +174,9 @@ async def provider_request(path: str, body: dict, *, audio: bool = False):
         if response.status_code != 200:
             raise HTTPException(503, "No pudimos conectar con el tutor. Inténtalo otra vez.")
         if audio:
-            if not response.headers.get("content-type", "").startswith("audio/") or not response.content:
+            expected_type = "audio/pcm" if body.get("response_format") == "pcm" else "audio/mpeg"
+            if (response.headers.get("content-type", "").split(";")[0] != expected_type
+                    or not response.content or len(response.content) > 24_000 * 2 * 180):
                 raise ValueError("Invalid speech response")
             return response.content
         data = response.json()
@@ -221,13 +233,42 @@ async def transcribe(payload: TranscriptionRequest, account=Depends(tutor_accoun
     return {"text": transcript.strip()}
 
 
+def pcm_to_mp3(data: bytes, encoder: str) -> bytes:
+    # Gemini's speech route returns 24 kHz, mono, signed 16-bit PCM. Preserve the
+    # MP3 contract for already-installed clients; encoding never changes pacing.
+    if not data or len(data) % 2 or len(data) > 24_000 * 2 * 180:
+        raise HTTPException(503, "No pudimos preparar la voz. Puedes leer la explicación.")
+    try:
+        result = subprocess.run(
+            [encoder, "-hide_banner", "-loglevel", "error", "-f", "s16le", "-ar", "24000", "-ac", "1",
+             "-i", "pipe:0", "-codec:a", "libmp3lame", "-b:a", "64k", "-f", "mp3", "pipe:1"],
+            input=data, capture_output=True, check=True, timeout=10,
+            creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+        )
+        if not result.stdout:
+            raise ValueError("Empty encoded audio")
+        return result.stdout
+    except (OSError, subprocess.SubprocessError, ValueError):
+        raise HTTPException(503, "No pudimos preparar la voz. Puedes leer la explicación.") from None
+
+
 @router.post("/speech")
 async def speech(payload: SpeechRequest, account=Depends(tutor_account)):
     resolve_context(payload)
+    model = os.getenv("OPENROUTER_TUTOR_TTS_MODEL", TUTOR_TTS_MODEL)
+    pcm = model.startswith("google/")
+    # Detect a missing encoder before making a paid speech request.
+    try:
+        encoder = imageio_ffmpeg.get_ffmpeg_exe() if pcm else None
+    except (OSError, RuntimeError):
+        raise HTTPException(503, "La voz no está disponible ahora. Puedes leer la explicación.") from None
     data = await provider_request("audio/speech", {
-        "model": os.getenv("OPENROUTER_TUTOR_TTS_MODEL", "elevenlabs/eleven-flash-v2.5"),
-        "voice": os.getenv("OPENROUTER_TUTOR_VOICE", "liam"),
-        "input": payload.text, "response_format": "mp3",
+        "model": model,
+        "voice": os.getenv("OPENROUTER_TUTOR_VOICE", TUTOR_TTS_VOICE),
+        "instructions": TUTOR_SPEECH_INSTRUCTIONS,
+        "input": payload.text, "response_format": "pcm" if pcm else "mp3",
         "provider": {"data_collection": "deny"},
     }, audio=True)
+    if pcm:
+        data = await run_in_threadpool(pcm_to_mp3, data, encoder)
     return Response(data, media_type="audio/mpeg", headers={"Cache-Control": "no-store"})

@@ -62,7 +62,7 @@ try {
   & node --test tests/sentence-construction.test.cjs tests/sentence-native-layout.test.mjs tests/construction-celebration.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Sentence construction regression failed.' }
 
-  & node --test tests/lesson-tutor.test.cjs tests/lesson-tutor-native.test.mjs
+  & node --test tests/lesson-tutor.test.cjs tests/lesson-tutor-native.test.mjs tests/lesson-tutor-voice.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Lesson tutor lifecycle or native layout failed.' }
 
   & node --test tests/manual-sentence-translation.test.cjs tests/web-legacy-completion-translation.test.cjs tests/reply-image-sequence.test.cjs

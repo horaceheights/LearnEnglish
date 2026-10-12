@@ -54,7 +54,7 @@ import { MissionKickoff } from '../components/MissionKickoff';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { LessonTutorSheet } from '../components/LessonTutorSheet';
-import { TutorButton } from '../components/TutorButton';
+import { FloatingTutorButton } from '../components/FloatingTutorButton';
 import { useLessonTutor } from '../hooks/useLessonTutor';
 import { tutorCardContext, tutorEnabled } from '../lessonTutor';
 import { askTutor } from '../tutorApi';
@@ -300,8 +300,9 @@ export function LessonScreen({
   const reduceMotion = useReducedMotion();
   const isPortrait = viewportHeight >= viewportWidth;
   const [lessonBodyWidth, setLessonBodyWidth] = useState(0);
+  const [tutorPromptInset, setTutorPromptInset] = useState(0);
   const useCompactPhoneLayout = isPhoneLandscape(viewportWidth, viewportHeight);
-  const portraitBrandWidth = Math.min(220, Math.max(tutorEnabled(lessonId) ? 110 : 150, viewportWidth - (tutorEnabled(lessonId) ? 220 : 150)));
+  const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
   const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 190;
   // Every lesson uses the learner-tested 1.1 flow. QA may add diagnostics and
   // controls, but it must not change navigation or review behavior.
@@ -3305,7 +3306,6 @@ export function LessonScreen({
                 )}
               </View>
             ) : null}
-            {tutorContext ? <TutorButton onPress={openTutor} active={isAppActive} /> : null}
             <Pressable
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
               accessibilityRole="button"
@@ -3391,12 +3391,12 @@ export function LessonScreen({
         location={lessonLocation} stage={lessonStageLabel(lesson.id, currentCard.stage)}
         color={activeStageColor || '#279487'} progress={`${cardIndex + 1} / ${lesson.cards.length}`}
         onBack={() => confirmLessonExit('previous')} onHome={() => confirmLessonExit('home')}
-        onMenu={() => setShowMissionLandscapeMenu(true)} onTutor={tutorContext ? openTutor : undefined}
+        onMenu={() => setShowMissionLandscapeMenu(true)}
         imageUrl={isSentenceCard ? currentCard.prompt_image_url : null}>
         {!wideLandscapePrompt ? lessonPromptHeader : null}
       </LessonLandscapeRail> : usesMissionPhoneLandscape ? null : <>{lessonChrome}{lessonPromptHeader}</>}
       <View key="activity-column" style={[styles.activityColumn, needsTextAnswerScrolling ? styles.lessonBodyGrowing : null]}>
-        {wideLandscapePrompt ? lessonPromptHeader : null}
+        {wideLandscapePrompt ? tutorContext ? <View onLayout={event => setTutorPromptInset(event.nativeEvent.layout.height + 6)}>{lessonPromptHeader}</View> : lessonPromptHeader : null}
         <Animated.View
           key="lesson-activity"
           ref={pageRef}
@@ -3502,6 +3502,8 @@ export function LessonScreen({
             />
           ) : null}
         </Animated.View>
+        {tutorContext ? <FloatingTutorButton onPress={openTutor} topInset={wideLandscapePrompt ? tutorPromptInset : 0}
+          visible={isAppActive && !showHelp && !isPageTurning && !isCompletedSectionPicker && !showMissionLandscapeMenu && completedLessonMode !== 'prompt'} /> : null}
       </View>
     </View>
   );

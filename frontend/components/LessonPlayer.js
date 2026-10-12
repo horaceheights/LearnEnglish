@@ -20,6 +20,8 @@ import { awaitingConstructionRetry } from "../../mobile/src/constructionTeaching
 import LessonHelpPopup from "./LessonHelpPopup";
 import LessonTutor from "./LessonTutor";
 import { TutorButton } from "./TutorButton";
+import { FloatingTutorButton } from "./FloatingTutorButton";
+import { primeTutorAudio } from "../lib/tutorAudio";
 import { tutorCardContext, tutorEnabled } from "../../mobile/src/lessonTutor";
 import { useLessonTutor } from "../../mobile/src/hooks/useLessonTutor";
 import { askTutor } from "../lib/tutorApi";
@@ -5487,6 +5489,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     setIsPronunciationRecording(false);
     setIsPronunciationScoring(false);
     stopSpeech(); stopUiSfx();
+    primeTutorAudio();
     tutor.open();
   };
   const tutorSheet = tutorContext ? <LessonTutor tutor={tutor} context={tutorContext}
@@ -5550,6 +5553,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       inert={isPageTurning} ref={writtenRecognitionPageRef} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
       {helpPopup}
       {tutorSheet}
+      {tutorContext ? <FloatingTutorButton key={activeLesson.id} anchorRef={pageRef} onClick={openTutor}
+        visible={started && helpDocumentVisible && !showHelp && !tutor.visible && !isPageTurning} /> : null}
       <div style={shellStyle}>
           <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
@@ -5604,7 +5609,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                   </h1>
                 </button>
               ) : null}
-              {tutorContext ? <TutorButton onClick={openTutor} /> : null}
               <button
                 type="button"
                 aria-label={showHelp ? "Ocultar ayuda" : "Mostrar ayuda"}
