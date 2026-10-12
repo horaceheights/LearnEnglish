@@ -8,4 +8,3 @@ export function TutorButton({ onClick, more = false }) {
   return <button type="button" className={`${styles.tutorButton} ${more ? styles.more : styles.glow}`}
     aria-label={more ? 'Saber más con el tutor IA' : 'Abrir tutor IA'} onClick={onClick}><TutorIcon />{more ? 'Saber más' : 'IA'}</button>;
 }
-
