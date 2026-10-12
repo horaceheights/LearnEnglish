@@ -1,0 +1,493 @@
+{
+  "brief_version": 1,
+  "lesson": {
+    "id": "lesson-6-10-town-mission",
+    "title": "6.14 Mission: Meet at the Museum",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.14",
+    "sub_lesson_title": "Mission: Meet at the Museum",
+    "experience_type": "mission",
+    "content_revision": 2,
+    "goal": "Reach the museum and help another visitor complete the final walk.",
+    "vocabulary": [],
+    "review_vocabulary": [],
+    "grammar_function": "Current destinations, a help exchange, safe directions, service choice, a ticket transaction, schedules and a complete trip.",
+    "prerequisite": "Lessons 6.1–6.13 completed.",
+    "speaking_outcome": "Explain your destination and give the final directions to another visitor.",
+    "purposeful_review_slides": [
+      "M01",
+      "M02",
+      "M03"
+    ],
+    "mission": {
+      "label": "Misión final",
+      "title": "Nos vemos en el museo",
+      "briefing": "Ana sale del hotel para reunirse con su familia en el museo. Ayúdala a encontrar la parada, elegir el autobús y completar el viaje. Al final, ella ayuda a otro visitante.",
+      "kickoff_image_url": "/lesson-assets/a1_photo_u6_story_mission_kickoff_v2.webp",
+      "objectives": [
+        "Pide ayuda y sigue una ruta segura",
+        "Elige el autobús y compra el boleto",
+        "Llega al museo y da indicaciones"
+      ],
+      "completion_title": "¡Llegaron al museo!",
+      "completion_message": "Ana se reúne con su familia y el otro visitante llega con ella. Completaste el viaje y ayudaste a alguien más.",
+      "chapters": [
+        {
+          "id": "find-help",
+          "title": "El camino a la parada",
+          "objective": "Busca la parada y pide indicaciones."
+        },
+        {
+          "id": "safe-route",
+          "title": "Una ruta segura",
+          "objective": "Llega a la parada por el cruce abierto."
+        },
+        {
+          "id": "choose-service",
+          "title": "El autobús y el boleto",
+          "objective": "Elige el autobús, revisa el horario y compra el boleto."
+        },
+        {
+          "id": "travel",
+          "title": "El viaje al museo",
+          "objective": "Sigue las paradas y el último tramo a pie."
+        },
+        {
+          "id": "help-traveller",
+          "title": "Ahora tú das indicaciones",
+          "objective": "Ayuda a otro visitante a llegar al museo."
+        }
+      ]
+    }
+  },
+  "source": "approved-outline.json 6.14 plus approved project guardrails",
+  "status": "draft; no media or geometry approved",
+  "storyboard": [
+    {
+      "card": "M01",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp",
+      "setting": "El barrio del hotel",
+      "continuity": "Ana checks the public neighborhood map outside her hotel. Identify useful landmarks before asking for help. Four interactive places; the other named places are spatial context.",
+      "cue_order": "independent search",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "The movie theater is near the hotel.",
+          "speaker": "teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp",
+          "correct_target": "theater",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The station is far from the hotel.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp",
+          "correct_target": "station",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The library is between the bank and the pharmacy.",
+          "speaker": "teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp",
+          "correct_target": "library",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The bus stop is across from the supermarket.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp",
+          "correct_target": "bus-stop",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M02",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_first_helper_v1.webp",
+      "setting": "La primera persona",
+      "continuity": "At the hotel corner Ana asks an older man. He cannot help. No ticket or goods; the next card is a visibly different helper, not a contradictory reply from this man.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "Excuse me. Can you help me?",
+          "speaker": "ana",
+          "listener": "the other person",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_first_helper_v1.webp",
+          "correct_target": "ana",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker": "male-character",
+          "listener": "Ana",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_first_helper_v1.webp",
+          "correct_target": "first-man",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M03",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_second_helper_v1.webp",
+      "setting": "Una persona que conoce la ruta",
+      "continuity": "Ana approaches Luis at the next corner. He agrees and gives the first steps toward the stop. The request precedes the reply.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "How do I get to the bus stop?",
+          "speaker": "ana",
+          "listener": "the other person",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_second_helper_v1.webp",
+          "correct_target": "ana",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Yes, I can help. Go straight. Then, turn right.",
+          "speaker": "male-character",
+          "listener": "Ana",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_second_helper_v1.webp",
+          "correct_target": "luis",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M04",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp",
+      "setting": "El cruce está cerrado",
+      "continuity": "The nearby crossing is physically blocked. Continue along the pavement, turn at the corner, then use the visibly open crossing farther along. Each direction identifies a distinct part of this continuous route.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "You cannot cross the street here.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp",
+          "correct_target": "blocked",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Go straight.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp",
+          "correct_target": "straight-path",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Then, turn right at the corner.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp",
+          "correct_target": "corner",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Finally, you can cross the street there.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp",
+          "correct_target": "open",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M05",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp",
+      "setting": "¿Qué transporte va al museo?",
+      "continuity": "Ana reaches the transport interchange. Four clearly distinct vehicles: a train, a taxi on the left, a red bus and a blue bus. Only the bus colors determine the two bus targets; their destinations are heard information, not inferred from an arbitrary photograph.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "The train goes to the airport.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp",
+          "correct_target": "train",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The taxi is on the left.",
+          "speaker": "teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp",
+          "correct_target": "taxi",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The red bus goes to the airport.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp",
+          "correct_target": "red-bus",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Which bus goes to the museum? Take the blue bus.",
+          "speaker": "teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp",
+          "correct_target": "blue-bus",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M06",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp",
+      "setting": "Confirma la salida y la llegada",
+      "continuity": "A real posted two-service timetable has four separate readable clock cells: blue bus departure 09:00 and arrival 10:00; red bus departure 11:00 and arrival 12:00. The spoken question and answer select one cell. This is narrated schedule checking, not a pictured two-person conversation.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "What time does the blue bus leave? The blue bus leaves at nine.",
+          "speaker": "teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp",
+          "correct_target": "blue-leaves",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "What time does the blue bus arrive? The blue bus arrives at ten.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp",
+          "correct_target": "blue-arrives",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The red bus leaves at eleven.",
+          "speaker": "teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp",
+          "correct_target": "red-leaves",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The red bus arrives at twelve.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp",
+          "correct_target": "red-arrives",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M07",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_ticket_request_v1.webp",
+      "setting": "Compra un boleto",
+      "continuity": "At the counter Ana asks the male clerk for a ticket. The ticket is still behind the counter in the clerk’s possession. He tells her its price. Both voices identify the visible speaker; no physical handover has happened yet.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "Can I have a ticket, please?",
+          "speaker": "ana",
+          "listener": "the other person",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_ticket_request_v1.webp",
+          "correct_target": "ana",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The ticket is two dollars.",
+          "speaker": "male-character",
+          "listener": "Ana",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_ticket_request_v1.webp",
+          "correct_target": "clerk",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M08",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_ticket_handover_v1.webp",
+      "setting": "Recibe el boleto",
+      "continuity": "Same counter, same clerk, same Ana and ticket. After payment the clerk passes the ticket into Ana’s hand. He speaks first; Ana thanks him as she receives it. The image is distinct from the earlier request state.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "Here is your ticket.",
+          "speaker": "male-character",
+          "listener": "Ana",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_ticket_handover_v1.webp",
+          "correct_target": "clerk",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Thank you.",
+          "speaker": "ana",
+          "listener": "the other person",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_ticket_handover_v1.webp",
+          "correct_target": "ana",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M09",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp",
+      "setting": "Sigue las paradas",
+      "continuity": "Ana boards the blue bus and follows its printed interior route map, in order: station, library, post office, museum. The final stop is the museum, where she gets off. The map is an actual bus fixture; every stop is a separate neutral touch target.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "I am going to the museum by bus. First, I get on the bus. The next stop is the station.",
+          "speaker": "ana",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp",
+          "correct_target": "station",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Then, the next stop is the library.",
+          "speaker": "ana",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp",
+          "correct_target": "library",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "After that, the next stop is the post office.",
+          "speaker": "ana",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp",
+          "correct_target": "post-office",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Finally, the next stop is the museum. I get off the bus. Then, I walk to the museum.",
+          "speaker": "ana",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp",
+          "correct_target": "museum",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M10",
+      "image": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp",
+      "setting": "El último tramo a pie",
+      "continuity": "The museum stop is close to the destination. Follow the final short route past a bank and around a left corner. The pharmacy is on the left; the museum is on the right. Ana meets a visitor before the museum entrance and uses these directions in the four closing voice gates.",
+      "cue_order": "authored",
+      "geometry_status": "Agent measured from actual source pixels; phone marker fit review pending",
+      "turns": [
+        {
+          "text": "Go past the bank.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp",
+          "correct_target": "bank",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Turn left at the corner.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp",
+          "correct_target": "corner",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "The pharmacy is on the left.",
+          "speaker": "teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp",
+          "correct_target": "pharmacy",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        },
+        {
+          "text": "Finally, stop at the museum. It is on the right.",
+          "speaker": "co-teacher",
+          "listener": "learner",
+          "visible_before_choice": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp",
+          "correct_target": "museum",
+          "after_success": "Advance only to the next authored cue or scene; preserve solved targets."
+        }
+      ]
+    },
+    {
+      "card": "M11",
+      "setting": "The final walk outside the museum",
+      "speaker": "visitor, then Ana",
+      "listener": "Ana, then visitor",
+      "initiating_line": "Where are you going?",
+      "response": "I am going to the museum.",
+      "question_image": "/lesson-assets/a1_photo_u6_story_mission_destination_question_v2.webp",
+      "response_image": "/lesson-assets/a1_photo_u6_story_mission_destination_response_v1.webp",
+      "continuity": "A new male visitor asks Ana where she is going. She names her current destination.",
+      "object_state": "No exchange of goods; same two people, route and clothing; distinct question and response views.",
+      "before_choice": "Question audio with its view, then response view and written model before microphone opens.",
+      "after_success": "Continue the same encounter; after the last gate arrive with the visitor and reunite with family.",
+      "media_status": "unreviewed; generation and phone checks pending"
+    },
+    {
+      "card": "M12",
+      "setting": "The final walk outside the museum",
+      "speaker": "visitor, then Ana",
+      "listener": "Ana, then visitor",
+      "initiating_line": "Can you help me?",
+      "response": "Yes, I can.",
+      "question_image": "/lesson-assets/a1_photo_u6_story_mission_destination_question_v2.webp",
+      "response_image": "/lesson-assets/a1_photo_u6_story_mission_help_response_v1.webp",
+      "continuity": "The same visitor asks for help. Ana agrees; the goods and people remain unchanged.",
+      "object_state": "No exchange of goods; same two people, route and clothing; distinct question and response views.",
+      "before_choice": "Question audio with its view, then response view and written model before microphone opens.",
+      "after_success": "Continue the same encounter; after the last gate arrive with the visitor and reunite with family.",
+      "media_status": "unreviewed; generation and phone checks pending"
+    },
+    {
+      "card": "M13",
+      "setting": "The final walk outside the museum",
+      "speaker": "visitor, then Ana",
+      "listener": "Ana, then visitor",
+      "initiating_line": "How do I get to the museum?",
+      "response": "Go straight. Then, turn left.",
+      "question_image": "/lesson-assets/a1_photo_u6_story_mission_destination_question_v2.webp",
+      "response_image": "/lesson-assets/a1_photo_u6_story_mission_route_response_v1.webp",
+      "continuity": "He asks for the route. Ana gives the already established final walking directions, with a distinct pointing response view.",
+      "object_state": "No exchange of goods; same two people, route and clothing; distinct question and response views.",
+      "before_choice": "Question audio with its view, then response view and written model before microphone opens.",
+      "after_success": "Continue the same encounter; after the last gate arrive with the visitor and reunite with family.",
+      "media_status": "unreviewed; generation and phone checks pending"
+    },
+    {
+      "card": "M14",
+      "setting": "The final walk outside the museum",
+      "speaker": "visitor, then Ana",
+      "listener": "Ana, then visitor",
+      "initiating_line": "Where is the museum?",
+      "response": "The museum is on the right.",
+      "question_image": "/lesson-assets/a1_photo_u6_story_mission_arrival_question_v2.webp",
+      "response_image": "/lesson-assets/a1_photo_u6_story_mission_arrival_response_v2.webp",
+      "continuity": "He asks which building. Ana points toward the museum on the viewer’s right. The family is visibly waiting at its entrance; after the response everyone arrives.",
+      "object_state": "No exchange of goods; same two people, route and clothing; distinct question and response views.",
+      "before_choice": "Question audio with its view, then response view and written model before microphone opens.",
+      "after_success": "Continue the same encounter; after the last gate arrive with the visitor and reunite with family.",
+      "media_status": "unreviewed; generation and phone checks pending"
+    }
+  ],
+  "counts": {
+    "cards": 14,
+    "listening_decisions": 32,
+    "closing_voice_gates": 4
+  }
+}

@@ -1,45 +1,50 @@
 {
   "id": "lesson-6-4-location-words",
-  "title": "6.4 Left and Right",
+  "title": "6.7 Which Side of the Street?",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+  "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
-  "sub_lesson_id": "6.4",
-  "sub_lesson_title": "Left and Right",
-  "goal": "Recognize left and right, and say that a place is on the left or on the right.",
+  "sub_lesson_id": "6.7",
+  "sub_lesson_title": "Which Side of the Street?",
+  "goal": "Find a named destination on the left or right from a clear viewpoint.",
   "vocabulary": [
     "left",
     "right",
     "on the left",
     "on the right"
   ],
-  "review_vocabulary": [
-    "where",
-    "is",
-    "it",
-    "the",
-    "bank",
-    "pharmacy",
-    "on"
+  "grammar_function": "Ana and Luis face the same direction from the hotel entrance. The mall is on their left and the pharmacy on their right. Ana is going to the mall; she confirms the side and finds the entrance. After arrival, a clearly marked second viewpoint introduces the station and the bank without silently reversing left and right.",
+  "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+  "speaking_outcome": "Find a named destination on the left or right from a clear viewpoint.",
+  "content_revision": 3,
+  "review_vocabulary": [],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "on the left",
+        "on the right"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "The mall is on the left."
+        },
+        {
+          "slide_id": "L4",
+          "text": "The pharmacy is on the right."
+        }
+      ]
+    }
   ],
-  "grammar_function": "The bank is on the left. The pharmacy is on the right. Where is the bank? It is on the right.",
-  "prerequisite": "4.3 on and Where is it?; 6.1 bank and pharmacy.",
-  "speaking_outcome": "Say that a place is on the left or on the right.",
-  "content_revision": 2,
   "purposeful_review_slides": [
-    "R3",
-    "R4",
     "R5",
     "R6",
     "R7",
     "R8",
-    "R9",
-    "R10",
-    "R11",
-    "R12",
     "A3",
     "A4",
     "A5",
@@ -49,23 +54,21 @@
     "A9",
     "A10",
     "S1",
-    "S2",
     "S3",
-    "S4",
     "S5",
     "S6",
     "S7",
     "S8",
     "S9",
+    "S10",
+    "S11",
+    "S12",
     "U1",
-    "U2",
-    "U3",
     "U4",
     "U5",
     "U6",
     "U7",
-    "U8",
-    "U9"
+    "U8"
   ],
   "cards": [
     {
@@ -77,7 +80,7 @@
       "options": [
         {
           "id": "left-learn",
-          "image_url": "a1_photo_u6_man_points_left_v2.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_man_points_left_v2.webp",
           "label": "Left"
         }
       ],
@@ -96,7 +99,7 @@
       "options": [
         {
           "id": "right-learn",
-          "image_url": "a1_photo_u6_man_points_right_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_man_points_right_v1.webp",
           "label": "Right"
         }
       ],
@@ -108,6 +111,45 @@
       "audio_speaker": "co-teacher"
     },
     {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "The mall is on the left.",
+      "stage": "Learn",
+      "correct_option_id": "the-mall-is-on-the-left-learn",
+      "options": [
+        {
+          "id": "the-mall-is-on-the-left-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+          "label": "The mall is on the left."
+        }
+      ],
+      "audio_text": "The mall is on the left.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El centro comercial está a la izquierda.",
+      "pedagogy_note": "Story beat 03: The mall is on the left."
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "The pharmacy is on the right.",
+      "stage": "Learn",
+      "correct_option_id": "the-pharmacy-is-on-the-right-learn",
+      "options": [
+        {
+          "id": "the-pharmacy-is-on-the-right-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+          "label": "The pharmacy is on the right."
+        }
+      ],
+      "audio_text": "The pharmacy is on the right.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La farmacia está a la derecha.",
+      "pedagogy_note": "Story beat 04: The pharmacy is on the right.",
+      "audio_speaker": "co-teacher"
+    },
+    {
       "slide_id": "R1",
       "interaction_type": "t2i2",
       "prompt": "Left",
@@ -116,12 +158,12 @@
       "options": [
         {
           "id": "right-r1",
-          "image_url": "a1_photo_u6_man_points_right_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_man_points_right_v1.webp",
           "label": null
         },
         {
           "id": "left-r1",
-          "image_url": "a1_photo_u6_man_points_left_v2.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_man_points_left_v2.webp",
           "label": null
         }
       ],
@@ -151,551 +193,513 @@
       ],
       "audio_text": "",
       "answer_audio_text": "Right",
-      "prompt_image_url": "a1_photo_u6_man_points_right_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_points_right_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
       "pedagogy_note": "Story beat 02: Right"
     },
     {
       "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "The bank is on the left.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-bank-is-on-the-left-r3",
+      "correct_option_id": "the-mall-is-on-the-left-r3",
       "options": [
         {
-          "id": "the-bank-is-on-the-left-r3",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "the-mall-is-on-the-left-r3",
+          "image_url": "",
+          "label": "The mall is on the left."
         },
         {
-          "id": "the-bank-is-on-the-right-r3",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "the-mall-is-on-the-right-r3",
+          "image_url": "",
+          "label": "The mall is on the right."
         }
       ],
-      "audio_text": "The bank is on the left.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El banco está a la izquierda.",
-      "pedagogy_note": "Story beat 03: The bank is on the left."
+      "audio_text": "",
+      "answer_audio_text": "The mall is on the left.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 03: The mall is on the left."
     },
     {
       "slide_id": "R4",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-bank-is-on-the-right-r4",
+      "correct_option_id": "the-pharmacy-is-on-the-right-r4",
       "options": [
         {
-          "id": "the-bank-is-on-the-left-r4",
+          "id": "the-pharmacy-is-on-the-left-r4",
           "image_url": "",
-          "label": "The bank is on the left."
+          "label": "The pharmacy is on the left."
         },
         {
-          "id": "the-bank-is-on-the-right-r4",
+          "id": "the-pharmacy-is-on-the-right-r4",
           "image_url": "",
-          "label": "The bank is on the right."
+          "label": "The pharmacy is on the right."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The bank is on the right.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
+      "answer_audio_text": "The pharmacy is on the right.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: The bank is on the right."
+      "pedagogy_note": "Story beat 04: The pharmacy is on the right."
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "The pharmacy is on the right.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-pharmacy-is-on-the-right-r5",
+      "correct_option_id": "i-am-going-to-the-mall-r5",
       "options": [
         {
-          "id": "the-pharmacy-is-on-the-left-r5",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "i-am-going-to-the-pharmacy-r5",
+          "image_url": "",
+          "label": "I am going to the pharmacy."
         },
         {
-          "id": "the-pharmacy-is-on-the-right-r5",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "i-am-going-to-the-mall-r5",
+          "image_url": "",
+          "label": "I am going to the mall."
         }
       ],
-      "audio_text": "The pharmacy is on the right.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La farmacia está a la derecha.",
-      "pedagogy_note": "Story beat 05: The pharmacy is on the right."
+      "audio_text": "",
+      "answer_audio_text": "I am going to the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 05: I am going to the mall."
     },
     {
       "slide_id": "R6",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-pharmacy-is-on-the-left-r6",
+      "correct_option_id": "then-i-walk-to-the-mall-r6",
       "options": [
         {
-          "id": "the-pharmacy-is-on-the-left-r6",
+          "id": "then-i-walk-to-the-mall-r6",
           "image_url": "",
-          "label": "The pharmacy is on the left."
+          "label": "Then, I walk to the mall."
         },
         {
-          "id": "the-pharmacy-is-on-the-right-r6",
+          "id": "then-i-walk-to-the-pharmacy-r6",
           "image_url": "",
-          "label": "The pharmacy is on the right."
+          "label": "Then, I walk to the pharmacy."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The pharmacy is on the left.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
+      "answer_audio_text": "Then, I walk to the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 06: The pharmacy is on the left."
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 06: Then, I walk to the mall."
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i2",
-      "prompt": "It is on the left.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-on-the-left-r7",
+      "correct_option_id": "the-bank-is-on-the-left-r7",
       "options": [
         {
-          "id": "it-is-on-the-left-r7",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "the-bank-is-on-the-left-r7",
+          "image_url": "",
+          "label": "The bank is on the left."
         },
         {
-          "id": "it-is-on-the-right-r7",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "the-bank-is-on-the-right-r7",
+          "image_url": "",
+          "label": "The bank is on the right."
         }
       ],
-      "audio_text": "It is on the left.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Está a la izquierda.",
-      "pedagogy_note": "Story beat 07: It is on the left."
+      "audio_text": "",
+      "answer_audio_text": "The bank is on the left.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 07: The bank is on the left."
     },
     {
       "slide_id": "R8",
       "interaction_type": "i2t2",
-      "prompt": "Where is the bank?",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-on-the-right-r8",
-      "options": [
-        {
-          "id": "it-is-on-the-right-r8",
-          "image_url": "",
-          "label": "It is on the right."
-        },
-        {
-          "id": "it-is-on-the-left-r8",
-          "image_url": "",
-          "label": "It is on the left."
-        }
-      ],
-      "audio_text": "Where is the bank?",
-      "answer_audio_text": "It is on the right.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-      "spanish_translation": "¿Dónde está el banco?",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: It is on the right.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "t2i2",
-      "prompt": "The bank is on the left.",
-      "stage": "Recognize",
-      "correct_option_id": "the-bank-is-on-the-left-r9",
-      "options": [
-        {
-          "id": "the-bank-is-on-the-left-r9",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
-        },
-        {
-          "id": "the-bank-is-on-the-right-r9",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The bank is on the left.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El banco está a la izquierda.",
-      "pedagogy_note": "Story beat 09: The bank is on the left."
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-bank-is-on-the-right-r10",
+      "correct_option_id": "the-station-is-on-the-right-r8",
       "options": [
         {
-          "id": "the-bank-is-on-the-right-r10",
+          "id": "the-station-is-on-the-right-r8",
           "image_url": "",
-          "label": "The bank is on the right."
+          "label": "The station is on the right."
         },
         {
-          "id": "the-bank-is-on-the-left-r10",
+          "id": "the-station-is-on-the-left-r8",
           "image_url": "",
-          "label": "The bank is on the left."
+          "label": "The station is on the left."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The bank is on the right.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
+      "answer_audio_text": "The station is on the right.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 10: The bank is on the right."
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "t2i2",
-      "prompt": "The pharmacy is on the right.",
-      "stage": "Recognize",
-      "correct_option_id": "the-pharmacy-is-on-the-right-r11",
-      "options": [
-        {
-          "id": "the-pharmacy-is-on-the-left-r11",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
-        },
-        {
-          "id": "the-pharmacy-is-on-the-right-r11",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The pharmacy is on the right.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La farmacia está a la derecha.",
-      "pedagogy_note": "Story beat 11: The pharmacy is on the right."
-    },
-    {
-      "slide_id": "R12",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-pharmacy-is-on-the-left-r12",
-      "options": [
-        {
-          "id": "the-pharmacy-is-on-the-left-r12",
-          "image_url": "",
-          "label": "The pharmacy is on the left."
-        },
-        {
-          "id": "the-pharmacy-is-on-the-right-r12",
-          "image_url": "",
-          "label": "The pharmacy is on the right."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The pharmacy is on the left.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 12: The pharmacy is on the left."
+      "pedagogy_note": "Story beat 08: The station is on the right."
     },
     {
       "slide_id": "A1",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "left-a1",
+      "correct_option_id": "the-mall-is-on-the-left-a1",
       "options": [
         {
-          "id": "left-a1",
-          "image_url": "a1_photo_u6_man_points_left_v2.webp",
-          "label": null
+          "id": "the-mall-is-on-the-left-a1",
+          "image_url": "",
+          "label": "The mall is on the left."
         },
         {
-          "id": "right-a1",
-          "image_url": "a1_photo_u6_man_points_right_v1.webp",
-          "label": null
+          "id": "the-mall-is-on-the-right-a1",
+          "image_url": "",
+          "label": "The mall is on the right."
         }
       ],
-      "audio_text": "Left",
+      "audio_text": "Where is the mall? The mall is on the left.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Where is the mall?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        },
+        {
+          "text": "The mall is on the left.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Left"
+      "pedagogy_note": "Story beat 01: The mall is on the left."
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "right-a2",
+      "correct_option_id": "the-pharmacy-is-on-the-right-a2",
       "options": [
         {
-          "id": "right-a2",
-          "image_url": "a1_photo_u6_man_points_right_v1.webp",
-          "label": null
+          "id": "the-pharmacy-is-on-the-right-a2",
+          "image_url": "",
+          "label": "The pharmacy is on the right."
         },
         {
-          "id": "left-a2",
-          "image_url": "a1_photo_u6_man_points_left_v2.webp",
-          "label": null
+          "id": "the-pharmacy-is-on-the-left-a2",
+          "image_url": "",
+          "label": "The pharmacy is on the left."
         }
       ],
-      "audio_text": "Right",
+      "audio_text": "Where is the pharmacy? The pharmacy is on the right.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Where is the pharmacy?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        },
+        {
+          "text": "The pharmacy is on the right.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Right",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Story beat 02: The pharmacy is on the right."
     },
     {
       "slide_id": "A3",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-bank-is-on-the-left-a3",
+      "correct_option_id": "i-am-going-to-the-mall-a3",
       "options": [
         {
-          "id": "the-bank-is-on-the-left-a3",
+          "id": "i-am-going-to-the-mall-a3",
           "image_url": "",
-          "label": "The bank is on the left."
+          "label": "I am going to the mall."
         },
         {
-          "id": "the-bank-is-on-the-right-a3",
+          "id": "i-am-going-to-the-pharmacy-a3",
           "image_url": "",
-          "label": "The bank is on the right."
+          "label": "I am going to the pharmacy."
         }
       ],
-      "audio_text": "The bank is on the left.",
+      "audio_text": "I am going to the mall.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: The bank is on the left."
+      "pedagogy_note": "Story beat 03: I am going to the mall.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-bank-is-on-the-right-a4",
+      "correct_option_id": "then-i-walk-to-the-mall-a4",
       "options": [
         {
-          "id": "the-bank-is-on-the-left-a4",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "then-i-walk-to-the-pharmacy-a4",
+          "image_url": "",
+          "label": "Then, I walk to the pharmacy."
         },
         {
-          "id": "the-bank-is-on-the-right-a4",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "then-i-walk-to-the-mall-a4",
+          "image_url": "",
+          "label": "Then, I walk to the mall."
         }
       ],
-      "audio_text": "The bank is on the right.",
+      "audio_text": "Then, I walk to the mall.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: The bank is on the right.",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Story beat 04: Then, I walk to the mall.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A5",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-pharmacy-is-on-the-right-a5",
+      "correct_option_id": "finally-i-am-at-the-mall-a5",
       "options": [
         {
-          "id": "the-pharmacy-is-on-the-right-a5",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "finally-i-am-at-the-mall-a5",
+          "image_url": "",
+          "label": "Finally, I am at the mall."
         },
         {
-          "id": "the-pharmacy-is-on-the-left-a5",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "finally-i-am-at-the-pharmacy-a5",
+          "image_url": "",
+          "label": "Finally, I am at the pharmacy."
         }
       ],
-      "audio_text": "The pharmacy is on the right.",
+      "audio_text": "Finally, I am at the mall.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: The pharmacy is on the right."
+      "pedagogy_note": "Story beat 05: Finally, I am at the mall.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A6",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-pharmacy-is-on-the-left-a6",
+      "correct_option_id": "i-am-going-to-the-station-a6",
       "options": [
         {
-          "id": "the-pharmacy-is-on-the-right-a6",
+          "id": "i-am-going-to-the-bank-a6",
           "image_url": "",
-          "label": "The pharmacy is on the right."
+          "label": "I am going to the bank."
         },
         {
-          "id": "the-pharmacy-is-on-the-left-a6",
+          "id": "i-am-going-to-the-station-a6",
           "image_url": "",
-          "label": "The pharmacy is on the left."
+          "label": "I am going to the station."
         }
       ],
-      "audio_text": "The pharmacy is on the left.",
+      "audio_text": "I am going to the station.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: The pharmacy is on the left.",
-      "audio_speaker": "co-teacher"
+      "audio_revision": 2,
+      "pedagogy_note": "Story beat 06: I am going to the station.",
+      "audio_speaker": "ana",
+      "answer_audio_revision": 2
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-on-the-left-a7",
+      "correct_option_id": "the-station-is-on-the-right-a7",
       "options": [
         {
-          "id": "it-is-on-the-right-a7",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "the-station-is-on-the-left-a7",
+          "image_url": "",
+          "label": "The station is on the left."
         },
         {
-          "id": "it-is-on-the-left-a7",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "the-station-is-on-the-right-a7",
+          "image_url": "",
+          "label": "The station is on the right."
         }
       ],
-      "audio_text": "It is on the left.",
+      "audio_text": "Where is the station? The station is on the right.",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Where is the station?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp"
+        },
+        {
+          "text": "The station is on the right.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp"
+        }
+      ],
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: It is on the left."
+      "pedagogy_note": "Story beat 07: The station is on the right."
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-on-the-right-a8",
+      "correct_option_id": "the-bank-is-on-the-left-a8",
       "options": [
         {
-          "id": "it-is-on-the-left-a8",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "the-bank-is-on-the-right-a8",
+          "image_url": "",
+          "label": "The bank is on the right."
         },
         {
-          "id": "it-is-on-the-right-a8",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "the-bank-is-on-the-left-a8",
+          "image_url": "",
+          "label": "The bank is on the left."
         }
       ],
-      "audio_text": "It is on the right.",
+      "audio_text": "The bank is on the left.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: It is on the right.",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Story beat 08: The bank is on the left."
     },
     {
       "slide_id": "A9",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-on-the-left-a9",
+      "correct_option_id": "the-bank-is-next-to-the-station-a9",
       "options": [
         {
-          "id": "it-is-on-the-right-a9",
+          "id": "the-pharmacy-is-next-to-the-station-a9",
           "image_url": "",
-          "label": "It is on the right."
+          "label": "The pharmacy is next to the station."
         },
         {
-          "id": "it-is-on-the-left-a9",
+          "id": "the-bank-is-next-to-the-station-a9",
           "image_url": "",
-          "label": "It is on the left."
+          "label": "The bank is next to the station."
         }
       ],
-      "audio_text": "It is on the left.",
+      "audio_text": "The bank is next to the station.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: It is on the left."
+      "pedagogy_note": "Story beat 09: The bank is next to the station.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-on-the-right-a10",
+      "correct_option_id": "finally-i-am-at-the-station-a10",
       "options": [
         {
-          "id": "it-is-on-the-left-a10",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": null
+          "id": "finally-i-am-at-the-bank-a10",
+          "image_url": "",
+          "label": "Finally, I am at the bank."
         },
         {
-          "id": "it-is-on-the-right-a10",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": null
+          "id": "finally-i-am-at-the-station-a10",
+          "image_url": "",
+          "label": "Finally, I am at the station."
         }
       ],
-      "audio_text": "It is on the right.",
+      "audio_text": "Finally, I am at the station.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: It is on the right.",
-      "audio_speaker": "co-teacher"
+      "audio_revision": 2,
+      "pedagogy_note": "Story beat 10: Finally, I am at the station.",
+      "audio_speaker": "ana",
+      "answer_audio_revision": 2
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "The bank is on the left.",
+      "prompt": "Where is the mall?",
       "stage": "Speak",
-      "correct_option_id": "the-bank-is-on-the-left-speak",
+      "correct_option_id": "where-is-the-mall-speak",
       "options": [
         {
-          "id": "the-bank-is-on-the-left-speak",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": "The bank is on the left."
+          "id": "where-is-the-mall-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+          "label": "Where is the mall?"
         }
       ],
-      "audio_text": "The bank is on the left.",
+      "audio_text": "Where is the mall?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El banco está a la izquierda.",
-      "pedagogy_note": "Story beat 01: The bank is on the left."
+      "spanish_translation": "¿Dónde está el centro comercial?",
+      "pedagogy_note": "Story beat 01: Where is the mall?"
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "The bank is on the right.",
+      "prompt": "The mall is on the left.",
       "stage": "Speak",
-      "correct_option_id": "the-bank-is-on-the-right-speak",
+      "correct_option_id": "the-mall-is-on-the-left-speak",
       "options": [
         {
-          "id": "the-bank-is-on-the-right-speak",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": "The bank is on the right."
+          "id": "the-mall-is-on-the-left-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+          "label": "The mall is on the left."
         }
       ],
-      "audio_text": "The bank is on the right.",
+      "audio_text": "The mall is on the left.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El banco está a la derecha.",
-      "pedagogy_note": "Story beat 02: The bank is on the right.",
+      "spanish_translation": "El centro comercial está a la izquierda.",
+      "pedagogy_note": "Story beat 02: The mall is on the left.",
       "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
+      "prompt": "Where is the pharmacy?",
+      "stage": "Speak",
+      "correct_option_id": "where-is-the-pharmacy-speak",
+      "options": [
+        {
+          "id": "where-is-the-pharmacy-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+          "label": "Where is the pharmacy?"
+        }
+      ],
+      "audio_text": "Where is the pharmacy?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Dónde está la farmacia?",
+      "pedagogy_note": "Story beat 03: Where is the pharmacy?"
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
       "prompt": "The pharmacy is on the right.",
       "stage": "Speak",
       "correct_option_id": "the-pharmacy-is-on-the-right-speak",
       "options": [
         {
           "id": "the-pharmacy-is-on-the-right-speak",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
           "label": "The pharmacy is on the right."
         }
       ],
@@ -703,69 +707,113 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "La farmacia está a la derecha.",
-      "pedagogy_note": "Story beat 03: The pharmacy is on the right."
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "The pharmacy is on the left.",
-      "stage": "Speak",
-      "correct_option_id": "the-pharmacy-is-on-the-left-speak",
-      "options": [
-        {
-          "id": "the-pharmacy-is-on-the-left-speak",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": "The pharmacy is on the left."
-        }
-      ],
-      "audio_text": "The pharmacy is on the left.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La farmacia está a la izquierda.",
-      "pedagogy_note": "Story beat 04: The pharmacy is on the left.",
+      "pedagogy_note": "Story beat 04: The pharmacy is on the right.",
       "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "It is on the left.",
+      "prompt": "I am going to the mall.",
       "stage": "Speak",
-      "correct_option_id": "it-is-on-the-left-speak",
+      "correct_option_id": "i-am-going-to-the-mall-speak",
       "options": [
         {
-          "id": "it-is-on-the-left-speak",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": "It is on the left."
+          "id": "i-am-going-to-the-mall-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+          "label": "I am going to the mall."
         }
       ],
-      "audio_text": "It is on the left.",
+      "audio_text": "I am going to the mall.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Está a la izquierda.",
-      "pedagogy_note": "Story beat 05: It is on the left."
+      "spanish_translation": "Voy al centro comercial.",
+      "pedagogy_note": "Story beat 05: I am going to the mall.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "It is on the right.",
+      "prompt": "Then, I walk to the mall.",
       "stage": "Speak",
-      "correct_option_id": "it-is-on-the-right-speak",
+      "correct_option_id": "then-i-walk-to-the-mall-speak",
       "options": [
         {
-          "id": "it-is-on-the-right-speak",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": "It is on the right."
+          "id": "then-i-walk-to-the-mall-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+          "label": "Then, I walk to the mall."
         }
       ],
-      "audio_text": "It is on the right.",
+      "audio_text": "Then, I walk to the mall.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Está a la derecha.",
-      "pedagogy_note": "Story beat 06: It is on the right.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Después, camino al centro comercial.",
+      "pedagogy_note": "Story beat 06: Then, I walk to the mall.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "Finally, I am at the mall.",
+      "stage": "Speak",
+      "correct_option_id": "finally-i-am-at-the-mall-speak",
+      "options": [
+        {
+          "id": "finally-i-am-at-the-mall-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+          "label": "Finally, I am at the mall."
+        }
+      ],
+      "audio_text": "Finally, I am at the mall.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Finalmente, estoy en el centro comercial.",
+      "pedagogy_note": "Story beat 07: Finally, I am at the mall.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "I get in the taxi.",
+      "stage": "Speak",
+      "correct_option_id": "i-get-in-the-taxi-speak",
+      "options": [
+        {
+          "id": "i-get-in-the-taxi-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_taxi_in_v1.webp",
+          "label": "I get in the taxi."
+        }
+      ],
+      "audio_text": "I get in the taxi.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Subo al taxi.",
+      "pedagogy_note": "Story beat 08: I get in the taxi.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "I am going to the station.",
+      "stage": "Speak",
+      "correct_option_id": "i-am-going-to-the-station-speak",
+      "options": [
+        {
+          "id": "i-am-going-to-the-station-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_going_station_v1.webp",
+          "label": "I am going to the station."
+        }
+      ],
+      "audio_text": "I am going to the station.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Voy a la estación.",
+      "audio_revision": 2,
+      "pedagogy_note": "Story beat 09: I am going to the station.",
+      "audio_speaker": "ana",
+      "answer_audio_revision": 2
+    },
+    {
+      "slide_id": "S10",
       "interaction_type": "speak",
       "prompt": "The bank is on the left.",
       "stage": "Speak",
@@ -773,7 +821,7 @@
       "options": [
         {
           "id": "the-bank-is-on-the-left-speak",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
           "label": "The bank is on the left."
         }
       ],
@@ -781,51 +829,85 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "El banco está a la izquierda.",
-      "pedagogy_note": "Story beat 07: The bank is on the left."
+      "pedagogy_note": "Story beat 10: The bank is on the left."
     },
     {
-      "slide_id": "S8",
+      "slide_id": "S11",
       "interaction_type": "speak",
-      "prompt": "The bank is on the right.",
+      "prompt": "I get out of the taxi.",
       "stage": "Speak",
-      "correct_option_id": "the-bank-is-on-the-right-speak",
+      "correct_option_id": "i-get-out-of-the-taxi-speak",
       "options": [
         {
-          "id": "the-bank-is-on-the-right-speak",
-          "image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-          "label": "The bank is on the right."
+          "id": "i-get-out-of-the-taxi-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_taxi_out_station_v3.webp",
+          "label": "I get out of the taxi."
         }
       ],
-      "audio_text": "The bank is on the right.",
+      "audio_text": "I get out of the taxi.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El banco está a la derecha.",
-      "pedagogy_note": "Story beat 08: The bank is on the right.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Bajo del taxi.",
+      "pedagogy_note": "Story beat 11: I get out of the taxi.",
+      "audio_speaker": "ana"
     },
     {
-      "slide_id": "S9",
+      "slide_id": "S12",
       "interaction_type": "speak",
-      "prompt": "The pharmacy is on the right.",
+      "prompt": "Finally, I am at the station.",
       "stage": "Speak",
-      "correct_option_id": "the-pharmacy-is-on-the-right-speak",
+      "correct_option_id": "finally-i-am-at-the-station-speak",
       "options": [
         {
-          "id": "the-pharmacy-is-on-the-right-speak",
-          "image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-          "label": "The pharmacy is on the right."
+          "id": "finally-i-am-at-the-station-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_at_station_v1.webp",
+          "label": "Finally, I am at the station."
         }
       ],
-      "audio_text": "The pharmacy is on the right.",
+      "audio_text": "Finally, I am at the station.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "La farmacia está a la derecha.",
-      "pedagogy_note": "Story beat 09: The pharmacy is on the right."
+      "spanish_translation": "Finalmente, estoy en la estación.",
+      "audio_revision": 2,
+      "pedagogy_note": "Story beat 12: Finally, I am at the station.",
+      "audio_speaker": "ana",
+      "answer_audio_revision": 2
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "The bank is on ___ ___.",
+      "prompt": "Where is ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "mall",
+          "image_url": "",
+          "label": "mall"
+        }
+      ],
+      "audio_text": "Where is the mall?",
+      "answer_audio_text": "Where is the mall?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+      "spanish_translation": "¿Dónde está el centro comercial?",
+      "translation": "¿Dónde está el centro comercial?",
+      "correct_option_ids": [
+        "the",
+        "mall"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 01: Where is the mall?",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "The mall is on ___ ___.",
       "stage": "Use",
       "correct_option_id": "the",
       "options": [
@@ -840,47 +922,16 @@
           "label": "left"
         }
       ],
-      "audio_text": "The bank is on the left.",
-      "answer_audio_text": "The bank is on the left.",
-      "prompt_image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-      "spanish_translation": "El banco está a la izquierda.",
-      "translation": "El banco está a la izquierda.",
+      "audio_text": "The mall is on the left.",
+      "answer_audio_text": "The mall is on the left.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+      "spanish_translation": "El centro comercial está a la izquierda.",
+      "translation": "El centro comercial está a la izquierda.",
       "correct_option_ids": [
         "the",
         "left"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 01: The bank is on the left.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "The bank is on ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "the",
-      "options": [
-        {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "right",
-          "image_url": "",
-          "label": "right"
-        }
-      ],
-      "audio_text": "The bank is on the right.",
-      "answer_audio_text": "The bank is on the right.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-      "spanish_translation": "El banco está a la derecha.",
-      "translation": "El banco está a la derecha.",
-      "correct_option_ids": [
-        "the",
-        "right"
-      ],
-      "pedagogy_note": "Story beat 02: The bank is on the right."
+      "pedagogy_note": "Story beat 02: The mall is on the left."
     },
     {
       "slide_id": "U3",
@@ -902,7 +953,7 @@
       ],
       "audio_text": "The pharmacy is on the right.",
       "answer_audio_text": "The pharmacy is on the right.",
-      "prompt_image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
       "spanish_translation": "La farmacia está a la derecha.",
       "translation": "La farmacia está a la derecha.",
       "correct_option_ids": [
@@ -916,7 +967,7 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "The pharmacy is on ___ ___.",
+      "prompt": "I am going to ___ ___.",
       "stage": "Use",
       "correct_option_id": "the",
       "options": [
@@ -926,99 +977,133 @@
           "label": "the"
         },
         {
-          "id": "left",
+          "id": "mall",
           "image_url": "",
-          "label": "left"
+          "label": "mall"
         }
       ],
-      "audio_text": "The pharmacy is on the left.",
-      "answer_audio_text": "The pharmacy is on the left.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-      "spanish_translation": "La farmacia está a la izquierda.",
-      "translation": "La farmacia está a la izquierda.",
+      "audio_text": "I am going to the mall.",
+      "answer_audio_text": "I am going to the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "spanish_translation": "Voy al centro comercial.",
+      "translation": "Voy al centro comercial.",
       "correct_option_ids": [
         "the",
-        "left"
+        "mall"
       ],
-      "pedagogy_note": "Story beat 04: The pharmacy is on the left."
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 04: I am going to the mall.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "It is on ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "the",
-      "options": [
-        {
-          "id": "the",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "left",
-          "image_url": "",
-          "label": "left"
-        }
-      ],
-      "audio_text": "It is on the left.",
-      "answer_audio_text": "It is on the left.",
-      "prompt_image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-      "spanish_translation": "Está a la izquierda.",
-      "translation": "Está a la izquierda.",
-      "correct_option_ids": [
-        "the",
-        "left"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 05: It is on the left.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___, ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "is"
+          "label": "I"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "the"
+          "label": "to"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "mall"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "It"
+          "label": "Then"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "on"
+          "label": "walk"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "right"
+          "label": "the"
         }
       ],
-      "audio_text": "It is on the right.",
-      "answer_audio_text": "It is on the right.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-      "spanish_translation": "Está a la derecha.",
-      "translation": "Está a la derecha.",
+      "audio_text": "Then, I walk to the mall.",
+      "answer_audio_text": "Then, I walk to the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "spanish_translation": "Después, camino al centro comercial.",
+      "translation": "Después, camino al centro comercial.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4",
-        "word-5"
+        "word-5",
+        "word-6"
       ],
-      "pedagogy_note": "Story beat 06: It is on the right."
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 05: Then, I walk to the mall.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "at"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "mall"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Finally"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "Finally, I am at the mall.",
+      "answer_audio_text": "Finally, I am at the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+      "spanish_translation": "Finalmente, estoy en el centro comercial.",
+      "translation": "Finalmente, estoy en el centro comercial.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 06: Finally, I am at the mall.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U7",
@@ -1030,7 +1115,60 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "pharmacy"
+          "label": "station"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "on"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "right"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "The station is on the right.",
+      "answer_audio_text": "The station is on the right.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "spanish_translation": "La estación está a la derecha.",
+      "translation": "La estación está a la derecha.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "pedagogy_note": "Story beat 07: The station is on the right."
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "bank"
         },
         {
           "id": "word-4",
@@ -1058,11 +1196,11 @@
           "label": "the"
         }
       ],
-      "audio_text": "The pharmacy is on the left.",
-      "answer_audio_text": "The pharmacy is on the left.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-      "spanish_translation": "La farmacia está a la izquierda.",
-      "translation": "La farmacia está a la izquierda.",
+      "audio_text": "The bank is on the left.",
+      "answer_audio_text": "The bank is on the left.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "spanish_translation": "El banco está a la izquierda.",
+      "translation": "El banco está a la izquierda.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1072,103 +1210,7 @@
         "word-6"
       ],
       "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 07: The pharmacy is on the left.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "on"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "left"
-        }
-      ],
-      "audio_text": "It is on the left.",
-      "answer_audio_text": "It is on the left.",
-      "prompt_image_url": "a1_photo_u6_bank_left_pharmacy_right_v1.webp",
-      "spanish_translation": "Está a la izquierda.",
-      "translation": "Está a la izquierda.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "pedagogy_note": "Story beat 08: It is on the left."
-    },
-    {
-      "slide_id": "U9",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "on"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "right"
-        }
-      ],
-      "audio_text": "It is on the right.",
-      "answer_audio_text": "It is on the right.",
-      "prompt_image_url": "a1_photo_u6_pharmacy_left_bank_right_v1.webp",
-      "spanish_translation": "Está a la derecha.",
-      "translation": "Está a la derecha.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 09: It is on the right.",
+      "pedagogy_note": "Story beat 08: The bank is on the left.",
       "audio_speaker": "co-teacher"
     }
   ]

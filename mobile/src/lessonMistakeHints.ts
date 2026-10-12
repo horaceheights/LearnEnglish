@@ -83,6 +83,16 @@ const MEANINGS: Record<string, string> = {
   'me too': 'yo también',
   'me neither': 'yo tampoco',
   station: 'estación', pharmacy: 'farmacia', train: 'tren', taxi: 'taxi', walk: 'caminar',
+  mall: 'centro comercial', supermarket: 'supermercado', airplane: 'avión', boat: 'barco',
+  hotel: 'hotel', 'post office': 'oficina de correos', museum: 'museo',
+  'movie theater': 'cine', 'bus stop': 'parada de autobús', airport: 'aeropuerto',
+  going: 'yendo', 'get on': 'subir al transporte',
+  'get off': 'bajar del transporte',
+  'get in': 'entrar al auto o taxi', 'get out of': 'salir del auto o taxi',
+  between: 'entre', 'across from': 'enfrente de', 'on the left': 'a la izquierda', 'on the right': 'a la derecha',
+  'go past': 'pasar junto a', corner: 'esquina', stop: 'parar',
+  ticket: 'boleto', take: 'tomar', which: 'cuál', 'next stop': 'próxima parada',
+  leave: 'salir', arrive: 'llegar',
   left: 'izquierda', right: 'derecha', straight: 'recto, sin girar', cross: 'cruzar',
   leaves: 'sale', arrives: 'llega', afternoon: 'tarde', head: 'cabeza', eyes: 'ojos',
   mouth: 'boca', hands: 'manos', legs: 'piernas', feet: 'pies', ears: 'orejas', arms: 'brazos',
@@ -476,8 +486,22 @@ function phraseMeaning(text: string) {
   return PHRASE_MEANINGS[normalized(text)] || meaning(text);
 }
 
+// A transport particle belongs to its verb: "get on" does not mean "on top".
+// Only explain this contrast when the rest of the two sentences is identical.
+function transportActionContrast(correct: string, wrong: string, source: string): string {
+  const action = /\bget (?:out of|on|off|in)\b/;
+  const clean = (text: string) => normalized(text).replace(/[?.!,]/g, '');
+  const right = clean(correct), mistake = clean(wrong);
+  const expected = action.exec(right)?.[0], selected = action.exec(mistake)?.[0];
+  if (!expected || !selected || expected === selected
+      || right.replace(action, '') !== mistake.replace(action, '')) return '';
+  return `“${selected}” significa ${meaning(selected)}; ${source} pide “${expected}” (${meaning(expected)}).`;
+}
+
 function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boolean): string {
   if (!correct || !wrong || normalized(correct) === normalized(wrong)) return '';
+  const transport = transportActionContrast(correct, wrong, isAudioChoice ? 'lo escuchado' : 'la imagen');
+  if (transport) return transport;
   const timeNotation = /\b([ap])\.?m\.?$/i;
   const rightPeriod = timeNotation.exec(correct)?.[1].toLowerCase();
   const wrongPeriod = timeNotation.exec(wrong)?.[1].toLowerCase();
@@ -588,6 +612,8 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
     [correct, wrong] = [correctExchange[1], wrongExchange[1]];
   }
   if (!correct || !wrong || correct === wrong) return '';
+  const transport = transportActionContrast(correct, wrong, /listen/i.test(card.stage) ? 'lo escuchado' : 'la frase');
+  if (transport) return transport;
   const expectedSteps = correct.split(' then ');
   const wrongSteps = wrong.split(' then ');
   if (expectedSteps.length === 2 && wrongSteps.length === 2
@@ -701,6 +727,10 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   const inContext = (explanation: string) => `En “${clause.replace(/[.!?]+$/, '')}”: ${explanation}`;
 
   if (card.mission_game?.instruction_es?.trim()) {
+    const nextStop = /\bnext stop is (?:the )?([a-z ]+?)(?:[.!?]|$)/i.exec(correct)?.[1];
+    if (nextStop && meaning(nextStop)) {
+      return `“Next stop” indica la próxima parada: “${nextStop}” significa ${meaning(nextStop)}. Busca esa parada en la ruta.`;
+    }
     return `${card.mission_game.instruction_es.trim()} Aquí corresponde “${correct}”.`;
   }
 

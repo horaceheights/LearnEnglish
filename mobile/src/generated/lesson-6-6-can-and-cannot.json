@@ -1,35 +1,25 @@
 {
   "id": "lesson-6-6-can-and-cannot",
-  "title": "6.6 Can and Cannot",
+  "title": "6.9 Finding a Safe Way",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+  "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
-  "sub_lesson_id": "6.6",
-  "sub_lesson_title": "Can and Cannot",
-  "goal": "Say what someone can or cannot do on the way: walk there, cross the street or go by train.",
+  "sub_lesson_id": "6.9",
+  "sub_lesson_title": "Finding a Safe Way",
+  "goal": "Understand can/cannot in a visible situation, then choose and follow an available route.",
   "vocabulary": [
     "can",
     "cannot",
+    "here",
     "there"
   ],
-  "review_vocabulary": [
-    "I",
-    "you",
-    "they",
-    "the",
-    "boy",
-    "walk",
-    "cross the street",
-    "go",
-    "by",
-    "train"
-  ],
-  "grammar_function": "Subject + can / cannot + base verb: I can walk there. The boy cannot cross the street.",
-  "prerequisite": "6.2 walk, by and train; 6.5 cross the street; 5.10 Can I have...?",
-  "speaking_outcome": "Say that I can or cannot do something.",
+  "review_vocabulary": [],
+  "grammar_function": "Ana\u2019s first crossing is unavailable. A clearly pictured signal or barrier establishes why she cannot cross here. Luis indicates an available crossing there. Ana follows the short known route, crosses only where permitted, and continues to the museum.",
+  "prerequisite": "Units 1\u20135 and the earlier Unit 6 lessons in the displayed course sequence.",
+  "speaking_outcome": "Understand can/cannot in a visible situation, then choose and follow an available route.",
   "purposeful_review_slides": [
     "R3",
     "R4",
@@ -37,10 +27,6 @@
     "R6",
     "R7",
     "R8",
-    "R9",
-    "R10",
-    "R11",
-    "R12",
     "A3",
     "A4",
     "A5",
@@ -49,8 +35,6 @@
     "A8",
     "A9",
     "A10",
-    "S1",
-    "S2",
     "S3",
     "S4",
     "S5",
@@ -58,60 +42,60 @@
     "S7",
     "S8",
     "S9",
-    "U1",
-    "U2",
+    "S10",
     "U3",
     "U4",
     "U5",
     "U6",
     "U7",
     "U8",
-    "U9"
+    "U9",
+    "U10"
   ],
-  "content_revision": 3,
+  "content_revision": 4,
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "The boy can cross the street.",
+      "prompt": "You cannot cross the street.",
       "stage": "Learn",
-      "correct_option_id": "can-learn",
+      "correct_option_id": "you-cannot-cross-the-street-learn",
       "options": [
         {
-          "id": "can-learn",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
-          "label": "The boy can cross the street."
+          "id": "you-cannot-cross-the-street-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+          "label": "You cannot cross the street."
         }
       ],
-      "audio_text": "The boy can cross the street.",
+      "audio_text": "You cannot cross the street.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El ni\u00f1o puede cruzar la calle.",
-      "pedagogy_note": "Story beat 01: Can",
+      "spanish_translation": "No puedes cruzar la calle.",
+      "pedagogy_note": "Story beat 01: You cannot cross the street.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c001-prompt-72e2f43bb526f0b06d88",
+          "id": "lesson-6-6-can-and-cannot-c001-prompt-80f6299657bcf889c714",
           "purpose": "prompt",
-          "text": "The boy can cross the street.",
+          "text": "You cannot cross the street.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c001-answer-522858a499ae3bd45ef3",
+          "id": "lesson-6-6-can-and-cannot-c001-answer-43709474636d94d29618",
           "purpose": "answer",
-          "text": "The boy can cross the street.",
+          "text": "You cannot cross the street.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -122,45 +106,143 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "The boy cannot cross the street.",
+      "prompt": "You cannot cross here.",
       "stage": "Learn",
-      "correct_option_id": "cannot-learn",
+      "correct_option_id": "you-cannot-cross-here-learn",
       "options": [
         {
-          "id": "cannot-learn",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
-          "label": "The boy cannot cross the street."
+          "id": "you-cannot-cross-here-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+          "label": "You cannot cross here."
         }
       ],
-      "audio_text": "The boy cannot cross the street.",
+      "audio_text": "You cannot cross here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El ni\u00f1o no puede cruzar la calle.",
-      "pedagogy_note": "Story beat 02: Cannot",
+      "spanish_translation": "No puedes cruzar aqu\u00ed.",
+      "pedagogy_note": "Story beat 02: You cannot cross here.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c002-prompt-343d3b10cd422c78ca19",
+          "id": "lesson-6-6-can-and-cannot-c002-prompt-6555be0b63efef5c5104",
           "purpose": "prompt",
-          "text": "The boy cannot cross the street.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c002-answer-ca31972df677d7d0407a",
+          "id": "lesson-6-6-can-and-cannot-c002-answer-5288ff4ea79a886838b8",
           "purpose": "answer",
-          "text": "The boy cannot cross the street.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "You can cross the street.",
+      "stage": "Learn",
+      "correct_option_id": "you-can-cross-the-street-learn",
+      "options": [
+        {
+          "id": "you-can-cross-the-street-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+          "label": "You can cross the street."
+        }
+      ],
+      "audio_text": "You can cross the street.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Puedes cruzar la calle.",
+      "pedagogy_note": "Story beat 03: You can cross the street.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-6-can-and-cannot-c003-prompt-b2d6af1da2d7e1adfdb1",
+          "purpose": "prompt",
+          "text": "You can cross the street.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-6-can-and-cannot-c003-answer-2ae801f37e70fc32e49e",
+          "purpose": "answer",
+          "text": "You can cross the street.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "You can cross there.",
+      "stage": "Learn",
+      "correct_option_id": "you-can-cross-there-learn",
+      "options": [
+        {
+          "id": "you-can-cross-there-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+          "label": "You can cross there."
+        }
+      ],
+      "audio_text": "You can cross there.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Puedes cruzar all\u00e1.",
+      "pedagogy_note": "Story beat 04: You can cross there.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-6-can-and-cannot-c004-prompt-251cf141f09dfb432da3",
+          "purpose": "prompt",
+          "text": "You can cross there.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-6-can-and-cannot-c004-answer-df3c87011aab0f336d05",
+          "purpose": "answer",
+          "text": "You can cross there.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -171,50 +253,50 @@
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "The boy can cross the street.",
+      "prompt": "You cannot cross here.",
       "stage": "Recognize",
-      "correct_option_id": "can-r1",
+      "correct_option_id": "you-cannot-cross-here-r1",
       "options": [
         {
-          "id": "cannot-r1",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "id": "you-can-cross-here-r1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "label": null
         },
         {
-          "id": "can-r1",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "id": "you-cannot-cross-here-r1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "label": null
         }
       ],
-      "audio_text": "The boy can cross the street.",
+      "audio_text": "You cannot cross here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El ni\u00f1o puede cruzar la calle.",
-      "pedagogy_note": "Story beat 01: Can",
+      "spanish_translation": "No puedes cruzar aqu\u00ed.",
+      "pedagogy_note": "Story beat 01: You cannot cross here.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c003-prompt-f4b7a9cf9393a9e9d836",
+          "id": "lesson-6-6-can-and-cannot-c005-prompt-05994ba9f6e748998a14",
           "purpose": "prompt",
-          "text": "The boy can cross the street.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c003-answer-335c0a19c787deee79a3",
+          "id": "lesson-6-6-can-and-cannot-c005-answer-1cc539a51d577c324378",
           "purpose": "answer",
-          "text": "The boy can cross the street.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -227,36 +309,36 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "cannot-r2",
+      "correct_option_id": "you-can-cross-there-r2",
       "options": [
         {
-          "id": "can-r2",
+          "id": "you-cannot-cross-there-r2",
           "image_url": "",
-          "label": "The boy can cross the street."
+          "label": "You cannot cross there."
         },
         {
-          "id": "cannot-r2",
+          "id": "you-can-cross-there-r2",
           "image_url": "",
-          "label": "The boy cannot cross the street."
+          "label": "You can cross there."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The boy cannot cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
-      "spanish_translation": "El ni\u00f1o no puede cruzar la calle.",
-      "pedagogy_note": "Story beat 02: Cannot",
+      "answer_audio_text": "You can cross there.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: You can cross there.",
       "audio_speaker": null,
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c004-answer-21ae537a1dfe0b809f8a",
+          "id": "lesson-6-6-can-and-cannot-c006-answer-a083fedb623e9a89a1be",
           "purpose": "answer",
-          "text": "The boy cannot cross the street.",
+          "text": "You can cross there.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -269,38 +351,38 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-can-walk-there-r3",
+      "correct_option_id": "first-go-straight-r3",
       "options": [
         {
-          "id": "i-can-walk-there-r3",
+          "id": "first-go-straight-r3",
           "image_url": "",
-          "label": "I can walk there."
+          "label": "First, go straight."
         },
         {
-          "id": "i-cannot-walk-there-r3",
+          "id": "first-turn-left-r3",
           "image_url": "",
-          "label": "I cannot walk there."
+          "label": "First, turn left."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I can walk there.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+      "answer_audio_text": "First, go straight.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 03: I can walk there.",
+      "pedagogy_note": "Story beat 03: First, go straight.",
       "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c005-answer-8eae4bec897bf743acee",
+          "id": "lesson-6-6-can-and-cannot-c007-answer-fd5468386a258e1af0ce",
           "purpose": "answer",
-          "text": "I can walk there.",
+          "text": "First, go straight.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -311,38 +393,38 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-cannot-walk-there-r4",
+      "correct_option_id": "then-turn-right-r4",
       "options": [
         {
-          "id": "i-can-walk-there-r4",
+          "id": "then-turn-left-r4",
           "image_url": "",
-          "label": "I can walk there."
+          "label": "Then, turn left."
         },
         {
-          "id": "i-cannot-walk-there-r4",
+          "id": "then-turn-right-r4",
           "image_url": "",
-          "label": "I cannot walk there."
+          "label": "Then, turn right."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I cannot walk there.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
+      "answer_audio_text": "Then, turn right.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 04: I cannot walk there.",
+      "pedagogy_note": "Story beat 04: Then, turn right.",
       "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c006-answer-1bb4a1915e92493a6e8f",
+          "id": "lesson-6-6-can-and-cannot-c008-answer-8747fac9c7501e5b1040",
           "purpose": "answer",
-          "text": "I cannot walk there.",
+          "text": "Then, turn right.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -351,50 +433,50 @@
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "The boy can cross the street.",
+      "prompt": "You can cross here.",
       "stage": "Recognize",
-      "correct_option_id": "the-boy-can-cross-the-street-r5",
+      "correct_option_id": "you-can-cross-here-r5",
       "options": [
         {
-          "id": "the-boy-cannot-cross-the-street-r5",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "id": "you-cannot-cross-here-r5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "label": null
         },
         {
-          "id": "the-boy-can-cross-the-street-r5",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "id": "you-can-cross-here-r5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "The boy can cross the street.",
+      "audio_text": "You can cross here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El ni\u00f1o puede cruzar la calle.",
-      "pedagogy_note": "Story beat 05: The boy can cross the street.",
+      "spanish_translation": "Puedes cruzar aqu\u00ed.",
+      "pedagogy_note": "Story beat 05: You can cross here.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c007-prompt-e4ee3dca94751e72901e",
+          "id": "lesson-6-6-can-and-cannot-c009-prompt-3a2580fb44c91d1fc5c8",
           "purpose": "prompt",
-          "text": "The boy can cross the street.",
+          "text": "You can cross here.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c007-answer-a4b91107c4e0ee969ff9",
+          "id": "lesson-6-6-can-and-cannot-c009-answer-cd49e6ed8ca2df2b12a4",
           "purpose": "answer",
-          "text": "The boy can cross the street.",
+          "text": "You can cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -407,36 +489,36 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-boy-cannot-cross-the-street-r6",
+      "correct_option_id": "finally-stop-at-the-museum-r6",
       "options": [
         {
-          "id": "the-boy-cannot-cross-the-street-r6",
+          "id": "finally-stop-at-the-museum-r6",
           "image_url": "",
-          "label": "The boy cannot cross the street."
+          "label": "Finally, stop at the museum."
         },
         {
-          "id": "the-boy-can-cross-the-street-r6",
+          "id": "finally-stop-at-the-library-r6",
           "image_url": "",
-          "label": "The boy can cross the street."
+          "label": "Finally, stop at the library."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The boy cannot cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+      "answer_audio_text": "Finally, stop at the museum.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: The boy cannot cross the street.",
+      "pedagogy_note": "Story beat 06: Finally, stop at the museum.",
       "audio_speaker": null,
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c008-answer-5826c7e17a7bc47f2a13",
+          "id": "lesson-6-6-can-and-cannot-c010-answer-90641b2f03b9b31c3aca",
           "purpose": "answer",
-          "text": "The boy cannot cross the street.",
+          "text": "Finally, stop at the museum.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -447,50 +529,50 @@
     {
       "slide_id": "R7",
       "interaction_type": "t2i2",
-      "prompt": "They can go by train.",
+      "prompt": "They cannot go by train.",
       "stage": "Recognize",
-      "correct_option_id": "they-can-go-by-train-r7",
+      "correct_option_id": "they-cannot-go-by-train-r7",
       "options": [
         {
-          "id": "they-can-go-by-train-r7",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "id": "they-cannot-go-by-train-r7",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "label": null
         },
         {
-          "id": "they-cannot-go-by-train-r7",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "id": "they-can-go-by-train-r7",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_open_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "They can go by train.",
+      "audio_text": "They cannot go by train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Pueden ir en tren.",
-      "pedagogy_note": "Story beat 07: They can go by train.",
+      "spanish_translation": "No pueden ir en tren.",
+      "pedagogy_note": "Story beat 07: They cannot go by train.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c009-prompt-de59091b75eb0d4f5bb7",
+          "id": "lesson-6-6-can-and-cannot-c011-prompt-a0e51cc3ed5cdca09e84",
           "purpose": "prompt",
-          "text": "They can go by train.",
+          "text": "They cannot go by train.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c009-answer-3de116d0fe181bf9ce2f",
+          "id": "lesson-6-6-can-and-cannot-c011-answer-445ba2cd0be2a5b7f323",
           "purpose": "answer",
-          "text": "They can go by train.",
+          "text": "They cannot go by train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -503,206 +585,38 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "they-cannot-go-by-train-r8",
+      "correct_option_id": "they-can-go-by-bus-r8",
       "options": [
         {
-          "id": "they-cannot-go-by-train-r8",
+          "id": "they-can-go-by-bus-r8",
           "image_url": "",
-          "label": "They cannot go by train."
+          "label": "They can go by bus."
         },
         {
-          "id": "they-can-go-by-train-r8",
+          "id": "they-cannot-go-by-bus-r8",
           "image_url": "",
-          "label": "They can go by train."
+          "label": "They cannot go by bus."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "They cannot go by train.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+      "answer_audio_text": "They can go by bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: They cannot go by train.",
+      "pedagogy_note": "Story beat 08: They can go by bus.",
       "audio_speaker": null,
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c010-answer-5adaaf033d10d0f01afd",
+          "id": "lesson-6-6-can-and-cannot-c012-answer-244bd2f9312b93e2e69d",
           "purpose": "answer",
-          "text": "They cannot go by train.",
+          "text": "They can go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "you-can-cross-the-street-r9",
-      "options": [
-        {
-          "id": "you-can-cross-the-street-r9",
-          "image_url": "",
-          "label": "You can cross the street."
-        },
-        {
-          "id": "you-cannot-cross-the-street-r9",
-          "image_url": "",
-          "label": "You cannot cross the street."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "You can cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: You can cross the street.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-6-can-and-cannot-c011-answer-dcca53b0b18e78d288ef",
-          "purpose": "answer",
-          "text": "You can cross the street.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "you-cannot-cross-the-street-r10",
-      "options": [
-        {
-          "id": "you-cannot-cross-the-street-r10",
-          "image_url": "",
-          "label": "You cannot cross the street."
-        },
-        {
-          "id": "you-can-cross-the-street-r10",
-          "image_url": "",
-          "label": "You can cross the street."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "You cannot cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: You cannot cross the street.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-6-can-and-cannot-c012-answer-ea55c794b53ed8e8c29f",
-          "purpose": "answer",
-          "text": "You cannot cross the street.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-can-walk-there-r11",
-      "options": [
-        {
-          "id": "i-cannot-walk-there-r11",
-          "image_url": "",
-          "label": "I cannot walk there."
-        },
-        {
-          "id": "i-can-walk-there-r11",
-          "image_url": "",
-          "label": "I can walk there."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I can walk there.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 11: I can walk there.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-6-can-and-cannot-c013-answer-637717f6004db8729835",
-          "purpose": "answer",
-          "text": "I can walk there.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R12",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-cannot-walk-there-r12",
-      "options": [
-        {
-          "id": "i-cannot-walk-there-r12",
-          "image_url": "",
-          "label": "I cannot walk there."
-        },
-        {
-          "id": "i-can-walk-there-r12",
-          "image_url": "",
-          "label": "I can walk there."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I cannot walk there.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 12: I cannot walk there.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-6-can-and-cannot-c014-answer-2b4b8cdafb5688ce8d3d",
-          "purpose": "answer",
-          "text": "I cannot walk there.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -713,48 +627,48 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "can-a1",
+      "correct_option_id": "you-cannot-cross-here-a1",
       "options": [
         {
-          "id": "can-a1",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "id": "you-cannot-cross-here-a1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "label": null
         },
         {
-          "id": "cannot-a1",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "id": "you-can-cross-here-a1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "The boy can cross the street.",
+      "audio_text": "You cannot cross here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Can",
+      "pedagogy_note": "Story beat 01: You cannot cross here.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c015-prompt-1130cc93cc19d8dde708",
+          "id": "lesson-6-6-can-and-cannot-c013-prompt-fced71df1708a2b737a2",
           "purpose": "prompt",
-          "text": "The boy can cross the street.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c015-answer-2a1bedaebf39e1527ca6",
+          "id": "lesson-6-6-can-and-cannot-c013-answer-3139fab437d2058f88ab",
           "purpose": "answer",
-          "text": "The boy can cross the street.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -764,51 +678,51 @@
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "cannot-a2",
+      "correct_option_id": "you-can-cross-there-a2",
       "options": [
         {
-          "id": "cannot-a2",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
-          "label": null
+          "id": "you-can-cross-there-a2",
+          "image_url": "",
+          "label": "You can cross there."
         },
         {
-          "id": "can-a2",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
-          "label": null
+          "id": "you-cannot-cross-there-a2",
+          "image_url": "",
+          "label": "You cannot cross there."
         }
       ],
-      "audio_text": "The boy cannot cross the street.",
+      "audio_text": "You can cross there.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Cannot",
+      "pedagogy_note": "Story beat 02: You can cross there.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c016-prompt-bce9ce08968a21808513",
+          "id": "lesson-6-6-can-and-cannot-c014-prompt-4137f94f71047ccf5174",
           "purpose": "prompt",
-          "text": "The boy cannot cross the street.",
+          "text": "You can cross there.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "text-only:47c7b950ee7b64c1a906",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c016-answer-6046c30b543bd5ff780b",
+          "id": "lesson-6-6-can-and-cannot-c014-answer-66ff5262e75978f3e1f9",
           "purpose": "answer",
-          "text": "The boy cannot cross the street.",
+          "text": "You can cross there.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "text-only:47c7b950ee7b64c1a906",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -821,50 +735,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-can-walk-there-a3",
+      "correct_option_id": "first-go-straight-a3",
       "options": [
         {
-          "id": "i-can-walk-there-a3",
+          "id": "first-go-straight-a3",
           "image_url": "",
-          "label": "I can walk there."
+          "label": "First, go straight."
         },
         {
-          "id": "i-cannot-walk-there-a3",
+          "id": "first-turn-left-a3",
           "image_url": "",
-          "label": "I cannot walk there."
+          "label": "First, turn left."
         }
       ],
-      "audio_text": "I can walk there.",
+      "audio_text": "First, go straight.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: I can walk there.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 03: First, go straight.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c017-prompt-2e0e890f249666a29109",
+          "id": "lesson-6-6-can-and-cannot-c015-prompt-f03401ddd33387d87e2f",
           "purpose": "prompt",
-          "text": "I can walk there.",
+          "text": "First, go straight.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:f16a893dbf40fff75b04",
+          "image_ref": "text-only:a8e2c40a384ffb654aba",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c017-answer-a41ef400ae7d6e063d91",
+          "id": "lesson-6-6-can-and-cannot-c015-answer-1ee29856ce2988e057b6",
           "purpose": "answer",
-          "text": "I can walk there.",
+          "text": "First, go straight.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:f16a893dbf40fff75b04",
+          "image_ref": "text-only:a8e2c40a384ffb654aba",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -875,50 +789,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-cannot-walk-there-a4",
+      "correct_option_id": "then-turn-right-a4",
       "options": [
         {
-          "id": "i-can-walk-there-a4",
+          "id": "then-turn-left-a4",
           "image_url": "",
-          "label": "I can walk there."
+          "label": "Then, turn left."
         },
         {
-          "id": "i-cannot-walk-there-a4",
+          "id": "then-turn-right-a4",
           "image_url": "",
-          "label": "I cannot walk there."
+          "label": "Then, turn right."
         }
       ],
-      "audio_text": "I cannot walk there.",
+      "audio_text": "Then, turn right.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: I cannot walk there.",
-      "audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 04: Then, turn right.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c018-prompt-90e3539268af83ce69f1",
+          "id": "lesson-6-6-can-and-cannot-c016-prompt-88f1b0b6d956eec05fcb",
           "purpose": "prompt",
-          "text": "I cannot walk there.",
+          "text": "Then, turn right.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:501daca4333c1a4a1d73",
+          "image_ref": "text-only:f7ddff5fe21bda7e3b94",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c018-answer-c88b0334f5c6230c4c55",
+          "id": "lesson-6-6-can-and-cannot-c016-answer-15ca53d0f7b869ae3ab3",
           "purpose": "answer",
-          "text": "I cannot walk there.",
+          "text": "Then, turn right.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:501daca4333c1a4a1d73",
+          "image_ref": "text-only:f7ddff5fe21bda7e3b94",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -929,48 +843,48 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-boy-can-cross-the-street-a5",
+      "correct_option_id": "you-can-cross-here-a5",
       "options": [
         {
-          "id": "the-boy-can-cross-the-street-a5",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "id": "you-can-cross-here-a5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "label": null
         },
         {
-          "id": "the-boy-cannot-cross-the-street-a5",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "id": "you-cannot-cross-here-a5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "label": null
         }
       ],
-      "audio_text": "The boy can cross the street.",
+      "audio_text": "You can cross here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: The boy can cross the street.",
+      "pedagogy_note": "Story beat 05: You can cross here.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c019-prompt-5f3b0c383342818df80b",
+          "id": "lesson-6-6-can-and-cannot-c017-prompt-584f17888224b18a8208",
           "purpose": "prompt",
-          "text": "The boy can cross the street.",
+          "text": "You can cross here.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c019-answer-2c263b607771edfca076",
+          "id": "lesson-6-6-can-and-cannot-c017-answer-dde7d59d20616b97d8b5",
           "purpose": "answer",
-          "text": "The boy can cross the street.",
+          "text": "You can cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -983,48 +897,48 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-boy-cannot-cross-the-street-a6",
+      "correct_option_id": "cross-the-street-a6",
       "options": [
         {
-          "id": "the-boy-can-cross-the-street-a6",
+          "id": "turn-left-a6",
           "image_url": "",
-          "label": "The boy can cross the street."
+          "label": "Turn left."
         },
         {
-          "id": "the-boy-cannot-cross-the-street-a6",
+          "id": "cross-the-street-a6",
           "image_url": "",
-          "label": "The boy cannot cross the street."
+          "label": "Cross the street."
         }
       ],
-      "audio_text": "The boy cannot cross the street.",
+      "audio_text": "Cross the street.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: The boy cannot cross the street.",
+      "pedagogy_note": "Story beat 06: Cross the street.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c020-prompt-5ba712763e5fa6158550",
+          "id": "lesson-6-6-can-and-cannot-c018-prompt-b4e77c3e6733bcc36aef",
           "purpose": "prompt",
-          "text": "The boy cannot cross the street.",
+          "text": "Cross the street.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:81f6f39d00bcef551b78",
+          "image_ref": "text-only:7e672f2c8b979394cc85",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c020-answer-6105d2441c681f359be9",
+          "id": "lesson-6-6-can-and-cannot-c018-answer-7d7f0b1844388213002d",
           "purpose": "answer",
-          "text": "The boy cannot cross the street.",
+          "text": "Cross the street.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:81f6f39d00bcef551b78",
+          "image_ref": "text-only:7e672f2c8b979394cc85",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1034,51 +948,51 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "they-can-go-by-train-a7",
+      "correct_option_id": "finally-stop-at-the-museum-a7",
       "options": [
         {
-          "id": "they-cannot-go-by-train-a7",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
-          "label": null
+          "id": "finally-stop-at-the-library-a7",
+          "image_url": "",
+          "label": "Finally, stop at the library."
         },
         {
-          "id": "they-can-go-by-train-a7",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
-          "label": null
+          "id": "finally-stop-at-the-museum-a7",
+          "image_url": "",
+          "label": "Finally, stop at the museum."
         }
       ],
-      "audio_text": "They can go by train.",
+      "audio_text": "Finally, stop at the museum.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: They can go by train.",
+      "pedagogy_note": "Story beat 07: Finally, stop at the museum.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c021-prompt-76ed3a6998b28b1f0612",
+          "id": "lesson-6-6-can-and-cannot-c019-prompt-38c82ad67b0fe65cf479",
           "purpose": "prompt",
-          "text": "They can go by train.",
+          "text": "Finally, stop at the museum.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "text-only:55923dd820bcd0f299a3",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c021-answer-6a0ce40849d3ad2e7ac2",
+          "id": "lesson-6-6-can-and-cannot-c019-answer-7eaaee683e2822160c3c",
           "purpose": "answer",
-          "text": "They can go by train.",
+          "text": "Finally, stop at the museum.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "text-only:55923dd820bcd0f299a3",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1095,12 +1009,12 @@
       "options": [
         {
           "id": "they-can-go-by-train-a8",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_open_v1.webp",
           "label": null
         },
         {
           "id": "they-cannot-go-by-train-a8",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "label": null
         }
       ],
@@ -1115,24 +1029,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c022-prompt-909ccc4191d118a19400",
+          "id": "lesson-6-6-can-and-cannot-c020-prompt-a2c0450c9d76b1c3b935",
           "purpose": "prompt",
           "text": "They cannot go by train.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c022-answer-8751c936b4858b2131f7",
+          "id": "lesson-6-6-can-and-cannot-c020-answer-53bcc56d14573cedee13",
           "purpose": "answer",
           "text": "They cannot go by train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1145,50 +1059,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "you-can-cross-the-street-a9",
+      "correct_option_id": "they-can-go-by-bus-a9",
       "options": [
         {
-          "id": "you-cannot-cross-the-street-a9",
+          "id": "they-cannot-go-by-bus-a9",
           "image_url": "",
-          "label": "You cannot cross the street."
+          "label": "They cannot go by bus."
         },
         {
-          "id": "you-can-cross-the-street-a9",
+          "id": "they-can-go-by-bus-a9",
           "image_url": "",
-          "label": "You can cross the street."
+          "label": "They can go by bus."
         }
       ],
-      "audio_text": "You can cross the street.",
+      "audio_text": "They can go by bus.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: You can cross the street.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 09: They can go by bus.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c023-prompt-5ff85bd6ab3b5eea4040",
+          "id": "lesson-6-6-can-and-cannot-c021-prompt-5dc35aff9adc264e982a",
           "purpose": "prompt",
-          "text": "You can cross the street.",
+          "text": "They can go by bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:aaf40a3be6d08e3fbf6d",
+          "image_ref": "text-only:7c018b34babaaac7423b",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c023-answer-b9b782e5d668ad264e0a",
+          "id": "lesson-6-6-can-and-cannot-c021-answer-5f39d2e51308dee9885f",
           "purpose": "answer",
-          "text": "You can cross the street.",
+          "text": "They can go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:aaf40a3be6d08e3fbf6d",
+          "image_ref": "text-only:7c018b34babaaac7423b",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1199,50 +1113,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "you-cannot-cross-the-street-a10",
+      "correct_option_id": "then-they-get-on-the-bus-a10",
       "options": [
         {
-          "id": "you-can-cross-the-street-a10",
+          "id": "then-they-get-off-the-bus-a10",
           "image_url": "",
-          "label": "You can cross the street."
+          "label": "Then, they get off the bus."
         },
         {
-          "id": "you-cannot-cross-the-street-a10",
+          "id": "then-they-get-on-the-bus-a10",
           "image_url": "",
-          "label": "You cannot cross the street."
+          "label": "Then, they get on the bus."
         }
       ],
-      "audio_text": "You cannot cross the street.",
+      "audio_text": "Then, they get on the bus.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: You cannot cross the street.",
-      "audio_speaker": "female-character",
+      "pedagogy_note": "Story beat 10: Then, they get on the bus.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c024-prompt-6dd542e0aa909b31d7f0",
+          "id": "lesson-6-6-can-and-cannot-c022-prompt-aab9e2fa708fd9391cd4",
           "purpose": "prompt",
-          "text": "You cannot cross the street.",
+          "text": "Then, they get on the bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:340effd7e714c7bfc3d0",
+          "image_ref": "text-only:060e96bf7b17ab597fc7",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c024-answer-fd200887c79d9f09780b",
+          "id": "lesson-6-6-can-and-cannot-c022-answer-94074d47bf29ef6c15b0",
           "purpose": "answer",
-          "text": "You cannot cross the street.",
+          "text": "Then, they get on the bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:340effd7e714c7bfc3d0",
+          "image_ref": "text-only:060e96bf7b17ab597fc7",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1251,47 +1165,47 @@
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "I can walk there.",
+      "prompt": "You cannot cross here.",
       "stage": "Speak",
-      "correct_option_id": "i-can-walk-there-speak",
+      "correct_option_id": "you-cannot-cross-here-speak",
       "options": [
         {
-          "id": "i-can-walk-there-speak",
-          "image_url": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
-          "label": "I can walk there."
+          "id": "you-cannot-cross-here-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+          "label": "You cannot cross here."
         }
       ],
-      "audio_text": "I can walk there.",
+      "audio_text": "You cannot cross here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Puedo caminar hasta all\u00e1.",
-      "pedagogy_note": "Story beat 01: I can walk there.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "No puedes cruzar aqu\u00ed.",
+      "pedagogy_note": "Story beat 01: You cannot cross here.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c025-prompt-cb8455a537514130a9cb",
+          "id": "lesson-6-6-can-and-cannot-c023-prompt-c17d1fd947bb4086fe79",
           "purpose": "prompt",
-          "text": "I can walk there.",
+          "text": "You cannot cross here.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c025-answer-3fa0cce39d558f1a784d",
+          "id": "lesson-6-6-can-and-cannot-c023-answer-cfc2738a465d256493be",
           "purpose": "answer",
-          "text": "I can walk there.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1300,47 +1214,47 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "I cannot walk there.",
+      "prompt": "You can cross there.",
       "stage": "Speak",
-      "correct_option_id": "i-cannot-walk-there-speak",
+      "correct_option_id": "you-can-cross-there-speak",
       "options": [
         {
-          "id": "i-cannot-walk-there-speak",
-          "image_url": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
-          "label": "I cannot walk there."
+          "id": "you-can-cross-there-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+          "label": "You can cross there."
         }
       ],
-      "audio_text": "I cannot walk there.",
+      "audio_text": "You can cross there.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No puedo caminar hasta all\u00e1.",
-      "pedagogy_note": "Story beat 02: I cannot walk there.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Puedes cruzar all\u00e1.",
+      "pedagogy_note": "Story beat 02: You can cross there.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c026-prompt-e8d7f6e19aebec7c6791",
+          "id": "lesson-6-6-can-and-cannot-c024-prompt-88df2f85ad702e266b0f",
           "purpose": "prompt",
-          "text": "I cannot walk there.",
+          "text": "You can cross there.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c026-answer-75c232765fb030c0b3be",
+          "id": "lesson-6-6-can-and-cannot-c024-answer-49258d1d114638f3ecd2",
           "purpose": "answer",
-          "text": "I cannot walk there.",
+          "text": "You can cross there.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1349,45 +1263,45 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "The boy can cross the street.",
+      "prompt": "First, go straight.",
       "stage": "Speak",
-      "correct_option_id": "the-boy-can-cross-the-street-speak",
+      "correct_option_id": "first-go-straight-speak",
       "options": [
         {
-          "id": "the-boy-can-cross-the-street-speak",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
-          "label": "The boy can cross the street."
+          "id": "first-go-straight-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
+          "label": "First, go straight."
         }
       ],
-      "audio_text": "The boy can cross the street.",
+      "audio_text": "First, go straight.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El ni\u00f1o puede cruzar la calle.",
-      "pedagogy_note": "Story beat 03: The boy can cross the street.",
+      "spanish_translation": "Primero, sigue derecho.",
+      "pedagogy_note": "Story beat 03: First, go straight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c027-prompt-54b6fc21ef56cd10b16b",
+          "id": "lesson-6-6-can-and-cannot-c025-prompt-6dea38e84d8ea45d5ddb",
           "purpose": "prompt",
-          "text": "The boy can cross the street.",
+          "text": "First, go straight.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c027-answer-04d7a4b5d81e36bbb466",
+          "id": "lesson-6-6-can-and-cannot-c025-answer-4f88e5162c72953f1cb5",
           "purpose": "answer",
-          "text": "The boy can cross the street.",
+          "text": "First, go straight.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1398,45 +1312,45 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "The boy cannot cross the street.",
+      "prompt": "Then, turn right.",
       "stage": "Speak",
-      "correct_option_id": "the-boy-cannot-cross-the-street-speak",
+      "correct_option_id": "then-turn-right-speak",
       "options": [
         {
-          "id": "the-boy-cannot-cross-the-street-speak",
-          "image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
-          "label": "The boy cannot cross the street."
+          "id": "then-turn-right-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
+          "label": "Then, turn right."
         }
       ],
-      "audio_text": "The boy cannot cross the street.",
+      "audio_text": "Then, turn right.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El ni\u00f1o no puede cruzar la calle.",
-      "pedagogy_note": "Story beat 04: The boy cannot cross the street.",
+      "spanish_translation": "Despu\u00e9s, gira a la derecha.",
+      "pedagogy_note": "Story beat 04: Then, turn right.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c028-prompt-8c4e1e51e48e4020385f",
+          "id": "lesson-6-6-can-and-cannot-c026-prompt-b7c54c8b281acda70c4a",
           "purpose": "prompt",
-          "text": "The boy cannot cross the street.",
+          "text": "Then, turn right.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c028-answer-32f237213ca6f8c43000",
+          "id": "lesson-6-6-can-and-cannot-c026-answer-edd1cbfc638cf21a40f7",
           "purpose": "answer",
-          "text": "The boy cannot cross the street.",
+          "text": "Then, turn right.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1447,45 +1361,45 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "They can go by train.",
+      "prompt": "You can cross here.",
       "stage": "Speak",
-      "correct_option_id": "they-can-go-by-train-speak",
+      "correct_option_id": "you-can-cross-here-speak",
       "options": [
         {
-          "id": "they-can-go-by-train-speak",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
-          "label": "They can go by train."
+          "id": "you-can-cross-here-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+          "label": "You can cross here."
         }
       ],
-      "audio_text": "They can go by train.",
+      "audio_text": "You can cross here.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Pueden ir en tren.",
-      "pedagogy_note": "Story beat 05: They can go by train.",
+      "spanish_translation": "Puedes cruzar aqu\u00ed.",
+      "pedagogy_note": "Story beat 05: You can cross here.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c029-prompt-a3de2160a40b0b728d70",
+          "id": "lesson-6-6-can-and-cannot-c027-prompt-f31f745d90143a778bb1",
           "purpose": "prompt",
-          "text": "They can go by train.",
+          "text": "You can cross here.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c029-answer-44cef4d843a3fa522c05",
+          "id": "lesson-6-6-can-and-cannot-c027-answer-b603dff96d91e69446b4",
           "purpose": "answer",
-          "text": "They can go by train.",
+          "text": "You can cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1496,45 +1410,45 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "They cannot go by train.",
+      "prompt": "Cross the street.",
       "stage": "Speak",
-      "correct_option_id": "they-cannot-go-by-train-speak",
+      "correct_option_id": "cross-the-street-speak",
       "options": [
         {
-          "id": "they-cannot-go-by-train-speak",
-          "image_url": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
-          "label": "They cannot go by train."
+          "id": "cross-the-street-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+          "label": "Cross the street."
         }
       ],
-      "audio_text": "They cannot go by train.",
+      "audio_text": "Cross the street.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No pueden ir en tren.",
-      "pedagogy_note": "Story beat 06: They cannot go by train.",
+      "spanish_translation": "Cruza la calle.",
+      "pedagogy_note": "Story beat 06: Cross the street.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c030-prompt-584c6bd110b9f4e54200",
+          "id": "lesson-6-6-can-and-cannot-c028-prompt-dfd9335670a8d082db5f",
           "purpose": "prompt",
-          "text": "They cannot go by train.",
+          "text": "Cross the street.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c030-answer-0cdf16c53c228f874240",
+          "id": "lesson-6-6-can-and-cannot-c028-answer-4d2367e6b3552d2a3fda",
           "purpose": "answer",
-          "text": "They cannot go by train.",
+          "text": "Cross the street.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1545,47 +1459,47 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "You can cross the street.",
+      "prompt": "Finally, stop at the museum.",
       "stage": "Speak",
-      "correct_option_id": "you-can-cross-the-street-speak",
+      "correct_option_id": "finally-stop-at-the-museum-speak",
       "options": [
         {
-          "id": "you-can-cross-the-street-speak",
-          "image_url": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-          "label": "You can cross the street."
+          "id": "finally-stop-at-the-museum-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+          "label": "Finally, stop at the museum."
         }
       ],
-      "audio_text": "You can cross the street.",
+      "audio_text": "Finally, stop at the museum.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Puedes cruzar la calle.",
-      "pedagogy_note": "Story beat 07: You can cross the street.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Finalmente, detente en el museo.",
+      "pedagogy_note": "Story beat 07: Finally, stop at the museum.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c031-prompt-8aaba1c412c981b325dd",
+          "id": "lesson-6-6-can-and-cannot-c029-prompt-2aa1d35e880fce870dec",
           "purpose": "prompt",
-          "text": "You can cross the street.",
+          "text": "Finally, stop at the museum.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c031-answer-10b56fa52235f1393246",
+          "id": "lesson-6-6-can-and-cannot-c029-answer-4e08f4de7964e077b5fa",
           "purpose": "answer",
-          "text": "You can cross the street.",
+          "text": "Finally, stop at the museum.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1594,47 +1508,47 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "You cannot cross the street.",
+      "prompt": "They cannot go by train.",
       "stage": "Speak",
-      "correct_option_id": "you-cannot-cross-the-street-speak",
+      "correct_option_id": "they-cannot-go-by-train-speak",
       "options": [
         {
-          "id": "you-cannot-cross-the-street-speak",
-          "image_url": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
-          "label": "You cannot cross the street."
+          "id": "they-cannot-go-by-train-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
+          "label": "They cannot go by train."
         }
       ],
-      "audio_text": "You cannot cross the street.",
+      "audio_text": "They cannot go by train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No puedes cruzar la calle.",
-      "pedagogy_note": "Story beat 08: You cannot cross the street.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "No pueden ir en tren.",
+      "pedagogy_note": "Story beat 08: They cannot go by train.",
+      "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c032-prompt-3a74ce2e9f3bbdbd1210",
+          "id": "lesson-6-6-can-and-cannot-c030-prompt-eff49cb92dde8e3d4866",
           "purpose": "prompt",
-          "text": "You cannot cross the street.",
+          "text": "They cannot go by train.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c032-answer-4c5bc2f878c296d7476b",
+          "id": "lesson-6-6-can-and-cannot-c030-answer-0a3aba14a302125e5aa6",
           "purpose": "answer",
-          "text": "You cannot cross the street.",
+          "text": "They cannot go by train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1643,47 +1557,96 @@
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "I can walk there.",
+      "prompt": "They can go by bus.",
       "stage": "Speak",
-      "correct_option_id": "i-can-walk-there-speak",
+      "correct_option_id": "they-can-go-by-bus-speak",
       "options": [
         {
-          "id": "i-can-walk-there-speak",
-          "image_url": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
-          "label": "I can walk there."
+          "id": "they-can-go-by-bus-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+          "label": "They can go by bus."
         }
       ],
-      "audio_text": "I can walk there.",
+      "audio_text": "They can go by bus.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Puedo caminar hasta all\u00e1.",
-      "pedagogy_note": "Story beat 09: I can walk there.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Pueden ir en autob\u00fas.",
+      "pedagogy_note": "Story beat 09: They can go by bus.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c033-prompt-5e2fd4944e46f444c7fd",
+          "id": "lesson-6-6-can-and-cannot-c031-prompt-4eff3a75defb99d09df0",
           "purpose": "prompt",
-          "text": "I can walk there.",
+          "text": "They can go by bus.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c033-answer-3046a0a8e083a8ac58d5",
+          "id": "lesson-6-6-can-and-cannot-c031-answer-03c398681ec55d36a0a7",
           "purpose": "answer",
-          "text": "I can walk there.",
+          "text": "They can go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S10",
+      "interaction_type": "speak",
+      "prompt": "Then, they get on the bus.",
+      "stage": "Speak",
+      "correct_option_id": "then-they-get-on-the-bus-speak",
+      "options": [
+        {
+          "id": "then-they-get-on-the-bus-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+          "label": "Then, they get on the bus."
+        }
+      ],
+      "audio_text": "Then, they get on the bus.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Despu\u00e9s, suben al autob\u00fas.",
+      "pedagogy_note": "Story beat 10: Then, they get on the bus.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-6-can-and-cannot-c032-prompt-190c21d9f0c12b597345",
+          "purpose": "prompt",
+          "text": "Then, they get on the bus.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-6-can-and-cannot-c032-answer-b12ef94a46abc1472ac2",
+          "purpose": "answer",
+          "text": "Then, they get on the bus.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1692,56 +1655,56 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I can ___ ___.",
+      "prompt": "You cannot ___ ___.",
       "stage": "Use",
-      "correct_option_id": "walk",
+      "correct_option_id": "cross",
       "correct_option_ids": [
-        "walk",
-        "there"
+        "cross",
+        "here"
       ],
       "options": [
         {
-          "id": "walk",
+          "id": "cross",
           "image_url": "",
-          "label": "walk"
+          "label": "cross"
         },
         {
-          "id": "there",
+          "id": "here",
           "image_url": "",
-          "label": "there"
+          "label": "here"
         }
       ],
-      "audio_text": "I can walk there.",
-      "answer_audio_text": "I can walk there.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
-      "spanish_translation": "Puedo caminar hasta all\u00e1.",
-      "pedagogy_note": "Story beat 01: I can walk there.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "You cannot cross here.",
+      "answer_audio_text": "You cannot cross here.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+      "spanish_translation": "No puedes cruzar aqu\u00ed.",
+      "pedagogy_note": "Story beat 01: You cannot cross here.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c034-prompt-99adcc514cd450ec8f47",
+          "id": "lesson-6-6-can-and-cannot-c033-prompt-3d47a4d8a52d3a92deeb",
           "purpose": "prompt",
-          "text": "I can walk there.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c034-answer-7d9e06a89beedefb6c2b",
+          "id": "lesson-6-6-can-and-cannot-c033-answer-b10a0b3c0dd298bc059c",
           "purpose": "answer",
-          "text": "I can walk there.",
+          "text": "You cannot cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-can-walk-there_716a3c1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1750,18 +1713,18 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I cannot ___ ___.",
+      "prompt": "You can ___ ___.",
       "stage": "Use",
-      "correct_option_id": "walk",
+      "correct_option_id": "cross",
       "correct_option_ids": [
-        "walk",
+        "cross",
         "there"
       ],
       "options": [
         {
-          "id": "walk",
+          "id": "cross",
           "image_url": "",
-          "label": "walk"
+          "label": "cross"
         },
         {
           "id": "there",
@@ -1769,37 +1732,37 @@
           "label": "there"
         }
       ],
-      "audio_text": "I cannot walk there.",
-      "answer_audio_text": "I cannot walk there.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
-      "spanish_translation": "No puedo caminar hasta all\u00e1.",
-      "pedagogy_note": "Story beat 02: I cannot walk there.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
+      "audio_text": "You can cross there.",
+      "answer_audio_text": "You can cross there.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+      "spanish_translation": "Puedes cruzar all\u00e1.",
+      "pedagogy_note": "Story beat 02: You can cross there.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c035-prompt-577049bea2d67264224a",
+          "id": "lesson-6-6-can-and-cannot-c034-prompt-3c0ddd70c157c07b2fc9",
           "purpose": "prompt",
-          "text": "I cannot walk there.",
+          "text": "You can cross there.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c035-answer-3c69589137b7cdb4f14a",
+          "id": "lesson-6-6-can-and-cannot-c034-answer-147f2e05bcffbe87cede",
           "purpose": "answer",
-          "text": "I cannot walk there.",
+          "text": "You can cross there.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1808,54 +1771,54 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "The boy can cross ___ ___.",
+      "prompt": "First, ___ ___.",
       "stage": "Use",
-      "correct_option_id": "the",
+      "correct_option_id": "go",
       "correct_option_ids": [
-        "the",
-        "street"
+        "go",
+        "straight"
       ],
       "options": [
         {
-          "id": "the",
+          "id": "go",
           "image_url": "",
-          "label": "the"
+          "label": "go"
         },
         {
-          "id": "street",
+          "id": "straight",
           "image_url": "",
-          "label": "street"
+          "label": "straight"
         }
       ],
-      "audio_text": "The boy can cross the street.",
-      "answer_audio_text": "The boy can cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
-      "spanish_translation": "El ni\u00f1o puede cruzar la calle.",
-      "pedagogy_note": "Story beat 03: The boy can cross the street.",
+      "audio_text": "First, go straight.",
+      "answer_audio_text": "First, go straight.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
+      "spanish_translation": "Primero, sigue derecho.",
+      "pedagogy_note": "Story beat 03: First, go straight.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c036-prompt-9530c85891de2e423fa1",
+          "id": "lesson-6-6-can-and-cannot-c035-prompt-62db9f8aed2d85aa6e98",
           "purpose": "prompt",
-          "text": "The boy can cross the street.",
+          "text": "First, go straight.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c036-answer-555af0fe8bdbb28a40a0",
+          "id": "lesson-6-6-can-and-cannot-c035-answer-53878be487f0af83def7",
           "purpose": "answer",
-          "text": "The boy can cross the street.",
+          "text": "First, go straight.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_crosses_green_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1866,54 +1829,54 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "The boy cannot cross ___ ___.",
+      "prompt": "Then, ___ ___.",
       "stage": "Use",
-      "correct_option_id": "the",
+      "correct_option_id": "turn",
       "correct_option_ids": [
-        "the",
-        "street"
+        "turn",
+        "right"
       ],
       "options": [
         {
-          "id": "the",
+          "id": "turn",
           "image_url": "",
-          "label": "the"
+          "label": "turn"
         },
         {
-          "id": "street",
+          "id": "right",
           "image_url": "",
-          "label": "street"
+          "label": "right"
         }
       ],
-      "audio_text": "The boy cannot cross the street.",
-      "answer_audio_text": "The boy cannot cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
-      "spanish_translation": "El ni\u00f1o no puede cruzar la calle.",
-      "pedagogy_note": "Story beat 04: The boy cannot cross the street.",
+      "audio_text": "Then, turn right.",
+      "answer_audio_text": "Then, turn right.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
+      "spanish_translation": "Despu\u00e9s, gira a la derecha.",
+      "pedagogy_note": "Story beat 04: Then, turn right.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c037-prompt-b8408557f18db8abae48",
+          "id": "lesson-6-6-can-and-cannot-c036-prompt-cedd879daa3eb19f817d",
           "purpose": "prompt",
-          "text": "The boy cannot cross the street.",
+          "text": "Then, turn right.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c037-answer-cb089fcd1b81232ad7e0",
+          "id": "lesson-6-6-can-and-cannot-c036-answer-61777a0318f9e848d83e",
           "purpose": "answer",
-          "text": "The boy cannot cross the street.",
+          "text": "Then, turn right.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_boy_waits_red_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1924,54 +1887,54 @@
     {
       "slide_id": "U5",
       "interaction_type": "complete2",
-      "prompt": "They can go ___ ___.",
+      "prompt": "You can ___ ___.",
       "stage": "Use",
-      "correct_option_id": "by",
+      "correct_option_id": "cross",
       "correct_option_ids": [
-        "by",
-        "train"
+        "cross",
+        "here"
       ],
       "options": [
         {
-          "id": "by",
+          "id": "cross",
           "image_url": "",
-          "label": "by"
+          "label": "cross"
         },
         {
-          "id": "train",
+          "id": "here",
           "image_url": "",
-          "label": "train"
+          "label": "here"
         }
       ],
-      "audio_text": "They can go by train.",
-      "answer_audio_text": "They can go by train.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
-      "spanish_translation": "Pueden ir en tren.",
-      "pedagogy_note": "Story beat 05: They can go by train.",
+      "audio_text": "You can cross here.",
+      "answer_audio_text": "You can cross here.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+      "spanish_translation": "Puedes cruzar aqu\u00ed.",
+      "pedagogy_note": "Story beat 05: You can cross here.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c038-prompt-925eb1dcc8227cf312f6",
+          "id": "lesson-6-6-can-and-cannot-c037-prompt-b39f3349a4865f99e23f",
           "purpose": "prompt",
-          "text": "They can go by train.",
+          "text": "You can cross here.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c038-answer-806ec61b4bcbe42d8987",
+          "id": "lesson-6-6-can-and-cannot-c037-answer-03fa50ce8ff181effed3",
           "purpose": "answer",
-          "text": "They can go by train.",
+          "text": "You can cross here.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1981,6 +1944,146 @@
     },
     {
       "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Cross"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "street"
+        }
+      ],
+      "audio_text": "Cross the street.",
+      "answer_audio_text": "Cross the street.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+      "spanish_translation": "Cruza la calle.",
+      "pedagogy_note": "Story beat 06: Cross the street.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-6-can-and-cannot-c038-prompt-d13ed39d9115eaec5592",
+          "purpose": "prompt",
+          "text": "Cross the street.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-6-can-and-cannot-c038-answer-449e40effce0004abdc4",
+          "purpose": "answer",
+          "text": "Cross the street.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "stop"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Finally"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "at"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "museum"
+        }
+      ],
+      "audio_text": "Finally, stop at the museum.",
+      "answer_audio_text": "Finally, stop at the museum.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+      "spanish_translation": "Finalmente, detente en el museo.",
+      "pedagogy_note": "Story beat 07: Finally, stop at the museum.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-6-can-and-cannot-c039-prompt-f158a41e8980dab92a5f",
+          "purpose": "prompt",
+          "text": "Finally, stop at the museum.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-6-can-and-cannot-c039-answer-48af7d2b07ae51c64c7f",
+          "purpose": "answer",
+          "text": "Finally, stop at the museum.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -2021,33 +2124,33 @@
       ],
       "audio_text": "They cannot go by train.",
       "answer_audio_text": "They cannot go by train.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
       "spanish_translation": "No pueden ir en tren.",
-      "pedagogy_note": "Story beat 06: They cannot go by train.",
+      "pedagogy_note": "Story beat 08: They cannot go by train.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c039-prompt-31bdafba572f2fb39cb5",
+          "id": "lesson-6-6-can-and-cannot-c040-prompt-2b26fc224267abb09daf",
           "purpose": "prompt",
           "text": "They cannot go by train.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c039-answer-8a58067f94cb03444e44",
+          "id": "lesson-6-6-can-and-cannot-c040-answer-c904755c98a7c58967ad",
           "purpose": "answer",
           "text": "They cannot go by train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_pair_cannot_board_train_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2056,7 +2159,7 @@
       ]
     },
     {
-      "slide_id": "U7",
+      "slide_id": "U9",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -2077,64 +2180,64 @@
         {
           "id": "word-4",
           "image_url": "",
-          "label": "the"
+          "label": "by"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "You"
+          "label": "They"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "cross"
+          "label": "go"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "street"
+          "label": "bus"
         }
       ],
-      "audio_text": "You can cross the street.",
-      "answer_audio_text": "You can cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-      "spanish_translation": "Puedes cruzar la calle.",
-      "pedagogy_note": "Story beat 07: You can cross the street.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "They can go by bus.",
+      "answer_audio_text": "They can go by bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+      "spanish_translation": "Pueden ir en autob\u00fas.",
+      "pedagogy_note": "Story beat 09: They can go by bus.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c040-prompt-92238b613111af4ce752",
+          "id": "lesson-6-6-can-and-cannot-c041-prompt-c84f393ddade074604cc",
           "purpose": "prompt",
-          "text": "You can cross the street.",
+          "text": "They can go by bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c040-answer-4e012c65feb3ee80d159",
+          "id": "lesson-6-6-can-and-cannot-c041-answer-a1373c13bc6e4c410d7a",
           "purpose": "answer",
-          "text": "You can cross the street.",
+          "text": "They can go by bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "U8",
+      "slide_id": "U10",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___, ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -2142,136 +2245,72 @@
         "word-2",
         "word-3",
         "word-4",
-        "word-5"
+        "word-5",
+        "word-6"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "cannot"
+          "label": "they"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "the"
+          "label": "on"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "bus"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "You"
+          "label": "Then"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "cross"
+          "label": "get"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "street"
+          "label": "the"
         }
       ],
-      "audio_text": "You cannot cross the street.",
-      "answer_audio_text": "You cannot cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
-      "spanish_translation": "No puedes cruzar la calle.",
-      "pedagogy_note": "Story beat 08: You cannot cross the street.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "Then, they get on the bus.",
+      "answer_audio_text": "Then, they get on the bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+      "spanish_translation": "Despu\u00e9s, suben al autob\u00fas.",
+      "pedagogy_note": "Story beat 10: Then, they get on the bus.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-6-can-and-cannot-c041-prompt-6415333bb9ec4723d666",
+          "id": "lesson-6-6-can-and-cannot-c042-prompt-2c9b95d94bcfd77b6c91",
           "purpose": "prompt",
-          "text": "You cannot cross the street.",
+          "text": "Then, they get on the bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-6-can-and-cannot-c041-answer-c4b2e2594876679da2d0",
+          "id": "lesson-6-6-can-and-cannot-c042-answer-18c48e016cad6e26e8bc",
           "purpose": "answer",
-          "text": "You cannot cross the street.",
+          "text": "Then, they get on the bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U9",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "cannot"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "there"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "walk"
-        }
-      ],
-      "audio_text": "I cannot walk there.",
-      "answer_audio_text": "I cannot walk there.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
-      "spanish_translation": "No puedo caminar hasta all\u00e1.",
-      "pedagogy_note": "Story beat 09: I cannot walk there.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-6-can-and-cannot-c042-prompt-6c1cbeb364c6f528a8d8",
-          "purpose": "prompt",
-          "text": "I cannot walk there.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-6-can-and-cannot-c042-answer-e6c365fcbeb0de686a7a",
-          "purpose": "answer",
-          "text": "I cannot walk there.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-cannot-walk-there_4e028b8.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

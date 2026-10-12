@@ -1,0 +1,1452 @@
+{
+  "brief_version": 1,
+  "note": "Ana and Luis face the same direction from the hotel entrance. The mall is on their left and the pharmacy on their right. Ana is going to the mall; she confirms the side and finds the entrance. After arrival, a clearly marked second viewpoint introduces the station and the bank without silently reversing left and right. Fix the observer’s orientation before testing either side. Prefer photographed spatial context; a pointing person facing the learner can invert the intended left/right.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-4-location-words.yaml",
+  "lesson": {
+    "id": "lesson-6-4-location-words",
+    "title": "6.7 Which Side of the Street?",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.7",
+    "sub_lesson_title": "Which Side of the Street?",
+    "goal": "Find a named destination on the left or right from a clear viewpoint.",
+    "vocabulary": [
+      "left",
+      "right",
+      "on the left",
+      "on the right"
+    ],
+    "grammar_function": "Ana and Luis face the same direction from the hotel entrance. The mall is on their left and the pharmacy on their right. Ana is going to the mall; she confirms the side and finds the entrance. After arrival, a clearly marked second viewpoint introduces the station and the bank without silently reversing left and right.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Find a named destination on the left or right from a clear viewpoint.",
+    "content_revision": 3,
+    "review_vocabulary": [],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "on the left",
+          "on the right"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The mall is on the left."
+          },
+          {
+            "slide_id": "L4",
+            "text": "The pharmacy is on the right."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "left",
+      "text": "Left",
+      "es": "Izquierda",
+      "image": "/lesson-assets/a1_photo_u6_man_points_left_v2.webp",
+      "kind": "left",
+      "learn": true,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "right",
+      "text": "Right",
+      "es": "Derecha",
+      "image": "/lesson-assets/a1_photo_u6_man_points_right_v1.webp",
+      "kind": "right",
+      "learn": true,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "mall-left",
+      "text": "The mall is on the left.",
+      "es": "El centro comercial está a la izquierda.",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+      "kind": "mall-left",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the mall?",
+          "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The mall is on the left.",
+          "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "pharmacy-right",
+      "text": "The pharmacy is on the right.",
+      "es": "La farmacia está a la derecha.",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+      "kind": "pharmacy-right",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the pharmacy?",
+          "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The pharmacy is on the right.",
+          "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-mall",
+      "text": "Where is the mall?",
+      "es": "¿Dónde está el centro comercial?",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+      "kind": "q-mall",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "q-pharmacy",
+      "text": "Where is the pharmacy?",
+      "es": "¿Dónde está la farmacia?",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+      "kind": "q-pharmacy",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "going",
+      "text": "I am going to the mall.",
+      "es": "Voy al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "kind": "going",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the subject and movement frame fixed and assess the visible/heard destination, not a different action.",
+        "action-variety": "Keep the subject and movement frame fixed and assess the visible/heard destination, not a different action."
+      }
+    },
+    {
+      "id": "walk",
+      "text": "Then, I walk to the mall.",
+      "es": "Después, camino al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "kind": "walk",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the subject and movement frame fixed and assess the visible/heard destination, not a different action.",
+        "action-variety": "Keep the subject and movement frame fixed and assess the visible/heard destination, not a different action."
+      }
+    },
+    {
+      "id": "at",
+      "text": "Finally, I am at the mall.",
+      "es": "Finalmente, estoy en el centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+      "kind": "at",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "station-right",
+      "text": "The station is on the right.",
+      "es": "La estación está a la derecha.",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "kind": "station-right",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the station?",
+          "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The station is on the right.",
+          "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "bank-left",
+      "text": "The bank is on the left.",
+      "es": "El banco está a la izquierda.",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "kind": "bank-left",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "q-station",
+      "text": "Where is the station?",
+      "es": "¿Dónde está la estación?",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "kind": "q-station",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "q-bank",
+      "text": "Where is the bank?",
+      "es": "¿Dónde está el banco?",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "kind": "q-bank",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "taxi-in",
+      "text": "I get in the taxi.",
+      "es": "Subo al taxi.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_taxi_in_v1.webp",
+      "kind": "taxi-in",
+      "learn": false,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "taxi-out",
+      "text": "I get out of the taxi.",
+      "es": "Bajo del taxi.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_taxi_out_station_v3.webp",
+      "kind": "taxi-out",
+      "learn": false,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "station-going",
+      "text": "I am going to the station.",
+      "es": "Voy a la estación.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_station_v1.webp",
+      "kind": "station-going",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the subject and movement frame fixed and assess the visible/heard destination, not a different action.",
+        "action-variety": "Keep the subject and movement frame fixed and assess the visible/heard destination, not a different action."
+      },
+      "audio_revision": 2
+    },
+    {
+      "id": "bank-next",
+      "text": "The bank is next to the station.",
+      "es": "El banco está junto a la estación.",
+      "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+      "kind": "bank-next",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "at-station",
+      "text": "Finally, I am at the station.",
+      "es": "Finalmente, estoy en la estación.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_at_station_v1.webp",
+      "kind": "at-station",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "audio_revision": 2
+    }
+  ],
+  "pool": [
+    {
+      "text": "Right",
+      "es": "Derecha",
+      "kind": "left",
+      "image": "/lesson-assets/a1_photo_u6_man_points_right_v1.webp"
+    },
+    {
+      "text": "Left",
+      "es": "Izquierda",
+      "kind": "right",
+      "image": "/lesson-assets/a1_photo_u6_man_points_left_v2.webp"
+    },
+    {
+      "text": "The mall is on the right.",
+      "es": "El centro comercial está a la derecha.",
+      "kind": "mall-left"
+    },
+    {
+      "text": "The pharmacy is on the left.",
+      "es": "La farmacia está a la izquierda.",
+      "kind": "pharmacy-right"
+    },
+    {
+      "text": "I am going to the pharmacy.",
+      "es": "Voy a la farmacia.",
+      "kind": "going"
+    },
+    {
+      "text": "Then, I walk to the pharmacy.",
+      "es": "Después, camino a la farmacia.",
+      "kind": "walk"
+    },
+    {
+      "text": "Finally, I am at the pharmacy.",
+      "es": "Finalmente, estoy en la farmacia.",
+      "kind": "at"
+    },
+    {
+      "text": "The station is on the left.",
+      "es": "La estación está a la izquierda.",
+      "kind": "station-right"
+    },
+    {
+      "text": "The bank is on the right.",
+      "es": "El banco está a la derecha.",
+      "kind": "bank-left"
+    },
+    {
+      "text": "I am going to the bank.",
+      "es": "Voy al banco.",
+      "kind": "station-going"
+    },
+    {
+      "text": "The pharmacy is next to the station.",
+      "es": "La farmacia está junto a la estación.",
+      "kind": "bank-next"
+    },
+    {
+      "text": "Finally, I am at the bank.",
+      "es": "Finalmente, estoy en el banco.",
+      "kind": "at-station"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "left",
+      "right",
+      "mall-left",
+      "pharmacy-right"
+    ],
+    "Recognize": [
+      "left",
+      "right",
+      "mall-left",
+      "pharmacy-right",
+      "going",
+      "walk",
+      "bank-left",
+      "station-right"
+    ],
+    "Listen": [
+      "mall-left",
+      "pharmacy-right",
+      "going",
+      "walk",
+      "at",
+      "station-going",
+      "station-right",
+      "bank-left",
+      "bank-next",
+      "at-station"
+    ],
+    "Speak": [
+      "q-mall",
+      "mall-left",
+      "q-pharmacy",
+      "pharmacy-right",
+      "going",
+      "walk",
+      "at",
+      "taxi-in",
+      "station-going",
+      "bank-left",
+      "taxi-out",
+      "at-station"
+    ],
+    "Use": [
+      "q-mall",
+      "mall-left",
+      "pharmacy-right",
+      "going",
+      "walk",
+      "at",
+      "station-right",
+      "bank-left"
+    ]
+  },
+  "storyboard": {
+    "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+    "cast_and_props": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+    "transitions": "Two distinct place contexts. Left/right is always from the learner's shown viewpoint; bank and station are adjacent along the same facade.",
+    "arc": "Ana and Luis face the same direction from the hotel entrance. The mall is on their left and the pharmacy on their right. Ana is going to the mall; she confirms the side and finds the entrance. After arrival, a clearly marked second viewpoint introduces the station and the bank without silently reversing left and right.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Left",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_points_left_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Left",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Right",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_points_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Right",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "mall-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "pharmacy-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The pharmacy is on the right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The pharmacy is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Left",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_points_left_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Left",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Right",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_points_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Right",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "mall-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "pharmacy-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The pharmacy is on the right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The pharmacy is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "going",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "walk",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Then, I walk to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I walk to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "bank-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The bank is on the left.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "station-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The station is on the right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The station is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "mall-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Where is the mall?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "pharmacy-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Where is the pharmacy?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The pharmacy is on the right.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The pharmacy is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "going",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "walk",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Then, I walk to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I walk to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "at",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "station-going",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I am going to the station.",
+            "voice": "ana",
+            "speaker_listener": "Ana says her destination to the driver.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_station_v1.webp",
+            "props_before": "Ana seated inside yellow taxi, rear door closed; station ahead.",
+            "props_after": "The ride precedes exit; same driver and no bag."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "station-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Where is the station?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The station is on the right.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The station is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "bank-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The bank is on the left.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A9",
+        "stage": "Listen",
+        "item_id": "bank-next",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The bank is next to the station.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is next to the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A10",
+        "stage": "Listen",
+        "item_id": "at-station",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the station.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks in her established Sarah voice.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_station_v1.webp",
+            "props_before": "Ana fully outside taxi at the iron/glass station; same clothes and no bag.",
+            "props_after": "The station trip has ended; she remains visible at arrival."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "q-mall",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Where is the mall?",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the mall?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "mall-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "q-pharmacy",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Where is the pharmacy?",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the pharmacy?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "pharmacy-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The pharmacy is on the right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The pharmacy is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "going",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "walk",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Then, I walk to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I walk to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "at",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "taxi-in",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I get in the taxi.",
+            "voice": "ana",
+            "speaker_listener": "Pictured traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_taxi_in_v1.webp",
+            "props_before": "Traveller is outside taxi, body facing rear passenger seat.",
+            "props_after": "Traveller enters taxi."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I get in the taxi.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S9",
+        "stage": "Speak",
+        "item_id": "station-going",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I am going to the station.",
+            "voice": "ana",
+            "speaker_listener": "Ana says her destination to the driver.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_station_v1.webp",
+            "props_before": "Ana seated inside yellow taxi, rear door closed; station ahead.",
+            "props_after": "The ride precedes exit; same driver and no bag."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S10",
+        "stage": "Speak",
+        "item_id": "bank-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The bank is on the left.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S11",
+        "stage": "Speak",
+        "item_id": "taxi-out",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I get out of the taxi.",
+            "voice": "ana",
+            "speaker_listener": "Pictured traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_taxi_out_station_v3.webp",
+            "props_before": "Traveller is at open rear door, body facing outward.",
+            "props_after": "Traveller reaches pavement at destination."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I get out of the taxi.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S12",
+        "stage": "Speak",
+        "item_id": "at-station",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the station.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks in her established Sarah voice.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_station_v1.webp",
+            "props_before": "Ana fully outside taxi at the iron/glass station; same clothes and no bag.",
+            "props_after": "The station trip has ended; she remains visible at arrival."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "q-mall",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Where is the mall?",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the mall?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "mall-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "pharmacy-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The pharmacy is on the right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_mall_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The pharmacy is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "going",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "walk",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Then, I walk to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I walk to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "at",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "station-right",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The station is on the right.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The station is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "bank-left",
+        "setting": "Finding the correct side before walking to the mall or arriving at a station.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks to mall; the same Ana takes a separate yellow taxi trip to station. Olive overshirt, white top, jeans, white shoes, no bag. Her Sarah voice stays constant. Station has iron/glass arch and silver train, with pale stone bank/ATM adjacent on left in every station-trip scene.",
+        "turns": [
+          {
+            "exact_english": "The bank is on the left.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_sides_bank_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  },
+  "replaces_sha256": "97ade36ab78cd7143c6146e272b8a0ba5a36920ae91567624219b61405156a31"
+}

@@ -30,6 +30,11 @@ class UnitFiveReviewTests(unittest.TestCase):
         self.assertEqual(len(plans), 16)
         for path in plans:
             plan = json.loads(path.read_text(encoding="utf-8"))
+            if plan.get("superseded_by"):
+                replacement = json.loads((ROOT / plan["superseded_by"]).read_text(encoding="utf-8"))
+                self.assertEqual(plan["lesson"]["id"], replacement["lesson"]["id"])
+                self.assertGreater(replacement["lesson"]["content_revision"], plan["lesson"]["content_revision"])
+                plan = replacement
             authored = compose_lesson(plan)
             canonical = ROOT / plan["source"]["path"]
             self.assertEqual(authored, json.loads(canonical.read_text(encoding="utf-8")), path.name)

@@ -16,12 +16,14 @@ for (const noun of words('home window clothes')) NOUNS.add(noun);
 for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
 // Unit 7 (2026-09-27): the body word its constructions name.
 NOUNS.add('ears');
+for (const noun of words('mall supermarket airplane boat hotel office museum theater stop airport corner ticket')) NOUNS.add(noun);
+const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
 const PRONOUNS = set('i you he she it we they this that these those there');
-const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run');
-const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening');
+const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run take');
+const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 
 type Relation = { start: number; end: number; explanation: string };
@@ -55,6 +57,7 @@ function teachClause(text: string): ClausePlan {
     if (keys[head] === 'united' && keys[head + 1] === 'states') head++;
     if (COLORS.has(keys[head])) head++;
     if (['living', 'dining'].includes(keys[head]) && keys[head + 1] === 'room') head++;
+    const compound = COMPOUND_NOUNS[`${keys[head]} ${keys[head + 1]}`] ? head++ : -1;
     // "The red one": after a color, "one" stands in for the noun already named.
     const standIn = keys[head] === 'one' && head > start && COLORS.has(keys[head - 1]);
     if (head !== end - 1 || !(NOUNS.has(keys[head]) || standIn)) return false;
@@ -77,6 +80,8 @@ function teachClause(text: string): ClausePlan {
               : `Para nombrar esta habitación usamos ${quote(phrase(start, end))}: ${quote(tokens[start])} indica qué tipo de ${quote(tokens[head])} es y va antes.`;
       teach(start, end, why);
     }
+    if (compound >= 0) teach(compound, compound + 2,
+      `${quote(phrase(compound, compound + 2))} significa ${COMPOUND_NOUNS[keys.slice(compound, compound + 2).join(' ')]}: ${quote(tokens[compound])} va antes de ${quote(tokens[compound + 1])}.`);
     return true;
   };
   const subject = (start: number, end: number) => {
@@ -142,7 +147,11 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `Para decir qué número es, después de ${quote(anchor)} va el número: ${quote(original)}.`);
       return true;
     }
-    const prep = /^(next to|far from|in|on|under|near|from|by|at|for|to) (.+)$/.exec(tail);
+    if (tail === 'here' || tail === 'there') {
+      teach(start, end, `${quote(original)} significa ${tail === 'here' ? 'aquí' : 'allá'} e indica dónde ocurre la acción; va después de ${quote(anchor)}.`);
+      return true;
+    }
+    const prep = /^(next to|far from|across from|between|in|on|under|near|from|by|at|for|to) (.+)$/.exec(tail);
     if (prep) {
       const length = words(prep[1]).length;
       const nounStart = start + length;
@@ -193,7 +202,7 @@ function teachClause(text: string): ClausePlan {
       return complement(start + 1, end, tokens[start]);
     }
     // A noun group may be followed by where/when it occurs or a contrast.
-    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not'].includes(key));
+    const boundary = keys.findIndex((key, index) => index > start && index < end && ['in', 'on', 'under', 'next', 'near', 'by', 'at', 'for', 'every', 'not', 'here', 'there'].includes(key));
     const nounEnd = boundary < 0 ? end : boundary;
     teach(start, nounEnd, `${quote(phrase(start, nounEnd))} indica ${/^(am|is|are)$/i.test(anchor) ? 'qué es el sujeto' : 'qué recibe o completa la acción'}; en esta frase va después de ${quote(anchor)}.`);
     if (!nominal(start, nounEnd)) return false;
@@ -231,6 +240,11 @@ function teachClause(text: string): ClausePlan {
     teach(0, keys.length, fixed[joined]);
     return { explanations, relations, supported: true };
   }
+  if (/^(yes|no) i can(?:not)?$/.test(joined)) {
+    teach(0, keys.length, 'En esta respuesta corta, primero “Yes” o “No”, después “I” y al final “can” o “cannot”; no repetimos la acción.');
+    teach(1, 3, `${quote(tokens[1])} dice quién responde y va antes de ${quote(tokens[2])}, que expresa si puede hacerlo.`);
+    return { explanations, relations, supported: true };
+  }
   if (/^here (is|are) your .+/.test(joined)) {
     teach(0, keys.length, 'Al entregar algo, primero “Here”, después “is” para una cosa o “are” para varias, y luego “your” y lo que entregamos.');
     teach(0, 2, `“Here ${tokens[1]}” presenta lo que entregamos y va antes de nombrarlo.`);
@@ -245,9 +259,31 @@ function teachClause(text: string): ClausePlan {
     teach(0, keys.length, `En esta petición, “Please” va antes de la acción ${quote(tokens[1])}${keys[2] ? '; “slowly” va después para indicar cómo hablar' : ' para pedirla con cortesía'}.`);
     return { explanations, relations, supported: true };
   }
-  if (/^(go straight|turn (left|right)|stop at .+|cross .+)$/.test(joined)) {
+  const sequencedCommand = /^(first|then|finally|after that) (?:go|turn|cross|stop|take)\b/.exec(joined);
+  if (sequencedCommand) {
+    const offset = words(sequencedCommand[1]).length;
+    const inner = teachClause(tokens.slice(offset).join(' ') + '.');
+    teach(0, offset, `${quote(phrase(0, offset))} conecta este paso con la secuencia y va antes de la indicación ${quote(tokens[offset])}.`);
+    inner.explanations.forEach((why, i) => { explanations[i + offset] = why; });
+    relations.push(...inner.relations.map(relation => ({ ...relation, start: relation.start + offset, end: relation.end + offset })));
+    relations.push({ start: 0, end: offset + 1, explanation: explanations[0] });
+    return { explanations, relations, supported: inner.supported && explanations.every(Boolean) };
+  }
+  if (/^go past .+$/.test(joined)) {
+    teach(0, keys.length, 'En esta indicación, primero “Go past” (pase junto a) y después el lugar que dejamos atrás.');
+    teach(0, 2, '“Go past” indica pasar junto a un lugar: “past” va después de “Go”.');
+    const supported = nominal(2, keys.length);
+    return { explanations, relations, supported };
+  }
+  if (/^take .+$/.test(joined)) {
+    teach(0, keys.length, 'En esta indicación, primero “Take” (tome) y después el transporte que debe usar.');
+    return { explanations, relations, supported: nominal(1, keys.length) };
+  }
+  if (/^(go straight|turn (left|right)( at .+)?|stop at .+|cross .+)$/.test(joined)) {
     teach(0, keys.length, `Para dar esta indicación, primero va la acción ${quote(tokens[0])} y después ${quote(phrase(1, keys.length))}, que dice hacia dónde o dónde realizarla.`);
-    const supported = ['go', 'turn'].includes(keys[0]) || complement(1, keys.length, tokens[0]);
+    const supported = keys[0] === 'go' || (keys[0] === 'turn'
+      ? keys.length === 2 || complement(2, keys.length, phrase(0, 2))
+      : complement(1, keys.length, tokens[0]));
     return { explanations, relations, supported };
   }
   // Lesson 7.7 proposes with "Let's": it opens the proposal and the activity follows.
@@ -293,6 +329,33 @@ function teachClause(text: string): ClausePlan {
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   // Current-action questions keep the same word order with the taught subjects.
+  if (/^where (?:am|is|are) .+ going$/.test(joined) && text.trim().endsWith('?')) {
+    teach(0, keys.length, 'Para preguntar el destino actual, primero “Where”, luego el auxiliar “am/is/are”, después la persona y al final “going”.');
+    teach(1, 3, `En esta pregunta, el auxiliar ${quote(tokens[1])} va antes de la persona ${quote(tokens[2])}.`);
+    relations.push({ start: 2, end: keys.length, explanation: `La persona ${quote(phrase(2, keys.length - 1))} va antes de “going”, el verbo que expresa el desplazamiento.` });
+    return { explanations, relations, supported: subject(2, keys.length - 1) };
+  }
+  if (/^how do i get to .+$/.test(joined) && text.trim().endsWith('?')) {
+    teach(0, keys.length, 'Para preguntar cómo llegar, primero “How do I get to” y después el destino.');
+    teach(0, 3, '“How” abre la pregunta; el auxiliar “do” va antes de “I”, la persona que necesita llegar.');
+    teach(3, 5, 'En “get to”, “to” va después de “get” y antes del destino: expresa llegar a ese lugar.');
+    return { explanations, relations, supported: nominal(5, keys.length) };
+  }
+  if (/^which (?:bus|train) goes to .+$/.test(joined) && text.trim().endsWith('?')) {
+    teach(0, keys.length, '“Which” va antes del transporte por el que preguntamos, luego “goes to” y al final el destino.');
+    teach(0, 2, `“Which” pregunta cuál y va antes de ${quote(tokens[1])}.`);
+    teach(2, 4, '“Goes” expresa va; “to” lo conecta con el destino y va después de “goes”.');
+    return { explanations, relations, supported: nominal(4, keys.length) };
+  }
+  if (/^what time does .+ (?:leave|arrive)$/.test(joined) && text.trim().endsWith('?')) {
+    const last = keys.length - 1;
+    teach(0, keys.length, 'Para preguntar el horario, primero “What time”, luego “does”, el transporte y al final “leave” o “arrive”, sin -s.');
+    teach(0, 2, '“What time” pregunta a qué hora: “What” va antes de “time”.');
+    teach(2, 3, 'En esta pregunta, “does” va antes del transporte; el verbo final queda en su forma base, sin -s.');
+    relations.push({ start: 2, end: last, explanation: `El auxiliar “does” va antes de ${quote(phrase(3, last))}, el transporte del que preguntamos.` });
+    relations.push({ start: 3, end: keys.length, explanation: `${quote(phrase(3, last))} va antes de ${quote(tokens[last])}, que indica ${keys[last] === 'leave' ? 'salir' : 'llegar'}.` });
+    return { explanations, relations, supported: nominal(3, last) };
+  }
   if (/^what (?:are (?:you|they)|is (?:he|she)) doing$/.test(joined) && text.trim().endsWith('?')) {
     teach(0, keys.length, `Para preguntar por la acción actual, primero “What”, luego ${quote(tokens[1])}, después ${quote(tokens[2])} y al final “doing”.`);
     teach(1, 3, `En esta pregunta usamos ${quote(tokens[1])} con ${quote(tokens[2])}; el auxiliar va antes de la persona: ${quote(phrase(1, 3))}.`);
@@ -395,6 +458,14 @@ function teachClause(text: string): ClausePlan {
     }
   }
   const pair = `${verb} ${keys[rest]}`;
+  if (verb === 'get' && (['on', 'off', 'in'].includes(keys[rest]) || (keys[rest] === 'out' && keys[rest + 1] === 'of'))) {
+    const end = rest + (keys[rest] === 'out' ? 2 : 1);
+    const action = phrase(verbIndex, end);
+    const meaning = keys[rest] === 'on' ? 'subir al transporte' : keys[rest] === 'off' ? 'bajar del transporte'
+      : keys[rest] === 'in' ? 'entrar al auto o taxi' : 'salir del auto o taxi';
+    teach(verbIndex, end, `${quote(action)} significa ${meaning}: ${quote(phrase(rest, end))} completa “get” y va después, antes del vehículo.`);
+    rest = end;
+  }
   if (['wake up', 'get dressed', 'come home'].includes(pair)) {
     teach(verbIndex, rest + 1, `${quote(phrase(verbIndex, rest + 1))} expresa ${verb === 'wake' ? 'despertarse' : verb === 'get' ? 'vestirse' : 'volver a casa'}; ${quote(tokens[rest])} completa la acción y va después de ${quote(tokens[verbIndex])}.`);
     rest++;
@@ -430,7 +501,10 @@ export function constructionTeachingPlan(card: LessonCard) {
   // A comma can join two complete statements, but does not split “No, thank
   // you”, a noun contrast, or the introductory “First,” / “Then,”.
   // Periods inside a.m./p.m. belong to one time token, not three clauses.
-  const clauses = target.replace(/\b([ap])\.m\./gi, '$1m').replace(/,\s*(?=(?:he|she|it|they|we|you|i)\s+(?:am|is|are)\b)/gi, '. ').match(/[^.!?]+[.!?]?/g) || [];
+  const clauses = target.replace(/\b([ap])\.m\./gi, '$1m')
+    .replace(/,\s*(?=(?:he|she|it|they|we|you|i)\s+(?:am|is|are)\b)/gi,
+      (comma: string, offset: number, full: string) => /(?:^|[.!?])\s*(?:first|then|finally|after that)$/i.test(full.slice(0, offset)) ? comma : '. ')
+    .match(/[^.!?]+[.!?]?/g) || [];
   const plans = clauses.map(teachClause);
   const explanations = plans.flatMap(plan => plan.explanations);
   let offset = 0;

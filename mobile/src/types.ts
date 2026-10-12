@@ -57,6 +57,8 @@ export type MissionGame = {
   cues: MissionGameCue[];
   tutorial_mode?: 'guided-no-fail';
   cue_audio_text?: string;
+  cue_order?: 'authored';
+  scene_scope?: 'two-person-dialogue';
 };
 
 export type LessonCard = {

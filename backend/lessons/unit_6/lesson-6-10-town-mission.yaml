@@ -1,1913 +1,1656 @@
 {
   "id": "lesson-6-10-town-mission",
-  "title": "6.10 Ruta del barrio",
+  "title": "6.14 Mission: Meet at the Museum",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Follow navigation clues across neighborhood checkpoints, identify pairs, and speak locations.",
+  "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
-  "sub_lesson_id": "6.10",
-  "sub_lesson_title": "Ruta del barrio",
+  "sub_lesson_id": "6.14",
+  "sub_lesson_title": "Mission: Meet at the Museum",
   "experience_type": "mission",
-  "content_revision": 1,
-  "mission": {
-    "label": "MISIÓN FINAL · UNIDAD 6",
-    "title": "Ruta del barrio",
-    "briefing": "Hoy la familia recorre el barrio. Escucha cada pista y toca el lugar, la señal o la persona que describe: dónde está cada cosa, el camino, quién pide ayuda y a qué hora sale el autobús. Al final, responde cuatro veces en voz alta. Primero escucha la frase completa; después toca.",
-    "kickoff_image_url": "/lesson-assets/a1_u6_town_v1_kickoff.webp",
-    "objectives": [
-      "Encuentra cada lugar",
-      "Sigue las indicaciones",
-      "Pide ayuda y confirma la hora"
-    ],
-    "completion_title": "¡La ruta del barrio está lista!",
-    "completion_message": "Encontraste cada lugar, seguiste el camino, escuchaste quién pide ayuda y confirmaste el horario en voz alta.",
-    "chapters": [
-      {
-        "id": "lugares",
-        "title": "Los lugares del barrio",
-        "objective": "Escucha la pista y toca el lugar o la persona."
-      },
-      {
-        "id": "donde",
-        "title": "¿Dónde está?",
-        "objective": "Escucha dónde está cada lugar y tócalo."
-      },
-      {
-        "id": "camino",
-        "title": "El camino",
-        "objective": "Escucha la indicación y toca la señal o a la persona."
-      },
-      {
-        "id": "ayuda",
-        "title": "Pedir ayuda",
-        "objective": "Escucha quién pide y quién da ayuda."
-      },
-      {
-        "id": "horarios",
-        "title": "Horarios y cosas",
-        "objective": "Escucha la hora y dónde está cada cosa."
-      },
-      {
-        "id": "pregunta",
-        "title": "Pregunta y responde",
-        "objective": "Escucha la pregunta y responde en voz alta."
-      }
-    ],
-    "voice_heading": "PREGUNTA Y RESPONDE",
-    "voice_instruction": "Escucha la frase y responde en voz alta",
-    "voice_success_label": "RUTA CONFIRMADA"
-  },
-  "goal": "Track family movement across town checkpoints and answer location questions aloud.",
+  "content_revision": 2,
+  "goal": "Reach the museum and help another visitor complete the final walk.",
   "vocabulary": [],
-  "review_vocabulary": [
-    "station",
-    "bank",
-    "pharmacy",
-    "library",
-    "train",
-    "taxi",
-    "walk",
-    "by",
-    "near",
-    "far from",
-    "left",
-    "right",
-    "on the left",
-    "on the right",
-    "Go straight.",
-    "Turn left.",
-    "Turn right.",
-    "Cross the street.",
-    "Stop.",
-    "can",
-    "cannot",
-    "there",
-    "Excuse me.",
-    "Can you help me?",
-    "Sorry, no.",
-    "leaves",
-    "arrives"
-  ],
-  "grammar_function": "Integrate direction, prepositional location phrases, and movement verbs.",
-  "prerequisite": "Lessons 6.1-6.9 completed.",
-  "speaking_outcome": "Speak full checkpoint location responses aloud across final voice gates.",
+  "review_vocabulary": [],
+  "grammar_function": "Current destinations, a help exchange, safe directions, service choice, a ticket transaction, schedules and a complete trip.",
+  "prerequisite": "Lessons 6.1–6.13 completed.",
+  "speaking_outcome": "Explain your destination and give the final directions to another visitor.",
   "purposeful_review_slides": [
     "M01",
     "M02",
     "M03"
   ],
+  "mission": {
+    "label": "Misión final",
+    "title": "Nos vemos en el museo",
+    "briefing": "Ana sale del hotel para reunirse con su familia en el museo. Ayúdala a encontrar la parada, elegir el autobús y completar el viaje. Al final, ella ayuda a otro visitante.",
+    "kickoff_image_url": "/lesson-assets/a1_photo_u6_story_mission_kickoff_v2.webp",
+    "objectives": [
+      "Pide ayuda y sigue una ruta segura",
+      "Elige el autobús y compra el boleto",
+      "Llega al museo y da indicaciones"
+    ],
+    "completion_title": "¡Llegaron al museo!",
+    "completion_message": "Ana se reúne con su familia y el otro visitante llega con ella. Completaste el viaje y ayudaste a alguien más.",
+    "chapters": [
+      {
+        "id": "find-help",
+        "title": "El camino a la parada",
+        "objective": "Busca la parada y pide indicaciones."
+      },
+      {
+        "id": "safe-route",
+        "title": "Una ruta segura",
+        "objective": "Llega a la parada por el cruce abierto."
+      },
+      {
+        "id": "choose-service",
+        "title": "El autobús y el boleto",
+        "objective": "Elige el autobús, revisa el horario y compra el boleto."
+      },
+      {
+        "id": "travel",
+        "title": "El viaje al museo",
+        "objective": "Sigue las paradas y el último tramo a pie."
+      },
+      {
+        "id": "help-traveller",
+        "title": "Ahora tú das indicaciones",
+        "objective": "Ayuda a otro visitante a llegar al museo."
+      }
+    ],
+    "voice_heading": "AYUDA A OTRO VISITANTE",
+    "voice_instruction": "Da indicaciones para llegar al museo",
+    "voice_success_label": "INDICACIONES COMPLETADAS"
+  },
   "cards": [
     {
       "slide_id": "M01",
-      "mission_chapter_id": "lugares",
       "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "find-help",
       "stage": "Listen",
-      "prompt": "There is a bank. There is a pharmacy. There is a library. There is a station.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_town_square.webp",
+      "correct_option_id": "theater",
       "options": [
         {
-          "id": "town-square-1",
+          "id": "theater",
           "image_url": "",
-          "label": "There is a bank."
+          "label": "The movie theater is near the hotel."
         },
         {
-          "id": "town-square-2",
+          "id": "station",
           "image_url": "",
-          "label": "There is a pharmacy."
+          "label": "The station is far from the hotel."
         },
         {
-          "id": "town-square-3",
+          "id": "library",
           "image_url": "",
-          "label": "There is a library."
+          "label": "The library is between the bank and the pharmacy."
         },
         {
-          "id": "town-square-4",
+          "id": "bus-stop",
           "image_url": "",
-          "label": "There is a station."
+          "label": "The bus stop is across from the supermarket."
         }
       ],
-      "correct_option_id": "town-square-1",
-      "correct_option_ids": [
-        "town-square-1",
-        "town-square-2",
-        "town-square-3",
-        "town-square-4"
-      ],
-      "audio_text": "There is a bank. There is a pharmacy. There is a library. There is a station.",
+      "audio_text": "The movie theater is near the hotel. The station is far from the hotel. The library is between the bank and the pharmacy. The bus stop is across from the supermarket.",
       "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp",
       "audio_turns": [
         {
-          "text": "There is a bank.",
+          "text": "The movie theater is near the hotel.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_town_square.webp"
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp"
         },
         {
-          "text": "There is a pharmacy.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_town_square.webp"
+          "text": "The station is far from the hotel.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp"
         },
         {
-          "text": "There is a library.",
+          "text": "The library is between the bank and the pharmacy.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_town_square.webp"
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp"
         },
         {
-          "text": "There is a station.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_town_square.webp"
+          "text": "The bus stop is across from the supermarket.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_neighborhood_v1.webp"
         }
       ],
-      "spanish_translation": "Hay un banco. Hay una farmacia. Hay una biblioteca. Hay una estación.",
-      "pedagogy_note": "Mission beat 01/13: En la plaza, encuentra el lugar que nombra cada pista.",
+      "spanish_translation": "El cine está cerca del hotel. La estación está lejos del hotel. La biblioteca está entre el banco y la farmacia. La parada de autobús está enfrente del supermercado.",
+      "correct_option_ids": [
+        "theater",
+        "station",
+        "library",
+        "bus-stop"
+      ],
+      "pedagogy_note": "Mission beat 01/14: Ana checks the public neighborhood map outside her hotel. Identify useful landmarks before asking for help. Four interactive places; the other named places are spatial context.",
       "mission_game": {
-        "kind": "guided-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
-        "validation": "ordered",
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha y toca el lugar o el objeto.",
+        "validation": "unordered",
         "targets": [
           {
-            "id": "town-square-1",
-            "label_es": "Hay un banco.",
-            "accepted_option_ids": [
-              "town-square-1"
-            ],
+            "id": "theater",
+            "label_es": "Lugar",
             "rect": {
-              "x": 0.02,
-              "y": 0.24,
-              "width": 0.26,
-              "height": 0.42
+              "x": 0.228,
+              "y": 0.679,
+              "width": 0.16,
+              "height": 0.218
             },
-            "head_anchors": [
-              {
-                "x": 0.145,
-                "y": 0.25
-              }
-            ]
+            "accepted_option_ids": [
+              "theater"
+            ],
+            "subject_kind": "object"
           },
           {
-            "id": "town-square-2",
-            "label_es": "Hay una farmacia.",
-            "accepted_option_ids": [
-              "town-square-2"
-            ],
+            "id": "station",
+            "label_es": "Lugar",
             "rect": {
-              "x": 0.285,
-              "y": 0.2,
-              "width": 0.22,
-              "height": 0.46
+              "x": 0.045,
+              "y": 0.039,
+              "width": 0.183,
+              "height": 0.253
             },
-            "head_anchors": [
-              {
-                "x": 0.395,
-                "y": 0.21
-              }
-            ]
+            "accepted_option_ids": [
+              "station"
+            ],
+            "subject_kind": "object"
           },
           {
-            "id": "town-square-3",
-            "label_es": "Hay una biblioteca.",
-            "accepted_option_ids": [
-              "town-square-3"
-            ],
+            "id": "library",
+            "label_es": "Lugar",
             "rect": {
-              "x": 0.505,
-              "y": 0.17,
-              "width": 0.245,
-              "height": 0.47
+              "x": 0.676,
+              "y": 0.102,
+              "width": 0.149,
+              "height": 0.19
             },
-            "head_anchors": [
-              {
-                "x": 0.63,
-                "y": 0.18
-              }
-            ]
+            "accepted_option_ids": [
+              "library"
+            ],
+            "subject_kind": "object"
           },
           {
-            "id": "town-square-4",
-            "label_es": "Hay una estación.",
-            "accepted_option_ids": [
-              "town-square-4"
-            ],
+            "id": "bus-stop",
+            "label_es": "Lugar",
             "rect": {
-              "x": 0.8,
-              "y": 0.345,
-              "width": 0.195,
-              "height": 0.32
+              "x": 0.588,
+              "y": 0.7475,
+              "width": 0.146,
+              "height": 0.16
             },
-            "head_anchors": [
-              {
-                "x": 0.9,
-                "y": 0.355
-              }
-            ]
+            "accepted_option_ids": [
+              "bus-stop"
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [
           {
-            "id": "cue-town-square-1",
-            "text": "There is a bank.",
-            "answer_text": "There is a bank.",
-            "target_id": "town-square-1",
-            "option_id": "town-square-1"
+            "id": "cue-theater",
+            "text": "The movie theater is near the hotel.",
+            "answer_text": "The movie theater is near the hotel.",
+            "target_id": "theater",
+            "option_id": "theater"
           },
           {
-            "id": "cue-town-square-2",
-            "text": "There is a pharmacy.",
-            "answer_text": "There is a pharmacy.",
-            "target_id": "town-square-2",
-            "option_id": "town-square-2"
+            "id": "cue-station",
+            "text": "The station is far from the hotel.",
+            "answer_text": "The station is far from the hotel.",
+            "target_id": "station",
+            "option_id": "station"
           },
           {
-            "id": "cue-town-square-3",
-            "text": "There is a library.",
-            "answer_text": "There is a library.",
-            "target_id": "town-square-3",
-            "option_id": "town-square-3"
+            "id": "cue-library",
+            "text": "The library is between the bank and the pharmacy.",
+            "answer_text": "The library is between the bank and the pharmacy.",
+            "target_id": "library",
+            "option_id": "library"
           },
           {
-            "id": "cue-town-square-4",
-            "text": "There is a station.",
-            "answer_text": "There is a station.",
-            "target_id": "town-square-4",
-            "option_id": "town-square-4"
+            "id": "cue-bus-stop",
+            "text": "The bus stop is across from the supermarket.",
+            "answer_text": "The bus stop is across from the supermarket.",
+            "target_id": "bus-stop",
+            "option_id": "bus-stop"
           }
-        ],
-        "tutorial_mode": "guided-no-fail"
+        ]
       }
     },
     {
       "slide_id": "M02",
-      "mission_chapter_id": "lugares",
       "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "find-help",
       "stage": "Listen",
-      "prompt": "I go by bus. I go by train. I go by taxi. I walk.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_transport_stop.webp",
+      "correct_option_id": "ana",
       "options": [
         {
-          "id": "transport-stop-1",
+          "id": "ana",
           "image_url": "",
-          "label": "I go by bus."
+          "label": "Excuse me. Can you help me?"
         },
         {
-          "id": "transport-stop-2",
-          "image_url": "",
-          "label": "I go by train."
-        },
-        {
-          "id": "transport-stop-3",
-          "image_url": "",
-          "label": "I go by taxi."
-        },
-        {
-          "id": "transport-stop-4",
-          "image_url": "",
-          "label": "I walk."
-        }
-      ],
-      "correct_option_id": "transport-stop-1",
-      "correct_option_ids": [
-        "transport-stop-1",
-        "transport-stop-2",
-        "transport-stop-3",
-        "transport-stop-4"
-      ],
-      "audio_text": "I go by bus. I go by train. I go by taxi. I walk.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "I go by bus.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_transport_stop.webp"
-        },
-        {
-          "text": "I go by train.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_transport_stop.webp"
-        },
-        {
-          "text": "I go by taxi.",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_transport_stop.webp"
-        },
-        {
-          "text": "I walk.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_transport_stop.webp"
-        }
-      ],
-      "spanish_translation": "Voy en autobús. Voy en tren. Voy en taxi. Camino.",
-      "pedagogy_note": "Mission beat 02/13: Cada quien va a su manera: escucha quién lo dice.",
-      "mission_game": {
-        "kind": "crowd-search",
-        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
-        "validation": "ordered",
-        "targets": [
-          {
-            "id": "transport-stop-1",
-            "label_es": "Voy en autobús.",
-            "accepted_option_ids": [
-              "transport-stop-1"
-            ],
-            "rect": {
-              "x": 0.035,
-              "y": 0.195,
-              "width": 0.165,
-              "height": 0.68
-            },
-            "head_anchors": [
-              {
-                "x": 0.115,
-                "y": 0.2
-              }
-            ]
-          },
-          {
-            "id": "transport-stop-2",
-            "label_es": "Voy en tren.",
-            "accepted_option_ids": [
-              "transport-stop-2"
-            ],
-            "rect": {
-              "x": 0.25,
-              "y": 0.21,
-              "width": 0.17,
-              "height": 0.61
-            },
-            "head_anchors": [
-              {
-                "x": 0.365,
-                "y": 0.215
-              }
-            ]
-          },
-          {
-            "id": "transport-stop-3",
-            "label_es": "Voy en taxi.",
-            "accepted_option_ids": [
-              "transport-stop-3"
-            ],
-            "rect": {
-              "x": 0.56,
-              "y": 0.285,
-              "width": 0.125,
-              "height": 0.53
-            },
-            "head_anchors": [
-              {
-                "x": 0.64,
-                "y": 0.29
-              }
-            ]
-          },
-          {
-            "id": "transport-stop-4",
-            "label_es": "Camino.",
-            "accepted_option_ids": [
-              "transport-stop-4"
-            ],
-            "rect": {
-              "x": 0.82,
-              "y": 0.33,
-              "width": 0.125,
-              "height": 0.6
-            },
-            "head_anchors": [
-              {
-                "x": 0.875,
-                "y": 0.335
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "cue-transport-stop-1",
-            "text": "I go by bus.",
-            "answer_text": "I go by bus.",
-            "target_id": "transport-stop-1",
-            "option_id": "transport-stop-1"
-          },
-          {
-            "id": "cue-transport-stop-2",
-            "text": "I go by train.",
-            "answer_text": "I go by train.",
-            "target_id": "transport-stop-2",
-            "option_id": "transport-stop-2"
-          },
-          {
-            "id": "cue-transport-stop-3",
-            "text": "I go by taxi.",
-            "answer_text": "I go by taxi.",
-            "target_id": "transport-stop-3",
-            "option_id": "transport-stop-3"
-          },
-          {
-            "id": "cue-transport-stop-4",
-            "text": "I walk.",
-            "answer_text": "I walk.",
-            "target_id": "transport-stop-4",
-            "option_id": "transport-stop-4"
-          }
-        ]
-      }
-    },
-    {
-      "slide_id": "M03",
-      "mission_chapter_id": "donde",
-      "interaction_type": "mission-game",
-      "stage": "Listen",
-      "prompt": "The bank is on the left. The hospital is on the right. The store is next to the bank. The pharmacy is next to the hospital.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_left_right_street.webp",
-      "options": [
-        {
-          "id": "left-right-street-1",
-          "image_url": "",
-          "label": "The bank is on the left."
-        },
-        {
-          "id": "left-right-street-2",
-          "image_url": "",
-          "label": "The hospital is on the right."
-        },
-        {
-          "id": "left-right-street-3",
-          "image_url": "",
-          "label": "The store is next to the bank."
-        },
-        {
-          "id": "left-right-street-4",
-          "image_url": "",
-          "label": "The pharmacy is next to the hospital."
-        }
-      ],
-      "correct_option_id": "left-right-street-1",
-      "correct_option_ids": [
-        "left-right-street-1",
-        "left-right-street-2",
-        "left-right-street-3",
-        "left-right-street-4"
-      ],
-      "audio_text": "The bank is on the left. The hospital is on the right. The store is next to the bank. The pharmacy is next to the hospital.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "The bank is on the left.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_left_right_street.webp"
-        },
-        {
-          "text": "The hospital is on the right.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_left_right_street.webp"
-        },
-        {
-          "text": "The store is next to the bank.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_left_right_street.webp"
-        },
-        {
-          "text": "The pharmacy is next to the hospital.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_left_right_street.webp"
-        }
-      ],
-      "spanish_translation": "El banco está a la izquierda. El hospital está a la derecha. La tienda está junto al banco. La farmacia está junto al hospital.",
-      "pedagogy_note": "Mission beat 03/13: Mira la calle y toca el lugar que describe cada pista.",
-      "mission_game": {
-        "kind": "contrast-hunt",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
-        "validation": "ordered",
-        "targets": [
-          {
-            "id": "left-right-street-1",
-            "label_es": "El banco está a la izquierda.",
-            "accepted_option_ids": [
-              "left-right-street-1"
-            ],
-            "rect": {
-              "x": 0.0,
-              "y": 0.02,
-              "width": 0.24,
-              "height": 0.66
-            },
-            "head_anchors": [
-              {
-                "x": 0.12,
-                "y": 0.03
-              }
-            ]
-          },
-          {
-            "id": "left-right-street-2",
-            "label_es": "El hospital está a la derecha.",
-            "accepted_option_ids": [
-              "left-right-street-2"
-            ],
-            "rect": {
-              "x": 0.64,
-              "y": 0.215,
-              "width": 0.215,
-              "height": 0.43
-            },
-            "head_anchors": [
-              {
-                "x": 0.75,
-                "y": 0.225
-              }
-            ]
-          },
-          {
-            "id": "left-right-street-3",
-            "label_es": "La tienda está junto al banco.",
-            "accepted_option_ids": [
-              "left-right-street-3"
-            ],
-            "rect": {
-              "x": 0.235,
-              "y": 0.215,
-              "width": 0.14,
-              "height": 0.45
-            },
-            "head_anchors": [
-              {
-                "x": 0.3,
-                "y": 0.225
-              }
-            ]
-          },
-          {
-            "id": "left-right-street-4",
-            "label_es": "La farmacia está junto al hospital.",
-            "accepted_option_ids": [
-              "left-right-street-4"
-            ],
-            "rect": {
-              "x": 0.855,
-              "y": 0.165,
-              "width": 0.145,
-              "height": 0.49
-            },
-            "head_anchors": [
-              {
-                "x": 0.93,
-                "y": 0.175
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "cue-left-right-street-1",
-            "text": "The bank is on the left.",
-            "answer_text": "The bank is on the left.",
-            "target_id": "left-right-street-1",
-            "option_id": "left-right-street-1"
-          },
-          {
-            "id": "cue-left-right-street-2",
-            "text": "The hospital is on the right.",
-            "answer_text": "The hospital is on the right.",
-            "target_id": "left-right-street-2",
-            "option_id": "left-right-street-2"
-          },
-          {
-            "id": "cue-left-right-street-3",
-            "text": "The store is next to the bank.",
-            "answer_text": "The store is next to the bank.",
-            "target_id": "left-right-street-3",
-            "option_id": "left-right-street-3"
-          },
-          {
-            "id": "cue-left-right-street-4",
-            "text": "The pharmacy is next to the hospital.",
-            "answer_text": "The pharmacy is next to the hospital.",
-            "target_id": "left-right-street-4",
-            "option_id": "left-right-street-4"
-          }
-        ]
-      }
-    },
-    {
-      "slide_id": "M04",
-      "mission_chapter_id": "donde",
-      "interaction_type": "mission-game",
-      "stage": "Listen",
-      "prompt": "The library is near the park. The bank is near the park. The station is far from the park. The hospital is far from the park.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_near_far_park.webp",
-      "options": [
-        {
-          "id": "near-far-park-1",
-          "image_url": "",
-          "label": "The library is near the park."
-        },
-        {
-          "id": "near-far-park-2",
-          "image_url": "",
-          "label": "The bank is near the park."
-        },
-        {
-          "id": "near-far-park-3",
-          "image_url": "",
-          "label": "The station is far from the park."
-        },
-        {
-          "id": "near-far-park-4",
-          "image_url": "",
-          "label": "The hospital is far from the park."
-        }
-      ],
-      "correct_option_id": "near-far-park-1",
-      "correct_option_ids": [
-        "near-far-park-1",
-        "near-far-park-2",
-        "near-far-park-3",
-        "near-far-park-4"
-      ],
-      "audio_text": "The library is near the park. The bank is near the park. The station is far from the park. The hospital is far from the park.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "The library is near the park.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_near_far_park.webp"
-        },
-        {
-          "text": "The bank is near the park.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_near_far_park.webp"
-        },
-        {
-          "text": "The station is far from the park.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_near_far_park.webp"
-        },
-        {
-          "text": "The hospital is far from the park.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_near_far_park.webp"
-        }
-      ],
-      "spanish_translation": "La biblioteca está cerca del parque. El banco está cerca del parque. La estación está lejos del parque. El hospital está lejos del parque.",
-      "pedagogy_note": "Mission beat 04/13: Desde el parque, toca lo que está cerca y lo que está lejos.",
-      "mission_game": {
-        "kind": "crowd-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
-        "validation": "ordered",
-        "targets": [
-          {
-            "id": "near-far-park-1",
-            "label_es": "La biblioteca está cerca del parque.",
-            "accepted_option_ids": [
-              "near-far-park-1"
-            ],
-            "rect": {
-              "x": 0.0,
-              "y": 0.3,
-              "width": 0.47,
-              "height": 0.41
-            },
-            "head_anchors": [
-              {
-                "x": 0.25,
-                "y": 0.31
-              }
-            ]
-          },
-          {
-            "id": "near-far-park-2",
-            "label_es": "El banco está cerca del parque.",
-            "accepted_option_ids": [
-              "near-far-park-2"
-            ],
-            "rect": {
-              "x": 0.6,
-              "y": 0.24,
-              "width": 0.4,
-              "height": 0.48
-            },
-            "head_anchors": [
-              {
-                "x": 0.81,
-                "y": 0.25
-              }
-            ]
-          },
-          {
-            "id": "near-far-park-3",
-            "label_es": "La estación está lejos del parque.",
-            "accepted_option_ids": [
-              "near-far-park-3"
-            ],
-            "rect": {
-              "x": 0.2,
-              "y": 0.16,
-              "width": 0.29,
-              "height": 0.16
-            },
-            "head_anchors": [
-              {
-                "x": 0.35,
-                "y": 0.205
-              }
-            ]
-          },
-          {
-            "id": "near-far-park-4",
-            "label_es": "El hospital está lejos del parque.",
-            "accepted_option_ids": [
-              "near-far-park-4"
-            ],
-            "rect": {
-              "x": 0.655,
-              "y": 0.13,
-              "width": 0.2,
-              "height": 0.16
-            },
-            "head_anchors": [
-              {
-                "x": 0.775,
-                "y": 0.175
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "cue-near-far-park-1",
-            "text": "The library is near the park.",
-            "answer_text": "The library is near the park.",
-            "target_id": "near-far-park-1",
-            "option_id": "near-far-park-1"
-          },
-          {
-            "id": "cue-near-far-park-2",
-            "text": "The bank is near the park.",
-            "answer_text": "The bank is near the park.",
-            "target_id": "near-far-park-2",
-            "option_id": "near-far-park-2"
-          },
-          {
-            "id": "cue-near-far-park-3",
-            "text": "The station is far from the park.",
-            "answer_text": "The station is far from the park.",
-            "target_id": "near-far-park-3",
-            "option_id": "near-far-park-3"
-          },
-          {
-            "id": "cue-near-far-park-4",
-            "text": "The hospital is far from the park.",
-            "answer_text": "The hospital is far from the park.",
-            "target_id": "near-far-park-4",
-            "option_id": "near-far-park-4"
-          }
-        ]
-      }
-    },
-    {
-      "slide_id": "M05",
-      "mission_chapter_id": "camino",
-      "interaction_type": "mission-game",
-      "stage": "Listen",
-      "prompt": "Go straight. Turn left. Turn right. Cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_direction_signs.webp",
-      "options": [
-        {
-          "id": "direction-signs-1",
-          "image_url": "",
-          "label": "Go straight."
-        },
-        {
-          "id": "direction-signs-2",
-          "image_url": "",
-          "label": "Turn left."
-        },
-        {
-          "id": "direction-signs-3",
-          "image_url": "",
-          "label": "Turn right."
-        },
-        {
-          "id": "direction-signs-4",
-          "image_url": "",
-          "label": "Cross the street."
-        }
-      ],
-      "correct_option_id": "direction-signs-1",
-      "correct_option_ids": [
-        "direction-signs-1",
-        "direction-signs-2",
-        "direction-signs-3",
-        "direction-signs-4"
-      ],
-      "audio_text": "Go straight. Turn left. Turn right. Cross the street.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "Go straight.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_direction_signs.webp"
-        },
-        {
-          "text": "Turn left.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_direction_signs.webp"
-        },
-        {
-          "text": "Turn right.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_direction_signs.webp"
-        },
-        {
-          "text": "Cross the street.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_direction_signs.webp"
-        }
-      ],
-      "spanish_translation": "Sigue derecho. Gira a la izquierda. Gira a la derecha. Cruza la calle.",
-      "pedagogy_note": "Mission beat 05/13: Escucha la indicación y toca la señal correcta.",
-      "mission_game": {
-        "kind": "crowd-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
-        "validation": "ordered",
-        "targets": [
-          {
-            "id": "direction-signs-1",
-            "label_es": "Sigue derecho.",
-            "accepted_option_ids": [
-              "direction-signs-1"
-            ],
-            "rect": {
-              "x": 0.05,
-              "y": 0.2,
-              "width": 0.145,
-              "height": 0.21
-            },
-            "head_anchors": [
-              {
-                "x": 0.12,
-                "y": 0.205
-              }
-            ]
-          },
-          {
-            "id": "direction-signs-2",
-            "label_es": "Gira a la izquierda.",
-            "accepted_option_ids": [
-              "direction-signs-2"
-            ],
-            "rect": {
-              "x": 0.305,
-              "y": 0.2,
-              "width": 0.145,
-              "height": 0.21
-            },
-            "head_anchors": [
-              {
-                "x": 0.377,
-                "y": 0.205
-              }
-            ]
-          },
-          {
-            "id": "direction-signs-3",
-            "label_es": "Gira a la derecha.",
-            "accepted_option_ids": [
-              "direction-signs-3"
-            ],
-            "rect": {
-              "x": 0.55,
-              "y": 0.2,
-              "width": 0.14,
-              "height": 0.21
-            },
-            "head_anchors": [
-              {
-                "x": 0.62,
-                "y": 0.205
-              }
-            ]
-          },
-          {
-            "id": "direction-signs-4",
-            "label_es": "Cruza la calle.",
-            "accepted_option_ids": [
-              "direction-signs-4"
-            ],
-            "rect": {
-              "x": 0.795,
-              "y": 0.2,
-              "width": 0.15,
-              "height": 0.21
-            },
-            "head_anchors": [
-              {
-                "x": 0.87,
-                "y": 0.205
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "cue-direction-signs-1",
-            "text": "Go straight.",
-            "answer_text": "Go straight.",
-            "target_id": "direction-signs-1",
-            "option_id": "direction-signs-1"
-          },
-          {
-            "id": "cue-direction-signs-2",
-            "text": "Turn left.",
-            "answer_text": "Turn left.",
-            "target_id": "direction-signs-2",
-            "option_id": "direction-signs-2"
-          },
-          {
-            "id": "cue-direction-signs-3",
-            "text": "Turn right.",
-            "answer_text": "Turn right.",
-            "target_id": "direction-signs-3",
-            "option_id": "direction-signs-3"
-          },
-          {
-            "id": "cue-direction-signs-4",
-            "text": "Cross the street.",
-            "answer_text": "Cross the street.",
-            "target_id": "direction-signs-4",
-            "option_id": "direction-signs-4"
-          }
-        ]
-      }
-    },
-    {
-      "slide_id": "M06",
-      "mission_chapter_id": "camino",
-      "interaction_type": "mission-game",
-      "stage": "Listen",
-      "prompt": "You can cross the street. You cannot cross the street. Stop at the bank. He can turn right.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_crossing_corner.webp",
-      "options": [
-        {
-          "id": "crossing-corner-1",
-          "image_url": "",
-          "label": "You can cross the street."
-        },
-        {
-          "id": "crossing-corner-2",
-          "image_url": "",
-          "label": "You cannot cross the street."
-        },
-        {
-          "id": "crossing-corner-3",
-          "image_url": "",
-          "label": "Stop at the bank."
-        },
-        {
-          "id": "crossing-corner-4",
-          "image_url": "",
-          "label": "He can turn right."
-        }
-      ],
-      "correct_option_id": "crossing-corner-1",
-      "correct_option_ids": [
-        "crossing-corner-1",
-        "crossing-corner-2",
-        "crossing-corner-3",
-        "crossing-corner-4"
-      ],
-      "audio_text": "You can cross the street. You cannot cross the street. Stop at the bank. He can turn right.",
-      "answer_audio_text": null,
-      "audio_turns": [
-        {
-          "text": "You can cross the street.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_crossing_corner.webp"
-        },
-        {
-          "text": "You cannot cross the street.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_crossing_corner.webp"
-        },
-        {
-          "text": "Stop at the bank.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_crossing_corner.webp"
-        },
-        {
-          "text": "He can turn right.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_crossing_corner.webp"
-        }
-      ],
-      "spanish_translation": "Puedes cruzar la calle. No puedes cruzar la calle. Detente en el banco. Él puede girar a la derecha.",
-      "pedagogy_note": "Mission beat 06/13: En la esquina, escucha quién puede cruzar y quién no.",
-      "mission_game": {
-        "kind": "contrast-hunt",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
-        "validation": "ordered",
-        "targets": [
-          {
-            "id": "crossing-corner-1",
-            "label_es": "Puedes cruzar la calle.",
-            "accepted_option_ids": [
-              "crossing-corner-1"
-            ],
-            "rect": {
-              "x": 0.045,
-              "y": 0.34,
-              "width": 0.125,
-              "height": 0.43
-            },
-            "head_anchors": [
-              {
-                "x": 0.105,
-                "y": 0.345
-              }
-            ]
-          },
-          {
-            "id": "crossing-corner-2",
-            "label_es": "No puedes cruzar la calle.",
-            "accepted_option_ids": [
-              "crossing-corner-2"
-            ],
-            "rect": {
-              "x": 0.3,
-              "y": 0.31,
-              "width": 0.12,
-              "height": 0.42
-            },
-            "head_anchors": [
-              {
-                "x": 0.35,
-                "y": 0.315
-              }
-            ]
-          },
-          {
-            "id": "crossing-corner-3",
-            "label_es": "Detente en el banco.",
-            "accepted_option_ids": [
-              "crossing-corner-3"
-            ],
-            "rect": {
-              "x": 0.565,
-              "y": 0.265,
-              "width": 0.12,
-              "height": 0.44
-            },
-            "head_anchors": [
-              {
-                "x": 0.62,
-                "y": 0.27
-              }
-            ]
-          },
-          {
-            "id": "crossing-corner-4",
-            "label_es": "Él puede girar a la derecha.",
-            "accepted_option_ids": [
-              "crossing-corner-4"
-            ],
-            "rect": {
-              "x": 0.81,
-              "y": 0.235,
-              "width": 0.14,
-              "height": 0.56
-            },
-            "head_anchors": [
-              {
-                "x": 0.88,
-                "y": 0.24
-              }
-            ]
-          }
-        ],
-        "cues": [
-          {
-            "id": "cue-crossing-corner-1",
-            "text": "You can cross the street.",
-            "answer_text": "You can cross the street.",
-            "target_id": "crossing-corner-1",
-            "option_id": "crossing-corner-1"
-          },
-          {
-            "id": "cue-crossing-corner-2",
-            "text": "You cannot cross the street.",
-            "answer_text": "You cannot cross the street.",
-            "target_id": "crossing-corner-2",
-            "option_id": "crossing-corner-2"
-          },
-          {
-            "id": "cue-crossing-corner-3",
-            "text": "Stop at the bank.",
-            "answer_text": "Stop at the bank.",
-            "target_id": "crossing-corner-3",
-            "option_id": "crossing-corner-3"
-          },
-          {
-            "id": "cue-crossing-corner-4",
-            "text": "He can turn right.",
-            "answer_text": "He can turn right.",
-            "target_id": "crossing-corner-4",
-            "option_id": "crossing-corner-4"
-          }
-        ]
-      }
-    },
-    {
-      "slide_id": "M07",
-      "mission_chapter_id": "ayuda",
-      "interaction_type": "mission-game",
-      "stage": "Listen",
-      "prompt": "Excuse me. Can you help me? Yes. Sorry, no.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_help_exchange.webp",
-      "options": [
-        {
-          "id": "help-exchange-1",
-          "image_url": "",
-          "label": "Excuse me."
-        },
-        {
-          "id": "help-exchange-2",
-          "image_url": "",
-          "label": "Can you help me?"
-        },
-        {
-          "id": "help-exchange-3",
-          "image_url": "",
-          "label": "Yes."
-        },
-        {
-          "id": "help-exchange-4",
+          "id": "first-man",
           "image_url": "",
           "label": "Sorry, no."
         }
       ],
-      "correct_option_id": "help-exchange-1",
-      "correct_option_ids": [
-        "help-exchange-1",
-        "help-exchange-2",
-        "help-exchange-3",
-        "help-exchange-4"
-      ],
-      "audio_text": "Excuse me. Can you help me? Yes. Sorry, no.",
+      "audio_text": "Excuse me. Can you help me? Sorry, no.",
       "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_first_helper_v1.webp",
       "audio_turns": [
         {
-          "text": "Excuse me.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_help_exchange.webp"
-        },
-        {
-          "text": "Can you help me?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_help_exchange.webp"
-        },
-        {
-          "text": "Yes.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_help_exchange.webp"
+          "text": "Excuse me. Can you help me?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_first_helper_v1.webp"
         },
         {
           "text": "Sorry, no.",
           "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_help_exchange.webp"
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_first_helper_v1.webp"
         }
       ],
-      "spanish_translation": "Disculpe. ¿Me puede ayudar? Sí. Lo siento, no.",
-      "pedagogy_note": "Mission beat 07/13: Cuatro personas piden o dan ayuda: escucha quién dice cada frase.",
+      "spanish_translation": "Disculpe. ¿Puede ayudarme? Lo siento, no.",
+      "correct_option_ids": [
+        "ana",
+        "first-man"
+      ],
+      "pedagogy_note": "Mission beat 02/14: At the hotel corner Ana asks an older man. He cannot help. No ticket or goods; the next card is a visibly different helper, not a contradictory reply from this man.",
       "mission_game": {
-        "kind": "action-hunt",
-        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
-        "validation": "ordered",
+        "kind": "crowd-search",
+        "instruction_es": "Escucha y toca a quien habla.",
+        "validation": "unordered",
         "targets": [
           {
-            "id": "help-exchange-1",
-            "label_es": "Disculpe.",
-            "accepted_option_ids": [
-              "help-exchange-1"
-            ],
+            "id": "ana",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.045,
-              "y": 0.205,
-              "width": 0.175,
-              "height": 0.72
+              "x": 0.139,
+              "y": 0.102,
+              "width": 0.313,
+              "height": 0.898
             },
             "head_anchors": [
               {
-                "x": 0.155,
-                "y": 0.21
+                "x": 0.258,
+                "y": 0.11
               }
+            ],
+            "accepted_option_ids": [
+              "ana"
             ]
           },
           {
-            "id": "help-exchange-2",
-            "label_es": "¿Me puede ayudar?",
-            "accepted_option_ids": [
-              "help-exchange-2"
-            ],
+            "id": "first-man",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.265,
-              "y": 0.095,
-              "width": 0.2,
-              "height": 0.82
+              "x": 0.545,
+              "y": 0.019,
+              "width": 0.327,
+              "height": 0.981
             },
             "head_anchors": [
               {
-                "x": 0.36,
-                "y": 0.1
+                "x": 0.68,
+                "y": 0.024
               }
-            ]
-          },
-          {
-            "id": "help-exchange-3",
-            "label_es": "Sí.",
-            "accepted_option_ids": [
-              "help-exchange-3"
             ],
-            "rect": {
-              "x": 0.49,
-              "y": 0.165,
-              "width": 0.26,
-              "height": 0.75
-            },
-            "head_anchors": [
-              {
-                "x": 0.565,
-                "y": 0.17
-              }
-            ]
-          },
-          {
-            "id": "help-exchange-4",
-            "label_es": "Lo siento, no.",
             "accepted_option_ids": [
-              "help-exchange-4"
-            ],
-            "rect": {
-              "x": 0.71,
-              "y": 0.15,
-              "width": 0.285,
-              "height": 0.78
-            },
-            "head_anchors": [
-              {
-                "x": 0.86,
-                "y": 0.155
-              }
+              "first-man"
             ]
           }
         ],
         "cues": [
           {
-            "id": "cue-help-exchange-1",
-            "text": "Excuse me.",
-            "answer_text": "Excuse me.",
-            "target_id": "help-exchange-1",
-            "option_id": "help-exchange-1"
+            "id": "cue-ana",
+            "text": "Excuse me. Can you help me?",
+            "answer_text": "Excuse me. Can you help me?",
+            "target_id": "ana",
+            "option_id": "ana"
           },
           {
-            "id": "cue-help-exchange-2",
-            "text": "Can you help me?",
-            "answer_text": "Can you help me?",
-            "target_id": "help-exchange-2",
-            "option_id": "help-exchange-2"
-          },
-          {
-            "id": "cue-help-exchange-3",
-            "text": "Yes.",
-            "answer_text": "Yes.",
-            "target_id": "help-exchange-3",
-            "option_id": "help-exchange-3"
-          },
-          {
-            "id": "cue-help-exchange-4",
+            "id": "cue-first-man",
             "text": "Sorry, no.",
             "answer_text": "Sorry, no.",
-            "target_id": "help-exchange-4",
-            "option_id": "help-exchange-4"
+            "target_id": "first-man",
+            "option_id": "first-man"
           }
-        ]
+        ],
+        "cue_order": "authored",
+        "scene_scope": "two-person-dialogue"
+      }
+    },
+    {
+      "slide_id": "M03",
+      "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "find-help",
+      "stage": "Listen",
+      "correct_option_id": "ana",
+      "options": [
+        {
+          "id": "ana",
+          "image_url": "",
+          "label": "How do I get to the bus stop?"
+        },
+        {
+          "id": "luis",
+          "image_url": "",
+          "label": "Yes, I can help. Go straight. Then, turn right."
+        }
+      ],
+      "audio_text": "How do I get to the bus stop? Yes, I can help. Go straight. Then, turn right.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_second_helper_v1.webp",
+      "audio_turns": [
+        {
+          "text": "How do I get to the bus stop?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_second_helper_v1.webp"
+        },
+        {
+          "text": "Yes, I can help. Go straight. Then, turn right.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_second_helper_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo llego a la parada de autobús? Sí, puedo ayudar. Siga derecho. Después, gire a la derecha.",
+      "correct_option_ids": [
+        "ana",
+        "luis"
+      ],
+      "pedagogy_note": "Mission beat 03/14: Ana approaches Luis at the next corner. He agrees and gives the first steps toward the stop. The request precedes the reply.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha y toca a quien habla.",
+        "validation": "unordered",
+        "targets": [
+          {
+            "id": "ana",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.088,
+              "y": 0.165,
+              "width": 0.339,
+              "height": 0.835
+            },
+            "head_anchors": [
+              {
+                "x": 0.21,
+                "y": 0.168
+              }
+            ],
+            "accepted_option_ids": [
+              "ana"
+            ]
+          },
+          {
+            "id": "luis",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.433,
+              "y": 0.091,
+              "width": 0.454,
+              "height": 0.909
+            },
+            "head_anchors": [
+              {
+                "x": 0.555,
+                "y": 0.097
+              }
+            ],
+            "accepted_option_ids": [
+              "luis"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-ana",
+            "text": "How do I get to the bus stop?",
+            "answer_text": "How do I get to the bus stop?",
+            "target_id": "ana",
+            "option_id": "ana"
+          },
+          {
+            "id": "cue-luis",
+            "text": "Yes, I can help. Go straight. Then, turn right.",
+            "answer_text": "Yes, I can help. Go straight. Then, turn right.",
+            "target_id": "luis",
+            "option_id": "luis"
+          }
+        ],
+        "cue_order": "authored",
+        "scene_scope": "two-person-dialogue"
+      }
+    },
+    {
+      "slide_id": "M04",
+      "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "safe-route",
+      "stage": "Listen",
+      "correct_option_id": "blocked",
+      "options": [
+        {
+          "id": "blocked",
+          "image_url": "",
+          "label": "You cannot cross the street here."
+        },
+        {
+          "id": "straight-path",
+          "image_url": "",
+          "label": "Go straight."
+        },
+        {
+          "id": "corner",
+          "image_url": "",
+          "label": "Then, turn right at the corner."
+        },
+        {
+          "id": "open",
+          "image_url": "",
+          "label": "Finally, you can cross the street there."
+        }
+      ],
+      "audio_text": "You cannot cross the street here. Go straight. Then, turn right at the corner. Finally, you can cross the street there.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp",
+      "audio_turns": [
+        {
+          "text": "You cannot cross the street here.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp"
+        },
+        {
+          "text": "Go straight.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp"
+        },
+        {
+          "text": "Then, turn right at the corner.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp"
+        },
+        {
+          "text": "Finally, you can cross the street there.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_safe_crossing_v1.webp"
+        }
+      ],
+      "spanish_translation": "No puedes cruzar la calle aquí. Siga derecho. Después, gire a la derecha en la esquina. Finalmente, puedes cruzar la calle allá.",
+      "correct_option_ids": [
+        "blocked",
+        "straight-path",
+        "corner",
+        "open"
+      ],
+      "pedagogy_note": "Mission beat 04/14: The nearby crossing is physically blocked. Continue along the pavement, turn at the corner, then use the visibly open crossing farther along. Each direction identifies a distinct part of this continuous route.",
+      "mission_game": {
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha y toca el lugar o el objeto.",
+        "validation": "unordered",
+        "targets": [
+          {
+            "id": "blocked",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.367,
+              "y": 0.7025,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "accepted_option_ids": [
+              "blocked"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "straight-path",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.3615,
+              "y": 0.261,
+              "width": 0.12,
+              "height": 0.451
+            },
+            "accepted_option_ids": [
+              "straight-path"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "corner",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.3865,
+              "y": 0.132,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "accepted_option_ids": [
+              "corner"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "open",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.477,
+              "y": 0.1185,
+              "width": 0.207,
+              "height": 0.16
+            },
+            "accepted_option_ids": [
+              "open"
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-blocked",
+            "text": "You cannot cross the street here.",
+            "answer_text": "You cannot cross the street here.",
+            "target_id": "blocked",
+            "option_id": "blocked"
+          },
+          {
+            "id": "cue-straight-path",
+            "text": "Go straight.",
+            "answer_text": "Go straight.",
+            "target_id": "straight-path",
+            "option_id": "straight-path"
+          },
+          {
+            "id": "cue-corner",
+            "text": "Then, turn right at the corner.",
+            "answer_text": "Then, turn right at the corner.",
+            "target_id": "corner",
+            "option_id": "corner"
+          },
+          {
+            "id": "cue-open",
+            "text": "Finally, you can cross the street there.",
+            "answer_text": "Finally, you can cross the street there.",
+            "target_id": "open",
+            "option_id": "open"
+          }
+        ],
+        "cue_order": "authored"
+      }
+    },
+    {
+      "slide_id": "M05",
+      "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "choose-service",
+      "stage": "Listen",
+      "correct_option_id": "train",
+      "options": [
+        {
+          "id": "train",
+          "image_url": "",
+          "label": "The train goes to the airport."
+        },
+        {
+          "id": "taxi",
+          "image_url": "",
+          "label": "The taxi is on the left."
+        },
+        {
+          "id": "red-bus",
+          "image_url": "",
+          "label": "The red bus goes to the airport."
+        },
+        {
+          "id": "blue-bus",
+          "image_url": "",
+          "label": "Which bus goes to the museum? Take the blue bus."
+        }
+      ],
+      "audio_text": "The train goes to the airport. The taxi is on the left. The red bus goes to the airport. Which bus goes to the museum? Take the blue bus.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp",
+      "audio_turns": [
+        {
+          "text": "The train goes to the airport.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp"
+        },
+        {
+          "text": "The taxi is on the left.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp"
+        },
+        {
+          "text": "The red bus goes to the airport.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp"
+        },
+        {
+          "text": "Which bus goes to the museum? Take the blue bus.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_vehicles_v1.webp"
+        }
+      ],
+      "spanish_translation": "El tren va al aeropuerto. El taxi está a la izquierda. El autobús rojo va al aeropuerto. ¿Qué autobús va al museo? Tome el autobús azul.",
+      "correct_option_ids": [
+        "train",
+        "taxi",
+        "red-bus",
+        "blue-bus"
+      ],
+      "pedagogy_note": "Mission beat 05/14: Ana reaches the transport interchange. Four clearly distinct vehicles: a train, a taxi on the left, a red bus and a blue bus. Only the bus colors determine the two bus targets; their destinations are heard information, not inferred from an arbitrary photograph.",
+      "mission_game": {
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha y toca el lugar o el objeto.",
+        "validation": "unordered",
+        "targets": [
+          {
+            "id": "train",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.091,
+              "y": 0.158,
+              "width": 0.495,
+              "height": 0.215
+            },
+            "accepted_option_ids": [
+              "train"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "taxi",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.051,
+              "y": 0.605,
+              "width": 0.288,
+              "height": 0.277
+            },
+            "accepted_option_ids": [
+              "taxi"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "red-bus",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.58,
+              "y": 0.418,
+              "width": 0.4,
+              "height": 0.484
+            },
+            "accepted_option_ids": [
+              "red-bus"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "blue-bus",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.681,
+              "y": 0.234,
+              "width": 0.261,
+              "height": 0.207
+            },
+            "accepted_option_ids": [
+              "blue-bus"
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-train",
+            "text": "The train goes to the airport.",
+            "answer_text": "The train goes to the airport.",
+            "target_id": "train",
+            "option_id": "train"
+          },
+          {
+            "id": "cue-taxi",
+            "text": "The taxi is on the left.",
+            "answer_text": "The taxi is on the left.",
+            "target_id": "taxi",
+            "option_id": "taxi"
+          },
+          {
+            "id": "cue-red-bus",
+            "text": "The red bus goes to the airport.",
+            "answer_text": "The red bus goes to the airport.",
+            "target_id": "red-bus",
+            "option_id": "red-bus"
+          },
+          {
+            "id": "cue-blue-bus",
+            "text": "Which bus goes to the museum? Take the blue bus.",
+            "answer_text": "Which bus goes to the museum? Take the blue bus.",
+            "target_id": "blue-bus",
+            "option_id": "blue-bus"
+          }
+        ],
+        "cue_order": "authored"
+      }
+    },
+    {
+      "slide_id": "M06",
+      "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "choose-service",
+      "stage": "Listen",
+      "correct_option_id": "blue-leaves",
+      "options": [
+        {
+          "id": "blue-leaves",
+          "image_url": "",
+          "label": "What time does the blue bus leave? The blue bus leaves at nine."
+        },
+        {
+          "id": "blue-arrives",
+          "image_url": "",
+          "label": "What time does the blue bus arrive? The blue bus arrives at ten."
+        },
+        {
+          "id": "red-leaves",
+          "image_url": "",
+          "label": "The red bus leaves at eleven."
+        },
+        {
+          "id": "red-arrives",
+          "image_url": "",
+          "label": "The red bus arrives at twelve."
+        }
+      ],
+      "audio_text": "What time does the blue bus leave? The blue bus leaves at nine. What time does the blue bus arrive? The blue bus arrives at ten. The red bus leaves at eleven. The red bus arrives at twelve.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp",
+      "audio_turns": [
+        {
+          "text": "What time does the blue bus leave? The blue bus leaves at nine.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp"
+        },
+        {
+          "text": "What time does the blue bus arrive? The blue bus arrives at ten.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp"
+        },
+        {
+          "text": "The red bus leaves at eleven.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp"
+        },
+        {
+          "text": "The red bus arrives at twelve.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_timetable_v3.webp"
+        }
+      ],
+      "spanish_translation": "¿A qué hora sale el autobús azul? Sale a las nueve. ¿A qué hora llega el autobús azul? Llega a las diez. El autobús rojo sale a las once. El autobús rojo llega a las doce.",
+      "correct_option_ids": [
+        "blue-leaves",
+        "blue-arrives",
+        "red-leaves",
+        "red-arrives"
+      ],
+      "pedagogy_note": "Mission beat 06/14: A real posted two-service timetable has four separate readable clock cells: blue bus departure 09:00 and arrival 10:00; red bus departure 11:00 and arrival 12:00. The spoken question and answer select one cell. This is narrated schedule checking, not a pictured two-person conversation.",
+      "mission_game": {
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha y toca el lugar o el objeto.",
+        "validation": "unordered",
+        "targets": [
+          {
+            "id": "blue-leaves",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.275,
+              "y": 0.364,
+              "width": 0.302,
+              "height": 0.212
+            },
+            "accepted_option_ids": [
+              "blue-leaves"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "blue-arrives",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.615,
+              "y": 0.364,
+              "width": 0.299,
+              "height": 0.212
+            },
+            "accepted_option_ids": [
+              "blue-arrives"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "red-leaves",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.275,
+              "y": 0.639,
+              "width": 0.302,
+              "height": 0.216
+            },
+            "accepted_option_ids": [
+              "red-leaves"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "red-arrives",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.615,
+              "y": 0.639,
+              "width": 0.299,
+              "height": 0.216
+            },
+            "accepted_option_ids": [
+              "red-arrives"
+            ],
+            "subject_kind": "object"
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-blue-leaves",
+            "text": "What time does the blue bus leave? The blue bus leaves at nine.",
+            "answer_text": "What time does the blue bus leave? The blue bus leaves at nine.",
+            "target_id": "blue-leaves",
+            "option_id": "blue-leaves"
+          },
+          {
+            "id": "cue-blue-arrives",
+            "text": "What time does the blue bus arrive? The blue bus arrives at ten.",
+            "answer_text": "What time does the blue bus arrive? The blue bus arrives at ten.",
+            "target_id": "blue-arrives",
+            "option_id": "blue-arrives"
+          },
+          {
+            "id": "cue-red-leaves",
+            "text": "The red bus leaves at eleven.",
+            "answer_text": "The red bus leaves at eleven.",
+            "target_id": "red-leaves",
+            "option_id": "red-leaves"
+          },
+          {
+            "id": "cue-red-arrives",
+            "text": "The red bus arrives at twelve.",
+            "answer_text": "The red bus arrives at twelve.",
+            "target_id": "red-arrives",
+            "option_id": "red-arrives"
+          }
+        ],
+        "cue_order": "authored"
+      }
+    },
+    {
+      "slide_id": "M07",
+      "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "choose-service",
+      "stage": "Listen",
+      "correct_option_id": "ana",
+      "options": [
+        {
+          "id": "ana",
+          "image_url": "",
+          "label": "Can I have a ticket, please?"
+        },
+        {
+          "id": "clerk",
+          "image_url": "",
+          "label": "The ticket is two dollars."
+        }
+      ],
+      "audio_text": "Can I have a ticket, please? The ticket is two dollars.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_ticket_request_v1.webp",
+      "audio_turns": [
+        {
+          "text": "Can I have a ticket, please?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_ticket_request_v1.webp"
+        },
+        {
+          "text": "The ticket is two dollars.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_ticket_request_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Me da un boleto, por favor? El boleto cuesta dos dólares.",
+      "correct_option_ids": [
+        "ana",
+        "clerk"
+      ],
+      "pedagogy_note": "Mission beat 07/14: At the counter Ana asks the male clerk for a ticket. The ticket is still behind the counter in the clerk’s possession. He tells her its price. Both voices identify the visible speaker; no physical handover has happened yet.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha y toca a quien habla.",
+        "validation": "unordered",
+        "targets": [
+          {
+            "id": "ana",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.093,
+              "y": 0.043,
+              "width": 0.336,
+              "height": 0.957
+            },
+            "head_anchors": [
+              {
+                "x": 0.251,
+                "y": 0.048
+              }
+            ],
+            "accepted_option_ids": [
+              "ana"
+            ]
+          },
+          {
+            "id": "clerk",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.646,
+              "y": 0.046,
+              "width": 0.306,
+              "height": 0.704
+            },
+            "head_anchors": [
+              {
+                "x": 0.839,
+                "y": 0.052
+              }
+            ],
+            "accepted_option_ids": [
+              "clerk"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-ana",
+            "text": "Can I have a ticket, please?",
+            "answer_text": "Can I have a ticket, please?",
+            "target_id": "ana",
+            "option_id": "ana"
+          },
+          {
+            "id": "cue-clerk",
+            "text": "The ticket is two dollars.",
+            "answer_text": "The ticket is two dollars.",
+            "target_id": "clerk",
+            "option_id": "clerk"
+          }
+        ],
+        "cue_order": "authored",
+        "scene_scope": "two-person-dialogue"
       }
     },
     {
       "slide_id": "M08",
-      "mission_chapter_id": "horarios",
       "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "choose-service",
       "stage": "Listen",
-      "prompt": "The bus arrives at seven. The bus leaves at eight. The train leaves at nine. The train arrives at ten.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_station_clocks.webp",
+      "correct_option_id": "clerk",
       "options": [
         {
-          "id": "station-clocks-1",
+          "id": "clerk",
           "image_url": "",
-          "label": "The bus arrives at seven."
+          "label": "Here is your ticket."
         },
         {
-          "id": "station-clocks-2",
+          "id": "ana",
           "image_url": "",
-          "label": "The bus leaves at eight."
-        },
-        {
-          "id": "station-clocks-3",
-          "image_url": "",
-          "label": "The train leaves at nine."
-        },
-        {
-          "id": "station-clocks-4",
-          "image_url": "",
-          "label": "The train arrives at ten."
+          "label": "Thank you."
         }
       ],
-      "correct_option_id": "station-clocks-1",
-      "correct_option_ids": [
-        "station-clocks-1",
-        "station-clocks-2",
-        "station-clocks-3",
-        "station-clocks-4"
-      ],
-      "audio_text": "The bus arrives at seven. The bus leaves at eight. The train leaves at nine. The train arrives at ten.",
+      "audio_text": "Here is your ticket. Thank you.",
       "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_ticket_handover_v1.webp",
       "audio_turns": [
         {
-          "text": "The bus arrives at seven.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_station_clocks.webp"
+          "text": "Here is your ticket.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_ticket_handover_v1.webp"
         },
         {
-          "text": "The bus leaves at eight.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_station_clocks.webp"
-        },
-        {
-          "text": "The train leaves at nine.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_station_clocks.webp"
-        },
-        {
-          "text": "The train arrives at ten.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_station_clocks.webp"
+          "text": "Thank you.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_ticket_handover_v1.webp"
         }
       ],
-      "spanish_translation": "El autobús llega a las siete. El autobús sale a las ocho. El tren sale a las nueve. El tren llega a las diez.",
-      "pedagogy_note": "Mission beat 08/13: En la estación, toca el reloj de la hora que escuchas.",
+      "spanish_translation": "Aquí está tu boleto. Gracias.",
+      "correct_option_ids": [
+        "clerk",
+        "ana"
+      ],
+      "pedagogy_note": "Mission beat 08/14: Same counter, same clerk, same Ana and ticket. After payment the clerk passes the ticket into Ana’s hand. He speaks first; Ana thanks him as she receives it. The image is distinct from the earlier request state.",
       "mission_game": {
         "kind": "crowd-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
-        "validation": "ordered",
+        "instruction_es": "Escucha y toca a quien habla.",
+        "validation": "unordered",
         "targets": [
           {
-            "id": "station-clocks-1",
-            "label_es": "El autobús llega a las siete.",
-            "accepted_option_ids": [
-              "station-clocks-1"
-            ],
+            "id": "clerk",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.06,
-              "y": 0.155,
-              "width": 0.165,
-              "height": 0.25
+              "x": 0.519,
+              "y": 0.048,
+              "width": 0.413,
+              "height": 0.719
             },
             "head_anchors": [
               {
-                "x": 0.141,
-                "y": 0.16
+                "x": 0.834,
+                "y": 0.055
               }
+            ],
+            "accepted_option_ids": [
+              "clerk"
             ]
           },
           {
-            "id": "station-clocks-2",
-            "label_es": "El autobús sale a las ocho.",
-            "accepted_option_ids": [
-              "station-clocks-2"
-            ],
+            "id": "ana",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.298,
-              "y": 0.155,
-              "width": 0.165,
-              "height": 0.25
+              "x": 0.092,
+              "y": 0.045,
+              "width": 0.408,
+              "height": 0.955
             },
             "head_anchors": [
               {
-                "x": 0.379,
-                "y": 0.16
+                "x": 0.25,
+                "y": 0.051
               }
-            ]
-          },
-          {
-            "id": "station-clocks-3",
-            "label_es": "El tren sale a las nueve.",
-            "accepted_option_ids": [
-              "station-clocks-3"
             ],
-            "rect": {
-              "x": 0.536,
-              "y": 0.155,
-              "width": 0.165,
-              "height": 0.25
-            },
-            "head_anchors": [
-              {
-                "x": 0.6175,
-                "y": 0.16
-              }
-            ]
-          },
-          {
-            "id": "station-clocks-4",
-            "label_es": "El tren llega a las diez.",
             "accepted_option_ids": [
-              "station-clocks-4"
-            ],
-            "rect": {
-              "x": 0.772,
-              "y": 0.155,
-              "width": 0.165,
-              "height": 0.25
-            },
-            "head_anchors": [
-              {
-                "x": 0.854,
-                "y": 0.16
-              }
+              "ana"
             ]
           }
         ],
         "cues": [
           {
-            "id": "cue-station-clocks-1",
-            "text": "The bus arrives at seven.",
-            "answer_text": "The bus arrives at seven.",
-            "target_id": "station-clocks-1",
-            "option_id": "station-clocks-1"
+            "id": "cue-clerk",
+            "text": "Here is your ticket.",
+            "answer_text": "Here is your ticket.",
+            "target_id": "clerk",
+            "option_id": "clerk"
           },
           {
-            "id": "cue-station-clocks-2",
-            "text": "The bus leaves at eight.",
-            "answer_text": "The bus leaves at eight.",
-            "target_id": "station-clocks-2",
-            "option_id": "station-clocks-2"
-          },
-          {
-            "id": "cue-station-clocks-3",
-            "text": "The train leaves at nine.",
-            "answer_text": "The train leaves at nine.",
-            "target_id": "station-clocks-3",
-            "option_id": "station-clocks-3"
-          },
-          {
-            "id": "cue-station-clocks-4",
-            "text": "The train arrives at ten.",
-            "answer_text": "The train arrives at ten.",
-            "target_id": "station-clocks-4",
-            "option_id": "station-clocks-4"
+            "id": "cue-ana",
+            "text": "Thank you.",
+            "answer_text": "Thank you.",
+            "target_id": "ana",
+            "option_id": "ana"
           }
-        ]
+        ],
+        "cue_order": "authored",
+        "scene_scope": "two-person-dialogue"
       }
     },
     {
       "slide_id": "M09",
-      "mission_chapter_id": "horarios",
       "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "travel",
       "stage": "Listen",
-      "prompt": "The phone is in the bag. The book is on the table. The apple is under the chair. The chair is next to the table.",
-      "prompt_image_url": "/lesson-assets/a1_u6_town_v1_cafe_table.webp",
+      "correct_option_id": "station",
       "options": [
         {
-          "id": "cafe-table-1",
+          "id": "station",
           "image_url": "",
-          "label": "The phone is in the bag."
+          "label": "I am going to the museum by bus. First, I get on the bus. The next stop is the station."
         },
         {
-          "id": "cafe-table-2",
+          "id": "library",
           "image_url": "",
-          "label": "The book is on the table."
+          "label": "Then, the next stop is the library."
         },
         {
-          "id": "cafe-table-3",
+          "id": "post-office",
           "image_url": "",
-          "label": "The apple is under the chair."
+          "label": "After that, the next stop is the post office."
         },
         {
-          "id": "cafe-table-4",
+          "id": "museum",
           "image_url": "",
-          "label": "The chair is next to the table."
+          "label": "Finally, the next stop is the museum. I get off the bus. Then, I walk to the museum."
         }
       ],
-      "correct_option_id": "cafe-table-1",
-      "correct_option_ids": [
-        "cafe-table-1",
-        "cafe-table-2",
-        "cafe-table-3",
-        "cafe-table-4"
-      ],
-      "audio_text": "The phone is in the bag. The book is on the table. The apple is under the chair. The chair is next to the table.",
+      "audio_text": "I am going to the museum by bus. First, I get on the bus. The next stop is the station. Then, the next stop is the library. After that, the next stop is the post office. Finally, the next stop is the museum. I get off the bus. Then, I walk to the museum.",
       "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp",
       "audio_turns": [
         {
-          "text": "The phone is in the bag.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_cafe_table.webp"
+          "text": "I am going to the museum by bus. First, I get on the bus. The next stop is the station.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp"
         },
         {
-          "text": "The book is on the table.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_cafe_table.webp"
+          "text": "Then, the next stop is the library.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp"
         },
         {
-          "text": "The apple is under the chair.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_cafe_table.webp"
+          "text": "After that, the next stop is the post office.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp"
         },
         {
-          "text": "The chair is next to the table.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u6_town_v1_cafe_table.webp"
+          "text": "Finally, the next stop is the museum. I get off the bus. Then, I walk to the museum.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_bus_route_v1.webp"
         }
       ],
-      "spanish_translation": "El teléfono está en la bolsa. El libro está sobre la mesa. La manzana está debajo de la silla. La silla está junto a la mesa.",
-      "pedagogy_note": "Mission beat 09/13: Antes de seguir, revisa dónde quedó cada cosa en la mesa.",
+      "spanish_translation": "Voy al museo en autobús. Primero, subo al autobús. La próxima parada es la estación. Después, la próxima parada es la biblioteca. Después de eso, la próxima parada es la oficina de correos. Finalmente, la próxima parada es el museo. Bajo del autobús. Después, camino al museo.",
+      "correct_option_ids": [
+        "station",
+        "library",
+        "post-office",
+        "museum"
+      ],
+      "pedagogy_note": "Mission beat 09/14: Ana boards the blue bus and follows its printed interior route map, in order: station, library, post office, museum. The final stop is the museum, where she gets off. The map is an actual bus fixture; every stop is a separate neutral touch target.",
       "mission_game": {
         "kind": "contrast-hunt",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
-        "validation": "ordered",
+        "instruction_es": "Escucha y toca el lugar o el objeto.",
+        "validation": "unordered",
         "targets": [
           {
-            "id": "cafe-table-1",
-            "label_es": "El teléfono está en la bolsa.",
-            "accepted_option_ids": [
-              "cafe-table-1"
-            ],
+            "id": "station",
+            "label_es": "Objeto",
             "rect": {
-              "x": 0.06,
-              "y": 0.1,
-              "width": 0.19,
-              "height": 0.25
+              "x": 0.145,
+              "y": 0.241,
+              "width": 0.134,
+              "height": 0.19
             },
-            "head_anchors": [
-              {
-                "x": 0.155,
-                "y": 0.105
-              }
-            ]
+            "accepted_option_ids": [
+              "station"
+            ],
+            "subject_kind": "object"
           },
           {
-            "id": "cafe-table-2",
-            "label_es": "El libro está sobre la mesa.",
+            "id": "library",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.29,
+              "y": 0.203,
+              "width": 0.163,
+              "height": 0.2
+            },
             "accepted_option_ids": [
-              "cafe-table-2"
+              "library"
             ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "post-office",
+            "label_es": "Objeto",
             "rect": {
               "x": 0.48,
-              "y": 0.24,
-              "width": 0.165,
-              "height": 0.16
+              "y": 0.148,
+              "width": 0.19,
+              "height": 0.235
             },
-            "head_anchors": [
-              {
-                "x": 0.56,
-                "y": 0.28
-              }
-            ]
+            "accepted_option_ids": [
+              "post-office"
+            ],
+            "subject_kind": "object"
           },
           {
-            "id": "cafe-table-3",
-            "label_es": "La manzana está debajo de la silla.",
-            "accepted_option_ids": [
-              "cafe-table-3"
-            ],
+            "id": "museum",
+            "label_es": "Objeto",
             "rect": {
-              "x": 0.695,
-              "y": 0.6775,
-              "width": 0.12,
-              "height": 0.16
+              "x": 0.694,
+              "y": 0.039,
+              "width": 0.234,
+              "height": 0.31
             },
-            "head_anchors": [
-              {
-                "x": 0.752,
-                "y": 0.725
-              }
-            ]
-          },
-          {
-            "id": "cafe-table-4",
-            "label_es": "La silla está junto a la mesa.",
             "accepted_option_ids": [
-              "cafe-table-4"
+              "museum"
             ],
-            "rect": {
-              "x": 0.61,
-              "y": 0.15,
-              "width": 0.36,
-              "height": 0.78
-            },
-            "head_anchors": [
-              {
-                "x": 0.84,
-                "y": 0.155
-              }
-            ]
+            "subject_kind": "object"
           }
         ],
         "cues": [
           {
-            "id": "cue-cafe-table-1",
-            "text": "The phone is in the bag.",
-            "answer_text": "The phone is in the bag.",
-            "target_id": "cafe-table-1",
-            "option_id": "cafe-table-1"
+            "id": "cue-station",
+            "text": "I am going to the museum by bus. First, I get on the bus. The next stop is the station.",
+            "answer_text": "I am going to the museum by bus. First, I get on the bus. The next stop is the station.",
+            "target_id": "station",
+            "option_id": "station"
           },
           {
-            "id": "cue-cafe-table-2",
-            "text": "The book is on the table.",
-            "answer_text": "The book is on the table.",
-            "target_id": "cafe-table-2",
-            "option_id": "cafe-table-2"
+            "id": "cue-library",
+            "text": "Then, the next stop is the library.",
+            "answer_text": "Then, the next stop is the library.",
+            "target_id": "library",
+            "option_id": "library"
           },
           {
-            "id": "cue-cafe-table-3",
-            "text": "The apple is under the chair.",
-            "answer_text": "The apple is under the chair.",
-            "target_id": "cafe-table-3",
-            "option_id": "cafe-table-3"
+            "id": "cue-post-office",
+            "text": "After that, the next stop is the post office.",
+            "answer_text": "After that, the next stop is the post office.",
+            "target_id": "post-office",
+            "option_id": "post-office"
           },
           {
-            "id": "cue-cafe-table-4",
-            "text": "The chair is next to the table.",
-            "answer_text": "The chair is next to the table.",
-            "target_id": "cafe-table-4",
-            "option_id": "cafe-table-4"
+            "id": "cue-museum",
+            "text": "Finally, the next stop is the museum. I get off the bus. Then, I walk to the museum.",
+            "answer_text": "Finally, the next stop is the museum. I get off the bus. Then, I walk to the museum.",
+            "target_id": "museum",
+            "option_id": "museum"
           }
-        ]
+        ],
+        "cue_order": "authored"
       }
     },
     {
       "slide_id": "M10",
-      "mission_chapter_id": "pregunta",
-      "interaction_type": "mission-speak",
-      "stage": "Speak",
-      "prompt": "It is next to the store.",
-      "prompt_image_url": "",
+      "interaction_type": "mission-game",
+      "prompt": "Listen and choose.",
+      "mission_chapter_id": "travel",
+      "stage": "Listen",
+      "correct_option_id": "bank",
       "options": [
         {
-          "id": "bank-response",
-          "label": "It is next to the store.",
-          "image_url": "/lesson-assets/a1_u6_town_v1_bank_response.webp"
+          "id": "bank",
+          "image_url": "",
+          "label": "Go past the bank."
+        },
+        {
+          "id": "corner",
+          "image_url": "",
+          "label": "Turn left at the corner."
+        },
+        {
+          "id": "pharmacy",
+          "image_url": "",
+          "label": "The pharmacy is on the left."
+        },
+        {
+          "id": "museum",
+          "image_url": "",
+          "label": "Finally, stop at the museum. It is on the right."
         }
       ],
-      "correct_option_id": "bank-response",
-      "audio_text": "It is next to the store.",
+      "audio_text": "Go past the bank. Turn left at the corner. The pharmacy is on the left. Finally, stop at the museum. It is on the right.",
       "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp",
       "audio_turns": [
         {
-          "text": "Where is the bank?",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_bank_question.webp"
+          "text": "Go past the bank.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp"
+        },
+        {
+          "text": "Turn left at the corner.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp"
+        },
+        {
+          "text": "The pharmacy is on the left.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp"
+        },
+        {
+          "text": "Finally, stop at the museum. It is on the right.",
+          "speaker_role": "co-teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_final_walk_v1.webp"
         }
       ],
-      "spanish_translation": "Está junto a la tienda.",
-      "pedagogy_note": "Mission beat 10/13: La madre busca el banco; dile dónde está.",
+      "spanish_translation": "Pase junto al banco. Gire a la izquierda en la esquina. La farmacia está a la izquierda. Finalmente, pare en el museo. Está a la derecha.",
+      "correct_option_ids": [
+        "bank",
+        "corner",
+        "pharmacy",
+        "museum"
+      ],
+      "pedagogy_note": "Mission beat 10/14: The museum stop is close to the destination. Follow the final short route past a bank and around a left corner. The pharmacy is on the left; the museum is on the right. Ana meets a visitor before the museum entrance and uses these directions in the four closing voice gates.",
       "mission_game": {
-        "kind": "voice-gate",
-        "instruction_es": "Escucha la frase. Después lee la respuesta en voz alta.",
-        "validation": "single",
-        "cue_audio_text": "Where is the bank?",
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha y toca el lugar o el objeto.",
+        "validation": "unordered",
         "targets": [
           {
-            "id": "bank-response",
-            "label_es": "Está junto a la tienda.",
-            "accepted_option_ids": [
-              "bank-response"
-            ],
+            "id": "bank",
+            "label_es": "Objeto",
             "rect": {
-              "x": 0.1,
-              "y": 0.1,
-              "width": 0.8,
-              "height": 0.8
-            }
+              "x": 0.516,
+              "y": 0.552,
+              "width": 0.193,
+              "height": 0.274
+            },
+            "accepted_option_ids": [
+              "bank"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "corner",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.7075,
+              "y": 0.1825,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "accepted_option_ids": [
+              "corner"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "pharmacy",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.476,
+              "y": 0.3205,
+              "width": 0.146,
+              "height": 0.16
+            },
+            "accepted_option_ids": [
+              "pharmacy"
+            ],
+            "subject_kind": "object"
+          },
+          {
+            "id": "museum",
+            "label_es": "Objeto",
+            "rect": {
+              "x": 0.087,
+              "y": 0.006,
+              "width": 0.225,
+              "height": 0.194
+            },
+            "accepted_option_ids": [
+              "museum"
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [
           {
-            "id": "cue-bank-response",
-            "text": "Where is the bank?",
-            "answer_text": "It is next to the store.",
-            "target_id": "bank-response",
-            "option_id": "bank-response"
+            "id": "cue-bank",
+            "text": "Go past the bank.",
+            "answer_text": "Go past the bank.",
+            "target_id": "bank",
+            "option_id": "bank"
+          },
+          {
+            "id": "cue-corner",
+            "text": "Turn left at the corner.",
+            "answer_text": "Turn left at the corner.",
+            "target_id": "corner",
+            "option_id": "corner"
+          },
+          {
+            "id": "cue-pharmacy",
+            "text": "The pharmacy is on the left.",
+            "answer_text": "The pharmacy is on the left.",
+            "target_id": "pharmacy",
+            "option_id": "pharmacy"
+          },
+          {
+            "id": "cue-museum",
+            "text": "Finally, stop at the museum. It is on the right.",
+            "answer_text": "Finally, stop at the museum. It is on the right.",
+            "target_id": "museum",
+            "option_id": "museum"
           }
-        ]
+        ],
+        "cue_order": "authored"
       }
     },
     {
       "slide_id": "M11",
-      "mission_chapter_id": "pregunta",
       "interaction_type": "mission-speak",
+      "prompt": "I am going to the museum.",
+      "mission_chapter_id": "help-traveller",
       "stage": "Speak",
-      "prompt": "Go straight. Turn right.",
-      "prompt_image_url": "",
+      "correct_option_id": "destination-response",
       "options": [
         {
-          "id": "station-response",
-          "label": "Go straight. Turn right.",
-          "image_url": "/lesson-assets/a1_u6_town_v1_station_response.webp"
+          "id": "destination-response",
+          "label": "I am going to the museum.",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_destination_response_v1.webp"
         }
       ],
-      "correct_option_id": "station-response",
-      "audio_text": "Go straight. Turn right.",
+      "audio_text": "I am going to the museum.",
       "answer_audio_text": null,
+      "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Where is the station?",
+          "text": "Where are you going?",
           "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_station_question.webp"
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_destination_question_v2.webp"
         }
       ],
-      "spanish_translation": "Sigue derecho. Gira a la derecha.",
-      "pedagogy_note": "Mission beat 11/13: El padre busca la estación; dale las indicaciones.",
+      "spanish_translation": "Voy al museo.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Mission beat 11/14: A new male visitor asks Ana where she is going. She names her current destination.",
       "mission_game": {
         "kind": "voice-gate",
-        "instruction_es": "Escucha la frase. Después lee la respuesta en voz alta.",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
         "validation": "single",
-        "cue_audio_text": "Where is the station?",
+        "cue_audio_text": "Where are you going?",
         "targets": [
           {
-            "id": "station-response",
-            "label_es": "Sigue derecho. Gira a la derecha.",
-            "accepted_option_ids": [
-              "station-response"
-            ],
+            "id": "destination-response",
+            "label_es": "Respuesta",
             "rect": {
               "x": 0.1,
               "y": 0.1,
               "width": 0.8,
               "height": 0.8
-            }
+            },
+            "accepted_option_ids": [
+              "destination-response"
+            ]
           }
         ],
         "cues": [
           {
-            "id": "cue-station-response",
-            "text": "Where is the station?",
-            "answer_text": "Go straight. Turn right.",
-            "target_id": "station-response",
-            "option_id": "station-response"
+            "id": "cue-destination-response",
+            "text": "Where are you going?",
+            "answer_text": "I am going to the museum.",
+            "target_id": "destination-response",
+            "option_id": "destination-response"
           }
         ]
       }
     },
     {
       "slide_id": "M12",
-      "mission_chapter_id": "pregunta",
       "interaction_type": "mission-speak",
+      "prompt": "Yes, I can.",
+      "mission_chapter_id": "help-traveller",
       "stage": "Speak",
-      "prompt": "Thank you.",
-      "prompt_image_url": "",
+      "correct_option_id": "help-response",
       "options": [
         {
-          "id": "thanks-response",
-          "label": "Thank you.",
-          "image_url": "/lesson-assets/a1_u6_town_v1_thanks_response.webp"
+          "id": "help-response",
+          "label": "Yes, I can.",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_help_response_v1.webp"
         }
       ],
-      "correct_option_id": "thanks-response",
-      "audio_text": "Thank you.",
+      "audio_text": "Yes, I can.",
       "answer_audio_text": null,
+      "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "It is on the left.",
-          "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_thanks_question.webp"
+          "text": "Can you help me?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_destination_question_v2.webp"
         }
       ],
-      "spanish_translation": "Gracias.",
-      "pedagogy_note": "Mission beat 12/13: La niña te indica el camino; responde con cortesía.",
+      "spanish_translation": "Sí, puedo.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Mission beat 12/14: The same visitor asks for help. Ana agrees; the goods and people remain unchanged.",
       "mission_game": {
         "kind": "voice-gate",
-        "instruction_es": "Escucha la frase. Después lee la respuesta en voz alta.",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
         "validation": "single",
-        "cue_audio_text": "It is on the left.",
+        "cue_audio_text": "Can you help me?",
         "targets": [
           {
-            "id": "thanks-response",
-            "label_es": "Gracias.",
-            "accepted_option_ids": [
-              "thanks-response"
-            ],
+            "id": "help-response",
+            "label_es": "Respuesta",
             "rect": {
               "x": 0.1,
               "y": 0.1,
               "width": 0.8,
               "height": 0.8
-            }
+            },
+            "accepted_option_ids": [
+              "help-response"
+            ]
           }
         ],
         "cues": [
           {
-            "id": "cue-thanks-response",
-            "text": "It is on the left.",
-            "answer_text": "Thank you.",
-            "target_id": "thanks-response",
-            "option_id": "thanks-response"
+            "id": "cue-help-response",
+            "text": "Can you help me?",
+            "answer_text": "Yes, I can.",
+            "target_id": "help-response",
+            "option_id": "help-response"
           }
         ]
       }
     },
     {
       "slide_id": "M13",
-      "mission_chapter_id": "pregunta",
-      "interaction_type": "mission-finale",
+      "interaction_type": "mission-speak",
+      "prompt": "Go straight. Then, turn left.",
+      "mission_chapter_id": "help-traveller",
       "stage": "Speak",
-      "prompt": "Yes. The bus leaves at eight.",
-      "prompt_image_url": "",
+      "correct_option_id": "route-response",
       "options": [
         {
-          "id": "help-response",
-          "label": "Yes. The bus leaves at eight.",
-          "image_url": "/lesson-assets/a1_u6_town_v1_help_response.webp"
+          "id": "route-response",
+          "label": "Go straight. Then, turn left.",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_route_response_v1.webp"
         }
       ],
-      "correct_option_id": "help-response",
-      "audio_text": "Yes. The bus leaves at eight.",
+      "audio_text": "Go straight. Then, turn left.",
       "answer_audio_text": null,
+      "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Excuse me. Can you help me?",
+          "text": "How do I get to the museum?",
           "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u6_town_v1_help_question.webp"
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_destination_question_v2.webp"
         }
       ],
-      "spanish_translation": "Sí. El autobús sale a las ocho.",
-      "pedagogy_note": "Mission beat 13/13: El abuelo pide ayuda con el horario; responde y la ruta queda lista.",
+      "spanish_translation": "Siga derecho. Después, gire a la izquierda.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Mission beat 13/14: He asks for the route. Ana gives the already established final walking directions, with a distinct pointing response view.",
       "mission_game": {
         "kind": "voice-gate",
-        "instruction_es": "Escucha la frase. Después lee la respuesta en voz alta.",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
         "validation": "single",
-        "cue_audio_text": "Excuse me. Can you help me?",
+        "cue_audio_text": "How do I get to the museum?",
         "targets": [
           {
-            "id": "help-response",
-            "label_es": "Sí. El autobús sale a las ocho.",
-            "accepted_option_ids": [
-              "help-response"
-            ],
+            "id": "route-response",
+            "label_es": "Respuesta",
             "rect": {
               "x": 0.1,
               "y": 0.1,
               "width": 0.8,
               "height": 0.8
-            }
+            },
+            "accepted_option_ids": [
+              "route-response"
+            ]
           }
         ],
         "cues": [
           {
-            "id": "cue-help-response",
-            "text": "Excuse me. Can you help me?",
-            "answer_text": "Yes. The bus leaves at eight.",
-            "target_id": "help-response",
-            "option_id": "help-response"
+            "id": "cue-route-response",
+            "text": "How do I get to the museum?",
+            "answer_text": "Go straight. Then, turn left.",
+            "target_id": "route-response",
+            "option_id": "route-response"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M14",
+      "interaction_type": "mission-finale",
+      "prompt": "The museum is on the right.",
+      "mission_chapter_id": "help-traveller",
+      "stage": "Speak",
+      "correct_option_id": "arrival-response",
+      "options": [
+        {
+          "id": "arrival-response",
+          "label": "The museum is on the right.",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_arrival_response_v2.webp"
+        }
+      ],
+      "audio_text": "The museum is on the right.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Where is the museum?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mission_arrival_question_v2.webp"
+        }
+      ],
+      "spanish_translation": "El museo está a la derecha.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Mission beat 14/14: He asks which building. Ana points toward the museum on the viewer’s right. The family is visibly waiting at its entrance; after the response everyone arrives.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Where is the museum?",
+        "targets": [
+          {
+            "id": "arrival-response",
+            "label_es": "Respuesta",
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            },
+            "accepted_option_ids": [
+              "arrival-response"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-arrival-response",
+            "text": "Where is the museum?",
+            "answer_text": "The museum is on the right.",
+            "target_id": "arrival-response",
+            "option_id": "arrival-response"
           }
         ]
       }

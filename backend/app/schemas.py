@@ -225,6 +225,17 @@ class MissionGame(BaseModel):
     cues: list[MissionGameCue] = Field(min_length=1)
     tutorial_mode: Literal["guided-no-fail"] | None = None
     cue_audio_text: str | None = None
+    cue_order: Literal["authored"] | None = None
+    scene_scope: Literal["two-person-dialogue"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_cue_order(self, handler):
+        payload = handler(self)
+        if self.cue_order is None:
+            payload.pop("cue_order", None)
+        if self.scene_scope is None:
+            payload.pop("scene_scope", None)
+        return payload
 
     @field_validator("instruction_es")
     @classmethod
@@ -242,6 +253,11 @@ class MissionGame(BaseModel):
 
     @model_validator(mode="after")
     def require_coherent_target_plan(self):
+        if self.scene_scope == "two-person-dialogue":
+            if (self.kind != "crowd-search" or self.cue_order != "authored"
+                    or len(self.targets) != 2 or len(self.cues) != 2
+                    or any(target.subject_kind is not None for target in self.targets)):
+                raise ValueError("Two-person dialogue needs two person targets, two cues, authored order and crowd-search.")
         individual_heads = {
             (t.head_anchors[0].x, t.head_anchors[0].y)
             for t in self.targets

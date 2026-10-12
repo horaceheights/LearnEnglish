@@ -234,29 +234,41 @@ Before that rebuild, 5.2 Food and Drinks taught ten items, 5.3 Food Quantities o
 
 ### Unit 6: Around Town
 
-Goal: Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read whole-hour bus and train times.
+Goal: Complete a meaningful trip around town: name its destination and transport, describe where you are going, board and leave the vehicle, follow safe directions, ask for help, choose a service, buy a ticket and check its departure and arrival times.
 
 Lessons:
 
-1. 6.1 Buildings and Services: `station`, `bank`, `pharmacy`, `library`; `The mother is at the pharmacy.`, `The children are in the library.`
-2. 6.2 Transportation: `train`, `taxi`, `walk`, `by`; `I go to work by train.`, `The children walk to school.`
-3. 6.3 Near and Far: `near`, `far from`; `The girl is far from the school.`, `Where is the boy? He is near the station.`
-4. 6.4 Left and Right: `left`, `right`, `on the left`, `on the right`; `The bank is on the left.`
-5. 6.5 Simple Directions: `Go straight.`, `Turn left.`, `Turn right.`, `Cross the street.`, `Stop.`; `Stop at the bank.`
-6. 6.6 Can and Cannot: `can`, `cannot`, `there`; `The boy cannot cross the street.`, `They can go by train.`
-7. 6.7 Asking for Help: `Excuse me.`, `Can you help me?`, `Sorry, no.`; `Where is the station? It is on the left.`
-8. 6.8 Schedules: `leaves`, `arrives`; `The train arrives at four in the afternoon.`, `The bus leaves at eight on Saturday.`
-9. 6.9 Unit 6 Review
-10. 6.10 Ruta del barrio
+1. 6.1 **Places Around Town**: `station`, `bank`, `pharmacy`, `library`, `mall`, `supermarket`; known family members visit useful places.
+2. 6.2 **Ways to Travel**: `train`, `taxi`, `walk`, `by`, `airplane`, `boat`; retrieve `bus` and complete trips to known destinations.
+3. 6.3 **Where Are You Going?**: contextual `going` with the already taught `am/is/are` and pronouns; `Where are you going? I am going to the mall.` Extend to he, she, we and they. This is a current destination, not future `going to` plus a verb.
+4. 6.4 **More Places to Visit**: `hotel`, `post office`, `museum`, `movie theater`, `bus stop`, `airport`; use the destination language from 6.3.
+5. 6.5 **A Trip to the Mall**: `get on`, `get off`, `get in`, `get out of`; walk to the stop, ride to the mall, buy juice and return by taxi. Retrieve `First`, `Then`, `After that`, `Finally` from 4.6.
+6. 6.6 **Finding Places in the Neighborhood**: `near`, `far from`, `between`, `across from`; locate known places and then walk to one.
+7. 6.7 **Which Side of the Street?**: `left`, `right`, `on the left`, `on the right`; use a consistent viewpoint to find the mall and station.
+8. 6.8 **Following Directions**: `go straight`, `go past`, `corner`, `turn left`, `cross the street`, `stop`, `turn right`; follow a complete route, then transfer it to another destination.
+9. 6.9 **Finding a Safe Way**: `can`, `cannot`, `here`, `there`; a blocked crossing leads to an available route and transport.
+10. 6.10 **Can You Help Me Get There?**: `Excuse me`, `Can you help me`, `Sorry, no`, `How do I get to`; ask one person, encounter a refusal, ask a different helper, follow the directions and thank them.
+11. 6.11 **Which Bus Do I Need?**: `ticket`, `take`, `goes`, `Which bus`, `next stop`; choose a bus, request and receive a ticket, travel and get off at the destination.
+12. 6.12 **What Time Does It Leave?**: `leaves`, `arrives`, `What time does`, `leave`, `arrive`; question–answer pairs about a whole-hour train journey, then transfer to bus times.
+13. 6.13 **Three Trips Around Town**: fresh cumulative material: a family travels by boat to the mall and returns by taxi; a visitor asks for help and reaches the museum; a traveller checks train times and continues to the airport.
+14. 6.14 **Mission: Meet at the Museum**: one trip from the hotel through help, a safe crossing, bus selection, times, ticket purchase, bus stops and the final walk. The learner closes by helping another visitor reach the same museum.
+
+The approved 2026-10-10 implementation allocation is 42 cards for each of 6.1–6.12 and 54 for the fresh review. The mission has 32 listening decisions in ten scenes and four consecutive closing speaking scenes. These are authored allocations within the shared standards, not a limit on future curriculum. Preserve the ten existing permanent lesson IDs and increase their content revisions; give the four inserted lessons new IDs. The briefs and plans live in `content-briefs/unit6-story-2026-10-10/` and `content-plans/unit6-story-2026-10-10/`. Installation, semantic review and publication status are recorded separately in that package.
 
 Core patterns:
 
 - `It is a bank. The grandfather is at the bank.`
-- `I go by bus. The children walk to school.`
-- `The girl is near the school. The bank is on the left.`
-- `Go straight. Turn right. Stop at the bank.`
-- `You cannot cross the street. Excuse me. Can you help me?`
-- `The bus leaves at eight. The train arrives at nine.`
+- `Where are you going? I am going to the mall.`
+- `First, I walk to the bus stop. Then, I get on the bus. I get off the bus at the mall. After that, I walk to the mall.`
+- `Can I have juice, please? Here is your juice. Thank you.`
+- `The library is between the bank and the pharmacy. The mall is on the left.`
+- `Go straight. Go past the bank. Turn left at the corner. Finally, stop at the museum.`
+- `You cannot cross the street here. You can cross the street there.`
+- `Excuse me. Can you help me? How do I get to the mall?`
+- `Which bus goes to the museum? The blue bus goes to the museum.`
+- `What time does the train leave? The train leaves at nine. What time does the train arrive? The train arrives at ten.`
+
+Earlier language supplies the people, objects, needs, transaction turns and sequencing throughout Recognize, Listen, Speak and Use. Learn introduces the new words and contextual patterns; later stages expand them into the trip. Social replies are heard in an actual exchange, never guessed from an ambiguous pointing photo. New targets receive the shared yellow font while familiar support words keep their normal styling. Use preserves story order with the first floor(N/2) cards guided and the remaining cards complete constructions of 2–8 words; longer coherent models belong in Listen and Speak.
 
 **2026-09-27 rebuild (engine briefs, user direction: rebuild Units 5-7 through the engine, new photos approved).** Unit 6 was re-authored through the content engine from the briefs in `docs/product/content-briefs/unit-6/`. Every lesson had 34-36 cards; 6.1 re-taught `store` and `hospital` from 2.1, 6.3 re-taught the 4.3 `Where is ...? / next to / in / on` frames, 6.4 packed six items (near, far from, left, right and both `on the ...` phrases) onto arrow and tile diagrams, and most Learn cards re-taught known frames (`I go by bus.`, `The bus leaves at eight.`). Every teaching lesson now has 42 cards and its Learn cards hold only its new vocabulary. The old 6.3 and 6.4 are re-scoped: **6.3 Near and Far** (`lesson-6-3-where-is-it`) and **6.4 Left and Right** (`lesson-6-4-location-words`) each teach one contrast on photo pairs that change only that contrast (the same girl at the school gate or far down a road; the same bank and pharmacy swapped across one street; Luis pointing from behind, so his left is the learner's left). Practice reuses what learners know: the Unit 1 family at the new places, the Unit 2 vehicles in `I go by ...`, the Unit 4 `go to work` and `go to school`, and the Unit 4 days and parts of the day in the schedules (`in the afternoon`, `on Monday`, Speak and Use only). 6.5 practises `Stop` in `Stop at the hospital.` and `Stop at the bank.` so it reaches Speak; 6.7 adds `Where is the station?` and `It is on the left.` as the answer; untaught `goes` is gone (the old 6.2 and 6.6 used it), so people travel with `I go ...`, `They go ...` and `walk`. Unit 6 keeps 10 lessons. The review (54 cards) adds `She is at the library.`, `I walk to work.`, `The hospital is far from the park.`, `They go by taxi.`, `You cannot cross the street.` and `The hospital is on the right.` on six fresh photos; the mission already practised every rebuilt function and is unchanged except its vocabulary list. Lesson IDs are unchanged, so learner progress survives.
 

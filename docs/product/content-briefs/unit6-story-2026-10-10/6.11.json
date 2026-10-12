@@ -1,0 +1,1547 @@
+{
+  "brief_version": 1,
+  "note": "Ana is going to the museum. Luis identifies the right bus. At the counter Ana asks for a ticket and its price; the clerk hands it over and she thanks the clerk. She boards the identified bus, hears the next stop, gets off, and completes the walk to the museum. Ticket, route number/color, destination and stop announcement must agree. All ticket words are introduced here before their service use. No inference of goes from an ordinary parked-bus photograph.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-which-bus.yaml",
+  "lesson": {
+    "id": "lesson-6-which-bus",
+    "title": "6.11 Which Bus Do I Need?",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "sub_lesson_id": "6.11",
+    "sub_lesson_title": "Which Bus Do I Need?",
+    "goal": "Use a destination to choose a service, request a ticket, board and get off at the correct stop.",
+    "content_revision": 1,
+    "vocabulary": [
+      "ticket",
+      "take",
+      "goes",
+      "Which bus",
+      "next stop"
+    ],
+    "review_vocabulary": [],
+    "grammar_function": "Ana is going to the museum. Luis identifies the right bus. At the counter Ana asks for a ticket and its price; the clerk hands it over and she thanks the clerk. She boards the identified bus, hears the next stop, gets off, and completes the walk to the museum.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Use a destination to choose a service, request a ticket, board and get off at the correct stop.",
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "take"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I take the bus."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "goes"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The bus goes to the museum."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "Which bus",
+          "goes"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Which bus goes to the museum?"
+          },
+          {
+            "slide_id": "L5",
+            "text": "The blue bus goes to the museum."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "next stop"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "The next stop is the museum."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "ticket",
+      "text": "A ticket",
+      "es": "Un boleto",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
+      "kind": "ticket",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "take",
+      "text": "I take the bus.",
+      "es": "Tomo el autobús.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "take",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option.",
+        "action-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option."
+      }
+    },
+    {
+      "id": "goes",
+      "text": "The bus goes to the museum.",
+      "es": "El autobús va al museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+      "kind": "goes",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option.",
+        "action-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option."
+      }
+    },
+    {
+      "id": "which",
+      "text": "Which bus goes to the museum?",
+      "es": "¿Qué autobús va al museo?",
+      "image": "/lesson-assets/a1_photo_u6_story_bus_choice_v1.webp",
+      "kind": "which",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "blue",
+      "text": "The blue bus goes to the museum.",
+      "es": "El autobús azul va al museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+      "kind": "blue",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option.",
+        "action-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option."
+      },
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Which bus goes to the museum?",
+          "image": "/lesson-assets/a1_photo_u6_story_bus_choice_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The blue bus goes to the museum.",
+          "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "text": "The next stop is the museum.",
+      "es": "La próxima parada es el museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_bus_museum_stop_v1.webp",
+      "kind": "next",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "destination",
+      "text": "I am going to the museum.",
+      "es": "Voy al museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+      "kind": "destination",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option.",
+        "action-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option."
+      },
+      "listening_turns": [
+        {
+          "speaker": "male-character",
+          "text": "Where are you going?",
+          "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp"
+        },
+        {
+          "speaker": "ana",
+          "text": "I am going to the museum. Which bus goes to the museum?",
+          "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "ticket-sentence",
+      "text": "It is a ticket.",
+      "es": "Es un boleto.",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
+      "kind": "ticket-sentence",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "request",
+      "text": "Can I have a ticket, please?",
+      "es": "¿Me da un boleto, por favor?",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+      "kind": "request",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "Listen discriminates a complete, contextualized request or reply. No static image is used to decide an unspoken request or thanks."
+      }
+    },
+    {
+      "id": "price-q",
+      "text": "How much is the ticket?",
+      "es": "¿Cuánto cuesta el boleto?",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp",
+      "kind": "price-q",
+      "learn": false,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "price",
+      "text": "The ticket is two dollars.",
+      "es": "El boleto cuesta dos dólares.",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp",
+      "kind": "price",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "How much is the ticket?",
+          "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The ticket is two dollars.",
+          "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "handover",
+      "text": "Here is your ticket.",
+      "es": "Aquí está tu boleto.",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
+      "kind": "handover",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "thanks",
+      "text": "Thank you.",
+      "es": "Gracias.",
+      "image": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+      "kind": "thanks",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "Listen discriminates a complete, contextualized request or reply. No static image is used to decide an unspoken request or thanks."
+      },
+      "listening_turns": [
+        {
+          "speaker": "male-character",
+          "text": "Here is your ticket.",
+          "image": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp"
+        },
+        {
+          "speaker": "ana",
+          "text": "Thank you.",
+          "image": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "take-blue",
+      "text": "I take the blue bus.",
+      "es": "Tomo el autobús azul.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+      "kind": "take-blue",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option.",
+        "action-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option."
+      }
+    },
+    {
+      "id": "off",
+      "text": "Then, I get off the bus.",
+      "es": "Después, bajo del autobús.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+      "kind": "off",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option.",
+        "action-variety": "Keep the travel action and sentence frame fixed to test the named vehicle, route or destination. The exact photo/display or heard service announcement must determine the correct option."
+      },
+      "listening_turns": [
+        {
+          "speaker": "male-character",
+          "text": "The next stop is the museum.",
+          "image": "/lesson-assets/a1_photo_u6_story_bus_museum_stop_v1.webp"
+        },
+        {
+          "speaker": "ana",
+          "text": "Then, I get off the bus. I walk to the museum.",
+          "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "arrival",
+      "text": "Finally, I am at the museum.",
+      "es": "Finalmente, estoy en el museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp",
+      "kind": "arrival",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana"
+    }
+  ],
+  "pool": [
+    {
+      "text": "A book",
+      "es": "Un libro",
+      "kind": "ticket",
+      "form": "word",
+      "image": "/lesson-assets/a1_library.webp"
+    },
+    {
+      "text": "I take the train.",
+      "es": "Tomo el tren.",
+      "kind": "take",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp"
+    },
+    {
+      "text": "The bus goes to the mall.",
+      "es": "El autobús va al centro comercial.",
+      "kind": "goes"
+    },
+    {
+      "text": "Which bus goes to the mall?",
+      "es": "¿Qué autobús va al centro comercial?",
+      "kind": "which"
+    },
+    {
+      "text": "The red bus goes to the museum.",
+      "es": "El autobús rojo va al museo.",
+      "kind": "blue"
+    },
+    {
+      "text": "The next stop is the mall.",
+      "es": "La próxima parada es el centro comercial.",
+      "kind": "next"
+    },
+    {
+      "text": "I am going to the movie theater.",
+      "es": "Voy al cine.",
+      "kind": "destination"
+    },
+    {
+      "text": "It is a book.",
+      "es": "Es un libro.",
+      "kind": "ticket-sentence"
+    },
+    {
+      "text": "Can I have a bag, please?",
+      "es": "¿Me da una bolsa, por favor?",
+      "kind": "request"
+    },
+    {
+      "text": "The ticket is three dollars.",
+      "es": "El boleto cuesta tres dólares.",
+      "kind": "price"
+    },
+    {
+      "text": "Here is your book.",
+      "es": "Aquí está tu libro.",
+      "kind": "handover"
+    },
+    {
+      "text": "No, thank you.",
+      "es": "No, gracias.",
+      "kind": "thanks"
+    },
+    {
+      "text": "I take the red bus.",
+      "es": "Tomo el autobús rojo.",
+      "kind": "take-blue"
+    },
+    {
+      "text": "Then, I get on the bus.",
+      "es": "Después, subo al autobús.",
+      "kind": "off"
+    },
+    {
+      "text": "Finally, I am at the movie theater.",
+      "es": "Finalmente, estoy en el cine.",
+      "kind": "arrival"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "ticket",
+      "take",
+      "goes",
+      "which",
+      "blue",
+      "next"
+    ],
+    "Recognize": [
+      "ticket",
+      "ticket-sentence",
+      "blue",
+      "price",
+      "handover",
+      "take-blue",
+      "off",
+      "arrival"
+    ],
+    "Listen": [
+      "destination",
+      "blue",
+      "request",
+      "price",
+      "thanks",
+      "take-blue",
+      "next",
+      "off"
+    ],
+    "Speak": [
+      "destination",
+      "which",
+      "blue",
+      "request",
+      "price",
+      "handover",
+      "thanks",
+      "take-blue",
+      "next",
+      "off"
+    ],
+    "Use": [
+      "which",
+      "blue",
+      "request",
+      "price",
+      "handover",
+      "thanks",
+      "take-blue",
+      "next",
+      "off",
+      "arrival"
+    ]
+  },
+  "storyboard": {
+    "setting": "Ana selects the museum bus and buys a ticket.",
+    "cast_and_props": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+    "transitions": "Destination and service question precede purchase. Ticket stays with clerk during request/price, crosses counter during handover, remains with Ana after thanks. Then board, hear next stop, get off and arrive.",
+    "arc": "Ana is going to the museum. Luis identifies the right bus. At the counter Ana asks for a ticket and its price; the clerk hands it over and she thanks the clerk. She boards the identified bus, hears the next stop, gets off, and completes the walk to the museum.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "ticket",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "A ticket",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A ticket",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "take",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "I take the bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I take the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "goes",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The bus goes to the museum.",
+            "voice": "co-teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bus goes to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "which",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Which bus goes to the museum?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_choice_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Which bus goes to the museum?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L5",
+        "stage": "Learn",
+        "item_id": "blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The blue bus goes to the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The blue bus goes to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L6",
+        "stage": "Learn",
+        "item_id": "next",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The next stop is the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_museum_stop_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The next stop is the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "ticket",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "A ticket",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A ticket",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "ticket-sentence",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "It is a ticket.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "It is a ticket.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The blue bus goes to the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The blue bus goes to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "price",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The ticket is two dollars.",
+            "voice": "male-character",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The ticket is two dollars.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "handover",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Here is your ticket.",
+            "voice": "male-character",
+            "speaker_listener": "Male clerk speaks; Ana receives.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
+            "props_before": "Same one ticket is being extended by the clerk.",
+            "props_after": "Ana takes that ticket; no extra ticket appears."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Here is your ticket.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "take-blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "I take the blue bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I take the blue bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "off",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Then, I get off the bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I get off the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "arrival",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the museum.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "destination",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Where are you going?",
+            "voice": "male-character",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          },
+          {
+            "exact_english": "I am going to the museum. Which bus goes to the museum?",
+            "voice": "ana",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Which bus goes to the museum?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_choice_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The blue bus goes to the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The blue bus goes to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "request",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Can I have a ticket, please?",
+            "voice": "ana",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can I have a ticket, please?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "price",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "How much is the ticket?",
+            "voice": "ana",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          },
+          {
+            "exact_english": "The ticket is two dollars.",
+            "voice": "male-character",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The ticket is two dollars.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "thanks",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Here is your ticket.",
+            "voice": "male-character",
+            "speaker_listener": "Male clerk speaks; Ana receives.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
+            "props_before": "Same one ticket is being extended by the clerk.",
+            "props_after": "Ana takes that ticket; no extra ticket appears."
+          },
+          {
+            "exact_english": "Thank you.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks; male clerk listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+            "props_before": "Ana holds the ticket on customer side.",
+            "props_after": "Ana keeps ticket and thanks the same clerk."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Thank you.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "take-blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "I take the blue bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I take the blue bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "next",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The next stop is the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_museum_stop_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The next stop is the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "off",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The next stop is the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_museum_stop_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "Then, I get off the bus. I walk to the museum.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I get off the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "destination",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "I am going to the museum.",
+            "voice": "ana",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "which",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Which bus goes to the museum?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_choice_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Which bus goes to the museum?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The blue bus goes to the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The blue bus goes to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "request",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Can I have a ticket, please?",
+            "voice": "ana",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can I have a ticket, please?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "price",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The ticket is two dollars.",
+            "voice": "male-character",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The ticket is two dollars.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "handover",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Here is your ticket.",
+            "voice": "male-character",
+            "speaker_listener": "Male clerk speaks; Ana receives.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
+            "props_before": "Same one ticket is being extended by the clerk.",
+            "props_after": "Ana takes that ticket; no extra ticket appears."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Here is your ticket.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "thanks",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Thank you.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks; male clerk listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+            "props_before": "Ana holds the ticket on customer side.",
+            "props_after": "Ana keeps ticket and thanks the same clerk."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Thank you.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "take-blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "I take the blue bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I take the blue bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S9",
+        "stage": "Speak",
+        "item_id": "next",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The next stop is the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_museum_stop_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The next stop is the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S10",
+        "stage": "Speak",
+        "item_id": "off",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Then, I get off the bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I get off the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "which",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Which bus goes to the museum?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_choice_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Which bus goes to the museum?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The blue bus goes to the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The blue bus goes to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "request",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Can I have a ticket, please?",
+            "voice": "ana",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can I have a ticket, please?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "price",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The ticket is two dollars.",
+            "voice": "male-character",
+            "speaker_listener": "Ana and male clerk alternate exact authored lines.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_price_v1.webp",
+            "props_before": "Ana has no ticket; one ticket remains on clerk side.",
+            "props_after": "Request/price is discussed; no handover yet."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The ticket is two dollars.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "handover",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Here is your ticket.",
+            "voice": "male-character",
+            "speaker_listener": "Male clerk speaks; Ana receives.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
+            "props_before": "Same one ticket is being extended by the clerk.",
+            "props_after": "Ana takes that ticket; no extra ticket appears."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Here is your ticket.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "thanks",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Thank you.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks; male clerk listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+            "props_before": "Ana holds the ticket on customer side.",
+            "props_after": "Ana keeps ticket and thanks the same clerk."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Thank you.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "take-blue",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "I take the blue bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I take the blue bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "next",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "The next stop is the museum.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_bus_museum_stop_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The next stop is the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U9",
+        "stage": "Use",
+        "item_id": "off",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Then, I get off the bus.",
+            "voice": "ana",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_museum_bus_off_v1.webp",
+            "props_before": "Traveller faces out through the vehicle doorway/gangway.",
+            "props_after": "Traveller reaches pavement/platform/dock."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I get off the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U10",
+        "stage": "Use",
+        "item_id": "arrival",
+        "setting": "Ana selects the museum bus and buys a ticket.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive shirt; blue bus to museum; red bus alternative; male ticket clerk pale blue shirt and glasses; one cream ticket priced 2.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the museum.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  }
+}

@@ -93,9 +93,9 @@ EXACT_ROLE_CHANGES = {
 # its pictured speakers; M15's bag acceptance adds one female answer field.
 # Per-turn speakers are audited separately. These pin this reviewed snapshot,
 # not a cap on new content; exact deltas are in the matching QA inventory.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 1993
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2212
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "eb33c858050d6e055c473112c489f2d8eda08807eeb7ab2488c6b7e7074049b8"
+    "f9c3a7443826983ebf45c3d7dff7dd6dd877447b8ab288386b8135926daf2eba"
 )
 
 

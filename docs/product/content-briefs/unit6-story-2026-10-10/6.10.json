@@ -1,0 +1,1534 @@
+{
+  "brief_version": 1,
+  "note": "Ana is going to the mall but needs directions. She approaches one person, asks for help and hears Sorry, no. A clear transition introduces Luis as a different helper. He agrees, hears the named destination, gives a usable route, receives thanks, and Ana follows the route to the mall. This is where the fuller story and conversation belong. This is the former proposed 6.9, renumbered 6.10 by the new Going lesson. The screenshot’s Thank you / Sorry, no task has no defensible photo-only answer. Replace that recognition task with visible route meaning; retain actual reply discrimination in listening and contextual production. Do not add a text-only Recognize conversation quiz or a new dialogue layout.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-7-simple-requests.yaml",
+  "lesson": {
+    "id": "lesson-6-7-simple-requests",
+    "title": "6.10 Can You Help Me Get There?",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.10",
+    "sub_lesson_title": "Can You Help Me Get There?",
+    "goal": "Complete a directions conversation and use the reply to reach the intended destination.",
+    "vocabulary": [
+      "Excuse me",
+      "Can you help me",
+      "Sorry, no",
+      "How do I get to"
+    ],
+    "grammar_function": "Ana is going to the mall but needs directions. She approaches one person, asks for help and hears Sorry, no. A clear transition introduces Luis as a different helper. He agrees, hears the named destination, gives a usable route, receives thanks, and Ana follows the route to the mall. This is where the fuller story and conversation belong.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Complete a directions conversation and use the reply to reach the intended destination.",
+    "content_revision": 3,
+    "review_vocabulary": [],
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "Can you help me",
+          "Sorry, no"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Can you help me?"
+          },
+          {
+            "slide_id": "L3",
+            "text": "Sorry, no."
+          }
+        ]
+      }
+    ],
+    "learn_context_pairs": [
+      {
+        "target": "Can you help me",
+        "question_slide_id": "L4",
+        "answer_slide_id": "L5",
+        "question": "Can you help me?",
+        "answer": "Yes, I can."
+      },
+      {
+        "target": "How do I get to",
+        "question_slide_id": "L6",
+        "answer_slide_id": "L7",
+        "question": "How do I get to the mall?",
+        "answer": "Go straight. Then, turn right."
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "excuse",
+      "text": "Excuse me.",
+      "es": "Disculpe.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "excuse",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      }
+    },
+    {
+      "id": "ask-first",
+      "text": "Can you help me?",
+      "es": "¿Puede ayudarme?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+      "kind": "ask-first",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      }
+    },
+    {
+      "id": "no",
+      "text": "Sorry, no.",
+      "es": "Lo siento, no.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp",
+      "kind": "no",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "female-character",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      },
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Excuse me. Can you help me?",
+          "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp"
+        },
+        {
+          "speaker": "female-character",
+          "text": "Sorry, no.",
+          "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "still-help",
+      "text": "I need help.",
+      "es": "Necesito ayuda.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "still-help",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "listening_turns": [
+        {
+          "speaker": "female-character",
+          "text": "Sorry, no.",
+          "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp"
+        },
+        {
+          "speaker": "ana",
+          "text": "I need help.",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "ask-second",
+      "text": "Can you help me?",
+      "es": "¿Puede ayudarme?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "ask-second",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      }
+    },
+    {
+      "id": "yes",
+      "text": "Yes, I can.",
+      "es": "Sí, puedo.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp",
+      "kind": "yes",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      },
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Can you help me?",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "Yes, I can.",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "how",
+      "text": "How do I get to the mall?",
+      "es": "¿Cómo llego al centro comercial?",
+      "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+      "kind": "how",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      }
+    },
+    {
+      "id": "route",
+      "text": "Go straight. Then, turn right.",
+      "es": "Siga derecho. Después, gire a la derecha.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp",
+      "kind": "route",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      },
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "How do I get to the mall?",
+          "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "Go straight. Then, turn right.",
+          "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "mall-across",
+      "text": "The mall is across from the bank.",
+      "es": "El centro comercial está enfrente del banco.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_neighborhood_v1.webp",
+      "kind": "mall-across",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "straight",
+      "text": "Go straight.",
+      "es": "Siga derecho.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp",
+      "kind": "straight",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      }
+    },
+    {
+      "id": "corner",
+      "text": "A corner",
+      "es": "Una esquina",
+      "image": "/lesson-assets/a1_photo_u6_story_route_corner_v1.webp",
+      "kind": "corner",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "right",
+      "text": "Turn right at the corner.",
+      "es": "Gire a la derecha en la esquina.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_neighborhood_v1.webp",
+      "kind": "right",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      }
+    },
+    {
+      "id": "mall-left",
+      "text": "The mall is on the left.",
+      "es": "El centro comercial está a la izquierda.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_mall_left_v1.webp",
+      "kind": "mall-left",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "walk",
+      "text": "I walk to the mall.",
+      "es": "Camino al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "kind": "walk",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The known walking frame remains fixed while the named destination changes; verify the visible destination.",
+        "action-variety": "The known walking frame remains fixed while the named destination changes; verify the visible destination."
+      }
+    },
+    {
+      "id": "thanks",
+      "text": "Thank you.",
+      "es": "Gracias.",
+      "image": "/lesson-assets/a1_photo_u6_story_help_thanks_v1.webp",
+      "kind": "thanks",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "conversational-response": "This is a complete taught conversational turn or direction. Replies are assessed in Listen with the preceding question and never inferred from a generic pointing image. Review the exact heard exchange."
+      },
+      "listening_turns": [
+        {
+          "speaker": "male-character",
+          "text": "The mall is on the left.",
+          "image": "/lesson-assets/a1_photo_u6_story_help_mall_left_v1.webp"
+        },
+        {
+          "speaker": "ana",
+          "text": "Thank you.",
+          "image": "/lesson-assets/a1_photo_u6_story_help_thanks_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "arrival",
+      "text": "Finally, I am at the mall.",
+      "es": "Finalmente, estoy en el centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+      "kind": "arrival",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana"
+    }
+  ],
+  "pool": [
+    {
+      "text": "Thank you.",
+      "es": "Gracias.",
+      "kind": "excuse"
+    },
+    {
+      "text": "Where are you going?",
+      "es": "¿Adónde va?",
+      "kind": "ask-first"
+    },
+    {
+      "text": "Yes, I can.",
+      "es": "Sí, puedo.",
+      "kind": "no"
+    },
+    {
+      "text": "I need water.",
+      "es": "Necesito agua.",
+      "kind": "still-help"
+    },
+    {
+      "text": "Where are you going?",
+      "es": "¿Adónde va?",
+      "kind": "ask-second"
+    },
+    {
+      "text": "Sorry, no.",
+      "es": "Lo siento, no.",
+      "kind": "yes"
+    },
+    {
+      "text": "How do I get to the bank?",
+      "es": "¿Cómo llego al banco?",
+      "kind": "how"
+    },
+    {
+      "text": "Go straight. Then, turn left.",
+      "es": "Siga derecho. Después, gire a la izquierda.",
+      "kind": "route"
+    },
+    {
+      "text": "The mall is next to the bank.",
+      "es": "El centro comercial está junto al banco.",
+      "kind": "mall-across"
+    },
+    {
+      "text": "Turn left.",
+      "es": "Gire a la izquierda.",
+      "kind": "straight"
+    },
+    {
+      "text": "A station",
+      "es": "Una estación",
+      "kind": "corner",
+      "form": "word",
+      "image": "/lesson-assets/a1_station.webp"
+    },
+    {
+      "text": "Turn left at the corner.",
+      "es": "Gire a la izquierda en la esquina.",
+      "kind": "right"
+    },
+    {
+      "text": "The mall is on the right.",
+      "es": "El centro comercial está a la derecha.",
+      "kind": "mall-left"
+    },
+    {
+      "text": "I walk to the bank.",
+      "es": "Camino al banco.",
+      "kind": "walk"
+    },
+    {
+      "text": "Sorry, no.",
+      "es": "Lo siento, no.",
+      "kind": "thanks"
+    },
+    {
+      "text": "Finally, I am at the bank.",
+      "es": "Finalmente, estoy en el banco.",
+      "kind": "arrival"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "excuse",
+      "ask-first",
+      "no",
+      "ask-second",
+      "yes",
+      "how",
+      "route"
+    ],
+    "Recognize": [
+      "mall-across",
+      "straight",
+      "right",
+      "mall-left",
+      "walk",
+      "arrival"
+    ],
+    "Listen": [
+      "excuse",
+      "no",
+      "still-help",
+      "yes",
+      "how",
+      "route",
+      "mall-left",
+      "thanks",
+      "arrival"
+    ],
+    "Speak": [
+      "excuse",
+      "ask-first",
+      "no",
+      "ask-second",
+      "yes",
+      "how",
+      "route",
+      "mall-left",
+      "thanks",
+      "arrival"
+    ],
+    "Use": [
+      "excuse",
+      "ask-first",
+      "no",
+      "ask-second",
+      "yes",
+      "how",
+      "route",
+      "mall-left",
+      "thanks",
+      "arrival"
+    ]
+  },
+  "storyboard": {
+    "setting": "Two help encounters during Ana's walk to the mall.",
+    "cast_and_props": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+    "transitions": "The same helper never switches from refusal to agreement. Question precedes response; route precedes thanks and arrival.",
+    "arc": "Ana is going to the mall but needs directions. She approaches one person, asks for help and hears Sorry, no. A clear transition introduces Luis as a different helper. He agrees, hears the named destination, gives a usable route, receives thanks, and Ana follows the route to the mall. This is where the fuller story and conversation belong.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "excuse",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Excuse me.",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Excuse me.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "ask-first",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can you help me?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "no",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Sorry, no.",
+            "voice": "female-character",
+            "speaker_listener": "Female helper responds to Ana.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp",
+            "props_before": "Ana has asked the first, older female helper.",
+            "props_after": "Helper declines; Ana must ask someone else."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Sorry, no.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "ask-second",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can you help me?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L5",
+        "stage": "Learn",
+        "item_id": "yes",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Yes, I can.",
+            "voice": "male-character",
+            "speaker_listener": "Male helper responds; Ana listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp",
+            "props_before": "Ana has asked the male helper.",
+            "props_after": "He agrees and is available to give directions."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Yes, I can.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L6",
+        "stage": "Learn",
+        "item_id": "how",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "How do I get to the mall?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "How do I get to the mall?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L7",
+        "stage": "Learn",
+        "item_id": "route",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Go straight. Then, turn right.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight. Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "mall-across",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "The mall is across from the bank.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_neighborhood_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is across from the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "straight",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Go straight.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "right",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Turn right at the corner.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_neighborhood_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn right at the corner.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "mall-left",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_mall_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "walk",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "I walk to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I walk to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "arrival",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "excuse",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Excuse me.",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Excuse me.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "no",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Excuse me. Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          },
+          {
+            "exact_english": "Sorry, no.",
+            "voice": "female-character",
+            "speaker_listener": "Female helper responds to Ana.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp",
+            "props_before": "Ana has asked the first, older female helper.",
+            "props_after": "Helper declines; Ana must ask someone else."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Sorry, no.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "still-help",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Sorry, no.",
+            "voice": "female-character",
+            "speaker_listener": "Female helper responds to Ana.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp",
+            "props_before": "Ana has asked the first, older female helper.",
+            "props_after": "Helper declines; Ana must ask someone else."
+          },
+          {
+            "exact_english": "I need help.",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I need help.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "yes",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          },
+          {
+            "exact_english": "Yes, I can.",
+            "voice": "male-character",
+            "speaker_listener": "Male helper responds; Ana listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp",
+            "props_before": "Ana has asked the male helper.",
+            "props_after": "He agrees and is available to give directions."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Yes, I can.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "how",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "How do I get to the mall?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "How do I get to the mall?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "route",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "How do I get to the mall?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          },
+          {
+            "exact_english": "Go straight. Then, turn right.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight. Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "mall-left",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_mall_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "thanks",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_mall_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "Thank you.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_thanks_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Thank you.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A9",
+        "stage": "Listen",
+        "item_id": "arrival",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "excuse",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Excuse me.",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Excuse me.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "ask-first",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can you help me?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "no",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Sorry, no.",
+            "voice": "female-character",
+            "speaker_listener": "Female helper responds to Ana.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp",
+            "props_before": "Ana has asked the first, older female helper.",
+            "props_after": "Helper declines; Ana must ask someone else."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Sorry, no.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "ask-second",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can you help me?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "yes",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Yes, I can.",
+            "voice": "male-character",
+            "speaker_listener": "Male helper responds; Ana listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp",
+            "props_before": "Ana has asked the male helper.",
+            "props_after": "He agrees and is available to give directions."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Yes, I can.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "how",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "How do I get to the mall?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "How do I get to the mall?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "route",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Go straight. Then, turn right.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight. Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "mall-left",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_mall_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S9",
+        "stage": "Speak",
+        "item_id": "thanks",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Thank you.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_thanks_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Thank you.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S10",
+        "stage": "Speak",
+        "item_id": "arrival",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "excuse",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Excuse me.",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Excuse me.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "ask-first",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; female helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_question_v1.webp",
+            "props_before": "Ana approaches older female helper with empty hands.",
+            "props_after": "Question has been asked; reply has not happened."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can you help me?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "no",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Sorry, no.",
+            "voice": "female-character",
+            "speaker_listener": "Female helper responds to Ana.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_first_refusal_v1.webp",
+            "props_before": "Ana has asked the first, older female helper.",
+            "props_after": "Helper declines; Ana must ask someone else."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Sorry, no.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "ask-second",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Can you help me?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Can you help me?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "yes",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Yes, I can.",
+            "voice": "male-character",
+            "speaker_listener": "Male helper responds; Ana listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_yes_v1.webp",
+            "props_before": "Ana has asked the male helper.",
+            "props_after": "He agrees and is available to give directions."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Yes, I can.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "how",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "How do I get to the mall?",
+            "voice": "ana",
+            "speaker_listener": "Ana asks; male helper listens.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_second_question_v1.webp",
+            "props_before": "A clearly different encounter with the male helper; hands empty.",
+            "props_after": "Ana has requested help or asked destination route."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "How do I get to the mall?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "route",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Go straight. Then, turn right.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_route_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight. Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "mall-left",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "The mall is on the left.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_mall_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is on the left.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U9",
+        "stage": "Use",
+        "item_id": "thanks",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Thank you.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_help_thanks_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Thank you.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U10",
+        "stage": "Use",
+        "item_id": "arrival",
+        "setting": "Two help encounters during Ana's walk to the mall.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana asks older silver-haired woman in blue cardigan, who refuses. At a different corner Ana asks Luis in navy polo, who agrees and explains the route.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  },
+  "replaces_sha256": "849d8f93afba6c6c7a74b71968afbcc38ec5ec01e7db8d3c4e7f4a548dcc2339"
+}

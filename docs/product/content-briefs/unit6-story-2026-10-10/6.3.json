@@ -1,0 +1,1599 @@
+{
+  "brief_version": 1,
+  "note": "Ana is leaving for the mall. Luis asks her destination. They then talk about a man going to the bank and a woman going to the library. Finally, Ana’s family joins her: we are going to the mall, while an outside observer describes the same group as they. Every question is followed by the answer it requests. Teach present movement/destination, not be going to + verb for future plans. I go to school by bus describes a routine; I am going to the mall describes the current trip. Going was not found as a declared vocabulary target in the current catalog. Question patterns require exact contextual bindings. Do not call their familiar answer language additional new vocabulary.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-going-places.yaml",
+  "lesson": {
+    "id": "lesson-6-going-places",
+    "title": "6.3 Where Are You Going?",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "sub_lesson_id": "6.3",
+    "sub_lesson_title": "Where Are You Going?",
+    "goal": "Ask about a current destination and answer with I am, you are, he/she is and we/they are going.",
+    "content_revision": 1,
+    "vocabulary": [
+      "going"
+    ],
+    "review_vocabulary": [],
+    "grammar_function": "Ana is leaving for the mall. Luis asks her destination. They then talk about a man going to the bank and a woman going to the library. Finally, Ana’s family joins her: we are going to the mall, while an outside observer describes the same group as they. Every question is followed by the answer it requests.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Ask about a current destination and answer with I am, you are, he/she is and we/they are going.",
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "going"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Where are you going?"
+          },
+          {
+            "slide_id": "L2",
+            "text": "I am going to the mall."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "going"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Where is he going?"
+          },
+          {
+            "slide_id": "L4",
+            "text": "He is going to the bank."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "going"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "Where is she going?"
+          },
+          {
+            "slide_id": "L6",
+            "text": "She is going to the library."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "going"
+        ],
+        "models": [
+          {
+            "slide_id": "L7",
+            "text": "Where are they going?"
+          },
+          {
+            "slide_id": "L8",
+            "text": "They are going to the mall."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "q-you",
+      "text": "Where are you going?",
+      "es": "¿Adónde vas?",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+      "kind": "q-you",
+      "learn": true,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "i-mall",
+      "text": "I am going to the mall.",
+      "es": "Voy al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "kind": "i-mall",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      },
+      "listening_turns": [
+        {
+          "speaker": "male-character",
+          "text": "Where are you going?",
+          "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp"
+        },
+        {
+          "speaker": "ana",
+          "text": "I am going to the mall.",
+          "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-he",
+      "text": "Where is he going?",
+      "es": "¿Adónde va él?",
+      "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+      "kind": "q-he",
+      "learn": true,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "he-bank",
+      "text": "He is going to the bank.",
+      "es": "Él va al banco.",
+      "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+      "kind": "he-bank",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      },
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is he going?",
+          "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "He is going to the bank.",
+          "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-she",
+      "text": "Where is she going?",
+      "es": "¿Adónde va ella?",
+      "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+      "kind": "q-she",
+      "learn": true,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "she-library",
+      "text": "She is going to the library.",
+      "es": "Ella va a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+      "kind": "she-library",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      },
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is she going?",
+          "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "She is going to the library.",
+          "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-they",
+      "text": "Where are they going?",
+      "es": "¿Adónde van?",
+      "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+      "kind": "q-they",
+      "learn": true,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "they-mall",
+      "text": "They are going to the mall.",
+      "es": "Van al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+      "kind": "they-mall",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "teacher",
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      },
+      "listening_turns": [
+        {
+          "speaker": "male-character",
+          "text": "Where are they going?",
+          "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp"
+        },
+        {
+          "speaker": "ana",
+          "text": "They are going to the mall.",
+          "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp"
+        }
+      ]
+    },
+    {
+      "id": "you-mall",
+      "text": "You are going to the mall.",
+      "es": "Vas al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "kind": "you-mall",
+      "learn": false,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "male-character"
+    },
+    {
+      "id": "she-mall",
+      "text": "She is going to the mall.",
+      "es": "Ella va al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "kind": "she-mall",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      }
+    },
+    {
+      "id": "we-mall",
+      "text": "We are going to the mall.",
+      "es": "Vamos al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+      "kind": "we-mall",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      }
+    },
+    {
+      "id": "i-bus",
+      "text": "I am going by bus.",
+      "es": "Voy en autobús.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_bus_seat_v1.webp",
+      "kind": "i-bus",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      }
+    },
+    {
+      "id": "we-bus",
+      "text": "We are going by bus.",
+      "es": "Vamos en autobús.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_bus_seat_v1.webp",
+      "kind": "we-bus",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      }
+    },
+    {
+      "id": "he-going",
+      "text": "He is going to the bank by taxi.",
+      "es": "Él va al banco en taxi.",
+      "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+      "kind": "he-going",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      }
+    },
+    {
+      "id": "she-walk",
+      "text": "She is going to the library. She has books.",
+      "es": "Ella va a la biblioteca. Tiene libros.",
+      "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+      "kind": "she-walk",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review.",
+        "action-variety": "Keep the present-progressive speaker and action fixed; distinguish the stated destination or transport, not an unrelated action. This bank remains a draft pending exact media review."
+      }
+    },
+    {
+      "id": "he-pronoun",
+      "text": "He is going to the bank.",
+      "es": "Él va al banco.",
+      "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+      "kind": "he-pronoun",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "action-variety": "This bank contrasts the pronoun for the pictured person or group while preserving the current destination and going action."
+      }
+    },
+    {
+      "id": "she-pronoun",
+      "text": "She is going to the library.",
+      "es": "Ella va a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+      "kind": "she-pronoun",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "action-variety": "This bank contrasts the pronoun for the pictured person or group while preserving the current destination and going action."
+      }
+    },
+    {
+      "id": "they-pronoun",
+      "text": "They are going to the mall.",
+      "es": "Van al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+      "kind": "they-pronoun",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "speaker": "teacher",
+      "accepts": {
+        "action-variety": "This bank contrasts the pronoun for the pictured person or group while preserving the current destination and going action."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "I am going to the bank.",
+      "es": "Voy al banco.",
+      "kind": "i-mall"
+    },
+    {
+      "text": "He is going to the station.",
+      "es": "Él va a la estación.",
+      "kind": "he-bank"
+    },
+    {
+      "text": "She is going to the pharmacy.",
+      "es": "Ella va a la farmacia.",
+      "kind": "she-library"
+    },
+    {
+      "text": "They are going to the supermarket.",
+      "es": "Van al supermercado.",
+      "kind": "they-mall"
+    },
+    {
+      "text": "They are going to the bank.",
+      "es": "Van al banco.",
+      "kind": "they-mall"
+    },
+    {
+      "text": "They are going to the station.",
+      "es": "Van a la estación.",
+      "kind": "they-mall"
+    },
+    {
+      "text": "She is going to the library.",
+      "es": "Ella va a la biblioteca.",
+      "kind": "she-mall",
+      "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp"
+    },
+    {
+      "text": "We are going to the bank.",
+      "es": "Vamos al banco.",
+      "kind": "we-mall"
+    },
+    {
+      "text": "I am going by train.",
+      "es": "Voy en tren.",
+      "kind": "i-bus"
+    },
+    {
+      "text": "We are going by taxi.",
+      "es": "Vamos en taxi.",
+      "kind": "we-bus"
+    },
+    {
+      "text": "He is going to the bank by train.",
+      "es": "Él va al banco en tren.",
+      "kind": "he-going"
+    },
+    {
+      "text": "She is going to the pharmacy. She has books.",
+      "es": "Ella va a la farmacia. Tiene libros.",
+      "kind": "she-walk"
+    },
+    {
+      "id": "he-pronoun-wrong",
+      "text": "She is going to the bank.",
+      "es": "Contraste de pronombre.",
+      "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+      "kind": "he-pronoun",
+      "learn": false,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "action-variety": "This bank contrasts the pronoun for the pictured person or group while preserving the current destination and going action."
+      }
+    },
+    {
+      "id": "she-pronoun-wrong",
+      "text": "He is going to the library.",
+      "es": "Contraste de pronombre.",
+      "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+      "kind": "she-pronoun",
+      "learn": false,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "male-character",
+      "accepts": {
+        "action-variety": "This bank contrasts the pronoun for the pictured person or group while preserving the current destination and going action."
+      }
+    },
+    {
+      "id": "they-pronoun-wrong",
+      "text": "She is going to the mall.",
+      "es": "Contraste de pronombre.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+      "kind": "they-pronoun",
+      "learn": false,
+      "choices": false,
+      "image_choices": true,
+      "speaker": "teacher",
+      "accepts": {
+        "action-variety": "This bank contrasts the pronoun for the pictured person or group while preserving the current destination and going action."
+      }
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "q-you",
+      "i-mall",
+      "q-he",
+      "he-bank",
+      "q-she",
+      "she-library",
+      "q-they",
+      "they-mall"
+    ],
+    "Recognize": [
+      "she-mall",
+      "i-mall",
+      "he-pronoun",
+      "he-bank",
+      "she-pronoun",
+      "she-library",
+      "they-pronoun",
+      "they-mall",
+      "i-bus",
+      "we-bus"
+    ],
+    "Listen": [
+      "i-mall",
+      "i-bus",
+      "he-bank",
+      "he-going",
+      "she-library",
+      "she-walk",
+      "they-mall",
+      "we-bus"
+    ],
+    "Speak": [
+      "q-you",
+      "i-mall",
+      "you-mall",
+      "q-he",
+      "he-bank",
+      "she-library",
+      "we-mall",
+      "they-mall"
+    ],
+    "Use": [
+      "q-you",
+      "i-mall",
+      "q-he",
+      "he-bank",
+      "q-she",
+      "she-library",
+      "we-mall",
+      "they-mall"
+    ]
+  },
+  "storyboard": {
+    "setting": "Ana and Luis discuss current destinations.",
+    "cast_and_props": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+    "transitions": "Questions precede answers. Going describes the current journey. Third-person narration does not make the pictured father say He.",
+    "arc": "Ana is leaving for the mall. Luis asks her destination. They then talk about a man going to the bank and a woman going to the library. Finally, Ana’s family joins her: we are going to the mall, while an outside observer describes the same group as they. Every question is followed by the answer it requests.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "q-you",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where are you going?",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where are you going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "i-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "q-he",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where is he going?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is he going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "he-bank",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "He is going to the bank.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "He is going to the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L5",
+        "stage": "Learn",
+        "item_id": "q-she",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where is she going?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is she going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L6",
+        "stage": "Learn",
+        "item_id": "she-library",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "She is going to the library.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L7",
+        "stage": "Learn",
+        "item_id": "q-they",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where are they going?",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where are they going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L8",
+        "stage": "Learn",
+        "item_id": "they-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "They are going to the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "she-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "She is going to the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "i-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "he-pronoun",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "He is going to the bank.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "He is going to the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "he-bank",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "He is going to the bank.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "He is going to the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "she-pronoun",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "She is going to the library.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "she-library",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "She is going to the library.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "they-pronoun",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "They are going to the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "they-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "They are going to the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R9",
+        "stage": "Recognize",
+        "item_id": "i-bus",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "I am going by bus.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_bus_seat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R10",
+        "stage": "Recognize",
+        "item_id": "we-bus",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "We are going by bus.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_seat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "We are going by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "i-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where are you going?",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "i-bus",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "I am going by bus.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_bus_seat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "he-bank",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where is he going?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "He is going to the bank.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "He is going to the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "he-going",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "He is going to the bank by taxi.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "He is going to the bank by taxi.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "she-library",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where is she going?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "She is going to the library.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "she-walk",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "She is going to the library. She has books.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the library. She has books.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "they-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where are they going?",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "They are going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "we-bus",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "We are going by bus.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_seat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "We are going by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "q-you",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where are you going?",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where are you going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "i-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "you-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "You are going to the mall.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "q-he",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where is he going?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is he going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "he-bank",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "He is going to the bank.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "He is going to the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "she-library",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "She is going to the library.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "we-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "We are going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "We are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "they-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "They are going to the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "q-you",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where are you going?",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_luis_going_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where are you going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "i-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "I am going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "q-he",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where is he going?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is he going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "he-bank",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "He is going to the bank.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_father_going_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "He is going to the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "q-she",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "Where is she going?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is she going?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "she-library",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "She is going to the library.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mother_going_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "She is going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "we-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "We are going to the mall.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "We are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "they-mall",
+        "setting": "Ana and Luis discuss current destinations.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana olive overshirt, Luis navy polo; established father in navy and mother in terracotta; family and Ana travel to mall.",
+        "turns": [
+          {
+            "exact_english": "They are going to the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_going_mall_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They are going to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  }
+}

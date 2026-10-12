@@ -16,6 +16,24 @@ BRIEF = ROOT / "docs/product/content-briefs/example-1.6-family-actions.json"
 
 
 class ContentEngineAuthorTests(unittest.TestCase):
+    def test_replacement_audio_revision_survives_all_stages(self):
+        brief = json.loads(json.dumps(self.brief))
+        for item in brief['items']:
+            item['audio_revision'] = 3
+        plan, _ = propose_lesson(brief, self.standards)
+        lesson = compose_lesson(plan)
+        self.assertEqual({'Learn', 'Recognize', 'Listen', 'Speak', 'Use'}, {c['stage'] for c in lesson['cards']})
+        for card in lesson['cards']:
+            self.assertEqual(3, card['audio_revision'], card['slide_id'])
+            self.assertEqual(3, card['answer_audio_revision'], card['slide_id'])
+
+    def test_audio_revision_rejects_invalid_values(self):
+        for invalid in (True, 0, -1, '2', None):
+            brief = json.loads(json.dumps(self.brief))
+            brief['items'][0]['audio_revision'] = invalid
+            with self.subTest(value=invalid), self.assertRaisesRegex(BriefError, 'positive integer'):
+                propose_lesson(brief, self.standards)
+
     @classmethod
     def setUpClass(cls):
         cls.standards = load_standards(ROOT, "a1")
@@ -37,6 +55,53 @@ class ContentEngineAuthorTests(unittest.TestCase):
 
         with self.assertRaisesRegex(BriefError, "positive integer content_revision"):
             propose_lesson({**self.brief, "lesson": {**lesson, "content_revision": 0}}, self.standards)
+
+    def test_review_brief_uses_the_course_review_allocation(self):
+        brief = json.loads(json.dumps(self.brief))
+        brief["lesson"]["vocabulary"] = []
+        brief["layout"] = {"Recognize": 14, "Listen": 10, "Speak": 10, "Use": 10}
+        plan, _ = propose_lesson(brief, self.standards)
+        self.assertEqual(54, len(plan["cards"]))
+        self.assertTrue(plan["draft"])
+        brief.pop("layout")
+        with self.assertRaisesRegex(BriefError, "review lessons need 48-54"):
+            propose_lesson(brief, self.standards)
+
+    def test_spoken_models_can_grow_without_expanding_construction_targets(self):
+        brief = json.loads(json.dumps(self.brief))
+        line = "The mother is cooking and the father is working."
+        brief["items"].append({"text": line, "es": "La madre cocina y el padre trabaja.",
+                               "image": "family_mother_cooking.webp", "kind": "connected-actions",
+                               "learn": False, "choices": False})
+        count = brief.get("layout", {}).get("Speak", 7)
+        brief["stage_sequences"] = {"Speak": [line] * count}
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        self.assertEqual([c["prompt"] for c in lesson["cards"] if c["stage"] == "Speak"], [line] * count)
+        self.assertTrue(all(c["answer_audio_text"] != line for c in lesson["cards"] if c["stage"] == "Use"))
+        brief["stage_sequences"]["Use"] = [line] * brief.get("layout", {}).get("Use", 7)
+        with self.assertRaisesRegex(BriefError, "Use sequence contains an ineligible item"):
+            propose_lesson(brief, self.standards)
+
+    def test_use_split_is_half_guided_for_even_and_odd_allocations(self):
+        for count in (6, 7, 8, 9, 10):
+            with self.subTest(count=count):
+                brief = json.loads(json.dumps(self.brief))
+                brief["layout"] = {"Recognize": 17 - count, "Listen": 8, "Speak": 7, "Use": count}
+                lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+                cards = [c for c in lesson["cards"] if c["stage"] == "Use"]
+                self.assertEqual([c["interaction_type"] for c in cards],
+                                 ["complete2"] * (count // 2) + ["complete-sentence"] * (count - count // 2))
+                self.assertTrue(all(len(c["correct_option_ids"]) == 2 for c in cards[:count // 2]))
+
+    def test_two_word_turn_in_guided_half_keeps_the_same_story_position(self):
+        brief = json.loads(json.dumps(self.brief))
+        brief["items"].append({"text": "I sleep.", "es": "Duermo.", "image": "sleep.webp",
+                               "kind": "short-turn", "learn": False, "choices": False})
+        brief["stage_sequences"] = {"Use": ["I sleep."] * 7}
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        cards = [c for c in lesson["cards"] if c["stage"] == "Use"]
+        self.assertEqual([c["answer_audio_text"] for c in cards], ["I sleep."] * 7)
+        self.assertEqual([c["interaction_type"] for c in cards], ["complete2"] * 3 + ["complete-sentence"] * 4)
 
     def test_proposals_are_drafts_that_cannot_be_installed(self):
         # Install into a scratch root: a test must never write into the real course.

@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "purpose": "Hash-bound agent-inspected scene facts for conservative answer ambiguity checks. These records are not human media approval.",
+  "assets": {
+    "a1_photo_u6_story_family_mall_v1.webp": {
+      "sha256": "a6c6168b848e8ade93d7700fbcf389a1e22550ae1f91b9bc373cb5d8ecd1de60",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "Two children and their parents stand inside the mall; escalators and storefronts remain visible.",
+      "primary": {
+        "count": "many",
+        "concepts": [
+          "family",
+          "parent",
+          "child"
+        ],
+        "details": [
+          "place:mall"
+        ]
+      },
+      "visible_subsets": [
+        {
+          "count": "many",
+          "concepts": [
+            "child"
+          ],
+          "details": [
+            "place:mall"
+          ]
+        },
+        {
+          "count": "many",
+          "concepts": [
+            "parent"
+          ],
+          "details": [
+            "place:mall"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "father"
+          ],
+          "gender": "male",
+          "details": [
+            "place:mall"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "mother"
+          ],
+          "gender": "female",
+          "details": [
+            "place:mall"
+          ]
+        }
+      ]
+    },
+    "a1_photo_u6_story_review_family_supermarket_v2.webp": {
+      "sha256": "168658096fb726629b6e72dc2c96396f3fae618e7088b72f0337a85e08c4a74a",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "Ana and the family select produce in the supermarket; children hold fruit.",
+      "primary": {
+        "count": "many",
+        "concepts": [
+          "family"
+        ],
+        "details": [
+          "place:supermarket"
+        ]
+      },
+      "visible_subsets": [
+        {
+          "count": "many",
+          "concepts": [
+            "child"
+          ],
+          "details": [
+            "place:supermarket"
+          ]
+        },
+        {
+          "count": "many",
+          "concepts": [
+            "parent"
+          ],
+          "details": [
+            "place:supermarket"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "father"
+          ],
+          "gender": "male",
+          "details": [
+            "place:supermarket"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "mother"
+          ],
+          "gender": "female",
+          "details": [
+            "place:supermarket"
+          ]
+        }
+      ]
+    },
+    "a1_photo_u6_story_family_hotel_v2.webp": {
+      "sha256": "83d50851e5645106d40c8a5058890f26f9a44810c676d358c7f6482a0d127bde",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "Parents and two children are together in the hotel reception.",
+      "primary": {
+        "count": "many",
+        "concepts": [
+          "family"
+        ],
+        "details": [
+          "place:hotel"
+        ]
+      },
+      "visible_subsets": [
+        {
+          "count": "many",
+          "concepts": [
+            "child"
+          ],
+          "details": [
+            "place:hotel"
+          ]
+        },
+        {
+          "count": "many",
+          "concepts": [
+            "parent"
+          ],
+          "details": [
+            "place:hotel"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "father"
+          ],
+          "gender": "male",
+          "details": [
+            "place:hotel"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "mother"
+          ],
+          "gender": "female",
+          "details": [
+            "place:hotel"
+          ]
+        }
+      ]
+    },
+    "a1_photo_u6_story_father_going_bank_v1.webp": {
+      "sha256": "0da7f9f93fff89a5d0b82a2d14b13a8ee9e1273e6d4c13c34163d9fcac8ef575",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "The father approaches the bank entrance with its ATM visible.",
+      "primary": {
+        "count": "one",
+        "concepts": [
+          "father"
+        ],
+        "details": [
+          "destination:bank"
+        ],
+        "gender": "male"
+      }
+    },
+    "a1_photo_u6_story_mother_going_library_v1.webp": {
+      "sha256": "709f62175c75ff18b470a5e31ef445167dcc389767b27d699d81ceef1ec975bd",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "The mother carries books toward the glass library entrance and visible bookshelves.",
+      "primary": {
+        "count": "one",
+        "concepts": [
+          "mother"
+        ],
+        "details": [
+          "destination:library"
+        ],
+        "gender": "female"
+      }
+    },
+    "a1_photo_u6_story_family_going_mall_v2.webp": {
+      "sha256": "265987f54ac8aedc32a70ed63b8bc05179f480ad2d8c294dfe97b1872eb870ed",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "The family approaches the shopping-mall entrance together.",
+      "primary": {
+        "count": "many",
+        "concepts": [
+          "family"
+        ],
+        "details": [
+          "destination:mall"
+        ]
+      },
+      "visible_subsets": [
+        {
+          "count": "many",
+          "concepts": [
+            "child"
+          ],
+          "details": [
+            "destination:mall"
+          ]
+        },
+        {
+          "count": "many",
+          "concepts": [
+            "parent"
+          ],
+          "details": [
+            "destination:mall"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "father"
+          ],
+          "gender": "male",
+          "details": [
+            "destination:mall"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "mother"
+          ],
+          "gender": "female",
+          "details": [
+            "destination:mall"
+          ]
+        }
+      ]
+    },
+    "a1_photo_u6_story_family_going_museum_v1.webp": {
+      "sha256": "b3e061e0cf6dc988debc4763c88f274cd2c605775a01ee1047b06177c8b2e354",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "The family approaches the museum entrance and visible dinosaur display.",
+      "primary": {
+        "count": "many",
+        "concepts": [
+          "family"
+        ],
+        "details": [
+          "destination:museum"
+        ]
+      },
+      "visible_subsets": [
+        {
+          "count": "many",
+          "concepts": [
+            "child"
+          ],
+          "details": [
+            "destination:museum"
+          ]
+        },
+        {
+          "count": "many",
+          "concepts": [
+            "parent"
+          ],
+          "details": [
+            "destination:museum"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "father"
+          ],
+          "gender": "male",
+          "details": [
+            "destination:museum"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "mother"
+          ],
+          "gender": "female",
+          "details": [
+            "destination:museum"
+          ]
+        }
+      ]
+    },
+    "a1_photo_u6_story_family_bus_on_v1.webp": {
+      "sha256": "256a00c411260d8dfd950cdfb78c920f2d38d18d67b8ec3d640dae2e99d4b6c0",
+      "reviewer": "agent visual inspection",
+      "reviewed_at": "2026-10-11",
+      "observations": "The family freely boards the bus after the closed train alternative.",
+      "primary": {
+        "count": "many",
+        "concepts": [
+          "family"
+        ],
+        "details": [
+          "permission:bus"
+        ]
+      },
+      "visible_subsets": [
+        {
+          "count": "many",
+          "concepts": [
+            "child"
+          ],
+          "details": [
+            "permission:bus"
+          ]
+        },
+        {
+          "count": "many",
+          "concepts": [
+            "parent"
+          ],
+          "details": [
+            "permission:bus"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "father"
+          ],
+          "gender": "male",
+          "details": [
+            "permission:bus"
+          ]
+        },
+        {
+          "count": "one",
+          "concepts": [
+            "mother"
+          ],
+          "gender": "female",
+          "details": [
+            "permission:bus"
+          ]
+        }
+      ]
+    }
+  }
+}

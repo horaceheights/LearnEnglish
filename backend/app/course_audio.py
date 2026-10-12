@@ -215,6 +215,12 @@ COURSE_SYLLABLES = {
 # the CMU Pronouncing Dictionary and reviewed for the course's names and café
 # label so pacing remains deterministic for every canonical lesson prompt.
 COURSE_SYLLABLES.update({
+    # Unit 6 destinations and complete trips; v4 keeps its native pace.
+    "airplane": 2, "airport": 2, "arrive": 2, "between": 2,
+    "boat": 1, "corner": 2, "does": 1, "going": 2, "hotel": 2,
+    "leave": 1, "mall": 1, "movie": 2, "museum": 3, "of": 1,
+    "off": 1, "office": 2, "out": 1, "past": 1, "post": 1,
+    "supermarket": 4, "take": 1, "theater": 3, "ticket": 2,
     "after": 2,
     "clean": 1,
     "close": 1,
@@ -496,6 +502,7 @@ COURSE_SYLLABLES.update({
 })
 
 ING_PRONUNCIATION_NOTES = {
+    "going": "'going' /ˈɡoʊ.ɪŋ/",
     "evening": "'evening' /ˈiːv.nɪŋ/; stress the first syllable, keep the ending brief",
     "building": "'building' /ˈbɪl.dɪŋ/",
     "cooking": "'cooking' /ˈkʊk.ɪŋ/",
