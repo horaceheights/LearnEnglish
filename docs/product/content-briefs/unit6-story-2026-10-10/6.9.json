@@ -1,0 +1,1375 @@
+{
+  "brief_version": 1,
+  "note": "Ana’s first crossing is unavailable. A clearly pictured signal or barrier establishes why she cannot cross here. Luis indicates an available crossing there. Ana follows the short known route, crosses only where permitted, and continues to the museum. Here/there need an established speaker location. Can/cannot requires observable ability, permission or availability evidence. No traffic-safety inference from a generic street photo.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+  "lesson": {
+    "id": "lesson-6-6-can-and-cannot",
+    "title": "6.9 Finding a Safe Way",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.9",
+    "sub_lesson_title": "Finding a Safe Way",
+    "goal": "Understand can/cannot in a visible situation, then choose and follow an available route.",
+    "vocabulary": [
+      "can",
+      "cannot",
+      "here",
+      "there"
+    ],
+    "grammar_function": "Ana’s first crossing is unavailable. A clearly pictured signal or barrier establishes why she cannot cross here. Luis indicates an available crossing there. Ana follows the short known route, crosses only where permitted, and continues to the museum.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Understand can/cannot in a visible situation, then choose and follow an available route.",
+    "content_revision": 4,
+    "review_vocabulary": [],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "cannot",
+          "here"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "You cannot cross the street."
+          },
+          {
+            "slide_id": "L2",
+            "text": "You cannot cross here."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "can",
+          "there"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "You can cross the street."
+          },
+          {
+            "slide_id": "L4",
+            "text": "You can cross there."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "cannot",
+      "text": "You cannot cross the street.",
+      "es": "No puedes cruzar la calle.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+      "kind": "cannot",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    },
+    {
+      "id": "here-no",
+      "text": "You cannot cross here.",
+      "es": "No puedes cruzar aquí.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+      "kind": "here-no",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    },
+    {
+      "id": "can",
+      "text": "You can cross the street.",
+      "es": "Puedes cruzar la calle.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+      "kind": "can",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    },
+    {
+      "id": "there",
+      "text": "You can cross there.",
+      "es": "Puedes cruzar allá.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+      "kind": "there",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    },
+    {
+      "id": "straight",
+      "text": "First, go straight.",
+      "es": "Primero, sigue derecho.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
+      "kind": "straight",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete taught route instruction is assessed from the route scene or exact audio, not from an inferred conversational intention."
+      }
+    },
+    {
+      "id": "right",
+      "text": "Then, turn right.",
+      "es": "Después, gira a la derecha.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
+      "kind": "right",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete taught route instruction is assessed from the route scene or exact audio, not from an inferred conversational intention."
+      }
+    },
+    {
+      "id": "here-yes",
+      "text": "You can cross here.",
+      "es": "Puedes cruzar aquí.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+      "kind": "here-yes",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    },
+    {
+      "id": "cross",
+      "text": "Cross the street.",
+      "es": "Cruza la calle.",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+      "kind": "cross",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete taught route instruction is assessed from the route scene or exact audio, not from an inferred conversational intention."
+      }
+    },
+    {
+      "id": "museum",
+      "text": "Finally, stop at the museum.",
+      "es": "Finalmente, detente en el museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+      "kind": "museum",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete taught route instruction is assessed from the route scene or exact audio, not from an inferred conversational intention."
+      }
+    },
+    {
+      "id": "train-no",
+      "text": "They cannot go by train.",
+      "es": "No pueden ir en tren.",
+      "image": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
+      "kind": "train-no",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    },
+    {
+      "id": "bus-yes",
+      "text": "They can go by bus.",
+      "es": "Pueden ir en autobús.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+      "kind": "bus-yes",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    },
+    {
+      "id": "bus-on",
+      "text": "Then, they get on the bus.",
+      "es": "Después, suben al autobús.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+      "kind": "bus-on",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer.",
+        "action-variety": "The contrast is permission or availability for one named action, so subject/action deliberately stay fixed; the signal, barrier or heard modal must settle the answer."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "You can cross the street.",
+      "es": "Puedes cruzar la calle.",
+      "kind": "cannot",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp"
+    },
+    {
+      "text": "You can cross here.",
+      "es": "Puedes cruzar aquí.",
+      "kind": "here-no",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp"
+    },
+    {
+      "text": "You cannot cross the street.",
+      "es": "No puedes cruzar la calle.",
+      "kind": "can",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp"
+    },
+    {
+      "text": "You cannot cross there.",
+      "es": "No puedes cruzar allá.",
+      "kind": "there"
+    },
+    {
+      "text": "First, turn left.",
+      "es": "Primero, gira a la izquierda.",
+      "kind": "straight"
+    },
+    {
+      "text": "Then, turn left.",
+      "es": "Después, gira a la izquierda.",
+      "kind": "right"
+    },
+    {
+      "text": "You cannot cross here.",
+      "es": "No puedes cruzar aquí.",
+      "kind": "here-yes",
+      "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp"
+    },
+    {
+      "text": "Turn left.",
+      "es": "Gira a la izquierda.",
+      "kind": "cross"
+    },
+    {
+      "text": "Finally, stop at the library.",
+      "es": "Finalmente, detente en la biblioteca.",
+      "kind": "museum"
+    },
+    {
+      "text": "They can go by train.",
+      "es": "Pueden ir en tren.",
+      "kind": "train-no",
+      "image": "/lesson-assets/a1_photo_u6_story_train_open_v1.webp"
+    },
+    {
+      "text": "They cannot go by bus.",
+      "es": "No pueden ir en autobús.",
+      "kind": "bus-yes"
+    },
+    {
+      "text": "Then, they get off the bus.",
+      "es": "Después, bajan del autobús.",
+      "kind": "bus-on"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "cannot",
+      "here-no",
+      "can",
+      "there"
+    ],
+    "Recognize": [
+      "here-no",
+      "there",
+      "straight",
+      "right",
+      "here-yes",
+      "museum",
+      "train-no",
+      "bus-yes"
+    ],
+    "Listen": [
+      "here-no",
+      "there",
+      "straight",
+      "right",
+      "here-yes",
+      "cross",
+      "museum",
+      "train-no",
+      "bus-yes",
+      "bus-on"
+    ],
+    "Speak": [
+      "here-no",
+      "there",
+      "straight",
+      "right",
+      "here-yes",
+      "cross",
+      "museum",
+      "train-no",
+      "bus-yes",
+      "bus-on"
+    ],
+    "Use": [
+      "here-no",
+      "there",
+      "straight",
+      "right",
+      "here-yes",
+      "cross",
+      "museum",
+      "train-no",
+      "bus-yes",
+      "bus-on"
+    ]
+  },
+  "storyboard": {
+    "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+    "cast_and_props": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+    "transitions": "Can/cannot require observable access. Never call an empty train unavailable solely because it is empty. A blocked route precedes an open alternative.",
+    "arc": "Ana’s first crossing is unavailable. A clearly pictured signal or barrier establishes why she cannot cross here. Luis indicates an available crossing there. Ana follows the short known route, crosses only where permitted, and continues to the museum.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "cannot",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You cannot cross the street.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+            "props_before": "The shown crossing has a physical barrier or prohibition.",
+            "props_after": "No one crosses this blocked route; continue to the alternative."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You cannot cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "here-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You cannot cross here.",
+            "voice": "co-teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+            "props_before": "The shown crossing has a physical barrier or prohibition.",
+            "props_after": "No one crosses this blocked route; continue to the alternative."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You cannot cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "can",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross the street.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "there",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross there.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross there.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "here-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You cannot cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+            "props_before": "The shown crossing has a physical barrier or prohibition.",
+            "props_after": "No one crosses this blocked route; continue to the alternative."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You cannot cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "there",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross there.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross there.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "straight",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "First, go straight.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "First, go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "right",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Then, turn right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "here-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "museum",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Finally, stop at the museum.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "train-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They cannot go by train.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They cannot go by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "bus-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They can go by bus.",
+            "voice": "co-teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They can go by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "here-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You cannot cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+            "props_before": "The shown crossing has a physical barrier or prohibition.",
+            "props_after": "No one crosses this blocked route; continue to the alternative."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You cannot cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "there",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross there.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross there.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "straight",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "First, go straight.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "First, go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "right",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Then, turn right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "here-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "cross",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "co-teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "museum",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Finally, stop at the museum.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "train-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They cannot go by train.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They cannot go by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A9",
+        "stage": "Listen",
+        "item_id": "bus-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They can go by bus.",
+            "voice": "teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They can go by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A10",
+        "stage": "Listen",
+        "item_id": "bus-on",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Then, they get on the bus.",
+            "voice": "co-teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, they get on the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "here-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You cannot cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+            "props_before": "The shown crossing has a physical barrier or prohibition.",
+            "props_after": "No one crosses this blocked route; continue to the alternative."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You cannot cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "there",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross there.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross there.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "straight",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "First, go straight.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "First, go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "right",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Then, turn right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "here-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "cross",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "co-teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "museum",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Finally, stop at the museum.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "train-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They cannot go by train.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They cannot go by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S9",
+        "stage": "Speak",
+        "item_id": "bus-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They can go by bus.",
+            "voice": "teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They can go by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S10",
+        "stage": "Speak",
+        "item_id": "bus-on",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Then, they get on the bus.",
+            "voice": "co-teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, they get on the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "here-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You cannot cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_blocked_v2.webp",
+            "props_before": "The shown crossing has a physical barrier or prohibition.",
+            "props_after": "No one crosses this blocked route; continue to the alternative."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You cannot cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "there",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross there.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_alternative_v2.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross there.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "straight",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "First, go straight.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "First, go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "right",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Then, turn right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "here-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "You can cross here.",
+            "voice": "teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "You can cross here.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "cross",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "co-teacher",
+            "speaker_listener": "Neutral route narrator addresses traveller.",
+            "image": "/lesson-assets/a1_photo_u6_story_crossing_open_v1.webp",
+            "props_before": "Crossing is unobstructed with a visible permitted pedestrian signal.",
+            "props_after": "Traveller may cross at this location."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "museum",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Finally, stop at the museum.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "train-no",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They cannot go by train.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_train_closed_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They cannot go by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U9",
+        "stage": "Use",
+        "item_id": "bus-yes",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "They can go by bus.",
+            "voice": "teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They can go by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U10",
+        "stage": "Use",
+        "item_id": "bus-on",
+        "setting": "A blocked crossing and a viable alternative, then transport disruption.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "First crossing closed by physical barrier; walk straight, turn right, use open crossing. Family sees closed train entrance then takes available bus.",
+        "turns": [
+          {
+            "exact_english": "Then, they get on the bus.",
+            "voice": "co-teacher",
+            "speaker_listener": "Pictured first-person traveller or neutral narration as authored.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_bus_on_v1.webp",
+            "props_before": "Traveller is outside or at threshold of named vehicle, facing in.",
+            "props_after": "Traveller boards the named vehicle."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, they get on the bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  },
+  "replaces_sha256": "c1e33e8621ab1893b6f0b7c442047729d7944f9af00f0c92777ac43a364c1ef6"
+}

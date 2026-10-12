@@ -2126,12 +2126,12 @@ export function PronunciationPractice({
         ) : null}
         {phase === 'listening' ? (
           <View style={styles.liveAssessment}>
-            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{vocabularyText(phrase, vocabulary, Boolean(result))}</Text>
+            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={[styles.phrase, compactLandscape && phrase.length > 90 ? styles.longPhrasePhoneLandscape : null]}>{vocabularyText(phrase, vocabulary, Boolean(result))}</Text>
             <View
               accessibilityLabel={expectedSyllables.map((syllable) => (
                 `${syllable.label}, ${recognizedSyllableKeySet.has(syllable.key) ? 'reconocida' : 'pendiente'}`
               )).join('. ')}
-              style={styles.syllableSlots}
+              style={[styles.syllableSlots, compactLandscape ? styles.syllableSlotsPhoneLandscape : null]}
             >
               {expectedSyllables.map((syllable) => {
                 const recognized = recognizedSyllableKeySet.has(syllable.key);
@@ -2141,6 +2141,7 @@ export function PronunciationPractice({
                     maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined}
                     style={[
                       styles.syllableSlot,
+                      compactLandscape ? styles.syllableSlotPhoneLandscape : null,
                       recognized ? styles.syllableSlotRecognized : styles.syllableSlotMissing,
                     ]}
                   >
@@ -2150,7 +2151,7 @@ export function PronunciationPractice({
               })}
             </View>
           </View>
-        ) : <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{vocabularyText(phrase, vocabulary, Boolean(result))}</Text>}
+        ) : <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={[styles.phrase, compactLandscape && phrase.length > 90 ? styles.longPhrasePhoneLandscape : null]}>{vocabularyText(phrase, vocabulary, Boolean(result))}</Text>}
       </Pressable>) : null}
       <View style={[styles.statusRow, missionVoiceGate ? styles.statusRowMission : null]}>
         {!isLandscape && !missionVoiceGate ? gradingMascot : null}
@@ -2277,6 +2278,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },
+  longPhrasePhoneLandscape: { fontSize: 16, lineHeight: 20 },
   missionVoiceControl: {
     alignItems: 'center',
     alignSelf: 'center',
@@ -2314,6 +2316,8 @@ const styles = StyleSheet.create({
   missionGuestConfirmedText: { color: '#fff', fontSize: 10, fontWeight: '900', letterSpacing: 0.7 },
   liveAssessment: { alignItems: 'center', gap: 3 },
   syllableSlots: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, justifyContent: 'center' },
+  syllableSlotsPhoneLandscape: { gap: 3 },
+  syllableSlotPhoneLandscape: { paddingHorizontal: 4, paddingVertical: 2 },
   syllableSlot: { borderRadius: 7, borderWidth: 1.5, fontSize: 12, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 3 },
   syllableSlotRecognized: { backgroundColor: '#dff4e7', borderColor: '#2f8f62', color: '#17623f' },
   syllableSlotMissing: { backgroundColor: '#ffffff', borderColor: '#b8c3c8', color: '#64747b' },

@@ -40,7 +40,9 @@ SENTENCE = re.compile(
     r"\b(?:" + "|".join(AUXILIARIES) + r")\b"
     r"|^(?:i|you|he|she|it|we|they)\s+\w+"
     r"|\S\s+(?:" + "|".join(sorted(FINITE, key=len, reverse=True)) + r")\b", re.I)
-IMPERATIVE = re.compile(r"^(?:please\s+)?(?:" + "|".join(VERBS) + r")\b", re.I)
+# `stop` is also a destination noun ("The next stop is the museum").
+# Recognize its command position without parsing that noun as an action clause.
+IMPERATIVE = re.compile(r"^(?:please\s+)?(?:stop|" + "|".join(VERBS) + r")\b", re.I)
 ACTION_CLAUSE = re.compile(
     r"^(?P<subject>.+?)\s+(?:(?:am|is|are|was|were|can|cannot|could|will|do|does|did)\s+)?"
     r"(?:not\s+)?(?P<action>" + "|".join(sorted(ACTION, key=len, reverse=True)) + r")\b", re.I)

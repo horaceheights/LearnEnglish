@@ -1,0 +1,1436 @@
+{
+  "brief_version": 1,
+  "note": "Luis gives Ana a route from the hotel to the museum: go straight, go past the bank, turn left at the corner, cross at the reviewed crossing and stop at the museum. Ana follows it. Only after this route ends does a short, explicitly separate route to the movie theater practise turn right. English commands are intentional here. Route geometry, photographed turns and arrival must agree. Then and after that are both valid sequence markers; do not use them as uniquely wrong alternatives.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-5-simple-directions.yaml",
+  "lesson": {
+    "id": "lesson-6-5-simple-directions",
+    "title": "6.8 Following Directions",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.8",
+    "sub_lesson_title": "Following Directions",
+    "goal": "Follow a short, ordered route to a destination, with an instruction and visible consequence at each step.",
+    "vocabulary": [
+      "go straight",
+      "turn left",
+      "turn right",
+      "cross the street",
+      "stop",
+      "corner",
+      "go past"
+    ],
+    "grammar_function": "Luis gives Ana a route from the hotel to the museum: go straight, go past the bank, turn left at the corner, cross at the reviewed crossing and stop at the museum. Ana follows it. Only after this route ends does a short, explicitly separate route to the movie theater practise turn right.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Follow a short, ordered route to a destination, with an instruction and visible consequence at each step.",
+    "content_revision": 3,
+    "review_vocabulary": [],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "go past"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "Go past the bank."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "turn left",
+          "corner"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "Turn left at the corner."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "stop"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "Stop at the museum."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "straight",
+      "text": "Go straight.",
+      "es": "Sigue derecho.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+      "kind": "straight",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "past",
+      "text": "Go past the bank.",
+      "es": "Pasa el banco.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp",
+      "kind": "past",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "corner",
+      "text": "A corner",
+      "es": "Una esquina",
+      "image": "/lesson-assets/a1_photo_u6_story_route_corner_v1.webp",
+      "kind": "corner",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "left",
+      "text": "Turn left at the corner.",
+      "es": "Gira a la izquierda en la esquina.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+      "kind": "left",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "cross",
+      "text": "Cross the street.",
+      "es": "Cruza la calle.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_cross_v1.webp",
+      "kind": "cross",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "stop",
+      "text": "Stop at the museum.",
+      "es": "Detente en el museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+      "kind": "stop",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "right",
+      "text": "Turn right.",
+      "es": "Gira a la derecha.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp",
+      "kind": "right",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "first",
+      "text": "First, go straight.",
+      "es": "Primero, sigue derecho.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+      "kind": "first",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "then",
+      "text": "Then, go past the bank.",
+      "es": "Después, pasa el banco.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp",
+      "kind": "then",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "after",
+      "text": "After that, turn left at the corner.",
+      "es": "Después de eso, gira a la izquierda en la esquina.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+      "kind": "after",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "finally",
+      "text": "Finally, stop at the museum.",
+      "es": "Finalmente, detente en el museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+      "kind": "finally",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    },
+    {
+      "id": "museum",
+      "text": "It is a museum.",
+      "es": "Es un museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_museum_v1.webp",
+      "kind": "museum",
+      "learn": false,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "bank-side",
+      "text": "The post office is on the right.",
+      "es": "La oficina de correos está a la derecha.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_post_office_v1.webp",
+      "kind": "bank-side",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "going",
+      "text": "I am going to the museum.",
+      "es": "Voy al museo.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_museum_v1.webp",
+      "kind": "going",
+      "learn": false,
+      "choices": false,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "movie-going",
+      "text": "I am going to the movie theater.",
+      "es": "Voy al cine.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_going_cinema_v1.webp",
+      "kind": "movie-going",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Destination is the assessed difference; the subject and going frame stay fixed.",
+        "action-variety": "Destination is the assessed difference; the subject and going frame stay fixed."
+      }
+    },
+    {
+      "id": "movie-stop",
+      "text": "Stop at the movie theater.",
+      "es": "Detente en el cine.",
+      "image": "/lesson-assets/a1_photo_u6_story_route_movie_theater_v1.webp",
+      "kind": "movie-stop",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "conversational-response": "A complete navigation instruction is contrasted with another taught instruction. In Recognize the route/action must be visible; in Listen only the heard direction supplies the answer. Review exact media before approval."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "Turn right.",
+      "es": "Gira a la derecha.",
+      "kind": "straight",
+      "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp"
+    },
+    {
+      "text": "Stop at the bank.",
+      "es": "Detente en el banco.",
+      "kind": "past"
+    },
+    {
+      "text": "A station",
+      "es": "Una estación",
+      "kind": "corner",
+      "form": "word",
+      "image": "/lesson-assets/a1_station.webp"
+    },
+    {
+      "text": "Turn right at the corner.",
+      "es": "Gira a la derecha en la esquina.",
+      "kind": "left",
+      "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp"
+    },
+    {
+      "text": "Go past the bank.",
+      "es": "Pasa el banco.",
+      "kind": "cross",
+      "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp"
+    },
+    {
+      "text": "Stop at the movie theater.",
+      "es": "Detente en el cine.",
+      "kind": "stop",
+      "image": "/lesson-assets/a1_photo_u6_story_route_movie_theater_v1.webp"
+    },
+    {
+      "text": "Turn left.",
+      "es": "Gira a la izquierda.",
+      "kind": "right",
+      "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp"
+    },
+    {
+      "text": "First, turn right.",
+      "es": "Primero, gira a la derecha.",
+      "kind": "first"
+    },
+    {
+      "text": "Then, stop at the bank.",
+      "es": "Después, detente en el banco.",
+      "kind": "then"
+    },
+    {
+      "text": "After that, turn right at the corner.",
+      "es": "Después de eso, gira a la derecha en la esquina.",
+      "kind": "after"
+    },
+    {
+      "text": "Finally, stop at the pharmacy.",
+      "es": "Finalmente, detente en la farmacia.",
+      "kind": "finally"
+    },
+    {
+      "text": "It is a movie theater.",
+      "es": "Es un cine.",
+      "kind": "museum",
+      "image": "/lesson-assets/a1_photo_u6_story_movie_theater_v1.webp"
+    },
+    {
+      "text": "The post office is on the left.",
+      "es": "La oficina de correos está a la izquierda.",
+      "kind": "bank-side"
+    },
+    {
+      "text": "I am going to the museum.",
+      "es": "Voy al museo.",
+      "kind": "movie-going"
+    },
+    {
+      "text": "Stop at the museum.",
+      "es": "Detente en el museo.",
+      "kind": "movie-stop",
+      "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "straight",
+      "past",
+      "corner",
+      "left",
+      "cross",
+      "stop",
+      "right"
+    ],
+    "Recognize": [
+      "straight",
+      "past",
+      "bank-side",
+      "corner",
+      "left",
+      "cross",
+      "stop",
+      "museum",
+      "straight",
+      "right",
+      "movie-stop"
+    ],
+    "Listen": [
+      "first",
+      "then",
+      "after",
+      "cross",
+      "finally",
+      "movie-going",
+      "right",
+      "movie-stop"
+    ],
+    "Speak": [
+      "going",
+      "first",
+      "then",
+      "after",
+      "cross",
+      "finally",
+      "right",
+      "movie-stop"
+    ],
+    "Use": [
+      "first",
+      "then",
+      "left",
+      "cross",
+      "finally",
+      "straight",
+      "right",
+      "movie-stop"
+    ]
+  },
+  "storyboard": {
+    "setting": "Following a walking route to museum, then a second route to cinema.",
+    "cast_and_props": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+    "transitions": "The street and route anchors remain coherent. Straight, past, corner, turn, cross and stop form the first route; cinema is a clearly separate branch.",
+    "arc": "Luis gives Ana a route from the hotel to the museum: go straight, go past the bank, turn left at the corner, cross at the reviewed crossing and stop at the museum. Ana follows it. Only after this route ends does a short, explicitly separate route to the movie theater practise turn right.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "straight",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Go straight.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "past",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Go past the bank.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go past the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "corner",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "A corner",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_corner_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A corner",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "left",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn left at the corner.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn left at the corner.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L5",
+        "stage": "Learn",
+        "item_id": "cross",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_cross_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L6",
+        "stage": "Learn",
+        "item_id": "stop",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Stop at the museum.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L7",
+        "stage": "Learn",
+        "item_id": "right",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn right.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "straight",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Go straight.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "past",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Go past the bank.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go past the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "bank-side",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "The post office is on the right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_post_office_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The post office is on the right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "corner",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "A corner",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_corner_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A corner",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "left",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn left at the corner.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn left at the corner.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "cross",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_cross_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "stop",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Stop at the museum.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "museum",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "It is a museum.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "It is a museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R9",
+        "stage": "Recognize",
+        "item_id": "straight",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Go straight.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R10",
+        "stage": "Recognize",
+        "item_id": "right",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn right.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R11",
+        "stage": "Recognize",
+        "item_id": "movie-stop",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Stop at the movie theater.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_movie_theater_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Stop at the movie theater.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "first",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "First, go straight.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "First, go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "then",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Then, go past the bank.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, go past the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "after",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "After that, turn left at the corner.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "After that, turn left at the corner.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "cross",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_cross_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "finally",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Finally, stop at the museum.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "movie-going",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "I am going to the movie theater.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_cinema_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the movie theater.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "right",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn right.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "movie-stop",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Stop at the movie theater.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_movie_theater_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Stop at the movie theater.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "going",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "I am going to the museum.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_going_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "first",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "First, go straight.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "First, go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "then",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Then, go past the bank.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, go past the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "after",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "After that, turn left at the corner.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "After that, turn left at the corner.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "cross",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_cross_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "finally",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Finally, stop at the museum.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "right",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn right.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "movie-stop",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Stop at the movie theater.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_movie_theater_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Stop at the movie theater.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "first",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "First, go straight.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "First, go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "then",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Then, go past the bank.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_past_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, go past the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "left",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn left at the corner.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn left at the corner.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "cross",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Cross the street.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_cross_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Cross the street.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "finally",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Finally, stop at the museum.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, stop at the museum.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "straight",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Go straight.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Go straight.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "right",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Turn right.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_right_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Turn right.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "movie-stop",
+        "setting": "Following a walking route to museum, then a second route to cinema.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Ana walks forward past bank, turns left at corner, crosses street, stops at museum. Alternate branch turns right to cinema.",
+        "turns": [
+          {
+            "exact_english": "Stop at the movie theater.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_route_movie_theater_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Stop at the movie theater.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  },
+  "replaces_sha256": "39f55965ba5cb714fc872ed1b9b72366e681430a5236b06ba1eea98f254fa5a8"
+}

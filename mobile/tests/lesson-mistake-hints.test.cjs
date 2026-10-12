@@ -85,6 +85,28 @@ assert.equal(
 
 console.log('Lesson mistake hint checks passed.');
 
+for (const [correct, wrong, expected, selected] of [
+  ['Then, I get off the bus.', 'Then, I get on the bus.', 'get off', 'get on'],
+  ['I get on the train.', 'I get off the train.', 'get on', 'get off'],
+  ['Finally, I get out of the taxi.', 'Finally, I get in the taxi.', 'get out of', 'get in'],
+]) {
+  for (const stage of ['Recognize', 'Listen']) {
+    const example = {...card(correct, correct, wrong), stage};
+    const hint = lessonMistakeHint(example, 'wrong');
+    assert.ok(hint.includes(`“${expected}”`) && hint.includes(`“${selected}”`), hint);
+    assert.ok(hint.length <= 140, hint);
+    assert.doesNotMatch(hint, /encima|superficie|La respuesta es/);
+    const correctId = correct.toLowerCase().replace(/[.,]/g, '').replaceAll(' ', '-') + '-r1';
+    const wrongId = wrong.toLowerCase().replace(/[.,]/g, '').replaceAll(' ', '-') + '-r1';
+    const pictureHint = lessonMistakeHint({...example, correct_option_id: correctId, options: [
+      {id: correctId, image_url: '/lesson-assets/a.webp'},
+      {id: wrongId, image_url: '/lesson-assets/b.webp'},
+    ]}, wrongId);
+    assert.ok(pictureHint.includes(`“${expected}”`) && pictureHint.includes(`“${selected}”`), pictureHint);
+    assert.ok(pictureHint.length <= 140, pictureHint);
+  }
+}
+
 const fs = require('node:fs');
 const path = require('node:path');
 const courseContract = require('./courseContract.cjs');
@@ -116,6 +138,13 @@ assert.equal(
 );
 // Exercise every distractor and every ordered completion slot in the full course.
 const generated = path.join(__dirname, '../src/generated');
+const nextStopHint = lessonMistakeHint({
+  ...card('', 'We are on the bus. The next stop is the mall.', 'The next stop is the museum.'),
+  interaction_type: 'mission-sentence',
+  mission_game: {instruction_es: 'Sigue la ruta y elige la parada.'},
+}, 'wrong');
+assert.match(nextStopHint, /Next stop.+próxima parada.+mall.+centro comercial/);
+assert.ok(nextStopHint.length <= 140, nextStopHint);
 const pairLesson = JSON.parse(fs.readFileSync(path.join(generated, 'lesson-3-two-people.json'), 'utf8'));
 const pairCard = pairLesson.cards.find(c => c.slide_id === 'R2');
 for (const [chosen, expected] of [

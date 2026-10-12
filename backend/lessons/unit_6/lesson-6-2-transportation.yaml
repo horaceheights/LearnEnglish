@@ -1,62 +1,75 @@
 {
   "id": "lesson-6-2-transportation",
-  "title": "6.2 Transportation",
+  "title": "6.2 Ways to Travel",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+  "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.2",
-  "sub_lesson_title": "Transportation",
-  "goal": "Recognize a train and a taxi, say how I go with by, and say that I walk.",
+  "sub_lesson_title": "Ways to Travel",
+  "goal": "Identify transport and connect it to familiar journeys; explicitly practise a bus, a train and an airplane.",
   "vocabulary": [
     "train",
     "taxi",
+    "airplane",
+    "boat",
     "walk",
     "by"
   ],
-  "review_vocabulary": [
-    "I",
-    "they",
-    "the",
-    "go",
-    "go to work",
-    "go to school",
-    "bus",
-    "car",
-    "bike",
-    "children"
+  "grammar_function": "Begin with a familiar school journey by bus. Compare train and taxi for the town visit, then walking for a nearby library. A clearly introduced second travel situation extends the same pattern to an airplane and a boat; it is not a magical bus–plane–boat trip.",
+  "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+  "speaking_outcome": "Identify transport and connect it to familiar journeys; explicitly practise a bus, a train and an airplane.",
+  "content_revision": 4,
+  "review_vocabulary": [],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "train",
+        "by"
+      ],
+      "models": [
+        {
+          "slide_id": "L2",
+          "text": "I go by train."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "walk"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "I walk to the library."
+        }
+      ]
+    }
   ],
-  "grammar_function": "I go by bus. I go to work by train. The children walk to school.",
-  "prerequisite": "2.2 bus, car and bike; 4.6 go to school; 4.8 work; 1.4 children.",
-  "speaking_outcome": "Say how I go to work or school.",
-  "content_revision": 3,
   "purposeful_review_slides": [
-    "R3",
-    "R4",
-    "R5",
+    "R1",
+    "R2",
     "R6",
-    "R7",
-    "R8",
     "R9",
-    "R10",
-    "R11",
+    "A1",
+    "A2",
     "A3",
     "A4",
     "A5",
     "A6",
     "A7",
     "A8",
-    "A9",
-    "A10",
+    "S1",
     "S3",
     "S4",
     "S5",
     "S6",
-    "S7",
     "S8",
-    "S9",
+    "S10",
     "U1",
     "U2",
     "U3",
@@ -64,8 +77,7 @@
     "U5",
     "U6",
     "U7",
-    "U8",
-    "U9"
+    "U8"
   ],
   "cards": [
     {
@@ -77,7 +89,7 @@
       "options": [
         {
           "id": "a-train-learn",
-          "image_url": "a1_train.webp",
+          "image_url": "/lesson-assets/a1_train.webp",
           "label": "A train"
         }
       ],
@@ -90,13 +102,33 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
+      "prompt": "I go by train.",
+      "stage": "Learn",
+      "correct_option_id": "i-go-by-train-learn",
+      "options": [
+        {
+          "id": "i-go-by-train-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "label": "I go by train."
+        }
+      ],
+      "audio_text": "I go by train.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Voy en tren.",
+      "pedagogy_note": "Story beat 02: I go by train.",
+      "audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
       "prompt": "A taxi",
       "stage": "Learn",
       "correct_option_id": "a-taxi-learn",
       "options": [
         {
           "id": "a-taxi-learn",
-          "image_url": "a1_taxi.webp",
+          "image_url": "/lesson-assets/a1_taxi.webp",
           "label": "A taxi"
         }
       ],
@@ -104,44 +136,132 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un taxi",
-      "pedagogy_note": "Story beat 02: A taxi",
+      "pedagogy_note": "Story beat 03: A taxi",
       "audio_speaker": "co-teacher"
     },
     {
-      "slide_id": "L3",
+      "slide_id": "L4",
       "interaction_type": "teach",
-      "prompt": "I walk.",
+      "prompt": "I walk to the library.",
       "stage": "Learn",
-      "correct_option_id": "walk-learn",
+      "correct_option_id": "i-walk-to-the-library-learn",
       "options": [
         {
-          "id": "walk-learn",
-          "image_url": "a1_scene_i-walk_b4cf763.webp",
-          "label": "I walk."
+          "id": "i-walk-to-the-library-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+          "label": "I walk to the library."
         }
       ],
-      "audio_text": "I walk.",
+      "audio_text": "I walk to the library.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Camino.",
-      "pedagogy_note": "Story beat 03: Walk",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Camino a la biblioteca.",
+      "pedagogy_note": "Story beat 04: I walk to the library.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "An airplane",
+      "stage": "Learn",
+      "correct_option_id": "an-airplane-learn",
+      "options": [
+        {
+          "id": "an-airplane-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp",
+          "label": "An airplane"
+        }
+      ],
+      "audio_text": "An airplane",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un avión",
+      "pedagogy_note": "Story beat 05: An airplane"
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "A boat",
+      "stage": "Learn",
+      "correct_option_id": "a-boat-learn",
+      "options": [
+        {
+          "id": "a-boat-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_boat_v1.webp",
+          "label": "A boat"
+        }
+      ],
+      "audio_text": "A boat",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un barco",
+      "pedagogy_note": "Story beat 06: A boat",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "A train",
+      "prompt": "A bus.",
       "stage": "Recognize",
-      "correct_option_id": "a-train-r1",
+      "correct_option_id": "a-bus-r1",
       "options": [
         {
-          "id": "a-taxi-r1",
-          "image_url": "a1_taxi.webp",
+          "id": "a-train-r1",
+          "image_url": "/lesson-assets/a1_train.webp",
           "label": null
         },
         {
-          "id": "a-train-r1",
-          "image_url": "a1_train.webp",
+          "id": "a-bus-r1",
+          "image_url": "/lesson-assets/a1_photo_u2_red_bus_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "A bus.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un autobús.",
+      "pedagogy_note": "Story beat 01: A bus."
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-children-go-to-school-by-bus-r2",
+      "options": [
+        {
+          "id": "the-children-go-to-school-by-train-r2",
+          "image_url": "",
+          "label": "The children go to school by train."
+        },
+        {
+          "id": "the-children-go-to-school-by-bus-r2",
+          "image_url": "",
+          "label": "The children go to school by bus."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The children go to school by bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: The children go to school by bus."
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "t2i2",
+      "prompt": "A train",
+      "stage": "Recognize",
+      "correct_option_id": "a-train-r3",
+      "options": [
+        {
+          "id": "a-train-r3",
+          "image_url": "/lesson-assets/a1_train.webp",
+          "label": null
+        },
+        {
+          "id": "a-taxi-r3",
+          "image_url": "/lesson-assets/a1_taxi.webp",
           "label": null
         }
       ],
@@ -149,57 +269,7 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un tren",
-      "pedagogy_note": "Story beat 01: A train",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "a-taxi-r2",
-      "options": [
-        {
-          "id": "a-train-r2",
-          "image_url": "",
-          "label": "A train"
-        },
-        {
-          "id": "a-taxi-r2",
-          "image_url": "",
-          "label": "A taxi"
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "A taxi",
-      "prompt_image_url": "a1_taxi.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 02: A taxi"
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "I go by bus.",
-      "stage": "Recognize",
-      "correct_option_id": "i-go-by-bus-r3",
-      "options": [
-        {
-          "id": "i-go-by-bus-r3",
-          "image_url": "a1_scene_i-go-by-bus_a31fe3d.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-train-r3",
-          "image_url": "a1_photo_u6_man_boards_train_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I go by bus.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en autobús.",
-      "pedagogy_note": "Story beat 03: I go by bus.",
-      "audio_speaker": "female-character"
+      "pedagogy_note": "Story beat 03: A train"
     },
     {
       "slide_id": "R4",
@@ -209,9 +279,9 @@
       "correct_option_id": "i-go-by-train-r4",
       "options": [
         {
-          "id": "i-go-by-bus-r4",
+          "id": "i-go-by-taxi-r4",
           "image_url": "",
-          "label": "I go by bus."
+          "label": "I go by taxi."
         },
         {
           "id": "i-go-by-train-r4",
@@ -221,7 +291,7 @@
       ],
       "audio_text": "",
       "answer_audio_text": "I go by train.",
-      "prompt_image_url": "a1_photo_u6_man_boards_train_v1.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
       "answer_audio_speaker": "male-character",
       "pedagogy_note": "Story beat 04: I go by train."
@@ -229,468 +299,392 @@
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "I go by car.",
+      "prompt": "A taxi",
       "stage": "Recognize",
-      "correct_option_id": "i-go-by-car-r5",
+      "correct_option_id": "a-taxi-r5",
       "options": [
         {
-          "id": "i-go-by-taxi-r5",
-          "image_url": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
+          "id": "a-train-r5",
+          "image_url": "/lesson-assets/a1_train.webp",
           "label": null
         },
         {
-          "id": "i-go-by-car-r5",
-          "image_url": "a1_scene_i-go-by-car_6e60b4d.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I go by car.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en carro.",
-      "pedagogy_note": "Story beat 05: I go by car.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "i2t3",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-go-by-bike-r6",
-      "options": [
-        {
-          "id": "i-go-by-taxi-r6",
-          "image_url": "",
-          "label": "I go by taxi."
-        },
-        {
-          "id": "i-go-by-bike-r6",
-          "image_url": "",
-          "label": "I go by bike."
-        },
-        {
-          "id": "i-go-by-car-r6",
-          "image_url": "",
-          "label": "I go by car."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I go by bike.",
-      "prompt_image_url": "a1_scene_i-go-by-bike_fb5d9bc.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 06: I go by bike."
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "I go by taxi.",
-      "stage": "Recognize",
-      "correct_option_id": "i-go-by-taxi-r7",
-      "options": [
-        {
-          "id": "i-go-by-bike-r7",
-          "image_url": "a1_scene_i-go-by-bike_fb5d9bc.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-train-r7",
-          "image_url": "a1_photo_u6_man_boards_train_v1.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-taxi-r7",
-          "image_url": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-car-r7",
-          "image_url": "a1_scene_i-go-by-car_6e60b4d.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I go by taxi.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Voy en taxi.",
-      "pedagogy_note": "Story beat 07: I go by taxi.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-walk-r8",
-      "options": [
-        {
-          "id": "i-walk-r8",
-          "image_url": "",
-          "label": "I walk."
-        },
-        {
-          "id": "i-go-by-bike-r8",
-          "image_url": "",
-          "label": "I go by bike."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I walk.",
-      "prompt_image_url": "a1_scene_i-walk_b4cf763.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 08: I walk."
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "i2t3",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-go-to-work-by-train-r9",
-      "options": [
-        {
-          "id": "i-go-to-work-by-taxi-r9",
-          "image_url": "",
-          "label": "I go to work by taxi."
-        },
-        {
-          "id": "i-go-to-work-by-train-r9",
-          "image_url": "",
-          "label": "I go to work by train."
-        },
-        {
-          "id": "i-go-to-work-by-bus-r9",
-          "image_url": "",
-          "label": "I go to work by bus."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I go to work by train.",
-      "prompt_image_url": "a1_photo_u6_man_boards_train_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 09: I go to work by train."
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "they-go-to-school-by-bus-r10",
-      "options": [
-        {
-          "id": "they-go-to-school-by-bus-r10",
-          "image_url": "",
-          "label": "They go to school by bus."
-        },
-        {
-          "id": "the-children-walk-to-school-r10",
-          "image_url": "",
-          "label": "The children walk to school."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "They go to school by bus.",
-      "prompt_image_url": "a1_photo_u6_children_school_bus_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 10: They go to school by bus."
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "t2i2",
-      "prompt": "The children walk to school.",
-      "stage": "Recognize",
-      "correct_option_id": "the-children-walk-to-school-r11",
-      "options": [
-        {
-          "id": "they-go-to-school-by-bus-r11",
-          "image_url": "a1_photo_u6_children_school_bus_v1.webp",
-          "label": null
-        },
-        {
-          "id": "the-children-walk-to-school-r11",
-          "image_url": "a1_photo_u6_children_walk_to_school_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The children walk to school.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Los niños caminan a la escuela.",
-      "pedagogy_note": "Story beat 11: The children walk to school."
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "a-train-a1",
-      "options": [
-        {
-          "id": "a-train-a1",
-          "image_url": "a1_train.webp",
-          "label": null
-        },
-        {
-          "id": "a-taxi-a1",
-          "image_url": "a1_taxi.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "A train",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: A train",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "a-taxi-a2",
-      "options": [
-        {
-          "id": "a-taxi-a2",
-          "image_url": "a1_taxi.webp",
-          "label": null
-        },
-        {
-          "id": "a-train-a2",
-          "image_url": "a1_train.webp",
+          "id": "a-taxi-r5",
+          "image_url": "/lesson-assets/a1_taxi.webp",
           "label": null
         }
       ],
       "audio_text": "A taxi",
       "answer_audio_text": null,
       "prompt_image_url": "",
+      "spanish_translation": "Un taxi",
+      "pedagogy_note": "Story beat 05: A taxi",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-go-to-the-mall-by-taxi-r6",
+      "options": [
+        {
+          "id": "i-go-to-the-mall-by-taxi-r6",
+          "image_url": "",
+          "label": "I go to the mall by taxi."
+        },
+        {
+          "id": "i-go-to-the-mall-by-train-r6",
+          "image_url": "",
+          "label": "I go to the mall by train."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I go to the mall by taxi.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 06: I go to the mall by taxi."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-walk-to-the-library-r7",
+      "options": [
+        {
+          "id": "i-walk-to-the-library-r7",
+          "image_url": "",
+          "label": "I walk to the library."
+        },
+        {
+          "id": "i-walk-to-the-bank-r7",
+          "image_url": "",
+          "label": "I walk to the bank."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I walk to the library.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 07: I walk to the library."
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "an-airplane-r8",
+      "options": [
+        {
+          "id": "a-train-r8",
+          "image_url": "",
+          "label": "A train"
+        },
+        {
+          "id": "an-airplane-r8",
+          "image_url": "",
+          "label": "An airplane"
+        },
+        {
+          "id": "a-boat-r8",
+          "image_url": "",
+          "label": "A boat"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "An airplane",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: An airplane"
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-go-by-airplane-r9",
+      "options": [
+        {
+          "id": "i-go-by-train-r9",
+          "image_url": "",
+          "label": "I go by train."
+        },
+        {
+          "id": "i-go-by-airplane-r9",
+          "image_url": "",
+          "label": "I go by airplane."
+        },
+        {
+          "id": "i-go-by-boat-r9",
+          "image_url": "",
+          "label": "I go by boat."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I go by airplane.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 09: I go by airplane."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "a-boat-r10",
+      "options": [
+        {
+          "id": "a-boat-r10",
+          "image_url": "",
+          "label": "A boat"
+        },
+        {
+          "id": "an-airplane-r10",
+          "image_url": "",
+          "label": "An airplane"
+        },
+        {
+          "id": "a-train-r10",
+          "image_url": "",
+          "label": "A train"
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "A boat",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_boat_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 10: A boat"
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-children-go-to-school-by-bus-a1",
+      "options": [
+        {
+          "id": "the-children-go-to-school-by-bus-a1",
+          "image_url": "",
+          "label": "The children go to school by bus."
+        },
+        {
+          "id": "the-children-go-to-school-by-train-a1",
+          "image_url": "",
+          "label": "The children go to school by train."
+        }
+      ],
+      "audio_text": "The children go to school by bus.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: A taxi"
+      "pedagogy_note": "Story beat 01: The children go to school by bus."
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-go-to-the-mall-by-train-a2",
+      "options": [
+        {
+          "id": "i-go-to-the-mall-by-train-a2",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "label": null
+        },
+        {
+          "id": "i-go-to-the-mall-by-taxi-a2",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I go to the mall by train.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: I go to the mall by train.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "A3",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-go-by-bus-a3",
+      "correct_option_id": "i-go-to-the-mall-by-taxi-a3",
       "options": [
         {
-          "id": "i-go-by-bus-a3",
+          "id": "i-go-to-the-mall-by-taxi-a3",
           "image_url": "",
-          "label": "I go by bus."
+          "label": "I go to the mall by taxi."
         },
         {
-          "id": "i-go-by-train-a3",
+          "id": "i-go-to-the-mall-by-train-a3",
           "image_url": "",
-          "label": "I go by train."
+          "label": "I go to the mall by train."
         }
       ],
-      "audio_text": "I go by bus.",
+      "audio_text": "I go to the mall by taxi.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: I go by bus.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-go-by-train-a4",
-      "options": [
-        {
-          "id": "i-go-by-bus-a4",
-          "image_url": "a1_scene_i-go-by-bus_a31fe3d.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-train-a4",
-          "image_url": "a1_photo_u6_man_boards_train_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I go by train.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: I go by train.",
+      "pedagogy_note": "Story beat 03: I go to the mall by taxi.",
       "audio_speaker": "male-character"
     },
     {
-      "slide_id": "A5",
-      "interaction_type": "a2i2",
+      "slide_id": "A4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-go-by-car-a5",
+      "correct_option_id": "then-i-walk-to-the-library-a4",
       "options": [
         {
-          "id": "i-go-by-car-a5",
-          "image_url": "a1_scene_i-go-by-car_6e60b4d.webp",
-          "label": null
+          "id": "then-i-walk-to-the-pharmacy-a4",
+          "image_url": "",
+          "label": "Then, I walk to the pharmacy."
         },
         {
-          "id": "i-go-by-taxi-a5",
-          "image_url": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
-          "label": null
+          "id": "then-i-walk-to-the-library-a4",
+          "image_url": "",
+          "label": "Then, I walk to the library."
         }
       ],
-      "audio_text": "I go by car.",
+      "audio_text": "Then, I walk to the library.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: I go by car.",
-      "audio_speaker": "female-character"
+      "pedagogy_note": "Story beat 04: Then, I walk to the library.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "finally-i-am-at-the-library-a5",
+      "options": [
+        {
+          "id": "finally-i-am-at-the-library-a5",
+          "image_url": "",
+          "label": "Finally, I am at the library."
+        },
+        {
+          "id": "finally-i-am-at-the-bank-a5",
+          "image_url": "",
+          "label": "Finally, I am at the bank."
+        }
+      ],
+      "audio_text": "Finally, I am at the library.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: Finally, I am at the library.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A6",
       "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-go-by-bike-a6",
+      "correct_option_id": "i-go-by-airplane-a6",
       "options": [
         {
-          "id": "i-go-by-bike-a6",
+          "id": "i-go-by-airplane-a6",
           "image_url": "",
-          "label": "I go by bike."
+          "label": "I go by airplane."
         },
         {
-          "id": "i-go-by-car-a6",
+          "id": "i-go-by-boat-a6",
           "image_url": "",
-          "label": "I go by car."
+          "label": "I go by boat."
         },
         {
-          "id": "i-go-by-taxi-a6",
+          "id": "i-go-by-train-a6",
           "image_url": "",
-          "label": "I go by taxi."
+          "label": "I go by train."
         }
       ],
-      "audio_text": "I go by bike.",
+      "audio_text": "I go by airplane.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: I go by bike.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Story beat 06: I go by airplane.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-go-by-taxi-a7",
-      "options": [
-        {
-          "id": "i-go-by-train-a7",
-          "image_url": "a1_photo_u6_man_boards_train_v1.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-taxi-a7",
-          "image_url": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-car-a7",
-          "image_url": "a1_scene_i-go-by-car_6e60b4d.webp",
-          "label": null
-        },
-        {
-          "id": "i-go-by-bike-a7",
-          "image_url": "a1_scene_i-go-by-bike_fb5d9bc.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I go by taxi.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: I go by taxi.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-walk-a8",
-      "options": [
-        {
-          "id": "i-go-by-bike-a8",
-          "image_url": "",
-          "label": "I go by bike."
-        },
-        {
-          "id": "i-walk-a8",
-          "image_url": "",
-          "label": "I walk."
-        }
-      ],
-      "audio_text": "I walk.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: I walk.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "A9",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-go-to-work-by-train-a9",
-      "options": [
-        {
-          "id": "i-go-to-work-by-bus-a9",
-          "image_url": "",
-          "label": "I go to work by bus."
-        },
-        {
-          "id": "i-go-to-work-by-taxi-a9",
-          "image_url": "",
-          "label": "I go to work by taxi."
-        },
-        {
-          "id": "i-go-to-work-by-train-a9",
-          "image_url": "",
-          "label": "I go to work by train."
-        }
-      ],
-      "audio_text": "I go to work by train.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: I go to work by train.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "A10",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-children-walk-to-school-a10",
+      "correct_option_id": "they-go-by-airplane-a7",
       "options": [
         {
-          "id": "they-go-to-school-by-bus-a10",
-          "image_url": "a1_photo_u6_children_school_bus_v1.webp",
+          "id": "they-go-by-train-a7",
+          "image_url": "/lesson-assets/a1_train.webp",
           "label": null
         },
         {
-          "id": "the-children-walk-to-school-a10",
-          "image_url": "a1_photo_u6_children_walk_to_school_v1.webp",
+          "id": "they-go-by-airplane-a7",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "The children walk to school.",
+      "audio_text": "They go by airplane.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: The children walk to school.",
+      "pedagogy_note": "Story beat 07: They go by airplane.",
       "audio_speaker": "co-teacher"
     },
     {
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "they-go-by-boat-a8",
+      "options": [
+        {
+          "id": "they-go-by-bus-a8",
+          "image_url": "/lesson-assets/a1_photo_u2_red_bus_v1.webp",
+          "label": null
+        },
+        {
+          "id": "they-go-by-boat-a8",
+          "image_url": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "They go by boat.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: They go by boat."
+    },
+    {
       "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "The children go to school by bus.",
+      "stage": "Speak",
+      "correct_option_id": "the-children-go-to-school-by-bus-speak",
+      "options": [
+        {
+          "id": "the-children-go-to-school-by-bus-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+          "label": "The children go to school by bus."
+        }
+      ],
+      "audio_text": "The children go to school by bus.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los niños van a la escuela en autobús.",
+      "pedagogy_note": "Story beat 01: The children go to school by bus.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "S2",
       "interaction_type": "speak",
       "prompt": "A train",
       "stage": "Speak",
@@ -698,7 +692,7 @@
       "options": [
         {
           "id": "a-train-speak",
-          "image_url": "a1_train.webp",
+          "image_url": "/lesson-assets/a1_train.webp",
           "label": "A train"
         }
       ],
@@ -706,171 +700,171 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Un tren",
-      "pedagogy_note": "Story beat 01: A train"
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "A taxi",
-      "stage": "Speak",
-      "correct_option_id": "a-taxi-speak",
-      "options": [
-        {
-          "id": "a-taxi-speak",
-          "image_url": "a1_taxi.webp",
-          "label": "A taxi"
-        }
-      ],
-      "audio_text": "A taxi",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un taxi",
-      "pedagogy_note": "Story beat 02: A taxi",
-      "audio_speaker": "co-teacher"
+      "pedagogy_note": "Story beat 02: A train"
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "I go by bus.",
+      "prompt": "I go to the mall by train.",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-bus-speak",
+      "correct_option_id": "i-go-to-the-mall-by-train-speak",
       "options": [
         {
-          "id": "i-go-by-bus-speak",
-          "image_url": "a1_scene_i-go-by-bus_a31fe3d.webp",
-          "label": "I go by bus."
+          "id": "i-go-to-the-mall-by-train-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+          "label": "I go to the mall by train."
         }
       ],
-      "audio_text": "I go by bus.",
+      "audio_text": "I go to the mall by train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy en autobús.",
-      "pedagogy_note": "Story beat 03: I go by bus.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Voy al centro comercial en tren.",
+      "pedagogy_note": "Story beat 03: I go to the mall by train.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "I go by train.",
+      "prompt": "I go to the mall by taxi.",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-train-speak",
+      "correct_option_id": "i-go-to-the-mall-by-taxi-speak",
       "options": [
         {
-          "id": "i-go-by-train-speak",
-          "image_url": "a1_photo_u6_man_boards_train_v1.webp",
-          "label": "I go by train."
+          "id": "i-go-to-the-mall-by-taxi-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+          "label": "I go to the mall by taxi."
         }
       ],
-      "audio_text": "I go by train.",
+      "audio_text": "I go to the mall by taxi.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy en tren.",
-      "pedagogy_note": "Story beat 04: I go by train.",
+      "spanish_translation": "Voy al centro comercial en taxi.",
+      "pedagogy_note": "Story beat 04: I go to the mall by taxi.",
       "audio_speaker": "male-character"
     },
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "I go by taxi.",
+      "prompt": "Then, I walk to the library.",
       "stage": "Speak",
-      "correct_option_id": "i-go-by-taxi-speak",
+      "correct_option_id": "then-i-walk-to-the-library-speak",
       "options": [
         {
-          "id": "i-go-by-taxi-speak",
-          "image_url": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
-          "label": "I go by taxi."
+          "id": "then-i-walk-to-the-library-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+          "label": "Then, I walk to the library."
         }
       ],
-      "audio_text": "I go by taxi.",
+      "audio_text": "Then, I walk to the library.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy en taxi.",
-      "pedagogy_note": "Story beat 05: I go by taxi.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Después, camino a la biblioteca.",
+      "pedagogy_note": "Story beat 05: Then, I walk to the library.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "I walk.",
+      "prompt": "Finally, I am at the library.",
       "stage": "Speak",
-      "correct_option_id": "i-walk-speak",
+      "correct_option_id": "finally-i-am-at-the-library-speak",
       "options": [
         {
-          "id": "i-walk-speak",
-          "image_url": "a1_scene_i-walk_b4cf763.webp",
-          "label": "I walk."
+          "id": "finally-i-am-at-the-library-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_at_library_v1.webp",
+          "label": "Finally, I am at the library."
         }
       ],
-      "audio_text": "I walk.",
+      "audio_text": "Finally, I am at the library.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Camino.",
-      "pedagogy_note": "Story beat 06: I walk.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Finalmente, estoy en la biblioteca.",
+      "pedagogy_note": "Story beat 06: Finally, I am at the library.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "I go to work by train.",
+      "prompt": "An airplane",
       "stage": "Speak",
-      "correct_option_id": "i-go-to-work-by-train-speak",
+      "correct_option_id": "an-airplane-speak",
       "options": [
         {
-          "id": "i-go-to-work-by-train-speak",
-          "image_url": "a1_photo_u6_man_boards_train_v1.webp",
-          "label": "I go to work by train."
+          "id": "an-airplane-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp",
+          "label": "An airplane"
         }
       ],
-      "audio_text": "I go to work by train.",
+      "audio_text": "An airplane",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Voy al trabajo en tren.",
-      "pedagogy_note": "Story beat 07: I go to work by train.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Un avión",
+      "pedagogy_note": "Story beat 07: An airplane",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "They go to school by bus.",
+      "prompt": "I go by airplane.",
       "stage": "Speak",
-      "correct_option_id": "they-go-to-school-by-bus-speak",
+      "correct_option_id": "i-go-by-airplane-speak",
       "options": [
         {
-          "id": "they-go-to-school-by-bus-speak",
-          "image_url": "a1_photo_u6_children_school_bus_v1.webp",
-          "label": "They go to school by bus."
+          "id": "i-go-by-airplane-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+          "label": "I go by airplane."
         }
       ],
-      "audio_text": "They go to school by bus.",
+      "audio_text": "I go by airplane.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Van a la escuela en autobús.",
-      "pedagogy_note": "Story beat 08: They go to school by bus."
+      "spanish_translation": "Voy en avión.",
+      "pedagogy_note": "Story beat 08: I go by airplane.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "The children walk to school.",
+      "prompt": "A boat",
       "stage": "Speak",
-      "correct_option_id": "the-children-walk-to-school-speak",
+      "correct_option_id": "a-boat-speak",
       "options": [
         {
-          "id": "the-children-walk-to-school-speak",
-          "image_url": "a1_photo_u6_children_walk_to_school_v1.webp",
-          "label": "The children walk to school."
+          "id": "a-boat-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_boat_v1.webp",
+          "label": "A boat"
         }
       ],
-      "audio_text": "The children walk to school.",
+      "audio_text": "A boat",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Los niños caminan a la escuela.",
-      "pedagogy_note": "Story beat 09: The children walk to school.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Un barco",
+      "pedagogy_note": "Story beat 09: A boat"
+    },
+    {
+      "slide_id": "S10",
+      "interaction_type": "speak",
+      "prompt": "I go by boat.",
+      "stage": "Speak",
+      "correct_option_id": "i-go-by-boat-speak",
+      "options": [
+        {
+          "id": "i-go-by-boat-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+          "label": "I go by boat."
+        }
+      ],
+      "audio_text": "I go by boat.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Voy en barco.",
+      "pedagogy_note": "Story beat 10: I go by boat.",
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I go ___ ___.",
+      "prompt": "The children go to school ___ ___.",
       "stage": "Use",
       "correct_option_id": "by",
       "options": [
@@ -885,23 +879,23 @@
           "label": "bus"
         }
       ],
-      "audio_text": "I go by bus.",
-      "answer_audio_text": "I go by bus.",
-      "prompt_image_url": "a1_scene_i-go-by-bus_a31fe3d.webp",
-      "spanish_translation": "Voy en autobús.",
-      "translation": "Voy en autobús.",
+      "audio_text": "The children go to school by bus.",
+      "answer_audio_text": "The children go to school by bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+      "spanish_translation": "Los niños van a la escuela en autobús.",
+      "translation": "Los niños van a la escuela en autobús.",
       "correct_option_ids": [
         "by",
         "bus"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 01: I go by bus.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 01: The children go to school by bus.",
+      "audio_speaker": "co-teacher"
     },
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I go ___ ___.",
+      "prompt": "They go ___ ___.",
       "stage": "Use",
       "correct_option_id": "by",
       "options": [
@@ -916,85 +910,21 @@
           "label": "train"
         }
       ],
-      "audio_text": "I go by train.",
-      "answer_audio_text": "I go by train.",
-      "prompt_image_url": "a1_photo_u6_man_boards_train_v1.webp",
-      "spanish_translation": "Voy en tren.",
-      "translation": "Voy en tren.",
+      "audio_text": "They go by train.",
+      "answer_audio_text": "They go by train.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+      "spanish_translation": "Van en tren.",
+      "translation": "Van en tren.",
       "correct_option_ids": [
         "by",
         "train"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 02: I go by train.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Story beat 02: They go by train."
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "I go ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "by",
-      "options": [
-        {
-          "id": "by",
-          "image_url": "",
-          "label": "by"
-        },
-        {
-          "id": "car",
-          "image_url": "",
-          "label": "car"
-        }
-      ],
-      "audio_text": "I go by car.",
-      "answer_audio_text": "I go by car.",
-      "prompt_image_url": "a1_scene_i-go-by-car_6e60b4d.webp",
-      "spanish_translation": "Voy en carro.",
-      "translation": "Voy en carro.",
-      "correct_option_ids": [
-        "by",
-        "car"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 03: I go by car.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "I go ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "by",
-      "options": [
-        {
-          "id": "by",
-          "image_url": "",
-          "label": "by"
-        },
-        {
-          "id": "bike",
-          "image_url": "",
-          "label": "bike"
-        }
-      ],
-      "audio_text": "I go by bike.",
-      "answer_audio_text": "I go by bike.",
-      "prompt_image_url": "a1_scene_i-go-by-bike_fb5d9bc.webp",
-      "spanish_translation": "Voy en bicicleta.",
-      "translation": "Voy en bicicleta.",
-      "correct_option_ids": [
-        "by",
-        "bike"
-      ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 04: I go by bike.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "I go ___ ___.",
+      "prompt": "I go to the mall ___ ___.",
       "stage": "Use",
       "correct_option_id": "by",
       "options": [
@@ -1009,117 +939,93 @@
           "label": "taxi"
         }
       ],
-      "audio_text": "I go by taxi.",
-      "answer_audio_text": "I go by taxi.",
-      "prompt_image_url": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
-      "spanish_translation": "Voy en taxi.",
-      "translation": "Voy en taxi.",
+      "audio_text": "I go to the mall by taxi.",
+      "answer_audio_text": "I go to the mall by taxi.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+      "spanish_translation": "Voy al centro comercial en taxi.",
+      "translation": "Voy al centro comercial en taxi.",
       "correct_option_ids": [
         "by",
         "taxi"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 05: I go by taxi.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Story beat 03: I go to the mall by taxi.",
+      "audio_speaker": "male-character"
     },
     {
-      "slide_id": "U6",
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "Then, I walk to ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "library",
+          "image_url": "",
+          "label": "library"
+        }
+      ],
+      "audio_text": "Then, I walk to the library.",
+      "answer_audio_text": "Then, I walk to the library.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+      "spanish_translation": "Después, camino a la biblioteca.",
+      "translation": "Después, camino a la biblioteca.",
+      "correct_option_ids": [
+        "the",
+        "library"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 04: Then, I walk to the library.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U5",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
+      "prompt": "___, ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
-          "image_url": "",
-          "label": "go"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "work"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "train"
-        },
-        {
-          "id": "word-1",
           "image_url": "",
           "label": "I"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "by"
-        }
-      ],
-      "audio_text": "I go to work by train.",
-      "answer_audio_text": "I go to work by train.",
-      "prompt_image_url": "a1_photo_u6_man_boards_train_v1.webp",
-      "spanish_translation": "Voy al trabajo en tren.",
-      "translation": "Voy al trabajo en tren.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 06: I go to work by train.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "go"
-        },
-        {
           "id": "word-4",
           "image_url": "",
-          "label": "school"
+          "label": "at"
         },
         {
           "id": "word-6",
           "image_url": "",
-          "label": "bus"
+          "label": "library"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "They"
+          "label": "Finally"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "to"
+          "label": "am"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "by"
+          "label": "the"
         }
       ],
-      "audio_text": "They go to school by bus.",
-      "answer_audio_text": "They go to school by bus.",
-      "prompt_image_url": "a1_photo_u6_children_school_bus_v1.webp",
-      "spanish_translation": "Van a la escuela en autobús.",
-      "translation": "Van a la escuela en autobús.",
+      "audio_text": "Finally, I am at the library.",
+      "answer_audio_text": "Finally, I am at the library.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_at_library_v1.webp",
+      "spanish_translation": "Finalmente, estoy en la biblioteca.",
+      "translation": "Finalmente, estoy en la biblioteca.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1128,59 +1034,12 @@
         "word-5",
         "word-6"
       ],
-      "pedagogy_note": "Story beat 07: They go to school by bus."
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 05: Finally, I am at the library.",
+      "audio_speaker": "ana"
     },
     {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "children"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "The"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "walk"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "school"
-        }
-      ],
-      "audio_text": "The children walk to school.",
-      "answer_audio_text": "The children walk to school.",
-      "prompt_image_url": "a1_photo_u6_children_walk_to_school_v1.webp",
-      "spanish_translation": "Los niños caminan a la escuela.",
-      "translation": "Los niños caminan a la escuela.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: The children walk to school.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U9",
+      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
@@ -1194,7 +1053,7 @@
         {
           "id": "word-4",
           "image_url": "",
-          "label": "taxi"
+          "label": "airplane"
         },
         {
           "id": "word-1",
@@ -1207,34 +1066,104 @@
           "label": "by"
         }
       ],
-      "audio_text": "I go by taxi.",
-      "answer_audio_text": "I go by taxi.",
-      "prompt_image_url": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
-      "spanish_translation": "Voy en taxi.",
-      "translation": "Voy en taxi.",
+      "audio_text": "I go by airplane.",
+      "answer_audio_text": "I go by airplane.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+      "spanish_translation": "Voy en avión.",
+      "translation": "Voy en avión.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 09: I go by taxi.",
-      "audio_speaker": "female-character"
-    }
-  ],
-  "learn_context_groups": [
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 06: I go by airplane.",
+      "audio_speaker": "ana"
+    },
     {
-      "kind": "sequence",
-      "targets": [
-        "walk"
-      ],
-      "models": [
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
         {
-          "slide_id": "L3",
-          "text": "I walk."
+          "id": "word-2",
+          "image_url": "",
+          "label": "go"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "airplane"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "They"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "by"
         }
-      ]
+      ],
+      "audio_text": "They go by airplane.",
+      "answer_audio_text": "They go by airplane.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+      "spanish_translation": "Van en avión.",
+      "translation": "Van en avión.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 07: They go by airplane.",
+      "audio_speaker": "co-teacher"
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "go"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "boat"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "They"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "by"
+        }
+      ],
+      "audio_text": "They go by boat.",
+      "answer_audio_text": "They go by boat.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+      "spanish_translation": "Van en barco.",
+      "translation": "Van en barco.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "pedagogy_note": "Story beat 08: They go by boat."
     }
   ]
 }

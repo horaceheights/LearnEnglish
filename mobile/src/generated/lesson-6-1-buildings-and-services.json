@@ -1,43 +1,31 @@
 {
   "id": "lesson-6-1-buildings-and-services",
-  "title": "6.1 Buildings and Services",
+  "title": "6.1 Places Around Town",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+  "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.1",
-  "sub_lesson_title": "Buildings and Services",
-  "goal": "Recognize and name a station, a bank, a pharmacy and a library, and say which place a family member is at.",
+  "sub_lesson_title": "Places Around Town",
+  "goal": "Name useful places, locate familiar people, and connect a place with a familiar need.",
   "vocabulary": [
     "station",
     "bank",
     "pharmacy",
-    "library"
+    "library",
+    "mall",
+    "supermarket"
   ],
-  "review_vocabulary": [
-    "a",
-    "it",
-    "is",
-    "are",
-    "the",
-    "at",
-    "in",
-    "store",
-    "hospital",
-    "school",
-    "park",
-    "kitchen",
-    "children",
-    "mother",
-    "father",
-    "grandfather"
-  ],
-  "grammar_function": "It is a bank. The mother is at the pharmacy. The children are in the library.",
-  "prerequisite": "2.1 places; 1.4-1.6 family words; 4.1 and 4.3 in; 4.10 at.",
-  "speaking_outcome": "Name a place in town and say who is there.",
+  "review_vocabulary": [],
+  "grammar_function": "Ana and her family make a short neighborhood visit. Start at the station, locate the father at the bank and the mother at the pharmacy, find the children at the library, then meet at the mall and get food at the supermarket. Explicit Spanish transitions explain each change of location; the English stays within the early lesson\u2019s scope.",
+  "prerequisite": "Units 1\u20135 and the earlier Unit 6 lessons in the displayed course sequence.",
+  "speaking_outcome": "Name useful places, locate familiar people, and connect a place with a familiar need.",
   "purposeful_review_slides": [
+    "R1",
+    "R2",
+    "R3",
     "R4",
     "R5",
     "R6",
@@ -45,7 +33,7 @@
     "R8",
     "R9",
     "R10",
-    "R11",
+    "A1",
     "A2",
     "A3",
     "A4",
@@ -53,12 +41,16 @@
     "A6",
     "A7",
     "A8",
-    "A9",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
     "S5",
     "S6",
     "S7",
     "S8",
     "S9",
+    "S10",
     "U1",
     "U2",
     "U3",
@@ -66,10 +58,9 @@
     "U5",
     "U6",
     "U7",
-    "U8",
-    "U9"
+    "U8"
   ],
-  "content_revision": 2,
+  "content_revision": 3,
   "cards": [
     {
       "slide_id": "L1",
@@ -268,37 +259,135 @@
       ]
     },
     {
-      "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "A station",
-      "stage": "Recognize",
-      "correct_option_id": "a-station-r1",
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "A mall",
+      "stage": "Learn",
+      "correct_option_id": "a-mall-learn",
       "options": [
         {
-          "id": "a-bank-r1",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "label": null
-        },
-        {
-          "id": "a-station-r1",
-          "image_url": "/lesson-assets/a1_station.webp",
-          "label": null
+          "id": "a-mall-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "label": "A mall"
         }
       ],
-      "audio_text": "A station",
+      "audio_text": "A mall",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una estaci\u00f3n",
-      "pedagogy_note": "Story beat 01: A station",
+      "spanish_translation": "Un centro comercial",
+      "pedagogy_note": "Story beat 05: A mall",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c005-prompt-9a6d6a7ad01c72c3d3f2",
+          "id": "lesson-6-1-buildings-and-services-c005-prompt-2c3cad0df23ca909cef9",
           "purpose": "prompt",
-          "text": "A station",
+          "text": "A mall",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c005-answer-728ecbdeffd5d1a63c26",
+          "purpose": "answer",
+          "text": "A mall",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "A supermarket",
+      "stage": "Learn",
+      "correct_option_id": "a-supermarket-learn",
+      "options": [
+        {
+          "id": "a-supermarket-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+          "label": "A supermarket"
+        }
+      ],
+      "audio_text": "A supermarket",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un supermercado",
+      "pedagogy_note": "Story beat 06: A supermarket",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c006-prompt-88b5bb964cd0f771e1f0",
+          "purpose": "prompt",
+          "text": "A supermarket",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c006-answer-dc4830eb1f185fc64fab",
+          "purpose": "answer",
+          "text": "A supermarket",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "t2i2",
+      "prompt": "It is a station.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-a-station-r1",
+      "options": [
+        {
+          "id": "it-is-a-bank-r1",
+          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-station-r1",
+          "image_url": "/lesson-assets/a1_station.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is a station.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es una estaci\u00f3n.",
+      "pedagogy_note": "Story beat 01: It is a station.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c007-prompt-d2dc06c7b9037a451a6b",
+          "purpose": "prompt",
+          "text": "It is a station.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_station.webp",
@@ -308,9 +397,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c005-answer-e979dea244a7a32d3d0c",
+          "id": "lesson-6-1-buildings-and-services-c007-answer-cf7890b61fba4887b6ad",
           "purpose": "answer",
-          "text": "A station",
+          "text": "It is a station.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_station.webp",
@@ -326,36 +415,36 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "a-bank-r2",
+      "correct_option_id": "the-father-is-at-the-station-r2",
       "options": [
         {
-          "id": "a-station-r2",
+          "id": "the-father-is-at-the-bank-r2",
           "image_url": "",
-          "label": "A station"
+          "label": "The father is at the bank."
         },
         {
-          "id": "a-bank-r2",
+          "id": "the-father-is-at-the-station-r2",
           "image_url": "",
-          "label": "A bank"
+          "label": "The father is at the station."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "A bank",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "answer_audio_text": "The father is at the station.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 02: A bank",
+      "pedagogy_note": "Story beat 02: The father is at the station.",
       "audio_speaker": null,
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c006-answer-e6eae8d0e3e872bd0716",
+          "id": "lesson-6-1-buildings-and-services-c008-answer-606ae1bdfae5e30c814d",
           "purpose": "answer",
-          "text": "A bank",
+          "text": "The father is at the station.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -366,50 +455,50 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "A pharmacy",
+      "prompt": "It is a bank.",
       "stage": "Recognize",
-      "correct_option_id": "a-pharmacy-r3",
+      "correct_option_id": "it-is-a-bank-r3",
       "options": [
         {
-          "id": "a-pharmacy-r3",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
+          "id": "it-is-a-bank-r3",
+          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
           "label": null
         },
         {
-          "id": "a-bank-r3",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "id": "it-is-a-pharmacy-r3",
+          "image_url": "/lesson-assets/a1_pharmacy.webp",
           "label": null
         }
       ],
-      "audio_text": "A pharmacy",
+      "audio_text": "It is a bank.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Una farmacia",
-      "pedagogy_note": "Story beat 03: A pharmacy",
+      "spanish_translation": "Es un banco.",
+      "pedagogy_note": "Story beat 03: It is a bank.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c007-prompt-c48141623d1f8c14f23e",
+          "id": "lesson-6-1-buildings-and-services-c009-prompt-db9416fa511e93c52ef1",
           "purpose": "prompt",
-          "text": "A pharmacy",
+          "text": "It is a bank.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c007-answer-795bc5d9ffe0b03dc362",
+          "id": "lesson-6-1-buildings-and-services-c009-answer-0b1a47c6524ee7bc3544",
           "purpose": "answer",
-          "text": "A pharmacy",
+          "text": "It is a bank.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -422,36 +511,36 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-bank-r4",
+      "correct_option_id": "the-grandfather-is-at-the-bank-r4",
       "options": [
         {
-          "id": "it-is-a-pharmacy-r4",
+          "id": "the-grandfather-is-at-the-station-r4",
           "image_url": "",
-          "label": "It is a pharmacy."
+          "label": "The grandfather is at the station."
         },
         {
-          "id": "it-is-a-bank-r4",
+          "id": "the-grandfather-is-at-the-bank-r4",
           "image_url": "",
-          "label": "It is a bank."
+          "label": "The grandfather is at the bank."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It is a bank.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "answer_audio_text": "The grandfather is at the bank.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 04: It is a bank.",
+      "pedagogy_note": "Story beat 04: The grandfather is at the bank.",
       "audio_speaker": null,
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c008-answer-0468996a74a58808bd26",
+          "id": "lesson-6-1-buildings-and-services-c010-answer-d2690f3c45aefa9cb9b0",
           "purpose": "answer",
-          "text": "It is a bank.",
+          "text": "The grandfather is at the bank.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -461,51 +550,39 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "It is a pharmacy.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-pharmacy-r5",
+      "correct_option_id": "the-mother-is-at-the-pharmacy-r5",
       "options": [
         {
-          "id": "it-is-a-bank-r5",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "label": null
+          "id": "the-mother-is-at-the-library-r5",
+          "image_url": "",
+          "label": "The mother is at the library."
         },
         {
-          "id": "it-is-a-pharmacy-r5",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": null
+          "id": "the-mother-is-at-the-pharmacy-r5",
+          "image_url": "",
+          "label": "The mother is at the pharmacy."
         }
       ],
-      "audio_text": "It is a pharmacy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es una farmacia.",
-      "pedagogy_note": "Story beat 05: It is a pharmacy.",
+      "audio_text": "",
+      "answer_audio_text": "The mother is at the pharmacy.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 05: The mother is at the pharmacy.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c009-prompt-0726a0bd14ee3dad14bb",
-          "purpose": "prompt",
-          "text": "It is a pharmacy.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c009-answer-dd42a91d09913b2f8290",
+          "id": "lesson-6-1-buildings-and-services-c011-answer-1400c6457633d021cc9a",
           "purpose": "answer",
-          "text": "It is a pharmacy.",
+          "text": "The mother is at the pharmacy.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -515,143 +592,27 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "i2t3",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-library-r6",
+      "correct_option_id": "the-children-are-in-the-library-r6",
       "options": [
         {
-          "id": "it-is-a-station-r6",
-          "image_url": "",
-          "label": "It is a station."
-        },
-        {
-          "id": "it-is-a-library-r6",
-          "image_url": "",
-          "label": "It is a library."
-        },
-        {
-          "id": "it-is-a-pharmacy-r6",
-          "image_url": "",
-          "label": "It is a pharmacy."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "It is a library.",
-      "prompt_image_url": "/lesson-assets/a1_library.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: It is a library.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c010-answer-286ee029ff56304f2a88",
-          "purpose": "answer",
-          "text": "It is a library.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "It is a station.",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-a-station-r7",
-      "options": [
-        {
-          "id": "it-is-a-pharmacy-r7",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-bank-r7",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-station-r7",
-          "image_url": "/lesson-assets/a1_station.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-library-r7",
-          "image_url": "/lesson-assets/a1_library.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a station.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es una estaci\u00f3n.",
-      "pedagogy_note": "Story beat 07: It is a station.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c011-prompt-32a78995ee97076253dd",
-          "purpose": "prompt",
-          "text": "It is a station.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c011-answer-366dfdf80b6b34b9b9f8",
-          "purpose": "answer",
-          "text": "It is a station.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-children-are-in-the-library-r8",
-      "options": [
-        {
-          "id": "the-children-are-in-the-park-r8",
-          "image_url": "",
-          "label": "The children are in the park."
-        },
-        {
-          "id": "the-children-are-in-the-library-r8",
+          "id": "the-children-are-in-the-library-r6",
           "image_url": "",
           "label": "The children are in the library."
         },
         {
-          "id": "the-children-are-in-the-kitchen-r8",
+          "id": "the-children-are-in-the-supermarket-r6",
           "image_url": "",
-          "label": "The children are in the kitchen."
+          "label": "The children are in the supermarket."
         }
       ],
       "audio_text": "",
       "answer_audio_text": "The children are in the library.",
       "prompt_image_url": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: The children are in the library.",
+      "pedagogy_note": "Story beat 06: The children are in the library.",
       "audio_speaker": null,
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
@@ -672,45 +633,168 @@
       ]
     },
     {
-      "slide_id": "R9",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "slide_id": "R7",
+      "interaction_type": "t2i4",
+      "prompt": "It is a mall.",
       "stage": "Recognize",
-      "correct_option_id": "the-mother-is-at-the-pharmacy-r9",
+      "correct_option_id": "it-is-a-mall-r7",
       "options": [
         {
-          "id": "the-mother-is-at-the-station-r9",
-          "image_url": "",
-          "label": "The mother is at the station."
+          "id": "it-is-a-bank-r7",
+          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "label": null
         },
         {
-          "id": "the-mother-is-at-the-pharmacy-r9",
-          "image_url": "",
-          "label": "The mother is at the pharmacy."
+          "id": "it-is-a-pharmacy-r7",
+          "image_url": "/lesson-assets/a1_pharmacy.webp",
+          "label": null
         },
         {
-          "id": "the-mother-is-at-the-bank-r9",
-          "image_url": "",
-          "label": "The mother is at the bank."
+          "id": "it-is-a-mall-r7",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-library-r7",
+          "image_url": "/lesson-assets/a1_library.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "The mother is at the pharmacy.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: The mother is at the pharmacy.",
+      "audio_text": "It is a mall.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un centro comercial.",
+      "pedagogy_note": "Story beat 07: It is a mall.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c013-answer-11784ff4033ca0713929",
+          "id": "lesson-6-1-buildings-and-services-c013-prompt-d3d64565a71dbe844369",
+          "purpose": "prompt",
+          "text": "It is a mall.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c013-answer-3fa943e77d131084afa9",
           "purpose": "answer",
-          "text": "The mother is at the pharmacy.",
+          "text": "It is a mall.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "the-children-are-at-the-mall-r8",
+      "options": [
+        {
+          "id": "the-children-are-at-the-mall-r8",
+          "image_url": "",
+          "label": "The children are at the mall."
+        },
+        {
+          "id": "the-children-are-at-the-bank-r8",
+          "image_url": "",
+          "label": "The children are at the bank."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "The children are at the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 08: The children are at the mall.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c014-answer-d5a7408a754a2938c656",
+          "purpose": "answer",
+          "text": "The children are at the mall.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "t2i4",
+      "prompt": "It is a supermarket.",
+      "stage": "Recognize",
+      "correct_option_id": "it-is-a-supermarket-r9",
+      "options": [
+        {
+          "id": "it-is-a-mall-r9",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-library-r9",
+          "image_url": "/lesson-assets/a1_library.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-supermarket-r9",
+          "image_url": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+          "label": null
+        },
+        {
+          "id": "it-is-a-bank-r9",
+          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "It is a supermarket.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un supermercado.",
+      "pedagogy_note": "Story beat 09: It is a supermarket.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c015-prompt-f9979b87217b0d172582",
+          "purpose": "prompt",
+          "text": "It is a supermarket.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c015-answer-4a01c3b9d9943115cb8b",
+          "purpose": "answer",
+          "text": "It is a supermarket.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -720,39 +804,782 @@
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-grandfather-is-at-the-bank-r10",
+      "correct_option_id": "the-supermarket-is-next-to-the-mall-r10",
       "options": [
         {
-          "id": "the-grandfather-is-at-the-bank-r10",
+          "id": "the-supermarket-is-next-to-the-mall-r10",
           "image_url": "",
-          "label": "The grandfather is at the bank."
+          "label": "The supermarket is next to the mall."
         },
         {
-          "id": "the-grandfather-is-at-the-pharmacy-r10",
+          "id": "the-pharmacy-is-next-to-the-mall-r10",
           "image_url": "",
-          "label": "The grandfather is at the pharmacy."
-        },
-        {
-          "id": "the-grandfather-is-at-the-library-r10",
-          "image_url": "",
-          "label": "The grandfather is at the library."
+          "label": "The pharmacy is next to the mall."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The grandfather is at the bank.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+      "answer_audio_text": "The supermarket is next to the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: The grandfather is at the bank.",
+      "pedagogy_note": "Story beat 10: The supermarket is next to the mall.",
       "audio_speaker": null,
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c014-answer-defc6182c2e5ee5c2ecd",
+          "id": "lesson-6-1-buildings-and-services-c016-answer-fcd60481635e253bb3f4",
+          "purpose": "answer",
+          "text": "The supermarket is next to the mall.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-father-is-at-the-station-a1",
+      "options": [
+        {
+          "id": "the-father-is-at-the-station-a1",
+          "image_url": "",
+          "label": "The father is at the station."
+        },
+        {
+          "id": "the-father-is-at-the-bank-a1",
+          "image_url": "",
+          "label": "The father is at the bank."
+        }
+      ],
+      "audio_text": "Where is the father? The father is at the station.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: The father is at the station.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Where is the father?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp"
+        },
+        {
+          "text": "The father is at the station.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c017-prompt-turn-1-ca38793af0411a40e5e9",
+          "purpose": "prompt-turn-1",
+          "text": "Where is the father?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c017-prompt-turn-2-23768ff1edb11279c96d",
+          "purpose": "prompt-turn-2",
+          "text": "The father is at the station.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c017-answer-ad70f181f64f7825c195",
+          "purpose": "answer",
+          "text": "The father is at the station.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:842e6b694e873ec9a5d9",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-grandfather-is-at-the-bank-a2",
+      "options": [
+        {
+          "id": "the-grandfather-is-at-the-bank-a2",
+          "image_url": "",
+          "label": "The grandfather is at the bank."
+        },
+        {
+          "id": "the-grandfather-is-at-the-station-a2",
+          "image_url": "",
+          "label": "The grandfather is at the station."
+        }
+      ],
+      "audio_text": "Where is the grandfather? The grandfather is at the bank.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: The grandfather is at the bank.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Where is the grandfather?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp"
+        },
+        {
+          "text": "The grandfather is at the bank.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c018-prompt-turn-1-d09e9bd83f974880e14a",
+          "purpose": "prompt-turn-1",
+          "text": "Where is the grandfather?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c018-prompt-turn-2-15d7460d21f374a5fe90",
+          "purpose": "prompt-turn-2",
+          "text": "The grandfather is at the bank.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c018-answer-e167d24d21e01482ebe6",
+          "purpose": "answer",
+          "text": "The grandfather is at the bank.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:fdf73b76299e3d8ba7b5",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-mother-is-at-the-pharmacy-a3",
+      "options": [
+        {
+          "id": "the-mother-is-at-the-pharmacy-a3",
+          "image_url": "",
+          "label": "The mother is at the pharmacy."
+        },
+        {
+          "id": "the-mother-is-at-the-library-a3",
+          "image_url": "",
+          "label": "The mother is at the library."
+        }
+      ],
+      "audio_text": "Where is the mother? The mother is at the pharmacy.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: The mother is at the pharmacy.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Where is the mother?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp"
+        },
+        {
+          "text": "The mother is at the pharmacy.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c019-prompt-turn-1-09ce0ff882bee5a0f309",
+          "purpose": "prompt-turn-1",
+          "text": "Where is the mother?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c019-prompt-turn-2-7c06cb1680172b62edd5",
+          "purpose": "prompt-turn-2",
+          "text": "The mother is at the pharmacy.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c019-answer-3f4670e20acf58ee99e6",
+          "purpose": "answer",
+          "text": "The mother is at the pharmacy.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:a930b8d11f79d8e99bf3",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-children-are-in-the-library-a4",
+      "options": [
+        {
+          "id": "the-children-are-in-the-supermarket-a4",
+          "image_url": "",
+          "label": "The children are in the supermarket."
+        },
+        {
+          "id": "the-children-are-in-the-library-a4",
+          "image_url": "",
+          "label": "The children are in the library."
+        }
+      ],
+      "audio_text": "The children are in the library.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: The children are in the library.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c020-prompt-1da2dd98fa63ac533e37",
+          "purpose": "prompt",
+          "text": "The children are in the library.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:03a6290836fe644aa691",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c020-answer-6a29eb5565a210338ac9",
+          "purpose": "answer",
+          "text": "The children are in the library.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:03a6290836fe644aa691",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "they-have-books-a5",
+      "options": [
+        {
+          "id": "they-have-books-a5",
+          "image_url": "",
+          "label": "They have books."
+        },
+        {
+          "id": "they-have-apples-a5",
+          "image_url": "",
+          "label": "They have apples."
+        }
+      ],
+      "audio_text": "The children are in the library. They have books.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: They have books.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The children are in the library.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp"
+        },
+        {
+          "text": "They have books.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c021-prompt-turn-1-28e5e1578ca574b32a49",
+          "purpose": "prompt-turn-1",
+          "text": "The children are in the library.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c021-prompt-turn-2-26000a6c77d350330537",
+          "purpose": "prompt-turn-2",
+          "text": "They have books.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c021-answer-7e655ac1419a4cc19896",
+          "purpose": "answer",
+          "text": "They have books.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:1ec9ffae6c01b873ed50",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-children-are-at-the-mall-a6",
+      "options": [
+        {
+          "id": "the-children-are-at-the-bank-a6",
+          "image_url": "",
+          "label": "The children are at the bank."
+        },
+        {
+          "id": "the-children-are-at-the-mall-a6",
+          "image_url": "",
+          "label": "The children are at the mall."
+        }
+      ],
+      "audio_text": "The children are at the mall.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: The children are at the mall.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c022-prompt-cc35d963504f8e687007",
+          "purpose": "prompt",
+          "text": "The children are at the mall.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:abbbd5f1f3469b23d1fc",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c022-answer-0e44d26a465a48e9562f",
+          "purpose": "answer",
+          "text": "The children are at the mall.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:abbbd5f1f3469b23d1fc",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "the-supermarket-is-next-to-the-mall-a7",
+      "options": [
+        {
+          "id": "the-pharmacy-is-next-to-the-mall-a7",
+          "image_url": "",
+          "label": "The pharmacy is next to the mall."
+        },
+        {
+          "id": "the-supermarket-is-next-to-the-mall-a7",
+          "image_url": "",
+          "label": "The supermarket is next to the mall."
+        }
+      ],
+      "audio_text": "Where is the supermarket? The supermarket is next to the mall.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: The supermarket is next to the mall.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Where is the supermarket?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp"
+        },
+        {
+          "text": "The supermarket is next to the mall.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c023-prompt-turn-1-ce7043425e3362fec407",
+          "purpose": "prompt-turn-1",
+          "text": "Where is the supermarket?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c023-prompt-turn-2-720425cd1fe4e1b41245",
+          "purpose": "prompt-turn-2",
+          "text": "The supermarket is next to the mall.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c023-answer-758d7afd4760f29a132b",
+          "purpose": "answer",
+          "text": "The supermarket is next to the mall.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:0ad574370c55e8ef03f0",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-need-food-a8",
+      "options": [
+        {
+          "id": "i-need-water-a8",
+          "image_url": "",
+          "label": "I need water."
+        },
+        {
+          "id": "i-need-food-a8",
+          "image_url": "",
+          "label": "I need food."
+        }
+      ],
+      "audio_text": "I need food.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: I need food.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c024-prompt-f45d114f8427cdcaa6e8",
+          "purpose": "prompt",
+          "text": "I need food.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "text-only:bdaf42d84061c964e8b6",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c024-answer-2bfe1646e0e4915ba990",
+          "purpose": "answer",
+          "text": "I need food.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "text-only:bdaf42d84061c964e8b6",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "Where is the father?",
+      "stage": "Speak",
+      "correct_option_id": "where-is-the-father-speak",
+      "options": [
+        {
+          "id": "where-is-the-father-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "label": "Where is the father?"
+        }
+      ],
+      "audio_text": "Where is the father?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el padre?",
+      "pedagogy_note": "Story beat 01: Where is the father?",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c025-prompt-6c88f9f4246b934ae2dd",
+          "purpose": "prompt",
+          "text": "Where is the father?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "question",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c025-answer-5e47fd44de3e5d763395",
+          "purpose": "answer",
+          "text": "Where is the father?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "The father is at the station.",
+      "stage": "Speak",
+      "correct_option_id": "the-father-is-at-the-station-speak",
+      "options": [
+        {
+          "id": "the-father-is-at-the-station-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "label": "The father is at the station."
+        }
+      ],
+      "audio_text": "The father is at the station.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El padre est\u00e1 en la estaci\u00f3n.",
+      "pedagogy_note": "Story beat 02: The father is at the station.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c026-prompt-a25213eebb15502dfff4",
+          "purpose": "prompt",
+          "text": "The father is at the station.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c026-answer-6a570099c0b714d59b71",
+          "purpose": "answer",
+          "text": "The father is at the station.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "Where is the grandfather?",
+      "stage": "Speak",
+      "correct_option_id": "where-is-the-grandfather-speak",
+      "options": [
+        {
+          "id": "where-is-the-grandfather-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "label": "Where is the grandfather?"
+        }
+      ],
+      "audio_text": "Where is the grandfather?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el abuelo?",
+      "pedagogy_note": "Story beat 03: Where is the grandfather?",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c027-prompt-fceb230bf03cd219c94f",
+          "purpose": "prompt",
+          "text": "Where is the grandfather?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "question",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c027-answer-910fdf4c9a497d27e4de",
+          "purpose": "answer",
+          "text": "Where is the grandfather?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "The grandfather is at the bank.",
+      "stage": "Speak",
+      "correct_option_id": "the-grandfather-is-at-the-bank-speak",
+      "options": [
+        {
+          "id": "the-grandfather-is-at-the-bank-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "label": "The grandfather is at the bank."
+        }
+      ],
+      "audio_text": "The grandfather is at the bank.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El abuelo est\u00e1 en el banco.",
+      "pedagogy_note": "Story beat 04: The grandfather is at the bank.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c028-prompt-980cebfe759116286e7b",
+          "purpose": "prompt",
+          "text": "The grandfather is at the bank.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c028-answer-214becaaf195a54f7264",
           "purpose": "answer",
           "text": "The grandfather is at the bank.",
           "mode": "prompt",
@@ -766,806 +1593,47 @@
       ]
     },
     {
-      "slide_id": "R11",
-      "interaction_type": "i2t3",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-father-is-at-the-station-r11",
-      "options": [
-        {
-          "id": "the-father-is-at-the-bank-r11",
-          "image_url": "",
-          "label": "The father is at the bank."
-        },
-        {
-          "id": "the-father-is-at-the-school-r11",
-          "image_url": "",
-          "label": "The father is at the school."
-        },
-        {
-          "id": "the-father-is-at-the-station-r11",
-          "image_url": "",
-          "label": "The father is at the station."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The father is at the station.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 11: The father is at the station.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c015-answer-756f83a7fc2936a090b1",
-          "purpose": "answer",
-          "text": "The father is at the station.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "a-library-a1",
-      "options": [
-        {
-          "id": "a-library-a1",
-          "image_url": "/lesson-assets/a1_library.webp",
-          "label": null
-        },
-        {
-          "id": "a-pharmacy-a1",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "A library",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: A library",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c016-prompt-2963cb7030839d01ac5f",
-          "purpose": "prompt",
-          "text": "A library",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c016-answer-2a0987eaa72b15e7f427",
-          "purpose": "answer",
-          "text": "A library",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-a-bank-a2",
-      "options": [
-        {
-          "id": "it-is-a-bank-a2",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-pharmacy-a2",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a bank.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: It is a bank.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c017-prompt-39142580972788d3a650",
-          "purpose": "prompt",
-          "text": "It is a bank.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c017-answer-3e871c3e4d772f709e0c",
-          "purpose": "answer",
-          "text": "It is a bank.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-a-pharmacy-a3",
-      "options": [
-        {
-          "id": "it-is-a-pharmacy-a3",
-          "image_url": "",
-          "label": "It is a pharmacy."
-        },
-        {
-          "id": "it-is-a-bank-a3",
-          "image_url": "",
-          "label": "It is a bank."
-        }
-      ],
-      "audio_text": "It is a pharmacy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: It is a pharmacy.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c018-prompt-70df01fd93e335508e36",
-          "purpose": "prompt",
-          "text": "It is a pharmacy.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:838b5df5f9ac6dbb6844",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c018-answer-6a302fd4cd3e95182595",
-          "purpose": "answer",
-          "text": "It is a pharmacy.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:838b5df5f9ac6dbb6844",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-a-library-a4",
-      "options": [
-        {
-          "id": "it-is-a-pharmacy-a4",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-library-a4",
-          "image_url": "/lesson-assets/a1_library.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a library.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: It is a library.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c019-prompt-ca8567b8304a99f1677b",
-          "purpose": "prompt",
-          "text": "It is a library.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c019-answer-82e4e5b3d21dc9b1c2fd",
-          "purpose": "answer",
-          "text": "It is a library.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A5",
-      "interaction_type": "a2i4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "it-is-a-station-a5",
-      "options": [
-        {
-          "id": "it-is-a-pharmacy-a5",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-bank-a5",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-station-a5",
-          "image_url": "/lesson-assets/a1_station.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-a-library-a5",
-          "image_url": "/lesson-assets/a1_library.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a station.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: It is a station.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c020-prompt-1382feceaff1fefe89c7",
-          "purpose": "prompt",
-          "text": "It is a station.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c020-answer-4e1d05640c0b2c0c5ba7",
-          "purpose": "answer",
-          "text": "It is a station.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A6",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-children-are-in-the-library-a6",
-      "options": [
-        {
-          "id": "the-children-are-in-the-library-a6",
-          "image_url": "",
-          "label": "The children are in the library."
-        },
-        {
-          "id": "the-children-are-in-the-kitchen-a6",
-          "image_url": "",
-          "label": "The children are in the kitchen."
-        },
-        {
-          "id": "the-children-are-in-the-park-a6",
-          "image_url": "",
-          "label": "The children are in the park."
-        }
-      ],
-      "audio_text": "The children are in the library.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: The children are in the library.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c021-prompt-0a4d9868c0792df9f597",
-          "purpose": "prompt",
-          "text": "The children are in the library.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:f1e43d3b447db46caeb3",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c021-answer-dff10596eae8877a9cad",
-          "purpose": "answer",
-          "text": "The children are in the library.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:f1e43d3b447db46caeb3",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A7",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-mother-is-at-the-pharmacy-a7",
-      "options": [
-        {
-          "id": "the-mother-is-at-the-pharmacy-a7",
-          "image_url": "",
-          "label": "The mother is at the pharmacy."
-        },
-        {
-          "id": "the-mother-is-at-the-bank-a7",
-          "image_url": "",
-          "label": "The mother is at the bank."
-        },
-        {
-          "id": "the-mother-is-at-the-station-a7",
-          "image_url": "",
-          "label": "The mother is at the station."
-        }
-      ],
-      "audio_text": "The mother is at the pharmacy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: The mother is at the pharmacy.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c022-prompt-a1243c588e904559bff1",
-          "purpose": "prompt",
-          "text": "The mother is at the pharmacy.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:97292c92b3dc37a7d0c1",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c022-answer-0078a62434fcdf91817c",
-          "purpose": "answer",
-          "text": "The mother is at the pharmacy.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:97292c92b3dc37a7d0c1",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-grandfather-is-at-the-bank-a8",
-      "options": [
-        {
-          "id": "the-grandfather-is-at-the-bank-a8",
-          "image_url": "",
-          "label": "The grandfather is at the bank."
-        },
-        {
-          "id": "the-grandfather-is-at-the-pharmacy-a8",
-          "image_url": "",
-          "label": "The grandfather is at the pharmacy."
-        },
-        {
-          "id": "the-grandfather-is-at-the-library-a8",
-          "image_url": "",
-          "label": "The grandfather is at the library."
-        }
-      ],
-      "audio_text": "The grandfather is at the bank.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: The grandfather is at the bank.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c023-prompt-c784ebc3904d303a5d58",
-          "purpose": "prompt",
-          "text": "The grandfather is at the bank.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:917212345fb7c0192f71",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c023-answer-c7d76b72896133ab2eca",
-          "purpose": "answer",
-          "text": "The grandfather is at the bank.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:917212345fb7c0192f71",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A9",
-      "interaction_type": "a2t3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-father-is-at-the-station-a9",
-      "options": [
-        {
-          "id": "the-father-is-at-the-bank-a9",
-          "image_url": "",
-          "label": "The father is at the bank."
-        },
-        {
-          "id": "the-father-is-at-the-school-a9",
-          "image_url": "",
-          "label": "The father is at the school."
-        },
-        {
-          "id": "the-father-is-at-the-station-a9",
-          "image_url": "",
-          "label": "The father is at the station."
-        }
-      ],
-      "audio_text": "The father is at the station.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: The father is at the station.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c024-prompt-7230594cf5cd0f3efb1d",
-          "purpose": "prompt",
-          "text": "The father is at the station.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:0743762bdc222b33c60c",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c024-answer-50948de8c1e04ee88a9b",
-          "purpose": "answer",
-          "text": "The father is at the station.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:0743762bdc222b33c60c",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "speak",
-      "prompt": "A station",
-      "stage": "Speak",
-      "correct_option_id": "a-station-speak",
-      "options": [
-        {
-          "id": "a-station-speak",
-          "image_url": "/lesson-assets/a1_station.webp",
-          "label": "A station"
-        }
-      ],
-      "audio_text": "A station",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una estaci\u00f3n",
-      "pedagogy_note": "Story beat 01: A station",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c025-prompt-9eeb98cf60a97af02fdb",
-          "purpose": "prompt",
-          "text": "A station",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c025-answer-f4b9b8d59bd492e7a1e7",
-          "purpose": "answer",
-          "text": "A station",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "A bank",
-      "stage": "Speak",
-      "correct_option_id": "a-bank-speak",
-      "options": [
-        {
-          "id": "a-bank-speak",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "label": "A bank"
-        }
-      ],
-      "audio_text": "A bank",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Un banco",
-      "pedagogy_note": "Story beat 02: A bank",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c026-prompt-f2c70f62c03d547c9f1d",
-          "purpose": "prompt",
-          "text": "A bank",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c026-answer-031dc488049b82a4f5f6",
-          "purpose": "answer",
-          "text": "A bank",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "A pharmacy",
-      "stage": "Speak",
-      "correct_option_id": "a-pharmacy-speak",
-      "options": [
-        {
-          "id": "a-pharmacy-speak",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": "A pharmacy"
-        }
-      ],
-      "audio_text": "A pharmacy",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una farmacia",
-      "pedagogy_note": "Story beat 03: A pharmacy",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c027-prompt-33e3c75a73330c4cb6b2",
-          "purpose": "prompt",
-          "text": "A pharmacy",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c027-answer-917ad45ed4f09b6466ce",
-          "purpose": "answer",
-          "text": "A pharmacy",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "A library",
-      "stage": "Speak",
-      "correct_option_id": "a-library-speak",
-      "options": [
-        {
-          "id": "a-library-speak",
-          "image_url": "/lesson-assets/a1_library.webp",
-          "label": "A library"
-        }
-      ],
-      "audio_text": "A library",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Una biblioteca",
-      "pedagogy_note": "Story beat 04: A library",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c028-prompt-994677f5ae5cc1595679",
-          "purpose": "prompt",
-          "text": "A library",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c028-answer-4739f96d4e2a728e0f3c",
-          "purpose": "answer",
-          "text": "A library",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "It is a bank.",
+      "prompt": "Where is the mother?",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-bank-speak",
+      "correct_option_id": "where-is-the-mother-speak",
       "options": [
         {
-          "id": "it-is-a-bank-speak",
-          "image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "label": "It is a bank."
+          "id": "where-is-the-mother-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "label": "Where is the mother?"
         }
       ],
-      "audio_text": "It is a bank.",
+      "audio_text": "Where is the mother?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es un banco.",
-      "pedagogy_note": "Story beat 05: It is a bank.",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la madre?",
+      "pedagogy_note": "Story beat 05: Where is the mother?",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c029-prompt-d831db9ca980c11e440c",
+          "id": "lesson-6-1-buildings-and-services-c029-prompt-6035abe85ff8a84ef09e",
           "purpose": "prompt",
-          "text": "It is a bank.",
+          "text": "Where is the mother?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c029-answer-df6da9d946cd474f7b52",
+          "id": "lesson-6-1-buildings-and-services-c029-answer-16f978fa5fcabeef94c1",
           "purpose": "answer",
-          "text": "It is a bank.",
+          "text": "Where is the mother?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1576,45 +1644,45 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "It is a pharmacy.",
+      "prompt": "The mother is at the pharmacy.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-pharmacy-speak",
+      "correct_option_id": "the-mother-is-at-the-pharmacy-speak",
       "options": [
         {
-          "id": "it-is-a-pharmacy-speak",
-          "image_url": "/lesson-assets/a1_pharmacy.webp",
-          "label": "It is a pharmacy."
+          "id": "the-mother-is-at-the-pharmacy-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "label": "The mother is at the pharmacy."
         }
       ],
-      "audio_text": "It is a pharmacy.",
+      "audio_text": "The mother is at the pharmacy.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es una farmacia.",
-      "pedagogy_note": "Story beat 06: It is a pharmacy.",
+      "spanish_translation": "La madre est\u00e1 en la farmacia.",
+      "pedagogy_note": "Story beat 06: The mother is at the pharmacy.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c030-prompt-2a39edeaea8d590daaff",
+          "id": "lesson-6-1-buildings-and-services-c030-prompt-486b2f15dc6f40d8a9a9",
           "purpose": "prompt",
-          "text": "It is a pharmacy.",
+          "text": "The mother is at the pharmacy.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c030-answer-ce05c88a6b34a81b68a3",
+          "id": "lesson-6-1-buildings-and-services-c030-answer-6f27eb8a8c08ef2026e3",
           "purpose": "answer",
-          "text": "It is a pharmacy.",
+          "text": "The mother is at the pharmacy.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1624,104 +1692,6 @@
     },
     {
       "slide_id": "S7",
-      "interaction_type": "speak",
-      "prompt": "It is a library.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-a-library-speak",
-      "options": [
-        {
-          "id": "it-is-a-library-speak",
-          "image_url": "/lesson-assets/a1_library.webp",
-          "label": "It is a library."
-        }
-      ],
-      "audio_text": "It is a library.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es una biblioteca.",
-      "pedagogy_note": "Story beat 07: It is a library.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c031-prompt-011fc54472e8e8c6edae",
-          "purpose": "prompt",
-          "text": "It is a library.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c031-answer-e22d3573d0bd2c8f7909",
-          "purpose": "answer",
-          "text": "It is a library.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_library.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S8",
-      "interaction_type": "speak",
-      "prompt": "It is a station.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-a-station-speak",
-      "options": [
-        {
-          "id": "it-is-a-station-speak",
-          "image_url": "/lesson-assets/a1_station.webp",
-          "label": "It is a station."
-        }
-      ],
-      "audio_text": "It is a station.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es una estaci\u00f3n.",
-      "pedagogy_note": "Story beat 08: It is a station.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c032-prompt-e46e3ab1504fbf3ab210",
-          "purpose": "prompt",
-          "text": "It is a station.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c032-answer-1b4de21bdef8289fc7a4",
-          "purpose": "answer",
-          "text": "It is a station.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S9",
       "interaction_type": "speak",
       "prompt": "The children are in the library.",
       "stage": "Speak",
@@ -1737,14 +1707,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Los ni\u00f1os est\u00e1n en la biblioteca.",
-      "pedagogy_note": "Story beat 09: The children are in the library.",
+      "pedagogy_note": "Story beat 07: The children are in the library.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c033-prompt-6d4e1e3716d96a000b4c",
+          "id": "lesson-6-1-buildings-and-services-c031-prompt-f9dbd2226e6c9ce4f090",
           "purpose": "prompt",
           "text": "The children are in the library.",
           "mode": "pronunciation_slow",
@@ -1756,7 +1726,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c033-answer-234fba8c88e9b4e090e9",
+          "id": "lesson-6-1-buildings-and-services-c031-answer-9170abf79454fec6fa71",
           "purpose": "answer",
           "text": "The children are in the library.",
           "mode": "prompt",
@@ -1770,56 +1740,203 @@
       ]
     },
     {
-      "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "a",
-      "correct_option_ids": [
-        "a",
-        "bank"
-      ],
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "It is a mall.",
+      "stage": "Speak",
+      "correct_option_id": "it-is-a-mall-speak",
       "options": [
         {
-          "id": "a",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "bank",
-          "image_url": "",
-          "label": "bank"
+          "id": "it-is-a-mall-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "label": "It is a mall."
         }
       ],
-      "audio_text": "It is a bank.",
-      "answer_audio_text": "It is a bank.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
-      "spanish_translation": "Es un banco.",
-      "pedagogy_note": "Story beat 01: It is a bank.",
+      "audio_text": "It is a mall.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Es un centro comercial.",
+      "pedagogy_note": "Story beat 08: It is a mall.",
       "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c034-prompt-6321dbf5212c4d4da424",
+          "id": "lesson-6-1-buildings-and-services-c032-prompt-dceee2204efc9c4c4a14",
           "purpose": "prompt",
-          "text": "It is a bank.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "text": "It is a mall.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c034-answer-722a3076588b69575464",
+          "id": "lesson-6-1-buildings-and-services-c032-answer-3935e2e46a4b95d35e81",
           "purpose": "answer",
-          "text": "It is a bank.",
+          "text": "It is a mall.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "The supermarket is next to the mall.",
+      "stage": "Speak",
+      "correct_option_id": "the-supermarket-is-next-to-the-mall-speak",
+      "options": [
+        {
+          "id": "the-supermarket-is-next-to-the-mall-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+          "label": "The supermarket is next to the mall."
+        }
+      ],
+      "audio_text": "The supermarket is next to the mall.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El supermercado est\u00e1 junto al centro comercial.",
+      "pedagogy_note": "Story beat 09: The supermarket is next to the mall.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c033-prompt-1c782b1a7c13287b02f1",
+          "purpose": "prompt",
+          "text": "The supermarket is next to the mall.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c033-answer-d5ee05b387a7af47c337",
+          "purpose": "answer",
+          "text": "The supermarket is next to the mall.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S10",
+      "interaction_type": "speak",
+      "prompt": "I need an apple.",
+      "stage": "Speak",
+      "correct_option_id": "i-need-food-my-son-has-an-apple-speak",
+      "options": [
+        {
+          "id": "i-need-food-my-son-has-an-apple-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+          "label": "I need an apple."
+        }
+      ],
+      "audio_text": "I need an apple.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Necesito una manzana.",
+      "pedagogy_note": "Story beat 10: I need an apple.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c034-prompt-55736ce3322f4189e016",
+          "purpose": "prompt",
+          "text": "I need an apple.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c034-answer-7538cd9da17ebe07adc4",
+          "purpose": "answer",
+          "text": "I need an apple.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U1",
+      "interaction_type": "complete2",
+      "prompt": "The father is at ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "station"
+      ],
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "station",
+          "image_url": "",
+          "label": "station"
+        }
+      ],
+      "audio_text": "The father is at the station.",
+      "answer_audio_text": "The father is at the station.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+      "spanish_translation": "El padre est\u00e1 en la estaci\u00f3n.",
+      "pedagogy_note": "Story beat 01: The father is at the station.",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c035-prompt-55dbd22ea4356ff59051",
+          "purpose": "prompt",
+          "text": "The father is at the station.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c035-answer-46c4b1ffc27dc1793fa1",
+          "purpose": "answer",
+          "text": "The father is at the station.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1830,54 +1947,54 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
+      "prompt": "The grandfather is at ___ ___.",
       "stage": "Use",
-      "correct_option_id": "a",
+      "correct_option_id": "the",
       "correct_option_ids": [
-        "a",
-        "pharmacy"
+        "the",
+        "bank"
       ],
       "options": [
         {
-          "id": "a",
+          "id": "the",
           "image_url": "",
-          "label": "a"
+          "label": "the"
         },
         {
-          "id": "pharmacy",
+          "id": "bank",
           "image_url": "",
-          "label": "pharmacy"
+          "label": "bank"
         }
       ],
-      "audio_text": "It is a pharmacy.",
-      "answer_audio_text": "It is a pharmacy.",
-      "prompt_image_url": "/lesson-assets/a1_pharmacy.webp",
-      "spanish_translation": "Es una farmacia.",
-      "pedagogy_note": "Story beat 02: It is a pharmacy.",
+      "audio_text": "The grandfather is at the bank.",
+      "answer_audio_text": "The grandfather is at the bank.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+      "spanish_translation": "El abuelo est\u00e1 en el banco.",
+      "pedagogy_note": "Story beat 02: The grandfather is at the bank.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c035-prompt-985f573eaa7cc1d76ac4",
+          "id": "lesson-6-1-buildings-and-services-c036-prompt-1c789b8371349a4e5bd4",
           "purpose": "prompt",
-          "text": "It is a pharmacy.",
+          "text": "The grandfather is at the bank.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c035-answer-7645adfee802ed7cdafe",
+          "id": "lesson-6-1-buildings-and-services-c036-answer-2f8d08a52754d482a4f1",
           "purpose": "answer",
-          "text": "It is a pharmacy.",
+          "text": "The grandfather is at the bank.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_pharmacy.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1888,54 +2005,54 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
+      "prompt": "The mother is at ___ ___.",
       "stage": "Use",
-      "correct_option_id": "a",
+      "correct_option_id": "the",
       "correct_option_ids": [
-        "a",
-        "library"
+        "the",
+        "pharmacy"
       ],
       "options": [
         {
-          "id": "a",
+          "id": "the",
           "image_url": "",
-          "label": "a"
+          "label": "the"
         },
         {
-          "id": "library",
+          "id": "pharmacy",
           "image_url": "",
-          "label": "library"
+          "label": "pharmacy"
         }
       ],
-      "audio_text": "It is a library.",
-      "answer_audio_text": "It is a library.",
-      "prompt_image_url": "/lesson-assets/a1_library.webp",
-      "spanish_translation": "Es una biblioteca.",
-      "pedagogy_note": "Story beat 03: It is a library.",
+      "audio_text": "The mother is at the pharmacy.",
+      "answer_audio_text": "The mother is at the pharmacy.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+      "spanish_translation": "La madre est\u00e1 en la farmacia.",
+      "pedagogy_note": "Story beat 03: The mother is at the pharmacy.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c036-prompt-f7178e9059f2dcf28601",
+          "id": "lesson-6-1-buildings-and-services-c037-prompt-fdcdc837d294759aef04",
           "purpose": "prompt",
-          "text": "It is a library.",
+          "text": "The mother is at the pharmacy.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_library.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c036-answer-48916cbdbea6271f67e1",
+          "id": "lesson-6-1-buildings-and-services-c037-answer-0dd5e8f3fc2142e83080",
           "purpose": "answer",
-          "text": "It is a library.",
+          "text": "The mother is at the pharmacy.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_library.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1945,64 +2062,6 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "a",
-      "correct_option_ids": [
-        "a",
-        "station"
-      ],
-      "options": [
-        {
-          "id": "a",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "station",
-          "image_url": "",
-          "label": "station"
-        }
-      ],
-      "audio_text": "It is a station.",
-      "answer_audio_text": "It is a station.",
-      "prompt_image_url": "/lesson-assets/a1_station.webp",
-      "spanish_translation": "Es una estaci\u00f3n.",
-      "pedagogy_note": "Story beat 04: It is a station.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c037-prompt-c1d4cd8bb7e2240d4ea6",
-          "purpose": "prompt",
-          "text": "It is a station.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c037-answer-1743796eba2eb4c5aa20",
-          "purpose": "answer",
-          "text": "It is a station.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_station.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U5",
       "interaction_type": "complete2",
       "prompt": "The children are in ___ ___.",
       "stage": "Use",
@@ -2027,16 +2086,80 @@
       "answer_audio_text": "The children are in the library.",
       "prompt_image_url": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
       "spanish_translation": "Los ni\u00f1os est\u00e1n en la biblioteca.",
-      "pedagogy_note": "Story beat 05: The children are in the library.",
+      "pedagogy_note": "Story beat 04: The children are in the library.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-1-buildings-and-services-c038-prompt-15442320fe019e87db65",
+          "purpose": "prompt",
+          "text": "The children are in the library.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-1-buildings-and-services-c038-answer-8f7b6f7ea7e7a68954cf",
+          "purpose": "answer",
+          "text": "The children are in the library.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "have"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "They"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "books"
+        }
+      ],
+      "audio_text": "They have books.",
+      "answer_audio_text": "They have books.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+      "spanish_translation": "Tienen libros.",
+      "pedagogy_note": "Story beat 05: They have books.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c038-prompt-bc22351155152b056d37",
+          "id": "lesson-6-1-buildings-and-services-c039-prompt-8255b3a66a1c88604dde",
           "purpose": "prompt",
-          "text": "The children are in the library.",
+          "text": "They have books.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
@@ -2046,9 +2169,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c038-answer-b40597ea95d2581ca35b",
+          "id": "lesson-6-1-buildings-and-services-c039-answer-18f406de6ce78e01a95d",
           "purpose": "answer",
-          "text": "The children are in the library.",
+          "text": "They have books.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
@@ -2077,7 +2200,7 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "mother"
+          "label": "children"
         },
         {
           "id": "word-4",
@@ -2087,7 +2210,7 @@
         {
           "id": "word-6",
           "image_url": "",
-          "label": "pharmacy"
+          "label": "mall"
         },
         {
           "id": "word-1",
@@ -2097,7 +2220,7 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "is"
+          "label": "are"
         },
         {
           "id": "word-5",
@@ -2105,35 +2228,35 @@
           "label": "the"
         }
       ],
-      "audio_text": "The mother is at the pharmacy.",
-      "answer_audio_text": "The mother is at the pharmacy.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
-      "spanish_translation": "La madre est\u00e1 en la farmacia.",
-      "pedagogy_note": "Story beat 06: The mother is at the pharmacy.",
+      "audio_text": "The children are at the mall.",
+      "answer_audio_text": "The children are at the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n en el centro comercial.",
+      "pedagogy_note": "Story beat 06: The children are at the mall.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c039-prompt-9441d01edb8cbca3e3a4",
+          "id": "lesson-6-1-buildings-and-services-c040-prompt-8bb037e4451f0ead1e91",
           "purpose": "prompt",
-          "text": "The mother is at the pharmacy.",
+          "text": "The children are at the mall.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c039-answer-1ddf9ef030c9a3857ab1",
+          "id": "lesson-6-1-buildings-and-services-c040-answer-8d7d64efcfd072997a2e",
           "purpose": "answer",
-          "text": "The mother is at the pharmacy.",
+          "text": "The children are at the mall.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2144,7 +2267,7 @@
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -2153,23 +2276,24 @@
         "word-3",
         "word-4",
         "word-5",
-        "word-6"
+        "word-6",
+        "word-7"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "grandfather"
+          "label": "supermarket"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "at"
+          "label": "next"
         },
         {
           "id": "word-6",
           "image_url": "",
-          "label": "bank"
+          "label": "the"
         },
         {
           "id": "word-1",
@@ -2184,38 +2308,43 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "the"
+          "label": "to"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "mall"
         }
       ],
-      "audio_text": "The grandfather is at the bank.",
-      "answer_audio_text": "The grandfather is at the bank.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
-      "spanish_translation": "El abuelo est\u00e1 en el banco.",
-      "pedagogy_note": "Story beat 07: The grandfather is at the bank.",
+      "audio_text": "The supermarket is next to the mall.",
+      "answer_audio_text": "The supermarket is next to the mall.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+      "spanish_translation": "El supermercado est\u00e1 junto al centro comercial.",
+      "pedagogy_note": "Story beat 07: The supermarket is next to the mall.",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c040-prompt-24766bdf2de0e8a6fef9",
+          "id": "lesson-6-1-buildings-and-services-c041-prompt-ef4055242c852c1c17b4",
           "purpose": "prompt",
-          "text": "The grandfather is at the bank.",
+          "text": "The supermarket is next to the mall.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c040-answer-06d6954e71687d2e00c8",
+          "id": "lesson-6-1-buildings-and-services-c041-answer-51279bd83471201b1766",
           "purpose": "answer",
-          "text": "The grandfather is at the bank.",
+          "text": "The supermarket is next to the mall.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -2226,162 +2355,62 @@
     {
       "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
+        "word-3"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "father"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "station"
+          "label": "need"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "The"
+          "label": "I"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "the"
+          "label": "food"
         }
       ],
-      "audio_text": "The father is at the station.",
-      "answer_audio_text": "The father is at the station.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
-      "spanish_translation": "El padre est\u00e1 en la estaci\u00f3n.",
-      "pedagogy_note": "Story beat 08: The father is at the station.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "I need food.",
+      "answer_audio_text": "I need food.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+      "spanish_translation": "Necesito comida.",
+      "pedagogy_note": "Story beat 08: I need food.",
+      "audio_speaker": "female-character",
+      "answer_audio_speaker": "female-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c041-prompt-fe31b8480720591b30d5",
+          "id": "lesson-6-1-buildings-and-services-c042-prompt-64b65f2f426e1974b5ff",
           "purpose": "prompt",
-          "text": "The father is at the station.",
+          "text": "I need food.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-1-buildings-and-services-c041-answer-a5fa4e6695ded16ddd5c",
+          "id": "lesson-6-1-buildings-and-services-c042-answer-406e014f9a1b794ba993",
           "purpose": "answer",
-          "text": "The father is at the station.",
+          "text": "I need food.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U9",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "mother"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "pharmacy"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "The"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "the"
-        }
-      ],
-      "audio_text": "The mother is at the pharmacy.",
-      "answer_audio_text": "The mother is at the pharmacy.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
-      "spanish_translation": "La madre est\u00e1 en la farmacia.",
-      "pedagogy_note": "Story beat 09: The mother is at the pharmacy.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-1-buildings-and-services-c042-prompt-85e7e3177fb6a7d1b947",
-          "purpose": "prompt",
-          "text": "The mother is at the pharmacy.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-1-buildings-and-services-c042-answer-ee702845bce1f76e4a74",
-          "purpose": "answer",
-          "text": "The mother is at the pharmacy.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

@@ -1,0 +1,1523 @@
+{
+  "brief_version": 1,
+  "note": "Begin with a familiar school journey by bus. Compare train and taxi for the town visit, then walking for a nearby library. A clearly introduced second travel situation extends the same pattern to an airplane and a boat; it is not a magical bus–plane–boat trip. A bus, a train and an airplane all appear explicitly. Bus/car/bike stay ordinary text; train/taxi/airplane/boat/walk/by are this lesson’s yellow targets. No unintroduced going, ride, goes, airport or get on yet.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+  "lesson": {
+    "id": "lesson-6-2-transportation",
+    "title": "6.2 Ways to Travel",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.2",
+    "sub_lesson_title": "Ways to Travel",
+    "goal": "Identify transport and connect it to familiar journeys; explicitly practise a bus, a train and an airplane.",
+    "vocabulary": [
+      "train",
+      "taxi",
+      "airplane",
+      "boat",
+      "walk",
+      "by"
+    ],
+    "grammar_function": "Begin with a familiar school journey by bus. Compare train and taxi for the town visit, then walking for a nearby library. A clearly introduced second travel situation extends the same pattern to an airplane and a boat; it is not a magical bus–plane–boat trip.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Identify transport and connect it to familiar journeys; explicitly practise a bus, a train and an airplane.",
+    "content_revision": 4,
+    "review_vocabulary": [],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "train",
+          "by"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I go by train."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "walk"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "I walk to the library."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "train",
+      "text": "A train",
+      "es": "Un tren",
+      "image": "/lesson-assets/a1_train.webp",
+      "kind": "train",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "by",
+      "text": "I go by train.",
+      "es": "Voy en tren.",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+      "kind": "by",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "taxi",
+      "text": "A taxi",
+      "es": "Un taxi",
+      "image": "/lesson-assets/a1_taxi.webp",
+      "kind": "taxi",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "walk",
+      "text": "I walk to the library.",
+      "es": "Camino a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+      "kind": "walk",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "airplane",
+      "text": "An airplane",
+      "es": "Un avión",
+      "image": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp",
+      "kind": "airplane",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "boat",
+      "text": "A boat",
+      "es": "Un barco",
+      "image": "/lesson-assets/a1_photo_u6_story_boat_v1.webp",
+      "kind": "boat",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "bus",
+      "text": "A bus.",
+      "es": "Un autobús.",
+      "image": "/lesson-assets/a1_photo_u2_red_bus_v1.webp",
+      "kind": "bus",
+      "learn": false,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "school",
+      "text": "The children go to school by bus.",
+      "es": "Los niños van a la escuela en autobús.",
+      "image": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+      "kind": "school",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "train-mall",
+      "text": "I go to the mall by train.",
+      "es": "Voy al centro comercial en tren.",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+      "kind": "train-mall",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "taxi-mall",
+      "text": "I go to the mall by taxi.",
+      "es": "Voy al centro comercial en taxi.",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+      "kind": "taxi-mall",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "then-walk",
+      "text": "Then, I walk to the library.",
+      "es": "Después, camino a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+      "kind": "then-walk",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "at-library",
+      "text": "Finally, I am at the library.",
+      "es": "Finalmente, estoy en la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_at_library_v1.webp",
+      "kind": "at-library",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "plane-go",
+      "text": "I go by airplane.",
+      "es": "Voy en avión.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+      "kind": "plane-go",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "plane-people",
+      "text": "They go by airplane.",
+      "es": "Van en avión.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+      "kind": "plane-people",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "boat-go",
+      "text": "I go by boat.",
+      "es": "Voy en barco.",
+      "image": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+      "kind": "boat-go",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "speaker": "male-character",
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "boat-people",
+      "text": "They go by boat.",
+      "es": "Van en barco.",
+      "image": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+      "kind": "boat-people",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "train-people",
+      "text": "They go by train.",
+      "es": "Van en tren.",
+      "image": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+      "kind": "train-people",
+      "learn": false,
+      "choices": true,
+      "image_choices": true,
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    },
+    {
+      "id": "walk-school",
+      "text": "The children walk to school.",
+      "es": "Los niños caminan a la escuela.",
+      "image": "/lesson-assets/a1_photo_u6_children_walk_to_school_v1.webp",
+      "kind": "walk-school",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "accepts": {
+        "subject-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank.",
+        "action-variety": "Keep the traveller and travel frame fixed; the assessed difference is the named transport or the named destination. Check the exact scene/audio and wrong option before approving this proposed bank."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "A taxi",
+      "es": "Un taxi",
+      "kind": "train",
+      "form": "word",
+      "image": "/lesson-assets/a1_taxi.webp"
+    },
+    {
+      "text": "I go by taxi.",
+      "es": "Voy en taxi.",
+      "kind": "by",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp"
+    },
+    {
+      "text": "A train",
+      "es": "Un tren",
+      "kind": "taxi",
+      "form": "word",
+      "image": "/lesson-assets/a1_train.webp"
+    },
+    {
+      "text": "I walk to the bank.",
+      "es": "Camino al banco.",
+      "kind": "walk"
+    },
+    {
+      "text": "A boat",
+      "es": "Un barco",
+      "kind": "airplane",
+      "form": "word",
+      "image": "/lesson-assets/a1_photo_u6_story_boat_v1.webp"
+    },
+    {
+      "text": "A train",
+      "es": "Un tren",
+      "kind": "airplane",
+      "form": "word",
+      "image": "/lesson-assets/a1_train.webp"
+    },
+    {
+      "text": "A taxi",
+      "es": "Un taxi",
+      "kind": "airplane",
+      "form": "word",
+      "image": "/lesson-assets/a1_taxi.webp"
+    },
+    {
+      "text": "An airplane",
+      "es": "Un avión",
+      "kind": "boat",
+      "form": "word",
+      "image": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp"
+    },
+    {
+      "text": "A train",
+      "es": "Un tren",
+      "kind": "boat",
+      "form": "word",
+      "image": "/lesson-assets/a1_train.webp"
+    },
+    {
+      "text": "A taxi",
+      "es": "Un taxi",
+      "kind": "boat",
+      "form": "word",
+      "image": "/lesson-assets/a1_taxi.webp"
+    },
+    {
+      "text": "A train.",
+      "es": "Un tren.",
+      "kind": "bus",
+      "image": "/lesson-assets/a1_train.webp"
+    },
+    {
+      "text": "The children go to school by train.",
+      "es": "Los niños van a la escuela en tren.",
+      "kind": "school"
+    },
+    {
+      "text": "I go to the mall by taxi.",
+      "es": "Voy al centro comercial en taxi.",
+      "kind": "train-mall",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp"
+    },
+    {
+      "text": "I go to the mall by train.",
+      "es": "Voy al centro comercial en tren.",
+      "kind": "taxi-mall",
+      "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp"
+    },
+    {
+      "text": "Then, I walk to the pharmacy.",
+      "es": "Después, camino a la farmacia.",
+      "kind": "then-walk"
+    },
+    {
+      "text": "Finally, I am at the bank.",
+      "es": "Finalmente, estoy en el banco.",
+      "kind": "at-library"
+    },
+    {
+      "text": "I go by boat.",
+      "es": "Voy en barco.",
+      "kind": "plane-go"
+    },
+    {
+      "text": "I go by train.",
+      "es": "Voy en tren.",
+      "kind": "plane-go"
+    },
+    {
+      "text": "I go by taxi.",
+      "es": "Voy en taxi.",
+      "kind": "plane-go"
+    },
+    {
+      "text": "They go by train.",
+      "es": "Van en tren.",
+      "kind": "plane-people",
+      "image": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp"
+    },
+    {
+      "text": "I go by airplane.",
+      "es": "Voy en avión.",
+      "kind": "boat-go",
+      "image": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp"
+    },
+    {
+      "text": "They go by bus.",
+      "es": "Van en autobús.",
+      "kind": "boat-people",
+      "image": "/lesson-assets/a1_photo_u2_red_bus_v1.webp"
+    },
+    {
+      "text": "They go by taxi.",
+      "es": "Van en taxi.",
+      "kind": "train-people",
+      "image": "/lesson-assets/a1_taxi.webp"
+    },
+    {
+      "text": "The children go to school by bus.",
+      "es": "Los niños van a la escuela en autobús.",
+      "kind": "walk-school"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "train",
+      "by",
+      "taxi",
+      "walk",
+      "airplane",
+      "boat"
+    ],
+    "Recognize": [
+      "bus",
+      "school",
+      "train",
+      "by",
+      "taxi",
+      "taxi-mall",
+      "walk",
+      "airplane",
+      "plane-go",
+      "boat"
+    ],
+    "Listen": [
+      "school",
+      "train-mall",
+      "taxi-mall",
+      "then-walk",
+      "at-library",
+      "plane-go",
+      "plane-people",
+      "boat-people"
+    ],
+    "Speak": [
+      "school",
+      "train",
+      "train-mall",
+      "taxi-mall",
+      "then-walk",
+      "at-library",
+      "airplane",
+      "plane-go",
+      "boat",
+      "boat-go"
+    ],
+    "Use": [
+      "school",
+      "train-people",
+      "taxi-mall",
+      "then-walk",
+      "at-library",
+      "plane-go",
+      "plane-people",
+      "boat-people"
+    ]
+  },
+  "storyboard": {
+    "setting": "Several travel examples, followed by a walk to the library.",
+    "cast_and_props": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+    "transitions": "These are explicitly different examples, not one traveller changing face. The walk and arrival form one small sequence.",
+    "arc": "Begin with a familiar school journey by bus. Compare train and taxi for the town visit, then walking for a nearby library. A clearly introduced second travel situation extends the same pattern to an airplane and a boat; it is not a magical bus–plane–boat trip.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "train",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A train",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_train.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A train",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "by",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go by train.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "taxi",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A taxi",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_taxi.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A taxi",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "walk",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L5",
+        "stage": "Learn",
+        "item_id": "airplane",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "An airplane",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "An airplane",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L6",
+        "stage": "Learn",
+        "item_id": "boat",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A boat",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_boat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A boat",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "bus",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A bus.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u2_red_bus_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "school",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "The children go to school by bus.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children go to school by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "train",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A train",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_train.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A train",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "by",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go by train.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "taxi",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A taxi",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_taxi.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A taxi",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "taxi-mall",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go to the mall by taxi.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go to the mall by taxi.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "walk",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "airplane",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "An airplane",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "An airplane",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R9",
+        "stage": "Recognize",
+        "item_id": "plane-go",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go by airplane.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go by airplane.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R10",
+        "stage": "Recognize",
+        "item_id": "boat",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A boat",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_boat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A boat",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "school",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "The children go to school by bus.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children go to school by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "train-mall",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go to the mall by train.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go to the mall by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "taxi-mall",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go to the mall by taxi.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go to the mall by taxi.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "then-walk",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "Then, I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "at-library",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the library.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks in her established Sarah voice.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_library_v1.webp",
+            "props_before": "Ana has finished walking and stands inside the same glass-fronted library among books.",
+            "props_after": "Arrival is complete; she is no longer approaching the doorway."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "plane-go",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go by airplane.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go by airplane.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "plane-people",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "They go by airplane.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They go by airplane.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "boat-people",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "They go by boat.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They go by boat.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "school",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "The children go to school by bus.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children go to school by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "train",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A train",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_train.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A train",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "train-mall",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go to the mall by train.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_train_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go to the mall by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "taxi-mall",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go to the mall by taxi.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go to the mall by taxi.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "then-walk",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "Then, I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "at-library",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the library.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks in her established Sarah voice.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_library_v1.webp",
+            "props_before": "Ana has finished walking and stands inside the same glass-fronted library among books.",
+            "props_after": "Arrival is complete; she is no longer approaching the doorway."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "airplane",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "An airplane",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_airplane_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "An airplane",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "plane-go",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go by airplane.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go by airplane.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S9",
+        "stage": "Speak",
+        "item_id": "boat",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "A boat",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_boat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A boat",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S10",
+        "stage": "Speak",
+        "item_id": "boat-go",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go by boat.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go by boat.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "school",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "The children go to school by bus.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_school_bus_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children go to school by bus.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "train-people",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "They go by train.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_pair_boards_train_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They go by train.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "taxi-mall",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go to the mall by taxi.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_man_boards_taxi_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go to the mall by taxi.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "then-walk",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "Then, I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Then, I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "at-library",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "Finally, I am at the library.",
+            "voice": "ana",
+            "speaker_listener": "Ana speaks in her established Sarah voice.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_at_library_v1.webp",
+            "props_before": "Ana has finished walking and stands inside the same glass-fronted library among books.",
+            "props_after": "Arrival is complete; she is no longer approaching the doorway."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I am at the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "plane-go",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "I go by airplane.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I go by airplane.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "plane-people",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "They go by airplane.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_plane_travel_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They go by airplane.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "boat-people",
+        "setting": "Several travel examples, followed by a walk to the library.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Children taking school bus; navy-jacket train traveller; separate light-blue-shirt taxi traveller; Ana walks into library then arrives inside; Ana airplane example; navy-jacket male traveller and burgundy-jacket companion riding boat.",
+        "turns": [
+          {
+            "exact_english": "They go by boat.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_travellers_boat_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They go by boat.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  },
+  "replaces_sha256": "1c42f7f1703de62048177084c1100ae8028ed763a5820b0b85e8af9ccccfea0c"
+}

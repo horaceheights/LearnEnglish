@@ -12,6 +12,21 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class AnswerChoiceFormTests(unittest.TestCase):
+    def test_stop_with_a_destination_is_a_complete_instruction(self):
+        from scripts.answer_choice_guardrail import analyze_bank, text_form
+        self.assertEqual("utterances", text_form("Finally, stop at the museum."))
+        self.assertEqual("phrases", text_form("A bus stop"))
+        form, hard, conflicts = analyze_bank({"options": [
+            {"label": "Go past the bank."}, {"label": "Stop at the bank."}]})
+        self.assertEqual("utterances", form)
+        self.assertEqual([], hard)
+        self.assertEqual({"conversational-response"}, set(conflicts))
+        _, hard, conflicts = analyze_bank({"options": [
+            {"label": "The next stop is the museum."},
+            {"label": "The next stop is the mall."}]})
+        self.assertEqual([], hard)
+        self.assertEqual({}, conflicts)
+
     def findings(self, labels, stage="Recognize", interaction="i2t3", images=False, mission=None):
         card = SimpleNamespace(
             slide_id="R2", stage=stage, interaction_type=interaction, mission_game=mission,

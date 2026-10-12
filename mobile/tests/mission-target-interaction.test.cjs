@@ -15,6 +15,17 @@ test('both clients use the same placement and shuffle algorithm', () => {
   assert.equal(read('../src/missionTargetInteraction.js'), read('../../frontend/lib/missionTargetInteraction.cjs'));
 });
 
+test('authored dialogue and route cues preserve canonical audio/target order on every run', () => {
+  const game = { ...mission.cards[1].mission_game, cue_order: 'authored' };
+  const before = JSON.stringify(game);
+  for (let run = 0; run < 10; run++) {
+    const order = missionCueOrder(game, () => { throw new Error('An authored sequence must not shuffle'); });
+    assert.deepEqual(order, game.cues.map((_, index) => index));
+    assert.deepEqual(order.map(index => game.cues[index].target_id), game.cues.map(cue => cue.target_id));
+  }
+  assert.equal(JSON.stringify(game), before);
+});
+
 test('all 74 targets retain the reviewed crown anchors and group membership', () => {
   let count = 0;
   for (const card of mission.cards.slice(0,18)) for (const target of card.mission_game.targets) {

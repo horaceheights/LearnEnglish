@@ -1,0 +1,1570 @@
+{
+  "brief_version": 1,
+  "note": "Ana and her family make a short neighborhood visit. Start at the station, locate the father at the bank and the mother at the pharmacy, find the children at the library, then meet at the mall and get food at the supermarket. Explicit Spanish transitions explain each change of location; the English stays within the early lesson’s scope. Bank is already in the current Unit 6.1. It was not found as a declared target in Units 1–5. Keep it in this rebuild; do not call it a newly added course word. Mall and supermarket are proposed additions. Do not assess a hidden errand from a generic building photo.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+  "lesson": {
+    "id": "lesson-6-1-buildings-and-services",
+    "title": "6.1 Places Around Town",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.1",
+    "sub_lesson_title": "Places Around Town",
+    "goal": "Name useful places, locate familiar people, and connect a place with a familiar need.",
+    "vocabulary": [
+      "station",
+      "bank",
+      "pharmacy",
+      "library",
+      "mall",
+      "supermarket"
+    ],
+    "grammar_function": "Ana and her family make a short neighborhood visit. Start at the station, locate the father at the bank and the mother at the pharmacy, find the children at the library, then meet at the mall and get food at the supermarket. Explicit Spanish transitions explain each change of location; the English stays within the early lesson’s scope.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Name useful places, locate familiar people, and connect a place with a familiar need.",
+    "content_revision": 3,
+    "review_vocabulary": []
+  },
+  "items": [
+    {
+      "id": "station",
+      "text": "A station",
+      "es": "Una estación",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "station",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "bank",
+      "text": "A bank",
+      "es": "Un banco",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "kind": "bank",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "pharmacy",
+      "text": "A pharmacy",
+      "es": "Una farmacia",
+      "image": "/lesson-assets/a1_pharmacy.webp",
+      "kind": "pharmacy",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "library",
+      "text": "A library",
+      "es": "Una biblioteca",
+      "image": "/lesson-assets/a1_library.webp",
+      "kind": "library",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "mall",
+      "text": "A mall",
+      "es": "Un centro comercial",
+      "image": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+      "kind": "mall",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "supermarket",
+      "text": "A supermarket",
+      "es": "Un supermercado",
+      "image": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+      "kind": "supermarket",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "form": "word"
+    },
+    {
+      "id": "start",
+      "text": "It is a station.",
+      "es": "Es una estación.",
+      "image": "/lesson-assets/a1_station.webp",
+      "kind": "start",
+      "learn": false,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "father",
+      "text": "The father is at the station.",
+      "es": "El padre está en la estación.",
+      "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+      "kind": "father",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the father?",
+          "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The father is at the station.",
+          "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "bank-place",
+      "text": "It is a bank.",
+      "es": "Es un banco.",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+      "kind": "bank-place",
+      "learn": false,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "grandfather",
+      "text": "The grandfather is at the bank.",
+      "es": "El abuelo está en el banco.",
+      "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+      "kind": "grandfather",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the grandfather?",
+          "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The grandfather is at the bank.",
+          "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "mother",
+      "text": "The mother is at the pharmacy.",
+      "es": "La madre está en la farmacia.",
+      "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+      "kind": "mother",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the mother?",
+          "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The mother is at the pharmacy.",
+          "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "children",
+      "text": "The children are in the library.",
+      "es": "Los niños están en la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+      "kind": "children",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "books",
+      "text": "They have books.",
+      "es": "Tienen libros.",
+      "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+      "kind": "books",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "teacher",
+          "text": "The children are in the library.",
+          "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp"
+        },
+        {
+          "speaker": "teacher",
+          "text": "They have books.",
+          "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "mall-place",
+      "text": "It is a mall.",
+      "es": "Es un centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+      "kind": "mall-place",
+      "learn": false,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "market-place",
+      "text": "It is a supermarket.",
+      "es": "Es un supermercado.",
+      "image": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+      "kind": "market-place",
+      "learn": false,
+      "choices": true,
+      "image_choices": true
+    },
+    {
+      "id": "next",
+      "text": "The supermarket is next to the mall.",
+      "es": "El supermercado está junto al centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+      "kind": "next",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the supermarket?",
+          "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The supermarket is next to the mall.",
+          "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "meet",
+      "text": "The children are at the mall.",
+      "es": "Los niños están en el centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
+      "kind": "meet",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "food",
+      "text": "I need food.",
+      "es": "Necesito comida.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+      "kind": "food",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "female-character"
+    },
+    {
+      "id": "where-father",
+      "text": "Where is the father?",
+      "es": "¿Dónde está el padre?",
+      "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+      "kind": "where-father",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "where-grandfather",
+      "text": "Where is the grandfather?",
+      "es": "¿Dónde está el abuelo?",
+      "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+      "kind": "where-grandfather",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "where-mother",
+      "text": "Where is the mother?",
+      "es": "¿Dónde está la madre?",
+      "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+      "kind": "where-mother",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "food-apple",
+      "text": "I need an apple.",
+      "es": "Necesito una manzana.",
+      "image": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+      "kind": "food",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "female-character"
+    }
+  ],
+  "pool": [
+    {
+      "text": "A bank",
+      "es": "Un banco",
+      "kind": "station",
+      "form": "word",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+    },
+    {
+      "text": "A pharmacy",
+      "es": "Una farmacia",
+      "kind": "bank",
+      "form": "word",
+      "image": "/lesson-assets/a1_pharmacy.webp"
+    },
+    {
+      "text": "A library",
+      "es": "Una biblioteca",
+      "kind": "pharmacy",
+      "form": "word",
+      "image": "/lesson-assets/a1_library.webp"
+    },
+    {
+      "text": "A station",
+      "es": "Una estación",
+      "kind": "library",
+      "form": "word",
+      "image": "/lesson-assets/a1_station.webp"
+    },
+    {
+      "text": "A supermarket",
+      "es": "Un supermercado",
+      "kind": "mall",
+      "form": "word",
+      "image": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp"
+    },
+    {
+      "text": "A mall",
+      "es": "Un centro comercial",
+      "kind": "supermarket",
+      "form": "word",
+      "image": "/lesson-assets/a1_photo_u6_story_mall_v1.webp"
+    },
+    {
+      "text": "It is a bank.",
+      "es": "Es un banco.",
+      "kind": "start",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+    },
+    {
+      "text": "The father is at the bank.",
+      "es": "El padre está en el banco.",
+      "kind": "father"
+    },
+    {
+      "text": "It is a pharmacy.",
+      "es": "Es una farmacia.",
+      "kind": "bank-place",
+      "image": "/lesson-assets/a1_pharmacy.webp"
+    },
+    {
+      "text": "The grandfather is at the station.",
+      "es": "El abuelo está en la estación.",
+      "kind": "grandfather"
+    },
+    {
+      "text": "The mother is at the library.",
+      "es": "La madre está en la biblioteca.",
+      "kind": "mother"
+    },
+    {
+      "text": "The children are in the supermarket.",
+      "es": "Los niños están en el supermercado.",
+      "kind": "children"
+    },
+    {
+      "text": "They have apples.",
+      "es": "Tienen manzanas.",
+      "kind": "books"
+    },
+    {
+      "text": "It is a library.",
+      "es": "Es una biblioteca.",
+      "kind": "mall-place",
+      "image": "/lesson-assets/a1_library.webp"
+    },
+    {
+      "text": "It is a bank.",
+      "es": "Es un banco.",
+      "kind": "mall-place",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+    },
+    {
+      "text": "It is a pharmacy.",
+      "es": "Es una farmacia.",
+      "kind": "mall-place",
+      "image": "/lesson-assets/a1_pharmacy.webp"
+    },
+    {
+      "text": "It is a bank.",
+      "es": "Es un banco.",
+      "kind": "market-place",
+      "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp"
+    },
+    {
+      "text": "It is a mall.",
+      "es": "Es un centro comercial.",
+      "kind": "market-place",
+      "image": "/lesson-assets/a1_photo_u6_story_mall_v1.webp"
+    },
+    {
+      "text": "It is a library.",
+      "es": "Es una biblioteca.",
+      "kind": "market-place",
+      "image": "/lesson-assets/a1_library.webp"
+    },
+    {
+      "text": "The pharmacy is next to the mall.",
+      "es": "La farmacia está junto al centro comercial.",
+      "kind": "next"
+    },
+    {
+      "text": "The children are at the bank.",
+      "es": "Los niños están en el banco.",
+      "kind": "meet"
+    },
+    {
+      "text": "I need water.",
+      "es": "Necesito agua.",
+      "kind": "food"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "station",
+      "bank",
+      "pharmacy",
+      "library",
+      "mall",
+      "supermarket"
+    ],
+    "Recognize": [
+      "start",
+      "father",
+      "bank-place",
+      "grandfather",
+      "mother",
+      "children",
+      "mall-place",
+      "meet",
+      "market-place",
+      "next"
+    ],
+    "Listen": [
+      "father",
+      "grandfather",
+      "mother",
+      "children",
+      "books",
+      "meet",
+      "next",
+      "food"
+    ],
+    "Speak": [
+      "where-father",
+      "father",
+      "where-grandfather",
+      "grandfather",
+      "where-mother",
+      "mother",
+      "children",
+      "mall-place",
+      "next",
+      "food-apple"
+    ],
+    "Use": [
+      "father",
+      "grandfather",
+      "mother",
+      "children",
+      "books",
+      "meet",
+      "next",
+      "food"
+    ]
+  },
+  "storyboard": {
+    "setting": "A family visit around town during daylight.",
+    "cast_and_props": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+    "transitions": "Locate each relative in a clearly different venue; later family scenes reunite the group. No claim that the grandfather is the father.",
+    "arc": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "station",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "A station",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_station.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A station",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "bank",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "A bank",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A bank",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "pharmacy",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "A pharmacy",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_pharmacy.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A pharmacy",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "library",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "A library",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_library.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A library",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L5",
+        "stage": "Learn",
+        "item_id": "mall",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "A mall",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A mall",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L6",
+        "stage": "Learn",
+        "item_id": "supermarket",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "A supermarket",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "A supermarket",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "start",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "It is a station.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_station.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "It is a station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "father",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The father is at the station.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The father is at the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "bank-place",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "It is a bank.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_bank_central_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "It is a bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "grandfather",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The grandfather is at the bank.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The grandfather is at the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "mother",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The mother is at the pharmacy.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mother is at the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "children",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are in the library.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children are in the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "mall-place",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "It is a mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "It is a mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "meet",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are at the mall.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children are at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R9",
+        "stage": "Recognize",
+        "item_id": "market-place",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "It is a supermarket.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "It is a supermarket.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R10",
+        "stage": "Recognize",
+        "item_id": "next",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The supermarket is next to the mall.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The supermarket is next to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "father",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "Where is the father?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The father is at the station.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The father is at the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "grandfather",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "Where is the grandfather?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The grandfather is at the bank.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The grandfather is at the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "mother",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "Where is the mother?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The mother is at the pharmacy.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mother is at the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "children",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are in the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children are in the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "books",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are in the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "They have books.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They have books.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "meet",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are at the mall.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children are at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "next",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "Where is the supermarket?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The supermarket is next to the mall.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The supermarket is next to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "food",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "I need food.",
+            "voice": "female-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I need food.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "where-father",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "Where is the father?",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the father?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "father",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The father is at the station.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The father is at the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "where-grandfather",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "Where is the grandfather?",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the grandfather?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "grandfather",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The grandfather is at the bank.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The grandfather is at the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "where-mother",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "Where is the mother?",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the mother?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "mother",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The mother is at the pharmacy.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mother is at the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "children",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are in the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children are in the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "mall-place",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "It is a mall.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "It is a mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S9",
+        "stage": "Speak",
+        "item_id": "next",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The supermarket is next to the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The supermarket is next to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S10",
+        "stage": "Speak",
+        "item_id": "food-apple",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "I need an apple.",
+            "voice": "female-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I need an apple.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "father",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The father is at the station.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_father_at_station_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The father is at the station.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "grandfather",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The grandfather is at the bank.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_grandfather_at_bank_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The grandfather is at the bank.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "mother",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The mother is at the pharmacy.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_mother_at_pharmacy_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mother is at the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "children",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are in the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children are in the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "books",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "They have books.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_children_in_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "They have books.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "meet",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The children are at the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_mall_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The children are at the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "next",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "The supermarket is next to the mall.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_mall_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The supermarket is next to the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "food",
+        "setting": "A family visit around town during daylight.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Father at station; grandfather at bank; mother at pharmacy; children with books at library; family meets at mall and buys food at supermarket.",
+        "turns": [
+          {
+            "exact_english": "I need food.",
+            "voice": "female-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_family_supermarket_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I need food.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  },
+  "replaces_sha256": "ef3969fe52b5c1d1155f53345eaf29e310cfcde01a0c42666781f2002fff3608"
+}

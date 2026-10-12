@@ -130,6 +130,21 @@ def mission_lesson_payload() -> dict:
 
 
 class MissionSchemaTests(unittest.TestCase):
+    def test_authored_cue_order_round_trips_without_changing_legacy_payloads(self):
+        payload = mission_lesson_payload()
+        old_game = MissionLesson(**payload).model_dump()["cards"][0]["mission_game"]
+        self.assertNotIn("cue_order", old_game)
+        payload["cards"][0]["mission_game"]["cue_order"] = "authored"
+        lesson = MissionLesson(**payload)
+        self.assertEqual(lesson.model_dump()["cards"][0]["mission_game"]["cue_order"], "authored")
+        self.assertEqual(MissionLesson.model_validate_json(lesson.model_dump_json()).cards[0].mission_game.cue_order, "authored")
+
+    def test_unknown_cue_order_is_rejected(self):
+        payload = mission_lesson_payload()
+        payload["cards"][0]["mission_game"]["cue_order"] = "sometimes"
+        with self.assertRaisesRegex(ValidationError, "cue_order"):
+            MissionLesson(**payload)
+
     def test_standard_lessons_serialize_common_revision_metadata(self):
         lesson = Lesson(**standard_lesson_payload())
 

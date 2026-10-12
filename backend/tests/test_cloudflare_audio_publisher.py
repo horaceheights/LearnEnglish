@@ -4,7 +4,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import MagicMock
 
-from scripts.sync_course_audio_to_r2 import restore_published_pair
+from scripts.sync_course_audio_to_r2 import published_entry, restore_published_pair
 
 
 class CloudflareAudioPublisherTests(unittest.TestCase):
@@ -42,6 +42,23 @@ class CloudflareAudioPublisherTests(unittest.TestCase):
             client = MagicMock()
             restore_published_pair(client,'bucket',path,self.entry)
             client.download_file.assert_not_called()
+
+    def test_returning_contract_reuses_its_pinned_historical_pair(self):
+        key = self.entry['key']
+        previous = {'assets': {}, 'historical_objects': {
+            key: self.entry['audio'], key.removesuffix('.mp3') + '.json': self.entry['receipt'],
+        }}
+        self.assertEqual(self.entry, published_entry(previous, 'immutable-id'))
+        self.assertIsNone(published_entry(previous, 'new-id'))
+
+    def test_active_entry_retains_authority_over_history(self):
+        previous = {'assets': {'immutable-id': self.entry}, 'historical_objects': {self.entry['key']: {}}}
+        self.assertIs(self.entry, published_entry(previous, 'immutable-id'))
+
+    def test_incomplete_history_cannot_be_replaced_with_a_new_receipt(self):
+        for suffix, descriptor in (('.mp3', self.entry['audio']), ('.json', self.entry['receipt'])):
+            with self.subTest(suffix=suffix), self.assertRaisesRegex(RuntimeError, 'Incomplete published'):
+                published_entry({'historical_objects': {'course-audio/elevenlabs-v2/immutable-id' + suffix: descriptor}}, 'immutable-id')
 
 if __name__ == '__main__':
     unittest.main()

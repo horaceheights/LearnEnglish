@@ -8,7 +8,7 @@ const overlaps = (a, b, gap = GAP) => a.x < b.x + b.width + gap
 
 function missionCueOrder(game, random = Math.random) {
   const order = (game?.cues || []).map((_, index) => index);
-  if (game?.kind === 'voice-gate') return order;
+  if (game?.kind === 'voice-gate' || game?.cue_order === 'authored') return order;
   // Only the initial demonstration is fixed. Replay/retry retain this permutation.
   const first = game?.tutorial_mode === 'guided-no-fail' ? 1 : 0;
   for (let i = order.length - 1; i > first; i -= 1) {

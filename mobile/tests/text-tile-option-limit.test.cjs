@@ -38,6 +38,15 @@ for (const filename of lessonFiles) {
     if (lesson.experience_type === 'mission' && card.mission_game?.kind !== 'voice-gate') {
       missionTapCandidateSets += 1;
       checkedMissionTapCards.add(`${lesson.id}:${card.slide_id}`);
+      if (card.mission_game.scene_scope === 'two-person-dialogue') {
+        assert.equal(card.options.length, 2);
+        assert.equal(card.mission_game.targets.length, 2);
+        assert.equal(card.mission_game.cues.length, 2);
+        assert.equal(card.mission_game.cue_order, 'authored');
+        assert.equal(card.mission_game.kind, 'crowd-search');
+        assert.equal(new Set(card.audio_turns.map(turn => turn.speaker_role)).size, 2);
+        return;
+      }
       assert.ok(
         card.options.length >= 4 && card.mission_game.targets.length >= 4,
         `${lesson.id} card ${index + 1} must retain at least four credible tap candidates.`,

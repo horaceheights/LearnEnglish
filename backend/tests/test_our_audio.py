@@ -25,7 +25,7 @@ class OurAudioTests(unittest.TestCase):
 
     def test_all_standalone_our_uses_the_approved_revision_and_original_bytes(self):
         self.assertEqual({a.id for a in self.assets}, NATURAL_OUR_ASSET_IDS)
-        review = json.loads((ROOT / "docs/qa/our-audio-2026-10-07.json").read_text())
+        review = json.loads((ROOT / "docs/qa/our-audio-2026-10-07.json").read_text(encoding='utf-8'))
         self.assertEqual(review["audio_sha256"], NATURAL_OUR_AUDIO_SHA256)
         self.assertEqual(set(review["asset_ids"]), NATURAL_OUR_ASSET_IDS)
         for asset in self.assets:
@@ -58,9 +58,9 @@ class OurAudioTests(unittest.TestCase):
         self.assertEqual(render_profile_for("male-character", "prompt").speed, 0.7)
 
     def test_both_mobile_exports_match_the_canonical_audio(self):
-        course = json.loads((ROOT / "mobile/src/generated/a1-course.json").read_text())
+        course = json.loads((ROOT / "mobile/src/generated/a1-course.json").read_text(encoding='utf-8'))
         embedded = next(l for l in course if l["id"] == "lesson-3-our-their")
-        standalone = json.loads((ROOT / "mobile/src/generated/lesson-3-our-their.json").read_text())
+        standalone = json.loads((ROOT / "mobile/src/generated/lesson-3-our-their.json").read_text(encoding='utf-8'))
         self.assertEqual(standalone, embedded)
         for card, exported in zip(LESSONS["lesson-3-our-their"].cards, embedded["cards"]):
             self.assertEqual(exported["audio_assets"], [a.model_dump() for a in card.audio_assets])

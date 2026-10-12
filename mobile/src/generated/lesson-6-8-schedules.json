@@ -1,127 +1,90 @@
 {
   "id": "lesson-6-8-schedules",
-  "title": "6.8 Schedules",
+  "title": "6.12 What Time Does It Leave?",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Name places in town and ways to travel, say where places are, give simple directions, say what you can and cannot do, ask for help, and read simple bus and train times.",
+  "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
-  "sub_lesson_id": "6.8",
-  "sub_lesson_title": "Schedules",
-  "goal": "Understand when a bus or a train leaves or arrives, and add the part of the day or the day of the week.",
+  "sub_lesson_id": "6.12",
+  "sub_lesson_title": "What Time Does It Leave?",
+  "goal": "Ask for departure and arrival times, then use them in one achievable journey.",
   "vocabulary": [
     "leaves",
-    "arrives"
+    "arrives",
+    "What time does",
+    "leave",
+    "arrive"
   ],
-  "review_vocabulary": [
-    "the",
-    "bus",
-    "train",
-    "at",
-    "six",
-    "seven",
-    "eight",
-    "nine",
-    "ten",
-    "four",
-    "in the morning",
-    "afternoon",
-    "at night",
-    "on",
-    "Monday",
-    "Friday",
-    "Saturday",
-    "station"
-  ],
-  "grammar_function": "The bus leaves at eight. The train arrives at nine. The bus leaves at eight on Monday.",
-  "prerequisite": "4.9 days; 4.10 at and parts of the day; 6.2 train; 2.6-2.7 numbers.",
-  "speaking_outcome": "Say when a bus or a train leaves or arrives.",
+  "review_vocabulary": [],
+  "grammar_function": "Ana checks a train journey from the station to the museum area. The train leaves at nine in the morning and arrives at ten. She asks both questions, obtains her ticket, boards before departure, then gets off after arrival. A clearly separate return service is introduced only after this journey ends.",
+  "prerequisite": "Units 1\u20135 and the earlier Unit 6 lessons in the displayed course sequence.",
+  "speaking_outcome": "Ask for departure and arrival times, then use them in one achievable journey.",
   "purposeful_review_slides": [
-    "R3",
-    "R4",
-    "R5",
-    "R6",
-    "R7",
-    "R8",
-    "R9",
-    "R10",
-    "R11",
-    "R12",
-    "A2",
     "A3",
     "A4",
     "A5",
     "A6",
     "A7",
-    "A8",
-    "A9",
-    "A10",
-    "S1",
     "S2",
-    "S3",
     "S4",
     "S5",
     "S6",
     "S7",
     "S8",
-    "S9",
-    "U1",
-    "U2",
-    "U3",
-    "U4",
     "U5",
     "U6",
     "U7",
     "U8",
-    "U9"
+    "U10"
   ],
-  "content_revision": 3,
+  "content_revision": 5,
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "The bus leaves at eight.",
+      "prompt": "What time does the train leave?",
       "stage": "Learn",
-      "correct_option_id": "leaves-learn",
+      "correct_option_id": "what-time-does-the-train-leave-learn",
       "options": [
         {
-          "id": "leaves-learn",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "label": "The bus leaves at eight."
+          "id": "what-time-does-the-train-leave-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "label": "What time does the train leave?"
         }
       ],
-      "audio_text": "The bus leaves at eight.",
+      "audio_text": "What time does the train leave?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las ocho.",
-      "pedagogy_note": "Story beat 01: Leaves",
-      "audio_speaker": null,
+      "spanish_translation": "\u00bfA qu\u00e9 hora sale el tren?",
+      "pedagogy_note": "Story beat 01: What time does the train leave?",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c001-prompt-9490425bc03ba2be7dc4",
+          "id": "lesson-6-8-schedules-c001-prompt-bb261b0798330e8b89c2",
           "purpose": "prompt",
-          "text": "The bus leaves at eight.",
+          "text": "What time does the train leave?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c001-answer-09404539b01c911b443d",
+          "id": "lesson-6-8-schedules-c001-answer-9b7c0524228ed551d022",
           "purpose": "answer",
-          "text": "The bus leaves at eight.",
+          "text": "What time does the train leave?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -130,47 +93,341 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "The bus arrives at seven.",
+      "prompt": "The train leaves at nine.",
       "stage": "Learn",
-      "correct_option_id": "arrives-learn",
+      "correct_option_id": "the-train-leaves-at-nine-learn",
       "options": [
         {
-          "id": "arrives-learn",
-          "image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "label": "The bus arrives at seven."
+          "id": "the-train-leaves-at-nine-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
+          "label": "The train leaves at nine."
         }
       ],
-      "audio_text": "The bus arrives at seven.",
+      "audio_text": "The train leaves at nine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas llega a las siete.",
-      "pedagogy_note": "Story beat 02: Arrives",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "El tren sale a las nueve.",
+      "pedagogy_note": "Story beat 02: The train leaves at nine.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c002-prompt-2607340d38425ad6edea",
+          "id": "lesson-6-8-schedules-c002-prompt-93dd2f80f406446e1c33",
           "purpose": "prompt",
-          "text": "The bus arrives at seven.",
+          "text": "The train leaves at nine.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c002-answer-ef21e434439dd85c6fd1",
+          "id": "lesson-6-8-schedules-c002-answer-775ca9245089f8bc8178",
           "purpose": "answer",
-          "text": "The bus arrives at seven.",
+          "text": "The train leaves at nine.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "What time does the train arrive?",
+      "stage": "Learn",
+      "correct_option_id": "what-time-does-the-train-arrive-learn",
+      "options": [
+        {
+          "id": "what-time-does-the-train-arrive-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "label": "What time does the train arrive?"
+        }
+      ],
+      "audio_text": "What time does the train arrive?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfA qu\u00e9 hora llega el tren?",
+      "pedagogy_note": "Story beat 03: What time does the train arrive?",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c003-prompt-f4c53790a03124810a57",
+          "purpose": "prompt",
+          "text": "What time does the train arrive?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c003-answer-f2425559a18a36888b1b",
+          "purpose": "answer",
+          "text": "What time does the train arrive?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "The train arrives at ten.",
+      "stage": "Learn",
+      "correct_option_id": "the-train-arrives-at-ten-learn",
+      "options": [
+        {
+          "id": "the-train-arrives-at-ten-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
+          "label": "The train arrives at ten."
+        }
+      ],
+      "audio_text": "The train arrives at ten.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El tren llega a las diez.",
+      "pedagogy_note": "Story beat 04: The train arrives at ten.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c004-prompt-a095012e55ce0089d0da",
+          "purpose": "prompt",
+          "text": "The train arrives at ten.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c004-answer-1cfefa03a9d726ac2680",
+          "purpose": "answer",
+          "text": "The train arrives at ten.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "What time does the bus leave?",
+      "stage": "Learn",
+      "correct_option_id": "what-time-does-the-bus-leave-learn",
+      "options": [
+        {
+          "id": "what-time-does-the-bus-leave-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "label": "What time does the bus leave?"
+        }
+      ],
+      "audio_text": "What time does the bus leave?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfA qu\u00e9 hora sale el autob\u00fas?",
+      "pedagogy_note": "Story beat 05: What time does the bus leave?",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c005-prompt-8585df78bbc939f86e6e",
+          "purpose": "prompt",
+          "text": "What time does the bus leave?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c005-answer-df11ce4dcbaf7b449375",
+          "purpose": "answer",
+          "text": "What time does the bus leave?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "The bus leaves at four.",
+      "stage": "Learn",
+      "correct_option_id": "the-bus-leaves-at-four-learn",
+      "options": [
+        {
+          "id": "the-bus-leaves-at-four-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
+          "label": "The bus leaves at four."
+        }
+      ],
+      "audio_text": "The bus leaves at four.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El autob\u00fas sale a las cuatro.",
+      "pedagogy_note": "Story beat 06: The bus leaves at four.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c006-prompt-72b5188ec68fb38b2e23",
+          "purpose": "prompt",
+          "text": "The bus leaves at four.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c006-answer-7baf0cf546653b76b0ba",
+          "purpose": "answer",
+          "text": "The bus leaves at four.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "What time does the bus arrive?",
+      "stage": "Learn",
+      "correct_option_id": "what-time-does-the-bus-arrive-learn",
+      "options": [
+        {
+          "id": "what-time-does-the-bus-arrive-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "label": "What time does the bus arrive?"
+        }
+      ],
+      "audio_text": "What time does the bus arrive?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfA qu\u00e9 hora llega el autob\u00fas?",
+      "pedagogy_note": "Story beat 07: What time does the bus arrive?",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c007-prompt-d0a1adb61d3e05e2bcb5",
+          "purpose": "prompt",
+          "text": "What time does the bus arrive?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c007-answer-98aa0a84ab0c46378b5d",
+          "purpose": "answer",
+          "text": "What time does the bus arrive?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L8",
+      "interaction_type": "teach",
+      "prompt": "The bus arrives at five.",
+      "stage": "Learn",
+      "correct_option_id": "the-bus-arrives-at-five-learn",
+      "options": [
+        {
+          "id": "the-bus-arrives-at-five-learn",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
+          "label": "The bus arrives at five."
+        }
+      ],
+      "audio_text": "The bus arrives at five.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El autob\u00fas llega a las cinco.",
+      "pedagogy_note": "Story beat 08: The bus arrives at five.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c008-prompt-ac4ceab8b0cf9ba0ec24",
+          "purpose": "prompt",
+          "text": "The bus arrives at five.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c008-answer-32028f404947d8b1d68c",
+          "purpose": "answer",
+          "text": "The bus arrives at five.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -179,52 +436,52 @@
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "The bus leaves at eight.",
+      "prompt": "The train leaves at nine.",
       "stage": "Recognize",
-      "correct_option_id": "leaves-r1",
+      "correct_option_id": "the-train-leaves-at-nine-r1",
       "options": [
         {
-          "id": "arrives-r1",
-          "image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "id": "the-train-leaves-at-ten-r1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_ten_v3.webp",
           "label": null
         },
         {
-          "id": "leaves-r1",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "id": "the-train-leaves-at-nine-r1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "label": null
         }
       ],
-      "audio_text": "The bus leaves at eight.",
+      "audio_text": "The train leaves at nine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las ocho.",
-      "pedagogy_note": "Story beat 01: Leaves",
-      "audio_speaker": null,
+      "spanish_translation": "El tren sale a las nueve.",
+      "pedagogy_note": "Story beat 01: The train leaves at nine.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c003-prompt-3590b3589933a08e5050",
+          "id": "lesson-6-8-schedules-c009-prompt-36cf32901dcb0b186bb1",
           "purpose": "prompt",
-          "text": "The bus leaves at eight.",
+          "text": "The train leaves at nine.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c003-answer-28b569b280033d66a63c",
+          "id": "lesson-6-8-schedules-c009-answer-28ca64b61ea409e1715d",
           "purpose": "answer",
-          "text": "The bus leaves at eight.",
+          "text": "The train leaves at nine.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -235,38 +492,38 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "arrives-r2",
+      "correct_option_id": "the-train-leaves-at-nine-r2",
       "options": [
         {
-          "id": "leaves-r2",
+          "id": "the-train-leaves-at-ten-r2",
           "image_url": "",
-          "label": "The bus leaves at eight."
+          "label": "The train leaves at ten."
         },
         {
-          "id": "arrives-r2",
+          "id": "the-train-leaves-at-nine-r2",
           "image_url": "",
-          "label": "The bus arrives at seven."
+          "label": "The train leaves at nine."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The bus arrives at seven.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-      "spanish_translation": "El autob\u00fas llega a las siete.",
-      "pedagogy_note": "Story beat 02: Arrives",
+      "answer_audio_text": "The train leaves at nine.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "pedagogy_note": "Story beat 02: The train leaves at nine.",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c004-answer-9b2c33d70371f01e3fce",
+          "id": "lesson-6-8-schedules-c010-answer-e93ebb7c7ce5c7cb0dc5",
           "purpose": "answer",
-          "text": "The bus arrives at seven.",
+          "text": "The train leaves at nine.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -275,52 +532,52 @@
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "The bus leaves at eight.",
+      "prompt": "The train arrives at ten.",
       "stage": "Recognize",
-      "correct_option_id": "the-bus-leaves-at-eight-r3",
+      "correct_option_id": "the-train-arrives-at-ten-r3",
       "options": [
         {
-          "id": "the-bus-leaves-at-eight-r3",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "id": "the-train-arrives-at-ten-r3",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "label": null
         },
         {
-          "id": "the-bus-leaves-at-nine-r3",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4.webp",
+          "id": "the-train-arrives-at-nine-r3",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_nine_v2.webp",
           "label": null
         }
       ],
-      "audio_text": "The bus leaves at eight.",
+      "audio_text": "The train arrives at ten.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las ocho.",
-      "pedagogy_note": "Story beat 03: The bus leaves at eight.",
-      "audio_speaker": null,
+      "spanish_translation": "El tren llega a las diez.",
+      "pedagogy_note": "Story beat 03: The train arrives at ten.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c005-prompt-71618e045bfae8d8e600",
+          "id": "lesson-6-8-schedules-c011-prompt-a1ddd8fd78beaec1ec2b",
           "purpose": "prompt",
-          "text": "The bus leaves at eight.",
+          "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c005-answer-29ae037d3be45f969d23",
+          "id": "lesson-6-8-schedules-c011-answer-85d2e38394794d8c343c",
           "purpose": "answer",
-          "text": "The bus leaves at eight.",
+          "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -331,38 +588,38 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-bus-leaves-at-nine-r4",
+      "correct_option_id": "the-train-arrives-at-ten-r4",
       "options": [
         {
-          "id": "the-bus-leaves-at-eight-r4",
+          "id": "the-train-arrives-at-nine-r4",
           "image_url": "",
-          "label": "The bus leaves at eight."
+          "label": "The train arrives at nine."
         },
         {
-          "id": "the-bus-leaves-at-nine-r4",
+          "id": "the-train-arrives-at-ten-r4",
           "image_url": "",
-          "label": "The bus leaves at nine."
+          "label": "The train arrives at ten."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The bus leaves at nine.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4.webp",
+      "answer_audio_text": "The train arrives at ten.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 04: The bus leaves at nine.",
+      "pedagogy_note": "Story beat 04: The train arrives at ten.",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c006-answer-66cbdf9add400a1d091c",
+          "id": "lesson-6-8-schedules-c012-answer-d9c1b9120363d17bd31d",
           "purpose": "answer",
-          "text": "The bus leaves at nine.",
+          "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -371,52 +628,52 @@
     {
       "slide_id": "R5",
       "interaction_type": "t2i2",
-      "prompt": "The bus leaves at seven.",
+      "prompt": "The bus leaves at four.",
       "stage": "Recognize",
-      "correct_option_id": "the-bus-leaves-at-seven-r5",
+      "correct_option_id": "the-bus-leaves-at-four-r5",
       "options": [
         {
-          "id": "the-bus-arrives-at-seven-r5",
-          "image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "id": "the-bus-leaves-at-five-r5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_leaves_five_v2.webp",
           "label": null
         },
         {
-          "id": "the-bus-leaves-at-seven-r5",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
+          "id": "the-bus-leaves-at-four-r5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
           "label": null
         }
       ],
-      "audio_text": "The bus leaves at seven.",
+      "audio_text": "The bus leaves at four.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las siete.",
-      "pedagogy_note": "Story beat 05: The bus leaves at seven.",
-      "audio_speaker": null,
+      "spanish_translation": "El autob\u00fas sale a las cuatro.",
+      "pedagogy_note": "Story beat 05: The bus leaves at four.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c007-prompt-2b7d33cc5b2977a73c5c",
+          "id": "lesson-6-8-schedules-c013-prompt-dc1d01657b9b50ea70b8",
           "purpose": "prompt",
-          "text": "The bus leaves at seven.",
+          "text": "The bus leaves at four.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c007-answer-5412cdac186be00b1666",
+          "id": "lesson-6-8-schedules-c013-answer-5253722a76031cd27c71",
           "purpose": "answer",
-          "text": "The bus leaves at seven.",
+          "text": "The bus leaves at four.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -427,38 +684,38 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-bus-arrives-at-seven-r6",
+      "correct_option_id": "the-bus-leaves-at-four-r6",
       "options": [
         {
-          "id": "the-bus-arrives-at-seven-r6",
+          "id": "the-bus-leaves-at-four-r6",
           "image_url": "",
-          "label": "The bus arrives at seven."
+          "label": "The bus leaves at four."
         },
         {
-          "id": "the-bus-leaves-at-seven-r6",
+          "id": "the-bus-leaves-at-five-r6",
           "image_url": "",
-          "label": "The bus leaves at seven."
+          "label": "The bus leaves at five."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The bus arrives at seven.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+      "answer_audio_text": "The bus leaves at four.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: The bus arrives at seven.",
+      "pedagogy_note": "Story beat 06: The bus leaves at four.",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c008-answer-faa325c2a8432419ab13",
+          "id": "lesson-6-8-schedules-c014-answer-a1e1c502816a1b6b8259",
           "purpose": "answer",
-          "text": "The bus arrives at seven.",
+          "text": "The bus leaves at four.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -467,52 +724,52 @@
     {
       "slide_id": "R7",
       "interaction_type": "t2i2",
-      "prompt": "The train leaves at nine.",
+      "prompt": "The bus arrives at five.",
       "stage": "Recognize",
-      "correct_option_id": "the-train-leaves-at-nine-r7",
+      "correct_option_id": "the-bus-arrives-at-five-r7",
       "options": [
         {
-          "id": "the-train-leaves-at-nine-r7",
-          "image_url": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "id": "the-bus-arrives-at-five-r7",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
           "label": null
         },
         {
-          "id": "the-train-arrives-at-nine-r7",
-          "image_url": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
+          "id": "the-bus-arrives-at-four-r7",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_arrives_four_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "The train leaves at nine.",
+      "audio_text": "The bus arrives at five.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El tren sale a las nueve.",
-      "pedagogy_note": "Story beat 07: The train leaves at nine.",
-      "audio_speaker": null,
+      "spanish_translation": "El autob\u00fas llega a las cinco.",
+      "pedagogy_note": "Story beat 07: The bus arrives at five.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c009-prompt-f7b9a1cb339650885df4",
+          "id": "lesson-6-8-schedules-c015-prompt-ab0a33379a30cddd3218",
           "purpose": "prompt",
-          "text": "The train leaves at nine.",
+          "text": "The bus arrives at five.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c009-answer-7de204839d60ab8cc9e4",
+          "id": "lesson-6-8-schedules-c015-answer-4706b03f398259434c50",
           "purpose": "answer",
-          "text": "The train leaves at nine.",
+          "text": "The bus arrives at five.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -523,206 +780,38 @@
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "the-train-arrives-at-nine-r8",
+      "correct_option_id": "the-bus-arrives-at-five-r8",
       "options": [
         {
-          "id": "the-train-arrives-at-nine-r8",
+          "id": "the-bus-arrives-at-five-r8",
           "image_url": "",
-          "label": "The train arrives at nine."
+          "label": "The bus arrives at five."
         },
         {
-          "id": "the-train-leaves-at-nine-r8",
+          "id": "the-bus-arrives-at-four-r8",
           "image_url": "",
-          "label": "The train leaves at nine."
+          "label": "The bus arrives at four."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "The train arrives at nine.",
-      "prompt_image_url": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
+      "answer_audio_text": "The bus arrives at five.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
       "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: The train arrives at nine.",
+      "pedagogy_note": "Story beat 08: The bus arrives at five.",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c010-answer-796141d1468dd944b2f5",
+          "id": "lesson-6-8-schedules-c016-answer-c017e3be685e94f2f0bb",
           "purpose": "answer",
-          "text": "The train arrives at nine.",
+          "text": "The bus arrives at five.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-train-arrives-at-ten-r9",
-      "options": [
-        {
-          "id": "the-train-arrives-at-ten-r9",
-          "image_url": "",
-          "label": "The train arrives at ten."
-        },
-        {
-          "id": "the-train-arrives-at-eight-r9",
-          "image_url": "",
-          "label": "The train arrives at eight."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The train arrives at ten.",
-      "prompt_image_url": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: The train arrives at ten.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c011-answer-407039b20cffaa74ddb9",
-          "purpose": "answer",
-          "text": "The train arrives at ten.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-bus-leaves-at-six-in-the-morning-r10",
-      "options": [
-        {
-          "id": "the-bus-leaves-at-six-in-the-morning-r10",
-          "image_url": "",
-          "label": "The bus leaves at six in the morning."
-        },
-        {
-          "id": "the-bus-leaves-at-six-at-night-r10",
-          "image_url": "",
-          "label": "The bus leaves at six at night."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The bus leaves at six in the morning.",
-      "prompt_image_url": "/lesson-assets/a1_scene_the-bus-leaves-at-six-in-the-morning_376cbdd.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: The bus leaves at six in the morning.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c012-answer-4eb7ba14dcbf2405b1fa",
-          "purpose": "answer",
-          "text": "The bus leaves at six in the morning.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_the-bus-leaves-at-six-in-the-morning_376cbdd.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-train-arrives-at-four-in-the-afternoon-r11",
-      "options": [
-        {
-          "id": "the-train-arrives-at-four-in-the-morning-r11",
-          "image_url": "",
-          "label": "The train arrives at four in the morning."
-        },
-        {
-          "id": "the-train-arrives-at-four-in-the-afternoon-r11",
-          "image_url": "",
-          "label": "The train arrives at four in the afternoon."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The train arrives at four in the afternoon.",
-      "prompt_image_url": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 11: The train arrives at four in the afternoon.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c013-answer-6f8f53aa5948f1b05fab",
-          "purpose": "answer",
-          "text": "The train arrives at four in the afternoon.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R12",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "the-bus-arrives-at-seven-r12",
-      "options": [
-        {
-          "id": "the-bus-arrives-at-seven-r12",
-          "image_url": "",
-          "label": "The bus arrives at seven."
-        },
-        {
-          "id": "the-bus-leaves-at-seven-r12",
-          "image_url": "",
-          "label": "The bus leaves at seven."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "The bus arrives at seven.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 12: The bus arrives at seven.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c014-answer-164785688cc121b295ef",
-          "purpose": "answer",
-          "text": "The bus arrives at seven.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -733,50 +822,62 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "arrives-a1",
+      "correct_option_id": "the-train-leaves-at-nine-a1",
       "options": [
         {
-          "id": "arrives-a1",
-          "image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "id": "the-train-leaves-at-nine-a1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "label": null
         },
         {
-          "id": "leaves-a1",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "id": "the-train-leaves-at-ten-a1",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_ten_v3.webp",
           "label": null
         }
       ],
-      "audio_text": "The bus arrives at seven.",
+      "audio_text": "What time does the train leave? The train leaves at nine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Arrives",
+      "pedagogy_note": "Story beat 01: What time does the train leave? The train leaves at nine.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What time does the train leave?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp"
+        },
+        {
+          "text": "The train leaves at nine.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c015-prompt-af28fb6b5a24cd643bfe",
-          "purpose": "prompt",
-          "text": "The bus arrives at seven.",
+          "id": "lesson-6-8-schedules-c017-prompt-turn-1-e089a7f9f66d5ac69420",
+          "purpose": "prompt-turn-1",
+          "text": "What time does the train leave?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c015-answer-70cccf940fe01a16f8ab",
-          "purpose": "answer",
-          "text": "The bus arrives at seven.",
+          "id": "lesson-6-8-schedules-c017-prompt-turn-2-5d71ace711e4dfaac4cf",
+          "purpose": "prompt-turn-2",
+          "text": "The train leaves at nine.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -787,50 +888,62 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-bus-leaves-at-eight-a2",
+      "correct_option_id": "the-train-arrives-at-ten-a2",
       "options": [
         {
-          "id": "the-bus-leaves-at-eight-a2",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "id": "the-train-arrives-at-ten-a2",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "label": null
         },
         {
-          "id": "the-bus-leaves-at-nine-a2",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4.webp",
+          "id": "the-train-arrives-at-nine-a2",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_nine_v2.webp",
           "label": null
         }
       ],
-      "audio_text": "The bus leaves at eight.",
+      "audio_text": "What time does the train arrive? The train arrives at ten.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: The bus leaves at eight.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: What time does the train arrive? The train arrives at ten.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What time does the train arrive?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp"
+        },
+        {
+          "text": "The train arrives at ten.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c016-prompt-6558cb3f99cc89aec7e7",
-          "purpose": "prompt",
-          "text": "The bus leaves at eight.",
+          "id": "lesson-6-8-schedules-c018-prompt-turn-1-b21dd054b2044b322a5b",
+          "purpose": "prompt-turn-1",
+          "text": "What time does the train arrive?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c016-answer-83d7a50e3ceac1d7471d",
-          "purpose": "answer",
-          "text": "The bus leaves at eight.",
+          "id": "lesson-6-8-schedules-c018-prompt-turn-2-92003ac1ba4f18f989eb",
+          "purpose": "prompt-turn-2",
+          "text": "The train arrives at ten.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -841,50 +954,50 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-bus-leaves-at-nine-a3",
+      "correct_option_id": "can-i-have-a-ticket-please-a3",
       "options": [
         {
-          "id": "the-bus-leaves-at-nine-a3",
+          "id": "can-i-have-a-ticket-please-a3",
           "image_url": "",
-          "label": "The bus leaves at nine."
+          "label": "Can I have a ticket, please?"
         },
         {
-          "id": "the-bus-leaves-at-eight-a3",
+          "id": "can-i-have-a-bag-please-a3",
           "image_url": "",
-          "label": "The bus leaves at eight."
+          "label": "Can I have a bag, please?"
         }
       ],
-      "audio_text": "The bus leaves at nine.",
+      "audio_text": "Can I have a ticket, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: The bus leaves at nine.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 03: Can I have a ticket, please?",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c017-prompt-e962736a10ddecdd7cb0",
+          "id": "lesson-6-8-schedules-c019-prompt-0e2ee02be0c7d395298d",
           "purpose": "prompt",
-          "text": "The bus leaves at nine.",
+          "text": "Can I have a ticket, please?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:35ee6232764f6adc02c4",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "text-only:54e88fca881187647a55",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c017-answer-dc4281e84ea39cda6c65",
+          "id": "lesson-6-8-schedules-c019-answer-420fe820e8f8d8965381",
           "purpose": "answer",
-          "text": "The bus leaves at nine.",
+          "text": "Can I have a ticket, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:35ee6232764f6adc02c4",
+          "image_ref": "text-only:54e88fca881187647a55",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -892,53 +1005,77 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-bus-leaves-at-seven-a4",
+      "correct_option_id": "thank-you-a4",
       "options": [
         {
-          "id": "the-bus-arrives-at-seven-a4",
-          "image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "label": null
+          "id": "no-thank-you-a4",
+          "image_url": "",
+          "label": "No, thank you."
         },
         {
-          "id": "the-bus-leaves-at-seven-a4",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
-          "label": null
+          "id": "thank-you-a4",
+          "image_url": "",
+          "label": "Thank you."
         }
       ],
-      "audio_text": "The bus leaves at seven.",
+      "audio_text": "Here is your ticket. Thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: The bus leaves at seven.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: Thank you.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Here is your ticket.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp"
+        },
+        {
+          "text": "Thank you.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c018-prompt-720b40cd7dabec4323ea",
-          "purpose": "prompt",
-          "text": "The bus leaves at seven.",
+          "id": "lesson-6-8-schedules-c020-prompt-turn-1-fc70bbbd78921feff209",
+          "purpose": "prompt-turn-1",
+          "text": "Here is your ticket.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c018-answer-0e208308ad4450e90eeb",
+          "id": "lesson-6-8-schedules-c020-prompt-turn-2-62889d1d7b74691b2d8f",
+          "purpose": "prompt-turn-2",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c020-answer-d797cc55247f55d28832",
           "purpose": "answer",
-          "text": "The bus leaves at seven.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
+          "image_ref": "text-only:9841bf187ac69467b43b",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -949,50 +1086,50 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-bus-arrives-at-seven-a5",
+      "correct_option_id": "i-get-on-the-train-a5",
       "options": [
         {
-          "id": "the-bus-arrives-at-seven-a5",
-          "image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "id": "i-get-on-the-train-a5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_train_on_v1.webp",
           "label": null
         },
         {
-          "id": "the-bus-leaves-at-seven-a5",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
+          "id": "i-get-off-the-train-a5",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "The bus arrives at seven.",
+      "audio_text": "I get on the train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: The bus arrives at seven.",
-      "audio_speaker": null,
+      "pedagogy_note": "Story beat 05: I get on the train.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c019-prompt-e337fa41eae706ea1b24",
+          "id": "lesson-6-8-schedules-c021-prompt-4210164b9a1d39cb007b",
           "purpose": "prompt",
-          "text": "The bus arrives at seven.",
+          "text": "I get on the train.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_on_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c019-answer-72152bd7e565e01b1285",
+          "id": "lesson-6-8-schedules-c021-answer-206797c5e5cf74a64a2d",
           "purpose": "answer",
-          "text": "The bus arrives at seven.",
+          "text": "I get on the train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_on_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1003,50 +1140,74 @@
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-train-leaves-at-nine-a6",
+      "correct_option_id": "finally-i-get-off-the-train-a6",
       "options": [
         {
-          "id": "the-train-arrives-at-nine-a6",
+          "id": "finally-i-get-on-the-train-a6",
           "image_url": "",
-          "label": "The train arrives at nine."
+          "label": "Finally, I get on the train."
         },
         {
-          "id": "the-train-leaves-at-nine-a6",
+          "id": "finally-i-get-off-the-train-a6",
           "image_url": "",
-          "label": "The train leaves at nine."
+          "label": "Finally, I get off the train."
         }
       ],
-      "audio_text": "The train leaves at nine.",
+      "audio_text": "The train arrives at ten. Finally, I get off the train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: The train leaves at nine.",
-      "audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 06: Finally, I get off the train.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The train arrives at ten.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp"
+        },
+        {
+          "text": "Finally, I get off the train.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c020-prompt-b544d1b7fba54f0504d0",
-          "purpose": "prompt",
-          "text": "The train leaves at nine.",
+          "id": "lesson-6-8-schedules-c022-prompt-turn-1-288764ff685701c36cd5",
+          "purpose": "prompt-turn-1",
+          "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:18476232b3dfe65df48d",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c020-answer-81583efcdc90433ba728",
+          "id": "lesson-6-8-schedules-c022-prompt-turn-2-55d1ed4026f91eda4fd6",
+          "purpose": "prompt-turn-2",
+          "text": "Finally, I get off the train.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c022-answer-49dde984a0724908ae78",
           "purpose": "answer",
-          "text": "The train leaves at nine.",
+          "text": "Finally, I get off the train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:18476232b3dfe65df48d",
+          "image_ref": "text-only:6665a6fe1cacd5fd9ee8",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1054,51 +1215,75 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-train-arrives-at-nine-a7",
+      "correct_option_id": "the-bus-leaves-at-four-in-the-afternoon-a7",
       "options": [
         {
-          "id": "the-train-leaves-at-nine-a7",
-          "image_url": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
-          "label": null
+          "id": "the-bus-leaves-at-five-in-the-afternoon-a7",
+          "image_url": "",
+          "label": "The bus leaves at five in the afternoon."
         },
         {
-          "id": "the-train-arrives-at-nine-a7",
-          "image_url": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
-          "label": null
+          "id": "the-bus-leaves-at-four-in-the-afternoon-a7",
+          "image_url": "",
+          "label": "The bus leaves at four in the afternoon."
         }
       ],
-      "audio_text": "The train arrives at nine.",
+      "audio_text": "What time does the bus leave? The bus leaves at four in the afternoon.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: The train arrives at nine.",
+      "pedagogy_note": "Story beat 07: The bus leaves at four in the afternoon.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What time does the bus leave?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp"
+        },
+        {
+          "text": "The bus leaves at four in the afternoon.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c021-prompt-588b537e7fd6e5b4862d",
-          "purpose": "prompt",
-          "text": "The train arrives at nine.",
+          "id": "lesson-6-8-schedules-c023-prompt-turn-1-94e687efaa0a4763ac65",
+          "purpose": "prompt-turn-1",
+          "text": "What time does the bus leave?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c021-answer-f1d078be4e81eca5e885",
+          "id": "lesson-6-8-schedules-c023-prompt-turn-2-8d8fa681e236ecdab972",
+          "purpose": "prompt-turn-2",
+          "text": "The bus leaves at four in the afternoon.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_leaves_four_v2.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c023-answer-f9082bcec02c6b9a41e8",
           "purpose": "answer",
-          "text": "The train arrives at nine.",
+          "text": "The bus leaves at four in the afternoon.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
+          "image_ref": "text-only:41c5cfa06216239d8a2e",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1108,161 +1293,65 @@
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "the-train-arrives-at-ten-a8",
+      "correct_option_id": "the-bus-arrives-at-five-a8",
       "options": [
         {
-          "id": "the-train-arrives-at-eight-a8",
-          "image_url": "",
-          "label": "The train arrives at eight."
+          "id": "the-bus-arrives-at-four-a8",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_arrives_four_v1.webp",
+          "label": null
         },
         {
-          "id": "the-train-arrives-at-ten-a8",
-          "image_url": "",
-          "label": "The train arrives at ten."
+          "id": "the-bus-arrives-at-five-a8",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "The train arrives at ten.",
+      "audio_text": "What time does the bus arrive? The bus arrives at five.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: The train arrives at ten.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c022-prompt-7c3c9a870ee40a6844dd",
-          "purpose": "prompt",
-          "text": "The train arrives at ten.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:467da5c1c53d23f30bfe",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-8-schedules-c022-answer-db2344be73ee7833185b",
-          "purpose": "answer",
-          "text": "The train arrives at ten.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:467da5c1c53d23f30bfe",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A9",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-bus-leaves-at-six-in-the-morning-a9",
-      "options": [
-        {
-          "id": "the-bus-leaves-at-six-at-night-a9",
-          "image_url": "",
-          "label": "The bus leaves at six at night."
-        },
-        {
-          "id": "the-bus-leaves-at-six-in-the-morning-a9",
-          "image_url": "",
-          "label": "The bus leaves at six in the morning."
-        }
-      ],
-      "audio_text": "The bus leaves at six in the morning.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: The bus leaves at six in the morning.",
+      "pedagogy_note": "Story beat 08: What time does the bus arrive? The bus arrives at five.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
+      "audio_turns": [
         {
-          "id": "lesson-6-8-schedules-c023-prompt-a255da5cbe9414d5a840",
-          "purpose": "prompt",
-          "text": "The bus leaves at six in the morning.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:2e28448597b29c00febb",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "text": "What time does the bus arrive?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp"
         },
         {
-          "id": "lesson-6-8-schedules-c023-answer-faf5a2c248e40d239253",
-          "purpose": "answer",
-          "text": "The bus leaves at six in the morning.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:2e28448597b29c00febb",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A10",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "the-train-arrives-at-four-in-the-afternoon-a10",
-      "options": [
-        {
-          "id": "the-train-arrives-at-four-in-the-morning-a10",
-          "image_url": "",
-          "label": "The train arrives at four in the morning."
-        },
-        {
-          "id": "the-train-arrives-at-four-in-the-afternoon-a10",
-          "image_url": "",
-          "label": "The train arrives at four in the afternoon."
+          "text": "The bus arrives at five.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp"
         }
       ],
-      "audio_text": "The train arrives at four in the afternoon.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: The train arrives at four in the afternoon.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c024-prompt-5f1019d5bef230ee8ad7",
-          "purpose": "prompt",
-          "text": "The train arrives at four in the afternoon.",
+          "id": "lesson-6-8-schedules-c024-prompt-turn-1-f007a0bb6535f19c5af0",
+          "purpose": "prompt-turn-1",
+          "text": "What time does the bus arrive?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:422f7f104e1ed8281273",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c024-answer-5620ccf4309530d94061",
-          "purpose": "answer",
-          "text": "The train arrives at four in the afternoon.",
+          "id": "lesson-6-8-schedules-c024-prompt-turn-2-207d03d93e9d4dd6cc4f",
+          "purpose": "prompt-turn-2",
+          "text": "The bus arrives at five.",
           "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:422f7f104e1ed8281273",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_bus_arrives_five_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1271,47 +1360,47 @@
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "The bus leaves at eight.",
+      "prompt": "What time does the train leave?",
       "stage": "Speak",
-      "correct_option_id": "the-bus-leaves-at-eight-speak",
+      "correct_option_id": "what-time-does-the-train-leave-speak",
       "options": [
         {
-          "id": "the-bus-leaves-at-eight-speak",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "label": "The bus leaves at eight."
+          "id": "what-time-does-the-train-leave-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "label": "What time does the train leave?"
         }
       ],
-      "audio_text": "The bus leaves at eight.",
+      "audio_text": "What time does the train leave?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las ocho.",
-      "pedagogy_note": "Story beat 01: The bus leaves at eight.",
-      "audio_speaker": null,
+      "spanish_translation": "\u00bfA qu\u00e9 hora sale el tren?",
+      "pedagogy_note": "Story beat 01: What time does the train leave?",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c025-prompt-8211066cbbd37b157527",
+          "id": "lesson-6-8-schedules-c025-prompt-9c0da2fe4d13171afbaa",
           "purpose": "prompt",
-          "text": "The bus leaves at eight.",
+          "text": "What time does the train leave?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c025-answer-31566306fd503f13c164",
+          "id": "lesson-6-8-schedules-c025-answer-1ee5c58a7db6945ec135",
           "purpose": "answer",
-          "text": "The bus leaves at eight.",
+          "text": "What time does the train leave?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1320,47 +1409,47 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "The bus leaves at nine.",
+      "prompt": "The train leaves at nine on Monday.",
       "stage": "Speak",
-      "correct_option_id": "the-bus-leaves-at-nine-speak",
+      "correct_option_id": "the-train-leaves-at-nine-on-monday-speak",
       "options": [
         {
-          "id": "the-bus-leaves-at-nine-speak",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4.webp",
-          "label": "The bus leaves at nine."
+          "id": "the-train-leaves-at-nine-on-monday-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
+          "label": "The train leaves at nine on Monday."
         }
       ],
-      "audio_text": "The bus leaves at nine.",
+      "audio_text": "The train leaves at nine on Monday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las nueve.",
-      "pedagogy_note": "Story beat 02: The bus leaves at nine.",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "El tren sale a las nueve el lunes.",
+      "pedagogy_note": "Story beat 02: The train leaves at nine on Monday.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c026-prompt-2614b6be366cf072fed5",
+          "id": "lesson-6-8-schedules-c026-prompt-2925c45791e289a1ab3f",
           "purpose": "prompt",
-          "text": "The bus leaves at nine.",
+          "text": "The train leaves at nine on Monday.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c026-answer-307b4115f0732c6702c6",
+          "id": "lesson-6-8-schedules-c026-answer-be00ed6d26222441887f",
           "purpose": "answer",
-          "text": "The bus leaves at nine.",
+          "text": "The train leaves at nine on Monday.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1369,47 +1458,47 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "The bus leaves at seven.",
+      "prompt": "What time does the train arrive?",
       "stage": "Speak",
-      "correct_option_id": "the-bus-leaves-at-seven-speak",
+      "correct_option_id": "what-time-does-the-train-arrive-speak",
       "options": [
         {
-          "id": "the-bus-leaves-at-seven-speak",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
-          "label": "The bus leaves at seven."
+          "id": "what-time-does-the-train-arrive-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "label": "What time does the train arrive?"
         }
       ],
-      "audio_text": "The bus leaves at seven.",
+      "audio_text": "What time does the train arrive?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las siete.",
-      "pedagogy_note": "Story beat 03: The bus leaves at seven.",
-      "audio_speaker": null,
+      "spanish_translation": "\u00bfA qu\u00e9 hora llega el tren?",
+      "pedagogy_note": "Story beat 03: What time does the train arrive?",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c027-prompt-1b1e861876aa8e11be22",
+          "id": "lesson-6-8-schedules-c027-prompt-eb6452ce0554856c7d6b",
           "purpose": "prompt",
-          "text": "The bus leaves at seven.",
+          "text": "What time does the train arrive?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c027-answer-889afd8d1bda37333c83",
+          "id": "lesson-6-8-schedules-c027-answer-05dbaef941a74bafae6b",
           "purpose": "answer",
-          "text": "The bus leaves at seven.",
+          "text": "What time does the train arrive?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-7-00_801e95a.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1418,47 +1507,47 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "The bus arrives at seven.",
+      "prompt": "The train arrives at ten in the morning. It is not night.",
       "stage": "Speak",
-      "correct_option_id": "the-bus-arrives-at-seven-speak",
+      "correct_option_id": "the-train-arrives-at-ten-in-the-morning-it-is-not-night-speak",
       "options": [
         {
-          "id": "the-bus-arrives-at-seven-speak",
-          "image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "label": "The bus arrives at seven."
+          "id": "the-train-arrives-at-ten-in-the-morning-it-is-not-night-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
+          "label": "The train arrives at ten in the morning. It is not night."
         }
       ],
-      "audio_text": "The bus arrives at seven.",
+      "audio_text": "The train arrives at ten in the morning. It is not night.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas llega a las siete.",
-      "pedagogy_note": "Story beat 04: The bus arrives at seven.",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "El tren llega a las diez de la ma\u00f1ana. No es de noche.",
+      "pedagogy_note": "Story beat 04: The train arrives at ten in the morning. It is not night.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c028-prompt-043c4c347f06f00c46ca",
+          "id": "lesson-6-8-schedules-c028-prompt-305a9c7eb515a12245e8",
           "purpose": "prompt",
-          "text": "The bus arrives at seven.",
+          "text": "The train arrives at ten in the morning. It is not night.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c028-answer-b6bef019a40d5eaa1059",
+          "id": "lesson-6-8-schedules-c028-answer-c2d7953eba0f5305ec22",
           "purpose": "answer",
-          "text": "The bus arrives at seven.",
+          "text": "The train arrives at ten in the morning. It is not night.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1467,47 +1556,47 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "The train arrives at nine.",
+      "prompt": "Can I have a ticket, please?",
       "stage": "Speak",
-      "correct_option_id": "the-train-arrives-at-nine-speak",
+      "correct_option_id": "can-i-have-a-ticket-please-speak",
       "options": [
         {
-          "id": "the-train-arrives-at-nine-speak",
-          "image_url": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
-          "label": "The train arrives at nine."
+          "id": "can-i-have-a-ticket-please-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+          "label": "Can I have a ticket, please?"
         }
       ],
-      "audio_text": "The train arrives at nine.",
+      "audio_text": "Can I have a ticket, please?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El tren llega a las nueve.",
-      "pedagogy_note": "Story beat 05: The train arrives at nine.",
-      "audio_speaker": null,
+      "spanish_translation": "\u00bfMe da un boleto, por favor?",
+      "pedagogy_note": "Story beat 05: Can I have a ticket, please?",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c029-prompt-31815dc21badb1238629",
+          "id": "lesson-6-8-schedules-c029-prompt-7d1cc6eb28617c7fdfc4",
           "purpose": "prompt",
-          "text": "The train arrives at nine.",
+          "text": "Can I have a ticket, please?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c029-answer-0f8def3148524af34713",
+          "id": "lesson-6-8-schedules-c029-answer-95385ca525e8fab050ab",
           "purpose": "answer",
-          "text": "The train arrives at nine.",
+          "text": "Can I have a ticket, please?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1516,47 +1605,47 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "The train arrives at ten.",
+      "prompt": "Here is your ticket.",
       "stage": "Speak",
-      "correct_option_id": "the-train-arrives-at-ten-speak",
+      "correct_option_id": "here-is-your-ticket-speak",
       "options": [
         {
-          "id": "the-train-arrives-at-ten-speak",
-          "image_url": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
-          "label": "The train arrives at ten."
+          "id": "here-is-your-ticket-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
+          "label": "Here is your ticket."
         }
       ],
-      "audio_text": "The train arrives at ten.",
+      "audio_text": "Here is your ticket.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El tren llega a las diez.",
-      "pedagogy_note": "Story beat 06: The train arrives at ten.",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "Aqu\u00ed est\u00e1 tu boleto.",
+      "pedagogy_note": "Story beat 06: Here is your ticket.",
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c030-prompt-174129d0fc3b1f90af8a",
+          "id": "lesson-6-8-schedules-c030-prompt-a4121d4b5fda6bd5fa71",
           "purpose": "prompt",
-          "text": "The train arrives at ten.",
+          "text": "Here is your ticket.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c030-answer-4bf650628518738bb10d",
+          "id": "lesson-6-8-schedules-c030-answer-5af9f4b96bb774e80fbc",
           "purpose": "answer",
-          "text": "The train arrives at ten.",
+          "text": "Here is your ticket.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1565,47 +1654,47 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "The train arrives at four in the afternoon.",
+      "prompt": "Thank you.",
       "stage": "Speak",
-      "correct_option_id": "the-train-arrives-at-four-in-the-afternoon-speak",
+      "correct_option_id": "thank-you-speak",
       "options": [
         {
-          "id": "the-train-arrives-at-four-in-the-afternoon-speak",
-          "image_url": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
-          "label": "The train arrives at four in the afternoon."
+          "id": "thank-you-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+          "label": "Thank you."
         }
       ],
-      "audio_text": "The train arrives at four in the afternoon.",
+      "audio_text": "Thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El tren llega a las cuatro de la tarde.",
-      "pedagogy_note": "Story beat 07: The train arrives at four in the afternoon.",
-      "audio_speaker": null,
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Story beat 07: Thank you.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c031-prompt-f0327b630221854a96d6",
+          "id": "lesson-6-8-schedules-c031-prompt-aed79c412023d3ac64b7",
           "purpose": "prompt",
-          "text": "The train arrives at four in the afternoon.",
+          "text": "Thank you.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c031-answer-91014c86d13deed5949e",
+          "id": "lesson-6-8-schedules-c031-answer-5b3c5a751528f4593ce1",
           "purpose": "answer",
-          "text": "The train arrives at four in the afternoon.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1614,96 +1703,47 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "The train leaves at nine on Monday.",
+      "prompt": "The train arrives at ten. Then, I get off the train.",
       "stage": "Speak",
-      "correct_option_id": "the-train-leaves-at-nine-on-monday-speak",
+      "correct_option_id": "the-train-arrives-at-ten-then-i-get-off-the-train-speak",
       "options": [
         {
-          "id": "the-train-leaves-at-nine-on-monday-speak",
-          "image_url": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
-          "label": "The train leaves at nine on Monday."
+          "id": "the-train-arrives-at-ten-then-i-get-off-the-train-speak",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
+          "label": "The train arrives at ten. Then, I get off the train."
         }
       ],
-      "audio_text": "The train leaves at nine on Monday.",
+      "audio_text": "The train arrives at ten. Then, I get off the train.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "El tren sale a las nueve el lunes.",
-      "pedagogy_note": "Story beat 08: The train leaves at nine on Monday.",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "El tren llega a las diez. Despu\u00e9s, bajo del tren.",
+      "pedagogy_note": "Story beat 08: The train arrives at ten. Then, I get off the train.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c032-prompt-bb282f3cdbe9c9c01229",
+          "id": "lesson-6-8-schedules-c032-prompt-2c3a1bb84b56e6902477",
           "purpose": "prompt",
-          "text": "The train leaves at nine on Monday.",
+          "text": "The train arrives at ten. Then, I get off the train.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c032-answer-4a509329373e3125cb20",
+          "id": "lesson-6-8-schedules-c032-answer-38c2960ec4c510e4b201",
           "purpose": "answer",
-          "text": "The train leaves at nine on Monday.",
+          "text": "The train arrives at ten. Then, I get off the train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S9",
-      "interaction_type": "speak",
-      "prompt": "The bus leaves at eight on Saturday.",
-      "stage": "Speak",
-      "correct_option_id": "the-bus-leaves-at-eight-on-saturday-speak",
-      "options": [
-        {
-          "id": "the-bus-leaves-at-eight-on-saturday-speak",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "label": "The bus leaves at eight on Saturday."
-        }
-      ],
-      "audio_text": "The bus leaves at eight on Saturday.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El autob\u00fas sale a las ocho el s\u00e1bado.",
-      "pedagogy_note": "Story beat 09: The bus leaves at eight on Saturday.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c033-prompt-eced65743775f27e57b4",
-          "purpose": "prompt",
-          "text": "The bus leaves at eight on Saturday.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-8-schedules-c033-answer-e002187682920cbdf612",
-          "purpose": "answer",
-          "text": "The bus leaves at eight on Saturday.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1712,56 +1752,56 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "The bus leaves ___ ___.",
+      "prompt": "What time does the ___ ___?",
       "stage": "Use",
-      "correct_option_id": "at",
+      "correct_option_id": "train",
       "correct_option_ids": [
-        "at",
-        "eight"
+        "train",
+        "leave"
       ],
       "options": [
         {
-          "id": "at",
+          "id": "train",
           "image_url": "",
-          "label": "at"
+          "label": "train"
         },
         {
-          "id": "eight",
+          "id": "leave",
           "image_url": "",
-          "label": "eight"
+          "label": "leave"
         }
       ],
-      "audio_text": "The bus leaves at eight.",
-      "answer_audio_text": "The bus leaves at eight.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-      "spanish_translation": "El autob\u00fas sale a las ocho.",
-      "pedagogy_note": "Story beat 01: The bus leaves at eight.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "What time does the train leave?",
+      "answer_audio_text": "What time does the train leave?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+      "spanish_translation": "\u00bfA qu\u00e9 hora sale el tren?",
+      "pedagogy_note": "Story beat 01: What time does the train leave?",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c034-prompt-42375981398be07e74d5",
+          "id": "lesson-6-8-schedules-c033-prompt-aaeb083af1b092221204",
           "purpose": "prompt",
-          "text": "The bus leaves at eight.",
+          "text": "What time does the train leave?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c034-answer-e6be17ecfebaf8c33fe2",
+          "id": "lesson-6-8-schedules-c033-answer-38d0c5569039df07dd7d",
           "purpose": "answer",
-          "text": "The bus leaves at eight.",
+          "text": "What time does the train leave?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1769,64 +1809,6 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "The bus arrives ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "at",
-      "correct_option_ids": [
-        "at",
-        "seven"
-      ],
-      "options": [
-        {
-          "id": "at",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "seven",
-          "image_url": "",
-          "label": "seven"
-        }
-      ],
-      "audio_text": "The bus arrives at seven.",
-      "answer_audio_text": "The bus arrives at seven.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-      "spanish_translation": "El autob\u00fas llega a las siete.",
-      "pedagogy_note": "Story beat 02: The bus arrives at seven.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c035-prompt-a33916bc39b7ab4e9f9e",
-          "purpose": "prompt",
-          "text": "The bus arrives at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-8-schedules-c035-answer-796962b9535dd61ff157",
-          "purpose": "answer",
-          "text": "The bus arrives at seven.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-arrives-7-00_ff6fd43.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
       "interaction_type": "complete2",
       "prompt": "The train leaves ___ ___.",
       "stage": "Use",
@@ -1849,35 +1831,93 @@
       ],
       "audio_text": "The train leaves at nine.",
       "answer_audio_text": "The train leaves at nine.",
-      "prompt_image_url": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
       "spanish_translation": "El tren sale a las nueve.",
-      "pedagogy_note": "Story beat 03: The train leaves at nine.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 02: The train leaves at nine.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c036-prompt-180430926a94087dab26",
+          "id": "lesson-6-8-schedules-c034-prompt-042be608fb52248bbc50",
           "purpose": "prompt",
           "text": "The train leaves at nine.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c036-answer-9339bfcb6ed2ba865bb9",
+          "id": "lesson-6-8-schedules-c034-answer-1d3b4112b06f8014f405",
           "purpose": "answer",
           "text": "The train leaves at nine.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_leaves_nine_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "What time does the ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "train",
+      "correct_option_ids": [
+        "train",
+        "arrive"
+      ],
+      "options": [
+        {
+          "id": "train",
+          "image_url": "",
+          "label": "train"
+        },
+        {
+          "id": "arrive",
+          "image_url": "",
+          "label": "arrive"
+        }
+      ],
+      "audio_text": "What time does the train arrive?",
+      "answer_audio_text": "What time does the train arrive?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+      "spanish_translation": "\u00bfA qu\u00e9 hora llega el tren?",
+      "pedagogy_note": "Story beat 03: What time does the train arrive?",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c035-prompt-10ff30985da172f68f04",
+          "purpose": "prompt",
+          "text": "What time does the train arrive?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c035-answer-44d46f9d6b48a92118a2",
+          "purpose": "answer",
+          "text": "What time does the train arrive?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_schedule_v2.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1885,64 +1925,6 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "The train arrives ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "at",
-      "correct_option_ids": [
-        "at",
-        "nine"
-      ],
-      "options": [
-        {
-          "id": "at",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "nine",
-          "image_url": "",
-          "label": "nine"
-        }
-      ],
-      "audio_text": "The train arrives at nine.",
-      "answer_audio_text": "The train arrives at nine.",
-      "prompt_image_url": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
-      "spanish_translation": "El tren llega a las nueve.",
-      "pedagogy_note": "Story beat 04: The train arrives at nine.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c037-prompt-3ac43e0584213049fe7e",
-          "purpose": "prompt",
-          "text": "The train arrives at nine.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-8-schedules-c037-answer-7354b941d9e06e51cb5d",
-          "purpose": "answer",
-          "text": "The train arrives at nine.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U5",
       "interaction_type": "complete2",
       "prompt": "The train arrives ___ ___.",
       "stage": "Use",
@@ -1965,35 +1947,93 @@
       ],
       "audio_text": "The train arrives at ten.",
       "answer_audio_text": "The train arrives at ten.",
-      "prompt_image_url": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
       "spanish_translation": "El tren llega a las diez.",
-      "pedagogy_note": "Story beat 05: The train arrives at ten.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Story beat 04: The train arrives at ten.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c038-prompt-15e5438884b75eceeb30",
+          "id": "lesson-6-8-schedules-c036-prompt-9c34e93d26636a05ef3f",
           "purpose": "prompt",
           "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c038-answer-b9ae60651ec6a857e6f4",
+          "id": "lesson-6-8-schedules-c036-answer-c4ef4a521427a01afc9b",
           "purpose": "answer",
           "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-arrives-10-00_dc4c40c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete2",
+      "prompt": "Can I have a ___, ___?",
+      "stage": "Use",
+      "correct_option_id": "ticket",
+      "correct_option_ids": [
+        "ticket",
+        "please"
+      ],
+      "options": [
+        {
+          "id": "ticket",
+          "image_url": "",
+          "label": "ticket"
+        },
+        {
+          "id": "please",
+          "image_url": "",
+          "label": "please"
+        }
+      ],
+      "audio_text": "Can I have a ticket, please?",
+      "answer_audio_text": "Can I have a ticket, please?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+      "spanish_translation": "\u00bfMe da un boleto, por favor?",
+      "pedagogy_note": "Story beat 05: Can I have a ticket, please?",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c037-prompt-49c37ac06187fc3ba2c8",
+          "purpose": "prompt",
+          "text": "Can I have a ticket, please?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c037-answer-40ddd55f2cd87c287813",
+          "purpose": "answer",
+          "text": "Can I have a ticket, please?",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_request_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2002,92 +2042,68 @@
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4",
-        "word-5",
-        "word-6",
-        "word-7",
-        "word-8"
+        "word-4"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "bus"
+          "label": "is"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "in"
-        },
-        {
-          "id": "word-8",
-          "image_url": "",
-          "label": "morning"
+          "label": "ticket"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "The"
+          "label": "Here"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "leaves"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "six"
-        },
-        {
-          "id": "word-7",
-          "image_url": "",
-          "label": "the"
+          "label": "your"
         }
       ],
-      "audio_text": "The bus leaves at six in the morning.",
-      "answer_audio_text": "The bus leaves at six in the morning.",
-      "prompt_image_url": "/lesson-assets/a1_scene_the-bus-leaves-at-six-in-the-morning_376cbdd.webp",
-      "spanish_translation": "El autob\u00fas sale a las seis de la ma\u00f1ana.",
-      "pedagogy_note": "Story beat 06: The bus leaves at six in the morning.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "Here is your ticket.",
+      "answer_audio_text": "Here is your ticket.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
+      "spanish_translation": "Aqu\u00ed est\u00e1 tu boleto.",
+      "pedagogy_note": "Story beat 06: Here is your ticket.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c039-prompt-ecaca959d55d904da262",
+          "id": "lesson-6-8-schedules-c038-prompt-a9d0747d4c8462d0ae40",
           "purpose": "prompt",
-          "text": "The bus leaves at six in the morning.",
+          "text": "Here is your ticket.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_the-bus-leaves-at-six-in-the-morning_376cbdd.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c039-answer-1db5d03b0c66531c4d36",
+          "id": "lesson-6-8-schedules-c038-answer-ac258d89e1619a66d6a7",
           "purpose": "answer",
-          "text": "The bus leaves at six in the morning.",
+          "text": "Here is your ticket.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_the-bus-leaves-at-six-in-the-morning_376cbdd.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_handover_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2096,7 +2112,65 @@
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___ ___ ___.",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Thank"
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Story beat 07: Thank you.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c039-prompt-feb4780d7e1991773874",
+          "purpose": "prompt",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c039-answer-f97742e40c6f8b8ba251",
+          "purpose": "answer",
+          "text": "Thank you.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -2104,10 +2178,83 @@
         "word-2",
         "word-3",
         "word-4",
-        "word-5",
-        "word-6",
-        "word-7",
-        "word-8"
+        "word-5"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "get"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "on"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "train"
+        }
+      ],
+      "audio_text": "I get on the train.",
+      "answer_audio_text": "I get on the train.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_train_on_v1.webp",
+      "spanish_translation": "Subo al tren.",
+      "pedagogy_note": "Story beat 08: I get on the train.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-8-schedules-c040-prompt-440ab053554de0788600",
+          "purpose": "prompt",
+          "text": "I get on the train.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_on_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-8-schedules-c040-answer-019c9ca9d1ac66e32215",
+          "purpose": "answer",
+          "text": "I get on the train.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_on_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
       ],
       "options": [
         {
@@ -2119,16 +2266,6 @@
           "id": "word-4",
           "image_url": "",
           "label": "at"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "in"
-        },
-        {
-          "id": "word-8",
-          "image_url": "",
-          "label": "afternoon"
         },
         {
           "id": "word-1",
@@ -2143,54 +2280,49 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "four"
-        },
-        {
-          "id": "word-7",
-          "image_url": "",
-          "label": "the"
+          "label": "ten"
         }
       ],
-      "audio_text": "The train arrives at four in the afternoon.",
-      "answer_audio_text": "The train arrives at four in the afternoon.",
-      "prompt_image_url": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
-      "spanish_translation": "El tren llega a las cuatro de la tarde.",
-      "pedagogy_note": "Story beat 07: The train arrives at four in the afternoon.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
+      "audio_text": "The train arrives at ten.",
+      "answer_audio_text": "The train arrives at ten.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
+      "spanish_translation": "El tren llega a las diez.",
+      "pedagogy_note": "Story beat 09: The train arrives at ten.",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": "male-character",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c040-prompt-aedb5775f6c644426cc9",
+          "id": "lesson-6-8-schedules-c041-prompt-6bf16b9f33638ac57cda",
           "purpose": "prompt",
-          "text": "The train arrives at four in the afternoon.",
+          "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c040-answer-22d71387d972a1ab9750",
+          "id": "lesson-6-8-schedules-c041-answer-8985058d244088490cbb",
           "purpose": "answer",
-          "text": "The train arrives at four in the afternoon.",
+          "text": "The train arrives at ten.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_the-train-arrives-at-four-in-the-afternoon_fc398e1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_train_arrives_ten_v2.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ]
     },
     {
-      "slide_id": "U8",
+      "slide_id": "U10",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___ ___.",
+      "prompt": "___, ___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -2199,165 +2331,71 @@
         "word-3",
         "word-4",
         "word-5",
-        "word-6",
-        "word-7"
+        "word-6"
       ],
       "options": [
         {
           "id": "word-2",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "off"
+        },
+        {
+          "id": "word-6",
           "image_url": "",
           "label": "train"
         },
         {
-          "id": "word-4",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "on"
-        },
-        {
           "id": "word-1",
           "image_url": "",
-          "label": "The"
+          "label": "Finally"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "leaves"
+          "label": "get"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "nine"
-        },
-        {
-          "id": "word-7",
-          "image_url": "",
-          "label": "Monday"
+          "label": "the"
         }
       ],
-      "audio_text": "The train leaves at nine on Monday.",
-      "answer_audio_text": "The train leaves at nine on Monday.",
-      "prompt_image_url": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
-      "spanish_translation": "El tren sale a las nueve el lunes.",
-      "pedagogy_note": "Story beat 08: The train leaves at nine on Monday.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_text": "Finally, I get off the train.",
+      "answer_audio_text": "Finally, I get off the train.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
+      "spanish_translation": "Finalmente, bajo del tren.",
+      "pedagogy_note": "Story beat 10: Finally, I get off the train.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-8-schedules-c041-prompt-730836101bd52b417b0f",
+          "id": "lesson-6-8-schedules-c042-prompt-ea388b6195fc74783658",
           "purpose": "prompt",
-          "text": "The train leaves at nine on Monday.",
+          "text": "Finally, I get off the train.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-8-schedules-c041-answer-9d2bb4b52959c7051a62",
+          "id": "lesson-6-8-schedules-c042-answer-5b738673a743e0164c0e",
           "purpose": "answer",
-          "text": "The train leaves at nine on Monday.",
+          "text": "Finally, I get off the train.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_story_ana_train_off_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U9",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6",
-        "word-7"
-      ],
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "bus"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "at"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "on"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "The"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "leaves"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "eight"
-        },
-        {
-          "id": "word-7",
-          "image_url": "",
-          "label": "Saturday"
-        }
-      ],
-      "audio_text": "The bus leaves at eight on Saturday.",
-      "answer_audio_text": "The bus leaves at eight on Saturday.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-      "spanish_translation": "El autob\u00fas sale a las ocho el s\u00e1bado.",
-      "pedagogy_note": "Story beat 09: The bus leaves at eight on Saturday.",
-      "audio_speaker": "co-teacher",
-      "answer_audio_speaker": "co-teacher",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-8-schedules-c042-prompt-f174c462474baa8a8336",
-          "purpose": "prompt",
-          "text": "The bus leaves at eight on Saturday.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-8-schedules-c042-answer-fa94a1e8601d03c98e3c",
-          "purpose": "answer",
-          "text": "The bus leaves at eight on Saturday.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-leaves-8-00_f0cb5be.webp",
-          "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

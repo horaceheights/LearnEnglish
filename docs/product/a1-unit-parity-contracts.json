@@ -413,7 +413,7 @@
       ]
     },
     "6": {
-      "outcome": "Reach a destination: choose a place and a way to travel, say where places are, follow directions, decide whether you can cross, ask for help, and read a real schedule.",
+      "outcome": "Complete a town trip: explain the current destination, use transport, locate places, follow a safe route, ask another person for help, choose a bus, buy a ticket and check departure and arrival times.",
       "functions": [
         {
           "id": "services",
@@ -422,28 +422,94 @@
             "\\bbank\\b",
             "\\bpharmacy\\b",
             "\\blibrary\\b",
-            "\\bstation\\b"
+            "\\bstation\\b",
+            "\\b(?:mall|supermarket)\\b"
           ]
         },
         {
           "id": "travel",
           "taught_in": "6.2",
           "patterns": [
-            "\\bby (?:bus|train|car|bike|taxi)\\b",
+            "\\bby (?:bus|train|car|bike|taxi|airplane|boat)\\b",
             "\\bi walk\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bby train\\b",
+            "\\bi walk\\b",
+            "\\bairplane\\b",
+            "\\bboat\\b"
           ]
         },
         {
-          "id": "near-far",
+          "id": "current-destination",
           "taught_in": "6.3",
           "patterns": [
+            "\\bwhere (?:am|is|are) .+ going\\b",
+            "\\b(?:am|is|are) going to the\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bwhere are you going\\b",
+            "\\bi am going to the\\b",
+            "\\bhe is going to the\\b",
+            "\\bshe is going to the\\b",
+            "\\bthey are going to the\\b"
+          ]
+        },
+        {
+          "id": "destinations",
+          "taught_in": "6.4",
+          "patterns": [
+            "\\bmuseum\\b",
+            "\\bbus stop\\b",
+            "\\bairport\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bhotel\\b",
+            "\\bpost office\\b",
+            "\\bmuseum\\b",
+            "\\bmovie theater\\b",
+            "\\bbus stop\\b",
+            "\\bairport\\b"
+          ]
+        },
+        {
+          "id": "boarding-and-alighting",
+          "taught_in": "6.5",
+          "patterns": [
+            "\\bget on\\b",
+            "\\bget off\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bi get on the bus\\b",
+            "\\bi get off the bus\\b",
+            "\\bi get in the taxi\\b",
+            "\\bi get out of the taxi\\b"
+          ]
+        },
+        {
+          "id": "place-relationships",
+          "taught_in": "6.6",
+          "patterns": [
             "\\bnear\\b",
-            "\\bfar from\\b"
+            "\\bfar from\\b",
+            "\\bbetween\\b",
+            "\\bacross from\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bnear\\b",
+            "\\bfar from\\b",
+            "\\bbetween\\b",
+            "\\bacross from\\b"
           ]
         },
         {
           "id": "left-right",
-          "taught_in": "6.4",
+          "taught_in": "6.7",
           "patterns": [
             "\\bon the left\\b",
             "\\bon the right\\b"
@@ -451,39 +517,87 @@
         },
         {
           "id": "directions",
-          "taught_in": "6.5",
+          "taught_in": "6.8",
           "patterns": [
             "\\bgo straight\\b",
+            "\\bgo past\\b",
             "\\bturn left\\b",
             "\\bturn right\\b",
+            "\\bcorner\\b",
             "\\bcross the street\\b",
-            "\\bstop\\b"
+            "\\bstop at\\b"
           ]
         },
         {
           "id": "permission",
-          "taught_in": "6.6",
+          "taught_in": "6.9",
           "patterns": [
             "\\byou can cross the street\\b",
             "\\byou cannot cross the street\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bcannot\\b",
+            "\\bcan\\b",
+            "\\bhere\\b",
+            "\\bthere\\b"
           ]
         },
         {
           "id": "help-exchange",
-          "taught_in": "6.7",
+          "taught_in": "6.10",
           "patterns": [
             "\\bexcuse me\\b",
             "\\bcan you help me\\b",
-            "\\bwhere is the\\b",
+            "\\bsorry no\\b",
+            "\\byes i can\\b",
+            "\\bhow do i get to\\b",
+            "\\bthank you\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bexcuse me\\b",
+            "\\bcan you help me\\b",
+            "\\bsorry no\\b",
+            "\\bhow do i get to\\b"
+          ]
+        },
+        {
+          "id": "service-and-stops",
+          "taught_in": "6.11",
+          "patterns": [
+            "\\bwhich bus\\b",
+            "\\bbus goes to\\b",
+            "\\btake the\\b",
+            "\\bnext stop\\b"
+          ],
+          "requires_introduction": true,
+          "introduction_patterns": [
+            "\\bticket\\b",
+            "\\btake\\b",
+            "\\bgoes\\b",
+            "\\bwhich bus\\b",
+            "\\bnext stop\\b"
+          ]
+        },
+        {
+          "id": "ticket-exchange",
+          "taught_in": "6.11",
+          "patterns": [
+            "\\bcan i have a ticket please\\b",
+            "\\bthe ticket is (?:one dollar|two dollars|three dollars)\\b",
+            "\\bhere is your ticket\\b",
             "\\bthank you\\b"
           ]
         },
         {
           "id": "schedule",
-          "taught_in": "6.8",
+          "taught_in": "6.12",
           "patterns": [
-            "\\b(?:bus|train) leaves at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b",
-            "\\b(?:bus|train) arrives at (?:one|two|three|four|five|six|seven|eight|nine|ten)\\b"
+            "\\bwhat time does the (?:\\w+ )?(?:bus|train) leave\\b",
+            "\\bwhat time does the (?:\\w+ )?(?:bus|train) arrive\\b",
+            "\\b(?:bus|train) leaves at (?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\\b",
+            "\\b(?:bus|train) arrives at (?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\\b"
           ]
         }
       ]
@@ -598,7 +712,7 @@
         },
         {
           "id": "prior-directions",
-          "taught_in": "6.5",
+          "taught_in": "6.8",
           "patterns": [
             "\\b(?:go straight|turn left|turn right)\\b"
           ]

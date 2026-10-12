@@ -392,17 +392,17 @@ for (const ambiguousFamilyDistractor of ['family_babies.webp', 'family_children.
   );
 }
 
-// Since the 2026-09-27 Unit 6 rebuild, 6.6 shows the same boy at a green and at a red
-// signal, so only "can" or "cannot" separates the two pictures.
-const boyCanCross = cardBySlide('6.6', 'Recognize', 'R5');
-assert.equal(boyCanCross.audio_text, 'The boy can cross the street.');
+// The 2026-10-10 rebuild moves permission to 6.9. The same crossing is
+// available or physically blocked, so permission still decides the choice.
+const boyCanCross = cardBySlide('6.9', 'Recognize', 'R5');
+assert.equal(boyCanCross.audio_text, 'You can cross here.');
 assert.deepEqual(
   boyCanCross.options.map((option) => path.basename(option.image_url)).sort(),
-  ['a1_photo_u6_boy_crosses_green_v1.webp', 'a1_photo_u6_boy_waits_red_v1.webp'],
+  ['a1_photo_u6_story_crossing_blocked_v2.webp', 'a1_photo_u6_story_crossing_open_v1.webp'],
 );
 assert.equal(
   path.basename(boyCanCross.options.find((option) => option.id === boyCanCross.correct_option_id).image_url),
-  'a1_photo_u6_boy_crosses_green_v1.webp',
+  'a1_photo_u6_story_crossing_open_v1.webp',
 );
 // The earlier adult-pair distractor keeps its inspected pixels, preserved byte for byte.
 const redSignalPhoto = require(path.join(repositoryRoot, 'docs/qa/course-photo-reuse-v1.json')).assets
@@ -414,13 +414,14 @@ assert.equal(
   'the adult-pair photograph must retain the exact inspected pixels',
 );
 
-// 6.4 swaps the same bank and pharmacy across one street, so the audio must name the place:
-// both pictures show a pharmacy, once on each side.
-const pharmacyOnRight = cardBySlide('6.4', 'Listen', 'A5');
-assert.equal(pharmacyOnRight.audio_text, 'The pharmacy is on the right.');
+// 6.7 now asks and answers about one street. The heard reply must name the
+// pharmacy and the text choices must differ only in its side of the street.
+const pharmacyOnRight = cardBySlide('6.7', 'Listen', 'A2');
+assert.equal(pharmacyOnRight.audio_text, 'Where is the pharmacy? The pharmacy is on the right.');
+assert.equal(pharmacyOnRight.audio_turns.at(-1).text, 'The pharmacy is on the right.');
 assert.deepEqual(
-  pharmacyOnRight.options.map((option) => path.basename(option.image_url)),
-  ['a1_photo_u6_bank_left_pharmacy_right_v1.webp', 'a1_photo_u6_pharmacy_left_bank_right_v1.webp'],
+  pharmacyOnRight.options.map((option) => option.label),
+  ['The pharmacy is on the right.', 'The pharmacy is on the left.'],
 );
 assert.equal(pharmacyOnRight.correct_option_id, pharmacyOnRight.options[0].id);
 

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-11",
+  "status": "Corrected images inspected by agent; user approved final side-on correction and current Unit 6 images on 2026-10-11",
+  "reason": "The departure images show a train nose pointing left while the motion arrow points right. A possible rear cab is not clear visual evidence for a beginner; the visible train front must agree with the arrow and departure away from the platform.",
+  "replacements": [
+    {
+      "old_image": "a1_photo_u6_story_train_leaves_nine_v1.webp",
+      "old_sha256": "0a83efb9324adf6c691b3c5f1be389937dc3a37d45aa9b05d612ac8f92c5764b",
+      "new_image": "a1_photo_u6_story_train_leaves_nine_v2.webp",
+      "clock": "09:00",
+      "new_sha256": "d2aeb7c6aab8122ea13803867499215e8a9cbb51e008c7db0cea47e4d9d9239c",
+      "observations": "Right-facing leading cab, blue rightward arrow, carriage body trails left toward shelter. Side-on wheel/rail geometry agrees. Exact 09:00 clock. Only full 3:2 one/two-image uses, no 4:5 crops."
+    },
+    {
+      "old_image": "a1_photo_u6_story_train_leaves_ten_v1.webp",
+      "old_sha256": "5b562dce69fe2fd968f05d359a0a3614c1aef9998f18327056cbc0d863da7f77",
+      "new_image": "a1_photo_u6_story_train_leaves_ten_v3.webp",
+      "clock": "10:00",
+      "new_sha256": "f45fa2c7d93ff56cbf62d6573b0069b6a432f87f55cfa1bd725bb8e30773471a",
+      "observations": "Right-facing leading cab, blue rightward arrow, carriage body trails left toward shelter. Side-on wheel/rail geometry agrees. Exact 10:00 clock. Only full 3:2 one/two-image uses, no 4:5 crops."
+    }
+  ],
+  "required_visual_evidence": "Train front faces right; blue arrow points right; platform remains behind the departing train on the left; exact clock remains readable. Preserve the 3:2 canvas, lesson text and audio. Inspect every used crop before binding. Keep originals unchanged.",
+  "speaker_pair_history": [],
+  "related_images_checked": [
+    "train_arrives_nine_v2",
+    "train_arrives_ten_v2",
+    "bus_leaves_four_v2",
+    "bus_leaves_five_v2",
+    "bus_arrives_four_v1",
+    "bus_arrives_five_v1"
+  ],
+  "related_observations": "Arrival arrows and vehicle fronts point left toward the shelter; bus departure arrows and fronts point right away. Original clocks remain exact.",
+  "rejected_generation": {
+    "original": "Lessons/Lesson1/images/unit6-story-2026-10-10-sources/train_leaves_ten-v2.png",
+    "sha256": "b3773a1b553cc2a54cda9b62e286ade108cdefc3dbef9e6e93caa91b057905fb",
+    "reason": "User rejected angled train body across horizontal track: appears derailed. Never installed as runtime media.",
+    "prompt": "Use case: precise-object-edit. Edit this course teaching image. Correct the contradictory train direction: the blue arrow points RIGHT, so the clearly visible train FRONT/nose must also point RIGHT, departing AWAY from the shelter left. Redraw only the train as a recognizably right-facing silver-blue passenger train, a leading cab on its RIGHT end, carriages trailing LEFT toward the platform. No left-facing cab visible. Move/reframe the train enough to show its right-facing nose wholly in frame and unmistakably, keep train large. Retain platform/shelter on LEFT, one blue RIGHT arrow, exact centered digital clock '10:00', photo-real appearance, daylight, track and colors. No written labels or train brand logos. LANDSCAPE 1536x1024 exactly, 3:2. Preserve clock and arrow legibility and clear separation between platform and departing nose. Do not just flip the whole image: clock must remain 10:00 and arrow must remain rightward."
+  }
+}

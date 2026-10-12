@@ -46,7 +46,6 @@ DEFAULT_LAYOUT = {"Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7}
 MAX_TEXT_OPTIONS = 3
 MAX_IMAGE_OPTIONS = 4
 GRID_UNSAFE_IMAGE_OPTIONS = 3  # the largest layout that keeps every picture in 3:2
-CONSTRUCTIONS = 4  # the last four Use cards build the whole sentence
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -151,6 +150,7 @@ def distractors(item: dict, candidates: list[dict], count: int, *, need_image: b
 
 def _voice(spec: dict, item: dict, *, answer: bool = False) -> dict:
     """Give the card the voice of the item's line: its speaker, or each turn of its exchange."""
+    spec.update(_audio_revisions(item))
     if item.get("turns"):
         spec["answer_audio_turns" if answer else "audio_turns"] = [
             {"text": turn["text"], "speaker_role": turn["speaker"], "image_url": turn["image"]}
@@ -268,11 +268,17 @@ def narrate(cards: list[dict], narrators: list[str] | None) -> None:
             spec.update({field: voice for field in neutral})
 
 
+def _audio_revisions(item: dict) -> dict:
+    """Keep a rejected recording's replacement revision across every stage."""
+    revision = item.get("audio_revision", 1)
+    return {"audio_revision": revision, "answer_audio_revision": revision} if revision > 1 else {}
+
+
 def _use_voice(item: dict) -> dict:
     """A Use card plays the finished sentence as its prompt and its answer, in one voice."""
     if not item.get("speaker"):
-        return {}
-    return {"audio_speaker": item["speaker"], "answer_audio_speaker": item["speaker"]}
+        return _audio_revisions(item)
+    return {"audio_speaker": item["speaker"], "answer_audio_speaker": item["speaker"], **_audio_revisions(item)}
 
 
 def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> tuple[dict, list[dict]]:
@@ -289,6 +295,10 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     items = [{**item, "_order": index} for index, item in enumerate(brief["items"])]
     pool = items + [{**item, "_order": len(items) + index} for index, item in enumerate(brief.get("pool", []))]
     for item in items:
+        for field in ("audio_revision", "learn_revision"):
+            revision = item.get(field, 1)
+            if isinstance(revision, bool) or not isinstance(revision, int) or revision < 1:
+                raise BriefError(f"Item audio revision {field} must be a positive integer.")
         for field in ("text", "es", "image", "kind"):
             if not item.get(field):
                 raise BriefError(f"Item {item.get('text', item['_order'])!r} needs {field!r}.")
@@ -325,9 +335,11 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         # The app introduces contextual help on the second card when both opening cards are Learn.
         raise BriefError("A lesson needs at least two new items to introduce on Learn cards.")
     total = len(taught) + sum(layout.values())
-    bounds = standards["standard_lesson_cards"]
+    role = "standard" if brief["lesson"].get("vocabulary") else "review"
+    bounds = standards.get("approved_lesson_card_limits", {}).get(
+        brief["lesson"].get("id"), standards[f"{role}_lesson_cards"])
     if not bounds["min"] <= total <= bounds["max"]:
-        raise BriefError(f"{len(taught)} Learn items make {total} cards; standard lessons need {bounds['min']}-{bounds['max']}.")
+        raise BriefError(f"{len(taught)} Learn models make {total} cards; {role} lessons need {bounds['min']}-{bounds['max']}.")
     instructions = standards["instructions"]
     needs_larger_card = unpostered_action_images()
 
@@ -339,7 +351,10 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
             return largest
         return 2
 
-    sentences = [item for item in items if 2 <= len(words(item["text"])) <= 8] or items
+    # The 2–8-word limit belongs to tile construction, not spoken models.
+    # Explicit speech sequences may deepen a scene with a longer contextual line.
+    speakable = [item for item in items if len(words(item["text"])) >= 2] or items
+    sentences = [item for item in items if 2 <= len(words(item["text"])) <= 8]
 
     vocabulary = [term.lower() for term in brief["lesson"].get("vocabulary", [])]
     terms = {item["text"]: [term for term in vocabulary
@@ -396,7 +411,7 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         if int(item.get("learn_revision") or 1) > 1:
             # A Learn take that was replaced keeps its bumped revision, so the rejected
             # asset never comes back from a cache (Lesson 3.1 "Hello." is revision 2).
-            learn["audio_revision"] = learn["answer_audio_revision"] = int(item["learn_revision"])
+            learn["audio_revision"] = learn["answer_audio_revision"] = max(item["learn_revision"], item.get("audio_revision", 1))
         if brief.get("learn_translation_preview_ms") is not None:
             learn["learn_translation_preview_ms"] = brief["learn_translation_preview_ms"]
         cards.append(learn)
@@ -429,21 +444,23 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
                              instructions=instructions, rejected=rejected, captions=captions)
         cards.append(spec)
         banks.append(bank)
-    for index, item in enumerate(section("Speak", sentences)):
+    for index, item in enumerate(section("Speak", speakable)):
         practised(item)
         cards.append(_voice({"recipe": "speak", "slide_id": f"S{index + 1}", "stage": "Speak",
                              "options": [_option(item, image=True, suffix="speak")],
                              "spanish_translation": item["es"], "pedagogy_note": note("Speak", item)}, item))
-    # Completa progression: guided completion first, whole-sentence construction in the last four.
+    # Completa progression: floor(N/2) guided cards, then full constructions.
     # Use works with whole sentences and keeps the authored story order.
     # An exchange (`turns`) has no single voice to build, and `"use": false` opts an item out.
     buildable = [item for item in sentences if not item.get("turns") and item.get("use", True) is not False]
     # Explicit sequences may place a complete two-word sentence (I sleep.)
     # in the full-construction half; automatic selection still prefers longer models.
     use_pool = buildable if "Use" in sequences else ([item for item in buildable if len(words(item["text"])) >= 3] or buildable)
+    if not use_pool:
+        raise BriefError("Use needs complete construction targets of 2–8 words.")
     for index, item in enumerate(section("Use", use_pool)):
         practised(item)
-        build = index >= layout["Use"] - CONSTRUCTIONS or len(words(item["text"])) < 3
+        build = index >= layout["Use"] // 2
         cards.append((_construction if build else _completion)(f"U{index + 1}", item))
 
     narrate(cards, brief.get("narrators"))

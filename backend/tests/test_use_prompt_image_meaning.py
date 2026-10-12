@@ -69,6 +69,16 @@ MANIFEST = {
 
 
 class UsePromptImageMeaningTest(unittest.TestCase):
+    def test_dialogue_teaching_is_bound_to_the_turns_own_picture(self):
+        from scripts.validate_lesson_cards import _use_image_teaching
+        card = _card("The children are in the library.", "library.webp", stage="Listen")
+        card.audio_turns = [SimpleNamespace(text="They have books.", image_url="/lesson-assets/books.webp")]
+        evidence = _use_image_teaching(_lessons(card))
+        self.assertIn("They have books.", evidence["books.webp"])
+        self.assertNotIn("They have books.", evidence["library.webp"])
+        card.stage = "Use"
+        self.assertEqual({}, _use_image_teaching(_lessons(card)))
+
     def test_current_action_question_needs_evidence_of_a_specific_visible_action(self):
         manifest = {'assets': [_asset('reader.webp', 'A woman is reading an open book.'),
                                _asset('portrait.webp', 'A woman against a plain background.')]}

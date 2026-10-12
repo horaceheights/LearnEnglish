@@ -30,6 +30,43 @@ function hint(target, a, b) {
   return constructionMistakeHint(card, swap(card, a, b));
 }
 
+test('destination questions, phrasal travel verbs and schedules explain their actual grammar', () => {
+  const targets = [
+    'I am going to the mall.', 'She is going to the museum.', 'We are going by boat.',
+    'Finally, I am at the mall.', 'First, we are going to the airport.', 'After that, we are at the hotel.',
+    'Where are you going?', 'Where is she going?', 'Where are they going?',
+    'I get on the bus.', 'Then, I get off the train.', 'I get in the taxi.', 'Finally, I get out of the taxi.',
+    'Go past the bank.', 'Turn left at the corner.', 'Then, turn right.', 'Finally, stop at the museum.',
+    'The library is across from the bank.', 'The museum is between the bank and the library.',
+    'You can cross the street here.', 'You cannot cross the street there.', 'Yes, I can.',
+    'How do I get to the mall?', 'Which bus goes to the museum?',
+    'I take the blue bus.', 'The next stop is the airport.', 'Here is your ticket.',
+    'What time does the train leave?', 'What time does the bus arrive?',
+    'I am going to the post office.', 'It is a movie theater.', 'It is a bus stop.',
+  ];
+  for (const target of targets) {
+    const card = construction(target);
+    assert.ok(constructionTeachingPlan(card).supported, target);
+    for (let a = 0; a < card.options.length; a++) for (let b = a + 1; b < card.options.length; b++) {
+      if (card.options[a].label.toLowerCase() === card.options[b].label.toLowerCase()) continue;
+      const explanation = constructionMistakeHint(card, swap(card, a, b));
+      assert.ok(explanation.length > 20 && explanation.length <= 230, `${target}: ${explanation}`);
+      assert.doesNotMatch(explanation, /undefined|unsupported/);
+    }
+  }
+  assert.match(hint('I am going to the mall.', 1, 2), /auxiliar.+antes del verbo.+going/);
+  assert.doesNotMatch(hint('I am going to the mall.', 1, 2), /describ|futuro/);
+  assert.match(hint('Where are you going?', 1, 2), /auxiliar.+antes de la persona/);
+  assert.match(hint('I get off the bus.', 1, 2), /get off.+bajar.+después/);
+  assert.match(hint('I get out of the taxi.', 2, 3), /get out of.+salir/);
+  assert.doesNotMatch(hint('I get on the bus.', 1, 2), /encima|superficie/);
+  assert.match(hint('What time does the train leave?', 2, 4), /does.+antes de.+train/);
+  assert.match(hint('What time does the train leave?', 4, 5), /train.+antes de.+leave/);
+  assert.match(hint('I am going to the post office.', 5, 6), /post office.+oficina de correos/);
+  assert.equal(constructionTeachingPlan(construction('I am going to eat.')).supported, false,
+    'Current destination support must not silently introduce the future going-to-plus-verb pattern.');
+});
+
 test('polite requests, coordinated handovers and negative needs explain word order', () => {
   for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
     const card = construction(target);

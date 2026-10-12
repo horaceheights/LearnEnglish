@@ -1,0 +1,1402 @@
+{
+  "brief_version": 1,
+  "note": "Ana wants to find the library from the hotel. Luis first establishes which places are near and far, then pinpoints the library between two landmarks and across from the mall. Ana has enough information to walk to the correct building. Use one stable neighborhood with explicit wide and close views. Near and next to can both be true. Avoid that false contrast. Spatial scenes must preserve the same geography; do not move buildings to make later answers convenient.",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "target": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+  "lesson": {
+    "id": "lesson-6-3-where-is-it",
+    "title": "6.6 Finding Places in the Neighborhood",
+    "level": "Beginner A1",
+    "unit_id": "unit-6",
+    "unit_title": "Unit 6: Around Town",
+    "unit_outcome": "Name places and transport, explain a current destination, complete a trip, follow directions, ask for help, choose a service and check its times.",
+    "lesson_id": "lesson-6",
+    "lesson_title": "Unit 6: Around Town",
+    "sub_lesson_id": "6.6",
+    "sub_lesson_title": "Finding Places in the Neighborhood",
+    "goal": "Locate destinations using near, far from, between and across from, then make a useful travel choice.",
+    "vocabulary": [
+      "near",
+      "far from",
+      "between",
+      "across from"
+    ],
+    "grammar_function": "Ana wants to find the library from the hotel. Luis first establishes which places are near and far, then pinpoints the library between two landmarks and across from the mall. Ana has enough information to walk to the correct building. Use one stable neighborhood with explicit wide and close views.",
+    "prerequisite": "Units 1–5 and the earlier Unit 6 lessons in the displayed course sequence.",
+    "speaking_outcome": "Locate destinations using near, far from, between and across from, then make a useful travel choice.",
+    "content_revision": 3,
+    "review_vocabulary": [],
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "near",
+          "far from"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "The library is near the hotel."
+          },
+          {
+            "slide_id": "L2",
+            "text": "The airport is far from the hotel."
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "between",
+          "across from"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "The library is between the bank and the pharmacy."
+          },
+          {
+            "slide_id": "L4",
+            "text": "The library is across from the mall."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "near",
+      "text": "The library is near the hotel.",
+      "es": "La biblioteca está cerca del hotel.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+      "kind": "near",
+      "learn": true,
+      "choices": true,
+      "image_choices": true,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the library?",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The library is near the hotel.",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "far",
+      "text": "The airport is far from the hotel.",
+      "es": "El aeropuerto está lejos del hotel.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+      "kind": "far",
+      "learn": true,
+      "choices": true,
+      "image_choices": false,
+      "listening_turns": [
+        {
+          "speaker": "ana",
+          "text": "Where is the airport?",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp"
+        },
+        {
+          "speaker": "male-character",
+          "text": "The airport is far from the hotel.",
+          "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp"
+        }
+      ]
+    },
+    {
+      "id": "between",
+      "text": "The library is between the bank and the pharmacy.",
+      "es": "La biblioteca está entre el banco y la farmacia.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+      "kind": "between",
+      "learn": true,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "across",
+      "text": "The library is across from the mall.",
+      "es": "La biblioteca está enfrente del centro comercial.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "across",
+      "learn": true,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "q-library",
+      "text": "Where is the library?",
+      "es": "¿Dónde está la biblioteca?",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+      "kind": "q-library",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "q-airport",
+      "text": "Where is the airport?",
+      "es": "¿Dónde está el aeropuerto?",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+      "kind": "q-airport",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "q-bank",
+      "text": "Where is the bank?",
+      "es": "¿Dónde está el banco?",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+      "kind": "q-bank",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "bank-next",
+      "text": "The bank is next to the library.",
+      "es": "El banco está junto a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+      "kind": "bank-next",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "pharmacy-next",
+      "text": "The pharmacy is next to the library.",
+      "es": "La farmacia está junto a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+      "kind": "pharmacy-next",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "mall-across",
+      "text": "The mall is across from the library.",
+      "es": "El centro comercial está enfrente de la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+      "kind": "mall-across",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "hotel-near",
+      "text": "The hotel is near the library.",
+      "es": "El hotel está cerca de la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+      "kind": "hotel-near",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "airport-far",
+      "text": "The airport is far from the library.",
+      "es": "El aeropuerto está lejos de la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+      "kind": "airport-far",
+      "learn": false,
+      "choices": true,
+      "image_choices": false
+    },
+    {
+      "id": "between-short",
+      "text": "The library is between the bank and pharmacy.",
+      "es": "La biblioteca está entre el banco y la farmacia.",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+      "kind": "between-short",
+      "learn": false,
+      "choices": false,
+      "image_choices": false
+    },
+    {
+      "id": "going",
+      "text": "I am going to the library.",
+      "es": "Voy a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+      "kind": "going",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The assessed information is the library destination; the speaker and walking frame remain constant to avoid an unrelated action contrast.",
+        "action-variety": "The assessed information is the library destination; the speaker and walking frame remain constant to avoid an unrelated action contrast."
+      }
+    },
+    {
+      "id": "walk",
+      "text": "Finally, I walk to the library.",
+      "es": "Finalmente, camino a la biblioteca.",
+      "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+      "kind": "walk",
+      "learn": false,
+      "choices": true,
+      "image_choices": false,
+      "speaker": "ana",
+      "accepts": {
+        "subject-variety": "The assessed information is the library destination; the speaker and walking frame remain constant to avoid an unrelated action contrast.",
+        "action-variety": "The assessed information is the library destination; the speaker and walking frame remain constant to avoid an unrelated action contrast."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "The library is far from the hotel.",
+      "es": "La biblioteca está lejos del hotel.",
+      "kind": "near",
+      "image": "/lesson-assets/a1_photo_u6_story_neighborhood_library_far_v1.webp"
+    },
+    {
+      "text": "The airport is near the hotel.",
+      "es": "El aeropuerto está cerca del hotel.",
+      "kind": "far"
+    },
+    {
+      "text": "The hotel is between the bank and the pharmacy.",
+      "es": "El hotel está entre el banco y la farmacia.",
+      "kind": "between"
+    },
+    {
+      "text": "The library is next to the mall.",
+      "es": "La biblioteca está junto al centro comercial.",
+      "kind": "across"
+    },
+    {
+      "text": "The bank is next to the mall.",
+      "es": "El banco está junto al centro comercial.",
+      "kind": "bank-next"
+    },
+    {
+      "text": "The pharmacy is next to the hotel.",
+      "es": "La farmacia está junto al hotel.",
+      "kind": "pharmacy-next"
+    },
+    {
+      "text": "The mall is next to the library.",
+      "es": "El centro comercial está junto a la biblioteca.",
+      "kind": "mall-across"
+    },
+    {
+      "text": "The hotel is far from the library.",
+      "es": "El hotel está lejos de la biblioteca.",
+      "kind": "hotel-near"
+    },
+    {
+      "text": "The airport is near the library.",
+      "es": "El aeropuerto está cerca de la biblioteca.",
+      "kind": "airport-far"
+    },
+    {
+      "text": "I am going to the airport.",
+      "es": "Voy al aeropuerto.",
+      "kind": "going"
+    },
+    {
+      "text": "Finally, I walk to the bank.",
+      "es": "Finalmente, camino al banco.",
+      "kind": "walk"
+    }
+  ],
+  "stage_sequences": {
+    "Learn": [
+      "near",
+      "far",
+      "between",
+      "across"
+    ],
+    "Recognize": [
+      "near",
+      "hotel-near",
+      "far",
+      "airport-far",
+      "between",
+      "bank-next",
+      "pharmacy-next",
+      "across",
+      "mall-across",
+      "going"
+    ],
+    "Listen": [
+      "near",
+      "hotel-near",
+      "far",
+      "airport-far",
+      "between",
+      "bank-next",
+      "pharmacy-next",
+      "across",
+      "going",
+      "walk"
+    ],
+    "Speak": [
+      "q-library",
+      "near",
+      "q-airport",
+      "far",
+      "between",
+      "q-bank",
+      "bank-next",
+      "across",
+      "going",
+      "walk"
+    ],
+    "Use": [
+      "q-library",
+      "near",
+      "far",
+      "bank-next",
+      "between-short",
+      "across",
+      "going",
+      "walk"
+    ]
+  },
+  "storyboard": {
+    "setting": "Reading locations in a neighborhood.",
+    "cast_and_props": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+    "transitions": "Location views preserve the same relationships. The alternative far-library image is a contrast example, not a moved building in the journey.",
+    "arc": "Ana wants to find the library from the hotel. Luis first establishes which places are near and far, then pinpoints the library between two landmarks and across from the mall. Ana has enough information to walk to the correct building. Use one stable neighborhood with explicit wide and close views.",
+    "steps": [
+      {
+        "slide_id": "L1",
+        "stage": "Learn",
+        "item_id": "near",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is near the hotel.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is near the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L2",
+        "stage": "Learn",
+        "item_id": "far",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The airport is far from the hotel.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The airport is far from the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L3",
+        "stage": "Learn",
+        "item_id": "between",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is between the bank and the pharmacy.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is between the bank and the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "L4",
+        "stage": "Learn",
+        "item_id": "across",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is across from the mall.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Exact contextual introduction, matching picture and automatic model audio; no assessment choices.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is across from the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R1",
+        "stage": "Recognize",
+        "item_id": "near",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is near the hotel.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is near the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R2",
+        "stage": "Recognize",
+        "item_id": "hotel-near",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The hotel is near the library.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The hotel is near the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R3",
+        "stage": "Recognize",
+        "item_id": "far",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The airport is far from the hotel.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The airport is far from the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R4",
+        "stage": "Recognize",
+        "item_id": "airport-far",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The airport is far from the library.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The airport is far from the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R5",
+        "stage": "Recognize",
+        "item_id": "between",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is between the bank and the pharmacy.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is between the bank and the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R6",
+        "stage": "Recognize",
+        "item_id": "bank-next",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The bank is next to the library.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is next to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R7",
+        "stage": "Recognize",
+        "item_id": "pharmacy-next",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The pharmacy is next to the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The pharmacy is next to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R8",
+        "stage": "Recognize",
+        "item_id": "across",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is across from the mall.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is across from the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R9",
+        "stage": "Recognize",
+        "item_id": "mall-across",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The mall is across from the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The mall is across from the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "R10",
+        "stage": "Recognize",
+        "item_id": "going",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "I am going to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "One visible target phrase and image choices, or one scene and complete written choices; audio answer stays silent until correct.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A1",
+        "stage": "Listen",
+        "item_id": "near",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Where is the library?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The library is near the hotel.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is near the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A2",
+        "stage": "Listen",
+        "item_id": "hotel-near",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The hotel is near the library.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The hotel is near the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A3",
+        "stage": "Listen",
+        "item_id": "far",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Where is the airport?",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          },
+          {
+            "exact_english": "The airport is far from the hotel.",
+            "voice": "male-character",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The airport is far from the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A4",
+        "stage": "Listen",
+        "item_id": "airport-far",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The airport is far from the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The airport is far from the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A5",
+        "stage": "Listen",
+        "item_id": "between",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is between the bank and the pharmacy.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is between the bank and the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A6",
+        "stage": "Listen",
+        "item_id": "bank-next",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The bank is next to the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is next to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A7",
+        "stage": "Listen",
+        "item_id": "pharmacy-next",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The pharmacy is next to the library.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The pharmacy is next to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A8",
+        "stage": "Listen",
+        "item_id": "across",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is across from the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is across from the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A9",
+        "stage": "Listen",
+        "item_id": "going",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "I am going to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "A10",
+        "stage": "Listen",
+        "item_id": "walk",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Finally, I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Audio plays in authored order with no answer-revealing hero or text; then learner chooses the matching sentence/picture.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S1",
+        "stage": "Speak",
+        "item_id": "q-library",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Where is the library?",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the library?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S2",
+        "stage": "Speak",
+        "item_id": "near",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is near the hotel.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is near the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S3",
+        "stage": "Speak",
+        "item_id": "q-airport",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Where is the airport?",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the airport?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S4",
+        "stage": "Speak",
+        "item_id": "far",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The airport is far from the hotel.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The airport is far from the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S5",
+        "stage": "Speak",
+        "item_id": "between",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is between the bank and the pharmacy.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is between the bank and the pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S6",
+        "stage": "Speak",
+        "item_id": "q-bank",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Where is the bank?",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the bank?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S7",
+        "stage": "Speak",
+        "item_id": "bank-next",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The bank is next to the library.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is next to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S8",
+        "stage": "Speak",
+        "item_id": "across",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is across from the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is across from the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S9",
+        "stage": "Speak",
+        "item_id": "going",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "I am going to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "S10",
+        "stage": "Speak",
+        "item_id": "walk",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Finally, I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Written complete model and matching photo; model audio ends before microphone.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U1",
+        "stage": "Use",
+        "item_id": "q-library",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Where is the library?",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Where is the library?",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U2",
+        "stage": "Use",
+        "item_id": "near",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is near the hotel.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_near_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is near the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U3",
+        "stage": "Use",
+        "item_id": "far",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The airport is far from the hotel.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_wide_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The airport is far from the hotel.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U4",
+        "stage": "Use",
+        "item_id": "bank-next",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The bank is next to the library.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The bank is next to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U5",
+        "stage": "Use",
+        "item_id": "between-short",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is between the bank and pharmacy.",
+            "voice": "co-teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_between_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is between the bank and pharmacy.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U6",
+        "stage": "Use",
+        "item_id": "across",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "The library is across from the mall.",
+            "voice": "teacher",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_neighborhood_across_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "The library is across from the mall.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U7",
+        "stage": "Use",
+        "item_id": "going",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "I am going to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "I am going to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      },
+      {
+        "slide_id": "U8",
+        "stage": "Use",
+        "item_id": "walk",
+        "setting": "Reading locations in a neighborhood.",
+        "time": "daylight unless a specific functional timetable says otherwise",
+        "cast": "Bank with ATM, library with books, pharmacy green cross; library near hotel, airport far; mall opposite library.",
+        "turns": [
+          {
+            "exact_english": "Finally, I walk to the library.",
+            "voice": "ana",
+            "speaker_listener": "Use the exact authored speaker; third-person/place narration is not the pictured person's self-speech.",
+            "image": "/lesson-assets/a1_photo_u6_story_ana_walk_library_v1.webp",
+            "props_before": "The complete named place, action or relationship is visible in this intended scene.",
+            "props_after": "No unspoken object transfer or relationship change; proceed to the next authored beat."
+          }
+        ],
+        "learner_state_before_choice": "Picture and guided two-word completion or full word bank; translation remains on demand.",
+        "response_image_timing": "No image-derived social-reply question in Recognize. Listen follows exact audible dialogue; turn images cannot add answer-revealing heroes.",
+        "correct_response": "Finally, I walk to the library.",
+        "after_success": "Retain the resolved action/ownership above; advance only to the next listed beat.",
+        "wrong_and_replay": "Wrong choice keeps the current beat and shared teaching feedback. Replay repeats the same initiating audio/turn order without substituting another scene.",
+        "review_state": "Storyboard intent only; current pixels, phone crop, voice binding and heard recording need separate review."
+      }
+    ],
+    "status": "Exact card/turn plan; asset and learner-surface review pending"
+  },
+  "replaces_sha256": "1e9c13d1344ae74322165c98e918b9ebf6b446a1a1344c1eba3301bed9641690"
+}

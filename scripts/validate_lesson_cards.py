@@ -142,7 +142,7 @@ SEMANTIC_ASSET_NEGATIVE_ACTIONS = {
     "girl_is_reading": {"sleeping"},
     "family_babies": {"sleeping"},
 }
-OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country", "room", "place", "distance", "travel", "feeling"})
+OPTIONAL_DETAIL_CATEGORIES = frozenset({"age", "nationality", "country", "room", "place", "destination", "permission", "distance", "travel", "feeling"})
 SEMANTIC_RELATED_GROUP_MARKERS = (
     "family_adults",
     "family_babies",
@@ -227,7 +227,7 @@ MISSION_CARD_COUNTS = {
     "lesson-3-10-introduction-mission": 14,
     "lesson-4-10-my-day-mission": 17,
     "lesson-5-10-cafe-mission": 20,
-    "lesson-6-10-town-mission": 13,
+    "lesson-6-10-town-mission": 14,
 }
 # New meal beats retain the identities of every already-shipped Unit 5 card.
 # This pins the approved revision's order, not a cap on future mission coverage.
@@ -274,7 +274,7 @@ MISSION_HERO_PREFIXES = {
     "lesson-5-10-cafe-mission": (
         "a1_u5_market_v1_", "a1_u5_revision_mission_", "a1_u5_sequence_mission_",
     ),
-    "lesson-6-10-town-mission": "a1_u6_town_v1_",
+    "lesson-6-10-town-mission": "a1_photo_u6_story_mission_",
 }
 MISSION_REQUIRED_KINDS = {
     "lesson-10-family-mission": frozenset({
@@ -307,9 +307,7 @@ MISSION_REQUIRED_KINDS = {
         "voice-gate",
     }),
     "lesson-6-10-town-mission": frozenset({
-        "guided-search",
         "crowd-search",
-        "action-hunt",
         "contrast-hunt",
         "voice-gate",
     }),
@@ -344,9 +342,9 @@ MISSION_KIND_SEQUENCE = {
         "voice-gate", "voice-gate", "voice-gate",
     ],
     "lesson-6-10-town-mission": [
-        "guided-search", "crowd-search", "contrast-hunt",
-        "crowd-search", "crowd-search", "contrast-hunt",
-        "action-hunt", "crowd-search", "contrast-hunt",
+        "contrast-hunt", "crowd-search", "crowd-search", "contrast-hunt",
+        "contrast-hunt", "contrast-hunt", "crowd-search", "crowd-search",
+        "contrast-hunt", "contrast-hunt",
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
 }
@@ -369,7 +367,8 @@ MISSION_CHAPTER_SEQUENCE = {
         + ["comidas"] * 3 + ["precios"] * 3 + ["cafe"] * 3
     ),
     "lesson-6-10-town-mission": (
-        ["lugares"] * 2 + ["donde"] * 2 + ["camino"] * 2 + ["ayuda"] + ["horarios"] * 2 + ["pregunta"] * 4
+        ["find-help"] * 3 + ["safe-route"] + ["choose-service"] * 4
+        + ["travel"] * 2 + ["help-traveller"] * 4
     ),
 }
 
@@ -738,7 +737,12 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 errors.append(f"{location} single validation requires exactly one cue.")
             if validation == "ordered" and len(cues) < 2:
                 errors.append(f"{location} ordered validation requires multiple cues.")
-            if kind != "voice-gate" and len(targets) < 4:
+            dialogue = getattr(game, "scene_scope", None) == "two-person-dialogue"
+            if dialogue:
+                speakers = {turn.speaker_role for turn in card.audio_turns}
+                if len(speakers) != 2:
+                    errors.append(f"{location} two-person dialogue needs two distinct speaking roles.")
+            if kind != "voice-gate" and not dialogue and len(targets) < 4:
                 errors.append(
                     f"{location} visual mission challenges require at least four visible candidates."
                 )
@@ -1100,9 +1104,13 @@ def _semantic_details(text: str) -> frozenset[str]:
     # (mother_at_pharmacy, girl_far_from_school, children_school_bus); a sentence says
     # "at the bank", "near the station", "far from the park", "by bus" or "walk".
     # Rooms join the places, so "in the kitchen" also contradicts a picture at the library.
-    places = 'library|pharmacy|bank|station|school|park|hospital|store|kitchen|bedroom|bathroom|living room|dining room'
+    places = 'library|pharmacy|bank|station|school|park|hospital|store|mall|supermarket|hotel|museum|movie theater|post office|airport|bus stop|kitchen|bedroom|bathroom|living room|dining room'
     for place in re.findall(rf"\b(?:at|in)\s+(?:the\s+)?({places})\b", lowered):
         details.add('place:' + place)
+    for place in re.findall(rf"\bgoing to\s+(?:the\s+)?({places})\b", lowered):
+        details.add('destination:' + place)
+    for modal, vehicle in re.findall(r"\b(can|cannot) go by (bus|train|taxi|airplane|boat)\b", lowered):
+        details.add(('not:' if modal == 'cannot' else '') + 'permission:' + vehicle)
     for relation, place in re.findall(rf"\b(near|far\s+from)\s+(?:the\s+)?({places})\b", lowered):
         details.add('distance:' + relation.split()[0] + '-' + place)
     if tokens & {'walk', 'walks'}:
@@ -1126,6 +1134,30 @@ def _asset_name(media_url: str | None) -> str:
     return str(media_url or "").split("?", 1)[0].replace("\\", "/").rsplit("/", 1)[-1].lower()
 
 
+@functools.lru_cache(maxsize=1)
+def _reviewed_visual_facts() -> dict:
+    """Exact inspected scene facts; never a substitute for human pixel approval."""
+    path = ROOT / "docs/product/a1-visual-facts.json"
+    return json.loads(path.read_text(encoding="utf-8"))["assets"]
+
+
+def _reviewed_scene_meaning(asset_name: str) -> VisualMeaning | None:
+    record = _reviewed_visual_facts().get(asset_name)
+    if record is None:
+        return None
+    if sha256_file(LESSON_ASSET_DIR / asset_name) != record["sha256"]:
+        raise ValueError(f"Stale visual facts for {asset_name}; inspect the changed image.")
+    def referent(value):
+        return _visual_referent(
+            value["count"], set(value["concepts"]), set(value.get("actions", [])),
+            value.get("gender"), details=frozenset(value.get("details", [])),
+        )
+    return VisualMeaning(
+        primary=referent(record["primary"]),
+        visible_subsets=tuple(referent(value) for value in record.get("visible_subsets", [])),
+    )
+
+
 def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
     """Return conservative Unit 1 facts for the exact bound visual asset.
 
@@ -1144,6 +1176,9 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
     asset_name = _asset_name(media_url)
     if not asset_name:
         return None
+    reviewed = _reviewed_scene_meaning(asset_name)
+    if reviewed is not None:
+        return reviewed
     stem = asset_name.rsplit(".", 1)[0]
     # Units 2-7 use rich generated scene contracts (objects, colors, food,
     # quantities, places, and more) that this Unit 1 people/action model cannot
@@ -2407,6 +2442,12 @@ def _use_image_teaching(lesson_catalog) -> dict[str, list[str]]:
             if prompt_image:
                 labels = [option.label for option in correct if getattr(option, "label", None)]
                 taught.setdefault(_asset_name(prompt_image).replace("_four-card", ""), []).extend(spoken + labels)
+            # Each dialogue turn teaches its own exact picture. Do not borrow a
+            # neighbouring speaker's words for the card's general prompt image.
+            for field in ("audio_turns", "answer_audio_turns"):
+                for turn in getattr(card, field, None) or []:
+                    if turn.image_url and turn.text and not INSTRUCTION_TEXT.match(turn.text):
+                        taught.setdefault(_asset_name(turn.image_url).replace("_four-card", ""), []).append(turn.text)
             prompt = str(getattr(card, "prompt", "") or "")
             for option in correct:
                 if getattr(option, "image_url", None):
