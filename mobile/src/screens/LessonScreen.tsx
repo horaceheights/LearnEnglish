@@ -53,6 +53,11 @@ import { MissionJourney } from '../components/MissionJourney';
 import { MissionKickoff } from '../components/MissionKickoff';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
+import { LessonTutorSheet } from '../components/LessonTutorSheet';
+import { TutorButton } from '../components/TutorButton';
+import { useLessonTutor } from '../hooks/useLessonTutor';
+import { tutorCardContext, tutorEnabled } from '../lessonTutor';
+import { askTutor } from '../tutorApi';
 import { HELP_STORAGE_PREFIX, useContextualHelp } from '../hooks/useContextualHelp';
 import { COMPLETION_RETRY_HELP, isFirstSectionHelpIntroduction, lessonHelpText } from '../lessonHelp';
 import { LessonLandscapeRail } from '../components/LessonLandscapeRail';
@@ -296,7 +301,7 @@ export function LessonScreen({
   const isPortrait = viewportHeight >= viewportWidth;
   const [lessonBodyWidth, setLessonBodyWidth] = useState(0);
   const useCompactPhoneLayout = isPhoneLandscape(viewportWidth, viewportHeight);
-  const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
+  const portraitBrandWidth = Math.min(220, Math.max(tutorEnabled(lessonId) ? 110 : 150, viewportWidth - (tutorEnabled(lessonId) ? 220 : 150)));
   const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 190;
   // Every lesson uses the learner-tested 1.1 flow. QA may add diagnostics and
   // controls, but it must not change navigation or review behavior.
@@ -371,7 +376,13 @@ export function LessonScreen({
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [isAppActive, setIsAppActive] = useState(AppState.currentState === 'active');
+  const [isForegroundActive, setIsAppActive] = useState(AppState.currentState === 'active');
+  const tutorContext = useMemo(() => lesson?.cards[cardIndex] && tutorEnabled(lesson.id)
+    ? tutorCardContext(lesson, lesson.cards[cardIndex], result, selectedIds.length ? selectedIds : selectedId ? [selectedId] : []) : null,
+  [lesson, cardIndex, result, selectedIds, selectedId]);
+  const tutor = useLessonTutor(`${profile.userId || 'guest'}:${lessonId}`, tutorContext, askTutor);
+  // Use the engine's existing interruption/replay lifecycle for the tutor too.
+  const isAppActive = isForegroundActive && !tutor.visible;
   const [isComplete, setIsComplete] = useState(false);
   const [sectionBriefing, setSectionBriefing] = useState<SectionBriefing | null>(null);
   const sectionBriefingRef = useRef<SectionBriefing | null>(null);
@@ -1526,7 +1537,14 @@ export function LessonScreen({
   });
   const showHelp = help.visible;
   const helpVisibleRef = useRef(showHelp);
-  helpVisibleRef.current = showHelp;
+  helpVisibleRef.current = showHelp || tutor.visible;
+  const openTutor = () => {
+    if (!tutorContext || pageTurnBusy.current) return;
+    help.dismiss();
+    audioPlaybackRequestRef.current += 1;
+    audioPlayerRef.current.pause(); audioPlaylistRef.current.pause(); stopMissionSound();
+    tutor.open();
+  };
   const helpAdvancePendingRef = useRef<string | null>(null);
   const helpCardKey = `${lessonId}:${cardIndex}:${cardRunId}`;
   const learnTranslation = useLearnTranslationPreview(currentCard, helpCardKey,
@@ -1939,11 +1957,11 @@ export function LessonScreen({
   ]);
 
   useEffect(() => {
-    if (showHelp || !helpAdvancePendingRef.current) return;
+    if (showHelp || tutor.visible || !helpAdvancePendingRef.current) return;
     const pending = helpAdvancePendingRef.current;
     helpAdvancePendingRef.current = null;
     if (pending === helpCardKey) advance();
-  }, [advance, helpCardKey, showHelp]);
+  }, [advance, helpCardKey, showHelp, tutor.visible]);
 
   const completeAutomaticSingleCard = useCallback((awardScore = true) => {
     if (!cardAudioReadyRef.current) return;
@@ -3287,6 +3305,7 @@ export function LessonScreen({
                 )}
               </View>
             ) : null}
+            {tutorContext ? <TutorButton onPress={openTutor} active={isAppActive} /> : null}
             <Pressable
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
               accessibilityRole="button"
@@ -3372,7 +3391,7 @@ export function LessonScreen({
         location={lessonLocation} stage={lessonStageLabel(lesson.id, currentCard.stage)}
         color={activeStageColor || '#279487'} progress={`${cardIndex + 1} / ${lesson.cards.length}`}
         onBack={() => confirmLessonExit('previous')} onHome={() => confirmLessonExit('home')}
-        onMenu={() => setShowMissionLandscapeMenu(true)}
+        onMenu={() => setShowMissionLandscapeMenu(true)} onTutor={tutorContext ? openTutor : undefined}
         imageUrl={isSentenceCard ? currentCard.prompt_image_url : null}>
         {!wideLandscapePrompt ? lessonPromptHeader : null}
       </LessonLandscapeRail> : usesMissionPhoneLandscape ? null : <>{lessonChrome}{lessonPromptHeader}</>}
@@ -3395,8 +3414,9 @@ export function LessonScreen({
           ]}
         >
           {isSentenceCard ? (
-            <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard} vocabulary={lesson.vocabulary}
-              selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={false} helpOpen={showHelp}
+            <SentenceConstruction key={currentCard.slide_id} card={currentCard} vocabulary={lesson.vocabulary}
+              selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={false} helpOpen={showHelp || tutor.visible}
+              onTutor={tutorContext ? openTutor : undefined}
               onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} onRetry={resetMissionSelection} />
           ) : usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
@@ -3464,6 +3484,7 @@ export function LessonScreen({
             onGrammarAnimationComplete={grammarAnimationComplete}
             onResetSelection={resetMissionSelection}
             onSelect={choose}
+            onTutor={tutorContext ? openTutor : undefined}
             onUndoSelection={undoMissionSelection}
             result={result}
             selectedId={selectedId}
@@ -3486,6 +3507,9 @@ export function LessonScreen({
   );
   return (
     <SafeAreaView style={styles.safeArea} onTouchStart={help.touchStart} onTouchEnd={help.touchEnd} onTouchCancel={help.touchEnd}>
+      {tutorContext ? <LessonTutorSheet tutor={tutor} context={tutorContext} active={isForegroundActive}
+        title={`Lección ${lesson.sub_lesson_id} · ${lessonStageLabel(lesson.id, currentCard.stage)}`}
+        answer={tutorContext.selected_option_ids.map(id => currentCard.options.find(option => option.id === id)?.label || '').join(' ')} /> : null}
       <AudioConnectionNotice
         visible={isAppActive && !isCompletedSectionPicker && !cardAudio.ready}
         waiting={cardAudio.waiting}

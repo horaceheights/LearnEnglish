@@ -12,6 +12,8 @@ class LegalPageTests(unittest.TestCase):
         self.assertIn("grabaciones de voz", page)
         self.assertIn("Microsoft Azure Speech", page)
         self.assertIn("Sentry", page)
+        self.assertIn("OpenRouter", page)
+        self.assertIn("editar el texto antes", page)
         self.assertIn('/delete-account', page)
 
     def test_deletion_page_identifies_data_and_in_app_steps(self):

@@ -67,6 +67,7 @@ def privacy_policy_html() -> str:
 <p>Cuando decides responder una encuesta, guardamos las opciones seleccionadas y el comentario escrito que confirmas. Si utilizas el micrófono, el audio se envía cifrado a Microsoft Azure Speech para producir una transcripción y no se conserva intencionalmente en nuestra base de datos.</p>
 
 <h2>Proveedores</h2>
+<p>El Tutor IA es opcional. Al abrirlo o enviar una pregunta, compartimos el contexto de la tarjeta y la conversación necesaria con OpenRouter y el proveedor del modelo para preparar la explicación. Al usar su micrófono, enviamos la grabación para transcribirla; puedes editar el texto antes de enviarlo como pregunta. Si pides escuchar una explicación, enviamos ese texto al proveedor de voz. No enviamos tu nombre, correo o identificador de cuenta al tutor, ni guardamos estas conversaciones o grabaciones en la base de datos de progreso. Se mantienen temporalmente en el dispositivo durante la actividad; los proveedores pueden conservar registros según sus políticas. Evita incluir información personal en tus preguntas.</p>
 <p>Utilizamos proveedores que procesan información por cuenta de SpanGlish, incluidos Clerk para cuentas y acceso, Render para infraestructura y base de datos, Microsoft Azure Speech para pronunciación, Sentry para diagnóstico y rendimiento, y Expo/EAS para crear y distribuir la aplicación y sus actualizaciones. Cada proveedor puede conservar datos técnicos conforme a sus propias políticas y obligaciones de seguridad.</p>
 
 <h2>Diagnóstico y reproducción de sesiones</h2>

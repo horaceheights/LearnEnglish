@@ -1,4 +1,5 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { TutorButton } from './TutorButton';
 import type { PropsWithChildren } from 'react';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
@@ -12,10 +13,10 @@ type Props = PropsWithChildren<{
 }>;
 
 export function LessonLandscapeRail({ location, stage, color, progress, imageUrl,
-  onBack, onHome, onMenu, children }: Props) {
+  onBack, onHome, onMenu, children, onTutor }: Props & { onTutor?: () => void }) {
   const { fontScale } = useWindowDimensions();
   const [mediaHeight, setMediaHeight] = useState(0);
-  return <View style={styles.rail}>
+  return <View style={[styles.rail, onTutor ? styles.tutorRail : null]}>
     <View style={styles.navigation}>
       <Pressable accessibilityRole="button" accessibilityLabel="Volver a lecciones" onPress={onBack} style={styles.button}>
         <Ionicons name="arrow-back" size={24} color="#245f53" />
@@ -23,6 +24,7 @@ export function LessonLandscapeRail({ location, stage, color, progress, imageUrl
       <Pressable accessibilityRole="button" accessibilityLabel="SpanGlish: inicio" onPress={onHome} style={styles.button}>
         <Ionicons name="home-outline" size={24} color="#dd6844" />
       </Pressable>
+      {onTutor ? <TutorButton compact onPress={onTutor} /> : null}
       <Pressable accessibilityRole="button" accessibilityLabel="Secciones, ayuda y opciones" onPress={onMenu} style={styles.button}>
         <Ionicons name="ellipsis-horizontal" size={24} color="#245f53" />
       </Pressable>
@@ -42,6 +44,7 @@ export function LessonLandscapeRail({ location, stage, color, progress, imageUrl
 const styles = StyleSheet.create({
   rail: { width: '28%', minWidth: 180, maxWidth: 260, flexShrink: 0, gap: 4,
     borderRadius: 18, backgroundColor: '#fff0d6', padding: 6 },
+  tutorRail: { minWidth: 216 },
   navigation: { flexDirection: 'row', justifyContent: 'space-between', gap: 4 },
   button: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fffdf7', borderRadius: 14 },
   location: { fontSize: 16, lineHeight: 20, fontWeight: '900', color: '#8b765d', textAlign: 'center' },

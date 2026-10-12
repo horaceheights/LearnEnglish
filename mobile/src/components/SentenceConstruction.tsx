@@ -1,3 +1,4 @@
+import { TutorButton } from './TutorButton';
 import { NEW_VOCABULARY_COLOR, constructionVocabulary } from '../lessonVocabulary';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
@@ -21,6 +22,7 @@ type Flight = { label: string; path: TileFlightPath; slot: number };
 type Drag = { id: string; label: string; area?: Bounds; slotArea?: Bounds; cardArea?: Bounds; targets: Bounds[]; bank?: Bounds; width: number; height: number };
 const FLIGHT_MS = 220;
 type Props = {
+  onTutor?: () => void;
   vocabulary?: readonly string[];
   card: LessonCard; selected: string[]; result: 'correct' | 'wrong' | null;
   disabled: boolean; showHelp?: boolean; helpOpen?: boolean;
@@ -89,7 +91,7 @@ function WordTile(props: WordProps) {
   </View>;
 }
 
-export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry }: Props) {
+export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry, onTutor }: Props) {
 
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -118,9 +120,9 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
   const { optionIds: vocabularyIds, scaffoldIndexes } = constructionVocabulary(parts, card, vocabulary);
   const landscape = isPhoneLandscape(viewport.width, viewport.height);
   const layout = landscape
-    ? { ...sentenceLayout(size.width, size.height, Math.min(1.3, viewport.fontScale), slots.length, feedbackHeight),
+    ? { ...sentenceLayout(size.width, size.height, Math.min(1.3, viewport.fontScale), slots.length, feedbackHeight + (result === 'wrong' && onTutor ? 54 : 0)),
         textSize: 16, tileWidth: 48, tileHeight: 48, scrollBank: false, imageHeight: 0 }
-    : sentenceLayout(size.width - 40, size.height, viewport.fontScale, slots.length, feedbackHeight);
+    : sentenceLayout(size.width - 40, size.height, viewport.fontScale, slots.length, feedbackHeight + (result === 'wrong' && onTutor ? 54 : 0));
   const paneWidth = size.width;
   const wideSlots = Math.max(0, ...card.options.map(option => wordWidths[option.id] || 0))
     + layout.textSize * viewport.fontScale > paneWidth - 60;
@@ -267,6 +269,7 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
         onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
         {result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{mistakeHint}</> : ' '}
       </Text>
+      {result === 'wrong' && onTutor ? <TutorButton more onPress={onTutor} /> : null}
       {!landscape && result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
         style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>
         <Text style={[styles.controlText, styles.retryControlText]}>Reintentar</Text>
