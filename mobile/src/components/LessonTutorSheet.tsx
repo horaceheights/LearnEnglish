@@ -12,10 +12,14 @@ import { useTutorVoicePreference } from '../hooks/useTutorVoicePreference';
 import { useTutorReplyReveal } from '../hooks/useTutorReplyReveal';
 import { tutorSpeechQueue } from '../tutorSpeechStream';
 import { playNativeTutorSegment } from '../tutorSpeechPlayback';
+import type { PracticePresentation } from '../lessonPractice';
+import { LiamAvatar } from './LiamAvatar';
 import { TutorActivity } from './TutorActivity';
 
-type Props = { tutor: ReturnType<typeof useLessonTutor>; context: TutorContext; title: string; answer: string; active: boolean };
-export function LessonTutorSheet({ tutor, context, title, answer, active }: Props) {
+type Props = { tutor: ReturnType<typeof useLessonTutor>; context: TutorContext; title: string; answer: string; active: boolean; practice?: PracticePresentation };
+export function LessonTutorSheet({ tutor, context, title, answer, active, practice }: Props) {
+  const speechTransport = practice?.speak || speakTutor;
+  const transcriptionTransport = practice?.transcribe || transcribeTutor;
   const insets = useSafeAreaInsets();
   const [draft, setDraft] = useState('');
   const { enabled: voiceReplies, ready: voicePreferenceReady, setEnabled: setVoiceReplies } = useTutorVoicePreference(AsyncStorage);
@@ -92,7 +96,7 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
       }
     }, () => controller.abort());
     try {
-      await speakTutor(context, text, controller.signal, queue.add);
+      await speechTransport(context, text, controller.signal, queue.add);
       clearTimeout(timer);
       await queue.finish();
       if (controller.signal.aborted) throw new Error('Audio cancelled');
@@ -104,7 +108,7 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
         reveal(messageKey); setVoiceError('No pudimos reproducir la voz. Puedes leer la explicación.'); setPhase('idle');
       }
     } finally { clearTimeout(timer); if (generation === run.current) voiceAbort.current = null; }
-  }, [context, latestKey, player, reveal, stopVoice]);
+  }, [context, latestKey, player, reveal, speechTransport, stopVoice]);
   useEffect(() => {
     const last = tutor.messages[tutor.messages.length - 1];
     const messageKey = latestKey;
@@ -157,7 +161,7 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
       file = new File(uri);
       const encoded = await file.base64();
       if (generation !== run.current || !visible.current) return;
-      const text = await transcribeTutor(context, encoded, Platform.OS === 'web' ? 'webm' : 'm4a', controller.signal);
+      const text = await transcriptionTransport(context, encoded, Platform.OS === 'web' ? 'webm' : 'm4a', controller.signal);
       if (generation === run.current && visible.current) setDraft(text);
     } catch {
       if (generation === run.current && visible.current) setVoiceError('No pudimos transcribir tu pregunta. Graba otra vez o escríbela.');
@@ -165,13 +169,14 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
       clearTimeout(timer); if (file) { try { file.delete(); } catch {} }
       if (generation === run.current) { voiceAbort.current = null; setPhase('idle'); }
     }
-  }, [context, recorder, serializeRecorder]);
+  }, [context, recorder, serializeRecorder, transcriptionTransport]);
   useEffect(() => {
     if (phase !== 'recording') return;
     const timer = setTimeout(() => void finishRecording(), 60000);
     return () => clearTimeout(timer);
   }, [finishRecording, phase]);
   const send = async (text = draft) => {
+    if (practice?.complete) return;
     stopVoice(); setVoiceError('');
     if (await tutor.send(text)) setDraft('');
   };
@@ -181,18 +186,18 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
     <View style={[styles.backdrop, { paddingTop: insets.top + 8, paddingBottom: insets.bottom + 8 }]}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.sheet}>
         <View style={styles.heading}>
-          <View style={styles.headingRow}><View style={styles.headingText}><Text accessibilityRole="header" style={styles.title}>Tutor IA</Text></View>
+          <View style={styles.headingRow}>{practice ? <LiamAvatar speaking={phase === 'speaking' && playback.playing} active={tutor.visible && active} /> : null}<View style={styles.headingText}><Text accessibilityRole="header" style={styles.title}>{practice ? 'Practica con Liam' : 'Tutor IA'}</Text></View>
             <Pressable accessibilityRole="switch" accessibilityLabel="Respuestas con voz" accessibilityState={{ checked: voiceReplies }}
               onPress={() => { setVoiceReplies(!voiceReplies); if (voiceReplies && (phase === 'speaking' || phase === 'loading')) stopVoice(); }} style={styles.voiceToggle}>
               <Ionicons name={voiceReplies ? 'volume-high-outline' : 'volume-mute-outline'} size={23} color="#176f73" />
               <Text maxFontSizeMultiplier={1.3} style={styles.preferenceText}>{voiceReplies ? 'Voz' : 'Sin voz'}</Text>
             </Pressable>
             <Pressable accessibilityRole="button" accessibilityLabel="Cerrar tutor y volver a la lección" onPress={close} style={styles.iconButton}><Ionicons name="close" size={26} color="#245f53" /></Pressable>
-          </View><Text style={styles.subheading}>{title} · Lección en pausa</Text>
+          </View><Text style={styles.subheading}>{title} · {practice ? 'Repaso opcional' : 'Lección en pausa'}</Text>
         </View>
         <ScrollView ref={scroll} style={styles.messages} contentContainerStyle={styles.messageContent} keyboardShouldPersistTaps="handled"
           onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: false })}>
-          {answer ? <Text style={styles.context}>Tu respuesta: {answer}</Text> : <Text style={styles.context}>Una pista para esta tarjeta. Tú eliges la respuesta.</Text>}
+          {practice ? <Text style={styles.context}>Liam guía el intercambio. {practice.answers} de {practice.limit} respuestas. Tu resultado no cambia.</Text> : answer ? <Text style={styles.context}>Tu respuesta: {answer}</Text> : <Text style={styles.context}>Una pista para esta tarjeta. Tú eliges la respuesta.</Text>}
           {tutor.messages.map((message, index) => waiting && index === tutor.messages.length - 1 ? null : <View key={index} style={[styles.bubble, message.role === 'user' && styles.userBubble]}>
             <Text selectable style={styles.message}>{message.content}</Text>
             {message.role === 'assistant' ? <Pressable accessibilityRole="button" accessibilityLabel="Escuchar explicación" disabled={voiceBusy}
@@ -202,22 +207,22 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
             <TutorActivity state={phase === 'speaking' && playback.playing ? 'speaking' : 'thinking'} active={tutor.visible && active} />
             <Text accessibilityLiveRegion="polite" style={styles.statusText}>{tutor.busy ? 'Pensando…' : waiting || phase === 'loading' ? 'Preparando voz…' : 'Hablando…'}</Text></View> : null}
           {tutor.error ? <View accessibilityLiveRegion="polite"><Text style={styles.error}>{tutor.error}</Text><Pressable accessibilityRole="button" onPress={tutor.retry} style={styles.chip}><Text style={styles.chipText}>Reintentar</Text></Pressable></View> : null}
-          {!tutor.busy && !waiting && tutor.messages.length > 0 ? <View style={styles.suggestions}>{TUTOR_SUGGESTIONS.map(text => <Pressable key={text} accessibilityRole="button" disabled={voiceBusy}
+          {!practice?.complete && !tutor.busy && !waiting && tutor.messages.length > 0 ? <View style={styles.suggestions}>{(practice ? ['Dame una pista.', 'Más fácil, por favor.'] : TUTOR_SUGGESTIONS).map(text => <Pressable key={text} accessibilityRole="button" disabled={voiceBusy}
             onPress={() => void send(text)} style={styles.chip}><Text style={styles.chipText}>{text}</Text></Pressable>)}</View> : null}
         </ScrollView>
         <View style={styles.composer}>
           {voiceError ? <View><Text accessibilityLiveRegion="polite" style={styles.error}>{voiceError}</Text>{tutor.messages.at(-1)?.role === 'assistant' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar voz" onPress={() => void play(tutor.messages.at(-1)!.content)} style={styles.chip}><Text style={styles.chipText}>Reintentar voz</Text></Pressable> : null}</View> : null}
-          {voiceBusy ? <View style={styles.recording}>
+          {practice?.complete ? <View style={styles.recording}><Text accessibilityLiveRegion="polite" style={styles.statusText}>{waiting ? 'Preparando tu feedback…' : 'Repaso terminado · Tu feedback está arriba.'}</Text><Pressable accessibilityRole="button" onPress={close} style={styles.finish}><Text style={styles.finishText}>Volver a mi resultado</Text></Pressable></View> : voiceBusy ? <View style={styles.recording}>
             <Text accessibilityLiveRegion="polite" style={styles.statusText}>{phase === 'recording' ? `Grabando… ${Math.floor(recording.durationMillis / 1000)} s` : phase === 'transcribing' ? 'Transcribiendo…' : 'Abriendo micrófono…'}</Text>
             {phase === 'recording' ? <><View style={styles.recordingVisual}><TutorActivity state="listening" active={tutor.visible && active} level={Math.max(0.2, ((recording.metering ?? -60) + 60) / 45)} /></View><Pressable accessibilityRole="button" onPress={() => void finishRecording()} style={styles.finish}><Text style={styles.finishText}>Terminar grabación</Text></Pressable></> : <ActivityIndicator color="#176f73" />}
             <Pressable accessibilityRole="button" onPress={() => stopVoice()} style={styles.chip}><Text style={styles.chipText}>Cancelar</Text></Pressable>
           </View> : <View style={styles.inputRow}>
-            <TextInput accessibilityLabel="Tu pregunta para el tutor" placeholder="Escribe tu pregunta…" multiline maxLength={1200} value={draft} onChangeText={setDraft} style={styles.input} />
-            <Pressable accessibilityRole="button" accessibilityLabel="Grabar pregunta" disabled={tutor.busy} onPress={() => void startRecording()} style={styles.iconButton}><Ionicons name="mic-outline" size={25} color="#176f73" /></Pressable>
-            <Pressable accessibilityRole="button" accessibilityLabel="Enviar pregunta" disabled={tutor.busy || !draft.trim()} onPress={() => void send()} style={[styles.send, (tutor.busy || !draft.trim()) && styles.disabled]}><Ionicons name="send" size={23} color="white" /></Pressable>
+            <TextInput accessibilityLabel={practice ? "Tu respuesta para Liam" : "Tu pregunta para el tutor"} placeholder={practice ? "Escribe o graba tu respuesta…" : "Escribe tu pregunta…"} multiline maxLength={1200} value={draft} onChangeText={setDraft} style={styles.input} />
+            <Pressable accessibilityRole="button" accessibilityLabel={practice ? "Grabar respuesta" : "Grabar pregunta"} disabled={tutor.busy} onPress={() => void startRecording()} style={styles.iconButton}><Ionicons name="mic-outline" size={25} color="#176f73" /></Pressable>
+            <Pressable accessibilityRole="button" accessibilityLabel={practice ? "Enviar respuesta" : "Enviar pregunta"} disabled={tutor.busy || !draft.trim()} onPress={() => void send()} style={[styles.send, (tutor.busy || !draft.trim()) && styles.disabled]}><Ionicons name="send" size={23} color="white" /></Pressable>
           </View>}
           {phase === 'speaking' || phase === 'loading' ? <Pressable accessibilityRole="button" onPress={() => stopVoice()} style={styles.chip}><Text style={styles.chipText}>Detener voz</Text></Pressable> : null}
-          <Text style={styles.notice}>Tutor con IA · Puede equivocarse. Se necesita internet.</Text>
+          <Text style={styles.notice}>{practice ? 'Práctica con IA · La transcripción no es una nota de pronunciación.' : 'Tutor con IA · Puede equivocarse. Se necesita internet.'}</Text>
         </View>
       </KeyboardAvoidingView>
     </View>

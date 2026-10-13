@@ -4,6 +4,7 @@ import { TUTOR_SUGGESTIONS, tutorContextKey } from '../../mobile/src/lessonTutor
 import { speakTutor, transcribeTutor } from '../lib/tutorApi';
 import styles from './LessonTutor.module.css';
 import { TutorActivity } from './TutorActivity';
+import LiamAvatar from './LiamAvatar';
 import { getTutorAudio } from '../lib/tutorAudio';
 import { useTutorVoicePreference } from '../../mobile/src/hooks/useTutorVoicePreference';
 import { useTutorReplyReveal } from '../../mobile/src/hooks/useTutorReplyReveal';
@@ -15,7 +16,9 @@ const voiceStorage = {
   setItem: async (key, value) => window.localStorage.setItem(key, value),
 };
 
-export default function LessonTutor({ tutor, context, title, answer }) {
+export default function LessonTutor({ tutor, context, title, answer, practice }) {
+  const speechTransport = practice?.speak || speakTutor;
+  const transcriptionTransport = practice?.transcribe || transcribeTutor;
   const dialog = useRef(null);
   const body = useRef(null);
   const [draft, setDraft] = useState('');
@@ -79,7 +82,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
       }
     }, () => controller.abort());
     try {
-      await speakTutor(context, text, controller.signal, queue.add);
+      await speechTransport(context, text, controller.signal, queue.add);
       clearTimeout(timeout);
       await queue.finish();
       if (controller.signal.aborted) throw new Error('Audio cancelled');
@@ -89,7 +92,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
       await queue.finish().catch(() => undefined);
       if (run === epoch.current && visible.current) { reveal(messageKey); setVoiceError('No pudimos reproducir la voz. Puedes leer la explicación.'); setPhase('idle'); }
     } finally { clearTimeout(timeout); if (run === epoch.current) abort.current = null; }
-  }, [context, latestKey, reveal, stopVoice]);
+  }, [context, latestKey, reveal, speechTransport, stopVoice]);
   useEffect(() => {
     const last = tutor.messages.at(-1);
     const messageKey = latestKey;
@@ -130,7 +133,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
           const base64 = await new Promise((resolve, reject) => {
             const reader = new FileReader(); reader.onload = () => resolve(String(reader.result).split(',')[1]); reader.onerror = reject; reader.readAsDataURL(blob);
           });
-          const text = await transcribeTutor(context, base64, blob.type.includes('mp4') ? 'mp4' : blob.type.includes('ogg') ? 'ogg' : 'webm', controller.signal);
+          const text = await transcriptionTransport(context, base64, blob.type.includes('mp4') ? 'mp4' : blob.type.includes('ogg') ? 'ogg' : 'webm', controller.signal);
           if (run === epoch.current && visible.current) setDraft(text);
         } catch { if (run === epoch.current && visible.current) setVoiceError('No pudimos transcribir tu pregunta. Graba otra vez o escríbela.'); }
         finally { clearTimeout(timeout); if (run === epoch.current) { abort.current = null; setPhase('idle'); } }
@@ -140,18 +143,18 @@ export default function LessonTutor({ tutor, context, title, answer }) {
       if (run === epoch.current) { stopVoice(); setVoiceError('No pudimos abrir el micrófono. Revisa el permiso del navegador o escribe tu pregunta.'); }
     }
   };
-  const send = async text => { stopVoice(); setVoiceError(''); if (await tutor.send(text)) setDraft(''); };
+  const send = async text => { if (practice?.complete) return; stopVoice(); setVoiceError(''); if (await tutor.send(text)) setDraft(''); };
   const voiceBusy = ['preparing', 'recording', 'transcribing'].includes(phase);
   return <dialog ref={dialog} className={styles.dialog} aria-labelledby="tutor-title" onCancel={event => { event.preventDefault(); tutor.close(); }}>
-    <header className={styles.header}><div className={styles.headingRow}><h2 id="tutor-title">Tutor IA</h2>
+    <header className={styles.header}><div className={styles.headingRow}><>{practice ? <LiamAvatar speaking={phase === 'speaking'} active={tutor.visible} /> : null}<h2 id="tutor-title">{practice ? 'Practica con Liam' : 'Tutor IA'}</h2></>
       <button type="button" role="switch" aria-checked={voiceReplies} aria-label="Respuestas con voz" className={styles.voiceToggle}
         onClick={() => { setVoiceReplies(!voiceReplies); if (voiceReplies && ['loading', 'speaking'].includes(phase)) stopVoice(); }}>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M11 4 6 8H2v8h4l5 4V4Z" />
           {voiceReplies ? <path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /> : <path d="m16 9 6 6m0-6-6 6" />}</svg><span>{voiceReplies ? 'Voz' : 'Sin voz'}</span></button>
       <button type="button" className={styles.iconButton} aria-label="Cerrar tutor y volver a la lección" onClick={tutor.close}>×</button></div>
-      <p>{title} · Lección en pausa</p></header>
+      <p>{title} · {practice ? 'Repaso opcional' : 'Lección en pausa'}</p></header>
     <div ref={body} className={styles.messages} aria-live="polite">
-      <p className={styles.context}>{answer ? `Tu respuesta: ${answer}` : 'Una pista para esta tarjeta. Tú eliges la respuesta.'}</p>
+      <p className={styles.context}>{practice ? `Liam guía el intercambio. ${practice.answers} de ${practice.limit} respuestas. Tu resultado no cambia.` : answer ? `Tu respuesta: ${answer}` : 'Una pista para esta tarjeta. Tú eliges la respuesta.'}</p>
       {tutor.messages.map((message, index) => waiting && index === tutor.messages.length - 1 ? null : <div key={index} className={`${styles.bubble} ${message.role === 'user' ? styles.user : ''}`}>
         <p>{message.content}</p>{message.role === 'assistant' ? <button type="button" className={styles.speaker} disabled={voiceBusy} aria-label="Escuchar explicación" onClick={() => void play(message.content)}>♪ Escuchar</button> : null}
       </div>)}
@@ -159,18 +162,18 @@ export default function LessonTutor({ tutor, context, title, answer }) {
         <TutorActivity state={phase === 'speaking' ? 'speaking' : 'thinking'} active={tutor.visible} />
         <span>{tutor.busy ? 'Pensando…' : waiting || phase === 'loading' ? 'Preparando voz…' : 'Hablando…'}</span></div> : null}
       {tutor.error ? <div role="status" className={styles.error}>{tutor.error}<button type="button" onClick={tutor.retry}>Reintentar</button></div> : null}
-      {!tutor.busy && !waiting && tutor.messages.length ? <div className={styles.suggestions}>{TUTOR_SUGGESTIONS.map(text => <button type="button" key={text} disabled={voiceBusy} onClick={() => void send(text)}>{text}</button>)}</div> : null}
+      {!practice?.complete && !tutor.busy && !waiting && tutor.messages.length ? <div className={styles.suggestions}>{(practice ? ['Dame una pista.', 'Más fácil, por favor.'] : TUTOR_SUGGESTIONS).map(text => <button type="button" key={text} disabled={voiceBusy} onClick={() => void send(text)}>{text}</button>)}</div> : null}
     </div>
     <footer className={styles.footer}>
       {voiceError ? <div className={styles.error} role="status">{voiceError}{tutor.messages.at(-1)?.role === 'assistant' ? <button type="button" aria-label="Reintentar voz" onClick={() => void play(tutor.messages.at(-1).content)}>Reintentar voz</button> : null}</div> : null}
-      {voiceBusy ? <div className={styles.recording}><p role="status">{phase === 'recording' ? `Grabando… ${seconds} s` : phase === 'transcribing' ? 'Transcribiendo…' : 'Abriendo micrófono…'}</p>
+      {practice?.complete ? <div className={styles.recording}><p role="status">{waiting ? 'Preparando tu feedback…' : 'Repaso terminado · Tu feedback está arriba.'}</p><button type="button" onClick={tutor.close}>Volver a mi resultado</button></div> : voiceBusy ? <div className={styles.recording}><p role="status">{phase === 'recording' ? `Grabando… ${seconds} s` : phase === 'transcribing' ? 'Transcribiendo…' : 'Abriendo micrófono…'}</p>
         {phase === 'recording' ? <><div className={styles.recordingVisual}><TutorActivity state="listening" active={tutor.visible} /></div><button type="button" onClick={finishRecording}>Terminar grabación</button></> : null}<button type="button" onClick={stopVoice}>Cancelar</button></div>
         : <form className={styles.composer} onSubmit={event => { event.preventDefault(); void send(draft); }}>
-          <textarea aria-label="Tu pregunta para el tutor" placeholder="Escribe tu pregunta…" value={draft} onChange={event => setDraft(event.target.value)} maxLength={1200} rows={2} />
-          <button type="button" aria-label="Grabar pregunta" disabled={tutor.busy} onClick={() => void startRecording()}>🎙</button>
-          <button type="submit" aria-label="Enviar pregunta" disabled={tutor.busy || !draft.trim()}>➤</button></form>}
+          <textarea aria-label={practice ? "Tu respuesta para Liam" : "Tu pregunta para el tutor"} placeholder={practice ? "Escribe o graba tu respuesta…" : "Escribe tu pregunta…"} value={draft} onChange={event => setDraft(event.target.value)} maxLength={1200} rows={2} />
+          <button type="button" aria-label={practice ? "Grabar respuesta" : "Grabar pregunta"} disabled={tutor.busy} onClick={() => void startRecording()}>🎙</button>
+          <button type="submit" aria-label={practice ? "Enviar respuesta" : "Enviar pregunta"} disabled={tutor.busy || !draft.trim()}>➤</button></form>}
       {['loading', 'speaking'].includes(phase) ? <button type="button" onClick={stopVoice}>Detener voz</button> : null}
-      <small>Tutor con IA · Puede equivocarse. Se necesita internet.</small>
+      <small>{practice ? 'Práctica con IA · La transcripción no es una nota de pronunciación.' : 'Tutor con IA · Puede equivocarse. Se necesita internet.'}</small>
     </footer>
   </dialog>;
 }

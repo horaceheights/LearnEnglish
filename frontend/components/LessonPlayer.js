@@ -5469,7 +5469,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }
 
   if (isComplete || !currentCard) {
-    return lessonResult ? <LessonResultScreen result={lessonResult}
+    return lessonResult ? <LessonResultScreen result={lessonResult} lesson={activeLesson}
       lessonLabel={`UNIT ${activeLesson.unit_id?.match(/\d+/)?.[0] || "1"} | LESSON ${activeLesson.sub_lesson_id || activeLesson.title}`}
       hasNext={Boolean(nextLesson)} celebrate={celebrateResult} saving={resultSaving} error={resultError}
       onRetrySave={() => void persistResult(lessonResult)}

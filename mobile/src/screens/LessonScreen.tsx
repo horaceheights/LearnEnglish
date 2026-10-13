@@ -3008,7 +3008,7 @@ export function LessonScreen({
       </SafeAreaView>;
     }
     return <SafeAreaView style={styles.safeArea}><StatusBar hidden />
-      {lessonResult ? <LessonResultScreen result={lessonResult} lessonLabel={lessonLocationLabel(lesson)}
+      {lessonResult ? <LessonResultScreen result={lessonResult} lesson={lesson} lessonLabel={lessonLocationLabel(lesson)}
         hasNext={Boolean(nextLessonId && onNext)} width={viewportWidth} height={viewportHeight}
         active={isAppActive} celebrate={celebrateResult} saving={resultSaving} error={resultError} offline={isOffline}
         onNext={() => void leaveResult(() => nextLessonId && onNext?.(nextLessonId))}

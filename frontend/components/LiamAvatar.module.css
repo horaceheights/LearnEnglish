@@ -1,0 +1,10 @@
+.avatar{position:relative;flex-shrink:0;width:64px;height:64px;border-radius:50%;overflow:hidden;background:#cbe4dc;border:2px solid #96c4b4}
+.face{position:absolute;left:16px;top:8px;width:31px;height:40px;background:#e5ac84;border-radius:13px 13px 16px 16px}
+.hair{position:absolute;top:-3px;left:-2px;width:35px;height:15px;border-radius:16px 18px 5px 3px;background:#513e35;transform:rotate(-7deg)}
+.eyes{position:absolute;left:7px;right:7px;top:20px;display:flex;justify-content:space-between}
+.eyes i{width:3px;height:4px;border-radius:50%;background:#40332e}
+.mouth{position:absolute;left:10px;top:29px;width:12px;height:4px;border-radius:0 0 9px 9px;background:#8f4940;transform-origin:top}
+.shirt{position:absolute;left:8px;top:44px;width:48px;height:32px;border-radius:20px 20px 0 0;background:#27796b}
+.avatar[data-speaking=true] .mouth{animation:talk .23s ease-in-out infinite alternate}
+@keyframes talk{from{transform:scaleY(.7)}to{transform:scaleY(2)}}
+@media(prefers-reduced-motion:reduce){.avatar *{animation:none!important}}

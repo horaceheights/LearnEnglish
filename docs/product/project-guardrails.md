@@ -924,3 +924,13 @@ Existing automated guardrails cover lesson order, vocabulary contracts, the five
 - The user's OpenRouter request explicitly permits bounded runtime generation for this optional tutor, separate from the unchanged immutable course audio contract. Keep the provider key on the authenticated backend, validate canonical card context, bound usage and payloads, show recoverable errors, and retain regular help when unavailable. No automatic provider retries. See [configuration and data handling](../operations/lesson-ai-tutor.md).
 
 - Mission tutoring follows the authored index of the current clue even when playback order is shuffled. A wrong scene tap may reveal only that clue and the submitted target, never the remaining clues or a whole-card answer. Keep `Saber más` available after brief wrong-tap feedback clears. Pause in-card feedback/advance timers while the tutor is open, preserve solved targets, and resume the same clue without remounting the mission scene.
+
+
+## Optional guided lesson review (approved 2026-10-13)
+
+- After a completed lesson, an optional practice section may invite a lesson-grounded exchange with Liam. Liam leads it, reacts to the learner, and ends with specific feedback and a farewell. It is separate from required cards and saved completion; it never changes grades, pronunciation scores or course progress.
+- Use canonical lesson vocabulary, grammar and taught examples through shared context and rendering. Early lessons need Spanish scaffolding for English that has not yet been introduced. Never invent unseen images or infer pronunciation from a transcript.
+- The first POC is visible after Lesson 1.1, with three- and six-reply trial modes. These are POC session choices, not premium entitlements or a fixed curriculum limit. Broader rollout and paid/free usage policy remain future work.
+- Liam is a simple local avatar animated during actual speech playback, with reduced-motion support. Runtime practice audio is an explicit opt-in exception to static course audio, just like the existing card tutor. Keep the approved Sulafat card tutor and all immutable course recordings unchanged.
+- Preserve authenticated transport, cancellation, account isolation, bounded requests, editable transcription and optional mute/text use. Final feedback uses a separate structured response and closes input after success; a failed final request remains retryable. Never save transcripts as progress or claim acoustic feedback.
+- Operational details and limitations: [Liam lesson-review POC](../operations/lesson-practice.md). Automated guards cover canonical context, bounded turns, final feedback, audio routing, cancellation and mobile layout.

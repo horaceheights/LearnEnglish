@@ -4,12 +4,12 @@ import { accountHeaders, captureAccountIdentity } from './accountSession';
 import { readTutorSpeech } from './tutorSpeechStream';
 import type { TutorContext, TutorTransport } from './lessonTutor';
 
-async function request<T>(path: string, body: object, signal: AbortSignal | undefined, read: (response: Response, check: () => void) => Promise<T>) {
+async function request<T>(path: string, body: object, signal: AbortSignal | undefined, read: (response: Response, check: () => void) => Promise<T>, service: 'tutor' | 'practice' = 'tutor') {
   const check = captureAccountIdentity();
   const headers = await accountHeaders();
   check();
   if (!headers.Authorization) throw new Error('Inicia sesión para hablar con el tutor.');
-  const response = await fetch(`${API_BASE_URL}/api/account/tutor/${path}`, {
+  const response = await fetch(`${API_BASE_URL}/api/account/${service}/${path}`, {
     method: 'POST', headers: { ...headers, 'X-App-Key': APP_API_KEY, 'Content-Type': 'application/json' },
     body: JSON.stringify(body), signal,
   }).catch(() => { throw new Error('No pudimos conectar con el tutor. Revisa tu conexión e inténtalo otra vez.'); });
@@ -31,3 +31,11 @@ export async function transcribeTutor(context: TutorContext, audio: string, form
 export async function speakTutor(context: TutorContext, text: string, signal: AbortSignal, onAudio: (base64: string) => void) {
   return request('speech-stream', { ...context, text }, signal, (response, check) => readTutorSpeech(response, signal, check, onAudio));
 }
+
+export const askPractice: TutorTransport = (context, message, history, signal) =>
+  request('chat', { ...context, message, history }, signal, response => response.json(), 'practice');
+export async function transcribePractice(context: TutorContext, audio: string, format: string, signal: AbortSignal): Promise<string> {
+  return (await request('transcribe', { ...context, audio, format }, signal, response => response.json(), 'practice')).text;
+}
+export const speakPractice = (context: TutorContext, text: string, signal: AbortSignal, onAudio: (audio: string) => void) =>
+  request('speech', { ...context, text }, signal, (response, check) => readTutorSpeech(response, signal, check, onAudio), 'practice');
