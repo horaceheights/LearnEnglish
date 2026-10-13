@@ -25,4 +25,3 @@ test('POC eligibility is configuration and canonical lesson revision follows int
  assert.equal(practice.practiceAvailable({...lesson,id:'other'}),false);
  assert.deepEqual(practice.practiceContext(lesson,'short'),{lesson_id:lesson.id,content_revision:7,slide_id:'L1',selected_option_ids:[],review_mode:'short'});
 });
-

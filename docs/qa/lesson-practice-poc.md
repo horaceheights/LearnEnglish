@@ -25,4 +25,3 @@ The frontend package's npm test points to a missing tests directory on the base 
 On the exact Preview commit, finish Lesson 1.1, save the result and open “Practica con Liam”. Test short and extended reviews, a helpful correction, microphone permission/record-stop/edit-send, muting, closing during speech, background interruption, offline recovery and returning to the unchanged result. Check bilingual Liam voice quality on the target phone. Browser/synthetic audio and Yoga tests do not prove microphone capture or playback on physical Android/iOS.
 
 This POC has no subscriptions, production entitlement enforcement, phoneme lip sync or pronunciation grading. Do not promote to Production without explicit approval after testing the exact Preview.
-

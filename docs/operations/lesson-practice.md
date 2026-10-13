@@ -29,4 +29,3 @@ This is not a premium billing implementation: reply counts are based on client h
 No new native dependencies, permissions or Expo configuration are required. Integrate through a PR to current main, deploy that exact backend revision, then publish only through the protected Preview workflow. Production requires explicit approval of the tested Preview.
 
 Provider contracts: [OpenRouter structured output](https://openrouter.ai/docs/guides/features/structured-outputs), [ElevenLabs TTS](https://elevenlabs.io/docs/api-reference/text-to-speech/convert).
-
