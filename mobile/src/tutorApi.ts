@@ -28,6 +28,6 @@ export const askTutor: TutorTransport = async (context, message, history, signal
 export async function transcribeTutor(context: TutorContext, audio: string, format: string, signal: AbortSignal): Promise<string> {
   return (await request('transcribe', { ...context, audio, format }, signal, response => response.json())).text;
 }
-export async function speakTutor(context: TutorContext, text: string, signal: AbortSignal, onAudio: (bytes: Uint8Array) => void) {
+export async function speakTutor(context: TutorContext, text: string, signal: AbortSignal, onAudio: (base64: string) => void) {
   return request('speech-stream', { ...context, text }, signal, (response, check) => readTutorSpeech(response, signal, check, onAudio));
 }

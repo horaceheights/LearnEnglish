@@ -44,7 +44,7 @@ function harness(platform, saved = null, delayedRead = null) {
       if(id==='@react-native-async-storage/async-storage')return storage;
       if(id.includes('Ionicons'))return ()=>null;
       if(id==='react-native-safe-area-context')return {useSafeAreaInsets:()=>({top:24,bottom:24})};
-      if(id==='expo-file-system')return {Paths:{cache:'cache'},File:class {write(){} delete(){} uri='file://voice.mp3';}};
+      if(id==='expo-file-system')return {Paths:{cache:'cache'},File:class {write(content,options){assert.equal(typeof content,'string');assert.equal(options.encoding,'base64');} delete(){} uri='file://voice.mp3';}};
       if(id==='expo-audio')return {RecordingPresets:{HIGH_QUALITY:{}}, AudioModule:{requestRecordingPermissionsAsync:async()=>({granted:true})},
         useAudioPlayer:()=>player,useAudioPlayerStatus:()=>playback,useAudioRecorder:()=>recorder,useAudioRecorderState:()=>({}),setAudioModeAsync:async()=>{}};
       if(id.endsWith('/tutorApi'))return {speakTutor:(context,text,signal,onAudio)=>{const d=deferred();requests.push({...d,context,text,signal,chunk:onAudio,resolve:bytes=>{if(bytes)onAudio(bytes);d.resolve();}});return d.promise;},transcribeTutor:async()=>''};
@@ -54,9 +54,9 @@ function harness(platform, saved = null, delayedRead = null) {
       const next=path.resolve(path.dirname(file),id);
       return load(next+(fs.existsSync(next+'.ts')?'.ts':'.js'));
     };
-    new Function('require','exports','setTimeout','clearTimeout','setInterval','clearInterval','window','document','URL',compiled)(requireMock,api,
+    new Function('require','exports','setTimeout','clearTimeout','setInterval','clearInterval','window','document','URL','atob',compiled)(requireMock,api,
       fn=>{timers.add(fn);return fn;},fn=>timers.delete(fn),fn=>{timers.add(fn);return fn;},fn=>timers.delete(fn),
-      {localStorage:{getItem:()=>saved,setItem:(_,value)=>{writes.push(value);saved=value;}}},document,{createObjectURL:()=> 'blob:voice',revokeObjectURL(){}});
+      {localStorage:{getItem:()=>saved,setItem:(_,value)=>{writes.push(value);saved=value;}}},document,{createObjectURL:()=> 'blob:voice',revokeObjectURL(){}},platform==='web'?atob:undefined);
     return api;
   }
   const Sheet=platform==='native'?load('mobile/src/components/LessonTutorSheet.tsx').LessonTutorSheet:load('frontend/components/LessonTutor.js').default;
@@ -85,16 +85,16 @@ for(const platform of ['native','web']) {
     const answer={role:'assistant',content:'Con he usamos is.'};
     await h.set({visible:true,messages:[answer]});assert.equal(h.requests.length,1);
     await h.control('Respuestas con voz');assert.equal(h.requests[0].signal.aborted,true);
-    h.requests[0].resolve(new Uint8Array([1,2]));await h.flush();assert.equal(h.player.plays,0,'Late speech cannot play after mute.');
+    h.requests[0].resolve('AQI=');await h.flush();assert.equal(h.player.plays,0,'Late speech cannot play after mute.');
     assert.equal(h.writes.at(-1),'off');
     await h.control('Respuestas con voz');assert.equal(h.requests.length,1,'Unmute does not retry interrupted speech automatically.');
     await h.set({messages:[answer,{role:'user',content:'Repite'},answer]});assert.equal(h.requests.length,2,'Identical new replies still autoplay.');
-    h.requests[1].resolve(new Uint8Array([1,2]));await h.flush();assert.equal(h.player.plays,1);await h.started();
+    h.requests[1].resolve('AQI=');await h.flush();assert.equal(h.player.plays,1);await h.started();
     await h.finish();assert.equal(h.requests.length,2);
     await h.control('Cerrar tutor y volver a la lección');await h.set({visible:true});assert.equal(h.requests.length,2,'Reopening does not reread history.');
     await h.set({messages:[answer,{role:'user',content:'Otra duda'},answer,{role:'assistant',content:'Otro ejemplo.'}]});
     await h.hide();assert.equal(h.requests[2].signal.aborted,true);
-    h.requests[2].resolve(new Uint8Array([1,2]));await h.flush();assert.equal(h.player.plays,1);
+    h.requests[2].resolve('AQI=');await h.flush();assert.equal(h.player.plays,1);
     h.unmount();
   });
   test(`${platform}: saved mute is respected on opening and remount`,async()=>{
@@ -109,8 +109,8 @@ for(const platform of ['native','web']) {
     const h=harness(platform);await h.flush();
     const answer={role:'assistant',content:'Respuesta que debe esperar a la voz.'};
     await h.set({visible:true,messages:[answer]});assert.ok(!h.text().includes(answer.content));assert.match(h.text(),/Preparando voz/);
-    h.requests[0].chunk(new Uint8Array([1]));await h.flush();assert.equal(h.player.plays,1);assert.ok(!h.text().includes(answer.content),'Ready bytes do not prove playback.');
-    h.requests[0].chunk(new Uint8Array([2]));h.requests[0].resolve();await h.flush();assert.equal(h.player.plays,1,'Second segment waits for first.');
+    h.requests[0].chunk('AQ==');await h.flush();assert.equal(h.player.plays,1);assert.ok(!h.text().includes(answer.content),'Ready bytes do not prove playback.');
+    h.requests[0].chunk('Ag==');h.requests[0].resolve();await h.flush();assert.equal(h.player.plays,1,'Second segment waits for first.');
     await h.started();assert.ok(h.text().includes(answer.content));await h.finish();assert.equal(h.player.plays,2);await h.started();await h.finish();
     const second={role:'assistant',content:'Otro mensaje con audio fallido.'};
     await h.set({messages:[answer,{role:'user',content:'Más'},second]});assert.ok(!h.text().includes(second.content));
@@ -121,12 +121,12 @@ for(const platform of ['native','web']) {
   });
   test(`${platform}: player startup failure reveals text and clears pending animation`,async()=>{
     const h=harness(platform);await h.flush();const answer={role:'assistant',content:'Puedes leer esta respuesta.'};
-    await h.set({visible:true,messages:[answer]});h.requests[0].resolve(new Uint8Array([1]));await h.flush();
+    await h.set({visible:true,messages:[answer]});h.requests[0].resolve('AQ==');await h.flush();
     await h.failed();assert.ok(h.text().includes(answer.content));assert.match(h.text(),/Reintentar voz/);h.unmount();
   });
   test(`${platform}: stalled playback times out without trapping the hidden reply`,async()=>{
     const h=harness(platform);await h.flush();const answer={role:'assistant',content:'La explicación sigue disponible.'};
-    await h.set({visible:true,messages:[answer]});h.requests[0].resolve(new Uint8Array([1]));await h.flush();
+    await h.set({visible:true,messages:[answer]});h.requests[0].resolve('AQ==');await h.flush();
     await h.timeout();assert.ok(h.text().includes(answer.content));assert.match(h.text(),/Reintentar voz/);
     assert.ok(!h.text().includes('Preparando voz'));assert.equal(h.requests.length,1,'Timeout does not trigger a paid retry.');h.unmount();
   });

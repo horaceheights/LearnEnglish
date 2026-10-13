@@ -9,7 +9,7 @@ function load(file, mocks = {}, fetchMock) {
   const code = ts.transpileModule(fs.readFileSync(path.join(root, file), 'utf8'), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText;
-  new Function('require', 'exports', 'fetch', code)(id => { assert.ok(id in mocks, id); return mocks[id]; }, api, fetchMock);
+  new Function('require', 'exports', 'fetch', 'atob', code)(id => { assert.ok(id in mocks, id); return mocks[id]; }, api, fetchMock, undefined);
   return api;
 }
 const speech = load('mobile/src/tutorSpeechStream.ts');
@@ -43,12 +43,12 @@ for (const platform of ['native', 'web']) {
       let controller;
       const h = harness(platform, async () => new Response(new ReadableStream({ start(c) { controller = c; } }), { headers: { 'content-type': 'application/x-ndjson' } }));
       const seen = [];
-      const pending = h.api.speakTutor({}, 'Texto', new AbortController().signal, bytes => seen.push([...bytes]));
+      const pending = h.api.speakTutor({}, 'Texto', new AbortController().signal, base64 => seen.push(base64));
       await new Promise(resolve => setImmediate(resolve));
       h.account.setAccountSession({ ...initial, userId: changed ? 'b' : initial.userId });
       controller.enqueue(new TextEncoder().encode('{"type":"audio","index":0,"audio":"AQI="}\n{"type":"done"}\n')); controller.close();
       if (changed) { await assert.rejects(pending, /La cuenta cambió/); assert.deepEqual(seen, []); }
-      else { await pending; assert.deepEqual(seen, [[1, 2]]); }
+      else { await pending; assert.deepEqual(seen, ['AQI=']); }
     }
   });
 }
@@ -56,9 +56,10 @@ test('speech stream parses split lines and rejects truncated, reordered or faile
   async function run(lines) {
     const seen = [];
     const body = new ReadableStream({ start(c) { for (const text of lines) c.enqueue(new TextEncoder().encode(text)); c.close(); } });
-    await speech.readTutorSpeech(new Response(body, { headers: { 'content-type': 'application/x-ndjson' } }), new AbortController().signal, () => {}, bytes => seen.push([...bytes]));
+    await speech.readTutorSpeech(new Response(body, { headers: { 'content-type': 'application/x-ndjson' } }), new AbortController().signal, () => {}, base64 => seen.push(base64));
     return seen;
   }
-  assert.deepEqual(await run(['{"type":"audio","index":0,', '"audio":"AQI="}\n', '{"type":"done"}\n']), [[1,2]]);
+  assert.deepEqual(await run(['{"type":"audio","index":0,', '"audio":"AQI="}\n', '{"type":"done"}\n']), ['AQI=']);
   for (const content of ['{"type":"error"}\n', '{"type":"audio","index":1,"audio":"AQI="}\n', '{"type":"audio","index":0,"audio":"AQI="}\n', '{"type":"done"}\n']) await assert.rejects(run([content]));
+  for (const audio of ['?', 'AQI', '=Q==', 'AQ===']) await assert.rejects(run([JSON.stringify({type:'audio',index:0,audio})+'\n{"type":"done"}\n']));
 });

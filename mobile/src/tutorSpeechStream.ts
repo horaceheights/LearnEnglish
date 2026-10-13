@@ -1,7 +1,7 @@
 /** Bounded, ordered audio segments from one authenticated tutor request. */
 export async function readTutorSpeech(
   response: Response, signal: AbortSignal, assertIdentity: () => void,
-  onAudio: (bytes: Uint8Array) => void,
+  onAudio: (base64: string) => void,
 ) {
   if (!response.headers.get('content-type')?.includes('application/x-ndjson') || !response.body) throw new Error('Invalid speech stream');
   const reader = response.body.getReader();
@@ -25,9 +25,9 @@ export async function readTutorSpeech(
         if (complete) throw new Error('Audio after completion');
         if (item.type === 'done' && count > 0) { complete = true; continue; }
         if (item.type !== 'audio' || item.index !== count || ++count > 2 || typeof item.audio !== 'string' || !item.audio) throw new Error('Invalid speech segment');
-        const binary = atob(item.audio);
+        if (item.audio.length % 4 || !/^[A-Za-z0-9+/]+={0,2}$/.test(item.audio)) throw new Error('Invalid audio encoding');
         check();
-        onAudio(Uint8Array.from(binary, character => character.charCodeAt(0)));
+        onAudio(item.audio);
       }
     }
     if (!complete || pending.trim()) throw new Error('Incomplete speech stream');
@@ -38,12 +38,12 @@ export async function readTutorSpeech(
 }
 
 /** Download the next sentence while the current one plays; never overlap voices. */
-export function tutorSpeechQueue(play: (bytes: Uint8Array) => Promise<void>, cancel: () => void) {
+export function tutorSpeechQueue(play: (base64: string) => Promise<void>, cancel: () => void) {
   let tail = Promise.resolve();
   let failure: unknown;
   return {
-    add(bytes: Uint8Array) {
-      tail = tail.then(async () => { if (!failure) await play(bytes); }).catch(error => { failure = error; cancel(); });
+    add(base64: string) {
+      tail = tail.then(async () => { if (!failure) await play(base64); }).catch(error => { failure = error; cancel(); });
     },
     async finish() { await tail; if (failure) throw failure; },
   };

@@ -63,8 +63,9 @@ export default function LessonTutor({ tutor, context, title, answer }) {
     const run = epoch.current;
     const controller = new AbortController(); abort.current = controller;
     const timeout = setTimeout(() => controller.abort(), 45000);
-    const queue = tutorSpeechQueue(async bytes => {
+    const queue = tutorSpeechQueue(async base64 => {
       if (controller.signal.aborted || run !== epoch.current || !visible.current || document.hidden) return;
+      const bytes = Uint8Array.from(atob(base64), character => character.charCodeAt(0));
       const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' })); audioUrl.current = url;
       const audio = getTutorAudio(); player.current = audio; setPhase('loading');
       try {

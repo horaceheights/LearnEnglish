@@ -75,10 +75,10 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
     const generation = run.current;
     const controller = new AbortController(); voiceAbort.current = controller;
     const timer = setTimeout(() => controller.abort(), 45000);
-    const queue = tutorSpeechQueue(async bytes => {
+    const queue = tutorSpeechQueue(async base64 => {
       if (controller.signal.aborted || generation !== run.current || !visible.current || !foreground.current) return;
       const file = new File(Paths.cache, `lesson-tutor-${Date.now()}-${generation}.mp3`);
-      file.write(bytes); audioFile.current = file;
+      file.write(base64, { encoding: 'base64' }); audioFile.current = file;
       try {
         setPhase('loading');
         await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: false });
