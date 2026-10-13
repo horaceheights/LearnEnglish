@@ -45,6 +45,7 @@
 .aiWave i:nth-child(2n) { height:13px; animation-delay:-.4s; }
 .aiWave i:nth-child(3n) { height:22px; animation-delay:-.2s; }
 .aiStatus { display:flex; align-items:center; gap:14px; padding:6px 3px; color:#176f73; font-weight:700; }
+.pending { min-height:130px; justify-content:center; }
 .recordingVisual { display:flex; justify-content:center; padding:8px; }
 @keyframes aiPulse { 0%,100% { opacity:.3; transform:scale(1.05); } 50% { opacity:.65; transform:scale(1.45); } }
 @keyframes aiOrbit { to { transform:rotate(360deg); } }

@@ -188,6 +188,50 @@ class LessonTutorTests(unittest.TestCase):
             self.assertEqual(503, error.exception.status_code)
             self.assertNotIn('encoder', error.exception.detail)
 
+    def test_segmented_speech_preserves_voice_text_order_and_quota(self):
+        text = 'Con he usamos is para hablar de una persona. Por ejemplo: He is a boy. They are children.'
+        parts = tutor.speech_segments(text)
+        self.assertEqual(2, len(parts))
+        self.assertEqual(text, ' '.join(parts))
+        with patch.object(tutor, 'synthesize_speech', new_callable=AsyncMock, side_effect=[b'first', b'second']) as generate:
+            response = self.post('speech-stream', text=text)
+            events = [json.loads(line) for line in response.text.splitlines()]
+            self.assertEqual('application/x-ndjson', response.headers['content-type'])
+            self.assertEqual('no-store', response.headers['cache-control'])
+            self.assertEqual([b'first', b'second'], [base64.b64decode(item['audio']) for item in events[:-1]])
+            self.assertEqual({'type': 'done'}, events[-1])
+            self.assertEqual(parts, [call.args[0] for call in generate.call_args_list])
+            self.assertEqual(2, sum(map(len, tutor._hits.values())))
+        tutor._hits.clear()
+        with patch.object(tutor, 'synthesize_speech', new_callable=AsyncMock, side_effect=HTTPException(503, 'private provider data')) as generate:
+            response = self.post('speech-stream', text='Una pista breve.')
+            self.assertEqual([{'type': 'error'}], [json.loads(line) for line in response.text.splitlines()])
+            self.assertEqual(1, generate.await_count)
+        self.assertEqual(['Una pista breve.'], tutor.speech_segments('Una pista breve.'))
+
+    def test_segment_stream_starts_before_remainder_and_cancels_pending_work(self):
+        async def exercise():
+            cancelled = asyncio.Event()
+            async def generate(text, *_):
+                if text.startswith('Con he'): return b'first'
+                try: await asyncio.Event().wait()
+                finally: cancelled.set()
+            payload = tutor.SpeechRequest(**self.body, text='Con he usamos is para hablar de una persona. Por ejemplo: He is a boy.')
+            with patch.object(tutor, 'synthesize_speech', side_effect=generate):
+                response = await tutor.speech_stream(payload, {'user_id': 'test'})
+                first = await asyncio.wait_for(anext(response.body_iterator), timeout=1)
+                self.assertEqual('audio', json.loads(first)['type'])
+                await response.body_iterator.aclose()
+                self.assertTrue(cancelled.is_set())
+        asyncio.run(exercise())
+
+    def test_segment_quota_is_reserved_before_any_paid_work(self):
+        with patch.object(tutor, 'synthesize_speech', new_callable=AsyncMock, return_value=b'audio') as generate:
+            for _ in range(19): self.assertEqual(200, self.post('speech-stream', text='Hola.').status_code)
+            response = self.post('speech-stream', text='Con he usamos is para hablar de una persona. Por ejemplo: He is a boy.')
+            self.assertEqual(429, response.status_code)
+            self.assertEqual(19, generate.await_count)
+
     def test_configured_mp3_provider_remains_compatible(self):
         with patch.dict('os.environ', {'OPENROUTER_TUTOR_TTS_MODEL': 'elevenlabs/eleven-flash-v2.5', 'OPENROUTER_TUTOR_VOICE': 'liam'}), \
                 patch.object(tutor, 'provider_request', new_callable=AsyncMock, return_value=b'mp3') as provider, \
