@@ -6,6 +6,9 @@ import styles from './LessonTutor.module.css';
 import { TutorActivity } from './TutorActivity';
 import { getTutorAudio } from '../lib/tutorAudio';
 import { useTutorVoicePreference } from '../../mobile/src/hooks/useTutorVoicePreference';
+import { useTutorReplyReveal } from '../../mobile/src/hooks/useTutorReplyReveal';
+import { tutorSpeechQueue } from '../../mobile/src/tutorSpeechStream';
+import { playWebTutorSegment } from '../../mobile/src/tutorSpeechPlayback';
 
 const voiceStorage = {
   getItem: async key => window.localStorage.getItem(key),
@@ -28,16 +31,20 @@ export default function LessonTutor({ tutor, context, title, answer }) {
   const epoch = useRef(0);
   const visible = useRef(tutor.visible); visible.current = tutor.visible;
   const lastSpoken = useRef('');
+  const speechMessage = useRef('');
   const key = tutorContextKey(context);
-  const stopVoice = useCallback(() => {
+  const { latestKey, reveal, waiting } = useTutorReplyReveal(tutor.messages, key, voiceReplies, voicePreferenceReady);
+  const stopVoice = useCallback((revealPending = true) => {
+    if (revealPending && speechMessage.current) reveal(speechMessage.current);
+    speechMessage.current = '';
     epoch.current++; abort.current?.abort(); abort.current = null;
     if (recording.current?.state === 'recording') recording.current.stop();
     recording.current = null;
     stream.current?.getTracks().forEach(track => track.stop()); stream.current = null;
-    if (player.current) { player.current.onended = null; player.current.onerror = null; player.current.pause(); player.current = null; }
+    if (player.current) { player.current.onplaying = null; player.current.onended = null; player.current.onerror = null; player.current.pause(); player.current = null; }
     if (audioUrl.current) URL.revokeObjectURL(audioUrl.current); audioUrl.current = null;
     setPhase('idle');
-  }, []);
+  }, [reveal]);
   useEffect(() => {
     if (tutor.visible && !dialog.current.open) dialog.current.showModal();
     if (!tutor.visible) { dialog.current?.close(); stopVoice(); }
@@ -49,31 +56,46 @@ export default function LessonTutor({ tutor, context, title, answer }) {
     document.addEventListener('visibilitychange', hide);
     return () => document.removeEventListener('visibilitychange', hide);
   }, [stopVoice]);
-  useEffect(() => { body.current?.scrollTo({ top: body.current.scrollHeight }); }, [tutor.messages, tutor.busy]);
-  const play = useCallback(async text => {
-    stopVoice(); setPhase('loading'); setVoiceError('');
+  useEffect(() => { body.current?.scrollTo({ top: body.current.scrollHeight }); }, [tutor.messages, tutor.busy, waiting]);
+  const play = useCallback(async (text, messageKey = latestKey) => {
+    stopVoice(false); setPhase('loading'); setVoiceError('');
+    speechMessage.current = messageKey;
     const run = epoch.current;
     const controller = new AbortController(); abort.current = controller;
     const timeout = setTimeout(() => controller.abort(), 45000);
+    const queue = tutorSpeechQueue(async base64 => {
+      if (controller.signal.aborted || run !== epoch.current || !visible.current || document.hidden) throw new Error('Audio cancelled');
+      const bytes = Uint8Array.from(atob(base64), character => character.charCodeAt(0));
+      const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' })); audioUrl.current = url;
+      const audio = getTutorAudio(); player.current = audio; setPhase('loading');
+      try {
+        await playWebTutorSegment(audio, url, controller.signal, () => {
+          if (run === epoch.current && visible.current && !document.hidden) { reveal(messageKey); setPhase('speaking'); }
+        });
+        if (run === epoch.current) setPhase('loading');
+      } finally {
+        URL.revokeObjectURL(url);
+        if (audioUrl.current === url) audioUrl.current = null;
+      }
+    }, () => controller.abort());
     try {
-      const blob = await speakTutor(context, text, controller.signal);
-      if (run !== epoch.current || !visible.current || document.hidden) return;
-      audioUrl.current = URL.createObjectURL(blob);
-      const audio = getTutorAudio(); audio.src = audioUrl.current; player.current = audio;
-      audio.onended = () => { if (run === epoch.current) setPhase('idle'); };
-      audio.onerror = () => { if (run === epoch.current && visible.current) { setPhase('idle'); setVoiceError('No pudimos reproducir la voz. Toca la bocina para reintentar.'); } };
-      await audio.play();
-      if (run === epoch.current && visible.current && !document.hidden) setPhase('speaking');
+      await speakTutor(context, text, controller.signal, queue.add);
+      clearTimeout(timeout);
+      await queue.finish();
+      if (controller.signal.aborted) throw new Error('Audio cancelled');
+      if (run === epoch.current) setPhase('idle');
     } catch {
-      if (run === epoch.current && visible.current) { setVoiceError('No pudimos reproducir la voz. Toca la bocina para reintentar.'); setPhase('idle'); }
+      controller.abort();
+      await queue.finish().catch(() => undefined);
+      if (run === epoch.current && visible.current) { reveal(messageKey); setVoiceError('No pudimos reproducir la voz. Puedes leer la explicación.'); setPhase('idle'); }
     } finally { clearTimeout(timeout); if (run === epoch.current) abort.current = null; }
-  }, [context, stopVoice]);
+  }, [context, latestKey, reveal, stopVoice]);
   useEffect(() => {
     const last = tutor.messages.at(-1);
-    const messageKey = `${key}:${tutor.messages.length}:${last?.content}`;
+    const messageKey = latestKey;
     if (!tutor.visible || !voicePreferenceReady || !voiceReplies || tutor.busy || phase !== 'idle' || last?.role !== 'assistant' || lastSpoken.current === messageKey || document.hidden) return;
     lastSpoken.current = messageKey; void play(last.content);
-  }, [key, phase, play, tutor.busy, tutor.messages, tutor.visible, voicePreferenceReady, voiceReplies]);
+  }, [latestKey, phase, play, tutor.busy, tutor.messages, tutor.visible, voicePreferenceReady, voiceReplies]);
   const finishRecording = useCallback(() => {
     if (recording.current?.state === 'recording') { setPhase('transcribing'); recording.current.stop(); }
   }, []);
@@ -113,7 +135,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
         } catch { if (run === epoch.current && visible.current) setVoiceError('No pudimos transcribir tu pregunta. Graba otra vez o escríbela.'); }
         finally { clearTimeout(timeout); if (run === epoch.current) { abort.current = null; setPhase('idle'); } }
       };
-      recorder.start(); lastSpoken.current = `${key}:${tutor.messages.length}:${tutor.messages.at(-1)?.content}`; setPhase('recording');
+      recorder.start(); lastSpoken.current = latestKey; setPhase('recording');
     } catch {
       if (run === epoch.current) { stopVoice(); setVoiceError('No pudimos abrir el micrófono. Revisa el permiso del navegador o escribe tu pregunta.'); }
     }
@@ -130,17 +152,17 @@ export default function LessonTutor({ tutor, context, title, answer }) {
       <p>{title} · Lección en pausa</p></header>
     <div ref={body} className={styles.messages} aria-live="polite">
       <p className={styles.context}>{answer ? `Tu respuesta: ${answer}` : 'Una pista para esta tarjeta. Tú eliges la respuesta.'}</p>
-      {tutor.messages.map((message, index) => <div key={index} className={`${styles.bubble} ${message.role === 'user' ? styles.user : ''}`}>
+      {tutor.messages.map((message, index) => waiting && index === tutor.messages.length - 1 ? null : <div key={index} className={`${styles.bubble} ${message.role === 'user' ? styles.user : ''}`}>
         <p>{message.content}</p>{message.role === 'assistant' ? <button type="button" className={styles.speaker} disabled={voiceBusy} aria-label="Escuchar explicación" onClick={() => void play(message.content)}>♪ Escuchar</button> : null}
       </div>)}
-      {tutor.busy || ['loading', 'speaking'].includes(phase) ? <div className={styles.aiStatus} role="status">
+      {tutor.busy || waiting || ['loading', 'speaking'].includes(phase) ? <div className={`${styles.aiStatus} ${tutor.busy || waiting ? styles.pending : ''}`} role="status">
         <TutorActivity state={phase === 'speaking' ? 'speaking' : 'thinking'} active={tutor.visible} />
-        <span>{tutor.busy ? 'Pensando…' : phase === 'loading' ? 'Preparando voz…' : 'Hablando…'}</span></div> : null}
+        <span>{tutor.busy ? 'Pensando…' : waiting || phase === 'loading' ? 'Preparando voz…' : 'Hablando…'}</span></div> : null}
       {tutor.error ? <div role="status" className={styles.error}>{tutor.error}<button type="button" onClick={tutor.retry}>Reintentar</button></div> : null}
-      {!tutor.busy && tutor.messages.length ? <div className={styles.suggestions}>{TUTOR_SUGGESTIONS.map(text => <button type="button" key={text} disabled={voiceBusy} onClick={() => void send(text)}>{text}</button>)}</div> : null}
+      {!tutor.busy && !waiting && tutor.messages.length ? <div className={styles.suggestions}>{TUTOR_SUGGESTIONS.map(text => <button type="button" key={text} disabled={voiceBusy} onClick={() => void send(text)}>{text}</button>)}</div> : null}
     </div>
     <footer className={styles.footer}>
-      {voiceError ? <p role="status" className={styles.error}>{voiceError}</p> : null}
+      {voiceError ? <div className={styles.error} role="status">{voiceError}{tutor.messages.at(-1)?.role === 'assistant' ? <button type="button" aria-label="Reintentar voz" onClick={() => void play(tutor.messages.at(-1).content)}>Reintentar voz</button> : null}</div> : null}
       {voiceBusy ? <div className={styles.recording}><p role="status">{phase === 'recording' ? `Grabando… ${seconds} s` : phase === 'transcribing' ? 'Transcribiendo…' : 'Abriendo micrófono…'}</p>
         {phase === 'recording' ? <><div className={styles.recordingVisual}><TutorActivity state="listening" active={tutor.visible} /></div><button type="button" onClick={finishRecording}>Terminar grabación</button></> : null}<button type="button" onClick={stopVoice}>Cancelar</button></div>
         : <form className={styles.composer} onSubmit={event => { event.preventDefault(); void send(draft); }}>

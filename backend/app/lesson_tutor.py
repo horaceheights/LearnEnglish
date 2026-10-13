@@ -1,6 +1,7 @@
 """Opt-in, card-grounded tutor. Provider credentials and answer context stay server-side."""
 from __future__ import annotations
 
+import asyncio
 import base64
 import json
 import os
@@ -14,7 +15,7 @@ from typing import Literal
 import httpx
 import imageio_ffmpeg
 from fastapi import APIRouter, Depends, HTTPException, Request
-from fastapi.responses import Response
+from fastapi.responses import Response, StreamingResponse
 from pydantic import BaseModel, ConfigDict, Field
 from starlette.concurrency import run_in_threadpool
 
@@ -73,6 +74,11 @@ async def tutor_account(request: Request):
     if identity is None:
         raise HTTPException(401, "Inicia sesión para hablar con el tutor.")
     account = await run_in_threadpool(accounts.ensure_account, identity)
+    charge_tutor(account)
+    return account
+
+
+def charge_tutor(account, amount=1):
     now = time.monotonic()
     # Shared across chat, transcription and speech; bounded memory, no transcripts.
     with _lock:
@@ -82,10 +88,9 @@ async def tutor_account(request: Request):
             if not _hits[key]:
                 del _hits[key]
         hits = _hits[account["user_id"]]
-        if len(hits) >= 180 or sum(t > now - 60 for t in hits) >= 20:
+        if len(hits) + amount > 180 or sum(t > now - 60 for t in hits) + amount > 20:
             raise HTTPException(429, "El tutor necesita una pausa. Inténtalo más tarde.")
-        hits.append(now)
-    return account
+        hits.extend([now] * amount)
 
 
 def resolve_context(payload: CardContext):
@@ -232,6 +237,12 @@ def pcm_to_mp3(data: bytes, encoder: str) -> bytes:
 @router.post("/speech")
 async def speech(payload: SpeechRequest, account=Depends(tutor_account)):
     resolve_context(payload)
+    model, encoder = speech_configuration()
+    data = await synthesize_speech(payload.text, model, encoder)
+    return Response(data, media_type="audio/mpeg", headers={"Cache-Control": "no-store"})
+
+
+def speech_configuration():
     model = os.getenv("OPENROUTER_TUTOR_TTS_MODEL", TUTOR_TTS_MODEL)
     pcm = model.startswith("google/")
     # Detect a missing encoder before making a paid speech request.
@@ -239,13 +250,57 @@ async def speech(payload: SpeechRequest, account=Depends(tutor_account)):
         encoder = imageio_ffmpeg.get_ffmpeg_exe() if pcm else None
     except (OSError, RuntimeError):
         raise HTTPException(503, "La voz no está disponible ahora. Puedes leer la explicación.") from None
+    return model, encoder
+
+
+async def synthesize_speech(text, model, encoder):
+    pcm = model.startswith("google/")
     data = await provider_request("audio/speech", {
         "model": model,
         "voice": os.getenv("OPENROUTER_TUTOR_VOICE", TUTOR_TTS_VOICE),
         "instructions": TUTOR_SPEECH_INSTRUCTIONS,
-        "input": payload.text, "response_format": "pcm" if pcm else "mp3",
+        "input": text, "response_format": "pcm" if pcm else "mp3",
         "provider": {"data_collection": "deny"},
     }, audio=True)
     if pcm:
         data = await run_in_threadpool(pcm_to_mp3, data, encoder)
-    return Response(data, media_type="audio/mpeg", headers={"Cache-Control": "no-store"})
+    return data
+
+
+def speech_segments(text):
+    # Two complete sentence groups, never word-by-word TTS or rewritten content.
+    # A short opening can play while the remainder is synthesized in parallel.
+    for boundary in re.finditer(r'[.!?]["”\']?(?=\s)', text):
+        end = boundary.end()
+        if 35 <= end <= 180 and len(text[end:].strip()) >= 15:
+            return [text[:end], text[end:].lstrip()]
+    return [text]
+
+
+@router.post("/speech-stream")
+async def speech_stream(payload: SpeechRequest, account=Depends(tutor_account)):
+    resolve_context(payload)
+    model, encoder = speech_configuration()
+    parts = speech_segments(payload.text)
+    # Charge each paid synthesis before starting either one; no hidden retries.
+    if len(parts) > 1:
+        charge_tutor(account, len(parts) - 1)
+
+    async def generate():
+        tasks = [asyncio.create_task(synthesize_speech(part, model, encoder)) for part in parts]
+        try:
+            for index, task in enumerate(tasks):
+                data = await task
+                yield json.dumps({"type": "audio", "index": index, "audio": base64.b64encode(data).decode()}) + "\n"
+            yield '{"type":"done"}\n'
+        except Exception:
+            # Never stream provider errors, learner text or credential details.
+            yield '{"type":"error"}\n'
+        finally:
+            for task in tasks:
+                if not task.done():
+                    task.cancel()
+            await asyncio.gather(*tasks, return_exceptions=True)
+
+    return StreamingResponse(generate(), media_type="application/x-ndjson",
+                             headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"})
