@@ -2,12 +2,12 @@ import { getApiBaseUrl } from './api';
 import { accountHeaders, captureAccountIdentity } from '../../mobile/src/accountSession';
 import { readTutorSpeech } from '../../mobile/src/tutorSpeechStream';
 
-async function request(path, body, signal, read) {
+async function request(path, body, signal, read, service = 'tutor') {
   const check = captureAccountIdentity();
   const headers = await accountHeaders();
   check();
   if (!headers.Authorization) throw new Error('Inicia sesión para hablar con el tutor.');
-  const response = await fetch(`${getApiBaseUrl()}/api/account/tutor/${path}`, {
+  const response = await fetch(`${getApiBaseUrl()}/api/account/${service}/${path}`, {
     method: 'POST', headers: { ...headers, 'Content-Type': 'application/json',
       'X-App-Key': process.env.NEXT_PUBLIC_APP_API_KEY || 'Lka_Ecgoda6om-OagWcyG0AK-zrmiD1c' },
     body: JSON.stringify(body), signal,
@@ -26,3 +26,8 @@ export const askTutor = (context, message, history, signal) => request('chat', {
 export const transcribeTutor = async (context, audio, format, signal) => (await request('transcribe', { ...context, audio, format }, signal, response => response.json())).text;
 export const speakTutor = (context, text, signal, onAudio) => request('speech-stream', { ...context, text }, signal,
   (response, check) => readTutorSpeech(response, signal, check, onAudio));
+
+export const askPractice = (context, message, history, signal) => request('chat', { ...context, message, history }, signal, response => response.json(), 'practice');
+export const transcribePractice = async (context, audio, format, signal) => (await request('transcribe', { ...context, audio, format }, signal, response => response.json(), 'practice')).text;
+export const speakPractice = (context, text, signal, onAudio) => request('speech', { ...context, text }, signal,
+  (response, check) => readTutorSpeech(response, signal, check, onAudio), 'practice');

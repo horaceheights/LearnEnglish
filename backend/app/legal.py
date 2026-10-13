@@ -36,7 +36,7 @@ def _page(title: str, body: str) -> str:
   </style>
 </head>
 <body><main><header><p>SpanGlish</p><h1>{html.escape(title)}</h1></header><article>{body}</article>
-<footer>Última actualización: 5 de octubre de 2026</footer></main></body>
+<footer>Última actualización: 13 de octubre de 2026</footer></main></body>
 </html>"""
 
 
@@ -69,6 +69,9 @@ def privacy_policy_html() -> str:
 <h2>Proveedores</h2>
 <p>El Tutor IA es opcional. Al abrirlo o enviar una pregunta, compartimos el contexto de la tarjeta y la conversación necesaria con OpenRouter y el proveedor del modelo para preparar la explicación. Al usar su micrófono, enviamos la grabación para transcribirla; puedes editar el texto antes de enviarlo como pregunta. Si pides escuchar una explicación, enviamos ese texto al proveedor de voz. No enviamos tu nombre, correo o identificador de cuenta al tutor, ni guardamos estas conversaciones o grabaciones en la base de datos de progreso. Se mantienen temporalmente en el dispositivo durante la actividad; los proveedores pueden conservar registros según sus políticas. Evita incluir información personal en tus preguntas.</p>
 <p>Utilizamos proveedores que procesan información por cuenta de SpanGlish, incluidos Clerk para cuentas y acceso, Render para infraestructura y base de datos, Microsoft Azure Speech para pronunciación, Sentry para diagnóstico y rendimiento, y Expo/EAS para crear y distribuir la aplicación y sus actualizaciones. Cada proveedor puede conservar datos técnicos conforme a sus propias políticas y obligaciones de seguridad.</p>
+
+<h2>Repaso opcional con Liam</h2>
+<p>Al iniciar el repaso, compartimos el contenido de la lección y el intercambio necesario con OpenRouter y el proveedor del modelo. Las grabaciones que envías para transcribir se procesan a través de OpenRouter y su proveedor de voz. ElevenLabs recibe las respuestas de Liam para producir su voz. Puedes revisar la transcripción antes de enviarla. El feedback se basa en el texto, no califica tu pronunciación ni cambia tu progreso. SpanGlish no guarda estos intercambios ni grabaciones en su base de datos de progreso; los proveedores pueden conservar registros conforme a sus políticas. Evita incluir datos personales.</p>
 
 <h2>Diagnóstico y reproducción de sesiones</h2>
 <p>Sentry puede recibir fallos, métricas de rendimiento y reproducciones técnicas asociadas a un error. Configuramos la reproducción para ocultar texto, imágenes y gráficos de la interfaz. No usamos estos datos con fines publicitarios.</p>

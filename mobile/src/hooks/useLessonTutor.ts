@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { tutorContextKey, tutorOpeningQuestion, type TutorContext, type TutorMessage, type TutorTransport } from '../lessonTutor';
 
 /** No mount, idle, wrong-answer or audio event can open the tutor. Only open(). */
-export function useLessonTutor(scope: string, context: TutorContext | null, transport: TutorTransport) {
+export function useLessonTutor(scope: string, context: TutorContext | null, transport: TutorTransport, openingQuestion?: string) {
   const [visible, setVisible] = useState(false);
   const [messages, setMessages] = useState<TutorMessage[]>([]);
   const [busy, setBusy] = useState(false);
@@ -56,8 +56,8 @@ export function useLessonTutor(scope: string, context: TutorContext | null, tran
   const open = useCallback(() => {
     if (!context || visibleRef.current) return;
     visibleRef.current = true; setVisible(true);
-    if (!history.current.length) void send(tutorOpeningQuestion(context), true);
-  }, [context, send]);
+    if (!history.current.length) void send(openingQuestion || tutorOpeningQuestion(context), true);
+  }, [context, openingQuestion, send]);
   const retry = useCallback(() => { if (failed.current) void send(failed.current.message, failed.current.initial); }, [send]);
   return { visible, visibleRef, messages, busy, error, open, close, send, retry };
 }

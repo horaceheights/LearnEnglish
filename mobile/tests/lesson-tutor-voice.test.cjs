@@ -6,6 +6,24 @@ const ts = require('typescript');
 const root = path.resolve(__dirname, '../..');
 const deferred = () => { let resolve, reject; const promise = new Promise((a,b) => { resolve=a; reject=b; }); return { promise, resolve, reject }; };
 
+for(const platform of ['native','web']) {
+  test(platform + ': practice uses its own voice and ends with feedback and no further composer',async()=>{
+    const h=harness(platform);
+    const speech=deferred(); let calls=0;
+    h.props.practice={answers:3,limit:3,complete:true,
+      speak:()=>{calls++;return speech.promise;},transcribe:async()=>''};
+    await h.set({visible:true,messages:[{role:'assistant',content:'Usaste he is correctamente. Practica she is. ¡Hasta pronto!'}]});
+    assert.equal(calls,1);assert.equal(h.requests.length,0,'Practice must not use the card tutor voice.');
+    assert.ok(!h.labels().includes('Tu respuesta para Liam'));
+    assert.match(h.text(),/Preparando tu feedback/);
+    await h.control('Respuestas con voz');speech.resolve();await h.flush();
+    assert.match(h.text(),/Repaso terminado/);
+    assert.match(h.text(),/Usaste he is correctamente/);
+    h.unmount();
+  });
+}
+
+
 // Execute both production voice surfaces, including the shared preference hook.
 // Only platform I/O is mocked; effects, cancellation, storage and user controls run.
 function harness(platform, saved = null, delayedRead = null, delayedAudioMode = null) {
@@ -51,6 +69,7 @@ function harness(platform, saved = null, delayedRead = null, delayedAudioMode = 
       if(id.endsWith('/tutorAudio'))return {getTutorAudio:()=>player};
       if(id.endsWith('.css'))return {};
       if(id.endsWith('/TutorActivity'))return {TutorActivity:()=>null};
+      if(id.endsWith('/LiamAvatar'))return {__esModule:true,default:()=>null,LiamAvatar:()=>null};
       const next=path.resolve(path.dirname(file),id);
       return load(next+(fs.existsSync(next+'.ts')?'.ts':'.js'));
     };
@@ -67,6 +86,7 @@ function harness(platform, saved = null, delayedRead = null, delayedAudioMode = 
   async function flush(){for(let i=0;i<14;i++){await Promise.resolve();render();}}
   render();
   return {props,requests,writes,player,playback,flush,
+    labels(){const values=[];walk(tree,node=>{const label=node.props?.accessibilityLabel||node.props?.['aria-label'];if(label)values.push(label);});return values;},
     text(){let result='';walk(tree,node=>{for(const child of [node.props?.children].flat())if(typeof child==='string')result+=child+' ';});return result;},
     async started(){if(platform==='native'){Object.assign(playback,{playing:true,isLoaded:true,isBuffering:false});listeners.forEach(fn=>fn(playback));dirty=true;}else player.onplaying?.();await flush();},
     async failed(){if(platform==='native')listeners.forEach(fn=>fn({...playback,error:'failure'}));else player.onerror?.();await flush();},

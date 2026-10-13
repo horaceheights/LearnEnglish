@@ -22,6 +22,9 @@ Durable project knowledge is organized by purpose. Application and tool-specific
 
 ## Operations
 
+- [Liam lesson-review POC](operations/lesson-practice.md): optional guided exchanges, providers and rollout limits.
+- [Liam review verification](qa/lesson-practice-poc.md): local evidence and device checks.
+
 - [Web/backend deployment](operations/deploy.md): Vercel and backend deployment notes.
 - [Clerk account setup](operations/learner-accounts.md): identity keys, hosted environments, callbacks and deletion webhook.
 - [Cloudflare course media](operations/cloudflare-course-media.md): default R2 publication, immutable audio validation and Render storage migration.
