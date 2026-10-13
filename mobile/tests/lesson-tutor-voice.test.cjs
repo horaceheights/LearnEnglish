@@ -8,7 +8,7 @@ const deferred = () => { let resolve, reject; const promise = new Promise((a,b) 
 
 // Execute both production voice surfaces, including the shared preference hook.
 // Only platform I/O is mocked; effects, cancellation, storage and user controls run.
-function harness(platform, saved = null, delayedRead = null) {
+function harness(platform, saved = null, delayedRead = null, delayedAudioMode = null) {
   let cursor=0, dirty=true, effects=[], tree, background;
   const slots=[], requests=[], writes=[], timers=new Set(), modules=new Map();
   const storage={ getItem:async()=>delayedRead || saved, setItem:async(key,value)=>{writes.push(value);saved=value;} };
@@ -46,7 +46,7 @@ function harness(platform, saved = null, delayedRead = null) {
       if(id==='react-native-safe-area-context')return {useSafeAreaInsets:()=>({top:24,bottom:24})};
       if(id==='expo-file-system')return {Paths:{cache:'cache'},File:class {write(content,options){assert.equal(typeof content,'string');assert.equal(options.encoding,'base64');} delete(){} uri='file://voice.mp3';}};
       if(id==='expo-audio')return {RecordingPresets:{HIGH_QUALITY:{}}, AudioModule:{requestRecordingPermissionsAsync:async()=>({granted:true})},
-        useAudioPlayer:()=>player,useAudioPlayerStatus:()=>playback,useAudioRecorder:()=>recorder,useAudioRecorderState:()=>({}),setAudioModeAsync:async()=>{}};
+        useAudioPlayer:()=>player,useAudioPlayerStatus:()=>playback,useAudioRecorder:()=>recorder,useAudioRecorderState:()=>({}),setAudioModeAsync:async()=>delayedAudioMode};
       if(id.endsWith('/tutorApi'))return {speakTutor:(context,text,signal,onAudio)=>{const d=deferred();requests.push({...d,context,text,signal,chunk:onAudio,resolve:bytes=>{if(bytes)onAudio(bytes);d.resolve();}});return d.promise;},transcribeTutor:async()=>''};
       if(id.endsWith('/tutorAudio'))return {getTutorAudio:()=>player};
       if(id.endsWith('.css'))return {};
@@ -139,4 +139,13 @@ test('native: a delayed preference read cannot briefly play speech or override a
 test('native: dictating a question preserves the explicit mute preference',async()=>{
   const h=harness('native','off');await h.flush();await h.set({visible:true,messages:[{role:'assistant',content:'Pista'}]});
   await h.control('Grabar pregunta');assert.equal(h.writes.length,0);assert.equal(h.requests.length,0);h.unmount();
+});
+
+test('native: stalled audio-mode preparation reveals text and cannot play after timeout',async()=>{
+  const mode=deferred();const h=harness('native',null,null,mode.promise);await h.flush();
+  const answer={role:'assistant',content:'Puedes continuar leyendo.'};
+  await h.set({visible:true,messages:[answer]});h.requests[0].resolve('AQI=');await h.flush();
+  assert.equal(h.player.plays,0);assert.ok(!h.text().includes(answer.content));
+  await h.timeout();assert.ok(h.text().includes(answer.content));assert.match(h.text(),/Reintentar voz/);
+  mode.resolve();await h.flush();assert.equal(h.player.plays,0,'Late audio-mode completion cannot resurrect timed-out playback.');h.unmount();
 });

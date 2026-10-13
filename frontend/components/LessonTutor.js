@@ -64,7 +64,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
     const controller = new AbortController(); abort.current = controller;
     const timeout = setTimeout(() => controller.abort(), 45000);
     const queue = tutorSpeechQueue(async base64 => {
-      if (controller.signal.aborted || run !== epoch.current || !visible.current || document.hidden) return;
+      if (controller.signal.aborted || run !== epoch.current || !visible.current || document.hidden) throw new Error('Audio cancelled');
       const bytes = Uint8Array.from(atob(base64), character => character.charCodeAt(0));
       const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' })); audioUrl.current = url;
       const audio = getTutorAudio(); player.current = audio; setPhase('loading');
@@ -82,6 +82,7 @@ export default function LessonTutor({ tutor, context, title, answer }) {
       await speakTutor(context, text, controller.signal, queue.add);
       clearTimeout(timeout);
       await queue.finish();
+      if (controller.signal.aborted) throw new Error('Audio cancelled');
       if (run === epoch.current) setPhase('idle');
     } catch {
       controller.abort();

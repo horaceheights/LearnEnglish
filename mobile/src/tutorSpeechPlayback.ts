@@ -5,7 +5,7 @@ type NativePlayer = {
   }) => void): { remove(): void };
 };
 
-export function playNativeTutorSegment(player: NativePlayer, uri: string, signal: AbortSignal, onStarted: () => void) {
+export function playNativeTutorSegment(player: NativePlayer, uri: string, signal: AbortSignal, onStarted: () => void, prepare: () => Promise<void>) {
   return new Promise<void>((resolve, reject) => {
     let started = false, settled = false;
     const startup = setTimeout(() => finish(new Error('Audio startup timed out')), 10000);
@@ -21,14 +21,18 @@ export function playNativeTutorSegment(player: NativePlayer, uri: string, signal
     if (signal.aborted) { cancel(); return; }
     signal.addEventListener('abort', cancel, { once: true });
     try {
-      subscription = player.addListener('playbackStatusUpdate', status => {
-        if (status.error) { finish(new Error('Audio playback failed')); return; }
-        if (!started && status.playing && status.isLoaded && !status.isBuffering) {
-          started = true; clearTimeout(startup); onStarted();
-        }
-        if (started && status.didJustFinish) finish();
-      });
-      player.replace({ uri }); player.play();
+      // The startup deadline also covers Android audio-mode preparation.
+      void prepare().then(() => {
+        if (settled) return;
+        subscription = player.addListener('playbackStatusUpdate', status => {
+          if (status.error) { finish(new Error('Audio playback failed')); return; }
+          if (!started && status.playing && status.isLoaded && !status.isBuffering) {
+            started = true; clearTimeout(startup); onStarted();
+          }
+          if (started && status.didJustFinish) finish();
+        });
+        player.replace({ uri }); player.play();
+      }).catch(() => finish(new Error('Audio playback failed')));
     } catch { finish(new Error('Audio playback failed')); }
   });
 }

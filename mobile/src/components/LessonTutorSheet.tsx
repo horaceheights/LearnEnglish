@@ -76,16 +76,15 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
     const controller = new AbortController(); voiceAbort.current = controller;
     const timer = setTimeout(() => controller.abort(), 45000);
     const queue = tutorSpeechQueue(async base64 => {
-      if (controller.signal.aborted || generation !== run.current || !visible.current || !foreground.current) return;
+      if (controller.signal.aborted || generation !== run.current || !visible.current || !foreground.current) throw new Error('Audio cancelled');
       const file = new File(Paths.cache, `lesson-tutor-${Date.now()}-${generation}.mp3`);
-      file.write(base64, { encoding: 'base64' }); audioFile.current = file;
+      audioFile.current = file;
       try {
+        file.write(base64, { encoding: 'base64' });
         setPhase('loading');
-        await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: false });
-        if (controller.signal.aborted || generation !== run.current || !visible.current || !foreground.current) return;
         await playNativeTutorSegment(player, file.uri, controller.signal, () => {
           if (generation === run.current && visible.current && foreground.current) { reveal(messageKey); setPhase('speaking'); }
-        });
+        }, () => setAudioModeAsync({ allowsRecording: false, playsInSilentMode: false }));
         if (generation === run.current) setPhase('loading');
       } finally {
         try { file.delete(); } catch {}
@@ -96,6 +95,7 @@ export function LessonTutorSheet({ tutor, context, title, answer, active }: Prop
       await speakTutor(context, text, controller.signal, queue.add);
       clearTimeout(timer);
       await queue.finish();
+      if (controller.signal.aborted) throw new Error('Audio cancelled');
       if (generation === run.current) setPhase('idle');
     } catch {
       controller.abort();
