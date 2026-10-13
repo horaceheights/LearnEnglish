@@ -7,9 +7,7 @@ import os
 import time
 from typing import Literal
 import av
-import httpx
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import Response
 from pydantic import Field
 from starlette.concurrency import run_in_threadpool
 from . import lesson_tutor as tutor
@@ -18,7 +16,6 @@ from .data import LESSONS
 router = APIRouter(prefix="/api/account/practice", tags=["lesson-practice"])
 LIMITS = {"short": 3, "extended": 6}
 START = "Iniciar el repaso con Liam."
-LIAM_VOICE = "TX3LPaxmHKxFdv7VOQHJ"
 
 class PracticeChat(tutor.ChatRequest):
     review_mode: Literal["short", "extended"] = "short"
@@ -131,37 +128,12 @@ async def chat(payload: PracticeChat, account=Depends(tutor.tutor_account)):
     return {"reply": closing_feedback(reply) if complete else reply,
             "complete": complete, "answers": answers, "limit": limit}
 
-async def elevenlabs(path, **kwargs):
-    key = os.getenv("ELEVENLABS_API_KEY", "").strip()
-    if not key:
-        raise HTTPException(503, "La voz de Liam no está disponible. Puedes continuar por escrito.")
-    try:
-        async with httpx.AsyncClient(timeout=httpx.Timeout(40, connect=10)) as client:
-            response = await client.post("https://api.elevenlabs.io/v1/" + path,
-                                         headers={"xi-api-key": key}, **kwargs)
-        if response.status_code == 429:
-            raise HTTPException(429, "La voz está ocupada. Inténtalo más tarde.")
-        if response.status_code != 200:
-            raise ValueError("Voice provider failed")
-        return response
-    except HTTPException:
-        raise
-    except (httpx.HTTPError, ValueError):
-        raise HTTPException(503, "No pudimos preparar la voz. Puedes continuar por escrito.") from None
-
 @router.post("/speech")
 async def speech(payload: PracticeSpeech, account=Depends(tutor.tutor_account)):
     practice_context(payload)
-    response = await elevenlabs("text-to-speech/" + LIAM_VOICE,
-        params={"output_format": "mp3_44100_128"},
-        json={"text": payload.text, "model_id": os.getenv("ELEVENLABS_PRACTICE_MODEL", "eleven_flash_v2_5"),
-              "voice_settings": {"stability": 0.5, "similarity_boost": 0.75, "speed": 0.9}})
-    if (response.headers.get("content-type", "").split(";")[0] != "audio/mpeg"
-            or not response.content or len(response.content) > 3_000_000):
-        raise HTTPException(503, "No pudimos preparar la voz. Puedes leer la respuesta.")
-    events = json.dumps({"type": "audio", "index": 0,
-                         "audio": base64.b64encode(response.content).decode()}) + '\n{"type":"done"}\n'
-    return Response(events, media_type="application/x-ndjson", headers={"Cache-Control": "no-store"})
+    # Share the approved bilingual voice, pronunciation instructions, ordered
+    # segments, encoding and per-segment quota with the card tutor.
+    return await tutor.speech_stream(tutor.SpeechRequest(**payload.model_dump(exclude={"review_mode"})), account)
 
 def validate_recording(audio):
     started, duration = time.monotonic(), 0.0
@@ -186,5 +158,5 @@ async def transcribe(payload: PracticeTranscription, account=Depends(tutor.tutor
     except ValueError:
         raise HTTPException(422, "La grabación no es válida. Graba de nuevo o escribe tu respuesta.") from None
     await run_in_threadpool(validate_recording, audio)
-    # Reuse the established STT route and credential; the Liam key is TTS-only.
+    # Reuse the established STT route and credential.
     return await tutor.transcribe(tutor.TranscriptionRequest(**payload.model_dump(exclude={"review_mode"})), account)

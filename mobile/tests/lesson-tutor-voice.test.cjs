@@ -26,7 +26,7 @@ for(const platform of ['native','web']) {
 
 // Execute both production voice surfaces, including the shared preference hook.
 // Only platform I/O is mocked; effects, cancellation, storage and user controls run.
-function harness(platform, saved = null, delayedRead = null, delayedAudioMode = null) {
+function harness(platform, saved = null, delayedRead = null, delayedAudioMode = null, permissionRequest = null) {
   let cursor=0, dirty=true, effects=[], tree, background;
   const slots=[], requests=[], writes=[], timers=new Set(), modules=new Map();
   const storage={ getItem:async()=>delayedRead || saved, setItem:async(key,value)=>{writes.push(value);saved=value;} };
@@ -34,7 +34,7 @@ function harness(platform, saved = null, delayedRead = null, delayedAudioMode = 
   const listeners=new Set();
   const player={ plays:0, pauses:0, replace(){playback.didJustFinish=false;}, play:async()=>{player.plays++;}, pause(){player.pauses++;playback.playing=false;},
     addListener(_,fn){listeners.add(fn);return {remove:()=>listeners.delete(fn)};} };
-  const recorder={prepareToRecordAsync:async()=>{},record(){},stop:async()=>{}};
+  const recorder={uri:'file://recording.m4a',starts:0,stops:0,prepareToRecordAsync:async()=>{},record(){this.starts++;},stop:async()=>{recorder.stops++;}};
   const dom={open:false,showModal(){this.open=true;},close(){this.open=false;},scrollTo(){}};
   const document={hidden:false,addEventListener:(_,fn)=>{background=fn;},removeEventListener(){}};
   const same=(a,b)=>a&&b&&a.length===b.length&&a.every((v,i)=>Object.is(v,b[i]));
@@ -48,7 +48,7 @@ function harness(platform, saved = null, delayedRead = null, delayedAudioMode = 
   };
   const jsx=(type,props)=>({type,props});
   const AppState={currentState:'active',addEventListener:(_,fn)=>{background=fn;return {remove(){}};}};
-  const rn=new Proxy({AppState,Platform:{OS:'android'},StyleSheet:{create:v=>v}}, {get:(o,k)=>o[k]||k});
+  const rn=new Proxy({AppState,Platform:{OS:'android'},StyleSheet:{create:v=>v},useWindowDimensions:()=>({width:390,height:844,fontScale:1})}, {get:(o,k)=>o[k]||k});
   function load(file) {
     file=path.resolve(root,file);
     if(modules.has(file))return modules.get(file);
@@ -62,8 +62,8 @@ function harness(platform, saved = null, delayedRead = null, delayedAudioMode = 
       if(id==='@react-native-async-storage/async-storage')return storage;
       if(id.includes('Ionicons'))return ()=>null;
       if(id==='react-native-safe-area-context')return {useSafeAreaInsets:()=>({top:24,bottom:24})};
-      if(id==='expo-file-system')return {Paths:{cache:'cache'},File:class {write(content,options){assert.equal(typeof content,'string');assert.equal(options.encoding,'base64');} delete(){} uri='file://voice.mp3';}};
-      if(id==='expo-audio')return {RecordingPresets:{HIGH_QUALITY:{}}, AudioModule:{requestRecordingPermissionsAsync:async()=>({granted:true})},
+      if(id==='expo-file-system')return {Paths:{cache:'cache'},File:class {write(content,options){assert.equal(typeof content,'string');assert.equal(options.encoding,'base64');} delete(){} async base64(){return 'AA==';} uri='file://voice.mp3';}};
+      if(id==='expo-audio')return {RecordingPresets:{HIGH_QUALITY:{}}, AudioModule:{getRecordingPermissionsAsync:async()=>({granted:!permissionRequest}),requestRecordingPermissionsAsync:async()=>permissionRequest || ({granted:true})},
         useAudioPlayer:()=>player,useAudioPlayerStatus:()=>playback,useAudioRecorder:()=>recorder,useAudioRecorderState:()=>({}),setAudioModeAsync:async()=>delayedAudioMode};
       if(id.endsWith('/tutorApi'))return {speakTutor:(context,text,signal,onAudio)=>{const d=deferred();requests.push({...d,context,text,signal,chunk:onAudio,resolve:bytes=>{if(bytes)onAudio(bytes);d.resolve();}});return d.promise;},transcribeTutor:async()=>''};
       if(id.endsWith('/tutorAudio'))return {getTutorAudio:()=>player};
@@ -85,8 +85,9 @@ function harness(platform, saved = null, delayedRead = null, delayedAudioMode = 
   function render(){for(let i=0;dirty;i++){assert.ok(i<40,'Effect loop');dirty=false;cursor=0;effects=[];tree=Sheet(props);walk(tree,node=>{if(node.props?.ref)node.props.ref.current=dom;});effects.forEach(fn=>fn());}}
   async function flush(){for(let i=0;i<14;i++){await Promise.resolve();render();}}
   render();
-  return {props,requests,writes,player,playback,flush,
+  return {props,requests,writes,player,playback,recorder,flush,
     labels(){const values=[];walk(tree,node=>{const label=node.props?.accessibilityLabel||node.props?.['aria-label'];if(label)values.push(label);});return values;},
+    value(label){let value;walk(tree,node=>{if(node.props?.accessibilityLabel===label)value=node.props.value;});return value;},
     text(){let result='';walk(tree,node=>{for(const child of [node.props?.children].flat())if(typeof child==='string')result+=child+' ';});return result;},
     async started(){if(platform==='native'){Object.assign(playback,{playing:true,isLoaded:true,isBuffering:false});listeners.forEach(fn=>fn(playback));dirty=true;}else player.onplaying?.();await flush();},
     async failed(){if(platform==='native')listeners.forEach(fn=>fn({...playback,error:'failure'}));else player.onerror?.();await flush();},
@@ -94,6 +95,7 @@ function harness(platform, saved = null, delayedRead = null, delayedAudioMode = 
     async set(next){Object.assign(props.tutor,next);dirty=true;await flush();},
     async control(label){let found;walk(tree,node=>{if((node.props?.accessibilityLabel||node.props?.['aria-label'])===label)found=node;});assert.ok(found,label);await(found.props.onPress||found.props.onClick)();await flush();},
     async hide(){if(platform==='native')background('background');else{document.hidden=true;background();}await flush();},
+    async appState(state){AppState.currentState=state;props.active=state==='active';background(state);dirty=true;await flush();},
     async finish(){if(platform==='native'){playback.didJustFinish=true;listeners.forEach(fn=>fn(playback));dirty=true;}else player.onended?.();await flush();},
     unmount(){slots.forEach(s=>s?.cleanup?.());assert.equal(timers.size,0);},
   };
@@ -159,6 +161,52 @@ test('native: a delayed preference read cannot briefly play speech or override a
 test('native: dictating a question preserves the explicit mute preference',async()=>{
   const h=harness('native','off');await h.flush();await h.set({visible:true,messages:[{role:'assistant',content:'Pista'}]});
   await h.control('Grabar pregunta');assert.equal(h.writes.length,0);assert.equal(h.requests.length,0);h.unmount();
+});
+
+for (const practice of [false,true]) test(`native: ${practice?'Liam':'tutor'} microphone survives permission dialog and waits for foreground`,async()=>{
+  const permission=deferred();const h=harness('native','off',null,null,permission.promise);
+  if(practice)h.props.practice={answers:0,limit:3,complete:false,speak:async()=>{},transcribe:async()=>''};
+  await h.set({visible:true,messages:[{role:'assistant',content:'Tu turno.'}]});
+  await h.control(practice?'Grabar respuesta':'Grabar pregunta');
+  assert.match(h.text(),/Abriendo micrófono/);
+  await h.appState('inactive');permission.resolve({granted:true});await h.flush();
+  assert.equal(h.recorder.starts,0,'Never record while the permission dialog is closing.');
+  await h.appState('active');
+  assert.equal(h.recorder.starts,1,'The same tap should start capture after granting permission.');
+  assert.match(h.text(),/Grabando/);
+  await h.hide();assert.equal(h.recorder.stops,1);h.unmount();
+});
+
+test('native: closing during microphone permission cannot start a hidden recording',async()=>{
+  const permission=deferred();const h=harness('native','off',null,null,permission.promise);
+  await h.set({visible:true});await h.control('Grabar pregunta');await h.appState('inactive');
+  await h.control('Cerrar tutor y volver a la lección');permission.resolve({granted:true});
+  await h.appState('active');assert.equal(h.recorder.starts,0);h.unmount();
+});
+
+test('native: leaving during permission never records on a late return after the foreground deadline',async()=>{
+  const permission=deferred();const h=harness('native','off',null,null,permission.promise);
+  await h.set({visible:true});await h.control('Grabar pregunta');await h.appState('inactive');
+  permission.resolve({granted:true});await h.flush();await h.timeout();await h.appState('active');
+  assert.equal(h.recorder.starts,0);assert.match(h.text(),/Vuelve a tocar el micrófono/);
+  assert.ok(!h.text().includes('Abriendo micrófono'));h.unmount();
+});
+
+test('native: permission denial stays actionable and a recorded Liam response is editable before send',async()=>{
+  const denied=deferred();const h=harness('native','off',null,null,denied.promise);
+  await h.set({visible:true});await h.control('Grabar pregunta');await h.appState('inactive');
+  denied.resolve({granted:false});await h.appState('active');
+  assert.match(h.text(),/Permite el micrófono/);assert.equal(h.recorder.starts,0);h.unmount();
+  const capture=harness('native','off');let sent=0,transcriptions=0;
+  capture.props.practice={answers:0,limit:3,complete:false,speak:async()=>{},transcribe:async(_,audio,format)=>{
+    assert.equal(audio,'AA==');assert.equal(format,'m4a');transcriptions++;return 'He is a boy.';
+  }};
+  capture.props.tutor.send=async()=>{sent++;return true;};
+  await capture.set({visible:true});await capture.control('Grabar respuesta');assert.equal(capture.recorder.starts,1);
+  await capture.control('Terminar grabación');await capture.flush();
+  assert.equal(transcriptions,1);assert.equal(capture.value('Tu respuesta para Liam'),'He is a boy.');
+  assert.equal(sent,0,'Transcription must not submit without learner confirmation.');
+  await capture.control('Enviar respuesta');assert.equal(sent,1);capture.unmount();
 });
 
 test('native: stalled audio-mode preparation reveals text and cannot play after timeout',async()=>{
