@@ -145,24 +145,29 @@ export default function LessonTutor({ tutor, context, title, answer, practice })
   };
   const send = async text => { if (practice?.complete) return; stopVoice(); setVoiceError(''); if (await tutor.send(text)) setDraft(''); };
   const voiceBusy = ['preparing', 'recording', 'transcribing'].includes(phase);
+  const avatarState = phase === 'speaking' ? 'speaking' : phase === 'recording' ? 'listening' : tutor.busy || phase === 'loading' ? 'thinking' : practice?.complete ? 'complete' : 'idle';
+  const avatarCaption = avatarState === 'speaking' ? 'Liam está hablando' : avatarState === 'listening' ? 'Te escucho' : avatarState === 'thinking' ? 'Preparando tu respuesta…' : avatarState === 'complete' ? '¡Buen trabajo!' : 'Tu turno · Toca el micrófono';
   return <dialog ref={dialog} className={styles.dialog} aria-labelledby="tutor-title" onCancel={event => { event.preventDefault(); tutor.close(); }}>
-    <header className={styles.header}><div className={styles.headingRow}><>{practice ? <LiamAvatar speaking={phase === 'speaking'} active={tutor.visible} /> : null}<h2 id="tutor-title">{practice ? 'Practica con Liam' : 'Tutor IA'}</h2></>
+    <header className={styles.header}><div className={styles.headingRow}><h2 id="tutor-title">{practice ? 'Practica con Liam' : 'Tutor IA'}</h2>
       <button type="button" role="switch" aria-checked={voiceReplies} aria-label="Respuestas con voz" className={styles.voiceToggle}
         onClick={() => { setVoiceReplies(!voiceReplies); if (voiceReplies && ['loading', 'speaking'].includes(phase)) stopVoice(); }}>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M11 4 6 8H2v8h4l5 4V4Z" />
           {voiceReplies ? <path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /> : <path d="m16 9 6 6m0-6-6 6" />}</svg><span>{voiceReplies ? 'Voz' : 'Sin voz'}</span></button>
       <button type="button" className={styles.iconButton} aria-label="Cerrar tutor y volver a la lección" onClick={tutor.close}>×</button></div>
       <p>{title} · {practice ? 'Repaso opcional' : 'Lección en pausa'}</p></header>
+    <div className={`${styles.conversation} ${practice ? styles.practiceConversation : ''}`}>
+    {practice ? <div className={styles.avatarStage}><LiamAvatar speaking={phase === 'speaking'} state={avatarState} player={player.current} active={tutor.visible} /><p>{avatarCaption}</p></div> : null}
     <div ref={body} className={styles.messages} aria-live="polite">
       <p className={styles.context}>{practice ? `Liam guía el intercambio. ${practice.answers} de ${practice.limit} respuestas. Tu resultado no cambia.` : answer ? `Tu respuesta: ${answer}` : 'Una pista para esta tarjeta. Tú eliges la respuesta.'}</p>
       {tutor.messages.map((message, index) => waiting && index === tutor.messages.length - 1 ? null : <div key={index} className={`${styles.bubble} ${message.role === 'user' ? styles.user : ''}`}>
         <p>{message.content}</p>{message.role === 'assistant' ? <button type="button" className={styles.speaker} disabled={voiceBusy} aria-label="Escuchar explicación" onClick={() => void play(message.content)}>♪ Escuchar</button> : null}
       </div>)}
       {tutor.busy || waiting || ['loading', 'speaking'].includes(phase) ? <div className={`${styles.aiStatus} ${tutor.busy || waiting ? styles.pending : ''}`} role="status">
-        <TutorActivity state={phase === 'speaking' ? 'speaking' : 'thinking'} active={tutor.visible} />
+        {!practice ? <TutorActivity state={phase === 'speaking' ? 'speaking' : 'thinking'} active={tutor.visible} /> : null}
         <span>{tutor.busy ? 'Pensando…' : waiting || phase === 'loading' ? 'Preparando voz…' : 'Hablando…'}</span></div> : null}
       {tutor.error ? <div role="status" className={styles.error}>{tutor.error}<button type="button" onClick={tutor.retry}>Reintentar</button></div> : null}
       {!practice?.complete && !tutor.busy && !waiting && tutor.messages.length ? <div className={styles.suggestions}>{(practice ? ['Dame una pista.', 'Más fácil, por favor.'] : TUTOR_SUGGESTIONS).map(text => <button type="button" key={text} disabled={voiceBusy} onClick={() => void send(text)}>{text}</button>)}</div> : null}
+    </div>
     </div>
     <footer className={styles.footer}>
       {voiceError ? <div className={styles.error} role="status">{voiceError}{tutor.messages.at(-1)?.role === 'assistant' ? <button type="button" aria-label="Reintentar voz" onClick={() => void play(tutor.messages.at(-1).content)}>Reintentar voz</button> : null}</div> : null}

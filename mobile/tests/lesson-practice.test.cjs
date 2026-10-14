@@ -6,6 +6,17 @@ const ts=require('typescript');
 const filename=path.join(__dirname,'../src/lessonPractice.ts');
 const source=ts.transpileModule(fs.readFileSync(filename,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const practice={};new Function('exports',source)(practice);
+const animation={};new Function('exports',ts.transpileModule(fs.readFileSync(path.join(__dirname,'../src/liamAnimation.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText)(animation);
+
+test('Liam follows speech energy, closes on silence and stops facial motion when reduced',()=>{
+ const {liamPose,liamSpeechLevel}=animation;
+ assert.equal(liamSpeechLevel([0,0,0]),0);
+ assert.ok(liamSpeechLevel([.25,-.25])>liamSpeechLevel([.04,-.04]));
+ assert.equal(liamPose(1700,'speaking',0).mouth,.12);
+ assert.ok(liamPose(1700,'speaking',.6).mouth>liamPose(1700,'speaking',.2).mouth);
+ for(const state of ['idle','thinking','listening','complete']) assert.equal(liamPose(1700,state,1).mouth,.12);
+ assert.deepEqual(liamPose(1700,'speaking',1,true),liamPose(8500,'listening',0,true));
+});
 test('review finishes only after feedback; failed and pending replies remain retryable',()=>{
  for(const mode of ['short','extended']){
   const limit=practice.PRACTICE_LIMITS[mode];

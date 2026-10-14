@@ -2,7 +2,6 @@ import base64
 import json
 import unittest
 from unittest.mock import AsyncMock, patch
-import httpx
 from backend.app import lesson_practice as practice, lesson_tutor as tutor
 from backend.tests import test_lesson_tutor as fixture
 
@@ -59,27 +58,48 @@ class LessonPracticeTests(unittest.TestCase):
              patch.object(tutor, 'provider_request', new_callable=AsyncMock) as provider:
             self.assertEqual(503, self.post(message=practice.START).status_code)
             provider.assert_not_awaited()
-        with patch.object(practice, 'elevenlabs', new_callable=AsyncMock) as voice:
+        with patch.object(tutor, 'provider_request', new_callable=AsyncMock) as voice:
             self.assertEqual(422, self.post('transcribe',audio=base64.b64encode(b'not audio').decode(),format='webm').status_code)
             voice.assert_not_awaited()
         with patch.object(tutor, 'provider_request', new_callable=AsyncMock, return_value={'choices':[]}):
             self.assertEqual(503, self.post(message=practice.START).status_code)
 
-    def test_speech_uses_liam_and_transcription_reuses_established_stt(self):
-        with patch.object(practice, 'elevenlabs', new_callable=AsyncMock,
-                          return_value=httpx.Response(200, content=b'mp3', headers={'content-type':'audio/mpeg'})) as voice:
-            response=self.post('speech',text='He is a boy.')
+    def test_speech_reuses_approved_bilingual_tutor_and_transcription(self):
+        text = 'Con he usamos is para hablar de una persona. Por ejemplo: He is a boy.'
+        with patch.object(tutor, 'provider_request', new_callable=AsyncMock, return_value=bytes(4800)) as voice, \
+             patch.object(tutor, 'pcm_to_mp3', return_value=b'mp3'):
+            response=self.post('speech',text=text)
             self.assertEqual(200,response.status_code)
             self.assertEqual('no-store',response.headers['cache-control'])
             events=[json.loads(line) for line in response.text.splitlines()]
             self.assertEqual(b'mp3',base64.b64decode(events[0]['audio']))
             self.assertEqual('done',events[-1]['type'])
-            self.assertIn(practice.LIAM_VOICE,voice.call_args.args[0])
+            self.assertEqual(2, voice.await_count)
+            self.assertEqual([0, 1], [event['index'] for event in events[:-1]])
+            self.assertEqual(text, ' '.join(call.args[1]['input'] for call in voice.call_args_list))
+            for call in voice.call_args_list:
+                self.assertEqual('audio/speech', call.args[0])
+                self.assertEqual('Sulafat', call.args[1]['voice'])
+                self.assertEqual('google/gemini-3.8-flash-tts', call.args[1]['model'])
+                self.assertEqual(tutor.TUTOR_SPEECH_INSTRUCTIONS, call.args[1]['instructions'])
+                self.assertEqual('pcm', call.args[1]['response_format'])
+            self.assertEqual(2, sum(len(hits) for hits in tutor._hits.values()))
         with patch.object(practice, 'validate_recording'), patch.object(tutor,'provider_request',new_callable=AsyncMock,
                           return_value={'text':'He is a boy.'}) as voice:
             response=self.post('transcribe',audio=base64.b64encode(b'audio').decode(),format='webm')
             self.assertEqual({'text':'He is a boy.'},response.json())
             self.assertEqual('audio/transcriptions',voice.call_args.args[0])
+
+    def test_practice_speech_still_checks_context_switch_and_segment_quota(self):
+        with patch.object(tutor, 'synthesize_speech', new_callable=AsyncMock, return_value=b'mp3') as voice:
+            self.assertEqual(404, self.post('speech', text='Hola.', lesson_id='missing').status_code)
+            with patch.dict('os.environ', {'LESSON_PRACTICE_ENABLED':'false'}):
+                self.assertEqual(503, self.post('speech', text='Hola.').status_code)
+            voice.assert_not_awaited()
+            tutor._hits.clear()
+            for _ in range(19): self.assertEqual(200, self.post('speech', text='Hola.').status_code)
+            self.assertEqual(429, self.post('speech', text='Con he usamos is para hablar de una persona. Por ejemplo: He is a boy.').status_code)
+            self.assertEqual(19, voice.await_count)
 
     def test_closing_rejects_questions_and_invalid_feedback(self):
         from fastapi import HTTPException

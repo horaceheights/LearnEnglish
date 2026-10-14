@@ -1,10 +1,11 @@
-.avatar{position:relative;flex-shrink:0;width:64px;height:64px;border-radius:50%;overflow:hidden;background:#cbe4dc;border:2px solid #96c4b4}
-.face{position:absolute;left:16px;top:8px;width:31px;height:40px;background:#e5ac84;border-radius:13px 13px 16px 16px}
-.hair{position:absolute;top:-3px;left:-2px;width:35px;height:15px;border-radius:16px 18px 5px 3px;background:#513e35;transform:rotate(-7deg)}
-.eyes{position:absolute;left:7px;right:7px;top:20px;display:flex;justify-content:space-between}
-.eyes i{width:3px;height:4px;border-radius:50%;background:#40332e}
-.mouth{position:absolute;left:10px;top:29px;width:12px;height:4px;border-radius:0 0 9px 9px;background:#8f4940;transform-origin:top}
-.shirt{position:absolute;left:8px;top:44px;width:48px;height:32px;border-radius:20px 20px 0 0;background:#27796b}
-.avatar[data-speaking=true] .mouth{animation:talk .23s ease-in-out infinite alternate}
-@keyframes talk{from{transform:scaleY(.7)}to{transform:scaleY(2)}}
-@media(prefers-reduced-motion:reduce){.avatar *{animation:none!important}}
+.avatar{--size:208px;--mouth:.12;--blink:1;--x:0;--y:0;--roll:0;--brow:0;--breath:0;position:relative;flex-shrink:0;width:var(--size);height:calc(var(--size)*250/240);border-radius:28px;overflow:hidden}
+.canvas{position:absolute;width:240px;height:250px;left:calc((var(--size) - 240px)/2);top:calc((var(--size)*250/240 - 250px)/2);transform:scale(calc(var(--size)/240px))}
+.halo{position:absolute;left:5px;top:8px;width:230px;height:230px;border-radius:50%;background:#daebe2;border:1px solid #c1dace;box-sizing:border-box}
+.avatar [data-part=head]{transform:translate(calc(var(--x)*1px),calc(var(--y)*1px)) rotate(calc(var(--roll)*1deg))!important;transform-origin:50% 95%}
+.avatar [data-part=body]{transform:translateY(calc(var(--breath)*1px))!important}
+.avatar [data-part=eye]{transform:scaleY(var(--blink))!important}
+.avatar [data-part=mouth]{transform:scaleY(var(--mouth))!important}
+.avatar [data-part=brow]{transform:translateY(calc(var(--brow)*1px)) rotate(var(--base-rotation))!important}
+@media(max-height:720px){.avatar{--size:160px}}
+@media(max-height:460px){.avatar{--size:154px}}
+@media(prefers-reduced-motion:reduce){.avatar [data-part]{transform:none!important}.avatar [data-part=mouth]{transform:scaleY(.12)!important}}

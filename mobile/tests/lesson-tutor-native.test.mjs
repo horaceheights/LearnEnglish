@@ -34,6 +34,10 @@ for(const viewport of [{width:360,height:640,fontScale:1.6},{width:740,height:36
    assert.ok(box,label);assert.ok(box.left>=0&&box.left+box.width<=viewport.width+1,label+' width');
    assert.ok(box.top>=24&&box.top+box.height<=viewport.height-23,label+' height');
   }
+  const scroll=records.find(r=>r.type==='ScrollView');
+  assert.ok(scroll.box.height>=60,'Large Liam must leave room for the conversation');
+  const avatar=records.find(r=>r.props.accessibilityElementsHidden&&r.style.overflow==='hidden');
+  assert.ok(avatar.box.width>=140,'Liam must be visibly larger than the old 64-point icon');
  });
 }
 
