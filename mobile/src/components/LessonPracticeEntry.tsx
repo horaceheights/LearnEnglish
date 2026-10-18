@@ -1,28 +1,28 @@
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { practiceContext, practiceProgress, PRACTICE_START, type PracticeMode } from '../lessonPractice';
+import { practiceContext, practiceProgress, practiceUnitLabel, PRACTICE_START, type PracticeMode } from '../lessonPractice';
 import { useLessonTutor } from '../hooks/useLessonTutor';
 import { askPractice, speakPractice, transcribePractice } from '../tutorApi';
-import type { Lesson } from '../types';
+import type { LessonSummary } from '../types';
 import { LessonTutorSheet } from './LessonTutorSheet';
-type Props = { lesson: Lesson; scope: string; active: boolean; disabled: boolean; onOpen: () => void };
+type Props = { lesson: LessonSummary; scope: string; active: boolean; disabled: boolean; onOpen?: () => void };
 function Session({ lesson, scope, active, disabled, onOpen, mode }: Props & { mode: PracticeMode }) {
   const context = useMemo(() => practiceContext(lesson, mode), [lesson, mode]);
   const tutor = useLessonTutor(scope + ':' + mode, context, askPractice, PRACTICE_START);
   const progress = practiceProgress(tutor.messages, mode, tutor.busy, tutor.error);
-  return <><Pressable accessibilityRole="button" disabled={disabled} onPress={() => { onOpen(); tutor.open(); }} style={[styles.start, disabled && styles.disabled]}>
+  return <><Pressable accessibilityRole="button" disabled={disabled} onPress={() => { onOpen?.(); tutor.open(); }} style={[styles.start, disabled && styles.disabled]}>
     <Text style={styles.startText}>{progress.complete ? 'Ver mi feedback' : tutor.messages.length ? 'Continuar con Liam' : 'Empezar a practicar'}</Text>
-  </Pressable><LessonTutorSheet tutor={tutor} context={context} title={lesson.sub_lesson_title || lesson.title} answer="" active={active}
+  </Pressable><LessonTutorSheet tutor={tutor} context={context} title={practiceUnitLabel(lesson)} answer="" active={active}
     practice={{ ...progress, speak: speakPractice, transcribe: transcribePractice }} /></>;
 }
 export function LessonPracticeEntry(props: Props) {
-  const [mode, setMode] = useState<PracticeMode>('short');
+  const [mode, setMode] = useState<PracticeMode>('extended');
   return <View style={styles.card}>
-    <Text style={styles.badge}>PRUEBA · OPCIONAL</Text><Text accessibilityRole="header" style={styles.heading}>Practica con Liam</Text>
-    <Text style={styles.copy}>Una conversación sobre esta lección, con feedback al terminar. Tu resultado ya está guardado.</Text>
+    <Text style={styles.badge}>PRUEBA · OPCIONAL</Text><Text accessibilityRole="header" style={styles.heading}>Repasa la {practiceUnitLabel(props.lesson)} con Liam</Text>
+    <Text style={styles.copy}>Conversa sobre lo aprendido en la unidad. Liam te guía y termina con feedback. Ideal al terminar las lecciones; no cambia tu progreso.</Text>
     <View style={styles.modes}>{(['short', 'extended'] as const).map(value => <Pressable key={value} accessibilityRole="button" accessibilityState={{ selected: mode === value }}
       onPress={() => setMode(value)} style={[styles.mode, mode === value && styles.selected]}>
-      <Text style={styles.modeText}>{value === 'short' ? 'Corto · 3 respuestas' : 'Completo · 6 respuestas'}</Text>
+      <Text style={styles.modeText}>{value === 'short' ? 'Corto · 3 respuestas' : 'Ampliado · 6 respuestas'}</Text>
     </Pressable>)}</View>
     <Session key={mode} {...props} mode={mode} />
     <Text style={styles.note}>Necesitas iniciar sesión e internet. Ambas opciones son de prueba, sin compra.</Text>

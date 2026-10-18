@@ -1,6 +1,14 @@
 export type LiamState = 'idle' | 'thinking' | 'listening' | 'speaking' | 'complete';
 export const LIAM_WIDTH = 240;
-export const LIAM_HEIGHT = 250;
+export const LIAM_HEIGHT = 220;
+
+/** Actual mouth geometry from the approved local portrait, shared by both hosts. */
+export function liamMouthShape(mouth: number) {
+  const opening = Math.max(0, Math.min(1, (mouth - .12) / .95));
+  const width = 36 + opening * 5;
+  const height = 2.5 + opening * 23;
+  return { width, height, left: 55.5 - width / 2, top: 108 - height * .22 };
+}
 
 /** RMS of playback samples, never the learner's microphone. Silence stays shut. */
 export function liamSpeechLevel(frames: ArrayLike<number>) {
@@ -23,11 +31,11 @@ export function liamPose(time: number, state: LiamState, level: number | null, r
   return {
     mouth: .12 + Math.max(0, Math.min(1, mouth)) * .95,
     blink,
-    x: Math.sin(seconds * .83) * (speaking ? 2.6 : 1.1),
-    y: Math.sin(seconds * 1.4) * (speaking ? 2.1 : .7),
-    roll: attention + Math.sin(seconds * .94) * (speaking ? 2.4 : .8),
+    x: Math.sin(seconds * .85) * (speaking ? 1.5 : .6),
+    y: Math.sin(seconds * 1.5) * (speaking ? 1 : .35),
+    roll: attention + Math.sin(seconds * .95) * (speaking ? 1.6 : .5),
     brow: speaking ? -mouth * 1.8 : state === 'listening' ? -1.3 : 0,
-    breath: Math.sin(seconds * 1.7) * 1.2,
+    breath: Math.sin(seconds * 1.5) * .9,
   };
 }
 

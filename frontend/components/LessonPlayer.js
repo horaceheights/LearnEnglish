@@ -47,6 +47,8 @@ import CelebrationMission from "./CelebrationMission";
 import { missionCueOrder } from "../lib/missionTargetInteraction.cjs";
 import MissionCompletion from "./MissionCompletion";
 import LessonResultScreen, { LessonGoodbye } from "./LessonResultScreen";
+import LessonPracticeEntry from "./LessonPracticeEntry";
+import { practiceAvailable } from "../../mobile/src/lessonPractice";
 import { newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCards, resultSummary } from "../../mobile/src/lessonResult";
 import { parseSavedLessonRun } from "../../mobile/src/lessonResume";
 import { accountCheckpoints, loadAccountCheckpoint, scheduleAccountSync } from '../lib/accountSync';
@@ -5254,6 +5256,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                     </div>
                   </button>
 
+                  {selectedUnitId === unit.id && practiceAvailable(lessons.find(item => item.unit_id === unit.id)) ?
+                    <LessonPracticeEntry key={unit.id} lesson={lessons.find(item => item.unit_id === unit.id)}
+                      scope={profile.userId + ":" + unit.id} disabled={!accountProfile} /> : null}
+
                   {selectedUnitId === unit.id ? unit.lessons.map((lessonGroup) => {
                     const lessonVisual = getLessonVisual(lessonGroup.id, unit.id);
 
@@ -5469,7 +5475,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }
 
   if (isComplete || !currentCard) {
-    return lessonResult ? <LessonResultScreen result={lessonResult} lesson={activeLesson}
+    return lessonResult ? <LessonResultScreen result={lessonResult} lesson={activeLesson} catalog={lessons}
       lessonLabel={`UNIT ${activeLesson.unit_id?.match(/\d+/)?.[0] || "1"} | LESSON ${activeLesson.sub_lesson_id || activeLesson.title}`}
       hasNext={Boolean(nextLesson)} celebrate={celebrateResult} saving={resultSaving} error={resultError}
       onRetrySave={() => void persistResult(lessonResult)}

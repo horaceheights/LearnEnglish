@@ -40,6 +40,8 @@ Recent delivery: standard lessons now open with a section briefing and show anot
 
 Recent delivery: the approved Lesson 1.1 Completa progression extends to 28 eligible final-section cards in Lessons 1.2–1.9. Earlier guided completion and out-of-range targets remain intact; installed-device review of the new long-word banks remains part of Preview testing. See `docs/qa/unit-1-completa-rollout.md`.
 
+Recent delivery (2026-10-17): the optional Liam POC now reviews Unit 1 across all eleven canonical lessons, including the final mission, with an entry in the unit list and after the final lesson. The approved shoulders-up portrait uses the male Charon voice; six replies end with evidence-based feedback, with a shorter three-reply trial available. Course grades and progress stay unchanged. Physical-device voice and microphone acceptance remain part of Preview testing. See `docs/qa/liam-unit-1-review.md`.
+
 ## Engine-first strategy
 
 Lesson 4.10 correction (2026-10-03): complete asking/telling-time exchanges replace isolated “o'clock” and routine-at-time practice. Whole hours, day periods and a.m./p.m. use locally prepared photographs without image-generation services. Later review and mission retrieval follow the revised scope. Installed-device review remains pending. See `docs/qa/lesson-4-10-time-exchanges-2026-10-03.md`.

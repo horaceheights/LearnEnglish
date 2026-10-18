@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Animated, Platform, StyleSheet, View, type ViewStyle } from 'react-native';
 import { AudioModule, type AudioPlayer } from 'expo-audio';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import { LIAM_HEIGHT, LIAM_LAYERS, LIAM_WIDTH, liamPose, liamSpeechLevel, type LiamLayer, type LiamState } from '../liamAnimation';
+import { LIAM_HEIGHT, LIAM_LAYERS, LIAM_WIDTH, liamMouthShape, liamPose, liamSpeechLevel, type LiamLayer, type LiamState } from '../liamAnimation';
 
 type Motion = Record<keyof ReturnType<typeof liamPose>, Animated.Value>;
 function Layer({ layer, motion }: { layer: LiamLayer; motion: Motion }) {
@@ -11,7 +11,11 @@ function Layer({ layer, motion }: { layer: LiamLayer; motion: Motion }) {
   if (layer.name === 'head') movement = { transformOrigin: '50% 95%', transform: [{ translateX: motion.x }, { translateY: motion.y }, { rotate: motion.roll.interpolate({ inputRange: [-10, 10], outputRange: ['-10deg', '10deg'] }) }] };
   if (layer.name === 'body') movement = { transform: [{ translateY: motion.breath }] };
   if (layer.name === 'eye') movement = { transform: [{ scaleY: motion.blink }] };
-  if (layer.name === 'mouth') movement = { transform: [{ scaleY: motion.mouth }] };
+  if (layer.name === 'mouth') {
+    const closed = liamMouthShape(.12), open = liamMouthShape(1.07);
+    movement = Object.fromEntries(Object.keys(closed).map(key => [key,
+      motion.mouth.interpolate({ inputRange: [.12, 1.07], outputRange: [closed[key as keyof typeof closed], open[key as keyof typeof open]], extrapolate: 'clamp' })]));
+  }
   if (layer.name === 'brow') movement = { transform: [{ translateY: motion.brow }, { rotate: `${rotate || 0}deg` }] };
   return <Animated.View style={[style as ViewStyle, movement]}>{layer.children?.map((child, index) => <Layer key={index} layer={child} motion={motion} />)}</Animated.View>;
 }
@@ -51,7 +55,7 @@ export function LiamAvatar({ speaking = false, active = true, state = speaking ?
       if (now - last >= 33) {
         const level = sample.current && now - sample.current.at < 300 ? sample.current.level : null;
         const pose = liamPose(now - start, state, level, reduced || !active);
-        mouth += (pose.mouth - mouth) * .65; pose.mouth = mouth;
+        mouth = reduced || !active || state !== 'speaking' ? .12 : mouth + (pose.mouth - mouth) * .65; pose.mouth = mouth;
         for (const key of Object.keys(pose) as (keyof Motion)[]) motion[key].setValue(pose[key]);
         last = now;
       }

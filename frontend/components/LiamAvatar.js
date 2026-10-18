@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from 'react';
-import { LIAM_LAYERS, liamPose, liamSpeechLevel } from '../../mobile/src/liamAnimation';
+import { LIAM_LAYERS, liamMouthShape, liamPose, liamSpeechLevel } from '../../mobile/src/liamAnimation';
 import styles from './LiamAvatar.module.css';
 
 function Layer({ layer }) {
@@ -37,8 +37,9 @@ export default function LiamAvatar({ speaking = false, active = true, state = sp
       if (time - last >= 33 || !active || preference.matches) {
         const level = envelope.current ? envelope.current[Math.floor((player?.currentTime || 0) * 30)] ?? 0 : null;
         const pose = liamPose(Date.now() - animationOrigin.current, state, level, !active || preference.matches);
-        mouth += (pose.mouth - mouth) * .65; pose.mouth = mouth;
+        mouth = !active || preference.matches || state !== 'speaking' ? .12 : mouth + (pose.mouth - mouth) * .65; pose.mouth = mouth;
         for (const [key,value] of Object.entries(pose)) root.current?.style.setProperty(`--${key}`, String(value));
+        for (const [key,value] of Object.entries(liamMouthShape(mouth))) root.current?.style.setProperty(`--mouth-${key}`, `${value}px`);
         last = time;
       }
       if (active && !preference.matches) frame = requestAnimationFrame(draw);
