@@ -236,18 +236,18 @@ export function LessonTutorSheet({ tutor, context, title, answer, active, practi
               <Ionicons name={voiceReplies ? 'volume-high-outline' : 'volume-mute-outline'} size={23} color="#176f73" />
               <Text maxFontSizeMultiplier={1.3} style={styles.preferenceText}>{voiceReplies ? 'Voz' : 'Sin voz'}</Text>
             </Pressable>
-            <Pressable accessibilityRole="button" accessibilityLabel="Cerrar tutor y volver a la lección" onPress={close} style={styles.iconButton}><Ionicons name="close" size={26} color="#245f53" /></Pressable>
+            <Pressable accessibilityRole="button" accessibilityLabel={practice ? 'Cerrar repaso y volver al curso' : 'Cerrar tutor y volver a la lección'} onPress={close} style={styles.iconButton}><Ionicons name="close" size={26} color="#245f53" /></Pressable>
           </View><Text style={styles.subheading}>{title} · {practice ? 'Repaso opcional' : 'Lección en pausa'}</Text>
         </View>
         <View style={[styles.conversation, practice && landscape ? styles.conversationLandscape : null]}>
         {practice ? <View style={[styles.avatarStage, landscape ? styles.avatarStageLandscape : null]}>
           <LiamAvatar speaking={avatarState === 'speaking'} state={avatarState} player={player} active={tutor.visible && active}
-            size={landscape ? 150 : viewport.height < 720 || viewport.fontScale > 1.3 ? 140 : 208} />
+            size={landscape ? 150 : viewport.height < 720 || viewport.fontScale > 1.3 ? 140 : Math.min(280, viewport.width - 64)} />
           <Text style={styles.avatarCaption}>{avatarCaption}</Text>
         </View> : null}
         <ScrollView ref={scroll} style={styles.messages} contentContainerStyle={styles.messageContent} keyboardShouldPersistTaps="handled"
           onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: false })}>
-          {practice ? <Text style={styles.context}>Liam guía el intercambio. {practice.answers} de {practice.limit} respuestas. Tu resultado no cambia.</Text> : answer ? <Text style={styles.context}>Tu respuesta: {answer}</Text> : <Text style={styles.context}>Una pista para esta tarjeta. Tú eliges la respuesta.</Text>}
+          {practice ? <Text style={styles.context}>Liam guía el intercambio. {practice.answers} de {practice.limit} respuestas. Tu progreso no cambia.</Text> : answer ? <Text style={styles.context}>Tu respuesta: {answer}</Text> : <Text style={styles.context}>Una pista para esta tarjeta. Tú eliges la respuesta.</Text>}
           {tutor.messages.map((message, index) => waiting && index === tutor.messages.length - 1 ? null : <View key={index} style={[styles.bubble, message.role === 'user' && styles.userBubble]}>
             <Text selectable style={styles.message}>{message.content}</Text>
             {message.role === 'assistant' ? <Pressable accessibilityRole="button" accessibilityLabel="Escuchar explicación" disabled={voiceBusy}

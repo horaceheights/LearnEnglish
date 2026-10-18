@@ -153,12 +153,12 @@ export default function LessonTutor({ tutor, context, title, answer, practice })
         onClick={() => { setVoiceReplies(!voiceReplies); if (voiceReplies && ['loading', 'speaking'].includes(phase)) stopVoice(); }}>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M11 4 6 8H2v8h4l5 4V4Z" />
           {voiceReplies ? <path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /> : <path d="m16 9 6 6m0-6-6 6" />}</svg><span>{voiceReplies ? 'Voz' : 'Sin voz'}</span></button>
-      <button type="button" className={styles.iconButton} aria-label="Cerrar tutor y volver a la lección" onClick={tutor.close}>×</button></div>
+      <button type="button" className={styles.iconButton} aria-label={practice ? 'Cerrar repaso y volver al curso' : 'Cerrar tutor y volver a la lección'} onClick={tutor.close}>×</button></div>
       <p>{title} · {practice ? 'Repaso opcional' : 'Lección en pausa'}</p></header>
     <div className={`${styles.conversation} ${practice ? styles.practiceConversation : ''}`}>
     {practice ? <div className={styles.avatarStage}><LiamAvatar speaking={phase === 'speaking'} state={avatarState} player={player.current} active={tutor.visible} /><p>{avatarCaption}</p></div> : null}
     <div ref={body} className={styles.messages} aria-live="polite">
-      <p className={styles.context}>{practice ? `Liam guía el intercambio. ${practice.answers} de ${practice.limit} respuestas. Tu resultado no cambia.` : answer ? `Tu respuesta: ${answer}` : 'Una pista para esta tarjeta. Tú eliges la respuesta.'}</p>
+      <p className={styles.context}>{practice ? `Liam guía el intercambio. ${practice.answers} de ${practice.limit} respuestas. Tu progreso no cambia.` : answer ? `Tu respuesta: ${answer}` : 'Una pista para esta tarjeta. Tú eliges la respuesta.'}</p>
       {tutor.messages.map((message, index) => waiting && index === tutor.messages.length - 1 ? null : <div key={index} className={`${styles.bubble} ${message.role === 'user' ? styles.user : ''}`}>
         <p>{message.content}</p>{message.role === 'assistant' ? <button type="button" className={styles.speaker} disabled={voiceBusy} aria-label="Escuchar explicación" onClick={() => void play(message.content)}>♪ Escuchar</button> : null}
       </div>)}

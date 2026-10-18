@@ -3,8 +3,8 @@ import { AccessibilityInfo, ActivityIndicator, Animated, Easing, Pressable, Scro
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { resultSummary, remainingReviewCards, type LessonResult } from '../lessonResult';
 import { LessonPracticeEntry } from './LessonPracticeEntry';
-import { practiceAvailable } from '../lessonPractice';
-import type { Lesson } from '../types';
+import { practiceAfterLesson } from '../lessonPractice';
+import type { Lesson, LessonSummary } from '../types';
 import { useMissionSoundEffects } from '../missionSoundEffects';
 
 const HAPPY = require('../../assets/mascots/serious/squirrel-professor-celebrating-v1.png');
@@ -34,12 +34,12 @@ function ResultMascot({ happy, moving, size }: { happy: boolean; moving: boolean
 }
 
 export function LessonResultScreen({ result, lessonLabel, hasNext, onNext, onLessons, onRestart, onReview, onExit,
-  width, height, active, celebrate, saving, error, onRetrySave, offline = false, lesson }: {
+  width, height, active, celebrate, saving, error, onRetrySave, offline = false, lesson, catalog = [] }: {
   result: LessonResult; lessonLabel: string; hasNext: boolean; onNext: () => void; onLessons: () => void;
   onRestart: () => void; onReview: () => void; onExit: () => void; width: number; height: number;
   active: boolean; celebrate: boolean; saving: boolean; error: string;
   onRetrySave: () => void;
-  offline?: boolean; lesson?: Lesson;
+  offline?: boolean; lesson?: Lesson; catalog?: LessonSummary[];
 }) {
   const reduceMotion = useReducedMotion();
   const summary = resultSummary(result);
@@ -107,7 +107,7 @@ export function LessonResultScreen({ result, lessonLabel, hasNext, onNext, onLes
           </>}
           <Pressable accessibilityRole="button" disabled={actionsDisabled} onPress={onExit} style={styles.exit}><Text style={styles.exitText}>Salir</Text></Pressable>
         </View>
-        {!summary.pending && lesson && practiceAvailable(lesson) ? <LessonPracticeEntry lesson={lesson} scope={result.userId + ":" + result.id} active={active} disabled={actionsDisabled || offline} onOpen={stopMissionSound} /> : null}
+        {!summary.pending && lesson && practiceAfterLesson(lesson, catalog) ? <LessonPracticeEntry lesson={lesson} scope={result.userId + ":" + result.id} active={active} disabled={actionsDisabled || offline} onOpen={stopMissionSound} /> : null}
         {saving ? <ActivityIndicator accessibilityLabel="Guardando progreso" color="#2a8059" /> : null}
         {offline && !saving && !error ? <Text style={styles.caption}>Tu progreso está guardado en este dispositivo. Se sincronizará cuando vuelva la conexión.</Text> : null}
         {result.reviewAvailable === false && !summary.passed ? <Text style={styles.caption}>Este intento anterior no tiene el detalle de errores. Reintenta la lección para activar el repaso.</Text> : null}

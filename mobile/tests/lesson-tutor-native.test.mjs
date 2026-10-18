@@ -23,13 +23,13 @@ for (const viewport of [{width:390,height:844,fontScale:1},{width:360,height:640
   });
 }
 
-for(const viewport of [{width:360,height:640,fontScale:1.6},{width:740,height:360,fontScale:1}]) {
+for(const viewport of [{width:390,height:844,fontScale:1},{width:360,height:640,fontScale:1.6},{width:740,height:360,fontScale:1}]) {
  test('Liam practice fits ' + JSON.stringify(viewport),()=>{
   const h=lessonHarness(viewport,{insets:{top:24,bottom:24,left:0,right:0}});
   const {LessonTutorSheet}=h.load('components/LessonTutorSheet.tsx');
   const records=h.render(()=>e(LessonTutorSheet,{context:{lesson_id:'lesson-1-people-actions',slide_id:'L1',content_revision:1,selected_option_ids:[]},title:'Lección 1.1',answer:'',active:true,
    practice:{answers:1,limit:3,complete:false,speak:noop,transcribe:noop},tutor:{visible:true,messages:[],busy:false,error:'',close:noop,retry:noop,send:noop}}),viewport.width,viewport.height);
-  for(const label of ['Cerrar tutor y volver a la lección','Grabar respuesta','Enviar respuesta','Respuestas con voz']) {
+  for(const label of ['Cerrar repaso y volver al curso','Grabar respuesta','Enviar respuesta','Respuestas con voz']) {
    const box=records.find(r=>r.props.accessibilityLabel===label)?.box;
    assert.ok(box,label);assert.ok(box.left>=0&&box.left+box.width<=viewport.width+1,label+' width');
    assert.ok(box.top>=24&&box.top+box.height<=viewport.height-23,label+' height');

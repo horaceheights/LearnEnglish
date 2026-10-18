@@ -111,6 +111,7 @@ const modules = {
   'react/jsx-runtime': require('react/jsx-runtime'),
   'react-native': {
     ...native,
+    AppState: { currentState: 'active' },
     StyleSheet: { create: styles => styles, absoluteFill: {} },
     useWindowDimensions: () => ({ width: 360, height: 780, fontScale: 1 }),
   },
@@ -121,6 +122,7 @@ const modules = {
   '../previewLessons': { getPreviewLessonMetadata: () => undefined },
   '../updates': { releaseVersionLabel: () => 'Versión de prueba' },
   '../components/PlayfulLoading': { PlayfulLoading: 'PlayfulLoading' },
+  '../hooks/useConnectivity': { useConnectivity: () => false },
 };
 const courseModule = { exports: {} };
 vm.runInNewContext(ts.transpileModule(courseSource, {

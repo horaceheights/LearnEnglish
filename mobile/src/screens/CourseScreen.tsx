@@ -3,6 +3,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
+  AppState,
   Alert,
   BackHandler,
   Image,
@@ -24,6 +25,9 @@ import { localResultProgress, mergeCourseProgress } from '../lessonResult';
 import { lessonResults, syncLocalLessonResults } from '../localLessonResults';
 import { subscribeAccountSync } from '../accountSync';
 import { PlayfulLoading } from '../components/PlayfulLoading';
+import { LessonPracticeEntry } from '../components/LessonPracticeEntry';
+import { practiceAvailable } from '../lessonPractice';
+import { useConnectivity } from '../hooks/useConnectivity';
 import { setDiagnosticContext } from '../diagnostics';
 import { lessonImageSource } from '../lessonImageSources';
 import { getPreviewLessonMetadata, mergePreviewLessonSummaries } from '../previewLessons';
@@ -514,6 +518,12 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
+  const isOffline = useConnectivity();
+  const [practiceActive, setPracticeActive] = useState(AppState.currentState === 'active');
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', state => setPracticeActive(state === 'active'));
+    return () => subscription.remove();
+  }, []);
   const [progressByLesson, setProgressByLesson] = useState<Record<string, LessonProgress>>({});
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -969,6 +979,9 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                 </View>
                 <Text style={styles.lessonCount}>{selectedUnit.lessons.length} lecciones</Text>
               </View>
+              {practiceAvailable(selectedUnit.lessons[0]) ? <LessonPracticeEntry key={selectedUnit.id}
+                lesson={selectedUnit.lessons[0]} scope={profile.userId + ':' + selectedUnit.id}
+                active={practiceActive} disabled={isOffline || !profile.userId} /> : null}
               <View style={[styles.lessonList, useTwoColumns ? styles.lessonGrid : null]}>
                 {selectedUnit.lessons.map(renderLessonRow)}
               </View>

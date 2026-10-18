@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { remainingReviewCards, resultSummary } from "../../mobile/src/lessonResult";
 import useStaticSfx from "../lib/useStaticSfx";
 import LessonPracticeEntry from './LessonPracticeEntry';
-import { practiceAvailable } from '../../mobile/src/lessonPractice';
+import { practiceAfterLesson } from '../../mobile/src/lessonPractice';
 import styles from "./LessonResultScreen.module.css";
 
 const HAPPY = "/mascots/squirrel-professor-celebrating-v1.png";
@@ -32,7 +32,7 @@ export function LessonGoodbye({ onDone }) {
 }
 
 export default function LessonResultScreen({ result, lessonLabel, hasNext, onNext, onLessons, onRestart,
-  onReview, onExit, celebrate, saving, error, onRetrySave, lesson }) {
+  onReview, onExit, celebrate, saving, error, onRetrySave, lesson, catalog = [] }) {
   const summary = resultSummary(result);
   const { play, stop } = useStaticSfx();
   const played = useRef(false);
@@ -83,7 +83,7 @@ export default function LessonResultScreen({ result, lessonLabel, hasNext, onNex
           </>}
           <button disabled={disabled} className={styles.exit} onClick={onExit}>Salir</button>
         </div>
-        {!summary.pending && practiceAvailable(lesson) ? <LessonPracticeEntry lesson={lesson} scope={result.userId + ":" + result.id} disabled={disabled} onOpen={stop} /> : null}
+        {!summary.pending && lesson && practiceAfterLesson(lesson, catalog) ? <LessonPracticeEntry lesson={lesson} scope={result.userId + ":" + result.id} disabled={disabled} onOpen={stop} /> : null}
         {saving ? <p role="status">Guardando progreso…</p> : null}
         {result.reviewAvailable === false && !summary.passed ? <p>Este intento anterior no tiene el detalle de errores. Reintenta la lección para activar el repaso.</p> : null}
         {error ? <><p role="alert" className={styles.error}>{error}</p><button disabled={saving} className={styles.secondary} onClick={onRetrySave}>Guardar de nuevo</button></> : null}

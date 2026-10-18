@@ -253,12 +253,12 @@ def speech_configuration():
     return model, encoder
 
 
-async def synthesize_speech(text, model, encoder):
+async def synthesize_speech(text, model, encoder, *, voice=None, instructions=None):
     pcm = model.startswith("google/")
     data = await provider_request("audio/speech", {
         "model": model,
-        "voice": os.getenv("OPENROUTER_TUTOR_VOICE", TUTOR_TTS_VOICE),
-        "instructions": TUTOR_SPEECH_INSTRUCTIONS,
+        "voice": voice or os.getenv("OPENROUTER_TUTOR_VOICE", TUTOR_TTS_VOICE),
+        "instructions": instructions or TUTOR_SPEECH_INSTRUCTIONS,
         "input": text, "response_format": "pcm" if pcm else "mp3",
         "provider": {"data_collection": "deny"},
     }, audio=True)
@@ -280,14 +280,20 @@ def speech_segments(text):
 @router.post("/speech-stream")
 async def speech_stream(payload: SpeechRequest, account=Depends(tutor_account)):
     resolve_context(payload)
+    return await stream_speech(payload.text, account)
+
+
+async def stream_speech(text, account, *, voice=None, instructions=None):
+    """Shared ordered playback pipeline; callers validate their own canonical context."""
     model, encoder = speech_configuration()
-    parts = speech_segments(payload.text)
+    parts = speech_segments(text)
     # Charge each paid synthesis before starting either one; no hidden retries.
     if len(parts) > 1:
         charge_tutor(account, len(parts) - 1)
 
     async def generate():
-        tasks = [asyncio.create_task(synthesize_speech(part, model, encoder)) for part in parts]
+        options = {"voice": voice, "instructions": instructions} if voice or instructions else {}
+        tasks = [asyncio.create_task(synthesize_speech(part, model, encoder, **options)) for part in parts]
         try:
             for index, task in enumerate(tasks):
                 data = await task

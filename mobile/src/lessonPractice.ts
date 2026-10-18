@@ -1,15 +1,19 @@
-import type { Lesson } from './types';
+import type { LessonSummary } from './types';
 import type { TutorContext, TutorMessage } from './lessonTutor';
 export type PracticeMode = 'short' | 'extended';
-export type PracticeContext = TutorContext & { review_mode: PracticeMode };
+export type PracticeContext = TutorContext & { review_mode: PracticeMode; review_unit_id: string };
 export const PRACTICE_START = 'Iniciar el repaso con Liam.';
 export const PRACTICE_LIMITS = { short: 3, extended: 6 } as const;
-// Rollout configuration only; the engine and server context are lesson-independent.
-export const PRACTICE_POC_LESSONS = ['lesson-1-people-actions'];
-export const practiceAvailable = (lesson?: Lesson) => Boolean(lesson && PRACTICE_POC_LESSONS.includes(lesson.id));
-export function practiceContext(lesson: Lesson, mode: PracticeMode): PracticeContext {
+// Rollout configuration only; the server derives all taught content for the unit.
+export const PRACTICE_POC_UNITS = ['unit-1'];
+export const practiceAvailable = (lesson?: LessonSummary) => Boolean(lesson?.unit_id && PRACTICE_POC_UNITS.includes(lesson.unit_id));
+export const practiceUnitLabel = (lesson: LessonSummary) => `Unidad ${lesson.unit_id?.match(/\d+/)?.[0] || ''}`.trim();
+export function practiceAfterLesson(lesson: LessonSummary, catalog: LessonSummary[]) {
+  return practiceAvailable(lesson) && catalog.filter(item => item.unit_id === lesson.unit_id).at(-1)?.id === lesson.id;
+}
+export function practiceContext(lesson: LessonSummary, mode: PracticeMode): PracticeContext {
   return { lesson_id: lesson.id, content_revision: lesson.content_revision,
-    slide_id: lesson.cards[0].slide_id || '', selected_option_ids: [], review_mode: mode };
+    slide_id: '', selected_option_ids: [], review_mode: mode, review_unit_id: lesson.unit_id || '' };
 }
 export function practiceProgress(messages: TutorMessage[], mode: PracticeMode, busy: boolean, error: string) {
   const answers = messages.filter(message => message.role === 'user').length;
