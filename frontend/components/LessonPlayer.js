@@ -5780,6 +5780,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
             ) : null}
           </section>
 
+          {currentCard.context_es ? <p data-lesson-story-context aria-live="polite"
+            style={{ color: "#4d5559", fontSize: 14, lineHeight: 1.35, textAlign: "center", margin: "6px 10px" }}>
+            {currentCard.context_es}
+          </p> : null}
           {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} vocabulary={activeLesson.vocabulary || []} surfaceRef={pageRef}
             selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={false} helpOpen={showHelp || tutor.visible}
             onTutor={tutorContext ? openTutor : undefined}

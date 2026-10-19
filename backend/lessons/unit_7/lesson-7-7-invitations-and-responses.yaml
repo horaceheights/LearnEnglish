@@ -1,6 +1,6 @@
 {
   "id": "lesson-7-7-invitations-and-responses",
-  "title": "7.7 Invitations and Responses",
+  "title": "7.7 Let's Do Something Together",
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
@@ -8,31 +8,22 @@
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.7",
-  "sub_lesson_title": "Invitations and Responses",
-  "goal": "Invite with Do you want to ...? and Let's ..., and accept or decline with OK, Yes, thank you or Sorry, no.",
+  "sub_lesson_title": "Let's Do Something Together",
+  "goal": "Invite, accept or decline, suggest an alternative and carry out an agreed activity.",
   "vocabulary": [
-    "Do you want to...?",
-    "Let's...",
-    "OK.",
-    "play"
+    "Do you want to",
+    "Let's",
+    "OK",
+    "read"
   ],
-  "review_vocabulary": [
-    "you",
-    "want",
-    "read",
-    "watch TV",
-    "listen to music",
-    "Yes, thank you.",
-    "Sorry, no.",
-    "on",
-    "Saturday",
-    "Sunday"
-  ],
-  "grammar_function": "Do you want to read? Let's watch TV. OK. Let's play on Saturday.",
+  "review_vocabulary": [],
+  "grammar_function": "Invite with Do you want to and Let's; accept, decline and offer another activity.",
   "prerequisite": "4.8 Do you ...?; 5.6 want; 5.10 Yes, please and No, thank you; 6.7 Sorry, no.; 4.9 days; 7.6 activities.",
-  "speaking_outcome": "Invite a friend and answer an invitation.",
-  "content_revision": 2,
+  "speaking_outcome": "Invite, accept or decline, suggest an alternative and carry out an agreed activity.",
+  "content_revision": 3,
   "purposeful_review_slides": [
+    "R1",
+    "R2",
     "R3",
     "R4",
     "R5",
@@ -40,8 +31,8 @@
     "R7",
     "R8",
     "R9",
-    "R10",
-    "R11",
+    "A1",
+    "A2",
     "A3",
     "A4",
     "A5",
@@ -49,7 +40,8 @@
     "A7",
     "A8",
     "A9",
-    "A10",
+    "S1",
+    "S2",
     "S3",
     "S4",
     "S5",
@@ -57,245 +49,363 @@
     "S7",
     "S8",
     "S9",
+    "U1",
     "U2",
     "U3",
     "U4",
     "U5",
     "U6",
     "U7",
-    "U9"
+    "U8"
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "Do you want to"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "Do you want to watch TV?"
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "Do you want to"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "Do you want to play football?"
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "Let's"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "Let's listen to music."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "Let's"
+      ],
+      "models": [
+        {
+          "slide_id": "L7",
+          "text": "Let's play football."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "read",
+        "Do you want to"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "Do you want to read?"
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "read",
+        "Let's"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "Let's read."
+        }
+      ]
+    }
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Do you want to play?",
+      "prompt": "Do you want to watch TV?",
       "stage": "Learn",
-      "correct_option_id": "do-you-want-to-play-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "do-you-want-to-play-learn",
-          "image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
-          "label": "Do you want to play?"
+          "id": "l1-model",
+          "label": "Do you want to watch TV?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_ana_v1.webp"
         }
       ],
-      "audio_text": "Do you want to play?",
+      "audio_text": "Do you want to watch TV?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Quieres jugar?",
-      "pedagogy_note": "Story beat 01: Do you want to play?",
-      "audio_speaker": "male-character"
+      "spanish_translation": "¿Quieres ver la televisión?",
+      "pedagogy_note": "Approved beat offer: Do you want to watch TV?",
+      "audio_speaker": "ana",
+      "context_es": "En casa: Ana invita a Luis."
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Let's play.",
-      "stage": "Learn",
-      "correct_option_id": "let's-play-learn",
-      "options": [
-        {
-          "id": "let's-play-learn",
-          "image_url": "a1_photo_u7_boy_lets_play_v1.webp",
-          "label": "Let's play."
-        }
-      ],
-      "audio_text": "Let's play.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Juguemos.",
-      "pedagogy_note": "Story beat 02: Let's play.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
       "prompt": "OK.",
       "stage": "Learn",
-      "correct_option_id": "ok-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "ok-learn",
-          "image_url": "a1_photo_u7_luis_ok_v1.webp",
-          "label": "OK."
+          "id": "l2-model",
+          "label": "OK.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_luis_v1.webp"
         }
       ],
       "audio_text": "OK.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Está bien.",
-      "pedagogy_note": "Story beat 03: OK.",
-      "audio_speaker": "luis"
+      "spanish_translation": "De acuerdo.",
+      "pedagogy_note": "Approved beat accept: OK.",
+      "audio_speaker": "luis",
+      "context_es": "En casa: Ana invita a Luis."
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "Do you want to play football?",
+      "stage": "Learn",
+      "correct_option_id": "l3-model",
+      "options": [
+        {
+          "id": "l3-model",
+          "label": "Do you want to play football?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_football_sofia_v1.webp"
+        }
+      ],
+      "audio_text": "Do you want to play football?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Quieres jugar al fútbol?",
+      "pedagogy_note": "Approved beat offer: Do you want to play football?",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "Let's listen to music.",
+      "stage": "Learn",
+      "correct_option_id": "l4-model",
+      "options": [
+        {
+          "id": "l4-model",
+          "label": "Let's listen to music.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_sofia_v1.webp"
+        }
+      ],
+      "audio_text": "Let's listen to music.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escuchemos música.",
+      "pedagogy_note": "Approved beat alternative: Let's listen to music.",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "Do you want to read?",
+      "stage": "Learn",
+      "correct_option_id": "l5-model",
+      "options": [
+        {
+          "id": "l5-model",
+          "label": "Do you want to read?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_luis_v1.webp"
+        }
+      ],
+      "audio_text": "Do you want to read?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Quieres leer?",
+      "pedagogy_note": "Approved beat alternative: Do you want to read?",
+      "audio_speaker": "luis",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "Let's read.",
+      "stage": "Learn",
+      "correct_option_id": "l6-model",
+      "options": [
+        {
+          "id": "l6-model",
+          "label": "Let's read.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_sofia_v1.webp"
+        }
+      ],
+      "audio_text": "Let's read.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Leamos.",
+      "pedagogy_note": "Approved beat alternative: Let's read.",
+      "audio_speaker": "sofia",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "Let's play football.",
+      "stage": "Learn",
+      "correct_option_id": "l7-model",
+      "options": [
+        {
+          "id": "l7-model",
+          "label": "Let's play football.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_football_sofia_v1.webp"
+        }
+      ],
+      "audio_text": "Let's play football.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Juguemos al fútbol.",
+      "pedagogy_note": "Approved beat offer: Let's play football.",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
     },
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "Do you want to play?",
-      "stage": "Recognize",
-      "correct_option_id": "do-you-want-to-play-r1",
-      "options": [
-        {
-          "id": "do-you-want-to-watch-tv-r1",
-          "image_url": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
-          "label": null
-        },
-        {
-          "id": "do-you-want-to-play-r1",
-          "image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Do you want to play?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Quieres jugar?",
-      "pedagogy_note": "Story beat 01: Do you want to play?",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "let's-play-r2",
-      "options": [
-        {
-          "id": "let's-watch-tv-r2",
-          "image_url": "",
-          "label": "Let's watch TV."
-        },
-        {
-          "id": "let's-play-r2",
-          "image_url": "",
-          "label": "Let's play."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Let's play.",
-      "prompt_image_url": "a1_photo_u7_boy_lets_play_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 02: Let's play."
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "t2i2",
       "prompt": "Do you want to watch TV?",
       "stage": "Recognize",
-      "correct_option_id": "do-you-want-to-watch-tv-r3",
+      "correct_option_id": "watch-tv-r1",
       "options": [
         {
-          "id": "do-you-want-to-watch-tv-r3",
-          "image_url": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
+          "id": "watch-tv-r1",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp",
           "label": null
         },
         {
-          "id": "do-you-want-to-read-r3",
-          "image_url": "a1_scene_do-you-want-to-read_2214c2e.webp",
+          "id": "listen-to-music-r1",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp",
           "label": null
         }
       ],
       "audio_text": "Do you want to watch TV?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Quieres ver televisión?",
-      "pedagogy_note": "Story beat 03: Do you want to watch TV?",
-      "audio_speaker": "female-character"
+      "spanish_translation": "¿Quieres ver la televisión?",
+      "pedagogy_note": "Approved beat offer: Do you want to watch TV?",
+      "audio_speaker": "ana",
+      "context_es": "En casa: Ana invita a Luis. Lee la propuesta e identifica la actividad."
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "t2i2",
+      "prompt": "Let's watch TV.",
+      "stage": "Recognize",
+      "correct_option_id": "watch-tv-r2",
+      "options": [
+        {
+          "id": "draw-r2",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp",
+          "label": null
+        },
+        {
+          "id": "watch-tv-r2",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Let's watch TV.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Veamos la televisión.",
+      "pedagogy_note": "Approved beat accept: Let's watch TV.",
+      "audio_speaker": "ana",
+      "context_es": "En casa: Ana invita a Luis. Lee la propuesta e identifica la actividad."
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "t2i2",
+      "prompt": "Do you want to play football?",
+      "stage": "Recognize",
+      "correct_option_id": "play-football-r3",
+      "options": [
+        {
+          "id": "play-football-r3",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp",
+          "label": null
+        },
+        {
+          "id": "ride-a-bike-r3",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Do you want to play football?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Quieres jugar al fútbol?",
+      "pedagogy_note": "Approved beat offer: Do you want to play football?",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis. Lee la propuesta e identifica la actividad."
     },
     {
       "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "Sorry, no. I am tired.",
       "stage": "Recognize",
-      "correct_option_id": "do-you-want-to-read-r4",
+      "correct_option_id": "tired-r4",
       "options": [
         {
-          "id": "do-you-want-to-watch-tv-r4",
-          "image_url": "",
-          "label": "Do you want to watch TV?"
+          "id": "happy-r4",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_feel_happy_reply_v1.webp",
+          "label": null
         },
         {
-          "id": "do-you-want-to-read-r4",
-          "image_url": "",
-          "label": "Do you want to read?"
+          "id": "tired-r4",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_decline_luis_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "Do you want to read?",
-      "prompt_image_url": "a1_scene_do-you-want-to-read_2214c2e.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 04: Do you want to read?"
+      "audio_text": "Sorry, no. I am tired.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Lo siento, no. Estoy cansado.",
+      "pedagogy_note": "Approved beat decline: Sorry, no. I am tired.",
+      "audio_speaker": "luis",
+      "context_es": "Otro momento, en el parque: Sofía y Luis.Lee lo que dice Luis e identifica a la persona que describe."
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "Do you want to listen to music?",
-      "stage": "Recognize",
-      "correct_option_id": "do-you-want-to-listen-to-music-r5",
-      "options": [
-        {
-          "id": "do-you-want-to-play-r5",
-          "image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
-          "label": null
-        },
-        {
-          "id": "do-you-want-to-listen-to-music-r5",
-          "image_url": "a1_scene_do-you-want-to-listen-to-music_e280002.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Do you want to listen to music?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Quieres escuchar música?",
-      "pedagogy_note": "Story beat 05: Do you want to listen to music?",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "let's-watch-tv-r6",
-      "options": [
-        {
-          "id": "let's-watch-tv-r6",
-          "image_url": "",
-          "label": "Let's watch TV."
-        },
-        {
-          "id": "let's-play-r6",
-          "image_url": "",
-          "label": "Let's play."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Let's watch TV.",
-      "prompt_image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 06: Let's watch TV."
-    },
-    {
-      "slide_id": "R7",
       "interaction_type": "t2i3",
       "prompt": "Let's listen to music.",
       "stage": "Recognize",
-      "correct_option_id": "let's-listen-to-music-r7",
+      "correct_option_id": "listen-to-music-r5",
       "options": [
         {
-          "id": "let's-listen-to-music-r7",
-          "image_url": "a1_photo_u7_grandparents_lets_listen_v2.webp",
+          "id": "watch-tv-r5",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp",
           "label": null
         },
         {
-          "id": "let's-watch-tv-r7",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp",
+          "id": "draw-r5",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp",
           "label": null
         },
         {
-          "id": "let's-play-r7",
-          "image_url": "a1_photo_u7_boy_lets_play_v1.webp",
+          "id": "listen-to-music-r5",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp",
           "label": null
         }
       ],
@@ -303,572 +413,187 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escuchemos música.",
-      "pedagogy_note": "Story beat 07: Let's listen to music.",
-      "audio_speaker": "female-character"
+      "pedagogy_note": "Approved beat alternative: Let's listen to music.",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis. Lee la propuesta e identifica la actividad."
     },
     {
-      "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "slide_id": "R6",
+      "interaction_type": "t2i3",
+      "prompt": "Do you want to take photos?",
       "stage": "Recognize",
-      "correct_option_id": "let's-watch-tv-ok-r8",
+      "correct_option_id": "take-photos-r6",
       "options": [
         {
-          "id": "let's-watch-tv-ok-r8",
-          "image_url": "",
-          "label": "Let's watch TV. OK."
-        },
-        {
-          "id": "let's-watch-tv-sorry-no-r8",
-          "image_url": "",
-          "label": "Let's watch TV. Sorry, no."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Let's watch TV. OK.",
-      "answer_audio_turns": [
-        {
-          "text": "Let's watch TV.",
-          "speaker_role": "ana",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp"
-        },
-        {
-          "text": "OK.",
-          "speaker_role": "luis",
-          "image_url": "a1_photo_u7_luis_ok_v1.webp"
-        }
-      ],
-      "prompt_image_url": "a1_photo_u7_luis_ok_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: Let's watch TV. OK."
-    },
-    {
-      "slide_id": "R9",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "do-you-want-to-play-yes-thank-you-r9",
-      "options": [
-        {
-          "id": "do-you-want-to-play-yes-thank-you-r9",
-          "image_url": "",
-          "label": "Do you want to play? Yes, thank you."
-        },
-        {
-          "id": "do-you-want-to-play-sorry-no-r9",
-          "image_url": "",
-          "label": "Do you want to play? Sorry, no."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Do you want to play? Yes, thank you.",
-      "answer_audio_turns": [
-        {
-          "text": "Do you want to play?",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
-        },
-        {
-          "text": "Yes, thank you.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
-        }
-      ],
-      "prompt_image_url": "a1_scene_yes-thank-you_95534e3.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: Do you want to play? Yes, thank you."
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "let's-watch-tv-ok-r10",
-      "options": [
-        {
-          "id": "let's-watch-tv-ok-r10",
-          "image_url": "",
-          "label": "Let's watch TV. OK."
-        },
-        {
-          "id": "let's-watch-tv-sorry-no-r10",
-          "image_url": "",
-          "label": "Let's watch TV. Sorry, no."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Let's watch TV. OK.",
-      "answer_audio_turns": [
-        {
-          "text": "Let's watch TV.",
-          "speaker_role": "ana",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp"
-        },
-        {
-          "text": "OK.",
-          "speaker_role": "luis",
-          "image_url": "a1_photo_u7_luis_ok_v1.webp"
-        }
-      ],
-      "prompt_image_url": "a1_photo_u7_luis_ok_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: Let's watch TV. OK."
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "do-you-want-to-play-yes-thank-you-r11",
-      "options": [
-        {
-          "id": "do-you-want-to-play-sorry-no-r11",
-          "image_url": "",
-          "label": "Do you want to play? Sorry, no."
-        },
-        {
-          "id": "do-you-want-to-play-yes-thank-you-r11",
-          "image_url": "",
-          "label": "Do you want to play? Yes, thank you."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "Do you want to play? Yes, thank you.",
-      "answer_audio_turns": [
-        {
-          "text": "Do you want to play?",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
-        },
-        {
-          "text": "Yes, thank you.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
-        }
-      ],
-      "prompt_image_url": "a1_scene_yes-thank-you_95534e3.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 11: Do you want to play? Yes, thank you."
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "do-you-want-to-play-a1",
-      "options": [
-        {
-          "id": "do-you-want-to-play-a1",
-          "image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
+          "id": "play-football-r6",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp",
           "label": null
         },
         {
-          "id": "do-you-want-to-watch-tv-a1",
-          "image_url": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Do you want to play?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Do you want to play?",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "let's-play-a2",
-      "options": [
-        {
-          "id": "let's-play-a2",
-          "image_url": "a1_photo_u7_boy_lets_play_v1.webp",
+          "id": "take-photos-r6",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp",
           "label": null
         },
         {
-          "id": "let's-watch-tv-a2",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp",
+          "id": "paint-r6",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "Let's play.",
+      "audio_text": "Do you want to take photos?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Let's play.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "¿Quieres tomar fotos?",
+      "pedagogy_note": "Approved beat alternative: Do you want to take photos?",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis. Lee la propuesta e identifica la actividad."
     },
     {
-      "slide_id": "A3",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "do-you-want-to-watch-tv-a3",
-      "options": [
-        {
-          "id": "do-you-want-to-watch-tv-a3",
-          "image_url": "",
-          "label": "Do you want to watch TV?"
-        },
-        {
-          "id": "do-you-want-to-read-a3",
-          "image_url": "",
-          "label": "Do you want to read?"
-        }
-      ],
-      "audio_text": "Do you want to watch TV?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Do you want to watch TV?",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "do-you-want-to-read-a4",
-      "options": [
-        {
-          "id": "do-you-want-to-watch-tv-a4",
-          "image_url": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
-          "label": null
-        },
-        {
-          "id": "do-you-want-to-read-a4",
-          "image_url": "a1_scene_do-you-want-to-read_2214c2e.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Do you want to read?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: Do you want to read?",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "A5",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "do-you-want-to-listen-to-music-a5",
-      "options": [
-        {
-          "id": "do-you-want-to-listen-to-music-a5",
-          "image_url": "a1_scene_do-you-want-to-listen-to-music_e280002.webp",
-          "label": null
-        },
-        {
-          "id": "do-you-want-to-play-a5",
-          "image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Do you want to listen to music?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Do you want to listen to music?",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "A6",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "let's-watch-tv-a6",
-      "options": [
-        {
-          "id": "let's-play-a6",
-          "image_url": "",
-          "label": "Let's play."
-        },
-        {
-          "id": "let's-watch-tv-a6",
-          "image_url": "",
-          "label": "Let's watch TV."
-        }
-      ],
-      "audio_text": "Let's watch TV.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: Let's watch TV.",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "A7",
-      "interaction_type": "a2i3",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "let's-listen-to-music-a7",
-      "options": [
-        {
-          "id": "let's-listen-to-music-a7",
-          "image_url": "a1_photo_u7_grandparents_lets_listen_v2.webp",
-          "label": null
-        },
-        {
-          "id": "let's-watch-tv-a7",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp",
-          "label": null
-        },
-        {
-          "id": "let's-play-a7",
-          "image_url": "a1_photo_u7_boy_lets_play_v1.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Let's listen to music.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: Let's listen to music.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "A8",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "let's-watch-tv-ok-a8",
-      "options": [
-        {
-          "id": "let's-watch-tv-sorry-no-a8",
-          "image_url": "",
-          "label": "Let's watch TV. Sorry, no."
-        },
-        {
-          "id": "let's-watch-tv-ok-a8",
-          "image_url": "",
-          "label": "Let's watch TV. OK."
-        }
-      ],
-      "audio_text": "Let's watch TV. OK.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "audio_turns": [
-        {
-          "text": "Let's watch TV.",
-          "speaker_role": "ana",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp"
-        },
-        {
-          "text": "OK.",
-          "speaker_role": "luis",
-          "image_url": "a1_photo_u7_luis_ok_v1.webp"
-        }
-      ],
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: Let's watch TV. OK."
-    },
-    {
-      "slide_id": "A9",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "do-you-want-to-play-yes-thank-you-a9",
-      "options": [
-        {
-          "id": "do-you-want-to-play-sorry-no-a9",
-          "image_url": "",
-          "label": "Do you want to play? Sorry, no."
-        },
-        {
-          "id": "do-you-want-to-play-yes-thank-you-a9",
-          "image_url": "",
-          "label": "Do you want to play? Yes, thank you."
-        }
-      ],
-      "audio_text": "Do you want to play? Yes, thank you.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "audio_turns": [
-        {
-          "text": "Do you want to play?",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
-        },
-        {
-          "text": "Yes, thank you.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
-        }
-      ],
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Do you want to play? Yes, thank you."
-    },
-    {
-      "slide_id": "A10",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "let's-watch-tv-ok-a10",
-      "options": [
-        {
-          "id": "let's-watch-tv-sorry-no-a10",
-          "image_url": "",
-          "label": "Let's watch TV. Sorry, no."
-        },
-        {
-          "id": "let's-watch-tv-ok-a10",
-          "image_url": "",
-          "label": "Let's watch TV. OK."
-        }
-      ],
-      "audio_text": "Let's watch TV. OK.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "audio_turns": [
-        {
-          "text": "Let's watch TV.",
-          "speaker_role": "ana",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp"
-        },
-        {
-          "text": "OK.",
-          "speaker_role": "luis",
-          "image_url": "a1_photo_u7_luis_ok_v1.webp"
-        }
-      ],
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: Let's watch TV. OK."
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "speak",
-      "prompt": "Do you want to play?",
-      "stage": "Speak",
-      "correct_option_id": "do-you-want-to-play-speak",
-      "options": [
-        {
-          "id": "do-you-want-to-play-speak",
-          "image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
-          "label": "Do you want to play?"
-        }
-      ],
-      "audio_text": "Do you want to play?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Quieres jugar?",
-      "pedagogy_note": "Story beat 01: Do you want to play?",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "Let's play.",
-      "stage": "Speak",
-      "correct_option_id": "let's-play-speak",
-      "options": [
-        {
-          "id": "let's-play-speak",
-          "image_url": "a1_photo_u7_boy_lets_play_v1.webp",
-          "label": "Let's play."
-        }
-      ],
-      "audio_text": "Let's play.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Juguemos.",
-      "pedagogy_note": "Story beat 02: Let's play.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "Do you want to watch TV?",
-      "stage": "Speak",
-      "correct_option_id": "do-you-want-to-watch-tv-speak",
-      "options": [
-        {
-          "id": "do-you-want-to-watch-tv-speak",
-          "image_url": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
-          "label": "Do you want to watch TV?"
-        }
-      ],
-      "audio_text": "Do you want to watch TV?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Quieres ver televisión?",
-      "pedagogy_note": "Story beat 03: Do you want to watch TV?",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
+      "slide_id": "R7",
+      "interaction_type": "t2i3",
       "prompt": "Do you want to read?",
-      "stage": "Speak",
-      "correct_option_id": "do-you-want-to-read-speak",
+      "stage": "Recognize",
+      "correct_option_id": "read-r7",
       "options": [
         {
-          "id": "do-you-want-to-read-speak",
-          "image_url": "a1_scene_do-you-want-to-read_2214c2e.webp",
-          "label": "Do you want to read?"
+          "id": "read-r7",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_read_v1.webp",
+          "label": null
+        },
+        {
+          "id": "watch-tv-r7",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp",
+          "label": null
+        },
+        {
+          "id": "draw-r7",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp",
+          "label": null
         }
       ],
       "audio_text": "Do you want to read?",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Quieres leer?",
-      "pedagogy_note": "Story beat 04: Do you want to read?",
-      "audio_speaker": "female-character"
+      "pedagogy_note": "Approved beat alternative: Do you want to read?",
+      "audio_speaker": "luis",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado. Lee la propuesta e identifica la actividad."
     },
     {
-      "slide_id": "S5",
-      "interaction_type": "speak",
-      "prompt": "Do you want to listen to music?",
-      "stage": "Speak",
-      "correct_option_id": "do-you-want-to-listen-to-music-speak",
+      "slide_id": "R8",
+      "interaction_type": "t2i3",
+      "prompt": "Let's read.",
+      "stage": "Recognize",
+      "correct_option_id": "read-r8",
       "options": [
         {
-          "id": "do-you-want-to-listen-to-music-speak",
-          "image_url": "a1_scene_do-you-want-to-listen-to-music_e280002.webp",
-          "label": "Do you want to listen to music?"
+          "id": "paint-r8",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+          "label": null
+        },
+        {
+          "id": "ride-a-bike-r8",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp",
+          "label": null
+        },
+        {
+          "id": "read-r8",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_read_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Do you want to listen to music?",
+      "audio_text": "Let's read.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Quieres escuchar música?",
-      "pedagogy_note": "Story beat 05: Do you want to listen to music?",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Leamos.",
+      "pedagogy_note": "Approved beat alternative: Let's read.",
+      "audio_speaker": "sofia",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado. Lee la propuesta e identifica la actividad."
     },
     {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "Let's watch TV.",
-      "stage": "Speak",
-      "correct_option_id": "let's-watch-tv-speak",
+      "slide_id": "R9",
+      "interaction_type": "t2i3",
+      "prompt": "Let's dance on Sunday.",
+      "stage": "Recognize",
+      "correct_option_id": "dance-r9",
       "options": [
         {
-          "id": "let's-watch-tv-speak",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp",
-          "label": "Let's watch TV."
+          "id": "listen-to-music-r9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp",
+          "label": null
+        },
+        {
+          "id": "dance-r9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+          "label": null
+        },
+        {
+          "id": "play-football-r9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "Let's watch TV.",
+      "audio_text": "Let's dance on Sunday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Veamos televisión.",
-      "pedagogy_note": "Story beat 06: Let's watch TV.",
-      "audio_speaker": "ana"
+      "spanish_translation": "Bailemos el domingo.",
+      "pedagogy_note": "Approved beat alternative: Let's dance on Sunday.",
+      "audio_speaker": "luis",
+      "context_es": "Un nuevo plan para el domingo: Sofía y Luis. Lee la propuesta e identifica la actividad."
     },
     {
-      "slide_id": "S7",
-      "interaction_type": "speak",
-      "prompt": "Let's watch TV. OK.",
-      "stage": "Speak",
-      "correct_option_id": "let's-watch-tv-ok-speak",
+      "slide_id": "A1",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a1-0",
       "options": [
         {
-          "id": "let's-watch-tv-ok-speak",
-          "image_url": "a1_photo_u7_luis_ok_v1.webp",
-          "label": "Let's watch TV. OK."
+          "id": "a1-0",
+          "image_url": "",
+          "label": "OK."
+        },
+        {
+          "id": "a1-1",
+          "image_url": "",
+          "label": "Sorry, no."
+        }
+      ],
+      "audio_text": "Do you want to watch TV? OK.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Do you want to watch TV?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_ana_v1.webp"
+        },
+        {
+          "text": "OK.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_luis_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Quieres ver la televisión? De acuerdo.",
+      "pedagogy_note": "Approved beat offer: Do you want to watch TV? OK.",
+      "context_es": "En casa: Ana invita a Luis."
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a2-1",
+      "options": [
+        {
+          "id": "a2-0",
+          "image_url": "",
+          "label": "Sorry, no."
+        },
+        {
+          "id": "a2-1",
+          "image_url": "",
+          "label": "OK."
         }
       ],
       "audio_text": "Let's watch TV. OK.",
@@ -878,101 +603,457 @@
         {
           "text": "Let's watch TV.",
           "speaker_role": "ana",
-          "image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp"
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_ana_v1.webp"
         },
         {
           "text": "OK.",
           "speaker_role": "luis",
-          "image_url": "a1_photo_u7_luis_ok_v1.webp"
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_luis_v1.webp"
         }
       ],
-      "spanish_translation": "Veamos televisión. Está bien.",
-      "pedagogy_note": "Story beat 07: Let's watch TV. OK."
+      "spanish_translation": "Veamos la televisión. De acuerdo.",
+      "pedagogy_note": "Approved beat accept: Let's watch TV. OK.",
+      "context_es": "En casa: Ana invita a Luis."
     },
     {
-      "slide_id": "S8",
-      "interaction_type": "speak",
-      "prompt": "Do you want to play? Yes, thank you.",
-      "stage": "Speak",
-      "correct_option_id": "do-you-want-to-play-yes-thank-you-speak",
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a3-0",
       "options": [
         {
-          "id": "do-you-want-to-play-yes-thank-you-speak",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp",
-          "label": "Do you want to play? Yes, thank you."
+          "id": "a3-0",
+          "image_url": "",
+          "label": "Sorry, no."
+        },
+        {
+          "id": "a3-1",
+          "image_url": "",
+          "label": "Yes, thank you."
         }
       ],
-      "audio_text": "Do you want to play? Yes, thank you.",
+      "audio_text": "Do you want to play football? Sorry, no.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "audio_turns": [
         {
-          "text": "Do you want to play?",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
+          "text": "Do you want to play football?",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_football_sofia_v1.webp"
+        },
+        {
+          "text": "Sorry, no.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_decline_luis_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Quieres jugar al fútbol? Lo siento, no.",
+      "pedagogy_note": "Approved beat offer: Do you want to play football? Sorry, no.",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "tired-a4",
+      "options": [
+        {
+          "id": "happy-a4",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_feel_happy_reply_v1.webp",
+          "label": null
+        },
+        {
+          "id": "tired-a4",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_decline_luis_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "Sorry, no. I am tired.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Lo siento, no. Estoy cansado.",
+      "pedagogy_note": "Approved beat decline: Sorry, no. I am tired.",
+      "audio_speaker": "luis",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a5-0",
+      "options": [
+        {
+          "id": "a5-0",
+          "image_url": "",
+          "label": "Yes, thank you."
+        },
+        {
+          "id": "a5-1",
+          "image_url": "",
+          "label": "Sorry, no."
+        }
+      ],
+      "audio_text": "Do you want to listen to music? Yes, thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Do you want to listen to music?",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_sofia_v1.webp"
         },
         {
           "text": "Yes, thank you.",
-          "speaker_role": "male-character",
-          "image_url": "a1_scene_yes-thank-you_95534e3.webp"
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_luis_v1.webp"
         }
       ],
-      "spanish_translation": "¿Quieres jugar? Sí, gracias.",
-      "pedagogy_note": "Story beat 08: Do you want to play? Yes, thank you."
+      "spanish_translation": "¿Quieres escuchar música? Sí, gracias.",
+      "pedagogy_note": "Approved beat alternative: Do you want to listen to music? Yes, thank you.",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a6-1",
+      "options": [
+        {
+          "id": "a6-0",
+          "image_url": "",
+          "label": "Sorry, no."
+        },
+        {
+          "id": "a6-1",
+          "image_url": "",
+          "label": "OK."
+        }
+      ],
+      "audio_text": "Let's listen to music. OK.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Let's listen to music.",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_sofia_v1.webp"
+        },
+        {
+          "text": "OK.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_luis_v1.webp"
+        }
+      ],
+      "spanish_translation": "Escuchemos música. De acuerdo.",
+      "pedagogy_note": "Approved beat alternative: Let's listen to music. OK.",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a7-0",
+      "options": [
+        {
+          "id": "a7-0",
+          "image_url": "",
+          "label": "Yes, thank you."
+        },
+        {
+          "id": "a7-1",
+          "image_url": "",
+          "label": "Sorry, no."
+        }
+      ],
+      "audio_text": "Do you want to read? Yes, thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Do you want to read?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_luis_v1.webp"
+        },
+        {
+          "text": "Yes, thank you.",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_sofia_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Quieres leer? Sí, gracias.",
+      "pedagogy_note": "Approved beat alternative: Do you want to read? Yes, thank you.",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a8-1",
+      "options": [
+        {
+          "id": "a8-0",
+          "image_url": "",
+          "label": "Sorry, no."
+        },
+        {
+          "id": "a8-1",
+          "image_url": "",
+          "label": "OK."
+        }
+      ],
+      "audio_text": "Let's read on Saturday. OK.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Let's read on Saturday.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_luis_v1.webp"
+        },
+        {
+          "text": "OK.",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_sofia_v1.webp"
+        }
+      ],
+      "spanish_translation": "Leamos el sábado. De acuerdo.",
+      "pedagogy_note": "Approved beat alternative: Let's read on Saturday. OK.",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a9-0",
+      "options": [
+        {
+          "id": "a9-0",
+          "image_url": "",
+          "label": "OK."
+        },
+        {
+          "id": "a9-1",
+          "image_url": "",
+          "label": "Sorry, no."
+        }
+      ],
+      "audio_text": "Let's dance on Sunday. OK.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Let's dance on Sunday.",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_dance_sofia_v1.webp"
+        },
+        {
+          "text": "OK.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_dance_luis_v1.webp"
+        }
+      ],
+      "spanish_translation": "Bailemos el domingo. De acuerdo.",
+      "pedagogy_note": "Approved beat alternative: Let's dance on Sunday. OK.",
+      "context_es": "Un nuevo plan para el domingo: Sofía y Luis."
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "Do you want to watch TV?",
+      "stage": "Speak",
+      "correct_option_id": "s1-model",
+      "options": [
+        {
+          "id": "s1-model",
+          "label": "Do you want to watch TV?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_ana_v1.webp"
+        }
+      ],
+      "audio_text": "Do you want to watch TV?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Quieres ver la televisión?",
+      "pedagogy_note": "Approved beat offer: Do you want to watch TV?",
+      "audio_speaker": "ana",
+      "context_es": "En casa: Ana invita a Luis."
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "OK. Let's watch TV.",
+      "stage": "Speak",
+      "correct_option_id": "s2-model",
+      "options": [
+        {
+          "id": "s2-model",
+          "label": "OK. Let's watch TV.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_luis_v1.webp"
+        }
+      ],
+      "audio_text": "OK. Let's watch TV.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "De acuerdo. Veamos la televisión.",
+      "pedagogy_note": "Approved beat accept: OK. Let's watch TV.",
+      "audio_speaker": "luis",
+      "context_es": "En casa: Ana invita a Luis."
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "Do you want to play football?",
+      "stage": "Speak",
+      "correct_option_id": "s3-model",
+      "options": [
+        {
+          "id": "s3-model",
+          "label": "Do you want to play football?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_football_sofia_v1.webp"
+        }
+      ],
+      "audio_text": "Do you want to play football?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Quieres jugar al fútbol?",
+      "pedagogy_note": "Approved beat offer: Do you want to play football?",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "Sorry, no. I am tired.",
+      "stage": "Speak",
+      "correct_option_id": "s4-model",
+      "options": [
+        {
+          "id": "s4-model",
+          "label": "Sorry, no. I am tired.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_decline_luis_v1.webp"
+        }
+      ],
+      "audio_text": "Sorry, no. I am tired.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Lo siento, no. Estoy cansado.",
+      "pedagogy_note": "Approved beat decline: Sorry, no. I am tired.",
+      "audio_speaker": "luis",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "Do you want to listen to music?",
+      "stage": "Speak",
+      "correct_option_id": "s5-model",
+      "options": [
+        {
+          "id": "s5-model",
+          "label": "Do you want to listen to music?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_sofia_v1.webp"
+        }
+      ],
+      "audio_text": "Do you want to listen to music?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Quieres escuchar música?",
+      "pedagogy_note": "Approved beat alternative: Do you want to listen to music?",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "OK. Let's listen to music.",
+      "stage": "Speak",
+      "correct_option_id": "s6-model",
+      "options": [
+        {
+          "id": "s6-model",
+          "label": "OK. Let's listen to music.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_luis_v1.webp"
+        }
+      ],
+      "audio_text": "OK. Let's listen to music.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "De acuerdo. Escuchemos música.",
+      "pedagogy_note": "Approved beat alternative: OK. Let's listen to music.",
+      "audio_speaker": "luis",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "Do you want to read?",
+      "stage": "Speak",
+      "correct_option_id": "s7-model",
+      "options": [
+        {
+          "id": "s7-model",
+          "label": "Do you want to read?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_luis_v1.webp"
+        }
+      ],
+      "audio_text": "Do you want to read?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Quieres leer?",
+      "pedagogy_note": "Approved beat alternative: Do you want to read?",
+      "audio_speaker": "luis",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "OK. Let's read on Saturday.",
+      "stage": "Speak",
+      "correct_option_id": "s8-model",
+      "options": [
+        {
+          "id": "s8-model",
+          "label": "OK. Let's read on Saturday.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_sofia_v1.webp"
+        }
+      ],
+      "audio_text": "OK. Let's read on Saturday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "De acuerdo. Leamos el sábado.",
+      "pedagogy_note": "Approved beat alternative: OK. Let's read on Saturday.",
+      "audio_speaker": "sofia",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
     },
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "Let's play on Saturday.",
+      "prompt": "Let's dance on Sunday.",
       "stage": "Speak",
-      "correct_option_id": "let's-play-on-saturday-speak",
+      "correct_option_id": "s9-model",
       "options": [
         {
-          "id": "let's-play-on-saturday-speak",
-          "image_url": "a1_photo_u7_boy_lets_play_v1.webp",
-          "label": "Let's play on Saturday."
+          "id": "s9-model",
+          "label": "Let's dance on Sunday.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_invite_dance_luis_v1.webp"
         }
       ],
-      "audio_text": "Let's play on Saturday.",
+      "audio_text": "Let's dance on Sunday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Juguemos el sábado.",
-      "pedagogy_note": "Story beat 09: Let's play on Saturday.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Bailemos el domingo.",
+      "pedagogy_note": "Approved beat alternative: Let's dance on Sunday.",
+      "audio_speaker": "luis",
+      "context_es": "Un nuevo plan para el domingo: Sofía y Luis."
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "Do you want ___ ___?",
-      "stage": "Use",
-      "correct_option_id": "to",
-      "options": [
-        {
-          "id": "to",
-          "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "play",
-          "image_url": "",
-          "label": "play"
-        }
-      ],
-      "audio_text": "Do you want to play?",
-      "answer_audio_text": "Do you want to play?",
-      "prompt_image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
-      "spanish_translation": "¿Quieres jugar?",
-      "translation": "¿Quieres jugar?",
-      "correct_option_ids": [
-        "to",
-        "play"
-      ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 01: Do you want to play?",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "U2",
       "interaction_type": "complete2",
       "prompt": "Do you want to ___ ___?",
       "stage": "Use",
@@ -991,83 +1072,22 @@
       ],
       "audio_text": "Do you want to watch TV?",
       "answer_audio_text": "Do you want to watch TV?",
-      "prompt_image_url": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
-      "spanish_translation": "¿Quieres ver televisión?",
-      "translation": "¿Quieres ver televisión?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_ana_v1.webp",
+      "spanish_translation": "¿Quieres ver la televisión?",
+      "translation": "¿Quieres ver la televisión?",
       "correct_option_ids": [
         "watch",
         "tv"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 02: Do you want to watch TV?",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat offer: Do you want to watch TV?",
+      "audio_speaker": "ana",
+      "context_es": "En casa: Ana invita a Luis."
     },
     {
-      "slide_id": "U3",
+      "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "Do you want ___ ___?",
-      "stage": "Use",
-      "correct_option_id": "to",
-      "options": [
-        {
-          "id": "to",
-          "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "read",
-          "image_url": "",
-          "label": "read"
-        }
-      ],
-      "audio_text": "Do you want to read?",
-      "answer_audio_text": "Do you want to read?",
-      "prompt_image_url": "a1_scene_do-you-want-to-read_2214c2e.webp",
-      "spanish_translation": "¿Quieres leer?",
-      "translation": "¿Quieres leer?",
-      "correct_option_ids": [
-        "to",
-        "read"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 03: Do you want to read?",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "Do you want to listen ___ ___?",
-      "stage": "Use",
-      "correct_option_id": "to",
-      "options": [
-        {
-          "id": "to",
-          "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "music",
-          "image_url": "",
-          "label": "music"
-        }
-      ],
-      "audio_text": "Do you want to listen to music?",
-      "answer_audio_text": "Do you want to listen to music?",
-      "prompt_image_url": "a1_scene_do-you-want-to-listen-to-music_e280002.webp",
-      "spanish_translation": "¿Quieres escuchar música?",
-      "translation": "¿Quieres escuchar música?",
-      "correct_option_ids": [
-        "to",
-        "music"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 04: Do you want to listen to music?",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "Let's ___ ___.",
+      "prompt": "OK. Let's ___ ___.",
       "stage": "Use",
       "correct_option_id": "watch",
       "options": [
@@ -1082,107 +1102,198 @@
           "label": "TV"
         }
       ],
-      "audio_text": "Let's watch TV.",
-      "answer_audio_text": "Let's watch TV.",
-      "prompt_image_url": "a1_photo_u7_ana_lets_watch_tv_v1.webp",
-      "spanish_translation": "Veamos televisión.",
-      "translation": "Veamos televisión.",
+      "audio_text": "OK. Let's watch TV.",
+      "answer_audio_text": "OK. Let's watch TV.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_tv_luis_v1.webp",
+      "spanish_translation": "De acuerdo. Veamos la televisión.",
+      "translation": "De acuerdo. Veamos la televisión.",
       "correct_option_ids": [
         "watch",
         "tv"
       ],
-      "answer_audio_speaker": "ana",
-      "pedagogy_note": "Story beat 05: Let's watch TV.",
-      "audio_speaker": "ana"
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat accept: OK. Let's watch TV.",
+      "audio_speaker": "luis",
+      "context_es": "En casa: Ana invita a Luis."
     },
     {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "Do you want to ___ ___?",
       "stage": "Use",
-      "correct_option_id": "word-1",
+      "correct_option_id": "play",
       "options": [
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "listen"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "music"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Let's"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "to"
-        }
-      ],
-      "audio_text": "Let's listen to music.",
-      "answer_audio_text": "Let's listen to music.",
-      "prompt_image_url": "a1_photo_u7_grandparents_lets_listen_v2.webp",
-      "spanish_translation": "Escuchemos música.",
-      "translation": "Escuchemos música.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 06: Let's listen to music.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
+          "id": "play",
           "image_url": "",
           "label": "play"
         },
         {
+          "id": "football",
+          "image_url": "",
+          "label": "football"
+        }
+      ],
+      "audio_text": "Do you want to play football?",
+      "answer_audio_text": "Do you want to play football?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_football_sofia_v1.webp",
+      "spanish_translation": "¿Quieres jugar al fútbol?",
+      "translation": "¿Quieres jugar al fútbol?",
+      "correct_option_ids": [
+        "play",
+        "football"
+      ],
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Approved beat offer: Do you want to play football?",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "Sorry, no. I ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "am",
+      "options": [
+        {
+          "id": "am",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "tired",
+          "image_url": "",
+          "label": "tired"
+        }
+      ],
+      "audio_text": "Sorry, no. I am tired.",
+      "answer_audio_text": "Sorry, no. I am tired.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_decline_luis_v1.webp",
+      "spanish_translation": "Lo siento, no. Estoy cansado.",
+      "translation": "Lo siento, no. Estoy cansado.",
+      "correct_option_ids": [
+        "am",
+        "tired"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat decline: Sorry, no. I am tired.",
+      "audio_speaker": "luis",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
           "id": "word-4",
           "image_url": "",
-          "label": "Saturday"
+          "label": "to"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "to"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Let's"
+          "label": "Do"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "on"
+          "label": "want"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "listen"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "music"
         }
       ],
-      "audio_text": "Let's play on Saturday.",
-      "answer_audio_text": "Let's play on Saturday.",
-      "prompt_image_url": "a1_photo_u7_boy_lets_play_v1.webp",
-      "spanish_translation": "Juguemos el sábado.",
-      "translation": "Juguemos el sábado.",
+      "audio_text": "Do you want to listen to music?",
+      "answer_audio_text": "Do you want to listen to music?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_sofia_v1.webp",
+      "spanish_translation": "¿Quieres escuchar música?",
+      "translation": "¿Quieres escuchar música?",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 07: Let's play on Saturday.",
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Approved beat alternative: Do you want to listen to music?",
+      "audio_speaker": "sofia",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
     },
     {
-      "slide_id": "U8",
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___. ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "Let's"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "OK"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "listen"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "music"
+        }
+      ],
+      "audio_text": "OK. Let's listen to music.",
+      "answer_audio_text": "OK. Let's listen to music.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_music_luis_v1.webp",
+      "spanish_translation": "De acuerdo. Escuchemos música.",
+      "translation": "De acuerdo. Escuchemos música.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat alternative: OK. Let's listen to music.",
+      "audio_speaker": "luis",
+      "context_es": "Otro momento, en el parque: Sofía y Luis."
+    },
+    {
+      "slide_id": "U7",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___?",
       "stage": "Use",
@@ -1211,14 +1322,14 @@
         {
           "id": "word-5",
           "image_url": "",
-          "label": "play"
+          "label": "read"
         }
       ],
-      "audio_text": "Do you want to play?",
-      "answer_audio_text": "Do you want to play?",
-      "prompt_image_url": "a1_scene_do-you-want-to-play_416ec92.webp",
-      "spanish_translation": "¿Quieres jugar?",
-      "translation": "¿Quieres jugar?",
+      "audio_text": "Do you want to read?",
+      "answer_audio_text": "Do you want to read?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_luis_v1.webp",
+      "spanish_translation": "¿Quieres leer?",
+      "translation": "¿Quieres leer?",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1226,52 +1337,60 @@
         "word-4",
         "word-5"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 08: Do you want to play?",
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat alternative: Do you want to read?",
+      "audio_speaker": "luis",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
     },
     {
-      "slide_id": "U9",
+      "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___. ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "play"
+          "label": "Let's"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "Saturday"
+          "label": "on"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Let's"
+          "label": "OK"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "on"
+          "label": "read"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "Saturday"
         }
       ],
-      "audio_text": "Let's play on Saturday.",
-      "answer_audio_text": "Let's play on Saturday.",
-      "prompt_image_url": "a1_photo_u7_boy_lets_play_v1.webp",
-      "spanish_translation": "Juguemos el sábado.",
-      "translation": "Juguemos el sábado.",
+      "audio_text": "OK. Let's read on Saturday.",
+      "answer_audio_text": "OK. Let's read on Saturday.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_invite_read_sofia_v1.webp",
+      "spanish_translation": "De acuerdo. Leamos el sábado.",
+      "translation": "De acuerdo. Leamos el sábado.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 09: Let's play on Saturday.",
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Approved beat alternative: OK. Let's read on Saturday.",
+      "audio_speaker": "sofia",
+      "context_es": "Más tarde: Sofía y Luis planean leer el sábado."
     }
   ]
 }

@@ -72,7 +72,8 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
     return e('View', { style: { paddingTop: landscape ? 0 : 24, paddingBottom: 24, paddingHorizontal: landscape ? 24 : 0 }, children:
     e('View', { style: [screen.page, landscape ? screen.pageCompact : screen.pagePortrait], children:
       e('View', { style: [screen.lessonBody, landscape ? screen.lessonBodyLandscape : null], children: [chrome,
-        e('View', { style: screen.activityColumn, children: [widePrompt ? e('View', { onLayout: event => setPromptInset(event.nativeEvent.layout.height + 6), children: header }) : null,
+        e('View', { style: screen.activityColumn, children: [card.context_es ? e('Text', { testID: 'lesson-story-context', maxFontSizeMultiplier: landscape ? 1.3 : undefined, style: [screen.storyContext, landscape ? screen.storyContextLandscape : null], children: card.context_es }) : null,
+          widePrompt ? e('View', { onLayout: event => setPromptInset(event.nativeEvent.layout.height + 6), children: header }) : null,
           e('View', { style: screen.cardCarousel, children: body }, 'lesson-activity'),
           onTutor ? e(FloatingTutorButton, { onPress: onTutor, visible: true, topInset: widePrompt ? promptInset : 0 }) : null] })] }) }) });
   }
@@ -150,7 +151,7 @@ test('landscape standard activities fit the full safe area, including wide phone
   assert.equal(lessons.length, JSON.parse(fs.readFileSync(new URL('../release-integrity.json', import.meta.url), 'utf8')).catalog.lessonCount);
   const examples = cards.filter(c => !c.mission_game && c.stage !== 'Speak' && !c.interaction_type?.startsWith('mission-'));
   // Run every content shape with the longest prompt/choice labels first.
-  const unique = [...new Map(examples.map(c => [JSON.stringify([c.stage, c.interaction_type, c.prompt, c.options.map(o => [o.label, Boolean(o.image_url)])]), c])).values()];
+  const unique = [...new Map(examples.map(c => [JSON.stringify([c.stage, c.interaction_type, c.prompt, c.context_es, c.options.map(o => [o.label, Boolean(o.image_url)])]), c])).values()];
   for (const [width, height] of [[740, 360], [915, 412]]) for (const fontScale of [1, 1.3, 2]) {
     const viewport = { width, height, fontScale }, h = lessonHarness(viewport);
     for (const card of unique) for (const result of card.stage === 'Learn' ? [null] : [null, 'wrong']) {

@@ -17,6 +17,23 @@ def result(values):
 
 class ContextualGrammarIntroductionTests(unittest.TestCase):
 
+    def test_one_card_exchange_binds_each_turn_and_rejects_stale_or_reordered_audio(self):
+        model = card('L1', 'Do you work? Yes, I do.')
+        model['audio_turns'] = [{'text': 'Do you work?'}, {'text': 'Yes, I do.'}]
+        group = {'kind': 'exchange', 'targets': ['Do you...?', 'work', 'Yes, I do.'],
+                 'models': [{'slide_id': 'L1', 'text': model['prompt'],
+                             'turns': ['Do you work?', 'Yes, I do.']}]}
+        args = ([model], [group], group['targets'], {'i', 'you'})
+        self.assertEqual(result(args), ({'L1'}, []))
+        for turns in ([{'text': 'Yes, I do.'}, {'text': 'Do you work?'}],
+                      [{'text': 'Do you work?'}, {'text': 'No, I do not.'}], []):
+            changed = deepcopy(model)
+            changed['audio_turns'] = turns
+            self.assertTrue(result(([changed], [group], group['targets'], {'i', 'you'}))[1])
+        unbound = deepcopy(group)
+        del unbound['models'][0]['turns']
+        self.assertTrue(result(([model], [unbound], group['targets'], {'i', 'you'}))[1])
+
     def test_exact_reviewed_sequence_retrieves_only_known_context(self):
         allowed, errors = result(sequence())
         assert allowed == {'L1', 'L2'}

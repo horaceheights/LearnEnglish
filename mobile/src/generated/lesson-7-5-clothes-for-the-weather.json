@@ -9,31 +9,23 @@
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.5",
   "sub_lesson_title": "Clothes for the Weather",
-  "goal": "Recognize an umbrella and boots, and say what I need for the weather.",
+  "goal": "Choose and describe useful clothing for cold, rainy and hot weather, then leave prepared.",
   "vocabulary": [
+    "coat",
+    "sweater",
+    "scarf",
+    "gloves",
     "umbrella",
-    "boots"
+    "boots",
+    "shorts"
   ],
-  "review_vocabulary": [
-    "it",
-    "is",
-    "I",
-    "need",
-    "a",
-    "an",
-    "jacket",
-    "hat",
-    "shirt",
-    "sunny",
-    "rainy",
-    "hot",
-    "cold",
-    "windy"
-  ],
-  "grammar_function": "It is rainy. I need an umbrella. It is cold. I need a jacket.",
+  "review_vocabulary": [],
+  "grammar_function": "Name weather clothes, state an explicit need and locate belongings.",
   "prerequisite": "5.6 need; 7.3 clothes; 7.4 weather.",
-  "speaking_outcome": "Say the weather and what I need.",
+  "speaking_outcome": "Choose and describe useful clothing for cold, rainy and hot weather, then leave prepared.",
   "purposeful_review_slides": [
+    "R1",
+    "R2",
     "R3",
     "R4",
     "R5",
@@ -42,8 +34,8 @@
     "R8",
     "R9",
     "R10",
-    "R11",
-    "R12",
+    "A1",
+    "A2",
     "A3",
     "A4",
     "A5",
@@ -52,6 +44,7 @@
     "A8",
     "A9",
     "A10",
+    "S1",
     "S2",
     "S3",
     "S4",
@@ -70,50 +63,51 @@
     "U8",
     "U9"
   ],
-  "content_revision": 2,
+  "content_revision": 3,
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "An umbrella",
+      "prompt": "A coat",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Learn",
-      "correct_option_id": "an-umbrella-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "an-umbrella-learn",
-          "image_url": "/lesson-assets/a1_umbrella.webp",
-          "label": "An umbrella"
+          "id": "l1-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "label": "A coat"
         }
       ],
-      "audio_text": "An umbrella",
+      "audio_text": "A coat",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un paraguas",
-      "pedagogy_note": "Story beat 01: An umbrella",
+      "spanish_translation": "Un abrigo",
+      "pedagogy_note": "Approved beat cold: A coat",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c001-prompt-cb9aea2b070c243b6712",
+          "id": "lesson-7-5-clothes-for-the-weather-c001-prompt-0cb561e6c83018177df5",
           "purpose": "prompt",
-          "text": "An umbrella",
+          "text": "A coat",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c001-answer-b808795766616cd13cf7",
+          "id": "lesson-7-5-clothes-for-the-weather-c001-answer-b9962f806b1d6f0d69d9",
           "purpose": "answer",
-          "text": "An umbrella",
+          "text": "A coat",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -124,12 +118,213 @@
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Boots",
+      "prompt": "A sweater",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Learn",
-      "correct_option_id": "boots-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "boots-learn",
+          "id": "l2-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+          "label": "A sweater"
+        }
+      ],
+      "audio_text": "A sweater",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un su\u00e9ter",
+      "pedagogy_note": "Approved beat cold: A sweater",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c002-prompt-13951f57ccc95667421b",
+          "purpose": "prompt",
+          "text": "A sweater",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c002-answer-a6d954188f6854f15182",
+          "purpose": "answer",
+          "text": "A sweater",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "A scarf",
+      "context_es": "Ana prepara su ropa para una salida.",
+      "stage": "Learn",
+      "correct_option_id": "l3-model",
+      "options": [
+        {
+          "id": "l3-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
+          "label": "A scarf"
+        }
+      ],
+      "audio_text": "A scarf",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Una bufanda",
+      "pedagogy_note": "Approved beat cold: A scarf",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c003-prompt-e521a3a5710c18644953",
+          "purpose": "prompt",
+          "text": "A scarf",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c003-answer-c5ace30417f1a7a4567e",
+          "purpose": "answer",
+          "text": "A scarf",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "Gloves",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
+      "stage": "Learn",
+      "correct_option_id": "l4-model",
+      "options": [
+        {
+          "id": "l4-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+          "label": "Gloves"
+        }
+      ],
+      "audio_text": "Gloves",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Guantes",
+      "pedagogy_note": "Approved beat hands: Gloves",
+      "audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c004-prompt-90e3918b89f63bb8652d",
+          "purpose": "prompt",
+          "text": "Gloves",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c004-answer-ad91dc974b7f38dad036",
+          "purpose": "answer",
+          "text": "Gloves",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "An umbrella",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
+      "stage": "Learn",
+      "correct_option_id": "l5-model",
+      "options": [
+        {
+          "id": "l5-model",
+          "image_url": "/lesson-assets/a1_umbrella.webp",
+          "label": "An umbrella"
+        }
+      ],
+      "audio_text": "An umbrella",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Un paraguas",
+      "pedagogy_note": "Approved beat rain: An umbrella",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c005-prompt-b3e920268a2375454fa5",
+          "purpose": "prompt",
+          "text": "An umbrella",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c005-answer-5b2e9caf2b6cd832ebe6",
+          "purpose": "answer",
+          "text": "An umbrella",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "Boots",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
+      "stage": "Learn",
+      "correct_option_id": "l6-model",
+      "options": [
+        {
+          "id": "l6-model",
           "image_url": "/lesson-assets/a1_boots.webp",
           "label": "Boots"
         }
@@ -138,14 +333,14 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Botas",
-      "pedagogy_note": "Story beat 02: Boots",
+      "pedagogy_note": "Approved beat rain: Boots",
       "audio_speaker": "co-teacher",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c002-prompt-8f6c33c5e0c77324ce5f",
+          "id": "lesson-7-5-clothes-for-the-weather-c006-prompt-689615549804a5df8429",
           "purpose": "prompt",
           "text": "Boots",
           "mode": "prompt",
@@ -157,7 +352,7 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c002-answer-b0adedbc9087a522dff0",
+          "id": "lesson-7-5-clothes-for-the-weather-c006-answer-6971115a5dd65dc6de13",
           "purpose": "answer",
           "text": "Boots",
           "mode": "prompt",
@@ -171,54 +366,93 @@
       ]
     },
     {
-      "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "An umbrella",
-      "stage": "Recognize",
-      "correct_option_id": "an-umbrella-r1",
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "Shorts",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
+      "stage": "Learn",
+      "correct_option_id": "l7-model",
       "options": [
         {
-          "id": "boots-r1",
-          "image_url": "/lesson-assets/a1_boots.webp",
-          "label": null
-        },
-        {
-          "id": "an-umbrella-r1",
-          "image_url": "/lesson-assets/a1_umbrella.webp",
-          "label": null
+          "id": "l7-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
+          "label": "Shorts"
         }
       ],
-      "audio_text": "An umbrella",
+      "audio_text": "Shorts",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un paraguas",
-      "pedagogy_note": "Story beat 01: An umbrella",
+      "spanish_translation": "Pantalones cortos",
+      "pedagogy_note": "Approved beat hot: Shorts",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c003-prompt-7d61cdc88b6847311f44",
+          "id": "lesson-7-5-clothes-for-the-weather-c007-prompt-5e514e491000e4285263",
           "purpose": "prompt",
-          "text": "An umbrella",
+          "text": "Shorts",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c003-answer-c822964ea0f0ad6969d5",
+          "id": "lesson-7-5-clothes-for-the-weather-c007-answer-2c71b47617f50c3fa531",
           "purpose": "answer",
-          "text": "An umbrella",
+          "text": "Shorts",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "context_es": "Ana prepara su ropa para una salida.",
+      "stage": "Recognize",
+      "correct_option_id": "r1-0",
+      "options": [
+        {
+          "id": "r1-0",
+          "image_url": "",
+          "label": "This is a coat."
+        },
+        {
+          "id": "r1-1",
+          "image_url": "",
+          "label": "This is a jacket."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "This is a coat.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+      "spanish_translation": "Esto es un abrigo.",
+      "pedagogy_note": "Approved beat cold: This is a coat.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "co-teacher",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c008-answer-62b62d33cccb3e82aeb4",
+          "purpose": "answer",
+          "text": "This is a coat.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -228,39 +462,40 @@
       "slide_id": "R2",
       "interaction_type": "i2t2",
       "prompt": "",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Recognize",
-      "correct_option_id": "boots-r2",
+      "correct_option_id": "r2-1",
       "options": [
         {
-          "id": "an-umbrella-r2",
+          "id": "r2-0",
           "image_url": "",
-          "label": "An umbrella"
+          "label": "This is a red sweater."
         },
         {
-          "id": "boots-r2",
+          "id": "r2-1",
           "image_url": "",
-          "label": "Boots"
+          "label": "This is a blue sweater."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Boots",
-      "prompt_image_url": "/lesson-assets/a1_boots.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 02: Boots",
+      "answer_audio_text": "This is a blue sweater.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+      "spanish_translation": "Esto es un su\u00e9ter azul.",
+      "pedagogy_note": "Approved beat cold: This is a blue sweater.",
       "audio_speaker": null,
-      "answer_audio_speaker": "co-teacher",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c004-answer-836db24a8d79b29bc8c0",
+          "id": "lesson-7-5-clothes-for-the-weather-c009-answer-5a178518ac84e53d25f9",
           "purpose": "answer",
-          "text": "Boots",
+          "text": "This is a blue sweater.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_boots.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -270,39 +505,40 @@
       "slide_id": "R3",
       "interaction_type": "i2t2",
       "prompt": "",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-rainy-i-need-an-umbrella-r3",
+      "correct_option_id": "r3-0",
       "options": [
         {
-          "id": "it-is-rainy-i-need-an-umbrella-r3",
+          "id": "r3-0",
           "image_url": "",
-          "label": "It is rainy. I need an umbrella."
+          "label": "The scarf is red."
         },
         {
-          "id": "it-is-sunny-i-need-an-umbrella-r3",
+          "id": "r3-1",
           "image_url": "",
-          "label": "It is sunny. I need an umbrella."
+          "label": "The scarf is blue."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It is rainy. I need an umbrella.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 03: It is rainy. I need an umbrella.",
+      "answer_audio_text": "The scarf is red.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
+      "spanish_translation": "La bufanda es roja.",
+      "pedagogy_note": "Approved beat cold: The scarf is red.",
       "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c005-answer-921e1f1f13e7487a3347",
+          "id": "lesson-7-5-clothes-for-the-weather-c010-answer-6351a162ac4e5811571f",
           "purpose": "answer",
-          "text": "It is rainy. I need an umbrella.",
+          "text": "The scarf is red.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -312,39 +548,40 @@
       "slide_id": "R4",
       "interaction_type": "i2t2",
       "prompt": "",
+      "context_es": "En la misma salida, Ana busca sus pertenencias. Habla de sus propias prendas.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-rainy-i-need-boots-r4",
+      "correct_option_id": "r4-1",
       "options": [
         {
-          "id": "it-is-sunny-i-need-boots-r4",
+          "id": "r4-0",
           "image_url": "",
-          "label": "It is sunny. I need boots."
+          "label": "These are my boots."
         },
         {
-          "id": "it-is-rainy-i-need-boots-r4",
+          "id": "r4-1",
           "image_url": "",
-          "label": "It is rainy. I need boots."
+          "label": "These are my gloves."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It is rainy. I need boots.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 04: It is rainy. I need boots.",
+      "answer_audio_text": "These are my gloves.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+      "spanish_translation": "Estos son mis guantes.",
+      "pedagogy_note": "Approved beat hands: These are my gloves.",
       "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c006-answer-c615f7f1e5535adf6ba9",
+          "id": "lesson-7-5-clothes-for-the-weather-c011-answer-1b19d87f0f2978cb7b6a",
           "purpose": "answer",
-          "text": "It is rainy. I need boots.",
+          "text": "These are my gloves.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -352,53 +589,47 @@
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "It is cold. I need a jacket.",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-cold-i-need-a-jacket-r5",
+      "correct_option_id": "r5-2",
       "options": [
         {
-          "id": "it-is-windy-i-need-a-jacket-r5",
-          "image_url": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
-          "label": null
+          "id": "r5-0",
+          "image_url": "",
+          "label": "The gloves are under the scarf."
         },
         {
-          "id": "it-is-cold-i-need-a-jacket-r5",
-          "image_url": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
-          "label": null
+          "id": "r5-1",
+          "image_url": "",
+          "label": "The gloves are on the scarf."
+        },
+        {
+          "id": "r5-2",
+          "image_url": "",
+          "label": "The gloves are next to the scarf."
         }
       ],
-      "audio_text": "It is cold. I need a jacket.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hace fr\u00edo. Necesito una chaqueta.",
-      "pedagogy_note": "Story beat 05: It is cold. I need a jacket.",
-      "audio_speaker": "female-character",
+      "audio_text": "",
+      "answer_audio_text": "The gloves are next to the scarf.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
+      "spanish_translation": "Los guantes est\u00e1n al lado de la bufanda.",
+      "pedagogy_note": "Approved beat hands: The gloves are next to the scarf.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c007-prompt-64c0781c26a0f4db6b3d",
-          "purpose": "prompt",
-          "text": "It is cold. I need a jacket.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c007-answer-403ede6e30c61af5dd9c",
+          "id": "lesson-7-5-clothes-for-the-weather-c012-answer-1bd5a82449093e25a6a7",
           "purpose": "answer",
-          "text": "It is cold. I need a jacket.",
+          "text": "The gloves are next to the scarf.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -408,39 +639,40 @@
       "slide_id": "R6",
       "interaction_type": "i2t2",
       "prompt": "",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca. Habla de sus propias prendas.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-windy-i-need-a-jacket-r6",
+      "correct_option_id": "r6-1",
       "options": [
         {
-          "id": "it-is-windy-i-need-a-jacket-r6",
+          "id": "r6-0",
           "image_url": "",
-          "label": "It is windy. I need a jacket."
+          "label": "This is my hat."
         },
         {
-          "id": "it-is-cold-i-need-a-jacket-r6",
+          "id": "r6-1",
           "image_url": "",
-          "label": "It is cold. I need a jacket."
+          "label": "This is my umbrella."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It is windy. I need a jacket.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 06: It is windy. I need a jacket.",
+      "answer_audio_text": "This is my umbrella.",
+      "prompt_image_url": "/lesson-assets/a1_umbrella.webp",
+      "spanish_translation": "Este es mi paraguas.",
+      "pedagogy_note": "Approved beat rain: This is my umbrella.",
       "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c008-answer-187c6aca7f1c5d9f0039",
+          "id": "lesson-7-5-clothes-for-the-weather-c013-answer-b9e93678416738c70d7d",
           "purpose": "answer",
-          "text": "It is windy. I need a jacket.",
+          "text": "This is my umbrella.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -450,39 +682,40 @@
       "slide_id": "R7",
       "interaction_type": "i2t2",
       "prompt": "",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca. Habla de sus propias prendas.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-hot-i-need-a-shirt-r7",
+      "correct_option_id": "r7-0",
       "options": [
         {
-          "id": "it-is-hot-i-need-a-shirt-r7",
+          "id": "r7-0",
           "image_url": "",
-          "label": "It is hot. I need a shirt."
+          "label": "These are my boots."
         },
         {
-          "id": "it-is-hot-i-need-a-jacket-r7",
+          "id": "r7-1",
           "image_url": "",
-          "label": "It is hot. I need a jacket."
+          "label": "These are my shoes."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It is hot. I need a shirt.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 07: It is hot. I need a shirt.",
+      "answer_audio_text": "These are my boots.",
+      "prompt_image_url": "/lesson-assets/a1_boots.webp",
+      "spanish_translation": "Estas son mis botas.",
+      "pedagogy_note": "Approved beat rain: These are my boots.",
       "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c009-answer-e2f1e77cf59bbd3f1ec4",
+          "id": "lesson-7-5-clothes-for-the-weather-c014-answer-a3191d654c4ed9196ca3",
           "purpose": "answer",
-          "text": "It is hot. I need a shirt.",
+          "text": "These are my boots.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
+          "image_ref": "/lesson-assets/a1_boots.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -490,41 +723,47 @@
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-sunny-i-need-a-hat-r8",
+      "correct_option_id": "r8-2",
       "options": [
         {
-          "id": "it-is-sunny-i-need-a-hat-r8",
+          "id": "r8-0",
           "image_url": "",
-          "label": "It is sunny. I need a hat."
+          "label": "The boots are on the chair."
         },
         {
-          "id": "it-is-rainy-i-need-a-hat-r8",
+          "id": "r8-1",
           "image_url": "",
-          "label": "It is rainy. I need a hat."
+          "label": "The boots are next to the chair."
+        },
+        {
+          "id": "r8-2",
+          "image_url": "",
+          "label": "The boots are under the chair."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "It is sunny. I need a hat.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: It is sunny. I need a hat.",
+      "answer_audio_text": "The boots are under the chair.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_boots_under_chair_v1.webp",
+      "spanish_translation": "Las botas est\u00e1n debajo de la silla.",
+      "pedagogy_note": "Approved beat rain: The boots are under the chair.",
       "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "answer_audio_speaker": "co-teacher",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c010-answer-74dbe8f430047af2dfd7",
+          "id": "lesson-7-5-clothes-for-the-weather-c015-answer-2e74675facf32f17a2a6",
           "purpose": "answer",
-          "text": "It is sunny. I need a hat.",
+          "text": "The boots are under the chair.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_boots_under_chair_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "co-teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -534,217 +773,38 @@
       "slide_id": "R9",
       "interaction_type": "i2t2",
       "prompt": "",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
       "stage": "Recognize",
-      "correct_option_id": "i-need-an-umbrella-r9",
+      "correct_option_id": "r9-0",
       "options": [
         {
-          "id": "i-need-an-umbrella-r9",
+          "id": "r9-0",
           "image_url": "",
-          "label": "I need an umbrella."
+          "label": "These are blue shorts."
         },
         {
-          "id": "i-need-boots-r9",
+          "id": "r9-1",
           "image_url": "",
-          "label": "I need boots."
+          "label": "These are blue pants."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I need an umbrella.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 09: I need an umbrella.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c011-answer-6d36aca44b8cbc83c040",
-          "purpose": "answer",
-          "text": "I need an umbrella.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R10",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-need-boots-r10",
-      "options": [
-        {
-          "id": "i-need-boots-r10",
-          "image_url": "",
-          "label": "I need boots."
-        },
-        {
-          "id": "i-need-an-umbrella-r10",
-          "image_url": "",
-          "label": "I need an umbrella."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I need boots.",
-      "prompt_image_url": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 10: I need boots.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c012-answer-7065398fb1b7a22a8672",
-          "purpose": "answer",
-          "text": "I need boots.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-rainy-i-need-an-umbrella-r11",
-      "options": [
-        {
-          "id": "it-is-sunny-i-need-an-umbrella-r11",
-          "image_url": "",
-          "label": "It is sunny. I need an umbrella."
-        },
-        {
-          "id": "it-is-rainy-i-need-an-umbrella-r11",
-          "image_url": "",
-          "label": "It is rainy. I need an umbrella."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "It is rainy. I need an umbrella.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 11: It is rainy. I need an umbrella.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c013-answer-b45a8324ebf99e64e23d",
-          "purpose": "answer",
-          "text": "It is rainy. I need an umbrella.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R12",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-rainy-i-need-boots-r12",
-      "options": [
-        {
-          "id": "it-is-rainy-i-need-boots-r12",
-          "image_url": "",
-          "label": "It is rainy. I need boots."
-        },
-        {
-          "id": "it-is-sunny-i-need-boots-r12",
-          "image_url": "",
-          "label": "It is sunny. I need boots."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "It is rainy. I need boots.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 12: It is rainy. I need boots.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c014-answer-37b9900c24b2b5a7b794",
-          "purpose": "answer",
-          "text": "It is rainy. I need boots.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "an-umbrella-a1",
-      "options": [
-        {
-          "id": "an-umbrella-a1",
-          "image_url": "/lesson-assets/a1_umbrella.webp",
-          "label": null
-        },
-        {
-          "id": "boots-a1",
-          "image_url": "/lesson-assets/a1_boots.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "An umbrella",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: An umbrella",
+      "answer_audio_text": "These are blue shorts.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
+      "spanish_translation": "Estos son pantalones cortos azules.",
+      "pedagogy_note": "Approved beat hot: These are blue shorts.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c015-prompt-b2e853205becc2e899a0",
-          "purpose": "prompt",
-          "text": "An umbrella",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c015-answer-ecbc22e224ef27879b7c",
+          "id": "lesson-7-5-clothes-for-the-weather-c016-answer-307dcda3f0132f2c0e7b",
           "purpose": "answer",
-          "text": "An umbrella",
+          "text": "These are blue shorts.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -753,54 +813,197 @@
       ]
     },
     {
-      "slide_id": "A2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "boots-a2",
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque. Habla de sus propias prendas.",
+      "stage": "Recognize",
+      "correct_option_id": "r10-0",
       "options": [
         {
-          "id": "boots-a2",
-          "image_url": "/lesson-assets/a1_boots.webp",
+          "id": "r10-0",
+          "image_url": "",
+          "label": "I have shorts and a hat."
+        },
+        {
+          "id": "r10-1",
+          "image_url": "",
+          "label": "I have pants and a hat."
+        },
+        {
+          "id": "r10-2",
+          "image_url": "",
+          "label": "I have shorts and a scarf."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I have shorts and a hat.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
+      "spanish_translation": "Tengo pantalones cortos y un sombrero.",
+      "pedagogy_note": "Approved beat hot: I have shorts and a hat.",
+      "audio_speaker": null,
+      "answer_audio_speaker": "luis",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c017-answer-c1c4888cbed5e04698f9",
+          "purpose": "answer",
+          "text": "I have shorts and a hat.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
+          "semantic_role": "answer",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i3",
+      "prompt": "Listen and choose.",
+      "context_es": "Ana prepara su ropa para una salida.",
+      "stage": "Listen",
+      "correct_option_id": "coat-a1",
+      "options": [
+        {
+          "id": "coat-a1",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
           "label": null
         },
         {
-          "id": "an-umbrella-a2",
-          "image_url": "/lesson-assets/a1_umbrella.webp",
+          "id": "sweater-a1",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+          "label": null
+        },
+        {
+          "id": "scarf-a1",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
           "label": null
         }
       ],
-      "audio_text": "Boots",
+      "audio_text": "How is the weather today? It is cold. I need a coat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Boots",
-      "audio_speaker": "co-teacher",
+      "spanish_translation": "\u00bfC\u00f3mo est\u00e1 el tiempo hoy? Hace fr\u00edo. Necesito un abrigo.",
+      "pedagogy_note": "Approved beat cold: How is the weather today? It is cold. I need a coat.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_feel_happy_question_v1.webp"
+        },
+        {
+          "text": "It is cold.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_cold.webp"
+        },
+        {
+          "text": "I need a coat.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c018-prompt-turn-1-d7fdb3af2347076109fa",
+          "purpose": "prompt-turn-1",
+          "text": "How is the weather today?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_feel_happy_question_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c018-prompt-turn-2-74f67c9298c504ae21b7",
+          "purpose": "prompt-turn-2",
+          "text": "It is cold.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_cold.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c018-prompt-turn-3-c3ebdb49d1787196dfeb",
+          "purpose": "prompt-turn-3",
+          "text": "I need a coat.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i3",
+      "prompt": "Listen and choose.",
+      "context_es": "Ana prepara su ropa para una salida.",
+      "stage": "Listen",
+      "correct_option_id": "sweater-a2",
+      "options": [
+        {
+          "id": "coat-a2",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "label": null
+        },
+        {
+          "id": "scarf-a2",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
+          "label": null
+        },
+        {
+          "id": "sweater-a2",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I need a sweater.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Necesito un su\u00e9ter.",
+      "pedagogy_note": "Approved beat cold: I need a sweater.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c016-prompt-ed11eea42abfc72b4db1",
+          "id": "lesson-7-5-clothes-for-the-weather-c019-prompt-c1504fca7f705b258820",
           "purpose": "prompt",
-          "text": "Boots",
+          "text": "I need a sweater.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_boots.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c016-answer-125d7df8c9e4e1872d8e",
+          "id": "lesson-7-5-clothes-for-the-weather-c019-answer-e263ed81df8581979c73",
           "purpose": "answer",
-          "text": "Boots",
+          "text": "I need a sweater.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_boots.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "co-teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -808,53 +1011,59 @@
     },
     {
       "slide_id": "A3",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Listen",
-      "correct_option_id": "it-is-rainy-i-need-an-umbrella-a3",
+      "correct_option_id": "scarf-a3",
       "options": [
         {
-          "id": "it-is-rainy-i-need-an-umbrella-a3",
-          "image_url": "",
-          "label": "It is rainy. I need an umbrella."
+          "id": "coat-a3",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "label": null
         },
         {
-          "id": "it-is-sunny-i-need-an-umbrella-a3",
-          "image_url": "",
-          "label": "It is sunny. I need an umbrella."
+          "id": "scarf-a3",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
+          "label": null
+        },
+        {
+          "id": "sweater-a3",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "It is rainy. I need an umbrella.",
+      "audio_text": "I need a scarf.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: It is rainy. I need an umbrella.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Necesito una bufanda.",
+      "pedagogy_note": "Approved beat cold: I need a scarf.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c017-prompt-8be95c95099486e02907",
+          "id": "lesson-7-5-clothes-for-the-weather-c020-prompt-567405dfa9f89e2a97f7",
           "purpose": "prompt",
-          "text": "It is rainy. I need an umbrella.",
+          "text": "I need a scarf.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:f74628646cdd886994b4",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c017-answer-a9c48f1726edca6d2c32",
+          "id": "lesson-7-5-clothes-for-the-weather-c020-answer-e1bc10df89357b85ab82",
           "purpose": "answer",
-          "text": "It is rainy. I need an umbrella.",
+          "text": "I need a scarf.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:f74628646cdd886994b4",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -862,53 +1071,59 @@
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
       "stage": "Listen",
-      "correct_option_id": "it-is-rainy-i-need-boots-a4",
+      "correct_option_id": "gloves-a4",
       "options": [
         {
-          "id": "it-is-sunny-i-need-boots-a4",
-          "image_url": "",
-          "label": "It is sunny. I need boots."
+          "id": "gloves-a4",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+          "label": null
         },
         {
-          "id": "it-is-rainy-i-need-boots-a4",
-          "image_url": "",
-          "label": "It is rainy. I need boots."
+          "id": "boots-a4",
+          "image_url": "/lesson-assets/a1_boots.webp",
+          "label": null
+        },
+        {
+          "id": "shorts-a4",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "It is rainy. I need boots.",
+      "audio_text": "My fingers are cold. I need gloves.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: It is rainy. I need boots.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Tengo fr\u00edos los dedos de las manos. Necesito guantes.",
+      "pedagogy_note": "Approved beat hands: My fingers are cold. I need gloves.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c018-prompt-601f8ca2b4d5bb035b7d",
+          "id": "lesson-7-5-clothes-for-the-weather-c021-prompt-6c7f229b24fb6ec617cc",
           "purpose": "prompt",
-          "text": "It is rainy. I need boots.",
+          "text": "My fingers are cold. I need gloves.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:9274371820b90e45d11f",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c018-answer-c6abae56b0870736bf21",
+          "id": "lesson-7-5-clothes-for-the-weather-c021-answer-0a0c547aaf832a9d5ea3",
           "purpose": "answer",
-          "text": "It is rainy. I need boots.",
+          "text": "My fingers are cold. I need gloves.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:9274371820b90e45d11f",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -916,53 +1131,83 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
       "stage": "Listen",
-      "correct_option_id": "it-is-cold-i-need-a-jacket-a5",
+      "correct_option_id": "a5-2",
       "options": [
         {
-          "id": "it-is-cold-i-need-a-jacket-a5",
-          "image_url": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
-          "label": null
+          "id": "a5-0",
+          "image_url": "",
+          "label": "The gloves are under the scarf."
         },
         {
-          "id": "it-is-windy-i-need-a-jacket-a5",
-          "image_url": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
-          "label": null
+          "id": "a5-1",
+          "image_url": "",
+          "label": "The gloves are on the scarf."
+        },
+        {
+          "id": "a5-2",
+          "image_url": "",
+          "label": "The gloves are next to the scarf."
         }
       ],
-      "audio_text": "It is cold. I need a jacket.",
+      "audio_text": "Where are the gloves? The gloves are next to the scarf.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: It is cold. I need a jacket.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1n los guantes? Los guantes est\u00e1n al lado de la bufanda.",
+      "pedagogy_note": "Approved beat hands: Where are the gloves? The gloves are next to the scarf.",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Where are the gloves?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_feel_happy_question_v1.webp"
+        },
+        {
+          "text": "The gloves are next to the scarf.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c019-prompt-0abcb528f8b11544ab90",
-          "purpose": "prompt",
-          "text": "It is cold. I need a jacket.",
+          "id": "lesson-7-5-clothes-for-the-weather-c022-prompt-turn-1-b5e49afff1494ad5e825",
+          "purpose": "prompt-turn-1",
+          "text": "Where are the gloves?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_feel_happy_question_v1.webp",
+          "semantic_role": "question",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c019-answer-56ebcd5ec6f8d2a96b7d",
+          "id": "lesson-7-5-clothes-for-the-weather-c022-prompt-turn-2-fa402b64f4dc6ae88b31",
+          "purpose": "prompt-turn-2",
+          "text": "The gloves are next to the scarf.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "luis",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c022-answer-dde470b4cc4d8f52326c",
           "purpose": "answer",
-          "text": "It is cold. I need a jacket.",
+          "text": "The gloves are next to the scarf.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
+          "image_ref": "text-only:cba71c3a674042f64296",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -970,53 +1215,59 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Listen",
-      "correct_option_id": "it-is-windy-i-need-a-jacket-a6",
+      "correct_option_id": "umbrella-a6",
       "options": [
         {
-          "id": "it-is-cold-i-need-a-jacket-a6",
-          "image_url": "",
-          "label": "It is cold. I need a jacket."
+          "id": "scarf-a6",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_scarf_v1.webp",
+          "label": null
         },
         {
-          "id": "it-is-windy-i-need-a-jacket-a6",
-          "image_url": "",
-          "label": "It is windy. I need a jacket."
+          "id": "umbrella-a6",
+          "image_url": "/lesson-assets/a1_umbrella.webp",
+          "label": null
+        },
+        {
+          "id": "coat-a6",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "It is windy. I need a jacket.",
+      "audio_text": "It is rainy. I need an umbrella.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: It is windy. I need a jacket.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Est\u00e1 lloviendo. Necesito un paraguas.",
+      "pedagogy_note": "Approved beat rain: It is rainy. I need an umbrella.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c020-prompt-87a7714467963b3c97f1",
+          "id": "lesson-7-5-clothes-for-the-weather-c023-prompt-d8f2f2b90f537b9f279f",
           "purpose": "prompt",
-          "text": "It is windy. I need a jacket.",
+          "text": "It is rainy. I need an umbrella.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:cdb6dc5acc4ee6b06766",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c020-answer-a50fcb4373c64936d457",
+          "id": "lesson-7-5-clothes-for-the-weather-c023-answer-30fd2e2bbb0515757403",
           "purpose": "answer",
-          "text": "It is windy. I need a jacket.",
+          "text": "It is rainy. I need an umbrella.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:cdb6dc5acc4ee6b06766",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1024,53 +1275,59 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Listen",
-      "correct_option_id": "it-is-hot-i-need-a-shirt-a7",
+      "correct_option_id": "boots-a7",
       "options": [
         {
-          "id": "it-is-hot-i-need-a-jacket-a7",
-          "image_url": "",
-          "label": "It is hot. I need a jacket."
+          "id": "boots-a7",
+          "image_url": "/lesson-assets/a1_boots.webp",
+          "label": null
         },
         {
-          "id": "it-is-hot-i-need-a-shirt-a7",
-          "image_url": "",
-          "label": "It is hot. I need a shirt."
+          "id": "gloves-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+          "label": null
+        },
+        {
+          "id": "shorts-a7",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "It is hot. I need a shirt.",
+      "audio_text": "My toes are cold. I need boots.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: It is hot. I need a shirt.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Tengo fr\u00edos los dedos de los pies. Necesito botas.",
+      "pedagogy_note": "Approved beat rain: My toes are cold. I need boots.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c021-prompt-f57e8bfbf2753ab506c7",
+          "id": "lesson-7-5-clothes-for-the-weather-c024-prompt-1f2cc5cc90254c049188",
           "purpose": "prompt",
-          "text": "It is hot. I need a shirt.",
+          "text": "My toes are cold. I need boots.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:73a416380335cbc491b2",
+          "image_ref": "/lesson-assets/a1_boots.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c021-answer-d0ead040b2234d5dca70",
+          "id": "lesson-7-5-clothes-for-the-weather-c024-answer-72d045f03bc15a490c77",
           "purpose": "answer",
-          "text": "It is hot. I need a shirt.",
+          "text": "My toes are cold. I need boots.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:73a416380335cbc491b2",
+          "image_ref": "/lesson-assets/a1_boots.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1078,53 +1335,59 @@
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Listen",
-      "correct_option_id": "it-is-sunny-i-need-a-hat-a8",
+      "correct_option_id": "a8-2",
       "options": [
         {
-          "id": "it-is-rainy-i-need-a-hat-a8",
+          "id": "a8-0",
           "image_url": "",
-          "label": "It is rainy. I need a hat."
+          "label": "Finally, I am at the station. I have my umbrella."
         },
         {
-          "id": "it-is-sunny-i-need-a-hat-a8",
+          "id": "a8-1",
           "image_url": "",
-          "label": "It is sunny. I need a hat."
+          "label": "Finally, I am at the park. I have my umbrella."
+        },
+        {
+          "id": "a8-2",
+          "image_url": "",
+          "label": "Finally, I am at the library. I have my umbrella."
         }
       ],
-      "audio_text": "It is sunny. I need a hat.",
+      "audio_text": "Finally, I am at the library. I have my umbrella.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: It is sunny. I need a hat.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Finalmente, estoy en la biblioteca. Tengo mi paraguas.",
+      "pedagogy_note": "Approved beat rain: Finally, I am at the library. I have my umbrella.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c022-prompt-e56aa30e12c3aba910f9",
+          "id": "lesson-7-5-clothes-for-the-weather-c025-prompt-dc4a532797e33a84041b",
           "purpose": "prompt",
-          "text": "It is sunny. I need a hat.",
+          "text": "Finally, I am at the library. I have my umbrella.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:deda4ca24d87c3e06568",
+          "image_ref": "text-only:431a7043babde2c49f57",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c022-answer-dfcd2645e1a8f9edf07b",
+          "id": "lesson-7-5-clothes-for-the-weather-c025-answer-5d2b263b781bdf769ce6",
           "purpose": "answer",
-          "text": "It is sunny. I need a hat.",
+          "text": "Finally, I am at the library. I have my umbrella.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:deda4ca24d87c3e06568",
+          "image_ref": "text-only:431a7043babde2c49f57",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1132,53 +1395,59 @@
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
       "stage": "Listen",
-      "correct_option_id": "i-need-an-umbrella-a9",
+      "correct_option_id": "shorts-a9",
       "options": [
         {
-          "id": "i-need-boots-a9",
-          "image_url": "",
-          "label": "I need boots."
+          "id": "coat-a9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "label": null
         },
         {
-          "id": "i-need-an-umbrella-a9",
-          "image_url": "",
-          "label": "I need an umbrella."
+          "id": "shorts-a9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
+          "label": null
+        },
+        {
+          "id": "sweater-a9",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_sweater_v1.webp",
+          "label": null
         }
       ],
-      "audio_text": "I need an umbrella.",
+      "audio_text": "It is hot. I need shorts.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: I need an umbrella.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Hace calor. Necesito pantalones cortos.",
+      "pedagogy_note": "Approved beat hot: It is hot. I need shorts.",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c023-prompt-e707a7ded01a64dd867d",
+          "id": "lesson-7-5-clothes-for-the-weather-c026-prompt-a37725556fdfa6b1e025",
           "purpose": "prompt",
-          "text": "I need an umbrella.",
+          "text": "It is hot. I need shorts.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:f2e1ae93736b64c9bc71",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c023-answer-9ade7183e720cecaa135",
+          "id": "lesson-7-5-clothes-for-the-weather-c026-answer-bca535f1a1efb0fa0690",
           "purpose": "answer",
-          "text": "I need an umbrella.",
+          "text": "It is hot. I need shorts.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:f2e1ae93736b64c9bc71",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1186,53 +1455,59 @@
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2t3",
       "prompt": "Listen and choose.",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
       "stage": "Listen",
-      "correct_option_id": "i-need-boots-a10",
+      "correct_option_id": "a10-0",
       "options": [
         {
-          "id": "i-need-an-umbrella-a10",
+          "id": "a10-0",
           "image_url": "",
-          "label": "I need an umbrella."
+          "label": "I am at the park. I have shorts and a hat."
         },
         {
-          "id": "i-need-boots-a10",
+          "id": "a10-1",
           "image_url": "",
-          "label": "I need boots."
+          "label": "I am at the park. I have pants and a hat."
+        },
+        {
+          "id": "a10-2",
+          "image_url": "",
+          "label": "I am at the park. I have shorts and a scarf."
         }
       ],
-      "audio_text": "I need boots.",
+      "audio_text": "I am at the park. I have shorts and a hat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: I need boots.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Estoy en el parque. Tengo pantalones cortos y un sombrero.",
+      "pedagogy_note": "Approved beat hot: I am at the park. I have shorts and a hat.",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c024-prompt-7c27bb4fa45834a0dea2",
+          "id": "lesson-7-5-clothes-for-the-weather-c027-prompt-f6f50402a15ff36b3b7b",
           "purpose": "prompt",
-          "text": "I need boots.",
+          "text": "I am at the park. I have shorts and a hat.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:fee25e912f4fd724f9a3",
+          "image_ref": "text-only:9f7699333fe3d98cf347",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c024-answer-fc3a89925a32d196536a",
+          "id": "lesson-7-5-clothes-for-the-weather-c027-answer-4de44edc6f21b5cb3f37",
           "purpose": "answer",
-          "text": "I need boots.",
+          "text": "I am at the park. I have shorts and a hat.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:fee25e912f4fd724f9a3",
+          "image_ref": "text-only:9f7699333fe3d98cf347",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1241,47 +1516,48 @@
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "An umbrella",
+      "prompt": "It is cold. I need a coat.",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Speak",
-      "correct_option_id": "an-umbrella-speak",
+      "correct_option_id": "s1-model",
       "options": [
         {
-          "id": "an-umbrella-speak",
-          "image_url": "/lesson-assets/a1_umbrella.webp",
-          "label": "An umbrella"
+          "id": "s1-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+          "label": "It is cold. I need a coat."
         }
       ],
-      "audio_text": "An umbrella",
+      "audio_text": "It is cold. I need a coat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Un paraguas",
-      "pedagogy_note": "Story beat 01: An umbrella",
-      "audio_speaker": null,
+      "spanish_translation": "Hace fr\u00edo. Necesito un abrigo.",
+      "pedagogy_note": "Approved beat cold: It is cold. I need a coat.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c025-prompt-d456026bfc0f7fbc0488",
+          "id": "lesson-7-5-clothes-for-the-weather-c028-prompt-d28307cab76c03d727fd",
           "purpose": "prompt",
-          "text": "An umbrella",
+          "text": "It is cold. I need a coat.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c025-answer-b3a548d6efd16e84f764",
+          "id": "lesson-7-5-clothes-for-the-weather-c028-answer-49edc6c36b215ddeee51",
           "purpose": "answer",
-          "text": "An umbrella",
+          "text": "It is cold. I need a coat.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_umbrella.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1290,47 +1566,48 @@
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "It is rainy. I need an umbrella.",
+      "prompt": "I have a sweater and a scarf.",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Speak",
-      "correct_option_id": "it-is-rainy-i-need-an-umbrella-speak",
+      "correct_option_id": "s2-model",
       "options": [
         {
-          "id": "it-is-rainy-i-need-an-umbrella-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
-          "label": "It is rainy. I need an umbrella."
+          "id": "s2-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_sweater_scarf_v1.webp",
+          "label": "I have a sweater and a scarf."
         }
       ],
-      "audio_text": "It is rainy. I need an umbrella.",
+      "audio_text": "I have a sweater and a scarf.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Est\u00e1 lloviendo. Necesito un paraguas.",
-      "pedagogy_note": "Story beat 02: It is rainy. I need an umbrella.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Tengo un su\u00e9ter y una bufanda.",
+      "pedagogy_note": "Approved beat cold: I have a sweater and a scarf.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c026-prompt-7cc1b306be47e3b2bbd4",
+          "id": "lesson-7-5-clothes-for-the-weather-c029-prompt-0dba603f5c79fb07cdaa",
           "purpose": "prompt",
-          "text": "It is rainy. I need an umbrella.",
+          "text": "I have a sweater and a scarf.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_scarf_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c026-answer-4f8bcc91a7242e62d0b8",
+          "id": "lesson-7-5-clothes-for-the-weather-c029-answer-0dada5c48a6a9aa4981b",
           "purpose": "answer",
-          "text": "It is rainy. I need an umbrella.",
+          "text": "I have a sweater and a scarf.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_scarf_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1339,47 +1616,48 @@
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "It is rainy. I need boots.",
+      "prompt": "My fingers are cold. I need gloves.",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
       "stage": "Speak",
-      "correct_option_id": "it-is-rainy-i-need-boots-speak",
+      "correct_option_id": "s3-model",
       "options": [
         {
-          "id": "it-is-rainy-i-need-boots-speak",
-          "image_url": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
-          "label": "It is rainy. I need boots."
+          "id": "s3-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+          "label": "My fingers are cold. I need gloves."
         }
       ],
-      "audio_text": "It is rainy. I need boots.",
+      "audio_text": "My fingers are cold. I need gloves.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Est\u00e1 lloviendo. Necesito botas.",
-      "pedagogy_note": "Story beat 03: It is rainy. I need boots.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Tengo fr\u00edos los dedos de las manos. Necesito guantes.",
+      "pedagogy_note": "Approved beat hands: My fingers are cold. I need gloves.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c027-prompt-5f27c2a4e1f2f32bfb8d",
+          "id": "lesson-7-5-clothes-for-the-weather-c030-prompt-410ba06839b47a9653e7",
           "purpose": "prompt",
-          "text": "It is rainy. I need boots.",
+          "text": "My fingers are cold. I need gloves.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c027-answer-300086f64a034b772393",
+          "id": "lesson-7-5-clothes-for-the-weather-c030-answer-f36423b3162ca16d8b48",
           "purpose": "answer",
-          "text": "It is rainy. I need boots.",
+          "text": "My fingers are cold. I need gloves.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1388,47 +1666,48 @@
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "It is cold. I need a jacket.",
+      "prompt": "The gloves are next to the scarf.",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
       "stage": "Speak",
-      "correct_option_id": "it-is-cold-i-need-a-jacket-speak",
+      "correct_option_id": "s4-model",
       "options": [
         {
-          "id": "it-is-cold-i-need-a-jacket-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
-          "label": "It is cold. I need a jacket."
+          "id": "s4-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
+          "label": "The gloves are next to the scarf."
         }
       ],
-      "audio_text": "It is cold. I need a jacket.",
+      "audio_text": "The gloves are next to the scarf.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hace fr\u00edo. Necesito una chaqueta.",
-      "pedagogy_note": "Story beat 04: It is cold. I need a jacket.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Los guantes est\u00e1n al lado de la bufanda.",
+      "pedagogy_note": "Approved beat hands: The gloves are next to the scarf.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c028-prompt-6f8e9ba4e50b44cd5c01",
+          "id": "lesson-7-5-clothes-for-the-weather-c031-prompt-353dc1200bc3156f610b",
           "purpose": "prompt",
-          "text": "It is cold. I need a jacket.",
+          "text": "The gloves are next to the scarf.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c028-answer-98fe1b0299cad91a3813",
+          "id": "lesson-7-5-clothes-for-the-weather-c031-answer-9cf1eaf794b6937f6e7c",
           "purpose": "answer",
-          "text": "It is cold. I need a jacket.",
+          "text": "The gloves are next to the scarf.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1437,47 +1716,48 @@
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "It is windy. I need a jacket.",
+      "prompt": "It is rainy. I need an umbrella.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Speak",
-      "correct_option_id": "it-is-windy-i-need-a-jacket-speak",
+      "correct_option_id": "s5-model",
       "options": [
         {
-          "id": "it-is-windy-i-need-a-jacket-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
-          "label": "It is windy. I need a jacket."
+          "id": "s5-model",
+          "image_url": "/lesson-assets/a1_umbrella.webp",
+          "label": "It is rainy. I need an umbrella."
         }
       ],
-      "audio_text": "It is windy. I need a jacket.",
+      "audio_text": "It is rainy. I need an umbrella.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hace viento. Necesito una chaqueta.",
-      "pedagogy_note": "Story beat 05: It is windy. I need a jacket.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Est\u00e1 lloviendo. Necesito un paraguas.",
+      "pedagogy_note": "Approved beat rain: It is rainy. I need an umbrella.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c029-prompt-cde00134cb18da3875ff",
+          "id": "lesson-7-5-clothes-for-the-weather-c032-prompt-d6da8ce47eb7c7d31259",
           "purpose": "prompt",
-          "text": "It is windy. I need a jacket.",
+          "text": "It is rainy. I need an umbrella.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c029-answer-54d6337b508c9095a61f",
+          "id": "lesson-7-5-clothes-for-the-weather-c032-answer-9c3043cb8dcac0cc2653",
           "purpose": "answer",
-          "text": "It is windy. I need a jacket.",
+          "text": "It is rainy. I need an umbrella.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1486,47 +1766,48 @@
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "It is hot. I need a shirt.",
+      "prompt": "My toes are cold. I need boots.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Speak",
-      "correct_option_id": "it-is-hot-i-need-a-shirt-speak",
+      "correct_option_id": "s6-model",
       "options": [
         {
-          "id": "it-is-hot-i-need-a-shirt-speak",
-          "image_url": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
-          "label": "It is hot. I need a shirt."
+          "id": "s6-model",
+          "image_url": "/lesson-assets/a1_boots.webp",
+          "label": "My toes are cold. I need boots."
         }
       ],
-      "audio_text": "It is hot. I need a shirt.",
+      "audio_text": "My toes are cold. I need boots.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hace calor. Necesito una camisa.",
-      "pedagogy_note": "Story beat 06: It is hot. I need a shirt.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Tengo fr\u00edos los dedos de los pies. Necesito botas.",
+      "pedagogy_note": "Approved beat rain: My toes are cold. I need boots.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c030-prompt-48e5369b860a466b65a9",
+          "id": "lesson-7-5-clothes-for-the-weather-c033-prompt-6767c15c15f3e1ef0765",
           "purpose": "prompt",
-          "text": "It is hot. I need a shirt.",
+          "text": "My toes are cold. I need boots.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
+          "image_ref": "/lesson-assets/a1_boots.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c030-answer-c1f8440c363b5b5a4b96",
+          "id": "lesson-7-5-clothes-for-the-weather-c033-answer-670e989f9cc650258a2e",
           "purpose": "answer",
-          "text": "It is hot. I need a shirt.",
+          "text": "My toes are cold. I need boots.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
+          "image_ref": "/lesson-assets/a1_boots.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1535,47 +1816,48 @@
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "It is sunny. I need a hat.",
+      "prompt": "Finally, I am at the library. I have my umbrella.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Speak",
-      "correct_option_id": "it-is-sunny-i-need-a-hat-speak",
+      "correct_option_id": "s7-model",
       "options": [
         {
-          "id": "it-is-sunny-i-need-a-hat-speak",
-          "image_url": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
-          "label": "It is sunny. I need a hat."
+          "id": "s7-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
+          "label": "Finally, I am at the library. I have my umbrella."
         }
       ],
-      "audio_text": "It is sunny. I need a hat.",
+      "audio_text": "Finally, I am at the library. I have my umbrella.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hace sol. Necesito un sombrero.",
-      "pedagogy_note": "Story beat 07: It is sunny. I need a hat.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Finalmente, estoy en la biblioteca. Tengo mi paraguas.",
+      "pedagogy_note": "Approved beat rain: Finally, I am at the library. I have my umbrella.",
+      "audio_speaker": "ana",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c031-prompt-4a5ff878134b1872ee5c",
+          "id": "lesson-7-5-clothes-for-the-weather-c034-prompt-483f826068cf6c1bf9e8",
           "purpose": "prompt",
-          "text": "It is sunny. I need a hat.",
+          "text": "Finally, I am at the library. I have my umbrella.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c031-answer-658dec66ccafc39377c3",
+          "id": "lesson-7-5-clothes-for-the-weather-c034-answer-2f272a9f7639d5e196d9",
           "purpose": "answer",
-          "text": "It is sunny. I need a hat.",
+          "text": "Finally, I am at the library. I have my umbrella.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1584,47 +1866,48 @@
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I need an umbrella.",
+      "prompt": "It is hot. I need shorts.",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
       "stage": "Speak",
-      "correct_option_id": "i-need-an-umbrella-speak",
+      "correct_option_id": "s8-model",
       "options": [
         {
-          "id": "i-need-an-umbrella-speak",
-          "image_url": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
-          "label": "I need an umbrella."
+          "id": "s8-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
+          "label": "It is hot. I need shorts."
         }
       ],
-      "audio_text": "I need an umbrella.",
+      "audio_text": "It is hot. I need shorts.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Necesito un paraguas.",
-      "pedagogy_note": "Story beat 08: I need an umbrella.",
-      "audio_speaker": "female-character",
+      "spanish_translation": "Hace calor. Necesito pantalones cortos.",
+      "pedagogy_note": "Approved beat hot: It is hot. I need shorts.",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c032-prompt-3e8234f2fab7ed43a484",
+          "id": "lesson-7-5-clothes-for-the-weather-c035-prompt-9bc14b1cca8a4e8ed47c",
           "purpose": "prompt",
-          "text": "I need an umbrella.",
+          "text": "It is hot. I need shorts.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c032-answer-bc7f28a94f8999404a4b",
+          "id": "lesson-7-5-clothes-for-the-weather-c035-answer-237a87c77b8a9292ae3a",
           "purpose": "answer",
-          "text": "I need an umbrella.",
+          "text": "It is hot. I need shorts.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1633,47 +1916,48 @@
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "I need boots.",
+      "prompt": "I am at the park. I have shorts and a hat.",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
       "stage": "Speak",
-      "correct_option_id": "i-need-boots-speak",
+      "correct_option_id": "s9-model",
       "options": [
         {
-          "id": "i-need-boots-speak",
-          "image_url": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
-          "label": "I need boots."
+          "id": "s9-model",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
+          "label": "I am at the park. I have shorts and a hat."
         }
       ],
-      "audio_text": "I need boots.",
+      "audio_text": "I am at the park. I have shorts and a hat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Necesito botas.",
-      "pedagogy_note": "Story beat 09: I need boots.",
-      "audio_speaker": "male-character",
+      "spanish_translation": "Estoy en el parque. Tengo pantalones cortos y un sombrero.",
+      "pedagogy_note": "Approved beat hot: I am at the park. I have shorts and a hat.",
+      "audio_speaker": "luis",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c033-prompt-305a252ca0310c1c022d",
+          "id": "lesson-7-5-clothes-for-the-weather-c036-prompt-c71b4127b824608ab82f",
           "purpose": "prompt",
-          "text": "I need boots.",
+          "text": "I am at the park. I have shorts and a hat.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c033-answer-60cf91874a2f7780adc4",
+          "id": "lesson-7-5-clothes-for-the-weather-c036-answer-031591804c3b4a89ef00",
           "purpose": "answer",
-          "text": "I need boots.",
+          "text": "I am at the park. I have shorts and a hat.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1682,56 +1966,57 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "It is rainy. I need ___ ___.",
+      "prompt": "It is cold. I need ___ ___.",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Use",
-      "correct_option_id": "an",
+      "correct_option_id": "a",
       "correct_option_ids": [
-        "an",
-        "umbrella"
+        "a",
+        "coat"
       ],
       "options": [
         {
-          "id": "an",
+          "id": "a",
           "image_url": "",
-          "label": "an"
+          "label": "a"
         },
         {
-          "id": "umbrella",
+          "id": "coat",
           "image_url": "",
-          "label": "umbrella"
+          "label": "coat"
         }
       ],
-      "audio_text": "It is rainy. I need an umbrella.",
-      "answer_audio_text": "It is rainy. I need an umbrella.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
-      "spanish_translation": "Est\u00e1 lloviendo. Necesito un paraguas.",
-      "pedagogy_note": "Story beat 01: It is rainy. I need an umbrella.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "It is cold. I need a coat.",
+      "answer_audio_text": "It is cold. I need a coat.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
+      "spanish_translation": "Hace fr\u00edo. Necesito un abrigo.",
+      "pedagogy_note": "Approved beat cold: It is cold. I need a coat.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c034-prompt-4b27b37e73afbbbd5e97",
+          "id": "lesson-7-5-clothes-for-the-weather-c037-prompt-3033ec04f7b1464c5727",
           "purpose": "prompt",
-          "text": "It is rainy. I need an umbrella.",
+          "text": "It is cold. I need a coat.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c034-answer-1b6ebe5fa8ac4cfebbfa",
+          "id": "lesson-7-5-clothes-for-the-weather-c037-answer-0a3b37da6568240fc9a5",
           "purpose": "answer",
-          "text": "It is rainy. I need an umbrella.",
+          "text": "It is cold. I need a coat.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_rain_umbrella_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_coat_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1740,56 +2025,57 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "It is rainy. I ___ ___.",
+      "prompt": "I have a sweater and ___ ___.",
+      "context_es": "Ana prepara su ropa para una salida.",
       "stage": "Use",
-      "correct_option_id": "need",
+      "correct_option_id": "a",
       "correct_option_ids": [
-        "need",
-        "boots"
+        "a",
+        "scarf"
       ],
       "options": [
         {
-          "id": "need",
+          "id": "a",
           "image_url": "",
-          "label": "need"
+          "label": "a"
         },
         {
-          "id": "boots",
+          "id": "scarf",
           "image_url": "",
-          "label": "boots"
+          "label": "scarf"
         }
       ],
-      "audio_text": "It is rainy. I need boots.",
-      "answer_audio_text": "It is rainy. I need boots.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
-      "spanish_translation": "Est\u00e1 lloviendo. Necesito botas.",
-      "pedagogy_note": "Story beat 02: It is rainy. I need boots.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
+      "audio_text": "I have a sweater and a scarf.",
+      "answer_audio_text": "I have a sweater and a scarf.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_sweater_scarf_v1.webp",
+      "spanish_translation": "Tengo un su\u00e9ter y una bufanda.",
+      "pedagogy_note": "Approved beat cold: I have a sweater and a scarf.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c035-prompt-41720b20f07136f4ed5b",
+          "id": "lesson-7-5-clothes-for-the-weather-c038-prompt-fb5a94394b0f8c7e3452",
           "purpose": "prompt",
-          "text": "It is rainy. I need boots.",
+          "text": "I have a sweater and a scarf.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_scarf_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c035-answer-0009c597731354f23882",
+          "id": "lesson-7-5-clothes-for-the-weather-c038-answer-2ed5b7f58c1c6c966bd5",
           "purpose": "answer",
-          "text": "It is rainy. I need boots.",
+          "text": "I have a sweater and a scarf.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_sweater_scarf_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1798,56 +2084,57 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "It is cold. I need ___ ___.",
+      "prompt": "My fingers are cold. I ___ ___.",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
       "stage": "Use",
-      "correct_option_id": "a",
+      "correct_option_id": "need",
       "correct_option_ids": [
-        "a",
-        "jacket"
+        "need",
+        "gloves"
       ],
       "options": [
         {
-          "id": "a",
+          "id": "need",
           "image_url": "",
-          "label": "a"
+          "label": "need"
         },
         {
-          "id": "jacket",
+          "id": "gloves",
           "image_url": "",
-          "label": "jacket"
+          "label": "gloves"
         }
       ],
-      "audio_text": "It is cold. I need a jacket.",
-      "answer_audio_text": "It is cold. I need a jacket.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
-      "spanish_translation": "Hace fr\u00edo. Necesito una chaqueta.",
-      "pedagogy_note": "Story beat 03: It is cold. I need a jacket.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "My fingers are cold. I need gloves.",
+      "answer_audio_text": "My fingers are cold. I need gloves.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
+      "spanish_translation": "Tengo fr\u00edos los dedos de las manos. Necesito guantes.",
+      "pedagogy_note": "Approved beat hands: My fingers are cold. I need gloves.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c036-prompt-6f9116434362352404c9",
+          "id": "lesson-7-5-clothes-for-the-weather-c039-prompt-0b51beead615e930e22c",
           "purpose": "prompt",
-          "text": "It is cold. I need a jacket.",
+          "text": "My fingers are cold. I need gloves.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c036-answer-18e34b8bd37b89b80f0e",
+          "id": "lesson-7-5-clothes-for-the-weather-c039-answer-305b937b81e956fa67d6",
           "purpose": "answer",
-          "text": "It is cold. I need a jacket.",
+          "text": "My fingers are cold. I need gloves.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_cold_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1856,56 +2143,57 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "It is windy. I need ___ ___.",
+      "prompt": "The gloves are next to ___ ___.",
+      "context_es": "En la misma salida, Ana busca sus pertenencias.",
       "stage": "Use",
-      "correct_option_id": "a",
+      "correct_option_id": "the",
       "correct_option_ids": [
-        "a",
-        "jacket"
+        "the",
+        "scarf"
       ],
       "options": [
         {
-          "id": "a",
+          "id": "the",
           "image_url": "",
-          "label": "a"
+          "label": "the"
         },
         {
-          "id": "jacket",
+          "id": "scarf",
           "image_url": "",
-          "label": "jacket"
+          "label": "scarf"
         }
       ],
-      "audio_text": "It is windy. I need a jacket.",
-      "answer_audio_text": "It is windy. I need a jacket.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
-      "spanish_translation": "Hace viento. Necesito una chaqueta.",
-      "pedagogy_note": "Story beat 04: It is windy. I need a jacket.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "The gloves are next to the scarf.",
+      "answer_audio_text": "The gloves are next to the scarf.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
+      "spanish_translation": "Los guantes est\u00e1n al lado de la bufanda.",
+      "pedagogy_note": "Approved beat hands: The gloves are next to the scarf.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c037-prompt-32764ff41b9bde19b587",
+          "id": "lesson-7-5-clothes-for-the-weather-c040-prompt-185be897e958b7d2fccb",
           "purpose": "prompt",
-          "text": "It is windy. I need a jacket.",
+          "text": "The gloves are next to the scarf.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c037-answer-7856e0c484292c993877",
+          "id": "lesson-7-5-clothes-for-the-weather-c040-answer-5b3f21f857352eefe758",
           "purpose": "answer",
-          "text": "It is windy. I need a jacket.",
+          "text": "The gloves are next to the scarf.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_windy_jacket_v1.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_gloves_scarf_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1913,66 +2201,9 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "It is hot. I need ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "a",
-      "correct_option_ids": [
-        "a",
-        "shirt"
-      ],
-      "options": [
-        {
-          "id": "a",
-          "image_url": "",
-          "label": "a"
-        },
-        {
-          "id": "shirt",
-          "image_url": "",
-          "label": "shirt"
-        }
-      ],
-      "audio_text": "It is hot. I need a shirt.",
-      "answer_audio_text": "It is hot. I need a shirt.",
-      "prompt_image_url": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
-      "spanish_translation": "Hace calor. Necesito una camisa.",
-      "pedagogy_note": "Story beat 05: It is hot. I need a shirt.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c038-prompt-144c208ed43abdb5ac27",
-          "purpose": "prompt",
-          "text": "It is hot. I need a shirt.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-5-clothes-for-the-weather-c038-answer-654a44ad23cf3cd93a28",
-          "purpose": "answer",
-          "text": "It is hot. I need a shirt.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_photo_u7_hot_shirt_v1.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___. ___ ___ ___ ___.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
@@ -1998,7 +2229,7 @@
         {
           "id": "word-6",
           "image_url": "",
-          "label": "a"
+          "label": "an"
         },
         {
           "id": "word-1",
@@ -2008,7 +2239,7 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "sunny"
+          "label": "rainy"
         },
         {
           "id": "word-5",
@@ -2018,40 +2249,129 @@
         {
           "id": "word-7",
           "image_url": "",
-          "label": "hat"
+          "label": "umbrella"
         }
       ],
-      "audio_text": "It is sunny. I need a hat.",
-      "answer_audio_text": "It is sunny. I need a hat.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
-      "spanish_translation": "Hace sol. Necesito un sombrero.",
-      "pedagogy_note": "Story beat 06: It is sunny. I need a hat.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "It is rainy. I need an umbrella.",
+      "answer_audio_text": "It is rainy. I need an umbrella.",
+      "prompt_image_url": "/lesson-assets/a1_umbrella.webp",
+      "spanish_translation": "Est\u00e1 lloviendo. Necesito un paraguas.",
+      "pedagogy_note": "Approved beat rain: It is rainy. I need an umbrella.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c039-prompt-75ace25f71215c027b62",
+          "id": "lesson-7-5-clothes-for-the-weather-c041-prompt-a50af1ed4f6179781262",
           "purpose": "prompt",
-          "text": "It is sunny. I need a hat.",
+          "text": "It is rainy. I need an umbrella.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c039-answer-67c65099b77b60ccc2bc",
+          "id": "lesson-7-5-clothes-for-the-weather-c041-answer-e916d6180a5d63505b7a",
           "purpose": "answer",
-          "text": "It is sunny. I need a hat.",
+          "text": "It is rainy. I need an umbrella.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+          "image_ref": "/lesson-assets/a1_umbrella.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___. ___ ___ ___.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "toes"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "cold"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "need"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "My"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "boots"
+        }
+      ],
+      "audio_text": "My toes are cold. I need boots.",
+      "answer_audio_text": "My toes are cold. I need boots.",
+      "prompt_image_url": "/lesson-assets/a1_boots.webp",
+      "spanish_translation": "Tengo fr\u00edos los dedos de los pies. Necesito botas.",
+      "pedagogy_note": "Approved beat rain: My toes are cold. I need boots.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c042-prompt-2b8dc453c4b06ec6274a",
+          "purpose": "prompt",
+          "text": "My toes are cold. I need boots.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_boots.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-5-clothes-for-the-weather-c042-answer-a35767ff5b056fa9e2ae",
+          "purpose": "answer",
+          "text": "My toes are cold. I need boots.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_boots.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2060,68 +2380,81 @@
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___, ___ ___ ___ ___ ___.",
+      "context_es": "Otro d\u00eda: Ana prepara una visita a la biblioteca.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5",
+        "word-6"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "need"
+          "label": "I"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "umbrella"
+          "label": "at"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "library"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "I"
+          "label": "Finally"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "an"
+          "label": "am"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
         }
       ],
-      "audio_text": "I need an umbrella.",
-      "answer_audio_text": "I need an umbrella.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
-      "spanish_translation": "Necesito un paraguas.",
-      "pedagogy_note": "Story beat 07: I need an umbrella.",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": "female-character",
+      "audio_text": "Finally, I am at the library.",
+      "answer_audio_text": "Finally, I am at the library.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
+      "spanish_translation": "Finalmente, estoy en la biblioteca.",
+      "pedagogy_note": "Approved beat rain: Finally, I am at the library.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c040-prompt-d2fb2d8b37913ca03573",
+          "id": "lesson-7-5-clothes-for-the-weather-c043-prompt-efce5465241a17f437e2",
           "purpose": "prompt",
-          "text": "I need an umbrella.",
+          "text": "Finally, I am at the library.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c040-answer-f2dd242902d86e7d831c",
+          "id": "lesson-7-5-clothes-for-the-weather-c043-answer-5a92aa3bc87a0499d44d",
           "purpose": "answer",
-          "text": "I need an umbrella.",
+          "text": "Finally, I am at the library.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_library_umbrella_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2130,62 +2463,81 @@
     {
       "slide_id": "U8",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___. ___ ___ ___.",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "need"
+          "label": "is"
         },
         {
-          "id": "word-1",
+          "id": "word-4",
           "image_url": "",
           "label": "I"
         },
         {
+          "id": "word-6",
+          "image_url": "",
+          "label": "shorts"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
           "id": "word-3",
           "image_url": "",
-          "label": "boots"
+          "label": "hot"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
         }
       ],
-      "audio_text": "I need boots.",
-      "answer_audio_text": "I need boots.",
-      "prompt_image_url": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
-      "spanish_translation": "Necesito botas.",
-      "pedagogy_note": "Story beat 08: I need boots.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
+      "audio_text": "It is hot. I need shorts.",
+      "answer_audio_text": "It is hot. I need shorts.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
+      "spanish_translation": "Hace calor. Necesito pantalones cortos.",
+      "pedagogy_note": "Approved beat hot: It is hot. I need shorts.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c041-prompt-ae66208c84ce452842ed",
+          "id": "lesson-7-5-clothes-for-the-weather-c044-prompt-59a4596b82999a079a44",
           "purpose": "prompt",
-          "text": "I need boots.",
+          "text": "It is hot. I need shorts.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c041-answer-aba5ebb627d6f41770b2",
+          "id": "lesson-7-5-clothes-for-the-weather-c044-answer-298ca85a4fd9455e0974",
           "purpose": "answer",
-          "text": "I need boots.",
+          "text": "It is hot. I need shorts.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_shorts_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -2194,19 +2546,33 @@
     {
       "slide_id": "U9",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "context_es": "Otro d\u00eda: Luis prepara una visita al parque.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3"
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
       ],
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "need"
+          "label": "have"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "and"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "hat"
         },
         {
           "id": "word-1",
@@ -2216,40 +2582,45 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "boots"
+          "label": "shorts"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "a"
         }
       ],
-      "audio_text": "I need boots.",
-      "answer_audio_text": "I need boots.",
-      "prompt_image_url": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
-      "spanish_translation": "Necesito botas.",
-      "pedagogy_note": "Story beat 09: I need boots.",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": "male-character",
+      "audio_text": "I have shorts and a hat.",
+      "answer_audio_text": "I have shorts and a hat.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
+      "spanish_translation": "Tengo pantalones cortos y un sombrero.",
+      "pedagogy_note": "Approved beat hot: I have shorts and a hat.",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c042-prompt-b221aeff10b3493fe1eb",
+          "id": "lesson-7-5-clothes-for-the-weather-c045-prompt-21e3e5acbdbf59d57104",
           "purpose": "prompt",
-          "text": "I need boots.",
+          "text": "I have shorts and a hat.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-5-clothes-for-the-weather-c042-answer-0e4dec130272a889b165",
+          "id": "lesson-7-5-clothes-for-the-weather-c045-answer-ea8d511c55588d3ffc67",
           "purpose": "answer",
-          "text": "I need boots.",
+          "text": "I have shorts and a hat.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_rain-boots_c3ee514.webp",
+          "image_ref": "/lesson-assets/a1_photo_u7_approved_park_shorts_hat_v1.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

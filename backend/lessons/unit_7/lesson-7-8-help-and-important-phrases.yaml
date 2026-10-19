@@ -1,6 +1,6 @@
 {
   "id": "lesson-7-8-help-and-important-phrases",
-  "title": "7.8 Help and Important Phrases",
+  "title": "7.8 Please Repeat",
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
@@ -8,30 +8,24 @@
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.8",
-  "sub_lesson_title": "Help and Important Phrases",
-  "goal": "Say I need help, say that I do not understand, and ask someone to repeat or to speak slowly.",
+  "sub_lesson_title": "Please Repeat",
+  "goal": "Repair a misunderstanding, hear the information again and use it to reach a destination.",
   "vocabulary": [
-    "help",
-    "understand",
-    "repeat",
-    "slowly",
-    "I need help.",
-    "I do not understand.",
-    "Please repeat.",
-    "Please speak slowly."
+    "I do not understand",
+    "Please repeat",
+    "fast",
+    "Please speak slowly"
   ],
-  "review_vocabulary": [
-    "Excuse me.",
-    "please",
-    "Thank you.",
-    "Where is the bathroom?",
-    "Can you help me?"
-  ],
-  "grammar_function": "I need help. I do not understand. Please repeat. Please speak slowly.",
+  "review_vocabulary": [],
+  "grammar_function": "Identify a communication problem, request repetition or clearer speech, confirm unchanged information and reach the destination.",
   "prerequisite": "5.9 please and thank you; 6.7 Excuse me. and Can you help me?; 4.1 bathroom; 4.3 Where is ...?",
-  "speaking_outcome": "Ask for help and ask someone to repeat.",
-  "content_revision": 2,
+  "speaking_outcome": "Repair a misunderstanding, hear the information again and use it to reach a destination.",
+  "content_revision": 3,
   "purposeful_review_slides": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
     "R5",
     "R6",
     "R7",
@@ -39,879 +33,1124 @@
     "R9",
     "R10",
     "R11",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
     "A5",
     "A6",
     "A7",
     "A8",
+    "A9",
+    "A10",
+    "A11",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
     "S5",
     "S6",
     "S7",
     "S8",
+    "S9",
+    "S10",
+    "U1",
+    "U2",
+    "U3",
     "U4",
     "U5",
     "U6",
     "U7",
-    "U9"
+    "U8",
+    "U9",
+    "U10"
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "I do not understand",
+        "Please repeat"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "I do not understand."
+        },
+        {
+          "slide_id": "L2",
+          "text": "Please repeat."
+        },
+        {
+          "slide_id": "L3",
+          "text": "I do not understand. Please repeat."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "fast",
+        "Please speak slowly"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "Go straight. Then, turn left at the corner. You speak fast.",
+          "turns": [
+            "Go straight. Then, turn left at the corner.",
+            "You speak fast."
+          ]
+        },
+        {
+          "slide_id": "L5",
+          "text": "Please speak slowly. Go straight. Then, turn left at the corner.",
+          "turns": [
+            "Please speak slowly.",
+            "Go straight. Then, turn left at the corner."
+          ]
+        },
+        {
+          "slide_id": "L6",
+          "text": "You speak fast. Please speak slowly."
+        }
+      ]
+    }
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "I need help.",
-      "stage": "Learn",
-      "correct_option_id": "i-need-help-learn",
-      "options": [
-        {
-          "id": "i-need-help-learn",
-          "image_url": "a1_scene_i-need-help_93277f0.webp",
-          "label": "I need help."
-        }
-      ],
-      "audio_text": "I need help.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Necesito ayuda.",
-      "pedagogy_note": "Story beat 01: I need help.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "L2",
-      "interaction_type": "teach",
       "prompt": "I do not understand.",
       "stage": "Learn",
-      "correct_option_id": "i-do-not-understand-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "i-do-not-understand-learn",
-          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-          "label": "I do not understand."
+          "id": "l1-model",
+          "label": "I do not understand.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
         }
       ],
       "audio_text": "I do not understand.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "No entiendo.",
-      "pedagogy_note": "Story beat 02: I do not understand.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Approved beat repeat: I do not understand.",
+      "audio_speaker": "ana",
+      "context_es": "En la misma estación, Ana pide que repitan la información."
     },
     {
-      "slide_id": "L3",
+      "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "Please repeat.",
       "stage": "Learn",
-      "correct_option_id": "please-repeat-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "please-repeat-learn",
-          "image_url": "a1_scene_please-repeat_50ab734.webp",
-          "label": "Please repeat."
+          "id": "l2-model",
+          "label": "Please repeat.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
         }
       ],
       "audio_text": "Please repeat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Repita, por favor.",
-      "pedagogy_note": "Story beat 03: Please repeat.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Por favor, repite.",
+      "pedagogy_note": "Approved beat repeat: Please repeat.",
+      "audio_speaker": "ana",
+      "context_es": "En la misma estación, Ana pide que repitan la información."
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "I do not understand. Please repeat.",
+      "stage": "Learn",
+      "correct_option_id": "l3-model",
+      "options": [
+        {
+          "id": "l3-model",
+          "label": "I do not understand. Please repeat.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
+        }
+      ],
+      "audio_text": "I do not understand. Please repeat.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "No entiendo. Por favor, repite.",
+      "pedagogy_note": "Approved beat repeat: I do not understand. Please repeat.",
+      "audio_speaker": "ana",
+      "context_es": "En la misma estación, Ana pide que repitan la información."
     },
     {
       "slide_id": "L4",
       "interaction_type": "teach",
-      "prompt": "Please speak slowly.",
+      "prompt": "Go straight. Then, turn left at the corner. You speak fast.",
       "stage": "Learn",
-      "correct_option_id": "please-speak-slowly-learn",
+      "correct_option_id": "l4-model",
       "options": [
         {
-          "id": "please-speak-slowly-learn",
-          "image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-          "label": "Please speak slowly."
+          "id": "l4-model",
+          "label": "Go straight. Then, turn left at the corner. You speak fast.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_street_guide_v1.webp"
         }
       ],
-      "audio_text": "Please speak slowly.",
+      "audio_text": "Go straight. Then, turn left at the corner. You speak fast.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hable despacio, por favor.",
-      "pedagogy_note": "Story beat 04: Please speak slowly.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "Go straight. Then, turn left at the corner.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_street_guide_v1.webp",
+          "delivery": "quick"
+        },
+        {
+          "text": "You speak fast.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
+        }
+      ],
+      "spanish_translation": "Sigue recto. Después, gira a la izquierda en la esquina. Hablas rápido.",
+      "pedagogy_note": "Approved beat slow: You speak fast. Known route is heard at natural quick pace before the repair, then repeated with the same wording in a clearer native performance.",
+      "context_es": "Ana escucha indicaciones y aprende a pedir una repetición más clara."
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "Please speak slowly. Go straight. Then, turn left at the corner.",
+      "stage": "Learn",
+      "correct_option_id": "l5-model",
+      "options": [
+        {
+          "id": "l5-model",
+          "label": "Please speak slowly. Go straight. Then, turn left at the corner.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
+        }
+      ],
+      "audio_text": "Please speak slowly. Go straight. Then, turn left at the corner.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Please speak slowly.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
+        },
+        {
+          "text": "Go straight. Then, turn left at the corner.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_street_guide_v1.webp",
+          "delivery": "clear"
+        }
+      ],
+      "spanish_translation": "Por favor, habla despacio. Sigue recto. Después, gira a la izquierda en la esquina.",
+      "pedagogy_note": "Approved beat slow: Please speak slowly. Known route is heard at natural quick pace before the repair, then repeated with the same wording in a clearer native performance.",
+      "context_es": "Ana escucha indicaciones y aprende a pedir una repetición más clara."
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "You speak fast. Please speak slowly.",
+      "stage": "Learn",
+      "correct_option_id": "l6-model",
+      "options": [
+        {
+          "id": "l6-model",
+          "label": "You speak fast. Please speak slowly.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
+        }
+      ],
+      "audio_text": "You speak fast. Please speak slowly.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hablas rápido. Por favor, habla despacio.",
+      "pedagogy_note": "Approved beat slow: You speak fast. Please speak slowly.",
+      "audio_speaker": "ana",
+      "context_es": "Ana escucha indicaciones y aprende a pedir una repetición más clara."
     },
     {
       "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "I need help.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-need-help-r1",
+      "correct_option_id": "r1-0",
       "options": [
         {
-          "id": "i-do-not-understand-r1",
-          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-          "label": null
+          "id": "r1-0",
+          "image_url": "",
+          "label": "She is at the station."
         },
         {
-          "id": "i-need-help-r1",
-          "image_url": "a1_scene_i-need-help_93277f0.webp",
-          "label": null
+          "id": "r1-1",
+          "image_url": "",
+          "label": "She is at the park."
         }
       ],
-      "audio_text": "I need help.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Necesito ayuda.",
-      "pedagogy_note": "Story beat 01: I need help.",
-      "audio_speaker": "female-character"
+      "audio_text": "",
+      "answer_audio_text": "She is at the station.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "spanish_translation": "Ella está en la estación.",
+      "pedagogy_note": "Approved beat ask: She is at the station.",
+      "context_es": "Ana busca el autobús al museo. Un empleado de la estación puede ayudarla."
     },
     {
       "slide_id": "R2",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-do-not-understand-r2",
+      "correct_option_id": "r2-1",
       "options": [
         {
-          "id": "i-need-help-r2",
+          "id": "r2-0",
           "image_url": "",
-          "label": "I need help."
+          "label": "The blue bus is at the park."
         },
         {
-          "id": "i-do-not-understand-r2",
+          "id": "r2-1",
           "image_url": "",
-          "label": "I do not understand."
+          "label": "The blue bus is at the station."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I do not understand.",
-      "prompt_image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 02: I do not understand."
+      "answer_audio_text": "The blue bus is at the station.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_bus_choice_v1.webp",
+      "spanish_translation": "El autobús azul está en la estación.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Approved beat ask: The blue bus is at the station.",
+      "context_es": "Ana busca el autobús al museo. Un empleado de la estación puede ayudarla."
     },
     {
       "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "Please repeat.",
+      "interaction_type": "i2t2",
+      "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "please-repeat-r3",
+      "correct_option_id": "r3-0",
       "options": [
         {
-          "id": "please-repeat-r3",
-          "image_url": "a1_scene_please-repeat_50ab734.webp",
-          "label": null
+          "id": "r3-0",
+          "image_url": "",
+          "label": "It is nine o'clock."
         },
         {
-          "id": "i-do-not-understand-r3",
-          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-          "label": null
+          "id": "r3-1",
+          "image_url": "",
+          "label": "It is ten o'clock."
         }
       ],
-      "audio_text": "Please repeat.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Repita, por favor.",
-      "pedagogy_note": "Story beat 03: Please repeat.",
-      "audio_speaker": "female-character"
+      "audio_text": "",
+      "answer_audio_text": "It is nine o'clock.",
+      "prompt_image_url": "/lesson-assets/a1_scene_clock9_fdd3b54.webp",
+      "spanish_translation": "Son las nueve.",
+      "pedagogy_note": "Approved beat confirm: It is nine o'clock.",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
     },
     {
       "slide_id": "R4",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "please-speak-slowly-r4",
+      "correct_option_id": "r4-1",
       "options": [
         {
-          "id": "please-repeat-r4",
+          "id": "r4-0",
           "image_url": "",
-          "label": "Please repeat."
+          "label": "The ticket is in her bag."
         },
         {
-          "id": "please-speak-slowly-r4",
+          "id": "r4-1",
           "image_url": "",
-          "label": "Please speak slowly."
+          "label": "The ticket is in her hands."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Please speak slowly.",
-      "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 04: Please speak slowly."
+      "answer_audio_text": "The ticket is in her hands.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ticket_thanks_v1.webp",
+      "spanish_translation": "El boleto está en sus manos.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Approved beat confirm: The ticket is in her hands.",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
     },
     {
       "slide_id": "R5",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "excuse-me-i-need-help-r5",
+      "correct_option_id": "r5-0",
       "options": [
         {
-          "id": "excuse-me-thank-you-r5",
+          "id": "r5-0",
           "image_url": "",
-          "label": "Excuse me. Thank you."
+          "label": "She is on the blue bus."
         },
         {
-          "id": "excuse-me-i-need-help-r5",
+          "id": "r5-1",
           "image_url": "",
-          "label": "Excuse me. I need help."
+          "label": "She is on the red bus."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Excuse me. I need help.",
-      "prompt_image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 05: Excuse me. I need help."
+      "answer_audio_text": "She is on the blue bus.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_on_bus_v1.webp",
+      "spanish_translation": "Ella está en el autobús azul.",
+      "pedagogy_note": "Approved beat confirm: She is on the blue bus.",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
     },
     {
       "slide_id": "R6",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-do-not-understand-please-repeat-r6",
+      "correct_option_id": "r6-1",
       "options": [
         {
-          "id": "i-do-not-understand-please-repeat-r6",
+          "id": "r6-0",
           "image_url": "",
-          "label": "I do not understand. Please repeat."
+          "label": "The museum is on the right."
         },
         {
-          "id": "i-do-not-understand-thank-you-r6",
+          "id": "r6-1",
           "image_url": "",
-          "label": "I do not understand. Thank you."
+          "label": "The museum is on the left."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I do not understand. Please repeat.",
-      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 06: I do not understand. Please repeat."
+      "answer_audio_text": "The museum is on the left.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_route_museum_v1.webp",
+      "spanish_translation": "El museo está a la izquierda.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Approved beat slow: The museum is on the left.",
+      "context_es": "Después del viaje, otra persona le indica el camino desde la parada al museo."
     },
     {
       "slide_id": "R7",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "please-speak-slowly-thank-you-r7",
+      "correct_option_id": "r7-0",
       "options": [
         {
-          "id": "please-speak-slowly-thank-you-r7",
+          "id": "r7-0",
           "image_url": "",
-          "label": "Please speak slowly. Thank you."
+          "label": "Go straight."
         },
         {
-          "id": "please-repeat-thank-you-r7",
+          "id": "r7-1",
           "image_url": "",
-          "label": "Please repeat. Thank you."
+          "label": "Turn left."
+        },
+        {
+          "id": "r7-2",
+          "image_url": "",
+          "label": "Turn right."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Please speak slowly. Thank you.",
-      "prompt_image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 07: Please speak slowly. Thank you."
+      "answer_audio_text": "Go straight.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_route_straight_v1.webp",
+      "spanish_translation": "Sigue derecho.",
+      "pedagogy_note": "Approved beat slow: Go straight.",
+      "context_es": "En este plano, avanzas desde abajo. Observa la flecha."
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "where-is-the-bathroom-r8",
+      "correct_option_id": "r8-2",
       "options": [
         {
-          "id": "where-is-the-bathroom-r8",
+          "id": "r8-0",
           "image_url": "",
-          "label": "Where is the bathroom?"
+          "label": "Turn right at the corner."
         },
         {
-          "id": "where-is-the-kitchen-r8",
+          "id": "r8-1",
           "image_url": "",
-          "label": "Where is the kitchen?"
+          "label": "Go straight at the corner."
+        },
+        {
+          "id": "r8-2",
+          "image_url": "",
+          "label": "Turn left at the corner."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Where is the bathroom?",
-      "prompt_image_url": "a1_bathroom.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "pedagogy_note": "Story beat 08: Where is the bathroom?"
+      "answer_audio_text": "Turn left at the corner.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_route_left_v1.webp",
+      "spanish_translation": "Gira a la izquierda en la esquina.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Approved beat slow: Turn left at the corner.",
+      "context_es": "En este plano, avanzas desde abajo. Observa la flecha."
     },
     {
       "slide_id": "R9",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "excuse-me-i-need-help-r9",
+      "correct_option_id": "r9-1",
       "options": [
         {
-          "id": "excuse-me-i-need-help-r9",
+          "id": "r9-0",
           "image_url": "",
-          "label": "Excuse me. I need help."
+          "label": "The museum is next to the hospital."
         },
         {
-          "id": "excuse-me-thank-you-r9",
+          "id": "r9-1",
           "image_url": "",
-          "label": "Excuse me. Thank you."
+          "label": "The museum is next to the park."
+        },
+        {
+          "id": "r9-2",
+          "image_url": "",
+          "label": "The museum is next to the station."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Excuse me. I need help.",
-      "prompt_image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 09: Excuse me. I need help."
+      "answer_audio_text": "The museum is next to the park.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_museum_park_v1.webp",
+      "spanish_translation": "El museo está al lado del parque.",
+      "pedagogy_note": "Approved beat arrive: The museum is next to the park.",
+      "context_es": "Ana sigue la ruta indicada y llega a su destino."
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-do-not-understand-please-repeat-r10",
+      "correct_option_id": "r10-0",
       "options": [
         {
-          "id": "i-do-not-understand-please-repeat-r10",
+          "id": "r10-0",
           "image_url": "",
-          "label": "I do not understand. Please repeat."
+          "label": "She is at the museum."
         },
         {
-          "id": "i-do-not-understand-thank-you-r10",
+          "id": "r10-1",
           "image_url": "",
-          "label": "I do not understand. Thank you."
+          "label": "She is at the station."
+        },
+        {
+          "id": "r10-2",
+          "image_url": "",
+          "label": "She is at the park."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I do not understand. Please repeat.",
-      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 10: I do not understand. Please repeat."
+      "answer_audio_text": "She is at the museum.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp",
+      "spanish_translation": "Ella está en el museo.",
+      "answer_audio_speaker": "co-teacher",
+      "pedagogy_note": "Approved beat arrive: She is at the museum.",
+      "context_es": "Ana sigue la ruta indicada y llega a su destino."
     },
     {
       "slide_id": "R11",
-      "interaction_type": "i2t2",
+      "interaction_type": "i2t3",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "please-speak-slowly-thank-you-r11",
+      "correct_option_id": "r11-2",
       "options": [
         {
-          "id": "please-repeat-thank-you-r11",
+          "id": "r11-0",
           "image_url": "",
-          "label": "Please repeat. Thank you."
+          "label": "She is sad."
         },
         {
-          "id": "please-speak-slowly-thank-you-r11",
+          "id": "r11-1",
           "image_url": "",
-          "label": "Please speak slowly. Thank you."
+          "label": "She is tired."
+        },
+        {
+          "id": "r11-2",
+          "image_url": "",
+          "label": "She is happy."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "Please speak slowly. Thank you.",
-      "prompt_image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 11: Please speak slowly. Thank you."
+      "answer_audio_text": "She is happy.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp",
+      "spanish_translation": "Ella está contenta.",
+      "pedagogy_note": "Approved beat arrive: She is happy.",
+      "context_es": "Ana sigue la ruta indicada y llega a su destino."
     },
     {
       "slide_id": "A1",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-need-help-a1",
+      "correct_option_id": "a1-0",
       "options": [
         {
-          "id": "i-need-help-a1",
-          "image_url": "a1_scene_i-need-help_93277f0.webp",
-          "label": null
+          "id": "a1-0",
+          "image_url": "",
+          "label": "The blue bus goes to the museum."
         },
         {
-          "id": "i-do-not-understand-a1",
-          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-          "label": null
+          "id": "a1-1",
+          "image_url": "",
+          "label": "The red bus goes to the museum."
         }
       ],
-      "audio_text": "I need help.",
+      "audio_text": "Excuse me. Which bus goes to the museum? The blue bus goes to the museum.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: I need help.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "Excuse me. Which bus goes to the museum?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
+        },
+        {
+          "text": "The blue bus goes to the museum.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp"
+        }
+      ],
+      "spanish_translation": "Disculpe. ¿Qué autobús va al museo? El autobús azul va al museo.",
+      "pedagogy_note": "Approved beat ask: Excuse me. Which bus goes to the museum? The blue bus goes to the museum.",
+      "context_es": "En la estación, Ana conversa con un empleado."
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-do-not-understand-a2",
+      "correct_option_id": "a2-1",
       "options": [
         {
-          "id": "i-do-not-understand-a2",
-          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-          "label": null
+          "id": "a2-0",
+          "image_url": "",
+          "label": "I do not understand. Please speak slowly."
         },
         {
-          "id": "i-need-help-a2",
-          "image_url": "a1_scene_i-need-help_93277f0.webp",
-          "label": null
+          "id": "a2-1",
+          "image_url": "",
+          "label": "I do not understand. Please repeat."
         }
       ],
-      "audio_text": "I do not understand.",
+      "audio_text": "I do not understand. Please repeat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: I do not understand.",
-      "audio_speaker": "male-character"
+      "audio_turns": [
+        {
+          "text": "I do not understand. Please repeat.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
+        }
+      ],
+      "spanish_translation": "No entiendo. Por favor, repite.",
+      "pedagogy_note": "Approved beat repeat: I do not understand. Please repeat.",
+      "context_es": "En la estación, Ana conversa con un empleado."
     },
     {
       "slide_id": "A3",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "please-repeat-a3",
+      "correct_option_id": "a3-0",
       "options": [
         {
-          "id": "please-repeat-a3",
+          "id": "a3-0",
           "image_url": "",
-          "label": "Please repeat."
+          "label": "The blue bus goes to the museum."
         },
         {
-          "id": "i-do-not-understand-a3",
+          "id": "a3-1",
           "image_url": "",
-          "label": "I do not understand."
+          "label": "The blue bus goes to the hospital."
         }
       ],
-      "audio_text": "Please repeat.",
+      "audio_text": "The blue bus goes to the museum.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Please repeat.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "The blue bus goes to the museum.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp"
+        }
+      ],
+      "spanish_translation": "El autobús azul va al museo.",
+      "pedagogy_note": "Approved beat repeat: The blue bus goes to the museum.",
+      "context_es": "En la estación, Ana conversa con un empleado."
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "please-speak-slowly-a4",
+      "correct_option_id": "a4-1",
       "options": [
         {
-          "id": "please-repeat-a4",
-          "image_url": "a1_scene_please-repeat_50ab734.webp",
-          "label": null
+          "id": "a4-0",
+          "image_url": "",
+          "label": "The bus leaves at ten."
         },
         {
-          "id": "please-speak-slowly-a4",
-          "image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-          "label": null
+          "id": "a4-1",
+          "image_url": "",
+          "label": "The bus leaves at nine."
         }
       ],
-      "audio_text": "Please speak slowly.",
+      "audio_text": "What time does the bus leave? The bus leaves at nine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: Please speak slowly.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "What time does the bus leave?",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
+        },
+        {
+          "text": "The bus leaves at nine.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp",
+          "delivery": "quick"
+        }
+      ],
+      "spanish_translation": "¿A qué hora sale el autobús? El autobús sale a las nueve.",
+      "pedagogy_note": "Approved beat confirm: What time does the bus leave? The bus leaves at nine.",
+      "context_es": "En la misma estación, la conversación continúa."
     },
     {
       "slide_id": "A5",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "excuse-me-i-need-help-a5",
+      "correct_option_id": "a5-0",
       "options": [
         {
-          "id": "excuse-me-i-need-help-a5",
+          "id": "a5-0",
           "image_url": "",
-          "label": "Excuse me. I need help."
+          "label": "You speak fast. Please speak slowly."
         },
         {
-          "id": "excuse-me-thank-you-a5",
+          "id": "a5-1",
           "image_url": "",
-          "label": "Excuse me. Thank you."
+          "label": "You speak fast. Please repeat."
         }
       ],
-      "audio_text": "Excuse me. I need help.",
+      "audio_text": "You speak fast. Please speak slowly.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Excuse me. I need help.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "You speak fast. Please speak slowly.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
+        }
+      ],
+      "spanish_translation": "Hablas rápido. Por favor, habla despacio.",
+      "pedagogy_note": "Approved beat confirm: You speak fast. Please speak slowly.",
+      "context_es": "En la misma estación, la conversación continúa."
     },
     {
       "slide_id": "A6",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-do-not-understand-please-repeat-a6",
+      "correct_option_id": "a6-1",
       "options": [
         {
-          "id": "i-do-not-understand-thank-you-a6",
+          "id": "a6-0",
           "image_url": "",
-          "label": "I do not understand. Thank you."
+          "label": "The bus leaves at ten."
         },
         {
-          "id": "i-do-not-understand-please-repeat-a6",
+          "id": "a6-1",
           "image_url": "",
-          "label": "I do not understand. Please repeat."
+          "label": "The bus leaves at nine."
         }
       ],
-      "audio_text": "I do not understand. Please repeat.",
+      "audio_text": "The bus leaves at nine.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: I do not understand. Please repeat.",
-      "audio_speaker": "male-character"
+      "audio_turns": [
+        {
+          "text": "The bus leaves at nine.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp",
+          "delivery": "clear"
+        }
+      ],
+      "spanish_translation": "El autobús sale a las nueve.",
+      "pedagogy_note": "Approved beat confirm: The bus leaves at nine.",
+      "context_es": "En la misma estación, la conversación continúa."
     },
     {
       "slide_id": "A7",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "please-speak-slowly-thank-you-a7",
+      "correct_option_id": "a7-0",
       "options": [
         {
-          "id": "please-repeat-thank-you-a7",
+          "id": "a7-0",
           "image_url": "",
-          "label": "Please repeat. Thank you."
+          "label": "Go straight. Then, turn left at the corner."
         },
         {
-          "id": "please-speak-slowly-thank-you-a7",
+          "id": "a7-1",
           "image_url": "",
-          "label": "Please speak slowly. Thank you."
+          "label": "Go straight. Then, turn right at the corner."
         }
       ],
-      "audio_text": "Please speak slowly. Thank you.",
+      "audio_text": "Go straight. Then, turn left at the corner.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: Please speak slowly. Thank you.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "Go straight. Then, turn left at the corner.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_street_guide_v1.webp",
+          "delivery": "quick"
+        }
+      ],
+      "spanish_translation": "Sigue derecho. Después, gira a la izquierda en la esquina.",
+      "pedagogy_note": "Approved beat slow: Go straight. Then, turn left at the corner.",
+      "context_es": "Después del viaje, Ana conversa con otra persona en la calle."
     },
     {
       "slide_id": "A8",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "where-is-the-bathroom-a8",
+      "correct_option_id": "a8-1",
       "options": [
         {
-          "id": "where-is-the-kitchen-a8",
+          "id": "a8-0",
           "image_url": "",
-          "label": "Where is the kitchen?"
+          "label": "I do not understand. Please repeat."
         },
         {
-          "id": "where-is-the-bathroom-a8",
+          "id": "a8-1",
           "image_url": "",
-          "label": "Where is the bathroom?"
+          "label": "I do not understand. Please speak slowly."
         }
       ],
-      "audio_text": "Where is the bathroom?",
+      "audio_text": "I do not understand. Please speak slowly.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: Where is the bathroom?",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "I do not understand. Please speak slowly.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
+        }
+      ],
+      "spanish_translation": "No entiendo. Por favor, habla despacio.",
+      "pedagogy_note": "Approved beat slow: I do not understand. Please speak slowly.",
+      "context_es": "Después del viaje, Ana conversa con otra persona en la calle."
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-need-help-a9",
+      "correct_option_id": "a9-0",
       "options": [
         {
-          "id": "i-do-not-understand-a9",
+          "id": "a9-0",
           "image_url": "",
-          "label": "I do not understand."
+          "label": "Go straight. Then, turn left at the corner."
         },
         {
-          "id": "please-repeat-a9",
+          "id": "a9-1",
           "image_url": "",
-          "label": "Please repeat."
-        },
-        {
-          "id": "i-need-help-a9",
-          "image_url": "",
-          "label": "I need help."
+          "label": "Go straight. Then, turn right at the corner."
         }
       ],
-      "audio_text": "I need help.",
+      "audio_text": "Go straight. Then, turn left at the corner.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: I need help.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "Go straight. Then, turn left at the corner.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_street_guide_v1.webp",
+          "delivery": "clear"
+        }
+      ],
+      "spanish_translation": "Sigue derecho. Después, gira a la izquierda en la esquina.",
+      "pedagogy_note": "Approved beat slow: Go straight. Then, turn left at the corner.",
+      "context_es": "Después del viaje, Ana conversa con otra persona en la calle."
+    },
+    {
+      "slide_id": "A10",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a10-1",
+      "options": [
+        {
+          "id": "a10-0",
+          "image_url": "",
+          "label": "Sorry, no."
+        },
+        {
+          "id": "a10-1",
+          "image_url": "",
+          "label": "Thank you."
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Thank you.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
+        }
+      ],
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Approved beat slow: Thank you.",
+      "context_es": "Después del viaje, Ana conversa con otra persona en la calle."
+    },
+    {
+      "slide_id": "A11",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "a11-0",
+      "options": [
+        {
+          "id": "a11-0",
+          "image_url": "",
+          "label": "Finally, I am at the museum."
+        },
+        {
+          "id": "a11-1",
+          "image_url": "",
+          "label": "Finally, I am at the library."
+        }
+      ],
+      "audio_text": "Finally, I am at the museum.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Finally, I am at the museum.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp"
+        }
+      ],
+      "spanish_translation": "Finalmente, estoy en el museo.",
+      "pedagogy_note": "Approved beat arrive: Finally, I am at the museum.",
+      "context_es": "La conversación en la calle termina."
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "I need help.",
-      "stage": "Speak",
-      "correct_option_id": "i-need-help-speak",
-      "options": [
-        {
-          "id": "i-need-help-speak",
-          "image_url": "a1_scene_i-need-help_93277f0.webp",
-          "label": "I need help."
-        }
-      ],
-      "audio_text": "I need help.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Necesito ayuda.",
-      "pedagogy_note": "Story beat 01: I need help.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "I do not understand.",
-      "stage": "Speak",
-      "correct_option_id": "i-do-not-understand-speak",
-      "options": [
-        {
-          "id": "i-do-not-understand-speak",
-          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-          "label": "I do not understand."
-        }
-      ],
-      "audio_text": "I do not understand.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "No entiendo.",
-      "pedagogy_note": "Story beat 02: I do not understand.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "Please repeat.",
-      "stage": "Speak",
-      "correct_option_id": "please-repeat-speak",
-      "options": [
-        {
-          "id": "please-repeat-speak",
-          "image_url": "a1_scene_please-repeat_50ab734.webp",
-          "label": "Please repeat."
-        }
-      ],
-      "audio_text": "Please repeat.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Repita, por favor.",
-      "pedagogy_note": "Story beat 03: Please repeat.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "Please speak slowly.",
-      "stage": "Speak",
-      "correct_option_id": "please-speak-slowly-speak",
-      "options": [
-        {
-          "id": "please-speak-slowly-speak",
-          "image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-          "label": "Please speak slowly."
-        }
-      ],
-      "audio_text": "Please speak slowly.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hable despacio, por favor.",
-      "pedagogy_note": "Story beat 04: Please speak slowly.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "speak",
       "prompt": "Excuse me. I need help.",
       "stage": "Speak",
-      "correct_option_id": "excuse-me-i-need-help-speak",
+      "correct_option_id": "s1-model",
       "options": [
         {
-          "id": "excuse-me-i-need-help-speak",
-          "image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
-          "label": "Excuse me. I need help."
+          "id": "s1-model",
+          "label": "Excuse me. I need help.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
         }
       ],
       "audio_text": "Excuse me. I need help.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Disculpe. Necesito ayuda.",
-      "pedagogy_note": "Story beat 05: Excuse me. I need help.",
-      "audio_speaker": "female-character"
+      "pedagogy_note": "Approved beat ask: Excuse me. I need help.",
+      "audio_speaker": "ana",
+      "context_es": "Ana busca el autobús al museo. Un empleado de la estación puede ayudarla."
     },
     {
-      "slide_id": "S6",
+      "slide_id": "S2",
       "interaction_type": "speak",
       "prompt": "I do not understand. Please repeat.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-understand-please-repeat-speak",
+      "correct_option_id": "s2-model",
       "options": [
         {
-          "id": "i-do-not-understand-please-repeat-speak",
-          "image_url": "a1_scene_does-not-understand_6ad015b.webp",
-          "label": "I do not understand. Please repeat."
+          "id": "s2-model",
+          "label": "I do not understand. Please repeat.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
         }
       ],
       "audio_text": "I do not understand. Please repeat.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No entiendo. Repita, por favor.",
-      "pedagogy_note": "Story beat 06: I do not understand. Please repeat.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "No entiendo. Por favor, repite.",
+      "pedagogy_note": "Approved beat repeat: I do not understand. Please repeat.",
+      "audio_speaker": "ana",
+      "context_es": "En la misma estación, Ana pide que repitan la información."
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "The blue bus goes to the museum.",
+      "stage": "Speak",
+      "correct_option_id": "s3-model",
+      "options": [
+        {
+          "id": "s3-model",
+          "label": "The blue bus goes to the museum.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp"
+        }
+      ],
+      "audio_text": "The blue bus goes to the museum.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El autobús azul va al museo.",
+      "pedagogy_note": "Approved beat repeat: The blue bus goes to the museum.",
+      "audio_speaker": "male-character",
+      "context_es": "En la misma estación, Ana pide que repitan la información."
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "What time does the bus leave?",
+      "stage": "Speak",
+      "correct_option_id": "s4-model",
+      "options": [
+        {
+          "id": "s4-model",
+          "label": "What time does the bus leave?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
+        }
+      ],
+      "audio_text": "What time does the bus leave?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿A qué hora sale el autobús?",
+      "pedagogy_note": "Approved beat confirm: What time does the bus leave?",
+      "audio_speaker": "ana",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "You speak fast. Please speak slowly.",
+      "stage": "Speak",
+      "correct_option_id": "s5-model",
+      "options": [
+        {
+          "id": "s5-model",
+          "label": "You speak fast. Please speak slowly.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp"
+        }
+      ],
+      "audio_text": "You speak fast. Please speak slowly.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hablas rápido. Por favor, habla despacio.",
+      "pedagogy_note": "Approved beat confirm: You speak fast. Please speak slowly.",
+      "audio_speaker": "ana",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "The bus leaves at nine.",
+      "stage": "Speak",
+      "correct_option_id": "s6-model",
+      "options": [
+        {
+          "id": "s6-model",
+          "label": "The bus leaves at nine.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp"
+        }
+      ],
+      "audio_text": "The bus leaves at nine.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El autobús sale a las nueve.",
+      "pedagogy_note": "Approved beat confirm: The bus leaves at nine.",
+      "audio_speaker": "male-character",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
     },
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "Please speak slowly. Thank you.",
+      "prompt": "I do not understand. Please speak slowly.",
       "stage": "Speak",
-      "correct_option_id": "please-speak-slowly-thank-you-speak",
+      "correct_option_id": "s7-model",
       "options": [
         {
-          "id": "please-speak-slowly-thank-you-speak",
-          "image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
-          "label": "Please speak slowly. Thank you."
+          "id": "s7-model",
+          "label": "I do not understand. Please speak slowly.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
         }
       ],
-      "audio_text": "Please speak slowly. Thank you.",
+      "audio_text": "I do not understand. Please speak slowly.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hable despacio, por favor. Gracias.",
-      "pedagogy_note": "Story beat 07: Please speak slowly. Thank you.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "No entiendo. Por favor, habla despacio.",
+      "pedagogy_note": "Approved beat slow: I do not understand. Please speak slowly.",
+      "audio_speaker": "ana",
+      "context_es": "Después del viaje, otra persona le indica el camino desde la parada al museo."
     },
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "Where is the bathroom?",
+      "prompt": "Go straight. Then, turn left at the corner.",
       "stage": "Speak",
-      "correct_option_id": "where-is-the-bathroom-speak",
+      "correct_option_id": "s8-model",
       "options": [
         {
-          "id": "where-is-the-bathroom-speak",
-          "image_url": "a1_bathroom.webp",
-          "label": "Where is the bathroom?"
+          "id": "s8-model",
+          "label": "Go straight. Then, turn left at the corner.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_street_guide_v1.webp"
         }
       ],
-      "audio_text": "Where is the bathroom?",
+      "audio_text": "Go straight. Then, turn left at the corner.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "¿Dónde está el baño?",
-      "pedagogy_note": "Story beat 08: Where is the bathroom?"
+      "spanish_translation": "Sigue derecho. Después, gira a la izquierda en la esquina.",
+      "pedagogy_note": "Approved beat slow: Go straight. Then, turn left at the corner.",
+      "audio_speaker": "female-character",
+      "context_es": "Después del viaje, otra persona le indica el camino desde la parada al museo."
     },
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "I do not understand.",
+      "prompt": "Thank you.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-understand-speak",
+      "correct_option_id": "s9-model",
       "options": [
         {
-          "id": "i-do-not-understand-speak",
-          "image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-          "label": "I do not understand."
+          "id": "s9-model",
+          "label": "Thank you.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp"
         }
       ],
-      "audio_text": "I do not understand.",
+      "audio_text": "Thank you.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No entiendo.",
-      "pedagogy_note": "Story beat 09: I do not understand.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Approved beat slow: Thank you.",
+      "audio_speaker": "ana",
+      "context_es": "Después del viaje, otra persona le indica el camino desde la parada al museo."
+    },
+    {
+      "slide_id": "S10",
+      "interaction_type": "speak",
+      "prompt": "Finally, I am at the museum.",
+      "stage": "Speak",
+      "correct_option_id": "s10-model",
+      "options": [
+        {
+          "id": "s10-model",
+          "label": "Finally, I am at the museum.",
+          "image_url": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp"
+        }
+      ],
+      "audio_text": "Finally, I am at the museum.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Finalmente, estoy en el museo.",
+      "pedagogy_note": "Approved beat arrive: Finally, I am at the museum.",
+      "audio_speaker": "ana",
+      "context_es": "Ana sigue la ruta indicada y llega a su destino."
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "need",
-      "options": [
-        {
-          "id": "need",
-          "image_url": "",
-          "label": "need"
-        },
-        {
-          "id": "help",
-          "image_url": "",
-          "label": "help"
-        }
-      ],
-      "audio_text": "I need help.",
-      "answer_audio_text": "I need help.",
-      "prompt_image_url": "a1_scene_i-need-help_93277f0.webp",
-      "spanish_translation": "Necesito ayuda.",
-      "translation": "Necesito ayuda.",
-      "correct_option_ids": [
-        "need",
-        "help"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 01: I need help.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "I do ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "not",
-      "options": [
-        {
-          "id": "not",
-          "image_url": "",
-          "label": "not"
-        },
-        {
-          "id": "understand",
-          "image_url": "",
-          "label": "understand"
-        }
-      ],
-      "audio_text": "I do not understand.",
-      "answer_audio_text": "I do not understand.",
-      "prompt_image_url": "a1_scene_i-do-not-understand_d56b045.webp",
-      "spanish_translation": "No entiendo.",
-      "translation": "No entiendo.",
-      "correct_option_ids": [
-        "not",
-        "understand"
-      ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 02: I do not understand.",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "Please ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "speak",
-      "options": [
-        {
-          "id": "speak",
-          "image_url": "",
-          "label": "speak"
-        },
-        {
-          "id": "slowly",
-          "image_url": "",
-          "label": "slowly"
-        }
-      ],
-      "audio_text": "Please speak slowly.",
-      "answer_audio_text": "Please speak slowly.",
-      "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-      "spanish_translation": "Hable despacio, por favor.",
-      "translation": "Hable despacio, por favor.",
-      "correct_option_ids": [
-        "speak",
-        "slowly"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 03: Please speak slowly.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "Excuse me. I ___ ___.",
       "stage": "Use",
@@ -930,19 +1169,20 @@
       ],
       "audio_text": "Excuse me. I need help.",
       "answer_audio_text": "Excuse me. I need help.",
-      "prompt_image_url": "a1_scene_excuse-me-i-need-help_02700a5.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
       "spanish_translation": "Disculpe. Necesito ayuda.",
       "translation": "Disculpe. Necesito ayuda.",
       "correct_option_ids": [
         "need",
         "help"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 04: Excuse me. I need help.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat ask: Excuse me. I need help.",
+      "audio_speaker": "ana",
+      "context_es": "Ana busca el autobús al museo. Un empleado de la estación puede ayudarla."
     },
     {
-      "slide_id": "U5",
+      "slide_id": "U2",
       "interaction_type": "complete2",
       "prompt": "I do not understand. ___ ___.",
       "stage": "Use",
@@ -961,55 +1201,152 @@
       ],
       "audio_text": "I do not understand. Please repeat.",
       "answer_audio_text": "I do not understand. Please repeat.",
-      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
-      "spanish_translation": "No entiendo. Repita, por favor.",
-      "translation": "No entiendo. Repita, por favor.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "spanish_translation": "No entiendo. Por favor, repite.",
+      "translation": "No entiendo. Por favor, repite.",
       "correct_option_ids": [
         "please",
         "repeat"
       ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat repeat: I do not understand. Please repeat.",
+      "audio_speaker": "ana",
+      "context_es": "En la misma estación, Ana pide que repitan la información."
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "The blue bus goes to ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "museum",
+          "image_url": "",
+          "label": "museum"
+        }
+      ],
+      "audio_text": "The blue bus goes to the museum.",
+      "answer_audio_text": "The blue bus goes to the museum.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp",
+      "spanish_translation": "El autobús azul va al museo.",
+      "translation": "El autobús azul va al museo.",
+      "correct_option_ids": [
+        "the",
+        "museum"
+      ],
       "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 05: I do not understand. Please repeat.",
-      "audio_speaker": "male-character"
+      "pedagogy_note": "Approved beat repeat: The blue bus goes to the museum.",
+      "audio_speaker": "male-character",
+      "context_es": "En la misma estación, Ana pide que repitan la información."
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "What time does the ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "bus",
+      "options": [
+        {
+          "id": "bus",
+          "image_url": "",
+          "label": "bus"
+        },
+        {
+          "id": "leave",
+          "image_url": "",
+          "label": "leave"
+        }
+      ],
+      "audio_text": "What time does the bus leave?",
+      "answer_audio_text": "What time does the bus leave?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "spanish_translation": "¿A qué hora sale el autobús?",
+      "translation": "¿A qué hora sale el autobús?",
+      "correct_option_ids": [
+        "bus",
+        "leave"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat confirm: What time does the bus leave?",
+      "audio_speaker": "ana",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete2",
+      "prompt": "You speak fast. Please ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "speak",
+      "options": [
+        {
+          "id": "speak",
+          "image_url": "",
+          "label": "speak"
+        },
+        {
+          "id": "slowly",
+          "image_url": "",
+          "label": "slowly"
+        }
+      ],
+      "audio_text": "You speak fast. Please speak slowly.",
+      "answer_audio_text": "You speak fast. Please speak slowly.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_station_question_v1.webp",
+      "spanish_translation": "Hablas rápido. Por favor, habla despacio.",
+      "translation": "Hablas rápido. Por favor, habla despacio.",
+      "correct_option_ids": [
+        "speak",
+        "slowly"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat confirm: You speak fast. Please speak slowly.",
+      "audio_speaker": "ana",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
     },
     {
       "slide_id": "U6",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___. ___ ___.",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "speak"
+          "label": "bus"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "Thank"
+          "label": "at"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "Please"
+          "label": "The"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "slowly"
+          "label": "leaves"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "you"
+          "label": "nine"
         }
       ],
-      "audio_text": "Please speak slowly. Thank you.",
-      "answer_audio_text": "Please speak slowly. Thank you.",
-      "prompt_image_url": "a1_scene_asks-to-slow-down_dafb5f0.webp",
-      "spanish_translation": "Hable despacio, por favor. Gracias.",
-      "translation": "Hable despacio, por favor. Gracias.",
+      "audio_text": "The bus leaves at nine.",
+      "answer_audio_text": "The bus leaves at nine.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_station_helper_v1.webp",
+      "spanish_translation": "El autobús sale a las nueve.",
+      "translation": "El autobús sale a las nueve.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1017,94 +1354,15 @@
         "word-4",
         "word-5"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 06: Please speak slowly. Thank you.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Approved beat confirm: The bus leaves at nine.",
+      "audio_speaker": "male-character",
+      "context_es": "Ana confirma la hora de salida con el mismo empleado."
     },
     {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___?",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "bathroom"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Where"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "the"
-        }
-      ],
-      "audio_text": "Where is the bathroom?",
-      "answer_audio_text": "Where is the bathroom?",
-      "prompt_image_url": "a1_bathroom.webp",
-      "spanish_translation": "¿Dónde está el baño?",
-      "translation": "¿Dónde está el baño?",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 07: Where is the bathroom?",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "speak"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Please"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "slowly"
-        }
-      ],
-      "audio_text": "Please speak slowly.",
-      "answer_audio_text": "Please speak slowly.",
-      "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-      "spanish_translation": "Hable despacio, por favor.",
-      "translation": "Hable despacio, por favor.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 08: Please speak slowly.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U9",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___. ___ ___.",
+      "prompt": "___ ___ ___ ___. ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
@@ -1121,7 +1379,7 @@
         {
           "id": "word-6",
           "image_url": "",
-          "label": "repeat"
+          "label": "speak"
         },
         {
           "id": "word-1",
@@ -1137,13 +1395,157 @@
           "id": "word-5",
           "image_url": "",
           "label": "Please"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "slowly"
         }
       ],
-      "audio_text": "I do not understand. Please repeat.",
-      "answer_audio_text": "I do not understand. Please repeat.",
-      "prompt_image_url": "a1_scene_does-not-understand_6ad015b.webp",
-      "spanish_translation": "No entiendo. Repita, por favor.",
-      "translation": "No entiendo. Repita, por favor.",
+      "audio_text": "I do not understand. Please speak slowly.",
+      "answer_audio_text": "I do not understand. Please speak slowly.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp",
+      "spanish_translation": "No entiendo. Por favor, habla despacio.",
+      "translation": "No entiendo. Por favor, habla despacio.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat slow: I do not understand. Please speak slowly.",
+      "audio_speaker": "ana",
+      "context_es": "Después del viaje, otra persona le indica el camino desde la parada al museo."
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___. ___, ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "straight"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "turn"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Go"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "Then"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "left"
+        }
+      ],
+      "audio_text": "Go straight. Then, turn left.",
+      "answer_audio_text": "Go straight. Then, turn left.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_street_guide_v1.webp",
+      "spanish_translation": "Sigue derecho. Después, gira a la izquierda.",
+      "translation": "Sigue derecho. Después, gira a la izquierda.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat slow: Go straight. Then, turn left.",
+      "audio_speaker": "female-character",
+      "context_es": "Después del viaje, otra persona le indica el camino desde la parada al museo."
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Thank"
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_repair_ana_route_question_v1.webp",
+      "spanish_translation": "Gracias.",
+      "translation": "Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat slow: Thank you.",
+      "audio_speaker": "ana",
+      "context_es": "Después del viaje, otra persona le indica el camino desde la parada al museo."
+    },
+    {
+      "slide_id": "U10",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "at"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "museum"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Finally"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "Finally, I am at the museum.",
+      "answer_audio_text": "Finally, I am at the museum.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_story_ana_at_museum_v1.webp",
+      "spanish_translation": "Finalmente, estoy en el museo.",
+      "translation": "Finalmente, estoy en el museo.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1152,9 +1554,10 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 09: I do not understand. Please repeat.",
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat arrive: Finally, I am at the museum.",
+      "audio_speaker": "ana",
+      "context_es": "Ana sigue la ruta indicada y llega a su destino."
     }
   ]
 }

@@ -35,6 +35,7 @@ from backend.app.course_audio_profile import (  # noqa: E402
     COURSE_AUDIO_MODEL_ID,
     DEFAULT_GENERATION_MODEL_ID,
     generation_profile_for,
+    natural_delivery_text,
     NAMED_SPEAKER_ROLES,
     NEUTRAL_SPEAKER_ROLES,
     SPEAKER_NARRATORS,
@@ -69,6 +70,16 @@ class RenderJob:
     visual_prompt: str | None = None
     blank_text: str | None = None
     blank_texts: tuple[str, ...] = ()
+
+    @property
+    def delivery(self) -> str | None:
+        deliveries = {asset.delivery for asset in self.assets}
+        if len(deliveries) != 1:
+            raise ValueError("A render job must use one exact delivery contract.")
+        delivery = next(iter(deliveries))
+        if delivery and (self.kind != "ordinary" or self.model_id != DEFAULT_GENERATION_MODEL_ID):
+            raise ValueError("Natural delivery directions require an ordinary native v4 recording.")
+        return delivery
 
     @property
     def ordered_blank_texts(self) -> tuple[str, ...]:
@@ -116,7 +127,7 @@ class RenderJob:
 
     def request_fragments(self) -> list[tuple[str, str]]:
         if self.kind == "ordinary":
-            return [(self.text, self.profile.model_id)]
+            return [(natural_delivery_text(self.text, self.delivery), self.profile.model_id)]
         return [
             (fragment, completion_fragment_model(fragment, self.profile.model_id))
             for fragment in self.completion_fragments()
@@ -272,7 +283,7 @@ def render_jobs(args: argparse.Namespace) -> list[RenderJob]:
                 ),
             )
         else:
-            key = ("ordinary", profile.voice_id, asset.text)
+            key = ("ordinary", profile.voice_id, asset.text, asset.delivery)
             job = grouped.setdefault(key, RenderJob(kind="ordinary", model_id=model_id, text=asset.text))
         job.assets.append(asset)
     return sorted(
@@ -296,6 +307,8 @@ def matching_take_id(registry: dict[str, Any], job: RenderJob) -> str | None:
         if take.get("text") != job.text or not in_use(registry, take_id):
             continue
         provenance = take.get("provenance") or {}
+        if provenance.get("generation_delivery") != job.delivery:
+            continue
         is_reviewed_exact_override = (
             provenance.get("source") == REVIEWED_EXACT_OVERRIDE_SOURCE
         )
@@ -346,6 +359,7 @@ def take_metadata_matches(take: dict[str, Any], job: RenderJob) -> bool:
         and take.get("profile_id") == job.assets[0].profile_id
         and take.get("provenance", {}).get("voice_id") == job.profile.voice_id
         and take.get("completion_contract") == job.completion_contract_metadata
+        and take.get("provenance", {}).get("generation_delivery") == job.delivery
     )
 
 
@@ -366,6 +380,8 @@ def logical_take_id(audio_sha256: str, job: RenderJob) -> str:
         "text": job.text,
         "completion_contract": job.completion_contract_metadata,
     }
+    if job.delivery:
+        identity["delivery"] = job.delivery
     digest = sha256_bytes(
         json.dumps(identity, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode(
             "utf-8"
@@ -752,6 +768,8 @@ def generate_take(
         provenance["approved_at"] = None
         provenance["review"] = {"status": "pending-listening-review",
                                 "basis": "Voice settings do not approve an individual recording."}
+    if job.delivery:
+        provenance["generation_delivery"] = job.delivery
     return final_payload, provenance
 
 

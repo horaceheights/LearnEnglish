@@ -78,7 +78,7 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Falló la asociación visual de los objetivos.' }
   & node tests/mission-target-interaction.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la verificación visual vinculada de los blancos de la misión.' }
-  & node --test tests/mission-object-scenes.test.cjs tests/mission-presentation-parity.test.cjs
+  & node --test tests/mission-object-scenes.test.cjs tests/mission-presentation-parity.test.cjs tests/mission-completion-scene.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Mission object scenes and cross-client presentation parity failed.' }
   & node --test tests/mission-photo-edits.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Mission photo edit and reviewed marker bindings failed.' }

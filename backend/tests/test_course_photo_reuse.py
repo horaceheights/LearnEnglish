@@ -95,6 +95,18 @@ class PhotoReuseTests(unittest.TestCase):
             self.assertEqual(record['human_approval'],'pending')
             for scope in record['scopes']:
                 lesson=current[scope['lesson_id']]
+                if scope.get('superseded_by'):
+                    # A later approved engine plan can retire a historical scope
+                    # absent from the older preservation baseline. Keep its pixel
+                    # evidence and prove the replacement plan is installed exactly.
+                    from scripts.content_engine.plan import compose_lesson
+                    plan=json.loads((ROOT/scope['superseded_by']).read_text(encoding='utf-8'))
+                    self.assertFalse(plan['draft'])
+                    self.assertEqual(plan['lesson']['id'],scope['lesson_id'])
+                    self.assertEqual(compose_lesson(plan),lesson)
+                    self.assertNotIn(record['old_filename'],images(lesson))
+                    self.assertNotIn(record['candidate_filename'],images(lesson))
+                    continue
                 if (scope['lesson_id'],record['old_filename']) in retired:
                     self.assertNotIn(record['old_filename'],images(lesson))
                     continue

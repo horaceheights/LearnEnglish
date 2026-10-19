@@ -49,7 +49,8 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
   // 296 since the 2026-10-08 Unit 5 service revision: the coffee-and-eggs and water
   // thank-you constructions replace the old single U5 construction (net +1).
   // Unit 6's approved 14-lesson story rebuild adds 23 full constructions.
-  assert.equal(rollout.length, 319);
+  // 2026-10-19: Unit 7's approved guided-to-independent progression adds 12.
+  assert.equal(rollout.length, 331);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

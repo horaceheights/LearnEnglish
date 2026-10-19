@@ -1,6 +1,6 @@
 {
   "id": "lesson-7-6-hobbies-and-free-time",
-  "title": "7.6 Hobbies and Free Time",
+  "title": "7.6 What I Like to Do",
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
@@ -8,43 +8,48 @@
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.6",
-  "sub_lesson_title": "Hobbies and Free Time",
-  "goal": "Recognize watching TV and listening to music, and say which free-time activities I like and do not like.",
+  "sub_lesson_title": "What I Like to Do",
+  "goal": "Say which activities you like, ask a friend about theirs, and discover a shared interest.",
   "vocabulary": [
-    "TV",
-    "music",
-    "watching TV",
-    "listening to music"
+    "I like to",
+    "Do you like to",
+    "watch TV",
+    "listen to music",
+    "dance",
+    "draw",
+    "paint",
+    "ride a bike",
+    "take photos",
+    "play football"
   ],
-  "review_vocabulary": [
-    "I",
-    "like",
-    "do not like",
-    "reading",
-    "playing",
-    "swimming"
-  ],
-  "grammar_function": "I like watching TV. I do not like reading.",
+  "review_vocabulary": [],
+  "grammar_function": "Explicit I like to preferences and Do you like to questions with eight activities; pictures identify an activity, never a hidden opinion.",
   "prerequisite": "1.2 reading; 1.3 swimming; 1.7 playing; 5.5 like and do not like.",
-  "speaking_outcome": "Say what I like doing in my free time.",
-  "content_revision": 3,
+  "speaking_outcome": "Say which activities you like, ask a friend about theirs, and discover a shared interest.",
+  "content_revision": 4,
   "purposeful_review_slides": [
+    "R1",
+    "R2",
     "R3",
     "R4",
     "R5",
     "R6",
     "R7",
     "R8",
+    "R9",
     "R10",
-    "R11",
-    "R12",
+    "A1",
+    "A2",
     "A3",
     "A4",
     "A5",
     "A6",
     "A7",
     "A8",
+    "A9",
     "A10",
+    "S1",
+    "S2",
     "S3",
     "S4",
     "S5",
@@ -52,857 +57,1228 @@
     "S7",
     "S8",
     "S9",
+    "S10",
+    "S11",
+    "S12",
+    "U1",
     "U2",
     "U3",
     "U4",
     "U5",
     "U6",
     "U7",
-    "U9"
+    "U8",
+    "U9",
+    "U10",
+    "U11",
+    "U12"
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "watch TV"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "I like to watch TV."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "listen to music"
+      ],
+      "models": [
+        {
+          "slide_id": "L2",
+          "text": "I like to listen to music."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "dance"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "I like to dance."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "draw"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "I like to draw."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "paint"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "I like to paint."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "ride a bike"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "I like to ride a bike."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "take photos"
+      ],
+      "models": [
+        {
+          "slide_id": "L7",
+          "text": "I like to take photos."
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "I like to",
+        "play football"
+      ],
+      "models": [
+        {
+          "slide_id": "L8",
+          "text": "I like to play football."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "Do you like to",
+        "play football"
+      ],
+      "models": [
+        {
+          "slide_id": "L9",
+          "text": "Do you like to play football? No, I do not.",
+          "turns": [
+            "Do you like to play football?",
+            "No, I do not."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "Do you like to",
+        "take photos"
+      ],
+      "models": [
+        {
+          "slide_id": "L10",
+          "text": "Do you like to take photos? Yes, I do.",
+          "turns": [
+            "Do you like to take photos?",
+            "Yes, I do."
+          ]
+        }
+      ]
+    }
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "I am watching TV.",
+      "prompt": "I like to watch TV.",
       "stage": "Learn",
-      "correct_option_id": "watching-tv-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "watching-tv-learn",
-          "image_url": "a1_watch_tv.webp",
-          "label": "I am watching TV."
+          "id": "l1-model",
+          "label": "I like to watch TV.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
         }
       ],
-      "audio_text": "I am watching TV.",
+      "audio_text": "I like to watch TV.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy viendo televisión.",
-      "pedagogy_note": "Story beat 01: Watching TV",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Me gusta ver la televisión.",
+      "pedagogy_note": "Approved beat home: I like to watch TV.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "I am listening to music.",
+      "prompt": "I like to listen to music.",
       "stage": "Learn",
-      "correct_option_id": "listening-to-music-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "listening-to-music-learn",
-          "image_url": "a1_listening_music.webp",
-          "label": "I am listening to music."
+          "id": "l2-model",
+          "label": "I like to listen to music.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp"
         }
       ],
-      "audio_text": "I am listening to music.",
+      "audio_text": "I like to listen to music.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy escuchando música.",
-      "pedagogy_note": "Story beat 02: Listening to music",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta escuchar música.",
+      "pedagogy_note": "Approved beat home: I like to listen to music.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "I like to dance.",
+      "stage": "Learn",
+      "correct_option_id": "l3-model",
+      "options": [
+        {
+          "id": "l3-model",
+          "label": "I like to dance.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
+        }
+      ],
+      "audio_text": "I like to dance.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta bailar.",
+      "pedagogy_note": "Approved beat create: I like to dance.",
+      "audio_speaker": "sofia"
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "I like to draw.",
+      "stage": "Learn",
+      "correct_option_id": "l4-model",
+      "options": [
+        {
+          "id": "l4-model",
+          "label": "I like to draw.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
+        }
+      ],
+      "audio_text": "I like to draw.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta dibujar.",
+      "pedagogy_note": "Approved beat create: I like to draw.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "I like to paint.",
+      "stage": "Learn",
+      "correct_option_id": "l5-model",
+      "options": [
+        {
+          "id": "l5-model",
+          "label": "I like to paint.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
+        }
+      ],
+      "audio_text": "I like to paint.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta pintar.",
+      "pedagogy_note": "Approved beat create: I like to paint.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "I like to ride a bike.",
+      "stage": "Learn",
+      "correct_option_id": "l6-model",
+      "options": [
+        {
+          "id": "l6-model",
+          "label": "I like to ride a bike.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
+        }
+      ],
+      "audio_text": "I like to ride a bike.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta andar en bicicleta.",
+      "pedagogy_note": "Approved beat outside: I like to ride a bike.",
+      "audio_speaker": "sofia"
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "I like to take photos.",
+      "stage": "Learn",
+      "correct_option_id": "l7-model",
+      "options": [
+        {
+          "id": "l7-model",
+          "label": "I like to take photos.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
+        }
+      ],
+      "audio_text": "I like to take photos.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta tomar fotos.",
+      "pedagogy_note": "Approved beat outside: I like to take photos.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "L8",
+      "interaction_type": "teach",
+      "prompt": "I like to play football.",
+      "stage": "Learn",
+      "correct_option_id": "l8-model",
+      "options": [
+        {
+          "id": "l8-model",
+          "label": "I like to play football.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp"
+        }
+      ],
+      "audio_text": "I like to play football.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta jugar al fútbol.",
+      "pedagogy_note": "Approved beat outside: I like to play football.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "L9",
+      "interaction_type": "teach",
+      "prompt": "Do you like to play football? No, I do not.",
+      "stage": "Learn",
+      "correct_option_id": "l9-model",
+      "options": [
+        {
+          "id": "l9-model",
+          "label": "Do you like to play football? No, I do not.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_football_question_v1.webp"
+        }
+      ],
+      "audio_text": "Do you like to play football? No, I do not.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Do you like to play football?",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_football_question_v1.webp"
+        },
+        {
+          "text": "No, I do not.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Te gusta jugar al fútbol? No, no me gusta.",
+      "pedagogy_note": "Approved beat share: Do you like to play football? No, I do not."
+    },
+    {
+      "slide_id": "L10",
+      "interaction_type": "teach",
+      "prompt": "Do you like to take photos? Yes, I do.",
+      "stage": "Learn",
+      "correct_option_id": "l10-model",
+      "options": [
+        {
+          "id": "l10-model",
+          "label": "Do you like to take photos? Yes, I do.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_photos_question_v1.webp"
+        }
+      ],
+      "audio_text": "Do you like to take photos? Yes, I do.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "Do you like to take photos?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_photos_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_photos_yes_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Te gusta tomar fotos? Sí, me gusta.",
+      "pedagogy_note": "Approved beat share: Do you like to take photos? Yes, I do."
     },
     {
       "slide_id": "R1",
       "interaction_type": "t2i2",
-      "prompt": "I am watching TV.",
+      "prompt": "I like to watch TV.",
       "stage": "Recognize",
-      "correct_option_id": "watching-tv-r1",
+      "correct_option_id": "watch-tv-r1",
       "options": [
         {
-          "id": "listening-to-music-r1",
-          "image_url": "a1_listening_music.webp",
-          "label": null
+          "id": "watch-tv-r1",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
         },
         {
-          "id": "watching-tv-r1",
-          "image_url": "a1_watch_tv.webp",
-          "label": null
+          "id": "listen-to-music-r1",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp"
         }
       ],
-      "audio_text": "I am watching TV.",
+      "audio_text": "I like to watch TV.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy viendo televisión.",
-      "pedagogy_note": "Story beat 01: Watching TV",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Me gusta ver la televisión.",
+      "pedagogy_note": "Approved beat home: I like to watch TV. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "ana",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R2",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i2",
+      "prompt": "I like to listen to music.",
       "stage": "Recognize",
-      "correct_option_id": "listening-to-music-r2",
+      "correct_option_id": "listen-to-music-r2",
       "options": [
         {
-          "id": "watching-tv-r2",
-          "image_url": "",
-          "label": "I am watching TV."
+          "id": "watch-tv-r2",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
         },
         {
-          "id": "listening-to-music-r2",
-          "image_url": "",
-          "label": "I am listening to music."
+          "id": "listen-to-music-r2",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp"
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I am listening to music.",
-      "prompt_image_url": "a1_listening_music.webp",
-      "spanish_translation": "Estoy escuchando música.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 02: Listening to music"
+      "audio_text": "I like to listen to music.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta escuchar música.",
+      "pedagogy_note": "Approved beat home: I like to listen to music. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "luis",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R3",
       "interaction_type": "t2i2",
-      "prompt": "I like watching TV.",
+      "prompt": "I like to dance.",
       "stage": "Recognize",
-      "correct_option_id": "i-like-watching-tv-r3",
+      "correct_option_id": "dance-r3",
       "options": [
         {
-          "id": "i-like-watching-tv-r3",
-          "image_url": "a1_photo_u7_likes_tv_v3.webp",
-          "label": null
+          "id": "dance-r3",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
         },
         {
-          "id": "i-like-listening-to-music-r3",
-          "image_url": "a1_listening_music.webp",
-          "label": null
+          "id": "draw-r3",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         }
       ],
-      "audio_text": "I like watching TV.",
+      "audio_text": "I like to dance.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta ver televisión.",
-      "pedagogy_note": "Story beat 03: I like watching TV.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta bailar.",
+      "pedagogy_note": "Approved beat create: I like to dance. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "sofia",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i3",
+      "prompt": "I like to draw.",
       "stage": "Recognize",
-      "correct_option_id": "i-like-listening-to-music-r4",
+      "correct_option_id": "draw-r4",
       "options": [
         {
-          "id": "i-like-watching-tv-r4",
-          "image_url": "",
-          "label": "I like watching TV."
+          "id": "draw-r4",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         },
         {
-          "id": "i-like-listening-to-music-r4",
-          "image_url": "",
-          "label": "I like listening to music."
+          "id": "paint-r4",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
+        },
+        {
+          "id": "dance-r4",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I like listening to music.",
-      "prompt_image_url": "a1_listening_music.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 04: I like listening to music."
+      "audio_text": "I like to draw.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta dibujar.",
+      "pedagogy_note": "Approved beat create: I like to draw. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "ana",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "I like reading.",
+      "interaction_type": "t2i3",
+      "prompt": "I like to paint.",
       "stage": "Recognize",
-      "correct_option_id": "i-like-reading-r5",
+      "correct_option_id": "paint-r5",
       "options": [
         {
-          "id": "i-like-watching-tv-r5",
-          "image_url": "a1_photo_u7_likes_tv_v3.webp",
-          "label": null
+          "id": "draw-r5",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         },
         {
-          "id": "i-like-reading-r5",
-          "image_url": "a1_photo_u7_likes_reading_v1.webp",
-          "label": null
+          "id": "watch-tv-r5",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
+        },
+        {
+          "id": "paint-r5",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
         }
       ],
-      "audio_text": "I like reading.",
+      "audio_text": "I like to paint.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta leer.",
-      "pedagogy_note": "Story beat 05: I like reading.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta pintar.",
+      "pedagogy_note": "Approved beat create: I like to paint. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "luis",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R6",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i3",
+      "prompt": "I like to ride a bike.",
       "stage": "Recognize",
-      "correct_option_id": "i-like-swimming-r6",
+      "correct_option_id": "ride-a-bike-r6",
       "options": [
         {
-          "id": "i-like-swimming-r6",
-          "image_url": "",
-          "label": "I like swimming."
+          "id": "play-football-r6",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp"
         },
         {
-          "id": "i-like-reading-r6",
-          "image_url": "",
-          "label": "I like reading."
+          "id": "ride-a-bike-r6",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
+        },
+        {
+          "id": "take-photos-r6",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I like swimming.",
-      "prompt_image_url": "boy_is_swimming.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 06: I like swimming."
+      "audio_text": "I like to ride a bike.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta andar en bicicleta.",
+      "pedagogy_note": "Approved beat outside: I like to ride a bike. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "sofia",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R7",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i3",
+      "prompt": "I like to take photos.",
       "stage": "Recognize",
-      "correct_option_id": "i-do-not-like-reading-r7",
+      "correct_option_id": "take-photos-r7",
       "options": [
         {
-          "id": "i-do-not-like-reading-r7",
-          "image_url": "",
-          "label": "I do not like reading."
+          "id": "take-photos-r7",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
         },
         {
-          "id": "i-like-reading-r7",
-          "image_url": "",
-          "label": "I like reading."
+          "id": "ride-a-bike-r7",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
+        },
+        {
+          "id": "draw-r7",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I do not like reading.",
-      "prompt_image_url": "a1_photo_u7_dislikes_reading_v2.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 07: I do not like reading."
+      "audio_text": "I like to take photos.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta tomar fotos.",
+      "pedagogy_note": "Approved beat outside: I like to take photos. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "ana",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t2",
-      "prompt": "",
+      "interaction_type": "t2i3",
+      "prompt": "I like to play football.",
       "stage": "Recognize",
-      "correct_option_id": "i-do-not-like-watching-tv-r8",
+      "correct_option_id": "play-football-r8",
       "options": [
         {
-          "id": "i-do-not-like-watching-tv-r8",
-          "image_url": "",
-          "label": "I do not like watching TV."
+          "id": "ride-a-bike-r8",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
         },
         {
-          "id": "i-like-watching-tv-r8",
-          "image_url": "",
-          "label": "I like watching TV."
+          "id": "take-photos-r8",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
+        },
+        {
+          "id": "play-football-r8",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp"
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I do not like watching TV.",
-      "prompt_image_url": "a1_scene_i-do-not-like-watching-tv_d06b3e7.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 08: I do not like watching TV."
+      "audio_text": "I like to play football.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Me gusta jugar al fútbol.",
+      "pedagogy_note": "Approved beat outside: I like to play football. Read the preference and select the named activity. No task asks whether a person in a photograph likes an activity; the preference is explicitly given.",
+      "audio_speaker": "luis",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R9",
-      "interaction_type": "t2i2",
-      "prompt": "I am listening to music.",
+      "interaction_type": "t2i3",
+      "prompt": "I like to draw.",
       "stage": "Recognize",
-      "correct_option_id": "listening-to-music-r9",
+      "correct_option_id": "draw-r9",
       "options": [
         {
-          "id": "listening-to-music-r9",
-          "image_url": "a1_listening_music.webp",
-          "label": null
+          "id": "dance-r9",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
         },
         {
-          "id": "watching-tv-r9",
-          "image_url": "a1_watch_tv.webp",
-          "label": null
+          "id": "draw-r9",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
+        },
+        {
+          "id": "paint-r9",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
         }
       ],
-      "audio_text": "I am listening to music.",
+      "audio_text": "I like to draw.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy escuchando música.",
-      "pedagogy_note": "Story beat 09: Listening to music",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta dibujar.",
+      "pedagogy_note": "Approved beat share: I like to draw. Contrast pencil drawing with brush painting. The written sentence supplies the preference; choose only the activity it names.",
+      "audio_speaker": "ana",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "t2i3",
+      "prompt": "I like to take photos.",
       "stage": "Recognize",
-      "correct_option_id": "i-like-watching-tv-r10",
+      "correct_option_id": "take-photos-r10",
       "options": [
         {
-          "id": "i-like-watching-tv-r10",
-          "image_url": "",
-          "label": "I like watching TV."
+          "id": "take-photos-r10",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
         },
         {
-          "id": "i-like-listening-to-music-r10",
-          "image_url": "",
-          "label": "I like listening to music."
+          "id": "ride-a-bike-r10",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
         },
         {
-          "id": "i-like-reading-r10",
-          "image_url": "",
-          "label": "I like reading."
+          "id": "draw-r10",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "I like watching TV.",
-      "prompt_image_url": "a1_photo_u7_likes_tv_v3.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 10: I like watching TV."
-    },
-    {
-      "slide_id": "R11",
-      "interaction_type": "t2i4",
-      "prompt": "I like listening to music.",
-      "stage": "Recognize",
-      "correct_option_id": "i-like-listening-to-music-r11",
-      "options": [
-        {
-          "id": "i-like-watching-tv-r11",
-          "image_url": "a1_photo_u7_likes_tv_v3.webp",
-          "label": null
-        },
-        {
-          "id": "i-like-reading-r11",
-          "image_url": "a1_photo_u7_likes_reading_v1.webp",
-          "label": null
-        },
-        {
-          "id": "i-like-swimming-r11",
-          "image_url": "boy_is_swimming.webp",
-          "label": null
-        },
-        {
-          "id": "i-like-listening-to-music-r11",
-          "image_url": "a1_listening_music.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I like listening to music.",
+      "audio_text": "I like to take photos.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta escuchar música.",
-      "pedagogy_note": "Story beat 11: I like listening to music.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "R12",
-      "interaction_type": "i2t2",
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "i-do-not-like-watching-tv-r12",
-      "options": [
-        {
-          "id": "i-do-not-like-watching-tv-r12",
-          "image_url": "",
-          "label": "I do not like watching TV."
-        },
-        {
-          "id": "i-like-watching-tv-r12",
-          "image_url": "",
-          "label": "I like watching TV."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I do not like watching TV.",
-      "prompt_image_url": "a1_scene_i-do-not-like-watching-tv_d06b3e7.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 12: I do not like watching TV."
+      "spanish_translation": "Me gusta tomar fotos.",
+      "pedagogy_note": "Approved beat share: I like to take photos. Contrast photography with cycling using activity-only images.",
+      "audio_speaker": "ana",
+      "context_es": "La frase expresa un gusto. Elige solo la actividad que menciona."
     },
     {
       "slide_id": "A1",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "watching-tv-a1",
+      "correct_option_id": "watch-tv-a1",
       "options": [
         {
-          "id": "watching-tv-a1",
-          "image_url": "a1_watch_tv.webp",
-          "label": null
+          "id": "watch-tv-a1",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
         },
         {
-          "id": "listening-to-music-a1",
-          "image_url": "a1_listening_music.webp",
-          "label": null
+          "id": "listen-to-music-a1",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp"
         }
       ],
-      "audio_text": "I am watching TV.",
+      "audio_text": "I like to watch TV.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Watching TV",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat home: I like to watch TV. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A2",
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "listening-to-music-a2",
+      "correct_option_id": "listen-to-music-a2",
       "options": [
         {
-          "id": "listening-to-music-a2",
-          "image_url": "a1_listening_music.webp",
-          "label": null
+          "id": "watch-tv-a2",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
         },
         {
-          "id": "watching-tv-a2",
-          "image_url": "a1_watch_tv.webp",
-          "label": null
+          "id": "listen-to-music-a2",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp"
         }
       ],
-      "audio_text": "I am listening to music.",
+      "audio_text": "I like to listen to music.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Listening to music",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat home: I like to listen to music. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "A3",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-watching-tv-a3",
+      "correct_option_id": "dance-a3",
       "options": [
         {
-          "id": "i-like-watching-tv-a3",
-          "image_url": "",
-          "label": "I like watching TV."
+          "id": "dance-a3",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
         },
         {
-          "id": "i-like-listening-to-music-a3",
-          "image_url": "",
-          "label": "I like listening to music."
+          "id": "draw-a3",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         }
       ],
-      "audio_text": "I like watching TV.",
+      "audio_text": "I like to dance.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: I like watching TV.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat create: I like to dance. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "sofia"
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-listening-to-music-a4",
+      "correct_option_id": "draw-a4",
       "options": [
         {
-          "id": "i-like-watching-tv-a4",
-          "image_url": "a1_photo_u7_likes_tv_v3.webp",
-          "label": null
+          "id": "draw-a4",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         },
         {
-          "id": "i-like-listening-to-music-a4",
-          "image_url": "a1_listening_music.webp",
-          "label": null
+          "id": "paint-a4",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
+        },
+        {
+          "id": "dance-a4",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
         }
       ],
-      "audio_text": "I like listening to music.",
+      "audio_text": "I like to draw.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: I like listening to music.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat create: I like to draw. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A5",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-reading-a5",
+      "correct_option_id": "paint-a5",
       "options": [
         {
-          "id": "i-like-reading-a5",
-          "image_url": "a1_photo_u7_likes_reading_v1.webp",
-          "label": null
+          "id": "draw-a5",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         },
         {
-          "id": "i-like-watching-tv-a5",
-          "image_url": "a1_photo_u7_likes_tv_v3.webp",
-          "label": null
+          "id": "watch-tv-a5",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
+        },
+        {
+          "id": "paint-a5",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
         }
       ],
-      "audio_text": "I like reading.",
+      "audio_text": "I like to paint.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: I like reading.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat create: I like to paint. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-swimming-a6",
+      "correct_option_id": "ride-a-bike-a6",
       "options": [
         {
-          "id": "i-like-swimming-a6",
-          "image_url": "",
-          "label": "I like swimming."
+          "id": "play-football-a6",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp"
         },
         {
-          "id": "i-like-reading-a6",
-          "image_url": "",
-          "label": "I like reading."
+          "id": "ride-a-bike-a6",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
         },
         {
-          "id": "i-like-listening-to-music-a6",
-          "image_url": "",
-          "label": "I like listening to music."
+          "id": "take-photos-a6",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
         }
       ],
-      "audio_text": "I like swimming.",
+      "audio_text": "I like to ride a bike.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: I like swimming.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat outside: I like to ride a bike. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "sofia"
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-do-not-like-reading-a7",
+      "correct_option_id": "take-photos-a7",
       "options": [
         {
-          "id": "i-like-reading-a7",
-          "image_url": "",
-          "label": "I like reading."
+          "id": "take-photos-a7",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
         },
         {
-          "id": "i-do-not-like-reading-a7",
-          "image_url": "",
-          "label": "I do not like reading."
+          "id": "ride-a-bike-a7",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
+        },
+        {
+          "id": "draw-a7",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         }
       ],
-      "audio_text": "I do not like reading.",
+      "audio_text": "I like to take photos.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: I do not like reading.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat outside: I like to take photos. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2t2",
+      "interaction_type": "a2i3",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-do-not-like-watching-tv-a8",
+      "correct_option_id": "play-football-a8",
       "options": [
         {
-          "id": "i-like-watching-tv-a8",
-          "image_url": "",
-          "label": "I like watching TV."
+          "id": "ride-a-bike-a8",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
         },
         {
-          "id": "i-do-not-like-watching-tv-a8",
-          "image_url": "",
-          "label": "I do not like watching TV."
+          "id": "take-photos-a8",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
+        },
+        {
+          "id": "play-football-a8",
+          "label": null,
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp"
         }
       ],
-      "audio_text": "I do not like watching TV.",
+      "audio_text": "I like to play football.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: I do not like watching TV.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Escucha y elige la actividad que menciona.",
+      "pedagogy_note": "Approved beat outside: I like to play football. Select the activity the speaker says they like. Hide the written cue; the picture illustrates the named activity and does not assert an opinion.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "A9",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "listening-to-music-a9",
+      "correct_option_id": "a9-1",
       "options": [
         {
-          "id": "watching-tv-a9",
-          "image_url": "",
-          "label": "I am watching TV."
+          "id": "a9-0",
+          "label": "Yes, I do.",
+          "image_url": ""
         },
         {
-          "id": "listening-to-music-a9",
-          "image_url": "",
-          "label": "I am listening to music."
+          "id": "a9-1",
+          "label": "No, I do not.",
+          "image_url": ""
         }
       ],
-      "audio_text": "I am listening to music.",
+      "audio_text": "Do you like to play football? No, I do not.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: Listening to music",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "Do you like to play football?",
+          "speaker_role": "sofia",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_football_question_v1.webp"
+        },
+        {
+          "text": "No, I do not.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp"
+        }
+      ],
+      "spanish_translation": "Escucha la pregunta y la respuesta. Elige la respuesta que oyes.",
+      "pedagogy_note": "Approved beat share: Do you like to play football? No, I do not. Hear the complete question and reply, then select the reply actually heard. Both yes and no are plausible before listening."
     },
     {
       "slide_id": "A10",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "i-like-listening-to-music-a10",
+      "correct_option_id": "a10-0",
       "options": [
         {
-          "id": "i-like-watching-tv-a10",
-          "image_url": "a1_photo_u7_likes_tv_v3.webp",
-          "label": null
+          "id": "a10-0",
+          "label": "Yes, I do.",
+          "image_url": ""
         },
         {
-          "id": "i-like-reading-a10",
-          "image_url": "a1_photo_u7_likes_reading_v1.webp",
-          "label": null
-        },
-        {
-          "id": "i-like-swimming-a10",
-          "image_url": "boy_is_swimming.webp",
-          "label": null
-        },
-        {
-          "id": "i-like-listening-to-music-a10",
-          "image_url": "a1_listening_music.webp",
-          "label": null
+          "id": "a10-1",
+          "label": "No, I do not.",
+          "image_url": ""
         }
       ],
-      "audio_text": "I like listening to music.",
+      "audio_text": "Do you like to take photos? Yes, I do.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 10: I like listening to music.",
-      "audio_speaker": "female-character"
+      "audio_turns": [
+        {
+          "text": "Do you like to take photos?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_photos_question_v1.webp"
+        },
+        {
+          "text": "Yes, I do.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_photos_yes_v1.webp"
+        }
+      ],
+      "spanish_translation": "Escucha la pregunta y la respuesta. Elige la respuesta que oyes.",
+      "pedagogy_note": "Approved beat share: Do you like to take photos? Yes, I do. Hear the complete question and reply, then select the reply actually heard. Both yes and no are plausible before listening."
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "I am watching TV.",
+      "prompt": "I like to watch TV.",
       "stage": "Speak",
-      "correct_option_id": "watching-tv-speak",
+      "correct_option_id": "s1-model",
       "options": [
         {
-          "id": "watching-tv-speak",
-          "image_url": "a1_watch_tv.webp",
-          "label": "I am watching TV."
+          "id": "s1-model",
+          "label": "I like to watch TV.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp"
         }
       ],
-      "audio_text": "I am watching TV.",
+      "audio_text": "I like to watch TV.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy viendo televisión.",
-      "pedagogy_note": "Story beat 01: Watching TV",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Me gusta ver la televisión.",
+      "pedagogy_note": "Approved beat home: I like to watch TV.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "I am listening to music.",
+      "prompt": "I like to listen to music.",
       "stage": "Speak",
-      "correct_option_id": "listening-to-music-speak",
+      "correct_option_id": "s2-model",
       "options": [
         {
-          "id": "listening-to-music-speak",
-          "image_url": "a1_listening_music.webp",
-          "label": "I am listening to music."
+          "id": "s2-model",
+          "label": "I like to listen to music.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp"
         }
       ],
-      "audio_text": "I am listening to music.",
+      "audio_text": "I like to listen to music.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Estoy escuchando música.",
-      "pedagogy_note": "Story beat 02: Listening to music",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta escuchar música.",
+      "pedagogy_note": "Approved beat home: I like to listen to music.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "S3",
       "interaction_type": "speak",
-      "prompt": "I like watching TV.",
+      "prompt": "I like to dance.",
       "stage": "Speak",
-      "correct_option_id": "i-like-watching-tv-speak",
+      "correct_option_id": "s3-model",
       "options": [
         {
-          "id": "i-like-watching-tv-speak",
-          "image_url": "a1_photo_u7_likes_tv_v3.webp",
-          "label": "I like watching TV."
+          "id": "s3-model",
+          "label": "I like to dance.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp"
         }
       ],
-      "audio_text": "I like watching TV.",
+      "audio_text": "I like to dance.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta ver televisión.",
-      "pedagogy_note": "Story beat 03: I like watching TV.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta bailar.",
+      "pedagogy_note": "Approved beat create: I like to dance.",
+      "audio_speaker": "sofia"
     },
     {
       "slide_id": "S4",
       "interaction_type": "speak",
-      "prompt": "I like listening to music.",
+      "prompt": "I like to draw.",
       "stage": "Speak",
-      "correct_option_id": "i-like-listening-to-music-speak",
+      "correct_option_id": "s4-model",
       "options": [
         {
-          "id": "i-like-listening-to-music-speak",
-          "image_url": "a1_listening_music.webp",
-          "label": "I like listening to music."
+          "id": "s4-model",
+          "label": "I like to draw.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp"
         }
       ],
-      "audio_text": "I like listening to music.",
+      "audio_text": "I like to draw.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta escuchar música.",
-      "pedagogy_note": "Story beat 04: I like listening to music.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta dibujar.",
+      "pedagogy_note": "Approved beat create: I like to draw.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S5",
       "interaction_type": "speak",
-      "prompt": "I like reading.",
+      "prompt": "I like to paint.",
       "stage": "Speak",
-      "correct_option_id": "i-like-reading-speak",
+      "correct_option_id": "s5-model",
       "options": [
         {
-          "id": "i-like-reading-speak",
-          "image_url": "a1_photo_u7_likes_reading_v1.webp",
-          "label": "I like reading."
+          "id": "s5-model",
+          "label": "I like to paint.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp"
         }
       ],
-      "audio_text": "I like reading.",
+      "audio_text": "I like to paint.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta leer.",
-      "pedagogy_note": "Story beat 05: I like reading.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta pintar.",
+      "pedagogy_note": "Approved beat create: I like to paint.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "S6",
       "interaction_type": "speak",
-      "prompt": "I like swimming.",
+      "prompt": "I like to ride a bike.",
       "stage": "Speak",
-      "correct_option_id": "i-like-swimming-speak",
+      "correct_option_id": "s6-model",
       "options": [
         {
-          "id": "i-like-swimming-speak",
-          "image_url": "boy_is_swimming.webp",
-          "label": "I like swimming."
+          "id": "s6-model",
+          "label": "I like to ride a bike.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp"
         }
       ],
-      "audio_text": "I like swimming.",
+      "audio_text": "I like to ride a bike.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta nadar.",
-      "pedagogy_note": "Story beat 06: I like swimming.",
-      "audio_speaker": "male-character"
+      "spanish_translation": "Me gusta andar en bicicleta.",
+      "pedagogy_note": "Approved beat outside: I like to ride a bike.",
+      "audio_speaker": "sofia"
     },
     {
       "slide_id": "S7",
       "interaction_type": "speak",
-      "prompt": "I do not like reading.",
+      "prompt": "I like to take photos.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-like-reading-speak",
+      "correct_option_id": "s7-model",
       "options": [
         {
-          "id": "i-do-not-like-reading-speak",
-          "image_url": "a1_photo_u7_dislikes_reading_v2.webp",
-          "label": "I do not like reading."
+          "id": "s7-model",
+          "label": "I like to take photos.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp"
         }
       ],
-      "audio_text": "I do not like reading.",
+      "audio_text": "I like to take photos.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No me gusta leer.",
-      "pedagogy_note": "Story beat 07: I do not like reading.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta tomar fotos.",
+      "pedagogy_note": "Approved beat outside: I like to take photos.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S8",
       "interaction_type": "speak",
-      "prompt": "I do not like watching TV.",
+      "prompt": "I like to play football.",
       "stage": "Speak",
-      "correct_option_id": "i-do-not-like-watching-tv-speak",
+      "correct_option_id": "s8-model",
       "options": [
         {
-          "id": "i-do-not-like-watching-tv-speak",
-          "image_url": "a1_scene_i-do-not-like-watching-tv_d06b3e7.webp",
-          "label": "I do not like watching TV."
+          "id": "s8-model",
+          "label": "I like to play football.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp"
         }
       ],
-      "audio_text": "I do not like watching TV.",
+      "audio_text": "I like to play football.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "No me gusta ver televisión.",
-      "pedagogy_note": "Story beat 08: I do not like watching TV.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "Me gusta jugar al fútbol.",
+      "pedagogy_note": "Approved beat outside: I like to play football.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "S9",
       "interaction_type": "speak",
-      "prompt": "I like listening to music.",
+      "prompt": "Do you like to play football?",
       "stage": "Speak",
-      "correct_option_id": "i-like-listening-to-music-speak",
+      "correct_option_id": "s9-model",
       "options": [
         {
-          "id": "i-like-listening-to-music-speak",
-          "image_url": "a1_listening_music.webp",
-          "label": "I like listening to music."
+          "id": "s9-model",
+          "label": "Do you like to play football?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_football_question_v1.webp"
         }
       ],
-      "audio_text": "I like listening to music.",
+      "audio_text": "Do you like to play football?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Me gusta escuchar música.",
-      "pedagogy_note": "Story beat 09: I like listening to music.",
-      "audio_speaker": "female-character"
+      "spanish_translation": "¿Te gusta jugar al fútbol?",
+      "pedagogy_note": "Approved beat share: Do you like to play football?",
+      "audio_speaker": "sofia"
+    },
+    {
+      "slide_id": "S10",
+      "interaction_type": "speak",
+      "prompt": "No, I do not.",
+      "stage": "Speak",
+      "correct_option_id": "s10-model",
+      "options": [
+        {
+          "id": "s10-model",
+          "label": "No, I do not.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp"
+        }
+      ],
+      "audio_text": "No, I do not.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "No, no me gusta.",
+      "pedagogy_note": "Approved beat share: No, I do not.",
+      "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "S11",
+      "interaction_type": "speak",
+      "prompt": "Do you like to take photos?",
+      "stage": "Speak",
+      "correct_option_id": "s11-model",
+      "options": [
+        {
+          "id": "s11-model",
+          "label": "Do you like to take photos?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_photos_question_v1.webp"
+        }
+      ],
+      "audio_text": "Do you like to take photos?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Te gusta tomar fotos?",
+      "pedagogy_note": "Approved beat share: Do you like to take photos?",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "S12",
+      "interaction_type": "speak",
+      "prompt": "Yes, I do.",
+      "stage": "Speak",
+      "correct_option_id": "s12-model",
+      "options": [
+        {
+          "id": "s12-model",
+          "label": "Yes, I do.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_photos_yes_v1.webp"
+        }
+      ],
+      "audio_text": "Yes, I do.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Sí, me gusta.",
+      "pedagogy_note": "Approved beat share: Yes, I do.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I am listening ___ ___.",
+      "prompt": "I like to ___ ___.",
       "stage": "Use",
-      "correct_option_id": "to",
+      "correct_option_id": "watch",
       "options": [
         {
-          "id": "to",
+          "id": "watch",
           "image_url": "",
-          "label": "to"
-        },
-        {
-          "id": "music",
-          "image_url": "",
-          "label": "music"
-        }
-      ],
-      "audio_text": "I am listening to music.",
-      "answer_audio_text": "I am listening to music.",
-      "prompt_image_url": "a1_listening_music.webp",
-      "spanish_translation": "Estoy escuchando música.",
-      "translation": "Estoy escuchando música.",
-      "correct_option_ids": [
-        "to",
-        "music"
-      ],
-      "answer_audio_speaker": "female-character",
-      "audio_speaker": "female-character",
-      "pedagogy_note": "2026-10-08 reviewed sequence: Use / U1"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "I like ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "watching",
-      "options": [
-        {
-          "id": "watching",
-          "image_url": "",
-          "label": "watching"
+          "label": "watch"
         },
         {
           "id": "tv",
@@ -910,23 +1286,23 @@
           "label": "TV"
         }
       ],
-      "audio_text": "I like watching TV.",
-      "answer_audio_text": "I like watching TV.",
-      "prompt_image_url": "a1_photo_u7_likes_tv_v3.webp",
-      "spanish_translation": "Me gusta ver televisión.",
-      "translation": "Me gusta ver televisión.",
+      "audio_text": "I like to watch TV.",
+      "answer_audio_text": "I like to watch TV.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_watch_tv_v1.webp",
+      "spanish_translation": "Me gusta ver la televisión.",
+      "translation": "Me gusta ver la televisión.",
       "correct_option_ids": [
-        "watching",
+        "watch",
         "tv"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 02: I like watching TV.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat home: I like to watch TV.",
+      "audio_speaker": "ana"
     },
     {
-      "slide_id": "U3",
+      "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I like listening ___ ___.",
+      "prompt": "I like to listen ___ ___.",
       "stage": "Use",
       "correct_option_id": "to",
       "options": [
@@ -941,83 +1317,145 @@
           "label": "music"
         }
       ],
-      "audio_text": "I like listening to music.",
-      "answer_audio_text": "I like listening to music.",
-      "prompt_image_url": "a1_listening_music.webp",
+      "audio_text": "I like to listen to music.",
+      "answer_audio_text": "I like to listen to music.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_listen_music_v1.webp",
       "spanish_translation": "Me gusta escuchar música.",
       "translation": "Me gusta escuchar música.",
       "correct_option_ids": [
         "to",
         "music"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 03: I like listening to music.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat home: I like to listen to music.",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "I like ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "to",
+      "options": [
+        {
+          "id": "to",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "dance",
+          "image_url": "",
+          "label": "dance"
+        }
+      ],
+      "audio_text": "I like to dance.",
+      "answer_audio_text": "I like to dance.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_dance_v1.webp",
+      "spanish_translation": "Me gusta bailar.",
+      "translation": "Me gusta bailar.",
+      "correct_option_ids": [
+        "to",
+        "dance"
+      ],
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Approved beat create: I like to dance.",
+      "audio_speaker": "sofia"
     },
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "I like ___ ___.",
       "stage": "Use",
-      "correct_option_id": "like",
+      "correct_option_id": "to",
       "options": [
         {
-          "id": "like",
+          "id": "to",
           "image_url": "",
-          "label": "like"
+          "label": "to"
         },
         {
-          "id": "reading",
+          "id": "draw",
           "image_url": "",
-          "label": "reading"
+          "label": "draw"
         }
       ],
-      "audio_text": "I like reading.",
-      "answer_audio_text": "I like reading.",
-      "prompt_image_url": "a1_photo_u7_likes_reading_v1.webp",
-      "spanish_translation": "Me gusta leer.",
-      "translation": "Me gusta leer.",
+      "audio_text": "I like to draw.",
+      "answer_audio_text": "I like to draw.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_draw_v2.webp",
+      "spanish_translation": "Me gusta dibujar.",
+      "translation": "Me gusta dibujar.",
       "correct_option_ids": [
-        "like",
-        "reading"
+        "to",
+        "draw"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 04: I like reading.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat create: I like to draw.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U5",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___.",
+      "prompt": "I like ___ ___.",
       "stage": "Use",
-      "correct_option_id": "like",
+      "correct_option_id": "to",
       "options": [
         {
-          "id": "like",
+          "id": "to",
           "image_url": "",
-          "label": "like"
+          "label": "to"
         },
         {
-          "id": "swimming",
+          "id": "paint",
           "image_url": "",
-          "label": "swimming"
+          "label": "paint"
         }
       ],
-      "audio_text": "I like swimming.",
-      "answer_audio_text": "I like swimming.",
-      "prompt_image_url": "boy_is_swimming.webp",
-      "spanish_translation": "Me gusta nadar.",
-      "translation": "Me gusta nadar.",
+      "audio_text": "I like to paint.",
+      "answer_audio_text": "I like to paint.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_paint_v1.webp",
+      "spanish_translation": "Me gusta pintar.",
+      "translation": "Me gusta pintar.",
       "correct_option_ids": [
-        "like",
-        "swimming"
+        "to",
+        "paint"
       ],
-      "answer_audio_speaker": "male-character",
-      "pedagogy_note": "Story beat 05: I like swimming.",
-      "audio_speaker": "male-character"
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat create: I like to paint.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "U6",
+      "interaction_type": "complete2",
+      "prompt": "I like to ride ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "a",
+      "options": [
+        {
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "bike",
+          "image_url": "",
+          "label": "bike"
+        }
+      ],
+      "audio_text": "I like to ride a bike.",
+      "answer_audio_text": "I like to ride a bike.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_ride_bike_v1.webp",
+      "spanish_translation": "Me gusta andar en bicicleta.",
+      "translation": "Me gusta andar en bicicleta.",
+      "correct_option_ids": [
+        "a",
+        "bike"
+      ],
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Approved beat outside: I like to ride a bike.",
+      "audio_speaker": "sofia"
+    },
+    {
+      "slide_id": "U7",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -1026,12 +1464,12 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "do"
+          "label": "like"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "like"
+          "label": "take"
         },
         {
           "id": "word-1",
@@ -1041,19 +1479,19 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "not"
+          "label": "to"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "reading"
+          "label": "photos"
         }
       ],
-      "audio_text": "I do not like reading.",
-      "answer_audio_text": "I do not like reading.",
-      "prompt_image_url": "a1_photo_u7_dislikes_reading_v2.webp",
-      "spanish_translation": "No me gusta leer.",
-      "translation": "No me gusta leer.",
+      "audio_text": "I like to take photos.",
+      "answer_audio_text": "I like to take photos.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_take_photos_v1.webp",
+      "spanish_translation": "Me gusta tomar fotos.",
+      "translation": "Me gusta tomar fotos.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1061,64 +1499,9 @@
         "word-4",
         "word-5"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 06: I do not like reading.",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "do"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "like"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "TV"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "not"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "watching"
-        }
-      ],
-      "audio_text": "I do not like watching TV.",
-      "answer_audio_text": "I do not like watching TV.",
-      "prompt_image_url": "a1_scene_i-do-not-like-watching-tv_d06b3e7.webp",
-      "spanish_translation": "No me gusta ver televisión.",
-      "translation": "No me gusta ver televisión.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 07: I do not like watching TV.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat outside: I like to take photos.",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U8",
@@ -1130,12 +1513,12 @@
         {
           "id": "word-2",
           "image_url": "",
-          "label": "am"
+          "label": "like"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "to"
+          "label": "play"
         },
         {
           "id": "word-1",
@@ -1145,19 +1528,19 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "listening"
+          "label": "to"
         },
         {
           "id": "word-5",
           "image_url": "",
-          "label": "music"
+          "label": "football"
         }
       ],
-      "audio_text": "I am listening to music.",
-      "answer_audio_text": "I am listening to music.",
-      "prompt_image_url": "a1_listening_music.webp",
-      "spanish_translation": "Estoy escuchando música.",
-      "translation": "Estoy escuchando música.",
+      "audio_text": "I like to play football.",
+      "answer_audio_text": "I like to play football.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_play_football_v1.webp",
+      "spanish_translation": "Me gusta jugar al fútbol.",
+      "translation": "Me gusta jugar al fútbol.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1165,78 +1548,199 @@
         "word-4",
         "word-5"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Use: I am listening to music.",
-      "audio_speaker": "female-character"
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat outside: I like to play football.",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "U9",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
+      "prompt": "___ ___ ___ ___ ___ ___?",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-2",
           "image_url": "",
-          "label": "like"
+          "label": "you"
         },
         {
           "id": "word-4",
           "image_url": "",
-          "label": "TV"
+          "label": "to"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "football"
         },
         {
           "id": "word-1",
           "image_url": "",
-          "label": "I"
+          "label": "Do"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "watching"
+          "label": "like"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "play"
         }
       ],
-      "audio_text": "I like watching TV.",
-      "answer_audio_text": "I like watching TV.",
-      "prompt_image_url": "a1_photo_u7_likes_tv_v3.webp",
-      "spanish_translation": "Me gusta ver televisión.",
-      "translation": "Me gusta ver televisión.",
+      "audio_text": "Do you like to play football?",
+      "answer_audio_text": "Do you like to play football?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_football_question_v1.webp",
+      "spanish_translation": "¿Te gusta jugar al fútbol?",
+      "translation": "¿Te gusta jugar al fútbol?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "sofia",
+      "pedagogy_note": "Approved beat share: Do you like to play football?",
+      "audio_speaker": "sofia"
+    },
+    {
+      "slide_id": "U10",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "No"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "do"
+        }
+      ],
+      "audio_text": "No, I do not.",
+      "answer_audio_text": "No, I do not.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_football_no_v1.webp",
+      "spanish_translation": "No, no me gusta.",
+      "translation": "No, no me gusta.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
       ],
-      "answer_audio_speaker": "female-character",
-      "pedagogy_note": "Story beat 09: I like watching TV.",
-      "audio_speaker": "female-character"
-    }
-  ],
-  "learn_context_groups": [
-    {
-      "kind": "sequence",
-      "targets": [
-        "watching TV"
-      ],
-      "models": [
-        {
-          "slide_id": "L1",
-          "text": "I am watching TV."
-        }
-      ]
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat share: No, I do not.",
+      "audio_speaker": "ana"
     },
     {
-      "kind": "sequence",
-      "targets": [
-        "listening to music"
-      ],
-      "models": [
+      "slide_id": "U11",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
         {
-          "slide_id": "L2",
-          "text": "I am listening to music."
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "photos"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "take"
         }
-      ]
+      ],
+      "audio_text": "Do you like to take photos?",
+      "answer_audio_text": "Do you like to take photos?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_photos_question_v1.webp",
+      "spanish_translation": "¿Te gusta tomar fotos?",
+      "translation": "¿Te gusta tomar fotos?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Approved beat share: Do you like to take photos?",
+      "audio_speaker": "luis"
+    },
+    {
+      "slide_id": "U12",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Yes"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "do"
+        }
+      ],
+      "audio_text": "Yes, I do.",
+      "answer_audio_text": "Yes, I do.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_photos_yes_v1.webp",
+      "spanish_translation": "Sí, me gusta.",
+      "translation": "Sí, me gusta.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Approved beat share: Yes, I do.",
+      "audio_speaker": "ana"
     }
   ]
 }

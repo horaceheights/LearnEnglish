@@ -153,6 +153,7 @@ export default function CelebrationMission({
   const game = card.mission_game;
   const [cueIndex, setCueIndex] = useState(0);
   const [feedback, setFeedback] = useState("");
+  const [showCompletionScene, setShowCompletionScene] = useState(false);
   const [solvedTargets, setSolvedTargets] = useState([]);
   const [wrongTarget, setWrongTarget] = useState("");
   const scheduleTransition = useMissionTransition(paused, card.slide_id);
@@ -164,10 +165,11 @@ export default function CelebrationMission({
   const chapterIndex = Math.max(0, chapters.findIndex((chapter) => chapter.isActive));
   const cue = game.cues?.[cueOrder[cueIndex] ?? cueIndex] || game.cues?.[0];
   const isVoiceGate = game.kind === "voice-gate";
-  const heroImage = isVoiceGate && speech.asking
+  const completionScene = showCompletionScene ? game.completion_scene : undefined;
+  const heroImage = completionScene ? resolveImage(completionScene.image_url) : isVoiceGate && speech.asking
     ? resolveImage(card.audio_turns?.[0]?.image_url || "")
     : imageSrc || resolveImage(card.options?.find((option) => option.image_url)?.image_url || "");
-  const locked = paused || !interactionReady || Boolean(feedback) || lastResult === "correct";
+  const locked = paused || !interactionReady || Boolean(feedback) || showCompletionScene || lastResult === "correct";
   const missionProgress = missionProgressPercent(lesson, cardIndex, lastResult === "correct");
   const cueProgress = useMemo(() => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`, [cueIndex, game.cues.length]);
   const headScene = useMemo(() => fitMissionHeadScene(slotSize.width, slotSize.height, game.targets),
@@ -186,6 +188,7 @@ export default function CelebrationMission({
   useEffect(() => {
     setCueIndex(0);
     setFeedback("");
+    setShowCompletionScene(false);
     setSolvedTargets([]);
     setWrongTarget("");
     selectionLockRef.current = false;
@@ -228,6 +231,10 @@ export default function CelebrationMission({
         setFeedback("");
         selectionLockRef.current = false;
         onReplayEnglish(nextCue);
+      } else if (game.completion_scene) {
+        setFeedback("");
+        setShowCompletionScene(true);
+        selectionLockRef.current = false;
       } else {
         onComplete(game.cues.map((item) => item.option_id));
       }
@@ -249,12 +256,17 @@ export default function CelebrationMission({
         <div className="mission-meter"><span style={{ background: ACT_COLORS[chapterIndex], width: `${missionProgress}%` }} /></div>
       </header>
 
+      {card.context_es && !completionScene ? <p className="story-context">{card.context_es}</p> : null}
       {isVoiceGate ? (
         <VoiceGateHeader cardIndex={cardIndex} game={game} lesson={lesson} onReplayEnglish={onReplayEnglish} speech={speech} />
       ) : <section className="cue-panel">
-        <div><small>{missionChallengeLabel(game)}</small><b>{game.instruction_es}</b></div>
-        <span>PISTA {cueProgress}</span>
-        <button aria-label="Repetir la frase en inglés" disabled={paused || Boolean(feedback)} onClick={() => onReplayEnglish(cueIndex)} type="button">🔊</button>
+        <div><small>{completionScene ? 'LA HISTORIA CONTINÚA' : missionChallengeLabel(game)}</small><b aria-live="polite">{completionScene?.context_es || game.instruction_es}</b></div>
+        {!completionScene ? <span>PISTA {cueProgress}</span> : null}
+        {completionScene ? <button className="completion-continue" aria-label="Continuar la historia" disabled={paused || lastResult === 'correct'} onClick={() => {
+          if (selectionLockRef.current) return;
+          selectionLockRef.current = true;
+          onComplete(game.cues.map(item => item.option_id));
+        }} type="button">Continuar →</button> : <button aria-label="Repetir la frase en inglés" disabled={paused || Boolean(feedback)} onClick={() => onReplayEnglish(cueIndex)} type="button">🔊</button>}
       </section>}
 
       <div className="scene-slot" ref={element => { sceneSlotRef.current = element; if (tutorAnchorRef) tutorAnchorRef.current = element; }}>
@@ -266,15 +278,15 @@ export default function CelebrationMission({
             left: headScene.imageX - 4, top: headScene.imageY - 4,
             width: headScene.imageWidth + 8, height: headScene.imageHeight + 8,
           } : undefined}>
-            <Image alt={`Escena del reto ${cardIndex + 1}`} fill priority sizes="(max-width: 760px) 96vw, 900px" src={heroImage} style={{ objectFit: "cover" }} unoptimized />
+            <Image alt={completionScene?.context_es || `Escena del reto ${cardIndex + 1}`} fill priority sizes="(max-width: 760px) 96vw, 900px" src={heroImage} style={{ objectFit: "cover" }} unoptimized />
           </div>
-          {!isVoiceGate && headScene ? <svg aria-hidden="true" className="head-pointers" width={headScene.width} height={headScene.height}>
+          {!completionScene && !isVoiceGate && headScene ? <svg aria-hidden="true" className="head-pointers" width={headScene.width} height={headScene.height}>
             {headScene.markers.flatMap(marker => marker.chest ? [] : (marker.leaderHeads || marker.heads).map((head, index) => (
               <line key={`${marker.id}-${index}`} x1={marker.leaderFrom?.x ?? marker.x + marker.width / 2} y1={marker.leaderFrom?.y ?? marker.y + marker.height - 7}
                 x2={head.x} y2={head.y - 3} stroke="#fff" strokeWidth="3" />
             )))}
           </svg> : null}
-          {!isVoiceGate && headScene ? game.targets.map((target, index) => {
+          {!completionScene && !isVoiceGate && headScene ? game.targets.map((target, index) => {
           const marker = headScene.markers[index];
           const solved = solvedTargets.includes(target.id);
           const wrong = wrongTarget === target.id;
@@ -294,21 +306,22 @@ export default function CelebrationMission({
             </button>
           );
           }) : null}
-          {!interactionReady && !feedback && !isVoiceGate ? <div className="listening">👂 Escucha…</div> : null}
+          {!completionScene && !interactionReady && !feedback && !isVoiceGate ? <div className="listening">👂 Escucha…</div> : null}
           {feedback ? <div className={`feedback ${wrongTarget ? "wrong" : "correct"}`}>{wrongTarget ? "👂" : "✓"} {feedback}</div> : null}
         </section>
       </div>
 
       {!isVoiceGate && submittedTarget && submittedTarget !== cue?.target_id && onTutor ? <div style={{ display: "flex", justifyContent: "center", flexShrink: 0 }}><TutorButton more onClick={onTutor} /></div> : null}
-      {isVoiceGate ? <VoiceGateConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} successLabel={missionVoiceProgress(lesson, cardIndex).successLabel} /> : (
+      {isVoiceGate ? <VoiceGateConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} successLabel={missionVoiceProgress(lesson, cardIndex).successLabel} /> : !completionScene ? (
         <div className="cue-dots" aria-label={`Pista ${cueProgress}`}>{game.cues.map((item, index) => <i className={index < cueIndex ? "done" : index === cueIndex ? "current" : ""} key={item.id} />)}</div>
-      )}
+      ) : null}
       <style jsx>{missionStyles}</style>
     </main>
   );
 }
 
 const missionStyles = `
+  .story-context { color:#344e46; font-size:14px; line-height:1.35; margin:0; text-align:center; flex-shrink:0; }
   .mission-shell { background:linear-gradient(180deg,#fffaf0,#f5eee1); border:1px solid rgba(68,87,75,.24); border-radius:24px; box-shadow:0 18px 50px rgba(41,59,49,.14); box-sizing:border-box; display:flex; flex-direction:column; gap:9px; height:calc(100svh - 40px); margin:0 auto; max-height:980px; max-width:1120px; min-height:520px; overflow:hidden; padding:12px; width:100%; }
   .mission-intro { align-items:center; background:linear-gradient(150deg,#fff8e8,#ffe0b3 46%,#d6eee4); justify-content:center; }
   .mission-topline { align-items:center; display:flex; gap:10px; justify-content:space-between; width:100%; }
@@ -343,6 +356,7 @@ const missionStyles = `
   .cue-panel b { color:#203c37; font-size:15px; line-height:1.25; }
   .cue-panel>span { color:#477069; font-size:10px; font-weight:950; }
   .cue-panel button { background:#278c73; border:0; border-radius:14px; color:#fff; cursor:pointer; font-size:21px; height:45px; width:45px; }
+  .cue-panel button.completion-continue { font-size:14px; font-weight:800; padding:0 12px; white-space:nowrap; width:auto; }
   .voice-game-header { background:#173f39; border:2px solid #e3b653; border-radius:17px; color:#fff; display:grid; gap:6px; padding:7px 10px; }
   .voice-game-heading { align-items:center; display:flex; gap:8px; justify-content:space-between; }
   .voice-game-heading>div { display:grid; min-width:0; }

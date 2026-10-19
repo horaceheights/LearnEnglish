@@ -88,7 +88,8 @@ def mission(spec: dict) -> dict:
             "correct_option_id": options[0]["id"] if options else None,
             "correct_option_ids": [option["id"] for option in options],
             "audio_text": " ".join(cue["text"] for cue in cues), "answer_audio_text": None,
-            "audio_turns": [{"text": cue["text"], "speaker_role": speaker, "image_url": scene}
+            "audio_turns": [{"text": cue["text"], "speaker_role": speaker, "image_url": scene,
+                             **({"delivery": cue["delivery"]} if cue.get("delivery") else {})}
                             for cue, speaker in zip(cues, cue_speakers(spec))]}
 
 

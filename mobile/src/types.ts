@@ -15,12 +15,14 @@ export type CourseAudioAsset = {
   speaker_role: string;
   profile_id: string;
   revision: number;
+  delivery?: 'quick' | 'clear';
 };
 
 export type CourseAudioTurn = {
   text: string;
   speaker_role: string;
   image_url: string;
+  delivery?: 'quick' | 'clear';
 };
 
 export type MissionGameKind =
@@ -47,6 +49,7 @@ export type MissionGameCue = {
   answer_text: string;
   target_id: string;
   option_id: string;
+  delivery?: 'quick' | 'clear';
 };
 
 export type MissionGame = {
@@ -59,6 +62,7 @@ export type MissionGame = {
   cue_audio_text?: string;
   cue_order?: 'authored';
   scene_scope?: 'two-person-dialogue';
+  completion_scene?: { image_url: string; context_es: string };
 };
 
 export type LessonCard = {
@@ -66,6 +70,7 @@ export type LessonCard = {
   interaction_type?: string | null;
   prompt: string;
   prompt_presentation?: 'written' | null;
+  context_es?: string | null;
   stage: string;
   correct_option_id: string;
   correct_option_ids?: string[];

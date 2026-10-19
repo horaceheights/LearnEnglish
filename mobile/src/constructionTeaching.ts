@@ -16,6 +16,8 @@ for (const noun of words('home window clothes')) NOUNS.add(noun);
 for (const noun of words('fruit pear pears bananas drinks')) NOUNS.add(noun);
 // Unit 7 (2026-09-27): the body word its constructions name.
 NOUNS.add('ears');
+// Expanded body, weather and activity vocabulary uses the same nominal rules.
+for (const noun of words('nose fingers toes coat sweater scarf gloves shorts weather photos football')) NOUNS.add(noun);
 for (const noun of words('mall supermarket airplane boat hotel office museum theater stop airport corner ticket')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
@@ -23,6 +25,7 @@ const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
 const PRONOUNS = set('i you he she it we they this that these those there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run take');
+for (const verb of words('speak speaks')) VERBS.add(verb);
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 
@@ -151,6 +154,18 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, `${quote(original)} significa ${tail === 'here' ? 'aquí' : 'allá'} e indica dónde ocurre la acción; va después de ${quote(anchor)}.`);
       return true;
     }
+    // A preference/invitation's infinitive is an activity, not a destination.
+    if (/\b(?:like|want|wants)$/.test(anchor.toLowerCase())
+      && /^to (watch tv|listen to music|dance|draw|paint|ride a bike|take photos|play football|read)$/.test(tail)) {
+      teach(start, end, `Después de ${quote(anchor)} va “to” y luego la actividad ${quote(phrase(start + 1, end))}: indica lo que gusta o lo que se quiere hacer.`);
+      teach(start, start + 2, `“To” conecta ${quote(anchor)} con el verbo ${quote(tokens[start + 1])}; va antes de ese verbo.`);
+      if (keys[start + 1] === 'listen') teach(start + 2, end, 'En “listen to music”, el segundo “to” va entre “listen” y lo que escuchamos: “music”.');
+      return true;
+    }
+    if (tail === 'fast' && /^(speak|speaks)$/.test(anchor.toLowerCase())) {
+      teach(start, end, '“Fast” significa rápido e indica cómo habla la persona; va después de “speak”.');
+      return true;
+    }
     const prep = /^(next to|far from|across from|between|in|on|under|near|from|by|at|for|to) (.+)$/.exec(tail);
     if (prep) {
       const length = words(prep[1]).length;
@@ -235,6 +250,7 @@ function teachClause(text: string): ClausePlan {
     'how are you': 'Para preguntar cómo está alguien decimos “How are you?”: primero “How”, luego “are” y al final “you”.',
     'listening to music': 'En “Listening to music”, primero la actividad “Listening”, después “to” y al final lo que escuchamos, “music”.',
     'watching tv': 'En “Watching TV”, primero la actividad “Watching” y después lo que miramos, “TV”.',
+    ok: '“OK” acepta la propuesta; puede ir antes de repetir la actividad que vamos a hacer juntos.',
   };
   if (fixed[joined]) {
     teach(0, keys.length, fixed[joined]);
@@ -287,7 +303,7 @@ function teachClause(text: string): ClausePlan {
     return { explanations, relations, supported };
   }
   // Lesson 7.7 proposes with "Let's": it opens the proposal and the activity follows.
-  if (/^let's (play|read|watch|listen)\b/.test(joined)) {
+  if (/^let's (play|read|watch|listen|dance|draw|paint|ride|take)\b/.test(joined)) {
     teach(0, keys.length, `Para proponer algo, primero va “Let's” y después la actividad: ${quote(phrase(1, keys.length))}.`);
     teach(0, 1, '“Let\'s” va primero: abre la propuesta, antes de la actividad.');
     teach(1, 2, `${quote(tokens[1])} es la actividad que proponemos; va después de “Let's”.`);
@@ -362,10 +378,11 @@ function teachClause(text: string): ClausePlan {
     relations.push({ start: 2, end: 4, explanation: `${quote(tokens[2])} indica por quién preguntamos y va antes de “doing”, la acción que queremos conocer.` });
     return { explanations, relations, supported: true };
   }
-  const question = /^(who|what number|what color|what time|what day|what|where|how old|how much) (am|is|are) (.+)$/.exec(joined);
+  const question = /^(who|what number|what color|what time|what day|what|where|how old|how much|how) (am|is|are) (.+)$/.exec(joined);
   if (question && text.trim().endsWith('?')) {
     const verbIndex = words(question[1]).length;
-    const dayToday = keys[0] === 'what' && keys[1] === 'day' && keys[keys.length - 1] === 'today';
+    const dayToday = ((keys[0] === 'what' && keys[1] === 'day') || (keys[0] === 'how' && keys.includes('weather')))
+      && keys[keys.length - 1] === 'today';
     const subjectEnd = keys[keys.length - 1] === 'from' || dayToday ? keys.length - 1 : keys.length;
     teach(0, keys.length, `En esta pregunta, primero ${quote(phrase(0, verbIndex))}, luego ${quote(tokens[verbIndex])} y después ${quote(phrase(verbIndex + 1, subjectEnd))}. El verbo va antes de quien preguntamos.`);
     if (verbIndex === 2 && keys[0] === 'what') {
@@ -375,7 +392,7 @@ function teachClause(text: string): ClausePlan {
     else if (verbIndex === 2) teach(0, 2, `“How ${tokens[1]}” pregunta ${keys[1] === 'old' ? 'la edad' : 'el precio'}: “How” va antes de ${quote(tokens[1])} y las dos palabras abren la pregunta.`);
     const supported = subject(verbIndex + 1, subjectEnd);
     if (dayToday) {
-      const closing = '“Today” significa hoy y cierra esta pregunta, después de “it”: preguntamos qué día es hoy.';
+      const closing = `“Today” significa hoy y cierra esta pregunta, después de ${quote(phrase(verbIndex + 1, subjectEnd))}; indica cuándo preguntamos.`;
       teach(subjectEnd, keys.length, closing);
       relations.push({ start: subjectEnd - 1, end: keys.length, explanation: closing });
     }

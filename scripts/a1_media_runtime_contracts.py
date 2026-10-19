@@ -116,11 +116,12 @@ OPTION_CONTRACT_FIELDS = (
 VALID_MEDIA_ROLES = {
     "prompt",
     "option",
+    "completion_scene",
     "lesson_thumbnail",
     "unit_thumbnail",
     "continue_thumbnail",
 }
-LESSON_CARD_ROLES = {"prompt", "option"}
+LESSON_CARD_ROLES = {"prompt", "option", "completion_scene"}
 COURSE_BROWSER_ROLES = {
     "lesson_thumbnail",
     "unit_thumbnail",
@@ -155,6 +156,13 @@ SPEAK_RENDER_FILES = (
     "mobile/src/components/MissionVoicePresentation.tsx",
 )
 RENDER_PROFILE_SPECS = {
+    "mission-completion-scene-3x2-v1": {
+        "surfaces": ["mobile MissionGameSurface", "web CelebrationMission"],
+        "viewport": "complete 3:2 scene in the responsive mission frame",
+        "fit": "contain complete scene; no active target markers",
+        "clip": "rounded image frame",
+        "transform": "none",
+    },
     "lesson-prompt-3x2-v1": {
         "surfaces": ["mobile LessonCardView", "web LessonPlayer"],
         "viewport": "responsive 3:2 prompt frame",
@@ -216,6 +224,13 @@ RENDER_PROFILE_SPECS = {
     },
 }
 RENDER_PROFILE_FILES = {
+    "mission-completion-scene-3x2-v1": (
+        "mobile/src/components/MissionGameSurface.tsx",
+        "frontend/components/CelebrationMission.js",
+        "mobile/src/components/OptionMediaImage.tsx",
+        "mobile/src/lessonImageSources.ts",
+        "mobile/src/packedLessonImages.ts",
+    ),
     "lesson-prompt-3x2-v1": SHARED_LESSON_RENDER_FILES + CONSTRUCTION_RENDER_FILES,
     "lesson-speak-model-3x2-v1": SHARED_LESSON_RENDER_FILES + SPEAK_RENDER_FILES,
     "lesson-option-1to3-3x2-v1": SHARED_LESSON_RENDER_FILES,
@@ -399,7 +414,7 @@ def card_media_usages(
             else str(card.get("interaction_type"))
         ),
         "surface_label": None,
-        "prompt": str(card.get("prompt") or ""),
+        "prompt": "\n\n".join(filter(None, [str(card.get("context_es") or ""), str(card.get("prompt") or "")])),
         "audio_text": (
             None if card.get("audio_text") is None else str(card.get("audio_text"))
         ),
@@ -452,6 +467,22 @@ def card_media_usages(
                 },
             }
         )
+
+    completion = (card.get("mission_game") or {}).get("completion_scene")
+    if completion:
+        source = media_filename(completion["image_url"])
+        rendered = OPTION_MEDIA_VARIANTS.get(source, source)
+        profile = "mission-completion-scene-3x2-v1"
+        usages.append({"source_filename": source, "rendered_filename": rendered, "context": {
+            **common, "media_role": "completion_scene", "interaction_type": "mission-completion-scene",
+            "prompt": completion["context_es"], "audio_text": None, "answer_audio_text": None,
+            "spanish_translation": completion["context_es"], "correct_option_id": None, "options": [],
+            "option_id": None, "option_label": None, "is_correct": None,
+            "source_filename": source, "rendered_filename": rendered,
+            "render_profile": profile, "render_signature_sha256": render_profile_sha256(profile),
+            "viewport_width": None, "viewport_height": None,
+            "resize_mode": "profile-bound", "object_position": "profile-bound",
+        }})
 
     raw_options = card.get("options") or []
     for raw_option, option in zip(raw_options, options, strict=True):
@@ -733,6 +764,8 @@ def validate_review_context(
             "continue_thumbnail": "course-browser-continue-card-v1",
             "unit_thumbnail": "course-browser-unit-card-v1",
         }.get(value["media_role"])
+    elif value["media_role"] == "completion_scene":
+        expected_profile = "mission-completion-scene-3x2-v1"
     elif value["media_role"] == "prompt":
         expected_profile = (
             "lesson-speak-model-3x2-v1"
@@ -789,7 +822,7 @@ def validate_review_context(
             raise ValueError("option media context must have an option_id")
         if not isinstance(value["is_correct"], bool):
             raise ValueError("option media context must have boolean is_correct")
-    elif media_role == "prompt" and (
+    elif media_role in {"prompt", "completion_scene"} and (
         value["option_id"] is not None
         or value["option_label"] is not None
         or value["is_correct"] is not None
@@ -857,6 +890,12 @@ def validate_review_context(
 
     if value["surface_label"] is not None:
         raise ValueError("lesson-card context surface_label must be null")
+    if media_role == "completion_scene":
+        if (value["interaction_type"] != "mission-completion-scene" or options
+                or value["correct_option_id"] is not None or not value["prompt"]
+                or value["audio_text"] is not None or value["answer_audio_text"] is not None):
+            raise ValueError("Mission completion scenes must bind a visible caption without audio or answers.")
+        return {field: value[field] for field in REVIEW_CONTEXT_FIELDS}
     if not isinstance(value["correct_option_id"], str) or not value["correct_option_id"]:
         raise ValueError("lesson-card context correct_option_id must be non-empty text")
     if not options:

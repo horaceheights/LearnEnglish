@@ -84,6 +84,20 @@ class ContentPracticeTests(unittest.TestCase):
         final = lesson("7.1", ["hat"], [card(stage, "hat") for stage in ("Learn", "Listen", "Speak")])
         self.assertEqual(rules(audit([final], STANDARDS), "later-reuse"), set())
 
+    def test_approved_item_budget_does_not_relax_other_lessons_or_practice(self):
+        settings = {**STANDARDS, "approved_lesson_new_item_limits": {"approved": {"max": 3}}}
+        current = lesson("7.1", ["cat", "dog", "cow"], [card("Learn", "cat")])
+        current.data["id"] = "approved"
+        findings = audit([current], settings)
+        self.assertFalse(rules(findings, "new-item-budget"))
+        self.assertTrue(rules(findings, "exposures"))
+        self.assertTrue(rules(findings, "stage-variety"))
+        current.data["id"] = "other"
+        self.assertTrue(rules(audit([current], settings), "new-item-budget"))
+        current.data["id"] = "approved"
+        current.data["vocabulary"].append("bird")
+        self.assertTrue(rules(audit([current], settings), "new-item-budget"))
+
     def test_distractors_and_prompts_may_not_use_untaught_words(self):
         early = lesson("1.1", ["a dog"], [card(stage, "A dog", "A red dog") for stage in ("Learn", "Listen", "Speak")])
         self.assertEqual(rules(audit([early], STANDARDS), "untaught-word"), {("1.1", "red")})

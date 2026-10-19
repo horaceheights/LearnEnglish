@@ -144,6 +144,7 @@ export function MissionGameSurface({
   const game = card.mission_game;
   const [cueIndex, setCueIndex] = useState(0);
   const [feedback, setFeedback] = useState('');
+  const [showCompletionScene, setShowCompletionScene] = useState(false);
   const [solvedTargetIds, setSolvedTargetIds] = useState<string[]>([]);
   const [wrongTargetId, setWrongTargetId] = useState<string | null>(null);
   const [sceneSlotSize, setSceneSlotSize] = useState({ height: 0, width: 0 });
@@ -151,7 +152,8 @@ export function MissionGameSurface({
   const [submittedTarget, setSubmittedTarget] = useState<string | undefined>();
   const selectionLockRef = useRef(false);
   const currentCue = game.cues[cueOrder[cueIndex] ?? cueIndex] ?? game.cues[0];
-  const heroImageUrl = card.prompt_image_url
+  const completionScene = showCompletionScene ? game.completion_scene : undefined;
+  const heroImageUrl = completionScene?.image_url || card.prompt_image_url
     || card.options.find((option) => option.image_url)?.image_url
     || '';
   const useLandscapeGameRail = viewportWidth > viewportHeight && viewportHeight < 600;
@@ -163,7 +165,7 @@ export function MissionGameSurface({
       ? 'Escucha y toca a la persona o al grupo.'
       : 'Escucha y toca a la persona.';
   const resolving = Boolean(feedback);
-  const disabled = paused || !interactionReady || resolving || result === 'correct';
+  const disabled = paused || !interactionReady || resolving || showCompletionScene || result === 'correct';
   const cueProgress = useMemo(
     () => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`,
     [cueIndex, game.cues.length],
@@ -180,6 +182,7 @@ export function MissionGameSurface({
   useEffect(() => {
     setCueIndex(0);
     setFeedback('');
+    setShowCompletionScene(false);
     setSolvedTargetIds([]);
     setWrongTargetId(null);
     selectionLockRef.current = false;
@@ -222,9 +225,15 @@ export function MissionGameSurface({
         onCueRequest(nextCueIndex);
         return;
       }
-      onSubmit(game.cues.map((cue) => cue.option_id));
+      if (game.completion_scene) {
+        setFeedback('');
+        setShowCompletionScene(true);
+        selectionLockRef.current = false;
+      } else {
+        onSubmit(game.cues.map((cue) => cue.option_id));
+      }
     }, 2200);
-  }, [cueIndex, currentCue, disabled, game.cues, onCueRequest, onMisstep, onSubmit, onTargetFound, solvedTargetIds, scheduleTransition]);
+  }, [cueIndex, currentCue, disabled, game.cues, game.completion_scene, onCueRequest, onMisstep, onSubmit, onTargetFound, solvedTargetIds, scheduleTransition]);
 
   if (!currentCue || !heroImageUrl) return null;
 
@@ -239,15 +248,25 @@ export function MissionGameSurface({
       <View style={[styles.instructionCopy, useLandscapeGameRail ? styles.instructionCopyLandscape : null]}>
         <View style={[styles.instructionMeta, useLandscapeGameRail ? styles.instructionMetaLandscape : null]}>
           {!useLandscapeGameRail ? <Text style={styles.kindLabel}>{missionChallengeLabel(game)}</Text> : null}
-          <Text style={styles.cueProgress}>PISTA {cueProgress}</Text>
+          <Text style={styles.cueProgress}>{completionScene ? 'LA HISTORIA CONTINÚA' : `PISTA ${cueProgress}`}</Text>
         </View>
-        <Text accessibilityLiveRegion={useLandscapeGameRail ? 'polite' : 'none'} adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={useLandscapeGameRail ? 4 : 2} style={styles.instruction}>
-          {useLandscapeGameRail && feedback ? feedback
+        <Text accessibilityLiveRegion={completionScene || useLandscapeGameRail ? 'polite' : 'none'} adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={useLandscapeGameRail ? 4 : completionScene ? 3 : 2} style={styles.instruction}>
+          {completionScene ? completionScene.context_es : useLandscapeGameRail && feedback ? feedback
             : useLandscapeGameRail && cueUnavailable ? 'Toca el botón de sonido para escuchar otra vez.'
               : useLandscapeGameRail ? landscapeInstruction : game.instruction_es}
         </Text>
       </View>
-      <Pressable
+      {completionScene ? <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="Continuar la historia"
+        disabled={paused || result === 'correct'}
+        onPress={() => {
+          if (selectionLockRef.current) return;
+          selectionLockRef.current = true;
+          onSubmit(game.cues.map(cue => cue.option_id));
+        }}
+        style={styles.audioButton}
+      ><Ionicons color="#fff" name="arrow-forward" size={23} /></Pressable> : <Pressable
         accessibilityHint="Reproduce otra vez la frase en inglés."
         accessibilityLabel="Repetir la frase"
         accessibilityRole="button"
@@ -267,7 +286,7 @@ export function MissionGameSurface({
           name={cueUnavailable || interactionReady ? 'volume-high' : 'volume-medium'}
           size={23}
         />
-      </Pressable>
+      </Pressable>}
     </View>
   );
   const progressDots = (
@@ -313,16 +332,16 @@ export function MissionGameSurface({
               width: sceneFrame.imageWidth + 8, height: sceneFrame.imageHeight + 8,
             }]}>
               <View style={styles.sceneCanvas}>
-              <OptionMediaImage accessibilityLabel="Escena de la misión" imageUrl={heroImageUrl} />
+              <OptionMediaImage accessibilityLabel={completionScene?.context_es || 'Escena de la misión'} imageUrl={heroImageUrl} />
 
-              {!useLandscapeGameRail && !interactionReady && !feedback && !cueUnavailable ? (
+              {!completionScene && !useLandscapeGameRail && !interactionReady && !feedback && !cueUnavailable ? (
                 <View pointerEvents="none" style={styles.listeningBadge}>
                   <Ionicons color="#fff" name="ear" size={18} />
                   <Text style={styles.listeningText}>Escucha…</Text>
                 </View>
               ) : null}
 
-              {!useLandscapeGameRail && cueUnavailable && !feedback ? (
+              {!completionScene && !useLandscapeGameRail && cueUnavailable && !feedback ? (
                 <View accessibilityLiveRegion="assertive" pointerEvents="none" style={styles.retryBadge}>
                   <Ionicons color="#fff" name="volume-high" size={19} />
                   <Text style={styles.retryText}>El audio no se pudo reproducir. Toca el botón de sonido.</Text>
@@ -343,7 +362,7 @@ export function MissionGameSurface({
             </View>
           </View>
           <View pointerEvents={disabled ? 'none' : 'box-none'} style={StyleSheet.absoluteFill}>
-            {sceneFrame.markers.map((marker, index) => (
+            {!completionScene ? sceneFrame.markers.map((marker, index) => (
               <View key={marker.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
                 {!marker.chest && (marker.leaderHeads || marker.heads).map((head, headIndex) => {
                   const fromX = marker.leaderFrom?.x ?? marker.x + marker.width / 2;
@@ -365,13 +384,13 @@ export function MissionGameSurface({
                   onPress={() => chooseTarget(game.targets[index])}
                   marker={marker} target={game.targets[index]} />
               </View>
-            ))}
+            )) : null}
           </View>
           </View>
         ) : null}
       </View>
 
-      {!useLandscapeGameRail ? <>{moreHelp}{progressDots}</> : null}
+      {!useLandscapeGameRail && !completionScene ? <>{moreHelp}{progressDots}</> : null}
     </View>
   );
 }
