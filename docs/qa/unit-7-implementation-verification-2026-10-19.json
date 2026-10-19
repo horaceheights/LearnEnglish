@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "base_commit": "e78389d8a12651497a4060914d8392c7f0a07126",
-  "status": "draft; listening review blocks merge and Preview",
+  "status": "verified candidate; exact recordings approved by user; pending protected PR checks and Preview publication",
   "approved_scope": "Implement the reviewed Unit 7 proposal and publish protected Preview after required checks. Production is not authorized.",
   "catalog": {
     "lessons": 85,
@@ -25,11 +25,30 @@
     "selected_assets": 919,
     "unique_takes": 274,
     "reused_reviewed_takes": 73,
-    "new_exact_takes_pending_listening": 201,
+    "new_exact_takes_pending_listening": 0,
     "additional_provider_requests_needed": 0,
     "review_manifest": "docs/qa/unit-7-audio-listening-review-2026-10-19.json",
-    "published_catalog_is_still_the_previous_catalog": true,
-    "previous_catalog_assets_verified": 6779
+    "published_catalog_is_still_the_previous_catalog": false,
+    "previous_catalog_assets_verified": 6779,
+    "new_exact_takes_human_approved": 201,
+    "human_approval_quote": "recordings are good",
+    "published_catalog_assets_verified": 6932,
+    "catalog_sha256": "222e29f7456f4fa16ed3f6ff2b69b13c3e35f358e189c8567bba7fc7bcc17d4b",
+    "cloudflare_full_verification": {
+      "storage_provider": "cloudflare-r2",
+      "base_url": "https://cdn.learnspanglish.app",
+      "ready": true,
+      "catalog_sha256": "222e29f7456f4fa16ed3f6ff2b69b13c3e35f358e189c8567bba7fc7bcc17d4b",
+      "catalog_asset_count": 6932,
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "available": 6932,
+      "missing": 0,
+      "invalid": 0,
+      "error_count": 0,
+      "verification": "sha256-mp3-receipt",
+      "media_object_count": 3183,
+      "errors": []
+    }
   },
   "verification": {
     "content_engine_install": "passed full validators after final context review",
@@ -41,7 +60,7 @@
     "web_build": "passed",
     "android_export": "passed locally; no OTA published",
     "full_mobile_runner": "passed mobile/scripts/verify-interaction-paths.ps1 -ReviewPolicy Preview; image-review advisories remain for human Preview testing",
-    "full_backend_suite": "693 passed / 695 tests; only catalog completeness and reviewed-audio coverage fail, pending exact-byte listening approval and catalog publication",
+    "full_backend_suite": "695 tests passed after exact-byte human approval, promotion and complete Cloudflare inventory publication",
     "spanish_context": "32 setup lines reviewed against actual answer choices; dedicated no-answer-leak regression passes"
   },
   "browser_evidence": {
@@ -60,9 +79,6 @@
     ]
   },
   "remaining": [
-    "Listen to all 201 exact new recordings, especially paired quick/clear performances, and record accepted bytes or repairs",
-    "Promote only the accepted take hashes and export the canonical working-tree audio catalog",
-    "Upload and verify the new immutable audio and receipts",
     "Refresh main, pass required PR checks, merge, confirm exact backend head, then run protected Preview CI",
     "Verify EAS published commit equals the protected main commit; human phone testing follows in Preview"
   ]
