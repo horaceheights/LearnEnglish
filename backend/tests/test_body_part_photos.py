@@ -27,7 +27,10 @@ class BodyPartPhotoTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.pack = read('docs/product/lesson-7-1-body-photos-v1.json')
-        cls.lesson = read('backend/lessons/unit_7/lesson-7-1-the-body.yaml')
+        cls.current = read('backend/lessons/unit_7/lesson-7-1-the-body.yaml')
+        # The original reviewed photo series remains an immutable historical
+        # contract. The approved 2026-10-19 proposal owns the active lesson.
+        cls.lesson = compose_lesson(read('docs/product/content-plans/7.1-body-photos-v1.plan.json'))
         cls.assets = {a['id']: a for a in cls.pack['assets']}
 
     def test_all_stages_keep_the_reviewed_bindings_and_language(self):
@@ -60,8 +63,11 @@ class BodyPartPhotoTests(unittest.TestCase):
                         self.assertEqual(image.size, (1536, 1024))
 
     def test_engine_plan_rebuilds_the_exact_installed_lesson(self):
-        plan = read('docs/product/content-plans/7.1-body-photos-v1.plan.json')
-        self.assertEqual(compose_lesson(plan), self.lesson)
+        historical = read('docs/product/content-plans/7.1-body-photos-v1.plan.json')
+        plan = read(historical['superseded_by'])
+        self.assertEqual(plan['lesson']['id'], historical['lesson']['id'])
+        self.assertGreater(plan['lesson']['content_revision'], historical['lesson']['content_revision'])
+        self.assertEqual(compose_lesson(plan), self.current)
 
     def test_rebound_audio_keeps_the_original_recordings(self):
         registry = read('backend/approved-course-audio/registry.json')

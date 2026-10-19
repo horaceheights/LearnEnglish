@@ -163,8 +163,18 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
         def exact_model(card, model):
             lines = [card.get(key) for key in ("prompt", "audio_text", "answer_audio_text")]
             lines += [option.get("label") for option in card.get("options") or []]
-            lines += [turn.get("text") for field in ("audio_turns", "answer_audio_turns")
-                      for turn in card.get(field) or []]
+            turns = [turn.get("text") for field in ("audio_turns", "answer_audio_turns")
+                     for turn in card.get(field) or []]
+            if "turns" in model:
+                # One contextual model can contain an ordered exchange. Bind
+                # every spoken line, rather than treating either reply as a
+                # free-standing allowance for known-language Learn cards.
+                expected = model["turns"]
+                if (not expected or turns != expected
+                        or " ".join(expected) != model.get("text")):
+                    return False
+            else:
+                lines += turns
             return all(line == model.get("text") for line in lines if line)
 
         if any(not exact_model(card, model) or card.get("stage") != "Learn" or card.get("prompt") != model.get("text")
@@ -178,8 +188,10 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
                for pattern in patterns):
             errors.append(f"group {gi}: each declared target needs a real model")
             continue
-        if group.get("kind") == "exchange" and (len(models) != 2 or
-                not models[0]["text"].endswith("?") or models[1]["text"].endswith("?")):
+        exchange_lines = (models[0].get("turns", []) if len(models) == 1
+                          else [model["text"] for model in models])
+        if group.get("kind") == "exchange" and (len(exchange_lines) != 2 or
+                not exchange_lines[0].endswith("?") or exchange_lines[1].endswith("?")):
             errors.append(f"group {gi}: question must immediately precede its reply")
             continue
         allowed.update(ids)
@@ -211,9 +223,11 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
                                     f"{len(cards)} cards; this {lesson.role} lesson needs {bounds['min']}-{bounds['max']}"))
 
         vocabulary = [str(item) for item in lesson.data.get("vocabulary") or []]
-        if len(vocabulary) > standards["max_new_items_per_lesson"]:
+        approved_budget = standards.get("approved_lesson_new_item_limits", {}).get(lesson.data.get("id"))
+        item_limit = approved_budget["max"] if approved_budget else standards["max_new_items_per_lesson"]
+        if len(vocabulary) > item_limit:
             findings.append(Finding("new-item-budget", lesson.number, "lesson",
-                                    f"{len(vocabulary)} new items; the limit is {standards['max_new_items_per_lesson']}"))
+                                    f"{len(vocabulary)} new items; the limit is {item_limit}"))
 
         for item in vocabulary:
             pattern = term_pattern(item)

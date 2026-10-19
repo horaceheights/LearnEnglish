@@ -326,7 +326,7 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 2026-10-06: approved 4.10 scenes have the woman ask and Luis answer
         # (+12 net male assets, seven exact answer takes, 187 characters).
         self.assertEqual(
-            Counter({'male-character': 898, 'luis': 261, 'diego': 17}),
+            Counter({'male-character': 804, 'luis': 393, 'diego': 49}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
         # 2026-09-29: four current-action exchanges replace 3.3's old fragment drills.
@@ -344,12 +344,14 @@ class PersistentCardAudioTests(unittest.TestCase):
         # 197 jobs, +58 characters. QA records the exact texts and baseline.
         # 2026-10-11: Unit 6 expands to 14 sequenced lessons. Exact inventory
         # and visual assignment evidence are in its cast-inventory-review.json.
+        # 2026-10-19: approved Unit 7 proposal; exact scalar and male inventory
+        # is recorded in unit-7-cast-inventory-review-2026-10-19.json.
         # These are reviewed inventory pins, not spending approval or a cap.
-        self.assertEqual(1176, len(selected))
-        self.assertEqual(233, len(jobs))
-        self.assertEqual(233, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(1246, len(selected))
+        self.assertEqual(260, len(jobs))
+        self.assertEqual(260, sum(len(job.request_fragments()) for job in jobs))
         # 2026-09-29: 4.3's male question names the phone instead of "it" (+7).
-        self.assertEqual(5471, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(6475, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},

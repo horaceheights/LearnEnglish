@@ -25,12 +25,28 @@ class CourseAudioAsset(BaseModel):
     speaker_role: str
     profile_id: str
     revision: int
+    delivery: Literal["quick", "clear"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_delivery(self, handler):
+        payload = handler(self)
+        if self.delivery is None:
+            payload.pop("delivery", None)
+        return payload
 
 
 class CourseAudioTurn(BaseModel):
     text: str = Field(min_length=1)
     speaker_role: str = Field(min_length=1)
     image_url: str = Field(min_length=1)
+    delivery: Literal["quick", "clear"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_delivery(self, handler):
+        payload = handler(self)
+        if self.delivery is None:
+            payload.pop("delivery", None)
+        return payload
 
     @field_validator("text", "speaker_role", "image_url")
     @classmethod
@@ -55,6 +71,7 @@ class LessonCard(BaseModel):
     interaction_type: str | None = None
     prompt: str
     prompt_presentation: Literal["written"] | None = None
+    context_es: str | None = Field(default=None, min_length=1, max_length=240)
     stage: str
     correct_option_id: str
     correct_option_ids: list[str] = Field(default_factory=list)
@@ -79,11 +96,20 @@ class LessonCard(BaseModel):
         payload = handler(self)
         if self.prompt_presentation is None:
             payload.pop("prompt_presentation", None)
+        if self.context_es is None:
+            payload.pop("context_es", None)
         if self.learn_translation_preview_ms is None:
             payload.pop("learn_translation_preview_ms", None)
         if self.reply_image_timing is None:
             payload.pop("reply_image_timing", None)
         return payload
+
+    @field_validator("context_es")
+    @classmethod
+    def require_exact_context(cls, value: str | None) -> str | None:
+        if value is not None and (not value.strip() or value != value.strip()):
+            raise ValueError("Visible story context must be exact nonblank Spanish.")
+        return value
 
     @model_validator(mode="after")
     def require_teaching_translation_preview(self):
@@ -201,12 +227,34 @@ class MissionGameCue(BaseModel):
     answer_text: str = Field(min_length=1)
     target_id: str = Field(min_length=1)
     option_id: str = Field(min_length=1)
+    delivery: Literal["quick", "clear"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_delivery(self, handler):
+        payload = handler(self)
+        if self.delivery is None:
+            payload.pop("delivery", None)
+        return payload
 
     @field_validator("id", "text", "answer_text", "target_id", "option_id")
     @classmethod
     def require_exact_nonempty_value(cls, value: str) -> str:
         if not value.strip() or value != value.strip():
             raise ValueError("Mission cue values must be exact nonblank values.")
+        return value
+
+
+class MissionCompletionScene(BaseModel):
+    """A non-assessed story outcome shown after the last scene cue."""
+
+    image_url: str = Field(min_length=1)
+    context_es: str = Field(min_length=1, max_length=240)
+
+    @field_validator("image_url", "context_es")
+    @classmethod
+    def require_exact_scene_values(cls, value: str) -> str:
+        if not value.strip() or value != value.strip():
+            raise ValueError("Mission completion scene values must be exact and nonblank.")
         return value
 
 
@@ -227,6 +275,7 @@ class MissionGame(BaseModel):
     cue_audio_text: str | None = None
     cue_order: Literal["authored"] | None = None
     scene_scope: Literal["two-person-dialogue"] | None = None
+    completion_scene: MissionCompletionScene | None = None
 
     @model_serializer(mode="wrap")
     def omit_unset_cue_order(self, handler):
@@ -235,6 +284,8 @@ class MissionGame(BaseModel):
             payload.pop("cue_order", None)
         if self.scene_scope is None:
             payload.pop("scene_scope", None)
+        if self.completion_scene is None:
+            payload.pop("completion_scene", None)
         return payload
 
     @field_validator("instruction_es")
@@ -253,6 +304,8 @@ class MissionGame(BaseModel):
 
     @model_validator(mode="after")
     def require_coherent_target_plan(self):
+        if self.completion_scene is not None and self.kind == "voice-gate":
+            raise ValueError("Completion scenes follow listening games, not voice gates.")
         if self.scene_scope == "two-person-dialogue":
             if (self.kind != "crowd-search" or self.cue_order != "authored"
                     or len(self.targets) != 2 or len(self.cues) != 2

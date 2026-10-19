@@ -3400,6 +3400,9 @@ export function LessonScreen({
         {!wideLandscapePrompt ? lessonPromptHeader : null}
       </LessonLandscapeRail> : usesMissionPhoneLandscape ? null : <>{lessonChrome}{lessonPromptHeader}</>}
       <View key="activity-column" style={[styles.activityColumn, needsTextAnswerScrolling ? styles.lessonBodyGrowing : null]}>
+        {currentCard.context_es ? <Text testID="lesson-story-context" accessibilityLiveRegion="polite"
+          maxFontSizeMultiplier={usesLessonPhoneLandscape ? 1.3 : undefined}
+          style={[styles.storyContext, usesLessonPhoneLandscape ? styles.storyContextLandscape : null]}>{currentCard.context_es}</Text> : null}
         {wideLandscapePrompt ? tutorContext ? <View onLayout={event => setTutorPromptInset(event.nativeEvent.layout.height + 6)}>{lessonPromptHeader}</View> : lessonPromptHeader : null}
         <Animated.View
           key="lesson-activity"
@@ -3783,6 +3786,8 @@ const styles = StyleSheet.create({
   promptTapTarget: { width: '100%' },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
   promptCompactInstruction: { fontWeight: '600' },
+  storyContextLandscape: { fontSize: 13, lineHeight: 17, paddingVertical: 3 },
+  storyContext: { color: '#4d5559', fontSize: 14, lineHeight: 19, textAlign: 'center', paddingHorizontal: 10, paddingVertical: 6, flexShrink: 0 },
   promptRowPhraseBox: { minHeight: 64, overflow: 'visible' },
   promptRowPhraseBoxCompact: { minHeight: 50 },
   promptTapTargetPhraseBox: { paddingHorizontal: 44 },

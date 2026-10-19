@@ -1,6 +1,6 @@
 {
   "id": "lesson-7-4-weather",
-  "title": "7.4 Weather",
+  "title": "7.4 The Weather Today",
   "level": "Beginner A1",
   "unit_id": "unit-7",
   "unit_title": "Unit 7: Everyday Needs and A1 Integration",
@@ -8,29 +8,24 @@
   "lesson_id": "lesson-7",
   "lesson_title": "Unit 7: Everyday Needs and A1 Integration",
   "sub_lesson_id": "7.4",
-  "sub_lesson_title": "Weather",
-  "goal": "Recognize six kinds of weather and say what the weather is like today or in the morning.",
+  "sub_lesson_title": "The Weather Today",
+  "goal": "Ask how the weather is today, answer with sky and temperature, then combine the facts.",
   "vocabulary": [
     "sunny",
+    "cloudy",
     "rainy",
-    "hot",
-    "cold",
     "windy",
-    "cloudy"
+    "cold",
+    "hot",
+    "How is the weather today?"
   ],
-  "review_vocabulary": [
-    "it",
-    "is",
-    "and",
-    "today",
-    "in the morning",
-    "afternoon"
-  ],
-  "grammar_function": "It is sunny. It is hot and sunny. It is cold in the morning.",
+  "review_vocabulary": [],
+  "grammar_function": "Ask How is the weather today? and describe the explicitly introduced day or place.",
   "prerequisite": "2.3 it is; 2.9 and; 4.5 in the morning; 4.9 today.",
-  "speaking_outcome": "Say what the weather is like.",
-  "content_revision": 2,
+  "speaking_outcome": "Ask how the weather is today, answer with sky and temperature, then combine the facts.",
+  "content_revision": 3,
   "purposeful_review_slides": [
+    "R1",
     "R2",
     "R3",
     "R4",
@@ -40,6 +35,11 @@
     "R8",
     "R9",
     "R10",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
     "A6",
     "A7",
     "A8",
@@ -53,6 +53,7 @@
     "S7",
     "S8",
     "S9",
+    "S10",
     "U1",
     "U2",
     "U3",
@@ -60,1055 +61,1329 @@
     "U5",
     "U6",
     "U7",
-    "U8"
+    "U8",
+    "U9"
+  ],
+  "learn_context_groups": [
+    {
+      "kind": "exchange",
+      "targets": [
+        "sunny",
+        "How is the weather today?"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "How is the weather today? It is sunny.",
+          "turns": [
+            "How is the weather today?",
+            "It is sunny."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "cloudy",
+        "How is the weather today?"
+      ],
+      "models": [
+        {
+          "slide_id": "L2",
+          "text": "How is the weather today? It is cloudy.",
+          "turns": [
+            "How is the weather today?",
+            "It is cloudy."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "rainy",
+        "How is the weather today?"
+      ],
+      "models": [
+        {
+          "slide_id": "L3",
+          "text": "How is the weather today? It is rainy.",
+          "turns": [
+            "How is the weather today?",
+            "It is rainy."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "windy",
+        "How is the weather today?"
+      ],
+      "models": [
+        {
+          "slide_id": "L4",
+          "text": "How is the weather today? It is windy.",
+          "turns": [
+            "How is the weather today?",
+            "It is windy."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "cold",
+        "How is the weather today?"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "How is the weather today? It is cold.",
+          "turns": [
+            "How is the weather today?",
+            "It is cold."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "hot",
+        "How is the weather today?"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "How is the weather today? It is hot.",
+          "turns": [
+            "How is the weather today?",
+            "It is hot."
+          ]
+        }
+      ]
+    }
   ],
   "cards": [
     {
       "slide_id": "L1",
       "interaction_type": "teach",
-      "prompt": "Sunny",
+      "prompt": "How is the weather today? It is sunny.",
       "stage": "Learn",
-      "correct_option_id": "sunny-learn",
+      "correct_option_id": "l1-model",
       "options": [
         {
-          "id": "sunny-learn",
-          "image_url": "a1_sunny.webp",
-          "label": "Sunny"
+          "id": "l1-model",
+          "label": "How is the weather today? It is sunny.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
         }
       ],
-      "audio_text": "Sunny",
+      "audio_text": "How is the weather today? It is sunny.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Soleado",
-      "pedagogy_note": "Story beat 01: Sunny"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is sunny.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_sunny.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está soleado.",
+      "pedagogy_note": "Approved beat sky: How is the weather today? It is sunny.",
+      "context_es": "Día 1: en el parque. Un visitante pregunta y una residente describe la escena."
     },
     {
       "slide_id": "L2",
       "interaction_type": "teach",
-      "prompt": "Rainy",
+      "prompt": "How is the weather today? It is cloudy.",
       "stage": "Learn",
-      "correct_option_id": "rainy-learn",
+      "correct_option_id": "l2-model",
       "options": [
         {
-          "id": "rainy-learn",
-          "image_url": "a1_rainy.webp",
-          "label": "Rainy"
+          "id": "l2-model",
+          "label": "How is the weather today? It is cloudy.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
         }
       ],
-      "audio_text": "Rainy",
+      "audio_text": "How is the weather today? It is cloudy.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Lluvioso",
-      "pedagogy_note": "Story beat 02: Rainy",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is cloudy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_cloudy.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está nublado.",
+      "pedagogy_note": "Approved beat sky: How is the weather today? It is cloudy.",
+      "context_es": "Otro día: en el barrio."
     },
     {
       "slide_id": "L3",
       "interaction_type": "teach",
-      "prompt": "Hot",
+      "prompt": "How is the weather today? It is rainy.",
       "stage": "Learn",
-      "correct_option_id": "hot-learn",
+      "correct_option_id": "l3-model",
       "options": [
         {
-          "id": "hot-learn",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": "Hot"
+          "id": "l3-model",
+          "label": "How is the weather today? It is rainy.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
         }
       ],
-      "audio_text": "Hot",
+      "audio_text": "How is the weather today? It is rainy.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Caluroso",
-      "pedagogy_note": "Story beat 03: Hot"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is rainy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_rainy.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está lluvioso.",
+      "pedagogy_note": "Approved beat rain: How is the weather today? It is rainy.",
+      "context_es": "Otro día: en la ciudad."
     },
     {
       "slide_id": "L4",
       "interaction_type": "teach",
-      "prompt": "Cold",
+      "prompt": "How is the weather today? It is windy.",
       "stage": "Learn",
-      "correct_option_id": "cold-learn",
+      "correct_option_id": "l4-model",
       "options": [
         {
-          "id": "cold-learn",
-          "image_url": "a1_cold.webp",
-          "label": "Cold"
+          "id": "l4-model",
+          "label": "How is the weather today? It is windy.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
         }
       ],
-      "audio_text": "Cold",
+      "audio_text": "How is the weather today? It is windy.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Frío",
-      "pedagogy_note": "Story beat 04: Cold",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is windy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_windy.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está ventoso.",
+      "pedagogy_note": "Approved beat rain: How is the weather today? It is windy.",
+      "context_es": "Otro día: junto al lago."
     },
     {
       "slide_id": "L5",
       "interaction_type": "teach",
-      "prompt": "Windy",
+      "prompt": "How is the weather today? It is cold.",
       "stage": "Learn",
-      "correct_option_id": "windy-learn",
+      "correct_option_id": "l5-model",
       "options": [
         {
-          "id": "windy-learn",
-          "image_url": "a1_windy.webp",
-          "label": "Windy"
+          "id": "l5-model",
+          "label": "How is the weather today? It is cold.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
         }
       ],
-      "audio_text": "Windy",
+      "audio_text": "How is the weather today? It is cold.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Ventoso",
-      "pedagogy_note": "Story beat 05: Windy"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is cold.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_cold.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace frío.",
+      "pedagogy_note": "Approved beat temperature: How is the weather today? It is cold.",
+      "context_es": "Otro día, por la mañana: junto al lago."
     },
     {
       "slide_id": "L6",
       "interaction_type": "teach",
-      "prompt": "Cloudy",
+      "prompt": "How is the weather today? It is hot.",
       "stage": "Learn",
-      "correct_option_id": "cloudy-learn",
+      "correct_option_id": "l6-model",
       "options": [
         {
-          "id": "cloudy-learn",
-          "image_url": "a1_cloudy.webp",
-          "label": "Cloudy"
+          "id": "l6-model",
+          "label": "How is the weather today? It is hot.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
         }
       ],
-      "audio_text": "Cloudy",
+      "audio_text": "How is the weather today? It is hot.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Nublado",
-      "pedagogy_note": "Story beat 06: Cloudy",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is hot.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_scene_it-is-hot_14659ab.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace caluroso.",
+      "pedagogy_note": "Approved beat temperature: How is the weather today? It is hot.",
+      "context_es": "Otro día, por la tarde: en casa."
     },
     {
       "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "Rainy",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "rainy-r1",
+      "correct_option_id": "r1-0",
       "options": [
         {
-          "id": "sunny-r1",
-          "image_url": "a1_sunny.webp",
-          "label": null
+          "id": "r1-0",
+          "label": "It is sunny.",
+          "image_url": ""
         },
         {
-          "id": "rainy-r1",
-          "image_url": "a1_rainy.webp",
-          "label": null
+          "id": "r1-1",
+          "label": "It is rainy.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Rainy",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Lluvioso",
-      "pedagogy_note": "Story beat 01: Rainy"
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is sunny.",
+      "answer_audio_turns": [
+        {
+          "text": "It is sunny.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_sunny.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está soleado.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat sky: How is the weather today? It is sunny.",
+      "audio_speaker": "male-character",
+      "context_es": "Día 1: en el parque. Un visitante pregunta y una residente describe la escena.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R2",
       "interaction_type": "i2t2",
-      "prompt": "",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-sunny-r2",
+      "correct_option_id": "r2-1",
       "options": [
         {
-          "id": "it-is-rainy-r2",
-          "image_url": "",
-          "label": "It is rainy."
+          "id": "r2-0",
+          "label": "It is sunny.",
+          "image_url": ""
         },
         {
-          "id": "it-is-sunny-r2",
-          "image_url": "",
-          "label": "It is sunny."
+          "id": "r2-1",
+          "label": "It is cloudy.",
+          "image_url": ""
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "It is sunny.",
-      "prompt_image_url": "a1_sunny.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 02: It is sunny."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is cloudy.",
+      "answer_audio_turns": [
+        {
+          "text": "It is cloudy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_cloudy.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está nublado.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat sky: How is the weather today? It is cloudy.",
+      "audio_speaker": "male-character",
+      "context_es": "Otro día: en el barrio.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R3",
-      "interaction_type": "t2i2",
-      "prompt": "It is rainy.",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-rainy-r3",
+      "correct_option_id": "r3-0",
       "options": [
         {
-          "id": "it-is-rainy-r3",
-          "image_url": "a1_rainy.webp",
-          "label": null
+          "id": "r3-0",
+          "label": "It is rainy.",
+          "image_url": ""
         },
         {
-          "id": "it-is-sunny-r3",
-          "image_url": "a1_sunny.webp",
-          "label": null
+          "id": "r3-1",
+          "label": "It is sunny.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is rainy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Está lloviendo.",
-      "pedagogy_note": "Story beat 03: It is rainy."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is rainy.",
+      "answer_audio_turns": [
+        {
+          "text": "It is rainy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_rainy.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está lluvioso.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat rain: How is the weather today? It is rainy.",
+      "audio_speaker": "male-character",
+      "context_es": "Otro día: en la ciudad.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R4",
       "interaction_type": "i2t2",
-      "prompt": "",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-hot-r4",
+      "correct_option_id": "r4-1",
       "options": [
         {
-          "id": "it-is-rainy-r4",
-          "image_url": "",
-          "label": "It is rainy."
+          "id": "r4-0",
+          "label": "It is sunny.",
+          "image_url": ""
         },
         {
-          "id": "it-is-hot-r4",
-          "image_url": "",
-          "label": "It is hot."
+          "id": "r4-1",
+          "label": "It is windy.",
+          "image_url": ""
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "It is hot.",
-      "prompt_image_url": "a1_scene_it-is-hot_14659ab.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: It is hot."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is windy.",
+      "answer_audio_turns": [
+        {
+          "text": "It is windy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_windy.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está ventoso.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat rain: How is the weather today? It is windy.",
+      "audio_speaker": "male-character",
+      "context_es": "Otro día: junto al lago.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "It is cold.",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-cold-r5",
+      "correct_option_id": "r5-0",
       "options": [
         {
-          "id": "it-is-hot-r5",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": null
+          "id": "r5-0",
+          "label": "It is cold.",
+          "image_url": ""
         },
         {
-          "id": "it-is-cold-r5",
-          "image_url": "a1_cold.webp",
-          "label": null
+          "id": "r5-1",
+          "label": "It is hot.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is cold.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hace frío.",
-      "pedagogy_note": "Story beat 05: It is cold."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is cold.",
+      "answer_audio_turns": [
+        {
+          "text": "It is cold.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_cold.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace frío.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat temperature: How is the weather today? It is cold.",
+      "audio_speaker": "male-character",
+      "context_es": "Otro día, por la mañana: junto al lago.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R6",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-windy-r6",
+      "correct_option_id": "r6-1",
       "options": [
         {
-          "id": "it-is-cloudy-r6",
-          "image_url": "",
-          "label": "It is cloudy."
+          "id": "r6-0",
+          "label": "It is cold.",
+          "image_url": ""
         },
         {
-          "id": "it-is-windy-r6",
-          "image_url": "",
-          "label": "It is windy."
-        },
-        {
-          "id": "it-is-cold-r6",
-          "image_url": "",
-          "label": "It is cold."
+          "id": "r6-1",
+          "label": "It is hot.",
+          "image_url": ""
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "It is windy.",
-      "prompt_image_url": "a1_windy.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 06: It is windy."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is hot.",
+      "answer_audio_turns": [
+        {
+          "text": "It is hot.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_scene_it-is-hot_14659ab.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace caluroso.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat temperature: How is the weather today? It is hot.",
+      "audio_speaker": "male-character",
+      "context_es": "Otro día, por la tarde: en casa.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R7",
-      "interaction_type": "t2i4",
-      "prompt": "It is cloudy.",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-cloudy-r7",
+      "correct_option_id": "r7-0",
       "options": [
         {
-          "id": "it-is-cold-r7",
-          "image_url": "a1_cold.webp",
-          "label": null
+          "id": "r7-0",
+          "label": "It is cold and windy.",
+          "image_url": ""
         },
         {
-          "id": "it-is-hot-r7",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-cloudy-r7",
-          "image_url": "a1_cloudy.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-windy-r7",
-          "image_url": "a1_windy.webp",
-          "label": null
+          "id": "r7-1",
+          "label": "It is hot and sunny.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is cloudy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Está nublado.",
-      "pedagogy_note": "Story beat 07: It is cloudy."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is cold and windy.",
+      "answer_audio_turns": [
+        {
+          "text": "It is cold and windy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace frío y ventoso.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat combine: How is the weather today? It is cold and windy.",
+      "audio_speaker": "male-character",
+      "context_es": "Volvemos a otra mañana junto al lago.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R8",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-hot-and-sunny-r8",
+      "correct_option_id": "r8-1",
       "options": [
         {
-          "id": "it-is-hot-and-cloudy-r8",
-          "image_url": "",
-          "label": "It is hot and cloudy."
+          "id": "r8-0",
+          "label": "It is cold and windy.",
+          "image_url": ""
         },
         {
-          "id": "it-is-hot-and-sunny-r8",
-          "image_url": "",
-          "label": "It is hot and sunny."
-        },
-        {
-          "id": "it-is-cold-and-sunny-r8",
-          "image_url": "",
-          "label": "It is cold and sunny."
+          "id": "r8-1",
+          "label": "It is hot and sunny.",
+          "image_url": ""
         }
       ],
-      "audio_text": "",
+      "audio_text": "How is the weather today?",
       "answer_audio_text": "It is hot and sunny.",
-      "prompt_image_url": "a1_photo_u7_hot_sunny_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: It is hot and sunny."
+      "answer_audio_turns": [
+        {
+          "text": "It is hot and sunny.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace caluroso y soleado.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat combine: How is the weather today? It is hot and sunny.",
+      "audio_speaker": "male-character",
+      "context_es": "Volvemos a otra tarde en el parque.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R9",
-      "interaction_type": "t2i3",
-      "prompt": "It is cold and sunny.",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-cold-and-sunny-r9",
+      "correct_option_id": "r9-0",
       "options": [
         {
-          "id": "it-is-hot-and-cloudy-r9",
-          "image_url": "a1_photo_u7_hot_cloudy_v1.webp",
-          "label": null
+          "id": "r9-0",
+          "label": "It is cold in the morning.",
+          "image_url": ""
         },
         {
-          "id": "it-is-cold-and-sunny-r9",
-          "image_url": "a1_photo_u7_cold_sunny_v1.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-hot-and-sunny-r9",
-          "image_url": "a1_photo_u7_hot_sunny_v1.webp",
-          "label": null
+          "id": "r9-1",
+          "label": "It is hot in the morning.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is cold and sunny.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hace frío y sol.",
-      "pedagogy_note": "Story beat 09: It is cold and sunny."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is cold in the morning.",
+      "answer_audio_turns": [
+        {
+          "text": "It is cold in the morning.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_cold.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace frío por la mañana.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat combine: How is the weather today? It is cold in the morning.",
+      "audio_speaker": "male-character",
+      "context_es": "Otro día, por la mañana: junto al lago.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "R10",
-      "interaction_type": "i2t3",
-      "prompt": "",
+      "interaction_type": "i2t2",
+      "prompt": "How is the weather today?",
       "stage": "Recognize",
-      "correct_option_id": "it-is-hot-and-cloudy-r10",
+      "correct_option_id": "r10-1",
       "options": [
         {
-          "id": "it-is-hot-and-cloudy-r10",
-          "image_url": "",
-          "label": "It is hot and cloudy."
+          "id": "r10-0",
+          "label": "It is cold in the afternoon.",
+          "image_url": ""
         },
         {
-          "id": "it-is-hot-and-sunny-r10",
-          "image_url": "",
-          "label": "It is hot and sunny."
-        },
-        {
-          "id": "it-is-cold-and-sunny-r10",
-          "image_url": "",
-          "label": "It is cold and sunny."
+          "id": "r10-1",
+          "label": "It is hot in the afternoon.",
+          "image_url": ""
         }
       ],
-      "audio_text": "",
-      "answer_audio_text": "It is hot and cloudy.",
-      "prompt_image_url": "a1_photo_u7_hot_cloudy_v1.webp",
-      "spanish_translation": "Elige la frase correcta.",
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 10: It is hot and cloudy."
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "It is hot in the afternoon.",
+      "answer_audio_turns": [
+        {
+          "text": "It is hot in the afternoon.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_scene_it-is-hot_14659ab.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace caluroso por la tarde.",
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat combine: How is the weather today? It is hot in the afternoon.",
+      "audio_speaker": "male-character",
+      "context_es": "Otro día, por la tarde: en casa.",
+      "reply_image_timing": "after-prompt"
     },
     {
       "slide_id": "A1",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "sunny-a1",
+      "correct_option_id": "a1-0",
       "options": [
         {
-          "id": "sunny-a1",
-          "image_url": "a1_sunny.webp",
-          "label": null
+          "id": "a1-0",
+          "label": "It is sunny today.",
+          "image_url": ""
         },
         {
-          "id": "rainy-a1",
-          "image_url": "a1_rainy.webp",
-          "label": null
+          "id": "a1-1",
+          "label": "It is rainy today.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Sunny",
+      "audio_text": "How is the weather today? It is sunny today.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 01: Sunny"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is sunny today.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_sunny.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está soleado hoy.",
+      "pedagogy_note": "Approved beat sky: How is the weather today? It is sunny today.",
+      "context_es": "Día 1: en el parque. Un visitante pregunta y una residente describe la escena."
     },
     {
       "slide_id": "A2",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "hot-a2",
+      "correct_option_id": "a2-1",
       "options": [
         {
-          "id": "hot-a2",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": null
+          "id": "a2-0",
+          "label": "It is sunny today.",
+          "image_url": ""
         },
         {
-          "id": "rainy-a2",
-          "image_url": "a1_rainy.webp",
-          "label": null
+          "id": "a2-1",
+          "label": "It is cloudy today.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Hot",
+      "audio_text": "How is the weather today? It is cloudy today.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 02: Hot",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is cloudy today.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_cloudy.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está nublado hoy.",
+      "pedagogy_note": "Approved beat sky: How is the weather today? It is cloudy today.",
+      "context_es": "Otro día: en el barrio."
     },
     {
       "slide_id": "A3",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "cold-a3",
+      "correct_option_id": "a3-0",
       "options": [
         {
-          "id": "cold-a3",
-          "image_url": "",
-          "label": "Cold"
+          "id": "a3-0",
+          "label": "It is rainy today.",
+          "image_url": ""
         },
         {
-          "id": "hot-a3",
-          "image_url": "",
-          "label": "Hot"
+          "id": "a3-1",
+          "label": "It is sunny today.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Cold",
+      "audio_text": "How is the weather today? It is rainy today.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 03: Cold"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is rainy today.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_rainy.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está lluvioso hoy.",
+      "pedagogy_note": "Approved beat rain: How is the weather today? It is rainy today.",
+      "context_es": "Otro día: en la ciudad."
     },
     {
       "slide_id": "A4",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "windy-a4",
+      "correct_option_id": "a4-1",
       "options": [
         {
-          "id": "cold-a4",
-          "image_url": "a1_cold.webp",
-          "label": null
+          "id": "a4-0",
+          "label": "It is sunny today.",
+          "image_url": ""
         },
         {
-          "id": "windy-a4",
-          "image_url": "a1_windy.webp",
-          "label": null
+          "id": "a4-1",
+          "label": "It is windy today.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Windy",
+      "audio_text": "How is the weather today? It is windy today.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 04: Windy",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is windy today.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_windy.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está ventoso hoy.",
+      "pedagogy_note": "Approved beat rain: How is the weather today? It is windy today.",
+      "context_es": "Otro día: junto al lago."
     },
     {
       "slide_id": "A5",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "cloudy-a5",
+      "correct_option_id": "a5-0",
       "options": [
         {
-          "id": "cold-a5",
-          "image_url": "a1_cold.webp",
-          "label": null
+          "id": "a5-0",
+          "label": "It is cold in the morning.",
+          "image_url": ""
         },
         {
-          "id": "hot-a5",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": null
-        },
-        {
-          "id": "cloudy-a5",
-          "image_url": "a1_cloudy.webp",
-          "label": null
-        },
-        {
-          "id": "windy-a5",
-          "image_url": "a1_windy.webp",
-          "label": null
+          "id": "a5-1",
+          "label": "It is hot in the morning.",
+          "image_url": ""
         }
       ],
-      "audio_text": "Cloudy",
+      "audio_text": "How is the weather today? It is cold in the morning.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 05: Cloudy"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is cold in the morning.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_cold.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace frío por la mañana.",
+      "pedagogy_note": "Approved beat temperature: How is the weather today? It is cold in the morning.",
+      "context_es": "Otro día, por la mañana: junto al lago."
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-rainy-a6",
+      "correct_option_id": "a6-1",
       "options": [
         {
-          "id": "it-is-rainy-a6",
-          "image_url": "",
-          "label": "It is rainy."
+          "id": "a6-0",
+          "label": "It is cold in the afternoon.",
+          "image_url": ""
         },
         {
-          "id": "it-is-sunny-a6",
-          "image_url": "",
-          "label": "It is sunny."
-        },
-        {
-          "id": "it-is-hot-a6",
-          "image_url": "",
-          "label": "It is hot."
+          "id": "a6-1",
+          "label": "It is hot in the afternoon.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is rainy.",
+      "audio_text": "How is the weather today? It is hot in the afternoon.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 06: It is rainy.",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is hot in the afternoon.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_scene_it-is-hot_14659ab.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace caluroso por la tarde.",
+      "pedagogy_note": "Approved beat temperature: How is the weather today? It is hot in the afternoon.",
+      "context_es": "Otro día, por la tarde: en casa."
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-cold-a7",
+      "correct_option_id": "a7-0",
       "options": [
         {
-          "id": "it-is-rainy-a7",
-          "image_url": "a1_rainy.webp",
-          "label": null
+          "id": "a7-0",
+          "label": "It is cold and windy.",
+          "image_url": ""
         },
         {
-          "id": "it-is-cold-a7",
-          "image_url": "a1_cold.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-hot-a7",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-windy-a7",
-          "image_url": "a1_windy.webp",
-          "label": null
+          "id": "a7-1",
+          "label": "It is hot and sunny.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is cold.",
+      "audio_text": "How is the weather today? It is cold and windy.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 07: It is cold."
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is cold and windy.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace frío y ventoso.",
+      "pedagogy_note": "Approved beat combine: How is the weather today? It is cold and windy.",
+      "context_es": "Volvemos a otra mañana junto al lago."
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-windy-a8",
+      "correct_option_id": "a8-1",
       "options": [
         {
-          "id": "it-is-hot-a8",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": null
+          "id": "a8-0",
+          "label": "It is cold and windy.",
+          "image_url": ""
         },
         {
-          "id": "it-is-windy-a8",
-          "image_url": "a1_windy.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-cold-a8",
-          "image_url": "a1_cold.webp",
-          "label": null
-        },
-        {
-          "id": "it-is-cloudy-a8",
-          "image_url": "a1_cloudy.webp",
-          "label": null
+          "id": "a8-1",
+          "label": "It is hot and sunny.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is windy.",
+      "audio_text": "How is the weather today? It is hot and sunny.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 08: It is windy.",
-      "audio_speaker": "co-teacher"
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is hot and sunny.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Hace caluroso y soleado.",
+      "pedagogy_note": "Approved beat combine: How is the weather today? It is hot and sunny.",
+      "context_es": "Volvemos a otra tarde en el parque."
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "it-is-cloudy-a9",
+      "correct_option_id": "a9-0",
       "options": [
         {
-          "id": "it-is-windy-a9",
-          "image_url": "",
-          "label": "It is windy."
+          "id": "a9-0",
+          "label": "It is sunny on Saturday.",
+          "image_url": ""
         },
         {
-          "id": "it-is-cold-a9",
-          "image_url": "",
-          "label": "It is cold."
-        },
-        {
-          "id": "it-is-cloudy-a9",
-          "image_url": "",
-          "label": "It is cloudy."
+          "id": "a9-1",
+          "label": "It is rainy on Saturday.",
+          "image_url": ""
         }
       ],
-      "audio_text": "It is cloudy.",
+      "audio_text": "How is the weather today? It is sunny on Saturday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Story beat 09: It is cloudy."
+      "audio_turns": [
+        {
+          "text": "How is the weather today?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
+        },
+        {
+          "text": "It is sunny on Saturday.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_sunny.webp"
+        }
+      ],
+      "spanish_translation": "¿Cómo está el tiempo hoy? Está soleado el sábado.",
+      "pedagogy_note": "Approved beat combine: How is the weather today? It is sunny on Saturday.",
+      "context_es": "En el parque, el sábado. Un visitante pregunta y una residente describe la escena."
     },
     {
       "slide_id": "S1",
       "interaction_type": "speak",
-      "prompt": "It is sunny.",
+      "prompt": "How is the weather today?",
       "stage": "Speak",
-      "correct_option_id": "it-is-sunny-speak",
+      "correct_option_id": "s1-model",
       "options": [
         {
-          "id": "it-is-sunny-speak",
-          "image_url": "a1_sunny.webp",
-          "label": "It is sunny."
+          "id": "s1-model",
+          "label": "How is the weather today?",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp"
         }
       ],
-      "audio_text": "It is sunny.",
+      "audio_text": "How is the weather today?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hace sol.",
-      "pedagogy_note": "Story beat 01: It is sunny.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "¿Cómo está el tiempo hoy?",
+      "pedagogy_note": "Approved beat sky: How is the weather today?",
+      "audio_speaker": "male-character",
+      "context_es": "Día 1: en el parque. Un visitante pregunta y una residente describe la escena."
     },
     {
       "slide_id": "S2",
       "interaction_type": "speak",
-      "prompt": "It is rainy.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-rainy-speak",
-      "options": [
-        {
-          "id": "it-is-rainy-speak",
-          "image_url": "a1_rainy.webp",
-          "label": "It is rainy."
-        }
-      ],
-      "audio_text": "It is rainy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Está lloviendo.",
-      "pedagogy_note": "Story beat 02: It is rainy."
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "It is hot.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-hot-speak",
-      "options": [
-        {
-          "id": "it-is-hot-speak",
-          "image_url": "a1_scene_it-is-hot_14659ab.webp",
-          "label": "It is hot."
-        }
-      ],
-      "audio_text": "It is hot.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hace calor.",
-      "pedagogy_note": "Story beat 03: It is hot.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "It is windy.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-windy-speak",
-      "options": [
-        {
-          "id": "it-is-windy-speak",
-          "image_url": "a1_windy.webp",
-          "label": "It is windy."
-        }
-      ],
-      "audio_text": "It is windy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hace viento.",
-      "pedagogy_note": "Story beat 04: It is windy."
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "speak",
-      "prompt": "It is cloudy.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-cloudy-speak",
-      "options": [
-        {
-          "id": "it-is-cloudy-speak",
-          "image_url": "a1_cloudy.webp",
-          "label": "It is cloudy."
-        }
-      ],
-      "audio_text": "It is cloudy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Está nublado.",
-      "pedagogy_note": "Story beat 05: It is cloudy.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "It is cold and sunny.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-cold-and-sunny-speak",
-      "options": [
-        {
-          "id": "it-is-cold-and-sunny-speak",
-          "image_url": "a1_photo_u7_cold_sunny_v1.webp",
-          "label": "It is cold and sunny."
-        }
-      ],
-      "audio_text": "It is cold and sunny.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hace frío y sol.",
-      "pedagogy_note": "Story beat 06: It is cold and sunny."
-    },
-    {
-      "slide_id": "S7",
-      "interaction_type": "speak",
-      "prompt": "It is hot and cloudy.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-hot-and-cloudy-speak",
-      "options": [
-        {
-          "id": "it-is-hot-and-cloudy-speak",
-          "image_url": "a1_photo_u7_hot_cloudy_v1.webp",
-          "label": "It is hot and cloudy."
-        }
-      ],
-      "audio_text": "It is hot and cloudy.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hace calor y está nublado.",
-      "pedagogy_note": "Story beat 07: It is hot and cloudy.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "S8",
-      "interaction_type": "speak",
       "prompt": "It is sunny today.",
       "stage": "Speak",
-      "correct_option_id": "it-is-sunny-today-speak",
+      "correct_option_id": "s2-model",
       "options": [
         {
-          "id": "it-is-sunny-today-speak",
-          "image_url": "a1_sunny.webp",
-          "label": "It is sunny today."
+          "id": "s2-model",
+          "label": "It is sunny today.",
+          "image_url": "/lesson-assets/a1_sunny.webp"
         }
       ],
       "audio_text": "It is sunny today.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hoy hace sol.",
-      "pedagogy_note": "Story beat 08: It is sunny today."
+      "spanish_translation": "Está soleado hoy.",
+      "pedagogy_note": "Approved beat sky: It is sunny today.",
+      "audio_speaker": "female-character",
+      "context_es": "Día 1: en el parque. Un visitante pregunta y una residente describe la escena."
     },
     {
-      "slide_id": "S9",
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "It is cloudy today.",
+      "stage": "Speak",
+      "correct_option_id": "s3-model",
+      "options": [
+        {
+          "id": "s3-model",
+          "label": "It is cloudy today.",
+          "image_url": "/lesson-assets/a1_cloudy.webp"
+        }
+      ],
+      "audio_text": "It is cloudy today.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Está nublado hoy.",
+      "pedagogy_note": "Approved beat sky: It is cloudy today.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día: en el barrio."
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "It is rainy today.",
+      "stage": "Speak",
+      "correct_option_id": "s4-model",
+      "options": [
+        {
+          "id": "s4-model",
+          "label": "It is rainy today.",
+          "image_url": "/lesson-assets/a1_rainy.webp"
+        }
+      ],
+      "audio_text": "It is rainy today.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Está lluvioso hoy.",
+      "pedagogy_note": "Approved beat rain: It is rainy today.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día: en la ciudad."
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "It is windy today.",
+      "stage": "Speak",
+      "correct_option_id": "s5-model",
+      "options": [
+        {
+          "id": "s5-model",
+          "label": "It is windy today.",
+          "image_url": "/lesson-assets/a1_windy.webp"
+        }
+      ],
+      "audio_text": "It is windy today.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Está ventoso hoy.",
+      "pedagogy_note": "Approved beat rain: It is windy today.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día: junto al lago."
+    },
+    {
+      "slide_id": "S6",
       "interaction_type": "speak",
       "prompt": "It is cold in the morning.",
       "stage": "Speak",
-      "correct_option_id": "it-is-cold-in-the-morning-speak",
+      "correct_option_id": "s6-model",
       "options": [
         {
-          "id": "it-is-cold-in-the-morning-speak",
-          "image_url": "a1_cold.webp",
-          "label": "It is cold in the morning."
+          "id": "s6-model",
+          "label": "It is cold in the morning.",
+          "image_url": "/lesson-assets/a1_cold.webp"
         }
       ],
       "audio_text": "It is cold in the morning.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Hace frío en la mañana.",
-      "pedagogy_note": "Story beat 09: It is cold in the morning.",
-      "audio_speaker": "co-teacher"
+      "spanish_translation": "Hace frío por la mañana.",
+      "pedagogy_note": "Approved beat temperature: It is cold in the morning.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día, por la mañana: junto al lago."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "It is hot in the afternoon.",
+      "stage": "Speak",
+      "correct_option_id": "s7-model",
+      "options": [
+        {
+          "id": "s7-model",
+          "label": "It is hot in the afternoon.",
+          "image_url": "/lesson-assets/a1_scene_it-is-hot_14659ab.webp"
+        }
+      ],
+      "audio_text": "It is hot in the afternoon.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hace caluroso por la tarde.",
+      "pedagogy_note": "Approved beat temperature: It is hot in the afternoon.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día, por la tarde: en casa."
+    },
+    {
+      "slide_id": "S8",
+      "interaction_type": "speak",
+      "prompt": "It is cold and windy.",
+      "stage": "Speak",
+      "correct_option_id": "s8-model",
+      "options": [
+        {
+          "id": "s8-model",
+          "label": "It is cold and windy.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp"
+        }
+      ],
+      "audio_text": "It is cold and windy.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hace frío y ventoso.",
+      "pedagogy_note": "Approved beat combine: It is cold and windy.",
+      "audio_speaker": "female-character",
+      "context_es": "Volvemos a otra mañana junto al lago."
+    },
+    {
+      "slide_id": "S9",
+      "interaction_type": "speak",
+      "prompt": "It is hot and sunny.",
+      "stage": "Speak",
+      "correct_option_id": "s9-model",
+      "options": [
+        {
+          "id": "s9-model",
+          "label": "It is hot and sunny.",
+          "image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp"
+        }
+      ],
+      "audio_text": "It is hot and sunny.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hace caluroso y soleado.",
+      "pedagogy_note": "Approved beat combine: It is hot and sunny.",
+      "audio_speaker": "female-character",
+      "context_es": "Volvemos a otra tarde en el parque."
+    },
+    {
+      "slide_id": "S10",
+      "interaction_type": "speak",
+      "prompt": "It is sunny on Saturday.",
+      "stage": "Speak",
+      "correct_option_id": "s10-model",
+      "options": [
+        {
+          "id": "s10-model",
+          "label": "It is sunny on Saturday.",
+          "image_url": "/lesson-assets/a1_sunny.webp"
+        }
+      ],
+      "audio_text": "It is sunny on Saturday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Está soleado el sábado.",
+      "pedagogy_note": "Approved beat combine: It is sunny on Saturday.",
+      "audio_speaker": "female-character",
+      "context_es": "En el parque, el sábado. Un visitante pregunta y una residente describe la escena."
     },
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "It ___ ___.",
+      "prompt": "How is the ___ ___?",
       "stage": "Use",
-      "correct_option_id": "is",
+      "correct_option_id": "weather",
       "options": [
         {
-          "id": "is",
+          "id": "weather",
           "image_url": "",
-          "label": "is"
+          "label": "weather"
         },
         {
-          "id": "rainy",
+          "id": "today",
           "image_url": "",
-          "label": "rainy"
+          "label": "today"
         }
       ],
-      "audio_text": "It is rainy.",
-      "answer_audio_text": "It is rainy.",
-      "prompt_image_url": "a1_rainy.webp",
-      "spanish_translation": "Está lloviendo.",
-      "translation": "Está lloviendo.",
+      "audio_text": "How is the weather today?",
+      "answer_audio_text": "How is the weather today?",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_question_v1.webp",
+      "spanish_translation": "¿Cómo está el tiempo hoy?",
+      "translation": "¿Cómo está el tiempo hoy?",
       "correct_option_ids": [
-        "is",
-        "rainy"
+        "weather",
+        "today"
       ],
-      "pedagogy_note": "Story beat 01: It is rainy."
+      "answer_audio_speaker": "male-character",
+      "pedagogy_note": "Approved beat sky: How is the weather today?",
+      "audio_speaker": "male-character",
+      "context_es": "Día 1: en el parque. Un visitante pregunta y una residente describe la escena."
     },
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "It ___ ___.",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is",
+      "correct_option_id": "sunny",
       "options": [
         {
-          "id": "is",
+          "id": "sunny",
           "image_url": "",
-          "label": "is"
+          "label": "sunny"
         },
         {
-          "id": "cold",
+          "id": "today",
           "image_url": "",
-          "label": "cold"
+          "label": "today"
         }
       ],
-      "audio_text": "It is cold.",
-      "answer_audio_text": "It is cold.",
-      "prompt_image_url": "a1_cold.webp",
-      "spanish_translation": "Hace frío.",
-      "translation": "Hace frío.",
+      "audio_text": "It is sunny today.",
+      "answer_audio_text": "It is sunny today.",
+      "prompt_image_url": "/lesson-assets/a1_sunny.webp",
+      "spanish_translation": "Está soleado hoy.",
+      "translation": "Está soleado hoy.",
       "correct_option_ids": [
-        "is",
-        "cold"
+        "sunny",
+        "today"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 02: It is cold.",
-      "audio_speaker": "co-teacher"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat sky: It is sunny today.",
+      "audio_speaker": "female-character",
+      "context_es": "Día 1: en el parque. Un visitante pregunta y una residente describe la escena."
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "It ___ ___.",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is",
+      "correct_option_id": "cloudy",
       "options": [
-        {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "windy",
-          "image_url": "",
-          "label": "windy"
-        }
-      ],
-      "audio_text": "It is windy.",
-      "answer_audio_text": "It is windy.",
-      "prompt_image_url": "a1_windy.webp",
-      "spanish_translation": "Hace viento.",
-      "translation": "Hace viento.",
-      "correct_option_ids": [
-        "is",
-        "windy"
-      ],
-      "pedagogy_note": "Story beat 03: It is windy."
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "It ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "is",
-      "options": [
-        {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
-        },
         {
           "id": "cloudy",
           "image_url": "",
           "label": "cloudy"
+        },
+        {
+          "id": "today",
+          "image_url": "",
+          "label": "today"
         }
       ],
-      "audio_text": "It is cloudy.",
-      "answer_audio_text": "It is cloudy.",
-      "prompt_image_url": "a1_cloudy.webp",
-      "spanish_translation": "Está nublado.",
-      "translation": "Está nublado.",
+      "audio_text": "It is cloudy today.",
+      "answer_audio_text": "It is cloudy today.",
+      "prompt_image_url": "/lesson-assets/a1_cloudy.webp",
+      "spanish_translation": "Está nublado hoy.",
+      "translation": "Está nublado hoy.",
       "correct_option_ids": [
-        "is",
-        "cloudy"
+        "cloudy",
+        "today"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 04: It is cloudy.",
-      "audio_speaker": "co-teacher"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat sky: It is cloudy today.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día: en el barrio."
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "rainy",
+      "options": [
+        {
+          "id": "rainy",
+          "image_url": "",
+          "label": "rainy"
+        },
+        {
+          "id": "today",
+          "image_url": "",
+          "label": "today"
+        }
+      ],
+      "audio_text": "It is rainy today.",
+      "answer_audio_text": "It is rainy today.",
+      "prompt_image_url": "/lesson-assets/a1_rainy.webp",
+      "spanish_translation": "Está lluvioso hoy.",
+      "translation": "Está lluvioso hoy.",
+      "correct_option_ids": [
+        "rainy",
+        "today"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat rain: It is rainy today.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día: en la ciudad."
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "and"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "hot"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "sunny"
-        }
-      ],
-      "audio_text": "It is hot and sunny.",
-      "answer_audio_text": "It is hot and sunny.",
-      "prompt_image_url": "a1_photo_u7_hot_sunny_v1.webp",
-      "spanish_translation": "Hace calor y sol.",
-      "translation": "Hace calor y sol.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "pedagogy_note": "Story beat 05: It is hot and sunny."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "and"
-        },
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "It"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "hot"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "cloudy"
-        }
-      ],
-      "audio_text": "It is hot and cloudy.",
-      "answer_audio_text": "It is hot and cloudy.",
-      "prompt_image_url": "a1_photo_u7_hot_cloudy_v1.webp",
-      "spanish_translation": "Hace calor y está nublado.",
-      "translation": "Hace calor y está nublado.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 06: It is hot and cloudy.",
-      "audio_speaker": "co-teacher"
-    },
-    {
-      "slide_id": "U7",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
@@ -1132,24 +1407,27 @@
         {
           "id": "word-3",
           "image_url": "",
-          "label": "sunny"
+          "label": "windy"
         }
       ],
-      "audio_text": "It is sunny today.",
-      "answer_audio_text": "It is sunny today.",
-      "prompt_image_url": "a1_sunny.webp",
-      "spanish_translation": "Hoy hace sol.",
-      "translation": "Hoy hace sol.",
+      "audio_text": "It is windy today.",
+      "answer_audio_text": "It is windy today.",
+      "prompt_image_url": "/lesson-assets/a1_windy.webp",
+      "spanish_translation": "Está ventoso hoy.",
+      "translation": "Está ventoso hoy.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
         "word-4"
       ],
-      "pedagogy_note": "Story beat 07: It is sunny today."
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat rain: It is windy today.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día: junto al lago."
     },
     {
-      "slide_id": "U8",
+      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
@@ -1188,9 +1466,9 @@
       ],
       "audio_text": "It is cold in the morning.",
       "answer_audio_text": "It is cold in the morning.",
-      "prompt_image_url": "a1_cold.webp",
-      "spanish_translation": "Hace frío en la mañana.",
-      "translation": "Hace frío en la mañana.",
+      "prompt_image_url": "/lesson-assets/a1_cold.webp",
+      "spanish_translation": "Hace frío por la mañana.",
+      "translation": "Hace frío por la mañana.",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -1199,9 +1477,166 @@
         "word-5",
         "word-6"
       ],
-      "answer_audio_speaker": "co-teacher",
-      "pedagogy_note": "Story beat 08: It is cold in the morning.",
-      "audio_speaker": "co-teacher"
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat temperature: It is cold in the morning.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día, por la mañana: junto al lago."
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "in"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "afternoon"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "hot"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        }
+      ],
+      "audio_text": "It is hot in the afternoon.",
+      "answer_audio_text": "It is hot in the afternoon.",
+      "prompt_image_url": "/lesson-assets/a1_scene_it-is-hot_14659ab.webp",
+      "spanish_translation": "Hace caluroso por la tarde.",
+      "translation": "Hace caluroso por la tarde.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat temperature: It is hot in the afternoon.",
+      "audio_speaker": "female-character",
+      "context_es": "Otro día, por la tarde: en casa."
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "and"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "cold"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "windy"
+        }
+      ],
+      "audio_text": "It is cold and windy.",
+      "answer_audio_text": "It is cold and windy.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_cold_windy_v1.webp",
+      "spanish_translation": "Hace frío y ventoso.",
+      "translation": "Hace frío y ventoso.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat combine: It is cold and windy.",
+      "audio_speaker": "female-character",
+      "context_es": "Volvemos a otra mañana junto al lago."
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "and"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "hot"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "sunny"
+        }
+      ],
+      "audio_text": "It is hot and sunny.",
+      "answer_audio_text": "It is hot and sunny.",
+      "prompt_image_url": "/lesson-assets/a1_photo_u7_approved_weather_hot_sunny_v1.webp",
+      "spanish_translation": "Hace caluroso y soleado.",
+      "translation": "Hace caluroso y soleado.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
+      "answer_audio_speaker": "female-character",
+      "pedagogy_note": "Approved beat combine: It is hot and sunny.",
+      "audio_speaker": "female-character",
+      "context_es": "Volvemos a otra tarde en el parque."
     }
   ]
 }

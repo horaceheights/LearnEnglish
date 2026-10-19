@@ -13,6 +13,7 @@ import av
 from .course_audio_profile import (
     DEFAULT_GENERATION_MODEL_ID,
     generation_profile_for,
+    natural_delivery_text,
     LOCATION_WORD_CORRECTION_MODEL_ID,
     LOCATION_WORD_CORRECTION_SPEED,
     NEUTRAL_SPEAKER_ROLES,
@@ -151,6 +152,7 @@ CANONICAL_RECEIPT_FIELDS = {
     "mode",
     "variant",
     "image_ref",
+    "delivery",
 }
 
 
@@ -238,6 +240,16 @@ def validate_provenance(
         raise ValueError("Course audio provenance stored_media must be an object.")
     if not isinstance(provenance.get("processing"), list):
         raise ValueError("Course audio provenance processing must be a list.")
+    if provenance.get("generation_delivery") != asset.delivery:
+        raise ValueError("Course audio delivery does not match the authored turn.")
+    if asset.delivery:
+        requests = provenance.get("provider_requests") or []
+        if (provenance.get("model_id") != DEFAULT_GENERATION_MODEL_ID
+                or provenance.get("source") != "elevenlabs-offline-render"
+                or len(requests) != 1
+                or requests[0].get("text") != natural_delivery_text(asset.text, asset.delivery)
+                or requests[0].get("model_id") != DEFAULT_GENERATION_MODEL_ID):
+            raise ValueError("Natural delivery requires the exact native provider request and unchanged spoken words.")
     if provenance.get("model_id") == DEFAULT_GENERATION_MODEL_ID:
         review = provenance.get("review") or {}
         if (not isinstance(review, dict)
@@ -353,6 +365,7 @@ def build_receipt(
         "mode": asset.mode,
         "variant": asset.variant,
         "image_ref": asset.image_ref,
+        **({"delivery": asset.delivery} if asset.delivery else {}),
     }
 
 
@@ -428,6 +441,8 @@ def validate_stored_asset(
     for key, value in expected.items():
         if receipt.get(key) != value:
             return False, f"receipt-{key}-mismatch", receipt
+    if receipt.get("delivery") != asset.delivery:
+        return False, "receipt-delivery-mismatch", receipt
     try:
         validate_provenance(
             asset,

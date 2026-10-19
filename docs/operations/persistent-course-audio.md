@@ -68,3 +68,7 @@ Do not publish from a task branch. After inventory coverage is complete and the 
 Use the direct bounded offline credential workflow for new paid recordings. Hosted legacy learner routes are frozen redirects and no longer provide generation, including the renderer's old `--legacy-backend-base-url` migration path. Reuse approved repository takes and validated Cloudflare objects first. Never retrieve or print hosted credentials, restore paid learner routes, or regenerate audio merely to move storage.
 
 The `assets-v2` route and `course-audio/elevenlabs-v2/` namespace version the immutable delivery protocol, not the generation model. They remain unchanged for v4.
+
+### Authored natural delivery
+
+An optional `delivery: quick|clear` on a `CourseAudioTurn` or mission cue selects a separate native v4 performance. `natural_delivery_text` records the exact native audio-tag direction in the provider request while learner-visible text remains unchanged. Immutable IDs, receipts and take matching include the direction; unmarked legacy assets are unchanged. The renderer rejects mixed-delivery jobs and non-v4 directed takes. No digital time-stretch or runtime rate change is permitted. Listen to both exact takes in sequence before promoting them; a direction is a request, not proof that the intended contrast was produced. See [ElevenLabs native audio-tag documentation](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-do-audio-tags-work-with-eleven-v3-and-v4).

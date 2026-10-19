@@ -215,6 +215,10 @@ COURSE_SYLLABLES = {
 # the CMU Pronouncing Dictionary and reviewed for the course's names and café
 # label so pacing remains deterministic for every canonical lesson prompt.
 COURSE_SYLLABLES.update({
+    # Approved Unit 7 targets. These counts do not change native v4 playback.
+    "coat": 1, "dance": 1, "draw": 1, "fast": 1, "fingers": 2,
+    "football": 2, "gloves": 1, "nose": 1, "paint": 1, "photos": 2,
+    "ride": 1, "scarf": 1, "shorts": 1, "sweater": 2, "toes": 1, "weather": 2,
     # Unit 6 destinations and complete trips; v4 keeps its native pace.
     "airplane": 2, "airport": 2, "arrive": 2, "between": 2,
     "boat": 1, "corner": 2, "does": 1, "going": 2, "hotel": 2,

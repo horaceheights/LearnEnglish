@@ -100,6 +100,7 @@ def _asset(
     speaker_role: str,
     revision: int,
     image_ref: str | None = None,
+    delivery: str | None = None,
 ) -> CourseAudioAsset:
     image_ref = (card_image_ref(card) if image_ref is None else image_ref).strip()
     if not image_ref:
@@ -120,6 +121,8 @@ def _asset(
         "speaker_role": speaker_role,
         "revision": revision,
     }
+    if delivery is not None:
+        contract["delivery"] = delivery
     digest = hashlib.sha256(
         json.dumps(contract, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
     ).hexdigest()[:20]
@@ -136,6 +139,7 @@ def _asset(
         speaker_role=speaker_role,
         profile_id=CARD_AUDIO_PROFILE_VERSION,
         revision=revision,
+        delivery=delivery,
     )
 
 
@@ -204,6 +208,7 @@ def _turn_assets(
             speaker_role=turn.speaker_role,
             revision=revision,
             image_ref=turn.image_url,
+            delivery=turn.delivery,
         ))
     return assets
 
@@ -390,6 +395,7 @@ def bind_lesson_audio_assets(lesson: Lesson) -> Lesson:
                     variant=cue_turn.variant if cue_turn else ("question" if cue.endswith("?") else "prompt"),
                     semantic_role="question" if cue.endswith("?") else "teacher",
                     speaker_role=cue_turn.speaker_role if cue_turn else "teacher",
+                    delivery=cue_turn.delivery if cue_turn else None,
                     revision=int(getattr(lesson, "content_revision", 1)),
                 ))
         card.audio_assets = card_assets

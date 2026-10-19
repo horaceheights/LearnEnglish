@@ -486,6 +486,9 @@ def _mission_authored_english(card: object) -> list[str]:
 
 def _card_media_urls(card: object) -> list[str]:
     urls = [str(getattr(card, "prompt_image_url", "") or "")]
+    completion = getattr(getattr(card, "mission_game", None), "completion_scene", None)
+    if completion:
+        urls.append(completion.image_url)
     urls.extend(
         str(getattr(option, "image_url", "") or "")
         for option in list(getattr(card, "options", []) or [])

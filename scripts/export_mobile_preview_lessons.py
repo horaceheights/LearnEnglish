@@ -97,8 +97,10 @@ def lesson_image_names() -> list[str]:
         if kickoff_name.endswith(".webp"):
             names.add(kickoff_name)
         for card in lesson.cards:
+            completion_scene = getattr(getattr(card, "mission_game", None), "completion_scene", None)
             paths = [
                 card.prompt_image_url,
+                completion_scene.image_url if completion_scene else "",
                 *(option.image_url for option in card.options),
                 *(turn.image_url for turn in card.audio_turns),
                 *(turn.image_url for turn in card.answer_audio_turns),

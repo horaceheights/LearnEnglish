@@ -1,5 +1,19 @@
 # SpanGlish Project Guardrails
 
+- **Artwork orientation (user correction, 2026-10-19):** A person’s drawing or painting faces the person creating it. Review the actual canvas/paper perspective and hand contact; never orient the artwork for the camera at the expense of a plausible activity.
+
+## Unit 7 proposal approval — 2026-10-19
+
+- A listening mission may declare `completion_scene` (one image and a short Spanish transition). After its last correct cue, both clients show that outcome with no live targets; the learner explicitly continues. Voice gates retain their established question/answer views. This supports story consequences without adding assessed cues or unit-specific UI.
+- Communication repair may bind `delivery: quick` or `delivery: clear` to an exact audio turn. Generate separate native ElevenLabs v4 performances using a recorded delivery direction, preserving the spoken words, pinned voice/settings and original bytes. Asset identity, reuse and receipts include the delivery; normal turns retain their legacy identities. Learner playback stays at rate 1. Exact-byte listening review must establish an intelligible quick/clear contrast before promotion; tags alone are not evidence of performance.
+
+- A card may declare a short `context_es` line for visible story setup, a change of time/place, or the task's picture convention. Web and mobile show it before the activity and the tutor receives that same visible context. It must not translate or reveal an assessment answer. Omit it when unnecessary; old cards serialize identically without it. This is shared content-driven behavior, never a unit-ID condition.
+
+- The user approved `content-briefs/unit7-approved-2026-10-19/approved-proposal.json` for implementation and Preview testing. Its exact allocations are 55, 49, 42, 44, 45, 54, 42, 48 and 74 cards for 7.1–7.9, followed by 15 listening scenes (38 cues) and four voice gates in 7.10. Preserve all ten lesson identities and increment their content revisions. These are coverage-derived allocations for this approved version, not permanent curriculum size limits.
+- Preserve the head-to-toes progression including nose, fingers and toes; complete question/answer models for feelings and weather; coat and the expanded weather clothing; eight activity preferences; invitations with an evidenced acceptance/refusal; and audible communication repair including `fast`. Recognize preference cards give the preference in text and ask for the named activity; an activity photo cannot establish whether its subject likes it. Recognize remains image/text matching, with spoken answers withheld until selection where appropriate.
+- An approved longer vocabulary list is recorded by lesson identity in `approved_lesson_new_item_limits`, alongside its approval date and reason. It does not relax practice, prior-language or answer-choice requirements. A contextual Learn model containing an exchange must bind the exact ordered turn texts as well as the complete model; changed or reordered speech invalidates that binding.
+- The review retrieves all 60 declared targets through new situations. Authored mission cue order follows the trip and conversation; independent object search may shuffle. Each cue requires its own visible, unambiguous target. The proposal approval is not generated-media approval and does not authorize Production.
+
 Last reviewed: 2026-10-08
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.

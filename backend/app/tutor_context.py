@@ -27,6 +27,8 @@ def build_tutor_context(lesson, card, selected=(), cue_index=None, target_id=Non
         "stage": card.stage, "activity": card.interaction_type,
         "mode": "before_answer" if not selected else "after_correct" if correct else "after_error",
     }
+    if getattr(card, "context_es", None):
+        context["visible_story_context"] = card.context_es
     if game and game.kind != "voice-gate":
         context["task"] = "Listen to the current clue and tap its matching person, group, object or place in the scene. Do not build a sentence."
         # The client reports the authored cue index after its shuffled playback order.

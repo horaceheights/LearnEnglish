@@ -44,7 +44,7 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  394, // 2026-10-11: the approved Unit 6 expansion adds 25 visual sentence choices.
+  375, // 2026-10-19: Unit 7's approved preference/activity cues replace 19 empty prompts.
   // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
   // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.
@@ -56,7 +56,7 @@ assert.equal(
 );
 assert.equal(
   affectedLessons.size,
-  73, // 2026-10-11: four inserted Unit 6 lessons use the same shared instruction.
+  70, // 2026-10-19: three Unit 7 lessons now use explicit written preference/activity cues.
   // 2026-10-01: rebuilt Unit 4 context cards carry explicit instructions/questions.
   // 3.3 now uses explicit questions and audio-choice instructions instead of an empty prompt.
   // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;

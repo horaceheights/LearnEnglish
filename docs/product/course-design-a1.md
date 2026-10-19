@@ -278,26 +278,20 @@ Before that rebuild, 6.3 was Where Is It? (`Where is the...?` with `next to`, `i
 
 Goal: Name the body, feelings, clothes and the weather, say what you need and like, invite with `Do you want to ...?` and `Let's ...`, and ask for help when you do not understand, then use all of A1 in a final mission.
 
-Lessons:
+Approved sequence (2026-10-19; exact content in [proposal v2](content-briefs/unit7-approved-2026-10-19/approved-proposal.json)):
 
-1. 7.1 The Body: `head`, `eyes`, `ears`, `mouth`, `arms`, `hands`, `legs`, `feet`; `I have two hands.`, `This is my head.`
-2. 7.2 Feelings and Needs: `happy`, `sad`, `tired`, `hungry`, `thirsty`, `How are you?`; `The baby is hungry.`, `I am thirsty. I need water.`
-3. 7.3 Clothing: `shirt`, `pants`, `dress`, `jacket`, `shoes`, `hat`, `socks`, `skirt`; `The jacket is blue.`, `This is a skirt.`
-4. 7.4 Weather: `sunny`, `rainy`, `hot`, `cold`, `windy`, `cloudy`; `It is hot and sunny.`, `It is cold in the morning.`
-5. 7.5 Clothes for the Weather: `umbrella`, `boots`; `It is rainy. I need an umbrella.`
-6. 7.6 Hobbies and Free Time: `TV`, `music`, `watching TV`, `listening to music`; `I like reading.`, `I do not like watching TV.`
-7. 7.7 Invitations and Responses: `Do you want to...?`, `Let's...`, `OK.`, `play`; `Let's watch TV. OK.`, `Let's play on Saturday.`
-8. 7.8 Help and Important Phrases: `I need help.`, `I do not understand.`, `Please repeat.`, `Please speak slowly.`
-9. 7.9 Complete A1 Review
-10. 7.10 Gran misión de familia
+1. **7.1 My Body — 55 cards:** head → eyes → ears → nose → mouth → arms → hands → fingers → legs → feet → toes. Every stage retains this order; `I have ten fingers/toes` follows the already-taught numbers.
+2. **7.2 How Are You? — 49 cards:** five feeling states with complete questions, including `How is she?`, `How is the grandfather?` and `How is the baby?`, then a water request, handover and thanks. Speak and Use separate conversational roles.
+3. **7.3 My Clothes — 42 cards:** shirt, pants, dress, skirt, jacket, hat, socks and shoes; color and established ownership.
+4. **7.4 Weather — 44 cards:** `How is the weather today?` with sunny, cloudy, rainy, windy, cold and hot; explicit changes of day/place prevent contradictory weather in one scene.
+5. **7.5 Clothes for the Weather — 45 cards:** coat, sweater, scarf, gloves, umbrella, boots and shorts. Cold fingers/toes motivate clothing requests; spoken requests name the needed item instead of making weather imply one exclusive garment.
+6. **7.6 What I Like to Do — 54 cards:** `I like to` and `Do you like to` with watch TV, listen to music, dance, draw, paint, ride a bike, take photos and play football. Preference text/audio supplies the opinion; pictures identify only activities.
+7. **7.7 Let's Do Something Together — 42 cards:** invitations, acceptance, an explicit tired refusal, a musical alternative, reading on Saturday and dancing on Sunday. New chunks are `Do you want to`, `Let's`, `OK` and `read`.
+8. **7.8 Please Repeat — 48 cards:** station question → repetition → time clarification → slower walking directions → museum arrival. Teach `fast` through audible naturally quick/clear versions of the same information, alongside `I do not understand`, `Please repeat` and `Please speak slowly`.
+9. **7.9 Three Everyday Situations — 74 cards:** fresh preparation, family visit and route contexts retrieve all 60 declared Unit 7 targets on the successful path, with no new language.
+10. **7.10 Mission: A Day with Friends — 15 listening scenes / 38 cues and four voice gates:** weather, preparation, trip, repair, arrival, needs, invitation, alternative and shared activity. Ordered scenes preserve chronology; every cue has a distinct visible target.
 
-Core patterns:
-
-- `I have two hands. This is my head.`
-- `How are you? I am tired. The baby is hungry.`
-- `The jacket is blue. It is cold. I need a jacket.`
-- `Do you want to play? Yes, thank you. Let's watch TV. OK.`
-- `I do not understand. Please repeat.`
+Keep stable lesson IDs and increase content revisions. The exact allocations are configuration for this approved version and do not cap future content. Retain the five-stage progression in 7.1–7.9, four-stage/minimum-five-card practice of every new target, 2–8-word Use constructions with the first half guided, and the shared mission shell. Unit 6 remains the prerequisite for transport, routes, times and sequence language. Preview approval is separate from Production authorization.
 
 **2026-09-27 rebuild (engine briefs, user direction: rebuild Units 5-7 through the engine, new photos approved).** Unit 7 was re-authored through the content engine from the briefs in `docs/product/content-briefs/unit-7/`. Every lesson had 34-36 cards; `ears`, `pants`, `skirt` and `socks` were met only two or three times, and most Learn cards re-taught known frames (`My head`, `It is sunny.`, `I like reading.`, `Yes, thank you.`). Every teaching lesson now has 42 cards and its Learn cards hold only its new words (`Head`, `Sunny`, `Watching TV`). Practice reuses what learners know: `I have two ...` (3.12, 2.6) and `This is my ...` for the body; the Unit 1 family for feelings (the baby at an empty bowl, the grandfather yawning, the children jumping) with `I need food / water` from Unit 5; the four jacket photos that change only the color; `and`, `today` and `in the morning` with the weather; the Unit 1 activities in `I like ...`. 7.7 adds `Let's`, the tune-up basic, with people who clearly propose (the boy with a ball, Ana with the remote, the grandmother with headphones) and Luis answering `OK.`, and days come back in `Let's play on Saturday.` (Speak and Use only). Wrong choices change one thing at a time, and a picture that only one person shows is offered as text choices. Unit 7 keeps 10 lessons. The review (54 cards) adds `The grandmother is happy.`, `The boy is thirsty.`, `Her hat is red.`, `Let's read.`, `It is cold. I need a hat.` and `I do not understand.` on six fresh photos; in the mission the reader now says `Let's read.` Lesson IDs are unchanged, so learner progress survives.
 

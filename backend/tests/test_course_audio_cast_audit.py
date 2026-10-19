@@ -26,29 +26,11 @@ SPEAKER_FIELDS = ("audio_speaker", "answer_audio_speaker")
 # The 2026-09-27 Unit 7 rebuild re-authored 7.1-7.8 from briefs that name every speaker, so the
 # 21 forced-neutral fields of 7.6-7.8 and the 7.5 and 7.6 recasts are history; the review and
 # mission fields below keep their pins.
-FORCED_NEUTRAL_GROUPS = {
-    "lesson-7-9-complete-a1-review": [
-        ("audio_speaker", "A4 S6"),
-        ("answer_audio_speaker", "R8"),
-    ],
-    "lesson-7-10-a1-final-mission": [("answer_audio_speaker", "R8 U8")],
-}
-
-# The old role is retained here as audit evidence; the final role is what must
-# appear in both the validator map and canonical lesson YAML.
-EXACT_ROLE_CHANGES = {
-    ("lesson-7-9-complete-a1-review", "R7", "answer_audio_speaker"): (
-        "female-character",
-        "male-character",
-    ),
-    # 2026-09-18 gender-matched voice review: the recorded picture shows a woman or the
-    # asker rather than the voiced man. None means the field is removed and the answer
-    # inherits the card's prompt speaker. (The 4.7 recasts left with the Unit 4 rebuild.)
-    # The 2026-09-18 recast of 4.9 U6 to Ana is history: the 2026-09-21 parity rebuild
-    # re-authored that card over a fresh photograph of a man walking to work, so the line
-    # is spoken by the pictured man again and has no recast left to pin. The 6.7 U7 removal left
-    # with the 2026-09-27 Unit 6 rebuild, whose briefs name every speaker.
-}
+# 2026-10-19: the approved full Unit 7 rebuild supersedes the five remaining
+# historical neutral fields and R7 recast. The archived source and exact new
+# assignment inventory preserve both versions.
+FORCED_NEUTRAL_GROUPS = {}
+EXACT_ROLE_CHANGES = {}
 
 # Lesson 1.8 adds 25 visitor-question cards with prompt and answer speaker fields.
 # Completa (Use) sentence standard adds explicit speaker assignments across Units 3, 4, 6, 7.
@@ -93,9 +75,9 @@ EXACT_ROLE_CHANGES = {
 # its pictured speakers; M15's bag acceptance adds one female answer field.
 # Per-turn speakers are audited separately. These pin this reviewed snapshot,
 # not a cap on new content; exact deltas are in the matching QA inventory.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2212
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 2336
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "f9c3a7443826983ebf45c3d7dff7dd6dd877447b8ab288386b8135926daf2eba"
+    "9e2c0ca9a8dae7e438f155c7a353513e1a09a1f4a2377f80c25da463e3cda572"
 )
 
 
@@ -190,8 +172,8 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         lessons = lesson_assignments()
         neutral = forced_neutral_targets()
 
-        self.assertEqual(5, len(neutral))
-        self.assertEqual(1, len(EXACT_ROLE_CHANGES))
+        self.assertEqual(0, len(neutral))
+        self.assertEqual(0, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
         self.assertEqual(validator, lessons)

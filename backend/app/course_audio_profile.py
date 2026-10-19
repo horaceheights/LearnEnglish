@@ -10,6 +10,22 @@ DEFAULT_GENERATION_MODEL_ID = "eleven_v4"
 COURSE_AUDIO_OUTPUT_FORMAT = "mp3_44100_128"
 COURSE_AUDIO_SEED = 1101
 
+# Native v4 delivery directions for paired communication-repair models. These
+# tags guide a fresh performance; they never change the learner-visible words
+# or apply digital speed/pitch processing to an existing recording.
+NATURAL_DELIVERY_TAGS = {
+    "quick": "[speaking at a brisk but intelligible conversational pace]",
+    "clear": "[speaking clearly at a measured conversational pace]",
+}
+
+
+def natural_delivery_text(text: str, delivery: str | None) -> str:
+    if delivery is None:
+        return text
+    if delivery not in NATURAL_DELIVERY_TAGS:
+        raise ValueError(f"Unsupported natural delivery: {delivery}")
+    return f"{NATURAL_DELIVERY_TAGS[delivery]} {text}"
+
 # One user-reviewed standalone correction, authorized only by the exact
 # checksum and card bindings in course_audio_receipts.py.
 PLAYING_CORRECTION_MODEL_ID = "eleven_flash_v2"
