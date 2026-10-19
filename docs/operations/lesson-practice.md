@@ -1,6 +1,8 @@
-# Liam Unit 1 review POC
+# Liam Unit 1 review POC — deferred after MVP
 
-“Repasa la Unidad 1 con Liam” appears in Unit 1's lesson list and after its final lesson's saved result. It replaces the Lesson 1.1-only entry. The menu entry is available without a completion gate and recommends reviewing after the lessons. Client rollout is configured in mobile/src/lessonPractice.ts; the server independently limits unit scope to the approved POC. Both use the shared review engine.
+**Status, 2026-10-19:** the user deferred Liam to a later phase to focus on shipping the MVP. The shared `PRACTICE_POC_UNITS` list in `mobile/src/lessonPractice.ts` is empty. Web and mobile therefore omit every Liam entry from the unit menus and lesson results, without mounting the practice session. Do not enable or expand the POC without a new explicit decision. The local HTML prototype and implementation are retained. Authenticated server routes remain compatible with older installed clients; this is a client rollout removal, not a server shutdown. The card tutor and immutable course audio are unchanged.
+
+The retained POC design places “Repasa la Unidad 1 con Liam” in Unit 1's lesson list and after its final lesson's saved result. It replaces the Lesson 1.1-only entry. When enabled, the menu entry is available without a completion gate and recommends reviewing after the lessons. The server independently limits unit scope to the approved POC. Both clients use the shared review engine.
 
 Unit requests include review_unit_id plus a canonical lesson anchor/revision, with no active card. The server resolves every lesson belonging to that unit and includes its goals, vocabulary, grammar, speaking outcome and taught examples. No client-supplied teaching material is accepted. Legacy requests without review_unit_id retain validated lesson/card scope for already-installed clients.
 
