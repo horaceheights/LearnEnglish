@@ -4,8 +4,9 @@ export type PracticeMode = 'short' | 'extended';
 export type PracticeContext = TutorContext & { review_mode: PracticeMode; review_unit_id: string };
 export const PRACTICE_START = 'Iniciar el repaso con Liam.';
 export const PRACTICE_LIMITS = { short: 3, extended: 6 } as const;
-// Rollout configuration only; the server derives all taught content for the unit.
-export const PRACTICE_POC_UNITS = ['unit-1'];
+// Deferred until after the MVP (2026-10-19). Keep both clients' menu/result
+// entries off; preserve the prototype for a separately approved later phase.
+export const PRACTICE_POC_UNITS: readonly string[] = [];
 export const practiceAvailable = (lesson?: LessonSummary) => Boolean(lesson?.unit_id && PRACTICE_POC_UNITS.includes(lesson.unit_id));
 export const practiceUnitLabel = (lesson: LessonSummary) => `Unidad ${lesson.unit_id?.match(/\d+/)?.[0] || ''}`.trim();
 export function practiceAfterLesson(lesson: LessonSummary, catalog: LessonSummary[]) {

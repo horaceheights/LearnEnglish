@@ -30,18 +30,19 @@ test('review finishes only after feedback; failed and pending replies remain ret
   assert.equal(practice.practiceProgress(history,mode,false,'Network error').complete,false);
  }
 });
-test('unit POC works from menu summaries and appears after the last unit lesson only',()=>{
+test('deferred Liam has no menu or result entry for any course lesson',()=>{
+ const catalog=require('../src/generated/a1-course.json');
+ assert.ok(catalog.length>0);
+ assert.equal(practice.practiceAvailable(),false);
+ for(const lesson of catalog){
+  assert.equal(practice.practiceAvailable(lesson),false,`menu: ${lesson.id}`);
+  assert.equal(practice.practiceAfterLesson(lesson,catalog),false,`result: ${lesson.id}`);
+ }
+ assert.equal(practice.practiceAvailable({id:'future',unit_id:'unit-future'}),false);
+});
+test('preserved unit prototype derives context from the canonical lesson',()=>{
  const lesson={id:'lesson-1-people-actions',unit_id:'unit-1',content_revision:7};
- const final={...lesson,id:'last-unit-1-lesson'};
- const later={id:'unit-2-first',unit_id:'unit-2'};
- const catalog=[lesson,final,later];
- assert.equal(practice.practiceAvailable(lesson),true);
- assert.equal(practice.practiceAvailable(final),true);
- assert.equal(practice.practiceAvailable(later),false);
- assert.equal(practice.practiceAfterLesson(lesson,catalog),false);
- assert.equal(practice.practiceAfterLesson(final,catalog),true);
- assert.equal(practice.practiceAfterLesson(later,catalog),false);
- assert.equal(practice.practiceAfterLesson(final,[]),false);
+ assert.equal(practice.practiceAfterLesson(lesson,[]),false);
  assert.deepEqual(practice.practiceContext(lesson,'extended'),{lesson_id:lesson.id,content_revision:7,slide_id:'',selected_option_ids:[],review_mode:'extended',review_unit_id:'unit-1'});
  assert.equal(practice.practiceUnitLabel(lesson),'Unidad 1');
 });

@@ -40,7 +40,7 @@ Recent delivery: standard lessons now open with a section briefing and show anot
 
 Recent delivery: the approved Lesson 1.1 Completa progression extends to 28 eligible final-section cards in Lessons 1.2–1.9. Earlier guided completion and out-of-range targets remain intact; installed-device review of the new long-word banks remains part of Preview testing. See `docs/qa/unit-1-completa-rollout.md`.
 
-Recent delivery (2026-10-17): the optional Liam POC now reviews Unit 1 across all eleven canonical lessons, including the final mission, with an entry in the unit list and after the final lesson. The approved shoulders-up portrait uses the male Charon voice; six replies end with evidence-based feedback, with a shorter three-reply trial available. Course grades and progress stay unchanged. Physical-device voice and microphone acceptance remain part of Preview testing. See `docs/qa/liam-unit-1-review.md`.
+Deferred after MVP (user decision, 2026-10-19): remove Liam's avatar/conversation review from the app so it does not delay the MVP. Both clients' unit-menu and lesson-result entries are disabled. Preserve the local shoulders-up HTML prototype and Unit 1 POC for a separately approved later phase; no further avatar, conversation or premium-tier expansion belongs to the current MVP. The existing card tutor and ordinary course practice remain unchanged. Historical POC evidence: `docs/qa/liam-unit-1-review.md`; deferral verification: `docs/qa/liam-mvp-deferral.md`.
 
 ## Engine-first strategy
 
