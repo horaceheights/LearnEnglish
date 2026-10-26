@@ -3,9 +3,9 @@ import threading
 import time
 from pathlib import Path
 import random
-from typing import Literal
+from typing import Annotated
 
-from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response, RedirectResponse
 
@@ -456,7 +456,7 @@ def read_admin_storage():
 
 
 @app.get("/api/lessons")
-def list_lessons(catalog_version: Literal[1, 2] = 1) -> list[dict[str, str | int]]:
+def list_lessons(catalog_version: Annotated[int, Query(ge=1, le=2)] = 1) -> list[dict[str, str | int]]:
     # Existing installed clients keep their supported A1 catalog. A client
     # explicitly opts into the registered-course contract with its new build.
     lessons = LESSONS if catalog_version == 2 else LEGACY_LESSONS

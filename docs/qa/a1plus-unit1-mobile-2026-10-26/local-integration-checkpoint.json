@@ -1,5 +1,5 @@
 {
-  "status": "local-verification-only",
+  "status": "media-staged-awaiting-pr-and-preview",
   "published": false,
   "source_sha256": "eba5266eb73e869279a832be922da139d8bf62fc320ae63db13c532860d8dea2",
   "lessons": 12,
@@ -7,7 +7,7 @@
   "image_assets": 83,
   "audio_bindings": 803,
   "recordings": 360,
-  "remaining": "Immutable Git snapshot binding, approved CDN staging and remote inventory verification, checked PR, exact-main protected Preview",
+  "remaining": "Checked PR, exact-main backend readiness and protected Preview",
   "verification": {
     "content_and_cast": "pass",
     "persistent_audio_assets": 7735,
@@ -28,12 +28,19 @@
     "mobile_preview_preflight": "pass before final shared layout refinements",
     "extended_native_layouts": "pass after shared correction-message and rail-padding fixes",
     "backend_suite": {
-      "tests": 740,
-      "passed": 738,
-      "remaining": [
-        "catalog source snapshot binding",
-        "published Cloudflare inventory"
-      ]
-    }
-  }
+      "status": "pass",
+      "tests": 744,
+      "failed": 0,
+      "seconds": 117.608
+    },
+    "cdn": {
+      "objects": 1689,
+      "bytes": 125128179,
+      "sha256_and_size": "pass",
+      "existing_inventory_entries_changed": 0
+    },
+    "android_bundle": "pass after final layout refinements"
+  },
+  "source_commit": "5cdd6aa98624c88edc1e297c52f81940df3a02ec",
+  "media_staged": true
 }

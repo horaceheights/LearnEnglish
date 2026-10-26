@@ -1,4 +1,7 @@
 import unittest
+from unittest.mock import patch
+
+from fastapi.testclient import TestClient
 
 from backend.app import main
 from backend.app.data import ALL_LESSONS as LESSONS, LESSONS as LEGACY_LESSONS
@@ -31,6 +34,23 @@ class LessonDeliveryTests(unittest.TestCase):
     def test_existing_installed_clients_keep_the_legacy_course(self):
         self.assertEqual(list(LEGACY_LESSONS), [summary["id"] for summary in main.list_lessons()])
         self.assertGreater(len(main.list_lessons(catalog_version=2)), len(main.list_lessons()))
+
+    def test_http_catalog_version_accepts_client_query_and_rejects_unknown_versions(self):
+        client = TestClient(main.app)
+        try:
+            with patch.object(main, "APP_API_KEY", ""):
+                for path, expected in (("/api/lessons", LEGACY_LESSONS),
+                                       ("/api/lessons?catalog_version=1", LEGACY_LESSONS),
+                                       ("/api/lessons?catalog_version=2", LESSONS)):
+                    with self.subTest(path=path):
+                        response = client.get(path)
+                        self.assertEqual(response.status_code, 200, response.text)
+                        self.assertEqual(list(expected), [item["id"] for item in response.json()])
+                for version in ("0", "3", "invalid"):
+                    with self.subTest(version=version):
+                        self.assertEqual(client.get(f"/api/lessons?catalog_version={version}").status_code, 422)
+        finally:
+            client.close()
 
     def test_delivery_preserves_authored_card_order_and_only_shuffles_options(self):
         source_option_orders = {
