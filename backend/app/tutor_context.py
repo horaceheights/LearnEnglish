@@ -10,7 +10,7 @@ def build_tutor_context(lesson, card, selected=(), cue_index=None, target_id=Non
                              or any(key not in options for key in selected))):
         raise ValueError("Invalid submitted selection")
     game = getattr(card, "mission_game", None)
-    if (cue_index is not None or target_id is not None) and (not game or game.kind == "voice-gate"):
+    if (cue_index is not None or target_id is not None) and (not game or game.kind in {"voice-gate", "conversation-decision"}):
         raise ValueError("Mission focus requires a search activity")
     if target_id is not None and (cue_index is None or selected):
         raise ValueError("A target attempt must name exactly one mission cue")
@@ -18,8 +18,14 @@ def build_tutor_context(lesson, card, selected=(), cue_index=None, target_id=Non
     expected_words = [options[key] for key in expected]
     normalize = lambda words: [word.casefold().strip() for word in words]
     correct = normalize(submitted_words) == normalize(expected_words)
+    image_bank = bool(card.options) and all(option.image_url and not option.label for option in card.options)
+    if image_bank or (game and game.kind == "conversation-decision"):
+        # Image-only choices intentionally have no labels: comparing two empty
+        # strings would incorrectly report every distractor as a correct answer.
+        correct = list(selected) == list(expected)
     if game and game.validation == "unordered":
-        correct = sorted(normalize(submitted_words)) == sorted(normalize(expected_words))
+        correct = (sorted(selected) == sorted(expected) if image_bank else
+                   sorted(normalize(submitted_words)) == sorted(normalize(expected_words)))
     context = {
         "lesson": lesson.sub_lesson_title, "level": lesson.level,
         "goal": lesson.goal, "vocabulary": lesson.vocabulary,
@@ -29,7 +35,9 @@ def build_tutor_context(lesson, card, selected=(), cue_index=None, target_id=Non
     }
     if getattr(card, "context_es", None):
         context["visible_story_context"] = card.context_es
-    if game and game.kind != "voice-gate":
+    if game and game.kind == "conversation-decision":
+        context["task"] = "Listen to the complete situation and choose one useful next question, accurate report or workable proposal. Do not identify a speaker or solve every alternative."
+    elif game and game.kind != "voice-gate":
         context["task"] = "Listen to the current clue and tap its matching person, group, object or place in the scene. Do not build a sentence."
         # The client reports the authored cue index after its shuffled playback order.
         if cue_index is not None and not 0 <= cue_index < len(game.cues):
@@ -67,6 +75,10 @@ def build_tutor_context(lesson, card, selected=(), cue_index=None, target_id=Non
                         "submitted_words": submitted_words, "expected_words": expected_words,
                         "answer_model": card.answer_audio_text,
                         "authored_teaching_note": card.pedagogy_note})
+        if image_bank:
+            context["submitted_image_option_ids"] = list(selected)
+            context["expected_image_option_ids"] = list(expected)
+            context["image_choice_policy"] = "These are authored image identifiers, not words typed or spoken by the learner. Explain using the heard English and authored meanings; do not claim to have inspected an image."
     elif card.stage in ("Learn", "Speak"):
         context["visible_model"] = card.prompt
     # Before submission: no assessment target, translation, media name or answer ID.

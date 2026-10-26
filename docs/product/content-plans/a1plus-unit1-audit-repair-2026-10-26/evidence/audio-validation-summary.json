@@ -1,0 +1,397 @@
+{
+  "scope": "Automated lexical evidence only; human exact-byte listening, voices and prosody approval pending. The two audits cover their stated selected file sets, not all historical audio.",
+  "contentSha256": "fbba411138f55793f8891245cf979c35ec0bcaa433e25b1298432284bf2e97bb",
+  "preparedDelivery": {
+    "bindings": 124,
+    "takes": 100,
+    "delivery": "a1-pronunciation-v1",
+    "pending": [],
+    "staleBindingsNotApplied": [],
+    "complete": true
+  },
+  "missingAuthoredNormalRecordings": 0,
+  "audits": [
+    {
+      "localEvidenceFile": "repair-normal-audio-transcripts.json",
+      "localEvidenceFileSha256": "e440371069fc559c824cb96801921c48805f81e9597e84c53c536334480942f3",
+      "status": "pass",
+      "selectedUniqueFiles": 20,
+      "cachedFiles": 0,
+      "plannedRequests": 20,
+      "plannedAudioSeconds": 43.58,
+      "referenceTextSent": false,
+      "originalMp3Changed": false,
+      "flaggedSpeakerTextPairs": 0,
+      "selectedSpeakerTextPairs": 20,
+      "materialIssueCount": 0,
+      "nameSpellingReviewCount": 0,
+      "nameSpellingReviews": [],
+      "totalCurrentUniqueFiles": 20,
+      "completeCorpusCoverage": true,
+      "humanListeningApproval": "Not established by ASR; lexical matches do not establish natural prosody or human approval",
+      "nameSpellingReview": "Sole Luis/Louise substitutions remain unresolved for human listening; raw transcript, lexical tokens and differences are retained. No Louise normalization or pronunciation approval is applied.",
+      "requestBias": "Plain recognition; no ReferenceText or pronunciation-assessment header",
+      "normalization": "Lowercase lexical tokens; number words 0â€“100; Ana/Anna, Luis/Louis, Sofia/Sophia; standard contractions",
+      "published": false
+    },
+    {
+      "localEvidenceFile": "pronunciation-transcript-validation.json",
+      "localEvidenceFileSha256": "501c8a14c5475ba4714e623fd97490b2bcbb67d583333caf05c03b6cd2b15c48",
+      "status": "name-spelling-review",
+      "selectedUniqueFiles": 108,
+      "cachedFiles": 95,
+      "plannedRequests": 13,
+      "plannedAudioSeconds": 41.76,
+      "referenceTextSent": false,
+      "originalMp3Changed": false,
+      "flaggedSpeakerTextPairs": 5,
+      "selectedSpeakerTextPairs": 114,
+      "materialIssueCount": 0,
+      "nameSpellingReviewCount": 5,
+      "nameSpellingReviews": [
+        {
+          "key": "teacher\nAna starts work at eight, but Luis starts work at nine.",
+          "speaker": "teacher",
+          "text": "Ana starts work at eight, but Luis starts work at nine.",
+          "audioSha256": "cd7216b4c8a3e47e8f8305e250fe5888cab7cea6fc204f8d33ba1e79ffc56cb3",
+          "transcript": "anna starts work at eight but louise starts work at nine",
+          "status": "name-spelling-review",
+          "expectedTokens": [
+            "ana",
+            "starts",
+            "work",
+            "at",
+            "eight",
+            "but",
+            "luis",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "recognizedTokens": [
+            "ana",
+            "starts",
+            "work",
+            "at",
+            "eight",
+            "but",
+            "louise",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "rawExpectedLexicalTokens": [
+            "ana",
+            "starts",
+            "work",
+            "at",
+            "eight",
+            "but",
+            "luis",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "rawRecognizedLexicalTokens": [
+            "anna",
+            "starts",
+            "work",
+            "at",
+            "eight",
+            "but",
+            "louise",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "differences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ],
+          "rawDifferences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "ana"
+              ],
+              "recognized": [
+                "anna"
+              ]
+            },
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "co-teacher\nWhen does Luis work?",
+          "speaker": "co-teacher",
+          "text": "When does Luis work?",
+          "audioSha256": "9171f1e9871d901724e03635dccf5c5e54c4dfe000ca8805744435caddc1c458",
+          "transcript": "when does louise work",
+          "status": "name-spelling-review",
+          "expectedTokens": [
+            "when",
+            "does",
+            "luis",
+            "work"
+          ],
+          "recognizedTokens": [
+            "when",
+            "does",
+            "louise",
+            "work"
+          ],
+          "rawExpectedLexicalTokens": [
+            "when",
+            "does",
+            "luis",
+            "work"
+          ],
+          "rawRecognizedLexicalTokens": [
+            "when",
+            "does",
+            "louise",
+            "work"
+          ],
+          "differences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ],
+          "rawDifferences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "teacher\nWhy does Luis take off his jacket?",
+          "speaker": "teacher",
+          "text": "Why does Luis take off his jacket?",
+          "audioSha256": "b611f4fd5253b4df2b182b70ed5bf17e009b9b08bdc5924950fbc0395a01b87c",
+          "transcript": "why does louise take off his jacket",
+          "status": "name-spelling-review",
+          "expectedTokens": [
+            "why",
+            "does",
+            "luis",
+            "take",
+            "off",
+            "his",
+            "jacket"
+          ],
+          "recognizedTokens": [
+            "why",
+            "does",
+            "louise",
+            "take",
+            "off",
+            "his",
+            "jacket"
+          ],
+          "rawExpectedLexicalTokens": [
+            "why",
+            "does",
+            "luis",
+            "take",
+            "off",
+            "his",
+            "jacket"
+          ],
+          "rawRecognizedLexicalTokens": [
+            "why",
+            "does",
+            "louise",
+            "take",
+            "off",
+            "his",
+            "jacket"
+          ],
+          "differences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ],
+          "rawDifferences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "teacher\nBut Luis starts work at nine.",
+          "speaker": "teacher",
+          "text": "But Luis starts work at nine.",
+          "audioSha256": "f1548a30a6744574014c829a0978916c7ab225853d27063f3910e36e3a19ca82",
+          "transcript": "but louise starts work at nine",
+          "status": "name-spelling-review",
+          "expectedTokens": [
+            "but",
+            "luis",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "recognizedTokens": [
+            "but",
+            "louise",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "rawExpectedLexicalTokens": [
+            "but",
+            "luis",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "rawRecognizedLexicalTokens": [
+            "but",
+            "louise",
+            "starts",
+            "work",
+            "at",
+            "nine"
+          ],
+          "differences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ],
+          "rawDifferences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "teacher\nBut Luis arrives home at seven.",
+          "speaker": "teacher",
+          "text": "But Luis arrives home at seven.",
+          "audioSha256": "24851df1778709118dd2aff9276d14db2efc1dd60b39cfd5d6b7a15d20717bc9",
+          "transcript": "but louise arrives home at seven",
+          "status": "name-spelling-review",
+          "expectedTokens": [
+            "but",
+            "luis",
+            "arrives",
+            "home",
+            "at",
+            "seven"
+          ],
+          "recognizedTokens": [
+            "but",
+            "louise",
+            "arrives",
+            "home",
+            "at",
+            "seven"
+          ],
+          "rawExpectedLexicalTokens": [
+            "but",
+            "luis",
+            "arrives",
+            "home",
+            "at",
+            "seven"
+          ],
+          "rawRecognizedLexicalTokens": [
+            "but",
+            "louise",
+            "arrives",
+            "home",
+            "at",
+            "seven"
+          ],
+          "differences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ],
+          "rawDifferences": [
+            {
+              "kind": "replace",
+              "expected": [
+                "luis"
+              ],
+              "recognized": [
+                "louise"
+              ]
+            }
+          ]
+        }
+      ],
+      "totalCurrentUniqueFiles": 108,
+      "completeCorpusCoverage": true,
+      "humanListeningApproval": "Not established by ASR; lexical matches do not establish natural prosody or human approval",
+      "nameSpellingReview": "Sole Luis/Louise substitutions remain unresolved for human listening; raw transcript, lexical tokens and differences are retained. No Louise normalization or pronunciation approval is applied.",
+      "requestBias": "Plain recognition; no ReferenceText or pronunciation-assessment header",
+      "normalization": "Lowercase lexical tokens; number words 0â€“100; Ana/Anna, Luis/Louis, Sofia/Sophia; standard contractions",
+      "published": false
+    }
+  ]
+}

@@ -31,6 +31,7 @@ export type MissionGameKind =
   | 'family-link'
   | 'action-hunt'
   | 'contrast-hunt'
+  | 'conversation-decision'
   | 'voice-gate';
 
 export type MissionGameTarget = {

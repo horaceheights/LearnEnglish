@@ -1,0 +1,429 @@
+{
+  "schema": 1,
+  "reviewOnly": true,
+  "nativeImportReady": false,
+  "installed": false,
+  "published": false,
+  "contentSha256": "fbba411138f55793f8891245cf979c35ec0bcaa433e25b1298432284bf2e97bb",
+  "sourceRevision": "59639855d9b9ffbe",
+  "package": {
+    "localFilename": "app-bound-unit-1-package.json",
+    "normalizedSha256": "c66867ff4f1ba85900324b56556d170852c3c1c6400490b2fdb8a3d945e5cdb0",
+    "fileByteSha256": "16785e687f32d5e2a5d33e9fadb50d16f63d11f5f1f6fb6151c076e75516a07e",
+    "notVersioned": "Regenerate from the retained source and external exact media using the README commands."
+  },
+  "compiler": {
+    "canonicalAudioBindingCount": 748,
+    "contentSha256": "fbba411138f55793f8891245cf979c35ec0bcaa433e25b1298432284bf2e97bb",
+    "deliveryAudioBindingCount": 708,
+    "exactRoundtripCount": 433,
+    "exactTakeCount": 386,
+    "imageCount": 83,
+    "nativeImportReady": false,
+    "schemaValidatedProjectionCards": 433,
+    "schemaValidatedProjectionLessons": 12,
+    "sourceCardCount": 433,
+    "sourceLessonCount": 12,
+    "validation": {
+      "canonicalProjectionSchema": "pass",
+      "humanSemanticReview": "pending",
+      "losslessCardRoundtrip": "pass",
+      "nativeRuntimeParity": "not asserted",
+      "sourceByteHashes": "pass"
+    }
+  },
+  "independentVerifier": {
+    "status": "pass",
+    "contentSha256": "fbba411138f55793f8891245cf979c35ec0bcaa433e25b1298432284bf2e97bb",
+    "sourceCards": 433,
+    "canonicalSchemaCards": 433,
+    "orderedAudioBindings": 708,
+    "sourceImages": 83,
+    "errors": []
+  },
+  "repeatability": {
+    "status": "pass",
+    "method": "Compile, independently verify, then rerun the identical compiler invocation with --check after final schema/verifier fixes and LF normalization of compiler authorities."
+  },
+  "sourceAuthoritySha256": {
+    "backend/app/card_audio_assets.py": "9d0b9adde929bb48ea1fa3fd86fe2362be366f22f6de832c4f7873d8041a640d",
+    "backend/app/course_audio_profile.py": "8cd69dea0cbdd5f6d87222c38f6c8136dbc98c82c92825fe7315b0798d9fcdca",
+    "backend/app/schemas.py": "1e24bf37036e94881a35ef831e2ff32a988ed674f687ee4a129d6a18218b4bcf",
+    "mobile/src/choiceTeaching.ts": "ad9bbad54b103075dde76392ab79291876c71b9356c585b79e827cc5c8cf50a2",
+    "mobile/src/constructionTeaching.ts": "e501a11704c63c95a06b10d1ac23284be93fc23d0c30469cbfdeec5c0ae49ef2",
+    "mobile/src/lessonMistakeHints.ts": "cc5b756ed6ba9e64ff2a29bcf56e3dbc06e8e20da025eac68d1f73ae644eca72",
+    "mobile/src/missionExperience.ts": "8929fb3ff09ca8ff425c2c5fefd77c67142b15b7f38d31a63b9beba3bec0abd7",
+    "mobile/src/screens/LessonScreen.tsx": "cf729410a438677edac70f0e5c64bb306c484274f74ad80c8c5dfa4964a180a7",
+    "mobile/src/types.ts": "69ab7065ad37ca7dd67951d5059d3526a59626e84ace0e374920db6099529f38",
+    "scripts/compile_lesson_delivery.py": "a72c22b0124cafd3ee072c591b6ec1d667eab51bb875d8f1c3b09cc097aa48e7",
+    "scripts/export_mobile_preview_lessons.py": "355dc9ed656a98e02e4bbaa31a62941cad25569580958ff59f0526deedb7fd2e",
+    "scripts/validate_lesson_cards.py": "a92c1f646c317ac5109cbfb342eae06d88e1561ee4cda7a36f6fbe1b01d8d47b",
+    "scripts/verify_lesson_delivery.py": "e001c5e86ab4eec840aec30d70be6e4e87e2920f2617539a0a4498174fca7f93"
+  },
+  "gaps": {
+    "authored-hint": {
+      "cardCount": 174,
+      "message": "Exact candidate feedback remains in the source; the app derives shared hints. Verify each actual error against shared teaching support; candidate text is not runtime evidence or automatic approval."
+    },
+    "authored-instruction": {
+      "cardCount": 433,
+      "message": "Exact instruction_es remains in the source; the app derives shared instructions. Compare intended task meaning with that shared behavior, rather than assuming every custom instruction must become an app field."
+    },
+    "canonical-answer-audio": {
+      "cardCount": 0,
+      "message": "Backend derives fallback answer assets that newer mobile Recognize/Listen playback intentionally omits. Reconcile that unused inventory in shared binding/cache; do not generate additional spoken content or substitute voices."
+    },
+    "clock": {
+      "cardCount": 147,
+      "message": "The projection does not represent retained clock/time evidence. Review it against the approved teaching and assessment boundaries and resolve its shared representation before installation."
+    },
+    "construction-reply": {
+      "cardCount": 1,
+      "message": "The projection cannot play the authored next dialogue reply after constructing the target. It remains in the exact source; resolve the supported sequencing before installation."
+    },
+    "image-bundling": {
+      "cardCount": 0,
+      "message": "Some retained image formats are unsupported by the current offline exporter; review a shared rendering/bundling solution before installation."
+    },
+    "prepared-pronunciation-delivery": {
+      "cardCount": 87,
+      "message": "Canonical audio schema does not represent the prepared delivery profile or its source receipt. Preserve exact per-occurrence audioDelivery, audioReceipt, voice and checksum bindings from the authoritative source sidecars before app integration; the supported projection is not an installation receipt."
+    },
+    "required-canonical-audio": {
+      "cardCount": 0,
+      "message": "Some player-required canonical assets lack exact source recordings, including any newly authored mission briefing. These are explicit missing bindings; the package cannot be installed."
+    },
+    "runtime-review": {
+      "cardCount": 0,
+      "message": "Native/web parity and human semantic/audio approval are pending; this local package does not establish them."
+    },
+    "turn-translation": {
+      "cardCount": 61,
+      "message": "Current canonical schema has only card-level translation; retain exact per-turn translations in delivery sidecar."
+    }
+  },
+  "canonicalAudioMissing": [
+    {
+      "card": "a1plus-unit-1-1.5-A05",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "I study every day."
+    },
+    {
+      "card": "a1plus-unit-1-1.6-A02",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Ana usually studies at home. She sometimes studies at the library."
+    },
+    {
+      "card": "a1plus-unit-1-1.6-A03",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Ana studies every day."
+    },
+    {
+      "card": "a1plus-unit-1-1.6-A04",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Ana studies every day, but she never studies at night."
+    },
+    {
+      "card": "a1plus-unit-1-1.6-A05",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Ana always arrives home before dinner."
+    },
+    {
+      "card": "a1plus-unit-1-1.6-A07",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Ana usually studies at the library. She sometimes studies at home."
+    },
+    {
+      "card": "a1plus-unit-1-1.7-A01",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "She finishes at six."
+    },
+    {
+      "card": "a1plus-unit-1-1.7-A03",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "He starts at nine."
+    },
+    {
+      "card": "a1plus-unit-1-1.7-A04",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Yes, he does."
+    },
+    {
+      "card": "a1plus-unit-1-1.7-A05",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "He arrives home before dinner."
+    },
+    {
+      "card": "a1plus-unit-1-1.7-A06",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "She finishes at five."
+    },
+    {
+      "card": "a1plus-unit-1-1.7-A08",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "She studies in the morning."
+    },
+    {
+      "card": "a1plus-unit-1-1.8-A06",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "ana",
+      "text": "In the evening."
+    },
+    {
+      "card": "a1plus-unit-1-1.8-A08",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "ana",
+      "text": "In the bedroom."
+    },
+    {
+      "card": "a1plus-unit-1-1.8-A12",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "ana",
+      "text": "Nine."
+    },
+    {
+      "card": "a1plus-unit-1-1.8-A14",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "ana",
+      "text": "Ana usually studies at home."
+    },
+    {
+      "card": "a1plus-unit-1-1.9-18",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Because I like to read."
+    },
+    {
+      "card": "a1plus-unit-1-1.9-21",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Let's read at home. OK."
+    },
+    {
+      "card": "a1plus-unit-1-1.10-10",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Yes, she does."
+    },
+    {
+      "card": "a1plus-unit-1-1.10-11",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "No, she is at the library."
+    },
+    {
+      "card": "a1plus-unit-1-1.10-13",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "ana",
+      "text": "She usually studies at the library. Today she is studying at home."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-18",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "diego",
+      "text": "From nine to six."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-18b",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "No, he doesn't. He finishes at six."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-20",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "He finishes work at six."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-21b",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "teacher",
+      "text": "She works on Saturday."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-23",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "sofia",
+      "text": "She usually studies at home. She sometimes studies at the library."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-24",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "sofia",
+      "text": "She studies every day. She never studies at night."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-25",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "sofia",
+      "text": "Home, then dinner."
+    },
+    {
+      "card": "a1plus-unit-1-1.11-26",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "diego",
+      "text": "First, I finish work. Then, I arrive home."
+    },
+    {
+      "card": "a1plus-unit-1-1.12-02",
+      "playerUsesThisAsset": true,
+      "purpose": "mission-intro",
+      "reason": "Canonical player requires exact prepared audio binding.",
+      "speaker": "teacher",
+      "text": "Ayuda a Ana y Luis a organizar una visita esta noche. Escucha sus horarios, elige las preguntas y propuestas que permiten continuar, comprueba el cambio de lugar y prepara la salida. Después de llegar, practica cuatro respuestas en voz alta."
+    },
+    {
+      "card": "a1plus-unit-1-1.12-02",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "ana",
+      "text": "At six."
+    },
+    {
+      "card": "a1plus-unit-1-1.12-02a",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "Luis usually finishes at five. Ana finishes at six."
+    },
+    {
+      "card": "a1plus-unit-1-1.12-07",
+      "playerUsesThisAsset": false,
+      "purpose": "answer",
+      "reason": "Backend derives fallback answer, but mobile correctSelectionAudioText explicitly omits unauthored Recognize/Listen answer replay; reconcile shared binder/cache, do not generate new content.",
+      "speaker": "answer",
+      "text": "He does not work on Saturday."
+    }
+  ],
+  "sharedPreviewBundle": {
+    "schema": 1,
+    "typescriptVersion": "6.0.3",
+    "sourceHashes": {
+      "mobile/src/lessonMistakeHints.ts": "cc5b756ed6ba9e64ff2a29bcf56e3dbc06e8e20da025eac68d1f73ae644eca72",
+      "mobile/src/sentenceTranslations.ts": "1c73e6aac8bd2f364029b7cee81519a18eb7d9ef43797a0d2f542dd6161b72de",
+      "mobile/src/constructionTeaching.ts": "e501a11704c63c95a06b10d1ac23284be93fc23d0c30469cbfdeec5c0ae49ef2",
+      "mobile/src/choiceTeaching.ts": "ad9bbad54b103075dde76392ab79291876c71b9356c585b79e827cc5c8cf50a2",
+      "mobile/src/lessonInstructions.ts": "52afa0f136d20d45c42cce831f52e34c655021015a5de183ca543be92ea29e33",
+      "mobile/src/lessonVocabulary.ts": "14c708d88947f0bb7483f5294577aa8918a177bb7160be91429d4a6e353f418f",
+      "mobile/src/sentenceConstruction.ts": "fe93e3dff581158855fa2b0f18452185b5518ff52d0c52f9a6c7f0ad7e7b2c5d",
+      "mobile/src/lessonHelp.ts": "df93c3e29d787423f87bdc0b6abd720084b294580417801283871e746a9c0907",
+      "mobile/src/lessonPromptPresentation.ts": "3592bb82f85c03521444d3987d08a026c140e52f3804449de07947ce167ffb49"
+    },
+    "bundleSha256": "d6a3222160f2f56cd913abba9ba4b5af9b7d26a3ec5b2c4bbaf1d82c695cc27c"
+  },
+  "tests": {
+    "earlierFullBackend": {
+      "passed": 715,
+      "scope": "Earlier repair revision; not a final-tree full-suite claim."
+    },
+    "finalFocusedBackend": {
+      "passed": 27,
+      "deliveryCompilerVerifier": 16,
+      "conversationDecisionSchemaTutorAndIdentity": 11,
+      "scope": "After final ordinary-source admission, independent projection fidelity, option uniqueness, response pairing and existing scene-mission ID protection changes."
+    },
+    "finalChoiceConstruction": {
+      "passed": 13,
+      "choiceCards": 174,
+      "wrongChoiceChecks": 179,
+      "threeOptionBanks": 5,
+      "decisionCards": 13,
+      "constructionCards": 90,
+      "wrongWordOrderChecks": 772,
+      "acceptedEquivalentOrders": 5,
+      "existingA1OrdinaryWrongChoiceOutputsUnchanged": 2369,
+      "fixtureProjectionRetainedFieldsMatchFinalPackage": true
+    },
+    "earlierBroadHints": {
+      "attempts": 9744,
+      "lessons": 85,
+      "status": "pass"
+    },
+    "frontend": {
+      "passed": 23
+    },
+    "installedReleaseIntegrity": {
+      "status": "pass",
+      "lessons": 85,
+      "units": 7,
+      "candidateInstalled": false
+    }
+  },
+  "humanSemanticReview": "pending",
+  "humanAudioApproval": "pending",
+  "nativeRuntimeParity": "not asserted",
+  "snapshotLineEndings": "LF, enforced by the scoped .gitattributes; no JSON values or authored wording changed."
+}

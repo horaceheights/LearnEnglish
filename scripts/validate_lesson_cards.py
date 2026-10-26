@@ -594,11 +594,16 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 f"found {card_chapters}."
             )
 
-        expected_slide_ids = MISSION_SLIDE_SEQUENCE.get(lesson.id, [
-            f"M{index:02d}" for index in range(1, len(lesson.cards) + 1)
-        ])
+        expected_slide_ids = MISSION_SLIDE_SEQUENCE.get(lesson.id)
+        if expected_slide_ids is None and not any(
+            getattr(getattr(card, "mission_game", None), "kind", None) == "conversation-decision"
+            for card in lesson.cards
+        ):
+            expected_slide_ids = [f"M{index:02d}" for index in range(1, len(lesson.cards) + 1)]
         actual_slide_ids = [str(card.slide_id or "") for card in lesson.cards]
-        if actual_slide_ids != expected_slide_ids:
+        if any(not value.strip() or value != value.strip() for value in actual_slide_ids) or len(actual_slide_ids) != len(set(actual_slide_ids)):
+            errors.append(f"{lesson.id} mission beat IDs must be exact, nonempty and unique.")
+        if expected_slide_ids is not None and actual_slide_ids != expected_slide_ids:
             errors.append(
                 f"{lesson.id} mission beat IDs must preserve the approved sequence "
                 f"{expected_slide_ids}; found {actual_slide_ids}."
@@ -642,6 +647,30 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 errors.append(f"{location} reveals assessed English in its Spanish instruction.")
             if validation not in {"single", "ordered", "unordered"}:
                 errors.append(f"{location} has unsupported mission validation {validation!r}.")
+            if kind == "conversation-decision":
+                if validation != "single" or targets or cues:
+                    errors.append(f"{location} conversation decisions must use one choice without search targets or cues.")
+                if instruction != "Escucha y elige cómo continuar.":
+                    errors.append(f"{location} conversation decisions must use the shared neutral instruction.")
+                options = list(getattr(card, "options", []) or [])
+                text_bank = all(getattr(option, "label", None) and not option.image_url for option in options)
+                image_bank = all(option.image_url and not getattr(option, "label", None) for option in options)
+                if not ((text_bank and 2 <= len(options) <= 3) or (image_bank and len(options) == 2)):
+                    errors.append(f"{location} conversation decision needs two or three text choices, or two images.")
+                visible_choices = [(" ".join(option.label.split()).casefold() if text_bank
+                                    else (option.image_url or "").strip()) for option in options]
+                if not all(visible_choices) or len(set(visible_choices)) != len(options):
+                    errors.append(f"{location} conversation decision choices must be nonblank and visibly distinct.")
+                expected = list(getattr(card, "correct_option_ids", []) or [card.correct_option_id])
+                if expected != [card.correct_option_id] or card.correct_option_id not in {option.id for option in options}:
+                    errors.append(f"{location} conversation decision needs exactly one declared answer.")
+                if (card.stage != "Listen" or card.prompt != "Listen and choose."
+                        or card.interaction_type != ("a2t" if text_bank else "a2i")):
+                    errors.append(f"{location} conversation decision must use its shared Listen modality.")
+                turns = list(getattr(card, "audio_turns", []) or [])
+                if not turns or " ".join(turn.text for turn in turns) != card.audio_text:
+                    errors.append(f"{location} conversation decision must bind the complete ordered English situation.")
+                continue
             if not targets:
                 errors.append(f"{location} mission_game requires at least one target.")
                 continue
@@ -780,7 +809,12 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             )
 
         interactions = [str(card.interaction_type or "") for card in lesson.cards]
-        unknown_interactions = sorted(set(interactions) - MISSION_INTERACTIONS)
+        unknown_interactions = sorted({
+            str(card.interaction_type or "") for card in lesson.cards
+            if str(card.interaction_type or "") not in MISSION_INTERACTIONS
+            and not (getattr(getattr(card, "mission_game", None), "kind", None) == "conversation-decision"
+                     and card.interaction_type in {"a2t", "a2i"})
+        })
         required_interactions = MISSION_REQUIRED_INTERACTIONS.get(lesson.id, frozenset())
         missing_interactions = sorted(required_interactions - set(interactions))
         if unknown_interactions:
@@ -793,6 +827,18 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             )
         if interactions and interactions[-1] != "mission-finale":
             errors.append(f"{lesson.id} must end with a mission-finale beat.")
+        if "conversation-decision" in mission_kinds:
+            gate_positions = [index for index, kind in enumerate(mission_kinds) if kind == "voice-gate"]
+            if gate_positions != list(range(len(lesson.cards) - 4, len(lesson.cards))):
+                errors.append(f"{lesson.id} conversation missions require four consecutive closing voice gates.")
+            for card in lesson.cards:
+                if getattr(getattr(card, "mission_game", None), "kind", None) != "voice-gate":
+                    continue
+                turns = list(getattr(card, "audio_turns", []) or [])
+                if (card.prompt_presentation != "written" or card.prompt != card.audio_text
+                        or len(turns) != 1 or card.answer_audio_turns or card.answer_audio_text
+                        or not card.options or turns[0].image_url == card.options[0].image_url):
+                    errors.append(f"{lesson.id} {card.slide_id} needs a written answer, one spoken question and a distinct response image.")
         if any(card.stage not in {"Learn", "Recognize", "Listen", "Speak", "Use"} for card in lesson.cards):
             errors.append(
                 f"{lesson.id} may interleave only the established internal modality stages."

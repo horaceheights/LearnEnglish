@@ -68,7 +68,21 @@ assert.match(
   'The briefing plays on the shared course player, so that is what must stop.',
 );
 assert.match(screen, /cueUnavailable=\{missionCueUnavailable\}/);
-assert.match(screen, /interactionReady=\{missionInteractionReady\}/);
+const readinessExpression = screen.match(/interactionReady=\{([^}\r\n]*missionInteractionReady[^}\r\n]*)\}/)?.[1];
+assert.ok(readinessExpression, 'The mission surface must receive its production readiness gate.');
+const interactionReady = new Function('missionInteractionReady', 'isMissionDecision', 'cardAudio',
+  `return (${readinessExpression});`);
+for (const cueReady of [false, true]) {
+  for (const decision of [false, true]) {
+    for (const audioReady of [false, true]) {
+      assert.equal(
+        interactionReady(cueReady, decision, { ready: audioReady }),
+        cueReady && (!decision || audioReady),
+        `Mission readiness must retain the cue gate and require complete card audio for decisions (${cueReady}/${decision}/${audioReady}).`,
+      );
+    }
+  }
+}
 assert.match(screen, /onCueRequest=\{playMissionCueAt\}/);
 // The mission owns its own layout, so the accessible scrolling fallback must
 // stay switched off for it. Other activities may add their own exclusions here,

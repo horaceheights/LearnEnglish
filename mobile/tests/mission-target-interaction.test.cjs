@@ -118,5 +118,42 @@ test('a correct dot plays once, leaves time for the effect, and retains canonica
   assert.ok(surface.includes('}, 2200)'));
   assert.ok(screen.includes("onTargetFound={() => playMissionSound('tile-place')}"));
   assert.ok(surface.includes('onSubmit(game.cues.map((cue) => cue.option_id))'));
-  assert.ok(screen.includes('if (!usesMissionGameSurface) playMissionSound'));
+});
+
+test('native submission plays success once for decisions and leaves scene-dot feedback to the surface', () => {
+  const start = screen.indexOf('const evaluateChoiceSelection = ');
+  const end = screen.indexOf('\n  const choose = ', start);
+  assert.ok(start >= 0 && end > start, 'Production selection handler exists');
+  const handler = screen.slice(start, end)
+    .replace('const evaluateChoiceSelection = ', 'return ')
+    .replace('nextSelectedIds: string[]', 'nextSelectedIds');
+
+  for (const [name, usesMissionGameSurface, isMissionDecision, expectedSubmitSounds] of [
+    ['scene targets', true, false, 0],
+    ['conversation decision', true, true, 1],
+    ['other mission choice', false, false, 1],
+  ]) {
+    const sounds = [];
+    let scores = 0;
+    const noop = () => {};
+    const context = {
+      currentCard: { mission_game: { validation: 'single' } },
+      cardAudioReadyRef: { current: true }, result: null,
+      awaitingConstructionRetry: () => false, correctChoiceHandledRef: { current: false },
+      help: { interact: noop }, orderedCorrectOptionIds: () => ['correct'],
+      setSelectedId: noop, setSelectedIds: noop, setResult: noop,
+      isSentenceCard: false, isMissionTileCard: false,
+      attemptedCardsRef: { current: new Set() }, completedCardsRef: { current: new Set() }, cardIndex: 0,
+      prepareCardChoice: () => ({ firstTry: true, reviewingCompletedCard: false, shouldRecordAttempt: false }),
+      addDiagnosticBreadcrumb: noop, completeScoredCard: () => scores++,
+      missionExperience: true, usesMissionGameSurface, isMissionDecision,
+      playMissionSound: event => sounds.push(event), missionSuccessSoundEvent: () => 'success',
+      waitsForGrammarAnimation: false, correctSelectionAudioText: () => '',
+    };
+    const submit = new Function(...Object.keys(context), handler)(...Object.values(context));
+    submit(['correct']);
+    submit(['correct']);
+    assert.equal(scores, 1, name + ': duplicate taps cannot score twice');
+    assert.deepEqual(sounds, Array(expectedSubmitSounds).fill('success'), name + ': sound has one owner');
+  }
 });

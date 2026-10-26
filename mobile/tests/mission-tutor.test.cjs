@@ -35,7 +35,7 @@ function harness(platform) {
       if(id.endsWith('TutorButton'))return {TutorButton:'TutorButton'};
       if(id.endsWith('OptionMediaImage'))return {OptionMediaImage:'Image'};
       let next=path.resolve(path.dirname(file),id);
-      if(!path.extname(next))next+=fs.existsSync(next+'.ts')?'.ts':'.js';
+      if(!path.extname(next))next+=['.ts','.tsx','.js'].find(extension=>fs.existsSync(next+extension));
       return load(next);
     };
     const ResizeObserver=class { constructor(fn){this.fn=fn;} observe(){this.fn([{contentRect:{width:350,height:430}}]);} disconnect(){} };
