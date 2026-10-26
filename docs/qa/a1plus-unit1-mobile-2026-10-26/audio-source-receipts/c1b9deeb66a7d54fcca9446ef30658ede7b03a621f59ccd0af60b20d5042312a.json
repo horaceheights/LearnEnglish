@@ -1,0 +1,62 @@
+{
+  "file": "takes/c1b9deeb66a7d54fcca9446ef30658ede7b03a621f59ccd0af60b20d5042312a.mp3",
+  "audio_sha256": "c1b9deeb66a7d54fcca9446ef30658ede7b03a621f59ccd0af60b20d5042312a",
+  "bytes": 26792,
+  "text": "I leave home at eight.",
+  "compatible_speaker_roles": [
+    "luis"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt"
+  ],
+  "compatible_variants": [
+    "default"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_v4",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_rate_bps": 128000
+    },
+    "processing": [
+      "Original ElevenLabs v4 provider bytes; no post-processing."
+    ],
+    "generated_at": "2026-10-24T16:18:01.082851+00:00",
+    "approved_at": null,
+    "request_id": "11Oen4pO7imIruBp2802",
+    "trace_id": "1605a579bec3ca564b48488e462c9a3a",
+    "character_cost": 10,
+    "incremental_character_cost": 10,
+    "provider_requests": [
+      {
+        "model_id": "eleven_v4",
+        "text": "I leave home at eight.",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "10",
+        "staged_reuse": false,
+        "request_id": "11Oen4pO7imIruBp2802",
+        "trace_id": "1605a579bec3ca564b48488e462c9a3a"
+      }
+    ],
+    "review": {
+      "status": "pending-listening-review",
+      "basis": "Voice settings do not approve an individual recording."
+    }
+  }
+}

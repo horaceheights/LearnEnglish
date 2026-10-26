@@ -93,6 +93,42 @@ function verifyFixture(repositoryRoot) {
   return verifyReleaseIntegrity({ repositoryRoot, verifyGitBaseline: false });
 }
 
+test('additional courses cannot disappear from the release, aggregate, or navigation index', (t) => {
+  const {repositoryRoot, manifest, lessons} = createFixture(t);
+  const extra = [{id: 'advanced-lesson', unit_id: 'advanced-unit'}];
+  const extraPath = 'mobile/src/generated/additional-course.json';
+  const aggregatePath = 'mobile/src/generated/all-courses.json';
+  const indexPath = 'mobile/src/generated/course-catalogs.json';
+  const encode = value => JSON.stringify(value) + '\n';
+  const descriptor = (courseId, file, data) => ({courseId, path: file, expectedGitBlob: gitBlobId(encode(data)),
+    lessonCount: data.length, unitCount: new Set(data.map(item => item.unit_id)).size,
+    lessonsByUnit: data.reduce((counts, item) => ({...counts, [item.unit_id]: (counts[item.unit_id] || 0) + 1}), {})});
+  manifest.additionalCatalogs = [descriptor('additional', extraPath, extra)];
+  manifest.combinedCatalog = descriptor('complete-catalog', aggregatePath, [...lessons, ...extra]);
+  const index = [{id: 'a1', lessonIds: lessons.map(item => item.id)}, {id: 'additional', lessonIds: ['advanced-lesson']}];
+  manifest.courseIndex = {path: indexPath, expectedGitBlob: gitBlobId(encode(index))};
+  writeFile(repositoryRoot, extraPath, encode(extra));
+  writeFile(repositoryRoot, aggregatePath, encode([...lessons, ...extra]));
+  writeFile(repositoryRoot, indexPath, encode(index));
+  writeFile(repositoryRoot, 'backend/courses.json', encode([{id: 'a1', catalogPath: manifest.catalog.path},
+    {id: 'additional', catalogPath: extraPath}]));
+  writeManifest(repositoryRoot, manifest);
+  assert.doesNotThrow(() => verifyFixture(repositoryRoot));
+  manifest.combinedCatalog = descriptor('complete-catalog', aggregatePath, lessons);
+  writeFile(repositoryRoot, aggregatePath, encode(lessons));
+  writeManifest(repositoryRoot, manifest);
+  assert.throws(() => verifyFixture(repositoryRoot), /todos los cursos completos/);
+  manifest.combinedCatalog = descriptor('complete-catalog', aggregatePath, [...lessons, ...extra]);
+  writeFile(repositoryRoot, aggregatePath, encode([...lessons, ...extra]));
+  writeFile(repositoryRoot, indexPath, encode(index.slice(0, 1)));
+  manifest.courseIndex.expectedGitBlob = gitBlobId(encode(index.slice(0, 1)));
+  writeManifest(repositoryRoot, manifest);
+  assert.throws(() => verifyFixture(repositoryRoot), /índice de navegación/);
+  delete manifest.additionalCatalogs;
+  writeManifest(repositoryRoot, manifest);
+  assert.throws(() => verifyFixture(repositoryRoot), /cada curso registrado/);
+});
+
 test('publishing requires the exact main release authority and integrity check', () => {
   assert.match(guardSource, /\$authorityBranch = 'origin\/main'/);
   assert.match(guardSource, /if \(\$headCommit -ne \$authorityCommit\)/);

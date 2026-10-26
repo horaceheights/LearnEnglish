@@ -5,7 +5,7 @@ import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } fro
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { fitMissionHeadScene, type HeadMarker } from '../missionTargetInteraction';
 import { missionChallengeLabel } from '../missionPresentation';
-import type { LessonCard, MissionGame, MissionGameTarget } from '../types';
+import type { LessonCard, MissionGame, MissionGameTarget, TeachingClock } from '../types';
 import { OptionMediaImage } from './OptionMediaImage';
 import { TutorButton } from './TutorButton';
 import { useMissionTransition } from '../hooks/useMissionTransition';
@@ -30,6 +30,7 @@ type Props = {
   onSubmit: (optionIds: string[]) => void;
   result: Result;
   decisionImageUrl?: string | null;
+  decisionClockCues?: TeachingClock[];
   onDecisionResponse?: () => Promise<boolean>;
   onDecisionAdvance?: () => void;
   onDecisionRetry?: () => void;
@@ -145,6 +146,7 @@ export function MissionGameSurface({
   onSubmit,
   result,
   decisionImageUrl,
+  decisionClockCues,
   onDecisionResponse,
   onDecisionAdvance,
   onDecisionRetry,
@@ -246,7 +248,7 @@ export function MissionGameSurface({
   }, [cueIndex, currentCue, disabled, game.cues, game.completion_scene, onCueRequest, onMisstep, onSubmit, onTargetFound, solvedTargetIds, scheduleTransition]);
 
   if (game.kind === 'conversation-decision') {
-    return <MissionConversationDecision card={card} imageUrl={decisionImageUrl || card.prompt_image_url}
+    return <MissionConversationDecision card={card} imageUrl={decisionImageUrl || card.prompt_image_url} clockCues={decisionClockCues}
       interactionReady={interactionReady} cueUnavailable={cueUnavailable} paused={paused}
       landscapeHeader={landscapeHeader} onTutor={onTutor} onTutorInset={onTutorInset}
       onReplay={() => onCueRequest(0)} onSubmit={onSubmit}

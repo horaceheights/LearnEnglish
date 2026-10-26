@@ -12,7 +12,7 @@ BACKEND_DIR = ROOT / "backend"
 sys.path.insert(0, str(BACKEND_DIR))
 
 from app.course_audio import cache_path_for, sanitize_course_audio_text, voice_for_variant  # noqa: E402
-from app.data import LESSONS  # noqa: E402
+from app.data import ALL_LESSONS as LESSONS  # noqa: E402
 
 
 ACTION_WORDS = {

@@ -31,6 +31,11 @@ def expected_lesson_count(root: Path = ROOT) -> int:
     return int(release_catalog(root)["lessonCount"])
 
 
+def expected_complete_lesson_count(root: Path = ROOT) -> int:
+    manifest = json.loads((root / MANIFEST).read_text(encoding="utf-8"))
+    return int(manifest.get("combinedCatalog", manifest["catalog"])["lessonCount"])
+
+
 def expected_lessons_by_unit(root: Path = ROOT) -> dict[str, int]:
     return {unit: int(count) for unit, count in release_catalog(root)["lessonsByUnit"].items()}
 

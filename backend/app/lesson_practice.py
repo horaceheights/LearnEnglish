@@ -11,7 +11,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import Field
 from starlette.concurrency import run_in_threadpool
 from . import lesson_tutor as tutor
-from .data import LESSONS
+from .data import ALL_LESSONS as LESSONS
 
 router = APIRouter(prefix="/api/account/practice", tags=["lesson-practice"])
 LIMITS = {"short": 3, "extended": 6}

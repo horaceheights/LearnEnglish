@@ -144,7 +144,7 @@ def _asset(
 
 
 def _semantic_role(purpose: str, text: str) -> str:
-    if purpose == "answer" or purpose.startswith("answer-turn-"):
+    if purpose == "answer" or purpose.startswith(("answer-turn-", "success-turn-")):
         return "answer"
     if text.strip().endswith("?"):
         return "question"
@@ -330,7 +330,11 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
         and card.answer_audio_text is None
         and _field_was_authored(card, "answer_audio_text")
     )
-    answer_text = "" if suppress_mission_answer_fallback else (
+    suppress_unauthored_answer = (
+        card.answer_audio_policy == "authored-only"
+        and not card.answer_audio_text and not card.answer_audio_turns
+    )
+    answer_text = "" if suppress_mission_answer_fallback or suppress_unauthored_answer else (
         (card.answer_audio_text or "").strip()
         or ((correct.label or "").strip() if correct else "")
         or raw_prompt
@@ -366,6 +370,13 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
             ))
     elif card.answer_audio_turns:
         raise ValueError("answer audio turns require canonical answer audio text.")
+    if card.success_audio_turns:
+        assets.extend(_turn_assets(
+            lesson_id, card_index, card, purpose="success",
+            canonical_text=" ".join(turn.text for turn in card.success_audio_turns),
+            turns=card.success_audio_turns, mode="prompt", variant="answer",
+            revision=card.answer_audio_revision, whole_field_speaker=None,
+        ))
     return assets
 
 

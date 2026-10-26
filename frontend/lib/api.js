@@ -53,7 +53,7 @@ export async function getLessons() {
   const apiBaseUrl = getApiBaseUrl();
   let response;
   try {
-    response = await fetch(`${apiBaseUrl}/api/lessons`, {
+    response = await fetch(`${apiBaseUrl}/api/lessons?catalog_version=2`, {
       cache: "no-store",
       headers: { "X-App-Key": APP_API_KEY },
     });

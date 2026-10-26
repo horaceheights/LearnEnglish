@@ -14,6 +14,7 @@ from .course_audio_profile import (
     DEFAULT_GENERATION_MODEL_ID,
     generation_profile_for,
     natural_delivery_text,
+    matches_delivery_request,
     LOCATION_WORD_CORRECTION_MODEL_ID,
     LOCATION_WORD_CORRECTION_SPEED,
     NEUTRAL_SPEAKER_ROLES,
@@ -247,7 +248,7 @@ def validate_provenance(
         if (provenance.get("model_id") != DEFAULT_GENERATION_MODEL_ID
                 or provenance.get("source") != "elevenlabs-offline-render"
                 or len(requests) != 1
-                or requests[0].get("text") != natural_delivery_text(asset.text, asset.delivery)
+                or not matches_delivery_request(asset.text, asset.delivery, requests[0].get("text"))
                 or requests[0].get("model_id") != DEFAULT_GENERATION_MODEL_ID):
             raise ValueError("Natural delivery requires the exact native provider request and unchanged spoken words.")
     if provenance.get("model_id") == DEFAULT_GENERATION_MODEL_ID:

@@ -14,6 +14,29 @@ const { lessonMistakeHint } = require('../src/lessonMistakeHints.ts');
 const { sentenceHint } = require('../src/sentenceConstruction.ts');
 const { lessonHelpText } = require('../src/lessonHelp.ts');
 
+test('additional registered courses explain every reachable construction swap', () => {
+  const root = path.resolve(__dirname, '../..');
+  const descriptors = JSON.parse(fs.readFileSync(path.join(root, 'backend/courses.json'), 'utf8'));
+  for (const course of descriptors.slice(1)) {
+    const lessons = JSON.parse(fs.readFileSync(path.join(root, course.catalogPath), 'utf8'));
+    for (const lesson of lessons) for (const card of lesson.cards) {
+      if (!isOrderedCompletion(card)) continue;
+      const context = `${lesson.id}/${card.slide_id}`;
+      const plan = constructionTeachingPlan(card);
+      assert.ok(plan.supported, `${context}: missing grammatical teaching plan`);
+      for (let a = 0; a < plan.labels.length; a++) for (let b = a + 1; b < plan.labels.length; b++) {
+        const result = constructionMistakeHint(card, swap(card, a, b));
+        if (plan.labels[a] === plan.labels[b]) assert.equal(result, '', context);
+        else {
+          assert.ok(result.startsWith('Pusiste '), `${context}: missing specific correction`);
+          assert.ok(result.length <= 230, `${context}: ${result.length} characters: ${result}`);
+          assert.doesNotMatch(result, /undefined|“\s*”/, context);
+        }
+      }
+    }
+  }
+});
+
 function construction(target) {
   const labels = target.match(/[a-z]+(?:'[a-z]+)?/gi);
   const options = labels.map((label, index) => ({ id: String(index), label, image_url: '' }));

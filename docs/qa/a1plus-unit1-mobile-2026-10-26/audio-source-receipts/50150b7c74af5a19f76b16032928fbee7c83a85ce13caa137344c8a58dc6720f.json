@@ -1,0 +1,62 @@
+{
+  "file": "takes/50150b7c74af5a19f76b16032928fbee7c83a85ce13caa137344c8a58dc6720f.mp3",
+  "audio_sha256": "50150b7c74af5a19f76b16032928fbee7c83a85ce13caa137344c8a58dc6720f",
+  "bytes": 29300,
+  "text": "Does Ana study at night?",
+  "compatible_speaker_roles": [
+    "diego"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt"
+  ],
+  "compatible_variants": [
+    "default"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_v4",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_rate_bps": 128000
+    },
+    "processing": [
+      "Original ElevenLabs v4 provider bytes; no post-processing."
+    ],
+    "generated_at": "2026-10-24T16:19:38.078957+00:00",
+    "approved_at": null,
+    "request_id": "flw9IIKguQNJejMgxDyc",
+    "trace_id": "93efaf72c7bdf4b91a5fbbd2cc5534d2",
+    "character_cost": 11,
+    "incremental_character_cost": 11,
+    "provider_requests": [
+      {
+        "model_id": "eleven_v4",
+        "text": "Does Ana study at night?",
+        "character_cost": 11,
+        "incremental_character_cost": 11,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "11",
+        "staged_reuse": false,
+        "request_id": "flw9IIKguQNJejMgxDyc",
+        "trace_id": "93efaf72c7bdf4b91a5fbbd2cc5534d2"
+      }
+    ],
+    "review": {
+      "status": "pending-listening-review",
+      "basis": "Voice settings do not approve an individual recording."
+    }
+  }
+}

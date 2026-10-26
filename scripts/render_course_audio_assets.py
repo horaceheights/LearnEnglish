@@ -53,7 +53,7 @@ from backend.app.course_audio_registry import (  # noqa: E402
     load_approved_take_registry,
     resolve_approved_take,
 )
-from backend.app.data import LESSONS  # noqa: E402
+from backend.app.data import ALL_LESSONS as LESSONS  # noqa: E402
 from backend.app.schemas import CourseAudioAsset, LessonCard  # noqa: E402
 
 

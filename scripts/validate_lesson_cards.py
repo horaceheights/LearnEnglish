@@ -1918,15 +1918,17 @@ def referenced_lesson_asset(media_url: str) -> Path | None:
     return LESSON_ASSET_DIR / asset_name
 
 
-def validate_media_references() -> list[str]:
+def validate_media_references(lessons=None) -> list[str]:
     errors: list[str] = []
-    for lesson in LESSONS.values():
+    for lesson in (LESSONS.values() if lessons is None else lessons):
         for card_index, card in enumerate(lesson.cards, 1):
             references = [("prompt", card.prompt_image_url)]
             references.extend(
                 (f"option {option.id!r}", option.image_url)
                 for option in card.options
             )
+            references.extend(("spoken turn", turn.image_url) for turn in
+                [*card.audio_turns, *card.answer_audio_turns, *card.success_audio_turns])
             for location, media_url in references:
                 if not media_url:
                     continue
@@ -1944,29 +1946,33 @@ def validate_media_references() -> list[str]:
     return errors
 
 
-def validate_duplicate_option_images() -> list[str]:
+def validate_duplicate_option_images(lessons=None) -> list[str]:
     errors: list[str] = []
     hashes: dict[str, str] = {}
-    for lesson in LESSONS.values():
+    for lesson in (LESSONS.values() if lessons is None else lessons):
         for card_index, card in enumerate(lesson.cards, 1):
             seen: dict[str, str] = {}
             seen_bytes: dict[str, str] = {}
             for option in card.options:
                 if not option.image_url:
                     continue
-                previous_id = seen.get(option.image_url)
+                # Distinct typed clocks are visible answer evidence even when
+                # the underlying photograph is deliberately the same.
+                clocks = tuple((clock.hour, clock.minute) for clock in getattr(option, "clock_cues", []))
+                visual_key = (option.image_url, clocks)
+                previous_id = seen.get(visual_key)
                 if previous_id:
                     errors.append(
                         f"{lesson.id} card {card_index} ({card.prompt!r}) has duplicate option image "
                         f"{option.image_url!r} for {previous_id!r} and {option.id!r}."
                     )
-                seen[option.image_url] = option.id
+                seen[visual_key] = option.id
                 name = Path(option.image_url).name
                 source = LESSON_ASSET_DIR / name
                 if source.is_file():
                     if name not in hashes:
                         hashes[name] = sha256_file(source)
-                    digest = hashes[name]
+                    digest = (hashes[name], clocks)
                     if digest in seen_bytes and not previous_id:
                         errors.append(f"{lesson.id} card {card_index} has identical image bytes under different filenames: "
                                       f"{seen_bytes[digest]!r} and {option.image_url!r}.")
@@ -1974,9 +1980,9 @@ def validate_duplicate_option_images() -> list[str]:
     return errors
 
 
-def validate_option_ids() -> list[str]:
+def validate_option_ids(lessons=None) -> list[str]:
     errors: list[str] = []
-    for lesson in LESSONS.values():
+    for lesson in (LESSONS.values() if lessons is None else lessons):
         for card_index, card in enumerate(lesson.cards, 1):
             option_ids = [option.id for option in card.options]
             if len(option_ids) != len(set(option_ids)):
@@ -2026,9 +2032,9 @@ def validate_option_ids() -> list[str]:
     return errors
 
 
-def validate_text_tile_option_limit() -> list[str]:
+def validate_text_tile_option_limit(lessons=None) -> list[str]:
     errors: list[str] = []
-    for lesson in LESSONS.values():
+    for lesson in (LESSONS.values() if lessons is None else lessons):
         for card_index, card in enumerate(lesson.cards, 1):
             if not card.options or any((option.image_url or "").strip() for option in card.options):
                 continue
@@ -2267,9 +2273,9 @@ def validate_recognize_contract(lessons=None) -> list[str]:
             for error in recognize_errors(lesson.model_dump(mode="json"))]
 
 
-def validate_interaction_requirements() -> list[str]:
+def validate_interaction_requirements(lessons=None) -> list[str]:
     errors: list[str] = []
-    for lesson in LESSONS.values():
+    for lesson in (LESSONS.values() if lessons is None else lessons):
         for card_index, card in enumerate(lesson.cards, 1):
             location = f"{lesson.id} card {card_index} ({card.prompt!r})"
             for option in card.options:
@@ -3153,6 +3159,70 @@ def validate_mobile_a1_semantic_parity() -> list[str]:
     return errors
 
 
+def validate_registered_courses(warnings: list[str]) -> list[str]:
+    """Additional courses retain their own curriculum and exact review records."""
+    from app.data import COURSE_DESCRIPTORS, COURSE_LESSONS, ALL_LESSONS
+    import hashlib
+    errors = []
+    all_payloads = []
+    for descriptor in COURSE_DESCRIPTORS:
+        lessons = list(COURSE_LESSONS[descriptor["id"]].values())
+        payloads = [_mobile_export_payload(lesson) for lesson in lessons]
+        all_payloads.extend(payloads)
+        path = ROOT / descriptor["catalogPath"]
+        if not path.is_file() or json.loads(path.read_text(encoding="utf-8")) != payloads:
+            errors.append(f"{descriptor['id']}: mobile export differs from its complete canonical course")
+        # Existing A1 media and curriculum contracts are validated separately.
+        if descriptor["id"] == COURSE_DESCRIPTORS[0]["id"]:
+            continue
+        errors.extend(error for lesson in lessons for error in tutor_contract_errors(lesson))
+        for validate in (validate_option_ids, validate_text_tile_option_limit,
+                         validate_duplicate_option_images, validate_recognize_contract,
+                         validate_interaction_requirements, validate_media_references):
+            errors.extend(validate(lessons))
+        try:
+            contracts = json.loads((ROOT / descriptor["answerChoiceContracts"]).read_text(encoding="utf-8"))
+            errors.extend(validate_answer_choice_forms(lessons, contracts))
+            media = json.loads((ROOT / descriptor["mediaManifest"]).read_text(encoding="utf-8"))
+            records = {item["canonical_url"]: item for item in media["images"]}
+            if media.get("schema_version") != 1 or len(records) != len(media["images"]):
+                errors.append(f"{descriptor['id']}: invalid or duplicated media review records")
+            pending = 0
+            for url, record in records.items():
+                asset_path = referenced_lesson_asset(url)
+                if not asset_path or not asset_path.is_file() or sha256_file(asset_path) != record["sha256"]:
+                    errors.append(f"{descriptor['id']}: changed or missing reviewed image {url}")
+                status = record.get("status")
+                if status not in {"pending-human-review", "human-approved"}:
+                    errors.append(f"{descriptor['id']}: rejected or unrecorded image {url}")
+                pending += status == "pending-human-review"
+            for lesson in lessons:
+                urls = {getattr(getattr(lesson, "mission", None), "kickoff_image_url", "")}
+                for card in lesson.cards:
+                    urls.add(card.prompt_image_url)
+                    urls.update(option.image_url for option in card.options)
+                    urls.update(turn.image_url for turn in [*card.audio_turns, *card.answer_audio_turns, *card.success_audio_turns])
+                    completion = getattr(getattr(card, "mission_game", None), "completion_scene", None)
+                    if completion:
+                        urls.add(completion.image_url)
+                for url in urls - {None, ""}:
+                    if url not in records:
+                        errors.append(f"{lesson.id}: image has no exact semantic-review record: {url}")
+            if pending:
+                warnings.append(f"{descriptor['id']}: {pending} exact images still await human semantic review; agent review is not human approval.")
+            source = json.loads((ROOT / descriptor["deliverySource"]).read_text(encoding="utf-8"))
+            digest = hashlib.sha256(json.dumps(source, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
+            if digest != media["content_sha256"] or digest != contracts["source_content_sha256"]:
+                errors.append(f"{descriptor['id']}: review records do not bind the exact authoring source")
+        except (KeyError, OSError, ValueError) as error:
+            errors.append(f"{descriptor['id']}: missing or invalid content review contract: {error}")
+    errors.extend(validate_mission_contracts(ALL_LESSONS))
+    aggregate = ROOT / "mobile/src/generated/all-courses.json"
+    if not aggregate.is_file() or json.loads(aggregate.read_text(encoding="utf-8")) != all_payloads:
+        errors.append("Combined mobile catalog must contain every complete registered course in order")
+    return errors
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Validate A1 lesson cards and media.")
     parser.add_argument(
@@ -3190,6 +3260,7 @@ def main(argv: list[str] | None = None) -> int:
             warnings,
         ),
         *validate_mobile_a1_semantic_parity(),
+        *validate_registered_courses(warnings),
     ]
     if warnings:
         print("Lesson card validation warnings:")

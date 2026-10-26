@@ -27,6 +27,7 @@ import {
   type CourseAudioVoice,
 } from '../config';
 import type { CourseAudioTurnPlayback } from '../courseAudioSources';
+import type { TeachingClock } from '../types';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -70,6 +71,7 @@ type Props = {
   compactLandscape?: boolean;
   imageLabel?: string;
   imageUrl?: string;
+  clockCues?: TeachingClock[];
   isAppActive: boolean;
   autoplayReady?: boolean;
   isOffline: boolean;
@@ -253,6 +255,7 @@ export function PronunciationPractice({
   compactLandscape = false,
   imageLabel,
   imageUrl,
+  clockCues,
   isAppActive,
   autoplayReady = true,
   isOffline,
@@ -2007,6 +2010,7 @@ export function PronunciationPractice({
       successLabel={missionSuccessLabel}
       stage={missionStage}
       imageUrl={phase === 'model' ? (audioTurns?.[0]?.turn.image_url || imageUrl || '') : imageUrl || ''}
+      clockCues={phase === 'model' ? audioTurns?.[0]?.turn.clock_cues : clockCues}
       answer={phase === 'model' ? null : missionAnswerSegments(
         phrase,
         expectedSyllables,
@@ -2071,6 +2075,7 @@ export function PronunciationPractice({
             <OptionMediaImage
               accessibilityLabel={imageLabel || phrase}
               imageUrl={activeModelTurnImageUrl || imageUrl || ''}
+              clockCues={modelSequenceActive ? audioTurns?.[modelPlaylistStatus.currentIndex]?.turn.clock_cues : clockCues}
             />
             {videoName && !reduceMotion ? (
               <VideoView

@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from backend.app.card_audio_assets import asset_index as canonical_asset_index
-from backend.app.data import LESSONS
+from backend.app.data import ALL_LESSONS as LESSONS
 from backend.app.persistent_audio_assets import asset_index as catalog_asset_index
 from scripts.render_course_audio_assets import selected_assets
 

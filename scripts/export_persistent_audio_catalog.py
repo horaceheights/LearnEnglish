@@ -42,9 +42,11 @@ def git_commit(ref: str) -> str:
 
 
 def build_catalog(source_ref: str) -> dict[str, object]:
-    lessons = json.loads(git_text(source_ref, COURSE_JSON_PATH))
+    manifest = json.loads(git_text(source_ref, RELEASE_MANIFEST_PATH))
+    descriptor = manifest.get("combinedCatalog", manifest["catalog"])
+    lessons = json.loads(git_text(source_ref, descriptor["path"]))
     # The release manifest at the same commit pins the complete course's size.
-    expected = json.loads(git_text(source_ref, RELEASE_MANIFEST_PATH))["catalog"]["lessonCount"]
+    expected = descriptor["lessonCount"]
     if not isinstance(lessons, list) or len(lessons) != expected:
         raise SystemExit(f"Persistent audio must be exported from the complete {expected}-lesson course.")
 

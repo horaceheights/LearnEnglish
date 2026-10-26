@@ -30,7 +30,7 @@ import { practiceAvailable } from '../lessonPractice';
 import { useConnectivity } from '../hooks/useConnectivity';
 import { setDiagnosticContext } from '../diagnostics';
 import { lessonImageSource } from '../lessonImageSources';
-import { getPreviewLessonMetadata, mergePreviewLessonSummaries } from '../previewLessons';
+import { getPreviewLessonMetadata, mergePreviewLessonSummaries, previewCourseCatalogs } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import {
   canUseEasUpdates,
@@ -502,11 +502,18 @@ function unitName(lesson?: LessonSummary): string {
 
 function lessonVisual(lesson?: LessonSummary) {
   if (!lesson) return DEFAULT_VISUAL;
-  return VISUALS[lesson.id] || UNIT_VISUALS[lesson.unit_id || 'unit-1'] || DEFAULT_VISUAL;
+  const established = VISUALS[lesson.id] || UNIT_VISUALS[lesson.unit_id || 'unit-1'];
+  if (established) return established;
+  const content = getPreviewLessonMetadata(lesson.id);
+  const firstImage = content?.cards.flatMap(card => [card.prompt_image_url,
+    ...(card.audio_turns || []).map(turn => turn.image_url), ...card.options.map(option => option.image_url)])
+    .find(image => Boolean(image));
+  return { ...DEFAULT_VISUAL, image: (firstImage || lesson.thumbnail_image_url)?.split('/').pop() || DEFAULT_VISUAL.image,
+    description: content?.goal || lesson.description || lesson.unit_title || '' };
 }
 
 function unitNumber(lesson?: LessonSummary): number {
-  const match = (lesson?.unit_id || lesson?.sub_lesson_id || '1').match(/\d+/);
+  const match = (lesson?.sub_lesson_id || lesson?.unit_id?.split('-').pop() || '1').match(/\d+/);
   return Number(match?.[0] || 1);
 }
 
@@ -518,6 +525,14 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
+  const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
+  const courses = useMemo(() => [...new Map(lessons.map(lesson => {
+    const id = lesson.course_id || lesson.level;
+    return [id, { id, title: previewCourseCatalogs.find(course => course.id === id)?.title || lesson.level }];
+  })).values()], [lessons]);
+  const activeCourseId = selectedCourseId || courses[0]?.id;
+  const courseLessons = useMemo(() => lessons.filter(lesson =>
+    (lesson.course_id || lesson.level) === activeCourseId), [lessons, activeCourseId]);
   const isOffline = useConnectivity();
   const [practiceActive, setPracticeActive] = useState(AppState.currentState === 'active');
   useEffect(() => {
@@ -535,21 +550,21 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
   const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const currentLesson = useMemo(
     () => {
-      const firstLessonToPass = lessons.find((lesson) => !progressByLesson[lesson.id]?.passed);
+      const firstLessonToPass = courseLessons.find((lesson) => !progressByLesson[lesson.id]?.passed);
       if (firstLessonToPass) return firstLessonToPass;
-      return lessons.find((lesson) => lesson.id === recentLessonId) || lessons[lessons.length - 1];
+      return courseLessons.find((lesson) => lesson.id === recentLessonId) || courseLessons[courseLessons.length - 1];
     },
-    [lessons, progressByLesson, recentLessonId],
+    [courseLessons, progressByLesson, recentLessonId],
   );
   const currentVisual = lessonVisual(currentLesson);
   const unitGroups = useMemo(() => {
     const grouped = new Map<string, LessonSummary[]>();
-    for (const lesson of lessons) {
+    for (const lesson of courseLessons) {
       const id = lesson.unit_id || `unit-${unitNumber(lesson)}`;
       grouped.set(id, [...(grouped.get(id) || []), lesson]);
     }
     return [...grouped.entries()].map(([id, unitLessons]) => ({ id, lessons: unitLessons }));
-  }, [lessons]);
+  }, [courseLessons]);
   const selectedUnit = unitGroups.find((unit) => unit.id === selectedUnitId) || null;
 
   const load = async () => {
@@ -693,10 +708,10 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
 
   const renderLessonRow = (lesson: LessonSummary) => {
     const visual = lessonVisual(lesson);
-    const globalIndex = lessons.findIndex((candidate) => candidate.id === lesson.id);
+    const globalIndex = courseLessons.findIndex((candidate) => candidate.id === lesson.id);
     const isCurrent = lesson.id === currentLesson?.id;
     const progress = progressByLesson[lesson.id];
-    const isLocked = globalIndex > 0 && !progressByLesson[lessons[globalIndex - 1].id]?.passed;
+    const isLocked = globalIndex > 0 && !progressByLesson[courseLessons[globalIndex - 1].id]?.passed;
     const status = isLocked ? 'Bloqueada' : progress?.passed ? 'Completada' : progress ? 'Repetir' : 'Disponible';
     const scoreLabel = progress
       ? `Puntaje ${progress.score}/${progress.total_cards} (${progress.percentage}%)`
@@ -960,7 +975,15 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
           </Pressable>
         ) : null}
 
-        {lessons.length ? (
+        {courses.length > 1 ? <View accessibilityRole="tablist" style={styles.courseChoices}>
+          {courses.map(course => <Pressable key={course.id} accessibilityRole="tab"
+            accessibilityState={{ selected: course.id === activeCourseId }}
+            onPress={() => { setSelectedCourseId(course.id); setSelectedUnitId(null); }}
+            style={[styles.courseChoice, course.id === activeCourseId && styles.courseChoiceSelected]}>
+            <Text style={styles.allUnitsButtonText}>{course.title}</Text>
+          </Pressable>)}
+        </View> : null}
+        {courseLessons.length ? (
           selectedUnit ? (
             <View style={styles.courseSection}>
               <Pressable accessibilityRole="button" onPress={() => setSelectedUnitId(null)} style={styles.allUnitsButton}>
@@ -990,7 +1013,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
             <View style={styles.unitsSection}>
               <View style={styles.unitsHeading}>
                 <View>
-                  <Text style={styles.unitsEyebrow}>CURSO A1 COMPLETO</Text>
+                  <Text style={styles.unitsEyebrow}>CURSO {courses.find(course => course.id === activeCourseId)?.title}</Text>
                   <Text style={styles.unitsTitle}>Elige una unidad</Text>
                 </View>
                 <Text style={styles.unitsCount}>{unitGroups.length} unidades</Text>
@@ -998,7 +1021,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               <View style={[styles.unitCards, useTwoColumns ? styles.unitCardsWide : null]}>
                 {unitGroups.map((unit) => {
                   const firstLesson = unit.lessons[0];
-                  const visual = UNIT_VISUALS[unit.id] || DEFAULT_VISUAL;
+                  const visual = UNIT_VISUALS[unit.id] || lessonVisual(firstLesson);
                   const completed = unit.lessons.filter((lesson) => progressByLesson[lesson.id]?.passed).length;
                   const isCurrentUnit = unit.id === currentLesson?.unit_id;
                   return (
@@ -1034,6 +1057,9 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
 }
 
 const styles = StyleSheet.create({
+  courseChoices: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  courseChoice: { borderWidth: 1, borderColor: '#d9dfda', borderRadius: 16, paddingHorizontal: 18, paddingVertical: 12 },
+  courseChoiceSelected: { backgroundColor: '#d9eee8', borderColor: '#16766f' },
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { alignSelf: 'center', gap: 12, maxWidth: 1080, padding: 14, paddingBottom: 28, width: '100%' },
   previewBanner: {

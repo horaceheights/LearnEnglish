@@ -12,6 +12,8 @@ Cloudflare R2 bucket `spanglish-media`, delivered through `https://cdn.learnspan
 
 The publisher reads existing operator credentials (`R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`) from the process or the explicit env file. Credentials never enter clients, receipts, inventories or Git. A new worktree can use the primary checkout's ignored env file without copying secrets. Publication is dry-run unless `--apply` is supplied.
 
+For additive course releases that must preserve existing media, add `--create-only` to `sync_media_to_r2.py`. A differing existing object fails instead of being replaced; new writes use an atomic create precondition so a competing upload cannot be overwritten. This option cannot be combined with `--force`. The immutable course-audio publisher already enforces the same create-only behavior.
+
 ## Keys and validation
 
 The URL trees are `lesson-assets/`, `audio-cache/`, `sfx/`, and `course-audio/elevenlabs-v2/<immutable-asset-id>.mp3`. Each MP3 has its original `.json` receipt beside it. Audio keys are immutable. The committed inventory pins each MP3 and receipt's SHA-256, byte count and single-part S3 ETag. Operator upload validates full MP3/receipt bytes; startup verifies remote receipts and audio ETags/sizes against that pinned inventory; protected release CI independently downloads and validates the complete active inventory.

@@ -1,7 +1,11 @@
+export type TeachingClock = { hour: number; minute: number; label?: string };
+export type CourseDelivery = 'quick' | 'clear' | 'a1-pronunciation-v1';
+
 export type ChoiceOption = {
   id: string;
   image_url: string;
   label: string | null;
+  clock_cues?: TeachingClock[];
 };
 
 export type CourseAudioAsset = {
@@ -15,14 +19,16 @@ export type CourseAudioAsset = {
   speaker_role: string;
   profile_id: string;
   revision: number;
-  delivery?: 'quick' | 'clear';
+  delivery?: CourseDelivery;
 };
 
 export type CourseAudioTurn = {
   text: string;
   speaker_role: string;
   image_url: string;
-  delivery?: 'quick' | 'clear';
+  delivery?: CourseDelivery;
+  clock_cues?: TeachingClock[];
+  spanish_translation?: string;
 };
 
 export type MissionGameKind =
@@ -88,6 +94,9 @@ export type LessonCard = {
   answer_audio_revision?: number;
   audio_turns?: CourseAudioTurn[];
   answer_audio_turns?: CourseAudioTurn[];
+  success_audio_turns?: CourseAudioTurn[];
+  answer_audio_policy?: 'authored-only';
+  clock_cues?: TeachingClock[];
   reply_image_timing?: 'after-prompt' | null;
   audio_assets: CourseAudioAsset[];
   mission_chapter_id?: string;
@@ -145,7 +154,11 @@ export type MissionLesson = Lesson & {
   cards: Array<LessonCard & { mission_chapter_id: string }>;
 };
 
-export type LessonSummary = Omit<Lesson, 'goal' | 'vocabulary' | 'cards'>;
+export type LessonSummary = Omit<Lesson, 'goal' | 'vocabulary' | 'cards'> & {
+  course_id?: string;
+  thumbnail_image_url?: string;
+  description?: string;
+};
 
 export type LessonProgress = {
   lesson_id: string;

@@ -36,6 +36,70 @@ const card = { slide_id: 'shared-decision-example', stage: 'Listen', activity_ty
   correct_option_id: 'frequency', options, mission_game: { kind: 'conversation-decision', validation: 'single', targets: [], cues: [] } };
 const flush = async () => { await Promise.resolve(); await Promise.resolve(); };
 
+test('web construction waits for the exact model and reply, rejecting fallback completion and errors', async () => {
+  const calls = [], states = [], delays = [];
+  const model = [{ asset: { id: 'model' }, turn: { text: "Let's meet at seven.", image_url: 'luis.webp' } }];
+  const reply = [{ asset: { id: 'reply' }, turn: { text: 'OK.', image_url: 'ana.webp' } }];
+  const ref = { current: null };
+  const play = productionCallback('frontend/components/LessonPlayer.js', 'playConstructionResponse', {
+    currentCard: {}, cardAudioTurnSequence: (_card, purpose) => purpose === 'answer' ? model : reply,
+    constructionPlaybackRef: ref, tutor: { visibleRef: { current: false } },
+    courseTurnRunRef: { current: 0 }, playDecisionTurns,
+    setActiveTurnImageUrl() {}, setPlayingVisualTurn() {},
+    setConstructionReplyState: state => states.push(state), setAutoAdvanceDelayMs: delay => delays.push(delay),
+    speakText: (text, options) => calls.push({ text, options }),
+  });
+  play();
+  calls[0].options.onEnd(); await flush();
+  assert.equal(calls.length, 1);
+  assert.deepEqual(delays, []);
+  calls[0].options.onAudioCompleted(); await flush();
+  assert.equal(calls[1].text, 'OK.');
+  assert.deepEqual(delays, []);
+  calls[1].options.onPlaybackError(); await flush();
+  assert.equal(states.at(-1), 'error');
+  assert.deepEqual(delays, []);
+  play(); calls[2].options.onAudioCompleted(); calls[3].options.onAudioCompleted(); await flush();
+  assert.equal(states.at(-1), 'complete');
+  assert.deepEqual(delays, [450]);
+});
+
+test('native construction requires both bound sequences and every completed track', async () => {
+  const states = [], failures = [], started = [];
+  const gateRef = { current: null }, run = { current: 0 };
+  const model = [{ asset: { id: 'model' }, turn: { text: 'I work.' } }];
+  const reply = [{ asset: { id: 'reply' }, turn: { text: 'OK.' } }];
+  let missing = false, timeout;
+  const play = productionCallback('mobile/src/screens/LessonScreen.tsx', 'playConstructionAnswer', {
+    findCourseAudioTurnSequence: (_card, purpose) => purpose === 'answer' ? model : missing ? null : reply,
+    constructionReplyRun: run, constructionReplyGate: gateRef, createDecisionPlaybackGate,
+    setConstructionReplyError: value => failures.push(value), setConstructionReplyReady: value => states.push(value),
+    grammarAnswerAwaitingRef: { current: false }, grammarAnswerWasPlayingRef: { current: false },
+    grammarAudioTimerRef: { current: null }, COURSE_AUDIO_FALLBACK_MS: 12000,
+    setTimeout: callback => { timeout = callback; return 1; }, clearTimeout() {}, addDiagnosticBreadcrumb() {},
+    playAudio() { throw new Error('Authored dialogue must not fall back to scalar audio'); },
+    playAudioSequence: (sequence, _mode, _variant, observer) => { started.push(sequence); observer.onStarted(); },
+  });
+  play({ success_audio_turns: [{}] }, 'I work.');
+  assert.deepEqual(started[0], [...model, ...reply]);
+  const gate = gateRef.current;
+  gate.observe({ playing: true, didJustFinish: true, currentIndex: 0, trackCount: 2 });
+  await flush(); assert.equal(states.at(-1), false);
+  gate.observe({ playing: true, didJustFinish: false, currentIndex: 1, trackCount: 2 });
+  gate.observe({ playing: false, didJustFinish: true, currentIndex: 1, trackCount: 2 });
+  await flush(); assert.equal(states.at(-1), true);
+  missing = true; play({ success_audio_turns: [{}] }, 'I work.'); await flush();
+  assert.equal(started.length, 1); assert.equal(failures.at(-1), true); assert.equal(states.at(-1), false);
+  missing = false; play({ success_audio_turns: [{}] }, 'I work.');
+  const delayedGate = gateRef.current;
+  timeout();
+  delayedGate.observe({ playing: true, didJustFinish: false, currentIndex: 0, trackCount: 2 });
+  delayedGate.observe({ playing: true, didJustFinish: false, currentIndex: 1, trackCount: 2 });
+  delayedGate.observe({ playing: false, didJustFinish: true, currentIndex: 1, trackCount: 2 });
+  await flush();
+  assert.equal(failures.at(-1), true); assert.equal(states.at(-1), false, 'Late completion cannot clear a timeout');
+});
+
 function productionCallback(file, name, context) {
   const source = fs.readFileSync(path.join(root, file), 'utf8');
   const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, file.endsWith('.tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.JSX);
@@ -76,7 +140,7 @@ test('web production decision route ignores legacy completion and consumes the f
   const play = productionCallback('frontend/components/LessonPlayer.js', 'playDecisionSequence', {
     currentCard: card, cardAudioTurnSequence: (_card, purpose) => purpose === 'prompt' ? prompt : answer,
     decisionPlaybackRef, decisionPausedRef, courseTurnRunRef: { current: 0 }, playDecisionTurns,
-    setActiveTurnImageUrl() {}, speakText: (text, options) => calls.push({ text, options }), stopSpeech() {},
+    setActiveTurnImageUrl() {}, setPlayingVisualTurn() {}, speakText: (text, options) => calls.push({ text, options }), stopSpeech() {},
     window: { setTimeout: fn => { timers.push(fn); return 0; } }, clearTimeout() {},
   });
   let unlocked = false; const playback = play('prompt').then(result => { unlocked = result; });

@@ -1,0 +1,62 @@
+{
+  "file": "takes/59baa8a56a75c0f54529a72df26f8988ed5d919856cde966152c93e453ba8cd1.mp3",
+  "audio_sha256": "59baa8a56a75c0f54529a72df26f8988ed5d919856cde966152c93e453ba8cd1",
+  "bytes": 23030,
+  "text": "I put on my shoes.",
+  "compatible_speaker_roles": [
+    "luis"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt"
+  ],
+  "compatible_variants": [
+    "default"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_v4",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_rate_bps": 128000
+    },
+    "processing": [
+      "Original ElevenLabs v4 provider bytes; no post-processing."
+    ],
+    "generated_at": "2026-10-24T16:20:06.964651+00:00",
+    "approved_at": null,
+    "request_id": "lF2CMNfdEKpUsFWosNyO",
+    "trace_id": "228f4deeaa0ca0fa24cbd7be0f6274b0",
+    "character_cost": 8,
+    "incremental_character_cost": 8,
+    "provider_requests": [
+      {
+        "model_id": "eleven_v4",
+        "text": "I put on my shoes.",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "8",
+        "staged_reuse": false,
+        "request_id": "lF2CMNfdEKpUsFWosNyO",
+        "trace_id": "228f4deeaa0ca0fa24cbd7be0f6274b0"
+      }
+    ],
+    "review": {
+      "status": "pending-listening-review",
+      "basis": "Voice settings do not approve an individual recording."
+    }
+  }
+}

@@ -82,6 +82,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Mission scene regressions failed.' }
   & node --test tests/mission-conversation-decision.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Conversation decision playback, retries and cross-client lifecycle failed.' }
+  & node --test tests/teaching-clock.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Authored clock evidence and listening boundaries failed.' }
   & node --test tests/mission-photo-edits.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Mission photo edit and reviewed marker bindings failed.' }
   & node tests/mission-phone-landscape.test.cjs

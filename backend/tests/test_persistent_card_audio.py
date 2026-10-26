@@ -297,7 +297,7 @@ class PersistentCardAudioTests(unittest.TestCase):
         arguments = SimpleNamespace(
             all_named_speakers=False,
             all_missing_after_reviewed_seed=False,
-            lesson_id=None,
+            lesson_id=list(LESSONS),
             asset_id=None,
             speaker_role=["luis", "diego", "male-character"],
         )

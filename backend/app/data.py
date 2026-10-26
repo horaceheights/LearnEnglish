@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 from typing import Any
 import yaml
 
@@ -46,7 +47,7 @@ def load_lesson_from_file(file_path: Path) -> Lesson:
         for card_data in data["cards"]:
             if "prompt_image_url" in card_data and card_data["prompt_image_url"]:
                 card_data["prompt_image_url"] = image_url(card_data["prompt_image_url"])
-            for turn_field in ("audio_turns", "answer_audio_turns"):
+            for turn_field in ("audio_turns", "answer_audio_turns", "success_audio_turns"):
                 turns = card_data.get(turn_field)
                 if not isinstance(turns, list):
                     continue
@@ -91,6 +92,8 @@ def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:
         except (AttributeError, ValueError):
             return (999,)
 
+    if len({lesson.id for lesson in loaded_lessons}) != len(loaded_lessons):
+        raise ValueError(f"Duplicate lesson identity in {lessons_dir}")
     return {
         lesson.id: lesson
         for lesson in sorted(loaded_lessons, key=lesson_order)
@@ -98,3 +101,41 @@ def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:
 
 
 LESSONS = load_all_lessons()
+
+
+def load_course_catalogs(root: Path = ROOT_DIR) -> tuple[list[dict], dict[str, dict[str, Lesson]]]:
+    """Only explicitly registered courses enter the application catalog."""
+    descriptors = json.loads((root / "backend/courses.json").read_text(encoding="utf-8"))
+    courses, lesson_ids, unit_owners = {}, set(), {}
+    for descriptor in descriptors:
+        course_id = descriptor["id"]
+        if not course_id or course_id in courses:
+            raise ValueError("Duplicate or empty course identity")
+        source = (root / descriptor["lessonRoot"]).resolve()
+        if not source.is_relative_to((root / "backend/lessons").resolve()):
+            raise ValueError("Course source must stay inside backend/lessons")
+        lessons = LESSONS if source == LESSONS_DIR.resolve() else load_all_lessons(source)
+        if not lessons:
+            raise ValueError(f"Registered course has no lessons: {course_id}")
+        for lesson in lessons.values():
+            if lesson.id in lesson_ids or lesson.level != descriptor["level"]:
+                raise ValueError(f"Duplicate lesson or mismatched course level: {lesson.id}")
+            if unit_owners.setdefault(lesson.unit_id, course_id) != course_id:
+                raise ValueError(f"Unit identity belongs to two courses: {lesson.unit_id}")
+            lesson_ids.add(lesson.id)
+        courses[course_id] = lessons
+    return descriptors, courses
+
+
+COURSE_DESCRIPTORS, COURSE_LESSONS = load_course_catalogs()
+ALL_LESSONS = {key: lesson for lessons in COURSE_LESSONS.values() for key, lesson in lessons.items()}
+LESSON_COURSES = {key: course_id for course_id, lessons in COURSE_LESSONS.items() for key in lessons}
+
+
+def lesson_thumbnail_url(lesson: Lesson) -> str:
+    for card in lesson.cards:
+        for url in [card.prompt_image_url, *(turn.image_url for turn in card.audio_turns),
+                    *(option.image_url for option in card.options)]:
+            if url:
+                return url
+    return ""

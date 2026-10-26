@@ -8,8 +8,9 @@ import { constructionVocabulary, NEW_VOCABULARY_COLOR } from "../../mobile/src/l
 import { useManualSentenceTranslation } from "../../mobile/src/hooks/useManualSentenceTranslation";
 import styles from "./SentenceConstruction.module.css";
 import ConstructionCelebration from "./ConstructionCelebration";
+import TeachingClocks from './TeachingClocks';
 
-export default function SentenceConstruction({ card, vocabulary = [], selected, result, onChange, onReplay, onRetry, onTutor, imageSrc, location, showHelp, helpOpen, surfaceRef }) {
+export default function SentenceConstruction({ card, vocabulary = [], selected, result, onChange, onReplay, onRetry, onTutor, imageSrc, location, showHelp, helpOpen, surfaceRef, clockCues, playbackError }) {
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
@@ -142,7 +143,8 @@ export default function SentenceConstruction({ card, vocabulary = [], selected, 
       </button>
     </div>
     <div className={`${styles.card} ${result === "correct" ? styles.successCard : ""}`}>
-      <div className={styles.imageFrame}><img src={imageSrc} alt="Imagen de la frase" /></div>
+      <div className={styles.imageFrame} style={{ position: 'relative' }}><img src={imageSrc} alt="Imagen de la frase" /><TeachingClocks cues={clockCues} /></div>
+      {playbackError ? <p role="alert">No se pudo escuchar la respuesta completa. Toca la bocina para repetir.</p> : null}
       {result === "correct" ? <ConstructionCelebration /> : <>
       {result !== "wrong" ? <p className={styles.instruction}>{showHelp ? lessonHelpText(card, "translation-on-tap") : "Toca o arrastra. Devuelve aquí las palabras para corregir."}</p> : null}
       <span id="word-correction-help" className={styles.srOnly}>{result === "wrong" ? COMPLETION_RETRY_HELP : "Toca para devolver. Con el teclado, usa las flechas para mover y Suprimir para devolver."}</span>

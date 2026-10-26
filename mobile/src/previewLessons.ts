@@ -1,11 +1,14 @@
 import * as Updates from 'expo-updates';
 
-import a1Course from './generated/a1-course.json';
+import bundledCourses from './generated/all-courses.json';
+import courseCatalogs from './generated/course-catalogs.json';
 import type { ChoiceOption, Lesson, LessonSummary } from './types';
 
 const PREVIEW_LESSONS: Record<string, Lesson> = Object.fromEntries(
-  (a1Course as Lesson[]).map((lesson) => [lesson.id, lesson]),
+  (bundledCourses as Lesson[]).map((lesson) => [lesson.id, lesson]),
 );
+export const previewCourseCatalogs = courseCatalogs;
+const lessonCourses = new Map(courseCatalogs.flatMap(course => course.lessonIds.map(id => [id, course.id] as const)));
 
 function shuffledOptions(options: ChoiceOption[]): ChoiceOption[] {
   const shuffled = options.map((option) => ({ ...option }));
@@ -48,14 +51,9 @@ export function mergePreviewLessonSummaries(backendLessons: LessonSummary[]): Le
   const summaries: LessonSummary[] = [];
   for (const lesson of Object.values(PREVIEW_LESSONS)) {
     const { cards: _cards, goal: _goal, vocabulary: _vocabulary, ...summary } = lesson;
-    summaries.push(summary);
+    summaries.push({ ...summary, course_id: lessonCourses.get(lesson.id) });
   }
 
-  return summaries
-    .sort((left, right) => {
-      const leftParts = (left.sub_lesson_id || '').split('.').map(Number);
-      const rightParts = (right.sub_lesson_id || '').split('.').map(Number);
-      return (leftParts[0] || 999) - (rightParts[0] || 999)
-        || (leftParts[1] || 999) - (rightParts[1] || 999);
-    });
+  // The exporter preserves configured course order and numeric lesson order.
+  return summaries;
 }

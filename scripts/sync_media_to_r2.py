@@ -120,7 +120,10 @@ def main() -> int:
     parser.add_argument("--env-file", type=Path, default=ENV_PATH)
     parser.add_argument("--workers", type=int, default=16)
     parser.add_argument("--force", action="store_true", help="re-upload even when the digest matches")
+    parser.add_argument("--create-only", action="store_true", help="Add new objects without replacing any existing bytes")
     args = parser.parse_args()
+    if args.force and args.create_only:
+        parser.error('--force cannot be combined with --create-only')
     if not 1 <= args.workers <= 64:
         parser.error('--workers must be between 1 and 64')
 
@@ -163,6 +166,9 @@ def main() -> int:
                 head = client.head_object(Bucket=bucket, Key=key)
                 if head.get("Metadata", {}).get("sha256") == digest:
                     return key, entry, "present", size
+                if args.create_only:
+                    print(f"  FAILED {key}: existing object differs; create-only publication cannot replace it")
+                    return key, entry, "failed", size
             except ClientError as error:
                 if error.response["Error"]["Code"] not in ("404", "NoSuchKey", "NotFound"):
                     raise
@@ -178,6 +184,7 @@ def main() -> int:
                 ContentType=content_type_for(path),
                 CacheControl=CACHE_CONTROL,
                 Metadata={"sha256": digest},
+                **({"IfNoneMatch": "*"} if args.create_only else {}),
             )
             return key, entry, "uploaded", size
         except ClientError as error:

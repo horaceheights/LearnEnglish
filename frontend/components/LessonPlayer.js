@@ -60,6 +60,8 @@ import SentenceConstruction from "./SentenceConstruction";
 import { vocabularyParts, NEW_VOCABULARY_COLOR } from "../../mobile/src/lessonVocabulary";
 import { isWordConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
 import { mediaUrl } from "../lib/mediaUrl";
+import TeachingClocks from './TeachingClocks';
+import { cardClockCues, visibleClockCues } from '../../mobile/src/teachingClock';
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260920-action-continuity-v3";
@@ -497,24 +499,29 @@ function menuImageSrc(name) {
   return lessonImageSrc(`/lesson-assets/${name}`);
 }
 
-function getUnitVisual(unitId) {
-  return COURSE_MENU_VISUALS.units[unitId] || COURSE_MENU_VISUALS.units["unit-1"];
+function getUnitVisual(unitId, summary) {
+  if (COURSE_MENU_VISUALS.units[unitId]) return COURSE_MENU_VISUALS.units[unitId];
+  if (summary?.thumbnail_image_url) return {
+    title: summary.unit_title, description: summary.description || summary.sub_lesson_title,
+    images: [summary.thumbnail_image_url.split('/').pop()], accent: '#d9eee8',
+  };
+  return COURSE_MENU_VISUALS.units["unit-1"];
 }
 
-function getLessonVisual(lessonId, unitId) {
+function getLessonVisual(lessonId, unitId, summary) {
   const explicitVisual = COURSE_MENU_VISUALS.lessons[lessonId];
   if (explicitVisual) return explicitVisual;
-  const unitVisual = getUnitVisual(unitId);
+  const unitVisual = getUnitVisual(unitId, summary);
   return {
     description: unitVisual.description,
     images: unitVisual.images.slice(0, 2),
   };
 }
 
-function getSubLessonVisual(lessonId, unitId) {
+function getSubLessonVisual(lessonId, unitId, summary) {
   const explicitVisual = COURSE_MENU_VISUALS.subLessons[lessonId];
   if (explicitVisual) return explicitVisual;
-  const unitVisual = getUnitVisual(unitId);
+  const unitVisual = getUnitVisual(unitId, summary);
   return {
     description: "Practica esta parte de la ruta con imagenes, escucha y produccion oral.",
     image: unitVisual.images[0],
@@ -1997,7 +2004,7 @@ function cardAudioAsset(card, { purpose, text, mode, variant } = {}) {
 }
 
 function cardAudioTurnSequence(card, purpose = "prompt") {
-  const turns = purpose === "answer" ? card?.answer_audio_turns : card?.audio_turns;
+  const turns = purpose === "success" ? card?.success_audio_turns : purpose === "answer" ? card?.answer_audio_turns : card?.audio_turns;
   if (!turns?.length) return null;
 
   const claimedAssetIds = new Set();
@@ -2008,7 +2015,7 @@ function cardAudioTurnSequence(card, purpose = "prompt") {
       asset.purpose === turnPurpose &&
       asset.text === turn.text &&
       asset.speaker_role === turn.speaker_role &&
-      asset.image_ref === turn.image_url
+      asset.image_ref === turn.image_url && asset.delivery === turn.delivery
     );
     if (matches.length !== 1 || claimedAssetIds.has(matches[0].id)) return null;
     claimedAssetIds.add(matches[0].id);
@@ -2285,6 +2292,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const [loadingLessonId, setLoadingLessonId] = useState(null);
   const [lessonLoadError, setLessonLoadError] = useState("");
   const [selectedUnitId, setSelectedUnitId] = useState(null);
+  const [selectedCourseId, setSelectedCourseId] = useState(null);
+  const availableCourses = [...new Map(lessons.map(item => [item.course_id || item.level,
+    {id: item.course_id || item.level, title: item.level}])).values()];
+  const activeCourseId = selectedCourseId || availableCourses[0]?.id;
   const [pronunciationStatus, setPronunciationStatus] = useState("Getting ready...");
   const [isPronunciationRecording, setIsPronunciationRecording] = useState(false);
   const [isPronunciationScoring, setIsPronunciationScoring] = useState(false);
@@ -2372,6 +2383,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }, [teachingCardKey]);
   const missionOrder = useMemo(() => missionCueOrder(currentCard?.mission_game), [currentCard]);
   const [playingTurnImageUrl, setActiveTurnImageUrl] = useState(null);
+  const [playingVisualTurn, setPlayingVisualTurn] = useState(null);
+  const [constructionReplyState, setConstructionReplyState] = useState("idle");
+  const constructionPlaybackRef = useRef(null);
+  const visualClockCues = currentCard ? visibleClockCues(currentCard, cardClockCues(currentCard, playingVisualTurn), lastResult === 'correct') : [];
   const [replyImageAttempt, setReplyImageAttempt] = useState(0);
   const [loadedPromptImageKey, setLoadedPromptImageKey] = useState(null);
   // A speaker's picture never covers an answer-choice card's options (shared with mobile).
@@ -2470,6 +2485,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       }
       const { asset, turn } = sequence[index];
       setActiveTurnImageUrl(turn.image_url);
+      setPlayingVisualTurn(turn);
       speakText(turn.text, {
         ...options,
         audioAssetId: asset.id,
@@ -2483,6 +2499,41 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       0
     );
   }, [speakText]);
+
+  const playConstructionResponse = useCallback(() => {
+    constructionPlaybackRef.current?.cancel();
+    constructionPlaybackRef.current = null;
+    const model = cardAudioTurnSequence(currentCard, "answer");
+    const reply = cardAudioTurnSequence(currentCard, "success");
+    if (!model || !reply || tutor.visibleRef.current) {
+      setConstructionReplyState("error");
+      return;
+    }
+    setConstructionReplyState("playing");
+    courseTurnRunRef.current++;
+    const playback = playDecisionTurns([...model, ...reply], ({ asset, turn }, completed, failed) => {
+      setActiveTurnImageUrl(turn.image_url);
+      setPlayingVisualTurn(turn);
+      speakText(turn.text, { audioAssetId: asset.id, wordByWord: false, voiceMode: "answer",
+        onAudioCompleted: completed, onPlaybackError: failed, onEnd: () => {} });
+    });
+    constructionPlaybackRef.current = playback;
+    playback.promise.then(played => {
+      if (constructionPlaybackRef.current !== playback) return;
+      constructionPlaybackRef.current = null;
+      setConstructionReplyState(played ? "complete" : "error");
+      if (played) setAutoAdvanceDelayMs(450);
+    });
+  }, [currentCard, speakText]);
+
+  useEffect(() => {
+    setConstructionReplyState("idle");
+    return () => {
+      const playback = constructionPlaybackRef.current;
+      constructionPlaybackRef.current = null;
+      playback?.cancel();
+    };
+  }, [currentCard?.slide_id, showHelp, tutor.visible]);
 
   const playMissionIntroNarration = useCallback(() => {
     if (!isMissionGameExperience || !activeLesson.mission?.briefing || !activeLesson.cards[0]) {
@@ -2547,6 +2598,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         playback = playDecisionTurns(sequence, ({ asset, turn }, completed, failed) => {
           if (decisionPlaybackRef.current !== owner || decisionPausedRef.current) { failed(); return; }
           setActiveTurnImageUrl(turn.image_url);
+          setPlayingVisualTurn(turn);
           speakText(turn.text, {
             audioAssetId: asset.id, wordByWord: false, voiceMode: purpose,
             onAudioCompleted: completed, onPlaybackError: failed,
@@ -2697,6 +2749,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     const unitMap = new Map();
 
     lessons.forEach((lessonSummary) => {
+      if ((lessonSummary.course_id || lessonSummary.level) !== activeCourseId) return;
       const unitKey = lessonSummary.unit_id || "unit-1";
       const lessonKey = lessonSummary.lesson_id || "lesson-1";
 
@@ -2704,6 +2757,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         const unit = {
           id: unitKey,
           title: lessonSummary.unit_title || "Unit 1",
+          summary: lessonSummary,
           lessons: [],
           lessonMap: new Map(),
         };
@@ -2729,7 +2783,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       ...unit,
       lessonMap: undefined,
     }));
-  }, [lessons]);
+  }, [lessons, activeCourseId]);
   const shellStyle = {
     maxWidth: "1180px",
     margin: "0 auto",
@@ -3668,7 +3722,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
 
   useEffect(() => {
-    if (!started || showHelp || tutor.visible || lastResult !== "correct" || isMissionDecision) {
+    if (!started || showHelp || tutor.visible || lastResult !== "correct" || isMissionDecision
+        || (currentCard?.success_audio_turns?.length && constructionReplyState !== "complete")) {
       return undefined;
     }
 
@@ -3693,7 +3748,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     }, autoAdvanceDelayMs);
 
     return () => window.clearTimeout(timeoutId);
-  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, tutor.visible, started, startPageTurn, totalCards, reviewQueue, isMissionDecision]);
+  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, tutor.visible, started, startPageTurn, totalCards, reviewQueue, isMissionDecision, currentCard?.success_audio_turns, constructionReplyState]);
 
   useEffect(() => {
     resetPronunciationPractice();
@@ -3701,6 +3756,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     courseTurnRunRef.current += 1;
     stopSpeech();
     setActiveTurnImageUrl(null);
+    setPlayingVisualTurn(null);
     setMissionInstructionReady(false);
     setMissionSpeechReady(false);
     missionInstructionPlaybackKeyRef.current = "";
@@ -4817,6 +4873,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
         }
       );
       if (isMissionDecision) return;
+      if (currentCard.success_audio_turns?.length) {
+        playConstructionResponse();
+        return;
+      }
       if (currentCard.answer_audio_text) {
         window.setTimeout(() => {
           if (tutor.visibleRef.current) return;
@@ -4824,7 +4884,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
           let answerSpeechMs = 0;
           if (currentCard.answer_audio_turns?.length) {
             if (answerTurns) {
-              answerSpeechMs = playCourseTurnSequence(answerTurns, {
+              const successTurns = cardAudioTurnSequence(currentCard, "success") || [];
+              answerSpeechMs = playCourseTurnSequence([...answerTurns, ...successTurns], {
                 voiceMode: "answer",
                 rate: 0.74,
                 volume: 1,
@@ -5265,6 +5326,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
 
             {lessonLoadError ? <div style={{ color: "var(--red)", fontWeight: 700 }}>{lessonLoadError}</div> : null}
 
+            {availableCourses.length > 1 ? <div role="tablist" aria-label="Cursos" style={{display: 'flex', gap: '12px'}}>
+              {availableCourses.map(course => <button key={course.id} type="button" role="tab"
+                aria-selected={course.id === activeCourseId}
+                onClick={() => { setSelectedCourseId(course.id); setSelectedUnitId(null); }}
+                style={{padding: '10px 16px', borderRadius: '16px', border: '1px solid var(--line)',
+                  background: course.id === activeCourseId ? '#d9eee8' : 'var(--surface)'}}>{course.title}</button>)}
+            </div> : null}
             {selectedUnitId ? (
               <button
                 type="button"
@@ -5285,7 +5353,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
             ) : null}
 
             {curriculumUnits.filter((unit) => !selectedUnitId || unit.id === selectedUnitId).map((unit) => {
-              const unitVisual = getUnitVisual(unit.id);
+              const unitVisual = getUnitVisual(unit.id, unit.summary);
 
               return (
                 <section key={unit.id} style={{ display: "grid", gap: "16px" }}>
@@ -5359,7 +5427,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                       scope={profile.userId + ":" + unit.id} disabled={!accountProfile} /> : null}
 
                   {selectedUnitId === unit.id ? unit.lessons.map((lessonGroup) => {
-                    const lessonVisual = getLessonVisual(lessonGroup.id, unit.id);
+                    const lessonVisual = getLessonVisual(lessonGroup.id, unit.id, lessonGroup.subLessons[0]);
 
                     return (
                       <section key={lessonGroup.id} style={{ display: "grid", gap: "12px" }}>
@@ -5411,7 +5479,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                           }}
                         >
                           {lessonGroup.subLessons.map((lessonSummary) => {
-                            const subLessonVisual = getSubLessonVisual(lessonSummary.id, unit.id);
+                            const subLessonVisual = getSubLessonVisual(lessonSummary.id, unit.id, lessonSummary);
                             const subLessonTitle = `${lessonSummary.sub_lesson_id || lessonSummary.title} ${lessonSummary.sub_lesson_title || ""}`;
 
                             return (
@@ -5632,6 +5700,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
             : currentCard.prompt_image_url ? lessonOptionImageSrc(currentCard.prompt_image_url) : ""}
           interactionReady={missionInstructionReady}
           cueUnavailable={missionDecisionAudioUnavailable}
+          clockCues={visualClockCues}
           onDecisionResponse={() => playDecisionSequence("answer")}
           onDecisionAdvance={advanceMissionDecision}
           onDecisionRetry={resetMissionSelection}
@@ -5796,12 +5865,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                 <button type="button" onClick={openTeachingTranslation}
                   aria-label={`Ver traducción de ${currentCard.prompt}`}
                   style={{ border: 0, background: "transparent", color: "var(--text)", width: "100%", padding: "0 48px", cursor: "pointer" }}>
-                  <h1 style={titleStyle}>{renderHighlightedTitle(currentCard.prompt)}</h1>
+                  <h1 style={titleStyle}>{renderHighlightedTitle(currentCard.stage === "Learn" && playingVisualTurn?.spanish_translation ? playingVisualTurn.text : currentCard.prompt)}</h1>
                   {learnTranslation.enabled || teachingTranslationVisible ? <span data-learn-translation aria-hidden={!teachingTranslationVisible}
                     aria-live={manualCompletionTranslation ? "polite" : undefined}
                     style={{ display: "block", minHeight: 20, fontSize: 14, lineHeight: "20px",
                       color: "#58656b", fontWeight: 700, visibility: teachingTranslationVisible ? "visible" : "hidden" }}>
-                    {currentCard.spanish_translation}
+                    {playingVisualTurn?.spanish_translation || currentCard.spanish_translation}
                   </span> : null}
                 </button>
                 <button type="button" aria-label={`Repetir: ${cardReplayText}`} onClick={playCurrentCardPrompt}
@@ -5890,8 +5959,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
           {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} vocabulary={activeLesson.vocabulary || []} surfaceRef={pageRef}
             selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={false} helpOpen={showHelp || tutor.visible}
             onTutor={tutorContext ? openTutor : undefined}
-            onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt} onRetry={resetMissionSelection}
-            imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)} /> : (
+            playbackError={constructionReplyState === "error"}
+            onChange={evaluateChoiceSelection} onReplay={lastResult === "correct" && currentCard.success_audio_turns?.length ? playConstructionResponse : playCurrentCardPrompt} onRetry={resetMissionSelection}
+            clockCues={visualClockCues} imageSrc={lessonOptionImageSrc(playingTurnImageUrl || currentCard.prompt_image_url)} /> : (
           <section ref={pageRef} data-lesson-page style={boardStyle}>
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
@@ -5929,6 +5999,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                       : {}),
                   }}
                 />
+                <TeachingClocks cues={visualClockCues} />
                 {isLockedMissionFinale ? (
                   <div
                     aria-hidden="true"
@@ -6255,9 +6326,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                           videoName={actionVideoName}
                         />
                       ) : (
-                        <img src={actionPosterSrc || lessonOptionImageSrc(teachingImageUrl || option.image_url)} alt={optionLabel}
+                        <><img src={actionPosterSrc || lessonOptionImageSrc(teachingImageUrl || option.image_url)} alt={optionLabel}
                           onLoad={learnTranslation.enabled ? () => setLoadedTeachingImageKey(teachingCardKey) : undefined}
                           data-written-recognition-media={fitWrittenRecognition ? true : undefined} style={optionImageStyle} />
+                          <TeachingClocks cues={currentCard.options.length === 1 ? visualClockCues : visibleClockCues(currentCard, option.clock_cues, lastResult === 'correct')} /></>
                       )
                     ) : (
                       <div
