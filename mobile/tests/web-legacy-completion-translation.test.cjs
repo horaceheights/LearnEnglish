@@ -30,7 +30,7 @@ function nodes(node,type) {
 }
 function renderHeader(lesson,card,visible,onTranslate,onReplay) {
   return evaluate(headerBranch.whenTrue,{
-    currentCard:card,activeLesson:lesson,learnTranslation:{enabled:false},
+    currentCard:card,activeLesson:lesson,learnTranslation:{enabled:false},playingVisualTurn:null,
     teachingTranslationVisible:visible,manualCompletionTranslation:true,
     lessonLocationLabel:()=>lesson.sub_lesson_id,lessonStageLabel:()=> 'COMPLETA',
     titleStyle:{},renderHighlightedTitle:text=>text,cardReplayText:card.audio_text,

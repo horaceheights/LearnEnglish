@@ -3,7 +3,7 @@ import { NEW_VOCABULARY_COLOR, constructionVocabulary } from '../lessonVocabular
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import type { LessonCard } from '../types';
+import type { LessonCard, TeachingClock } from '../types';
 import {
   availableSentenceWords, placeSentenceWord, returnSentenceWord, sentenceHint,
   sentenceLayout, sentenceParts, sentenceSlots, tileFlightPath,
@@ -22,6 +22,9 @@ type Flight = { label: string; path: TileFlightPath; slot: number };
 type Drag = { id: string; label: string; area?: Bounds; slotArea?: Bounds; cardArea?: Bounds; targets: Bounds[]; bank?: Bounds; width: number; height: number };
 const FLIGHT_MS = 220;
 type Props = {
+  activeTurnImageUrl?: string | null;
+  clockCues?: TeachingClock[];
+  playbackError?: boolean;
   onTutor?: () => void;
   vocabulary?: readonly string[];
   card: LessonCard; selected: string[]; result: 'correct' | 'wrong' | null;
@@ -91,7 +94,7 @@ function WordTile(props: WordProps) {
   </View>;
 }
 
-export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry, onTutor }: Props) {
+export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry, onTutor, activeTurnImageUrl, clockCues, playbackError }: Props) {
 
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -250,8 +253,9 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
     <CardContainer ref={view => { cardPane.current = view; }} style={[styles.card, !compact ? styles.cardContent : null]}
       {...(compact ? { contentContainerStyle: styles.cardContent, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
       {!landscape ? <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
-        <OptionMediaImage imageUrl={card.prompt_image_url} accessibilityLabel="Imagen de la frase" />
+        <OptionMediaImage imageUrl={activeTurnImageUrl || card.prompt_image_url} clockCues={clockCues} accessibilityLabel="Imagen de la frase" />
       </LessonMediaFrame> : null}
+      {playbackError ? <Text accessibilityLiveRegion="assertive" style={styles.hint}>No se pudo escuchar la respuesta completa. Toca la bocina para repetir.</Text> : null}
       {result === 'correct' ? <ConstructionCelebration lift={celebrationLift} compact={landscape} /> : <>
       {!landscape && result !== 'wrong' ? <Text style={styles.hint}>{showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text> : null}
       {(words.length > 0 || result !== 'wrong') ? <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">

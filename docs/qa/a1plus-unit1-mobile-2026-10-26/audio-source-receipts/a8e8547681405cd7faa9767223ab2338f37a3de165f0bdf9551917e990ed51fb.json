@@ -1,0 +1,62 @@
+{
+  "file": "takes/a8e8547681405cd7faa9767223ab2338f37a3de165f0bdf9551917e990ed51fb.mp3",
+  "audio_sha256": "a8e8547681405cd7faa9767223ab2338f37a3de165f0bdf9551917e990ed51fb",
+  "bytes": 29300,
+  "text": "I start work at nine.",
+  "compatible_speaker_roles": [
+    "luis"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt"
+  ],
+  "compatible_variants": [
+    "default"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_v4",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_rate_bps": 128000
+    },
+    "processing": [
+      "Original ElevenLabs v4 provider bytes; no post-processing."
+    ],
+    "generated_at": "2026-10-24T16:18:02.335491+00:00",
+    "approved_at": null,
+    "request_id": "9MIOWYmGXOZjmVtEFJXi",
+    "trace_id": "a5b8e2b73ecfdb5b539a0453b5ae3a7c",
+    "character_cost": 9,
+    "incremental_character_cost": 9,
+    "provider_requests": [
+      {
+        "model_id": "eleven_v4",
+        "text": "I start work at nine.",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "9",
+        "staged_reuse": false,
+        "request_id": "9MIOWYmGXOZjmVtEFJXi",
+        "trace_id": "a5b8e2b73ecfdb5b539a0453b5ae3a7c"
+      }
+    ],
+    "review": {
+      "status": "pending-listening-review",
+      "basis": "Voice settings do not approve an individual recording."
+    }
+  }
+}

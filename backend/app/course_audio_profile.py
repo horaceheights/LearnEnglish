@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
+import re
 
 
 COURSE_AUDIO_PROFILE_ID = "a1-elevenlabs-character-cast-v1"
@@ -16,6 +17,7 @@ COURSE_AUDIO_SEED = 1101
 NATURAL_DELIVERY_TAGS = {
     "quick": "[speaking at a brisk but intelligible conversational pace]",
     "clear": "[speaking clearly at a measured conversational pace]",
+    "a1-pronunciation-v1": "[speaking very slowly and clearly]",
 }
 
 
@@ -25,6 +27,27 @@ def natural_delivery_text(text: str, delivery: str | None) -> str:
     if delivery not in NATURAL_DELIVERY_TAGS:
         raise ValueError(f"Unsupported natural delivery: {delivery}")
     return f"{NATURAL_DELIVERY_TAGS[delivery]} {text}"
+
+
+def matches_delivery_request(text: str, delivery: str, request_text: object) -> bool:
+    """Validate the approved prepared pace without altering the original take.
+
+    This delivery permits capitalized emphasis and native pause tags, but no
+    additional spoken words or unrecognized direction tags. Other deliveries
+    retain their exact request comparison.
+    """
+    if delivery != "a1-pronunciation-v1":
+        return request_text == natural_delivery_text(text, delivery)
+    if not isinstance(request_text, str):
+        return False
+    prefixes = ("[speaking very slowly and clearly] ", "[speaking slowly and clearly] ")
+    prefix = next((value for value in prefixes if request_text.startswith(value)), None)
+    if prefix is None:
+        return False
+    spoken = request_text[len(prefix):].replace("[pause]", " ")
+    if "[" in spoken or "]" in spoken:
+        return False
+    return re.sub(r"\s+", " ", spoken).strip().casefold() == text.casefold()
 
 # One user-reviewed standalone correction, authorized only by the exact
 # checksum and card bindings in course_audio_receipts.py.

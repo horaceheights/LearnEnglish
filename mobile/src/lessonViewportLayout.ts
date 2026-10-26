@@ -31,5 +31,7 @@ export function imageChoiceLayout(width: number, height: number, count: number, 
 
 export function landscapePromptIsWide(text: string, availableWidth: number) {
   const railWidth = Math.min(260, Math.max(180, availableWidth * .28));
-  return promptChoiceLineCount(text, railWidth - 24, 16) > 4;
+  // Account for both rail padding and the nested phrase box. Reserving only
+  // the outer padding can place a five-line model in the four-line header.
+  return promptChoiceLineCount(text, railWidth - 40, 16) > 4;
 }

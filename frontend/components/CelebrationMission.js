@@ -9,6 +9,7 @@ import { missionChallengeLabel, missionVoiceProgress } from "../lib/missionPrese
 import { useMissionTransition } from "../../mobile/src/hooks/useMissionTransition";
 import { TutorButton } from "./TutorButton";
 import MissionConversationDecision from "./MissionConversationDecision";
+import TeachingClocks from "./TeachingClocks";
 
 const ACT_ICONS = ["◉", "∿", "➤", "✦", "●"];
 const ACT_COLORS = ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"];
@@ -128,6 +129,7 @@ export default function CelebrationMission({
   cueOrder,
   cardIndex,
   imageSrc,
+  clockCues,
   interactionReady,
   cueUnavailable = false,
   onDecisionResponse,
@@ -263,7 +265,7 @@ export default function CelebrationMission({
       </header>
 
       {isDecision ? <MissionConversationDecision card={card} paused={paused} interactionReady={interactionReady}
-        cueUnavailable={cueUnavailable} imageSrc={imageSrc} resolveImage={resolveImage} onTutor={onTutor} tutorAnchorRef={tutorAnchorRef}
+        cueUnavailable={cueUnavailable} imageSrc={imageSrc} clockCues={clockCues} resolveImage={resolveImage} onTutor={onTutor} tutorAnchorRef={tutorAnchorRef}
         onReplay={() => onReplayEnglish(0)} onSubmit={onComplete} onRetry={onDecisionRetry}
         onResponse={onDecisionResponse} onAdvance={onDecisionAdvance} /> : <>
       {card.context_es && !completionScene ? <p className="story-context">{card.context_es}</p> : null}
@@ -289,6 +291,8 @@ export default function CelebrationMission({
             width: headScene.imageWidth + 8, height: headScene.imageHeight + 8,
           } : undefined}>
             <Image alt={completionScene?.context_es || `Escena del reto ${cardIndex + 1}`} fill priority sizes="(max-width: 760px) 96vw, 900px" src={heroImage} style={{ objectFit: "cover" }} unoptimized />
+            {!completionScene && isVoiceGate ? <TeachingClocks cues={speech.asking
+              ? card.audio_turns?.[0]?.clock_cues : card.options?.[0]?.clock_cues} /> : null}
           </div>
           {!completionScene && !isVoiceGate && headScene ? <svg aria-hidden="true" className="head-pointers" width={headScene.width} height={headScene.height}>
             {headScene.markers.flatMap(marker => marker.chest ? [] : (marker.leaderHeads || marker.heads).map((head, index) => (

@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(BACKEND_DIR))
 
 from app.course_audio import sanitize_course_audio_text  # noqa: E402
-from app.data import LESSONS  # noqa: E402
+from app.data import ALL_LESSONS as LESSONS  # noqa: E402
 from scripts.build_frontend_audio_manifest import (  # noqa: E402
     has_visual_completion_placeholder,
 )

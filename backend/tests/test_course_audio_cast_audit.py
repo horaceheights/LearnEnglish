@@ -132,7 +132,7 @@ def validator_assignments() -> dict[tuple[str, str, str], str]:
 
 def lesson_assignments() -> dict[tuple[str, str, str], str]:
     assignments: dict[tuple[str, str, str], str] = {}
-    for path in sorted(LESSONS_ROOT.rglob("*.yaml")):
+    for path in sorted(LESSONS_ROOT.glob("unit_*/*.yaml")):
         source = path.read_text(encoding="utf-8")
         try:
             lesson = json.loads(source)

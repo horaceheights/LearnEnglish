@@ -29,7 +29,7 @@
     },
     {
       "path": "mobile/src/screens/CourseScreen.tsx",
-      "expectedGitBlob": "1cdc5b32ec19b713f84d89269cdda6c5be00bc13",
+      "expectedGitBlob": "b0c8bef5f40b07a23947d0ad11693c90819863ab",
       "requiredMarkers": [
         "releaseVersionLabel(currentVersion)",
         "<Text style={styles.menuVersion}>"
@@ -68,5 +68,38 @@
         "$build.platform -cnotin $expectedPlatforms"
       ]
     }
-  ]
+  ],
+  "additionalCatalogs": [
+    {
+      "courseId": "a1-plus",
+      "path": "mobile/src/generated/a1-plus-course.json",
+      "expectedGitBlob": "f0d2ea2d87304ff2d601f048496703335e7cbd56",
+      "lessonCount": 12,
+      "unitCount": 1,
+      "lessonsByUnit": {
+        "a1plus-unit-1": 12
+      }
+    }
+  ],
+  "combinedCatalog": {
+    "courseId": "complete-catalog",
+    "path": "mobile/src/generated/all-courses.json",
+    "expectedGitBlob": "1c4df0b009a9aa85623d8be78f43425d2b6830f3",
+    "lessonCount": 97,
+    "unitCount": 8,
+    "lessonsByUnit": {
+      "unit-1": 11,
+      "unit-2": 12,
+      "unit-3": 14,
+      "unit-4": 12,
+      "unit-5": 12,
+      "unit-6": 14,
+      "unit-7": 10,
+      "a1plus-unit-1": 12
+    }
+  },
+  "courseIndex": {
+    "path": "mobile/src/generated/course-catalogs.json",
+    "expectedGitBlob": "c591236161ab9752cb56bbf453f15143332a9353"
+  }
 }

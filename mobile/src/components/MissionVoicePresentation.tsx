@@ -3,6 +3,7 @@ import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import type { MissionAnswerSegment } from '../missionVoiceAnswer';
 import { OptionMediaImage } from './OptionMediaImage';
+import type { TeachingClock } from '../types';
 
 export type MissionVoiceStage =
   | 'asking' | 'ready' | 'listening' | 'checking' | 'passed' | 'retry' | 'coached' | 'waiting';
@@ -60,12 +61,14 @@ export function MissionVoicePresentation({
   imageUrl, stage, answer, message, attemptLabel = null, signal, mascot, celebrate, successScale,
   reduceMotion, replayDisabled, permissionNeeded, unavailable, offline, onReplay, onContinue,
   successLabel = 'ENTRADA ACTIVADA',
+  clockCues,
 }: {
   imageUrl: string; stage: MissionVoiceStage; answer: MissionAnswerSegment[] | null; message: string;
   attemptLabel?: string | null; signal: ReactNode; mascot: ReactNode | null; celebrate: boolean;
   successScale: Animated.Value; reduceMotion: boolean; replayDisabled: boolean; permissionNeeded: boolean;
   unavailable: boolean; offline: boolean; onReplay: () => void; onContinue: () => void;
   successLabel?: string;
+  clockCues?: TeachingClock[];
 }) {
   const [slot, setSlot] = useState({ width: 0, height: 0 });
   const micPop = useRef(new Animated.Value(1)).current;
@@ -103,7 +106,7 @@ export function MissionVoicePresentation({
         {imageWidth > 0 ? <View style={[styles.scene, accepted ? styles.sceneAccepted : null,
           { width: imageWidth + 4, height: imageWidth / 1.5 + 4 }]}>
           <OptionMediaImage accessibilityLabel={stage === 'asking' ? 'Escucha la pregunta.' : 'Mira la escena y responde.'}
-            imageUrl={imageUrl} />
+            imageUrl={imageUrl} clockCues={clockCues} />
           {accepted ? (
             <Animated.View pointerEvents="none" style={[styles.successBadge, { transform: [{ scale: successScale }] }]}>
               <Ionicons color="#fff" name="checkmark-circle" size={20} />

@@ -3,6 +3,7 @@ import threading
 import time
 from pathlib import Path
 import random
+from typing import Literal
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,7 +14,8 @@ from . import accounts, account_routes, clerk_webhooks, lesson_tutor, lesson_pra
 from .diagnostics import initialize_diagnostics
 from .course_audio import audio_debug, ready_cue_wav
 from . import cloudflare_media
-from .data import LESSONS
+from .data import ALL_LESSONS as LESSONS
+from .data import LESSONS as LEGACY_LESSONS, LESSON_COURSES, lesson_thumbnail_url
 from .legal import account_deletion_html, privacy_policy_html
 from .schemas import AzureAssessmentInterpretRequest, Lesson, LessonCard
 from .pronunciation import (
@@ -454,12 +456,18 @@ def read_admin_storage():
 
 
 @app.get("/api/lessons")
-def list_lessons() -> list[dict[str, str | int]]:
+def list_lessons(catalog_version: Literal[1, 2] = 1) -> list[dict[str, str | int]]:
+    # Existing installed clients keep their supported A1 catalog. A client
+    # explicitly opts into the registered-course contract with its new build.
+    lessons = LESSONS if catalog_version == 2 else LEGACY_LESSONS
     return [
         {
             "id": lesson.id,
             "title": lesson.title,
             "level": lesson.level,
+            "course_id": LESSON_COURSES[lesson.id],
+            "thumbnail_image_url": lesson_thumbnail_url(lesson),
+            "description": lesson.goal,
             "unit_id": lesson.unit_id,
             "unit_title": lesson.unit_title,
             "lesson_id": lesson.lesson_id,
@@ -468,7 +476,7 @@ def list_lessons() -> list[dict[str, str | int]]:
             "sub_lesson_title": lesson.sub_lesson_title,
             "content_revision": lesson.content_revision,
         }
-        for lesson in LESSONS.values()
+        for lesson in lessons.values()
     ]
 
 

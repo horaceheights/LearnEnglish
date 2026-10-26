@@ -23,6 +23,15 @@ AUTHORITY_FILES = (
     "scripts/export_mobile_preview_lessons.py",
     "scripts/compile_lesson_delivery.py", "scripts/verify_lesson_delivery.py", "scripts/validate_lesson_cards.py",
     "mobile/src/choiceTeaching.ts", "mobile/src/lessonMistakeHints.ts", "mobile/src/constructionTeaching.ts",
+    "mobile/src/teachingClock.ts", "mobile/src/courseAudioSources.ts",
+    "mobile/src/components/TeachingClocks.tsx", "mobile/src/components/OptionMediaImage.tsx",
+    "mobile/src/components/SentenceConstruction.tsx", "mobile/src/components/LessonCardView.tsx",
+    "mobile/src/components/PronunciationPractice.tsx", "mobile/src/components/MissionVoicePresentation.tsx",
+    "mobile/src/components/MissionConversationDecision.tsx", "mobile/src/components/MissionGameSurface.tsx",
+    "mobile/src/components/LessonLandscapeRail.tsx",
+    "frontend/components/LessonPlayer.js", "frontend/components/SentenceConstruction.js",
+    "frontend/components/TeachingClocks.js", "frontend/components/CelebrationMission.js",
+    "frontend/components/MissionConversationDecision.js", "backend/app/course_audio_receipts.py",
 )
 
 
@@ -229,16 +238,18 @@ def compile_package(source, plan, *, repo, asset_root, namespace, package_name="
                         errors.append(f"Conflicting exact take: {key}")
 
     def canonical_take(source_card, asset):
-        # Canonical assets omit prepared delivery metadata. Resolve their exact
-        # source occurrence first so shared words cannot select another pace.
+        # Resolve the exact source occurrence so shared words cannot select
+        # another pace, even when the canonical projection carries delivery.
         if asset["purpose"] == "mission-intro":
             return None  # An authored Spanish briefing still needs a real recording.
         asset_purpose = "prompt" if asset["purpose"] == "mission-cue" else asset["purpose"]
-        purpose = re.fullmatch(r"(prompt|answer)(?:-turn-(\d+))?", asset_purpose)
+        purpose = re.fullmatch(r"(prompt|answer|success)(?:-turn-(\d+))?", asset_purpose)
         if not purpose:
             errors.append(f"Unsupported audio purpose: {source_card['id']} / {asset['purpose']}")
             return None
-        field = "turns" if purpose.group(1) == "prompt" else "answerTurns"
+        field = "turns" if purpose.group(1) == "prompt" or (
+            purpose.group(1) == "answer" and source_card["activity"] == "build"
+        ) else "answerTurns"
         candidates = source_card.get(field, [])
         if purpose.group(2):
             index = int(purpose.group(2)) - 1
@@ -280,12 +291,30 @@ def compile_package(source, plan, *, repo, asset_root, namespace, package_name="
     missing_audio = []
     roundtrips = []
 
+    def clocks(value):
+        if value.get("clock") and value.get("clockCues") and not any(
+            cue["hour"] == value["clock"]["hour"] and cue["minute"] == value["clock"]["minute"]
+            for cue in value["clockCues"]
+        ):
+            raise ValueError("A scalar clock must agree with the authored clock cue sequence.")
+        return copy.deepcopy(value.get("clockCues") or ([value["clock"]] if value.get("clock") else []))
+
     def turns(values):
         if len(values) == 1 and not values[0].get("image"):
             return []  # Existing scalar audio supports an explicitly unillustrated utterance.
         if any(not turn.get("image") for turn in values):
             raise ValueError("Mixed illustrated/unillustrated audio turns are unsupported.")
-        return [{"text": turn["text"], "speaker_role": turn["speaker"], "image_url": image_url(turn["image"])} for turn in values]
+        result = []
+        for turn in values:
+            projected = {"text": turn["text"], "speaker_role": turn["speaker"], "image_url": image_url(turn["image"])}
+            if clocks(turn):
+                projected["clock_cues"] = clocks(turn)
+            if turn.get("translation_es"):
+                projected["spanish_translation"] = turn["translation_es"]
+            if turn.get("audioDelivery") in {"quick", "clear", "a1-pronunciation-v1"}:
+                projected["delivery"] = turn["audioDelivery"]
+            result.append(projected)
+        return result
 
     def canonical_card(card):
         cid = card["id"]
@@ -298,11 +327,15 @@ def compile_package(source, plan, *, repo, asset_root, namespace, package_name="
             "audio_turns": turns(card.get("turns", [])),
             "answer_audio_text": answer_text or None,
             "answer_audio_turns": turns(card.get("answerTurns", [])),
+            "answer_audio_policy": "authored-only",
             "prompt_image_url": image_url(card.get("image")),
             "context_es": card.get("context_es") or None,
             "correct_option_id": card.get("answer", "model"),
-            "options": [{"id": o["id"], "label": o.get("text"), "image_url": image_url(o.get("image"))} for o in card.get("options", [])],
+            "options": [{"id": o["id"], "label": o.get("text"), "image_url": image_url(o.get("image")),
+                         **({"clock_cues": clocks(o)} if clocks(o) else {})} for o in card.get("options", [])],
         }
+        if clocks(card):
+            result["clock_cues"] = clocks(card)
         if "spanish_translation" in card:
             result["spanish_translation"] = card["spanish_translation"]
         if len(card.get("turns", [])) == 1:
@@ -321,7 +354,7 @@ def compile_package(source, plan, *, repo, asset_root, namespace, package_name="
                 if "spanish_translation" not in result:
                     result["spanish_translation"] = " ".join(translations)
                 if len(translations) > 1:
-                    gap("turn-translation", "Current canonical schema has only card-level translation; retain exact per-turn translations in delivery sidecar.", cid)
+                    gap("turn-translation", "Per-turn translations are projected; runtime synchronization and review remain pending.", cid)
         elif activity == "choice":
             if card["stage"] == "Listen":
                 result["prompt"] = LISTEN_PROMPT
@@ -349,9 +382,12 @@ def compile_package(source, plan, *, repo, asset_root, namespace, package_name="
                           correct_option_id=options[0]["id"], correct_option_ids=[o["id"] for o in options],
                           audio_text=target, answer_audio_text=target)
             if result["answer_audio_turns"]:
-                gap("construction-reply", "The projection cannot play the authored next dialogue reply after constructing the target. It remains in the exact source; resolve the supported sequencing before installation.", cid)
-                result["answer_audio_turns"] = []
-                result.pop("answer_audio_speaker", None)
+                gap("construction-reply", "The authored reply is projected after the constructed target; completed-audio sequencing and runtime review remain pending.", cid)
+                result["success_audio_turns"] = result["answer_audio_turns"]
+            result["answer_audio_turns"] = turns(card.get("turns", []))
+            result.pop("answer_audio_speaker", None)
+            if len(card.get("turns", [])) == 1:
+                result["answer_audio_speaker"] = card["turns"][0]["speaker"]
         else:
             raise ValueError(f"Unsupported canonical activity {activity}: {cid}")
         return result
@@ -383,7 +419,8 @@ def compile_package(source, plan, *, repo, asset_root, namespace, package_name="
             result.update(interaction_type="mission-speak", prompt=target["text"], prompt_presentation="written", audio_text=target["text"],
                           answer_audio_text=None, answer_audio_turns=[], prompt_image_url="",
                           correct_option_id=option_id,
-                          options=[{"id": option_id, "label": target["text"], "image_url": image_url(target["image"])}])
+                          options=[{"id": option_id, "label": target["text"], "image_url": image_url(target["image"]),
+                                    **({"clock_cues": clocks(target)} if clocks(target) else {})}])
             result["mission_game"] = {
                 "kind": kind, "instruction_es": "Lee la respuesta en voz alta.",
                 "validation": "single", "cue_audio_text": question,
@@ -425,12 +462,12 @@ def compile_package(source, plan, *, repo, asset_root, namespace, package_name="
                                                     "bindingSha256": contract_hash, "contract": exact_contract,
                                                     "kind": "lossless-source-audio-binding", "canonicalInstallationReceipt": False})
             if any("clock" in item or "clockCues" in item for item in [card, *card.get("turns", []), *card.get("answerTurns", []), *card.get("options", []), card.get("speakTarget", {})]):
-                gap("clock", "The projection does not represent retained clock/time evidence. Review it against the approved teaching and assessment boundaries and resolve its shared representation before installation.", cid)
+                gap("clock", "Clock evidence is projected; verify its shared native/web rendering and assessment boundaries before installation.", cid)
             if any("frames" in item for item in [card, *card.get("turns", []), *card.get("answerTurns", [])]):
                 gap("frame-sequence", "The projection does not represent retained ordered physical-state frames. Review their teaching role and supported sequencing; a single ambiguous still is not equivalent.", cid)
             if any(turn.get("audioDelivery", "normal") != "normal" or "audioReceipt" in turn
                    for field_name in ("turns", "answerTurns") for turn in card.get(field_name, [])):
-                gap("prepared-pronunciation-delivery", "Canonical audio schema does not represent the prepared delivery profile or its source receipt. Preserve exact per-occurrence audioDelivery, audioReceipt, voice and checksum bindings from the authoritative source sidecars before app integration; the supported projection is not an installation receipt.", cid)
+                gap("prepared-pronunciation-delivery", "Prepared delivery is projected with exact source receipt bindings; provider validation, exact-byte listening approval and native playback verification remain pending. This projection is not an installation receipt.", cid)
             if card.get("instruction_es"):
                 gap("authored-instruction", "Exact instruction_es remains in the source; the app derives shared instructions. Compare intended task meaning with that shared behavior, rather than assuming every custom instruction must become an app field.", cid)
             if card.get("hint_es") or card.get("feedbackByOption"):

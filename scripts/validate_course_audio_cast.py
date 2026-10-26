@@ -500,7 +500,9 @@ def expected_assignments() -> dict[str, dict[str, dict[str, str]]]:
 
 def lesson_files() -> dict[str, Path]:
     files: dict[str, Path] = {}
-    for path in sorted(LESSONS_ROOT.rglob("*.yaml")):
+    # These historical assignments apply to A1. Other registered courses carry
+    # their own versioned cast contract, validated below.
+    for path in sorted(LESSONS_ROOT.glob("unit_*/*.yaml")):
         lesson = yaml.safe_load(path.read_text(encoding="utf-8"))
         lesson_id = lesson["id"]
         if lesson_id in files:
@@ -549,6 +551,51 @@ def apply_assignments() -> int:
     return changed
 
 
+def cast_contract(lessons: list[dict]) -> dict:
+    """Pin each scalar speaker and ordered spoken turn, including nested cues."""
+    def voices(value):
+        if isinstance(value, list):
+            return [voices(item) for item in value]
+        if not isinstance(value, dict):
+            return None
+        result = {}
+        for key, item in value.items():
+            if key in {*SPEAKER_FIELDS, "speaker_role"}:
+                result[key] = item
+                # Pin the line too, so exchanging same-voice turns cannot pass.
+                if "text" in value:
+                    result["text"] = value["text"]
+            elif isinstance(item, (dict, list)):
+                child = voices(item)
+                if child and (not isinstance(child, list) or any(child)):
+                    result[key] = child
+        return result
+    return {lesson["id"]: {card["slide_id"]: voices(card)
+            for card in lesson["cards"]} for lesson in lessons}
+
+
+def validate_registered_casts(root: Path = ROOT) -> list[str]:
+    errors = []
+    descriptors = json.loads((root / "backend/courses.json").read_text(encoding="utf-8"))
+    for descriptor in descriptors:
+        if descriptor["lessonRoot"] == "backend/lessons":
+            continue  # A1 retains the independently reviewed historical pins.
+        contract_path = descriptor.get("castContract")
+        if not contract_path:
+            errors.append(f"{descriptor['id']}: missing reviewed cast contract")
+            continue
+        path = (root / contract_path).resolve()
+        if not path.is_relative_to(root.resolve()) or not path.is_file():
+            errors.append(f"{descriptor['id']}: invalid cast contract path")
+            continue
+        expected = json.loads(path.read_text(encoding="utf-8"))
+        lessons = [yaml.safe_load(path.read_text(encoding="utf-8")) for path in
+                   sorted((root / descriptor["lessonRoot"]).glob("unit_*/*.yaml"))]
+        if expected.get("course_id") != descriptor["id"] or expected.get("assignments") != cast_contract(lessons):
+            errors.append(f"{descriptor['id']}: cast differs from the exact reviewed speech assignments")
+    return errors
+
+
 def validate_assignments() -> list[str]:
     expected = expected_assignments()
     errors: list[str] = []
@@ -574,7 +621,7 @@ def validate_assignments() -> list[str]:
             errors.append(f"{lesson_id}: expected slide is missing: {missing_slide}")
     for missing_lesson in sorted(set(expected) - set(files)):
         errors.append(f"Expected lesson is missing: {missing_lesson}")
-    return errors
+    return errors + validate_registered_casts()
 
 
 def main() -> None:

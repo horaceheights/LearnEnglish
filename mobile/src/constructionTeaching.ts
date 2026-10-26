@@ -553,7 +553,7 @@ function teachClause(text: string): ClausePlan {
   const progressive = BE.has(verb) && ACTIONS.has(keys[actionIndex]);
   teach(start, keys.length, progressive
     ? `En esta afirmación, primero el sujeto ${quote(phrase(start, verbIndex))}, después el auxiliar ${quote(tokens[verbIndex])}${actionIndex > verbIndex + 1 ? ' y “not”' : ''}, y luego el verbo principal en -ing ${quote(tokens[actionIndex])}.`
-    : `En esta afirmación, primero ${quote(phrase(start, verbIndex))}, luego ${quote(tokens[verbIndex])}${verbIndex + 1 < keys.length ? ` y después ${quote(phrase(verbIndex + 1, keys.length))}` : ''}: de quién hablamos va antes de lo que decimos de esa persona o cosa.`);
+    : `Primero ${quote(phrase(start, verbIndex))}, de quién o qué hablamos; después ${quote(tokens[verbIndex])} y el resto de la afirmación.`);
   teach(start, verbIndex + 1, progressive
     ? `En esta afirmación, el sujeto ${quote(phrase(start, verbIndex))} va antes de ${quote(tokens[verbIndex])}, el auxiliar del verbo ${quote(tokens[actionIndex])}.`
     : BE.has(verb)

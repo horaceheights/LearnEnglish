@@ -1,7 +1,7 @@
 import unittest
 
 from backend.app import main
-from backend.app.data import LESSONS
+from backend.app.data import ALL_LESSONS as LESSONS, LESSONS as LEGACY_LESSONS
 from backend.app.schemas import MissionLesson
 
 
@@ -20,13 +20,17 @@ def card_sequence(lesson):
 
 class LessonDeliveryTests(unittest.TestCase):
     def test_lesson_summaries_expose_the_revision_contract(self):
-        summaries = main.list_lessons()
+        summaries = main.list_lessons(catalog_version=2)
 
         self.assertEqual(set(LESSONS), {summary["id"] for summary in summaries})
         for summary in summaries:
             with self.subTest(lesson=summary["id"]):
                 lesson = LESSONS[summary["id"]]
                 self.assertEqual(lesson.content_revision, summary["content_revision"])
+
+    def test_existing_installed_clients_keep_the_legacy_course(self):
+        self.assertEqual(list(LEGACY_LESSONS), [summary["id"] for summary in main.list_lessons()])
+        self.assertGreater(len(main.list_lessons(catalog_version=2)), len(main.list_lessons()))
 
     def test_delivery_preserves_authored_card_order_and_only_shuffles_options(self):
         source_option_orders = {

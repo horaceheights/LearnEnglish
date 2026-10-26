@@ -128,6 +128,7 @@ import { AudioConnectionNotice } from '../components/AudioConnectionNotice';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
 import { replyImageAfterPrompt } from '../lessonTurnImages';
+import { cardClockCues, visibleClockCues } from '../teachingClock';
 import { useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
@@ -408,6 +409,10 @@ export function LessonScreen({
   const missionChapterBreakFromRef = useRef<number | null>(null);
   const [showMissionLandscapeMenu, setShowMissionLandscapeMenu] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
+  const [constructionReplyError, setConstructionReplyError] = useState(false);
+  const [constructionReplyReady, setConstructionReplyReady] = useState(false);
+  const constructionReplyRun = useRef(0);
+  const constructionReplyGate = useRef<ReturnType<typeof createDecisionPlaybackGate> | null>(null);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
   const [cardRunId, setCardRunId] = useState(0);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
@@ -669,6 +674,7 @@ export function LessonScreen({
       ...card.options.map((option) => option.image_url),
       ...(card.audio_turns ?? []).map((turn) => turn.image_url),
       ...(card.answer_audio_turns ?? []).map((turn) => turn.image_url),
+      ...(card.success_audio_turns ?? []).map((turn) => turn.image_url),
     ]);
     return Promise.all([...paths].filter(Boolean).map(ensureImagePreloaded)).then(() => undefined);
   }, [ensureImagePreloaded]);
@@ -843,6 +849,54 @@ export function LessonScreen({
       // Feedback audio should never interrupt the lesson flow.
     }
   }, [tryAgainCuePlayer]);
+
+  const playConstructionAnswer = useCallback((card: LessonCard, text: string) => {
+    const model = findCourseAudioTurnSequence(card, 'answer');
+    const reply = findCourseAudioTurnSequence(card, 'success');
+    const requiredReply = Boolean(card.success_audio_turns?.length);
+    const run = ++constructionReplyRun.current;
+    constructionReplyGate.current?.fail();
+    constructionReplyGate.current = null;
+    setConstructionReplyError(false);
+    setConstructionReplyReady(false);
+    const fail = () => {
+      if (constructionReplyRun.current !== run || !requiredReply) return;
+      constructionReplyRun.current++;
+      constructionReplyGate.current?.fail();
+      constructionReplyGate.current = null;
+      grammarAnswerAwaitingRef.current = false;
+      grammarAnswerWasPlayingRef.current = false;
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      grammarAudioTimerRef.current = null;
+      setConstructionReplyError(true);
+    };
+    if (requiredReply) {
+      grammarAnswerAwaitingRef.current = true;
+      grammarAnswerWasPlayingRef.current = false;
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      grammarAudioTimerRef.current = setTimeout(fail, COURSE_AUDIO_FALLBACK_MS);
+    }
+    if (requiredReply && (!model || !reply)) { fail(); return; }
+    if (model) {
+      const sequence = [...model, ...(reply || [])];
+      if (requiredReply) {
+        const gate = createDecisionPlaybackGate(sequence.length);
+        constructionReplyGate.current = gate;
+        gate.promise.then(played => {
+          if (constructionReplyRun.current !== run) return;
+          constructionReplyGate.current = null;
+          if (played) setConstructionReplyReady(true);
+          else fail();
+        });
+        playAudioSequence(sequence, 'prompt', 'construction-answer',
+          { onStarted: gate.arm, onFailure: gate.fail });
+      } else playAudioSequence(sequence, 'prompt', 'construction-answer');
+    } else if (!card.success_audio_turns?.length) {
+      playAudio(text, 'prompt', 'answer');
+    } else {
+      addDiagnosticBreadcrumb('course_audio_turn_sequence_invalid', { purpose: 'construction-answer' });
+    }
+  }, [playAudio, playAudioSequence]);
 
   const playAnswerAfterChime = useCallback((text: string) => {
     if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
@@ -1255,7 +1309,9 @@ export function LessonScreen({
     && /\b(?:is|are) not\b/i.test(promptAudio)
       ? contrastAnswerAudio
       : '';
-  const visiblePromptAudio = correctContrastPrompt || promptAudio;
+  const activeVisualTurn = activeAudioSequence?.[audioPlaylistStatus.currentIndex]?.turn;
+  const visiblePromptAudio = currentCard?.stage === 'Learn' && activeVisualTurn?.spanish_translation
+    ? activeVisualTurn.text : correctContrastPrompt || promptAudio;
   const writtenRecognize = isWrittenRecognize(currentCard);
   const visiblePromptText = writtenRecognize ? currentCard?.prompt || '' : visiblePromptAudio || currentCard?.prompt || '';
   const silentWrittenRecognize = isSilentWrittenRecognize(currentCard);
@@ -1273,11 +1329,22 @@ export function LessonScreen({
     : audioPlayerStatus;
 
   useEffect(() => {
+    const gate = constructionReplyGate.current;
+    if (!gate) return;
+    gate.observe(audioPlaylistStatus);
+    if (audioPlaylistStatus.playing) {
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      grammarAudioTimerRef.current = setTimeout(gate.fail, COURSE_AUDIO_FALLBACK_MS);
+    }
+  }, [audioPlaylistStatus]);
+
+  useEffect(() => {
     if (!activeAudioSequence?.length) return;
     const turn = activeAudioSequence[audioPlaylistStatus.currentIndex];
     if (turn) setActiveTurnImageUrl(turn.turn.image_url);
   }, [activeAudioSequence, audioPlaylistStatus.currentIndex]);
-  const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
+  const visualClockCues = currentCard ? visibleClockCues(currentCard, cardClockCues(currentCard, activeVisualTurn), result === 'correct') : [];
+  const sentenceTranslation = activeVisualTurn?.spanish_translation || currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? (isUseStage ? promptAudio : currentCard?.prompt ?? '') : visiblePromptText,
   );
   const visibleSentenceTranslation = isTheyTranslationCard
@@ -1949,6 +2016,11 @@ export function LessonScreen({
       from_card: cardIndex + 1,
       to_card: Math.min(cardIndex + 2, lesson.cards.length),
     });
+    constructionReplyRun.current++;
+    constructionReplyGate.current?.fail();
+    constructionReplyGate.current = null;
+    setConstructionReplyError(false);
+    setConstructionReplyReady(false);
     answerAudioAwaitingRef.current = false;
     answerAudioStartedRef.current = false;
     answerAudioWasPlayingRef.current = false;
@@ -2178,11 +2250,11 @@ export function LessonScreen({
         currentCard.prompt,
         optionLabelsForIds(currentCard, selectedIds.length ? selectedIds : selectedId ? [selectedId] : []),
       ) || currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
-      playAudio(currentCard.answer_audio_text || completedSentence, 'prompt', 'answer');
+      playConstructionAnswer(currentCard, currentCard.answer_audio_text || completedSentence);
       return;
     }
 
-    if (result === 'correct' && waitsForGrammarAnimation && grammarCompleted) {
+    if (result === 'correct' && waitsForGrammarAnimation && grammarCompleted && !currentCard?.success_audio_turns?.length) {
       grammarAudioTimerRef.current = setTimeout(() => {
         grammarAudioTimerRef.current = null;
         advance();
@@ -2200,6 +2272,7 @@ export function LessonScreen({
     missionCuePlayer,
     playAnswerAfterChime,
     playAudio,
+    playConstructionAnswer,
     qaAutoAdvance,
     qaMode,
     result,
@@ -2317,7 +2390,9 @@ export function LessonScreen({
 
   useEffect(() => {
     if (!isAppActive || !grammarAnswerAwaitingRef.current || !waitsForGrammarAnimation || result !== 'correct') return;
-    if (courseAudioPlaybackStatus.error) {
+    const requiredReply = Boolean(currentCard?.success_audio_turns?.length);
+    if (requiredReply && !constructionReplyReady) return;
+    if (!requiredReply && courseAudioPlaybackStatus.error) {
       grammarAnswerAwaitingRef.current = false;
       grammarAnswerWasPlayingRef.current = false;
       if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
@@ -2332,7 +2407,7 @@ export function LessonScreen({
       return;
     }
     if (courseAudioPlaybackStatus.playing) grammarAnswerWasPlayingRef.current = true;
-    if (!courseAudioPlaybackStatus.didJustFinish || !grammarAnswerWasPlayingRef.current) return;
+    if (!requiredReply && (!courseAudioPlaybackStatus.didJustFinish || !grammarAnswerWasPlayingRef.current)) return;
 
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
@@ -2351,6 +2426,8 @@ export function LessonScreen({
     courseAudioPlaybackStatus.didJustFinish,
     courseAudioPlaybackStatus.error,
     courseAudioPlaybackStatus.playing,
+    currentCard?.success_audio_turns,
+    constructionReplyReady,
     isAppActive,
     pauseForPronunciationReview,
     qaAutoAdvance,
@@ -2607,7 +2684,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = true;
     grammarAnswerWasPlayingRef.current = false;
     if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
-    if (!pauseForPronunciationReview) {
+    if (!pauseForPronunciationReview && !currentCard.success_audio_turns?.length) {
       grammarAudioTimerRef.current = setTimeout(() => {
         grammarAudioTimerRef.current = null;
         if (!grammarAnswerAwaitingRef.current) return;
@@ -2617,14 +2694,15 @@ export function LessonScreen({
         advance();
       }, COURSE_AUDIO_FALLBACK_MS);
     }
-    playAudio(
-      currentCard.answer_audio_text || completedSentence,
-      'prompt',
-      'answer',
-    );
-  }, [advance, currentCard, isAppActive, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId, selectedIds, waitsForGrammarAnimation]);
+    playConstructionAnswer(currentCard, currentCard.answer_audio_text || completedSentence);
+  }, [advance, currentCard, isAppActive, pauseForPronunciationReview, playConstructionAnswer, qaAutoAdvance, qaMode, selectedId, selectedIds, waitsForGrammarAnimation]);
 
   const clearCardInteractionState = useCallback(() => {
+    constructionReplyRun.current++;
+    constructionReplyGate.current?.fail();
+    constructionReplyGate.current = null;
+    setConstructionReplyError(false);
+    setConstructionReplyReady(false);
     answerAudioAwaitingRef.current = false;
     answerAudioStartedRef.current = false;
     answerAudioWasPlayingRef.current = false;
@@ -3492,7 +3570,7 @@ export function LessonScreen({
         color={activeStageColor || '#279487'} progress={`${cardIndex + 1} / ${lesson.cards.length}`}
         onBack={() => confirmLessonExit('previous')} onHome={() => confirmLessonExit('home')}
         onMenu={() => setShowMissionLandscapeMenu(true)}
-        imageUrl={isSentenceCard ? currentCard.prompt_image_url : null}>
+        imageUrl={isSentenceCard ? activeTurnImageUrl || currentCard.prompt_image_url : null} clockCues={isSentenceCard ? visualClockCues : undefined}>
         {!wideLandscapePrompt ? lessonPromptHeader : null}
       </LessonLandscapeRail> : usesMissionPhoneLandscape ? null : <>{lessonChrome}{lessonPromptHeader}</>}
       <View key="activity-column" style={[styles.activityColumn, needsTextAnswerScrolling ? styles.lessonBodyGrowing : null]}>
@@ -3518,9 +3596,15 @@ export function LessonScreen({
         >
           {isSentenceCard ? (
             <SentenceConstruction key={currentCard.slide_id} card={currentCard} vocabulary={lesson.vocabulary}
+              activeTurnImageUrl={activeTurnImageUrl} clockCues={visualClockCues}
               selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={false} helpOpen={showHelp || tutor.visible}
               onTutor={tutorContext ? openTutor : undefined}
-              onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} onRetry={resetMissionSelection} />
+              playbackError={constructionReplyError}
+              onChange={evaluateChoiceSelection} onReplay={() => {
+                if (result === 'correct' && currentCard.success_audio_turns?.length) {
+                  playConstructionAnswer(currentCard, currentCard.answer_audio_text || '');
+                } else handleReplayButtonPress();
+              }} onRetry={resetMissionSelection} />
           ) : usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
               card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
@@ -3540,6 +3624,7 @@ export function LessonScreen({
               onCueRequest={playMissionCueAt}
               paused={!isAppActive || showHelp || tutor.visible || isPageTurning}
               decisionImageUrl={activeTurnImageUrl || currentCard.prompt_image_url}
+              decisionClockCues={visualClockCues}
               onDecisionResponse={() => playDecisionSequence('answer')}
               onDecisionAdvance={advance}
               onDecisionRetry={resetMissionSelection}
@@ -3560,6 +3645,7 @@ export function LessonScreen({
           ) : <LessonCardView
             vocabulary={lesson.vocabulary}
             activeTurnImageUrl={activeTurnImageUrl}
+            clockCues={visualClockCues}
             allowVerticalGrowth={needsTextAnswerScrolling}
             audioProvider={audioProvider}
             audioVoice={audioVoice}

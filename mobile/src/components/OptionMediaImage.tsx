@@ -1,6 +1,8 @@
 import { Image, StyleSheet, type ImageSourcePropType } from 'react-native';
 
 import { lessonOptionImageSource } from '../lessonImageSources';
+import type { TeachingClock } from '../types';
+import { TeachingClocks } from './TeachingClocks';
 
 const THREE_BY_TWO_ASPECT_RATIO = 3 / 2;
 const ASPECT_RATIO_TOLERANCE = 0.005;
@@ -11,12 +13,14 @@ export function OptionMediaImage({
   poster = false,
   sourceOverride,
   onLoad,
+  clockCues,
 }: {
   accessibilityLabel?: string;
   imageUrl: string;
   poster?: boolean;
   sourceOverride?: ImageSourcePropType;
   onLoad?: () => void;
+  clockCues?: TeachingClock[];
 }) {
   const source = sourceOverride ?? lessonOptionImageSource(imageUrl);
   const resolvedSource = Image.resolveAssetSource(source);
@@ -32,7 +36,7 @@ export function OptionMediaImage({
   const shouldContain = !sourceIsThreeByTwo;
 
   return (
-    <Image
+    <><Image
       accessible={Boolean(accessibilityLabel)}
       accessibilityIgnoresInvertColors
       accessibilityLabel={accessibilityLabel}
@@ -40,7 +44,7 @@ export function OptionMediaImage({
       source={source}
       onLoad={onLoad}
       style={[styles.fill, poster ? styles.poster : null]}
-    />
+    /><TeachingClocks cues={clockCues} /></>
   );
 }
 

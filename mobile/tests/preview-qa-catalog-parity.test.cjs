@@ -48,4 +48,36 @@ assert.deepEqual(
   'Preview must retain every unit with exactly the lesson count pinned by the release manifest.',
 );
 
-console.log('Preview and Engine QA use the same complete seven-unit embedded lesson catalog.');
+const ts = require('../node_modules/typescript');
+const { createRequire } = require('node:module');
+const entry = path.join(mobileRoot, 'src', 'previewLessons.ts');
+const localRequire = createRequire(entry);
+const updates = { channel: 'preview' };
+const compiled = ts.transpileModule(fs.readFileSync(entry, 'utf8'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+}).outputText;
+const preview = { exports: {} };
+new Function('require', 'module', 'exports', compiled)(
+  id => id === 'expo-updates' ? updates : localRequire(id), preview, preview.exports,
+);
+const descriptors = JSON.parse(fs.readFileSync(path.resolve(mobileRoot, '../backend/courses.json'), 'utf8'));
+const expected = descriptors.flatMap(course => JSON.parse(fs.readFileSync(
+  path.resolve(mobileRoot, '..', course.catalogPath), 'utf8',
+)).map(lesson => ({ lesson, courseId: course.id })));
+const summaries = preview.exports.mergePreviewLessonSummaries([{ id: 'stale-backend-lesson' }]);
+assert.deepEqual(summaries.map(lesson => [lesson.id, lesson.course_id]),
+  expected.map(({ lesson, courseId }) => [lesson.id, courseId]),
+  'Preview must preserve every registered course and its lesson order, without interleaving equal lesson numbers.');
+for (const { lesson } of expected) {
+  assert.deepEqual(preview.exports.getPreviewLessonMetadata(lesson.id), lesson);
+  const copy = preview.exports.getPreviewLesson(lesson.id);
+  assert.equal(copy.cards.length, lesson.cards.length);
+  copy.cards[0].options.length = 0;
+  assert.deepEqual(preview.exports.getPreviewLessonMetadata(lesson.id), lesson,
+    'Opening or shuffling a lesson must not modify its embedded source.');
+}
+updates.channel = 'production';
+const backend = [{ id: 'backend-owned' }];
+assert.equal(preview.exports.mergePreviewLessonSummaries(backend), backend);
+assert.equal(preview.exports.getPreviewLesson(expected[0].lesson.id), null);
+console.log('Preview and Engine QA preserve the complete registered catalogs; Production retains backend authority.');

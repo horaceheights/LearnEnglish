@@ -7,7 +7,7 @@ from sqlalchemy import text
 from starlette.concurrency import run_in_threadpool
 
 from . import accounts, learner_auth, tracking
-from .data import LESSONS
+from .data import ALL_LESSONS as LESSONS
 
 router = APIRouter(prefix="/api/account")
 

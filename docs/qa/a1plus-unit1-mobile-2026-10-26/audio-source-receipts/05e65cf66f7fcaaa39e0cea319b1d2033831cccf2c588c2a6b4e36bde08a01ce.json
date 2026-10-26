@@ -1,0 +1,62 @@
+{
+  "file": "takes/05e65cf66f7fcaaa39e0cea319b1d2033831cccf2c588c2a6b4e36bde08a01ce.mp3",
+  "audio_sha256": "05e65cf66f7fcaaa39e0cea319b1d2033831cccf2c588c2a6b4e36bde08a01ce",
+  "bytes": 18851,
+  "text": "I go to bed.",
+  "compatible_speaker_roles": [
+    "ana"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt"
+  ],
+  "compatible_variants": [
+    "default"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_v4",
+    "narrator": "female-warm",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_rate_bps": 128000
+    },
+    "processing": [
+      "Original ElevenLabs v4 provider bytes; no post-processing."
+    ],
+    "generated_at": "2026-10-24T16:18:12.228849+00:00",
+    "approved_at": null,
+    "request_id": "QS1uhiNkxdXyGJzZR6ci",
+    "trace_id": "b5f0ed132534638efa302afa84ccff2a",
+    "character_cost": 5,
+    "incremental_character_cost": 5,
+    "provider_requests": [
+      {
+        "model_id": "eleven_v4",
+        "text": "I go to bed.",
+        "character_cost": 5,
+        "incremental_character_cost": 5,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "5",
+        "staged_reuse": false,
+        "request_id": "QS1uhiNkxdXyGJzZR6ci",
+        "trace_id": "b5f0ed132534638efa302afa84ccff2a"
+      }
+    ],
+    "review": {
+      "status": "pending-listening-review",
+      "basis": "Voice settings do not approve an individual recording."
+    }
+  }
+}

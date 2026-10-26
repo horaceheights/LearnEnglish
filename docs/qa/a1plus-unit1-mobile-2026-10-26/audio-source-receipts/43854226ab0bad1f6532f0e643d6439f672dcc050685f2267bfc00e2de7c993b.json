@@ -1,0 +1,69 @@
+{
+  "file": "takes/43854226ab0bad1f6532f0e643d6439f672dcc050685f2267bfc00e2de7c993b.mp3",
+  "audio_sha256": "43854226ab0bad1f6532f0e643d6439f672dcc050685f2267bfc00e2de7c993b",
+  "bytes": 18765,
+  "text": "Let's play.",
+  "compatible_speaker_roles": [
+    "male-character"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt",
+    "pronunciation_slow"
+  ],
+  "compatible_variants": [
+    "answer",
+    "prompt",
+    "split-ing"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_multilingual_v2",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8,
+      "style": 0.0,
+      "use_speaker_boost": true,
+      "speed": 0.7
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "bit_rate_bps": 96000
+    },
+    "processing": [
+      "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+      "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+    ],
+    "generated_at": "2026-09-27T12:31:37.890174+00:00",
+    "approved_at": "2026-09-27T12:30:21.344749+00:00",
+    "request_id": "XRLiF0DoqxNpS8Rkp9rM",
+    "trace_id": "c7b4c5e80e1e181d8ae38c2628086fef",
+    "character_cost": 6,
+    "incremental_character_cost": 6,
+    "provider_requests": [
+      {
+        "model_id": "eleven_multilingual_v2",
+        "text": "Let's play.",
+        "character_cost": 6,
+        "incremental_character_cost": 6,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "6",
+        "staged_reuse": false,
+        "request_id": "XRLiF0DoqxNpS8Rkp9rM",
+        "trace_id": "c7b4c5e80e1e181d8ae38c2628086fef"
+      }
+    ],
+    "review": {
+      "status": "approved-profile-render",
+      "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+    }
+  }
+}

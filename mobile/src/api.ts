@@ -106,7 +106,7 @@ async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export function getLessons(): Promise<LessonSummary[]> {
-  return jsonRequest('/api/lessons');
+  return jsonRequest('/api/lessons?catalog_version=2');
 }
 
 export async function getLesson(lessonId: string): Promise<Lesson> {

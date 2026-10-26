@@ -20,7 +20,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from starlette.concurrency import run_in_threadpool
 
 from . import accounts
-from .data import LESSONS
+from .data import ALL_LESSONS as LESSONS
 from .tutor_context import build_tutor_context
 
 router = APIRouter(prefix="/api/account/tutor", tags=["lesson-tutor"])

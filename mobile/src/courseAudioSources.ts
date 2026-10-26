@@ -58,9 +58,10 @@ export function findCourseAudioAsset(
 /** Resolve authored dialogue into exact immutable audio/image pairs. */
 export function findCourseAudioTurnSequence(
   card: LessonCard,
-  purpose: 'prompt' | 'answer',
+  purpose: 'prompt' | 'answer' | 'success',
 ): CourseAudioTurnPlayback[] | null {
-  const turns = purpose === 'prompt' ? card.audio_turns : card.answer_audio_turns;
+  const turns = purpose === 'prompt' ? card.audio_turns
+    : purpose === 'success' ? card.success_audio_turns : card.answer_audio_turns;
   if (!turns?.length) return null;
 
   const sequence: CourseAudioTurnPlayback[] = [];
@@ -72,6 +73,7 @@ export function findCourseAudioTurnSequence(
       && asset.text === turn.text
       && asset.speaker_role === turn.speaker_role
       && asset.image_ref === turn.image_url
+      && asset.delivery === turn.delivery
     ));
     if (matches.length !== 1 || claimedAssetIds.has(matches[0].id)) return null;
     claimedAssetIds.add(matches[0].id);

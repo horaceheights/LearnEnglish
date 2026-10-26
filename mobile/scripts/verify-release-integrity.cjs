@@ -137,6 +137,10 @@ function verifyCatalog(repositoryRoot, catalog, violations) {
   if (unexpectedUnits.length > 0) {
     violations.push(`El catálogo contiene unidades inesperadas: ${unexpectedUnits.join(', ')}.`);
   }
+  if (new Set(lessons.map(lesson => lesson.id)).size !== lessons.length) {
+    violations.push('El catálogo contiene identidades de lección duplicadas.');
+  }
+  return lessons;
 }
 
 function verifyReleaseIdentity(repositoryRoot, files, violations) {
@@ -167,7 +171,38 @@ function verifyReleaseIntegrity({
   assertManifestShape(manifest);
 
   const violations = [];
-  verifyCatalog(repositoryRoot, manifest.catalog, violations);
+  const registryPath = path.join(repositoryRoot, 'backend', 'courses.json');
+  if (fs.existsSync(registryPath)) {
+    const registered = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+    const protectedCourses = [manifest.catalog, ...(manifest.additionalCatalogs || [])];
+    if (JSON.stringify(registered.map(course => [course.id, course.catalogPath]))
+        !== JSON.stringify(protectedCourses.map(course => [course.courseId, course.path]))) {
+      violations.push('El manifiesto debe proteger cada curso registrado, con su catálogo exacto.');
+    }
+  }
+  const primary = verifyCatalog(repositoryRoot, manifest.catalog, violations);
+  if (manifest.additionalCatalogs !== undefined) {
+    if (!Array.isArray(manifest.additionalCatalogs) || !manifest.combinedCatalog || !manifest.courseIndex) {
+      throw new Error('Los cursos adicionales requieren un catálogo combinado y un índice protegidos.');
+    }
+    const descriptors = [manifest.catalog, ...manifest.additionalCatalogs];
+    if (new Set(descriptors.map(course => course.courseId)).size !== descriptors.length) {
+      violations.push('Las identidades de curso deben ser únicas.');
+    }
+    const parts = [primary, ...manifest.additionalCatalogs.map(course => verifyCatalog(repositoryRoot, course, violations))];
+    const combined = verifyCatalog(repositoryRoot, manifest.combinedCatalog, violations);
+    if (JSON.stringify(combined) !== JSON.stringify(parts.flat())) {
+      violations.push('El catálogo combinado debe conservar todos los cursos completos en orden.');
+    }
+    const indexBytes = verifyFileBlob(repositoryRoot, manifest.courseIndex, 'el índice de cursos', violations);
+    if (indexBytes) {
+      const index = JSON.parse(indexBytes.toString('utf8'));
+      const expected = descriptors.map((course, i) => ({id: course.courseId, lessonIds: parts[i]?.map(lesson => lesson.id)}));
+      if (JSON.stringify(index.map(({id, lessonIds}) => ({id, lessonIds}))) !== JSON.stringify(expected)) {
+        violations.push('El índice de navegación no corresponde a los cursos completos.');
+      }
+    }
+  }
   verifyReleaseIdentity(repositoryRoot, manifest.requiredReleaseIdentityFiles, violations);
 
   if (violations.length > 0) {
@@ -188,9 +223,10 @@ if (require.main === module) {
   try {
     const repositoryRoot = parseRepositoryRoot(process.argv.slice(2));
     const manifest = verifyReleaseIntegrity({ repositoryRoot });
+    const complete = manifest.combinedCatalog || manifest.catalog;
     console.log(
-      `Integridad verificada: ${manifest.catalog.lessonCount} lecciones, `
-      + `${manifest.catalog.unitCount} unidades, baseline ${manifest.baselineCommit.slice(0, 7)}.`,
+      `Integridad verificada: ${complete.lessonCount} lecciones, `
+      + `${complete.unitCount} unidades, baseline ${manifest.baselineCommit.slice(0, 7)}.`,
     );
   } catch (error) {
     console.error(`Publicación bloqueada: ${error.message}`);

@@ -3,9 +3,8 @@ import fs from 'node:fs';
 import test from 'node:test';
 import { element as e, lessonHarness } from './native-lesson-harness.mjs';
 
-const lessons = fs.readdirSync(new URL('../src/generated/', import.meta.url)).filter(name => name.startsWith('lesson-') && name.endsWith('.json'))
-  .map(name => JSON.parse(fs.readFileSync(new URL('../src/generated/' + name, import.meta.url), 'utf8')));
-const cards = lessons.flatMap(lesson => lesson.cards.map(card => ({ ...card, lessonId: lesson.id })));
+const lessons = JSON.parse(fs.readFileSync(new URL('../src/generated/all-courses.json', import.meta.url), 'utf8'));
+const cards = lessons.flatMap(lesson => lesson.cards.map(card => ({ ...card, lessonId: lesson.id, lessonLevel: lesson.level })));
 const noop = () => {};
 
 test('the screen routes every phone landscape and portrait image bank into the measured activity shell', () => {
@@ -48,7 +47,7 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
   const onTutor = noop;
   const body = construction ? e(SentenceConstruction, { card, selected, result, disabled: false, onTutor, onChange: noop, onReplay: noop, onRetry: noop })
     : e(LessonCardView, { card, lessonId: card.lessonId, onTutor, result, selectedId: selected[0] || null, selectedIds: selected,
-      level: 'A1', showHelp: false, userId: 'layout-test', onSelect: noop, onResetSelection: noop, optionsInteractive: card.options.length > 1,
+      level: card.lessonLevel, showHelp: false, userId: 'layout-test', onSelect: noop, onResetSelection: noop, optionsInteractive: card.options.length > 1,
       onPronunciationPassed: noop, onPronunciationUnavailable: noop, onGrammarAnimationComplete: noop });
   const { usesCompactListenInstruction, usesCompactRecognizeInstruction, usesCompactSpeakInstruction,
     lessonHeaderPromptText, listeningChoiceInstruction, pronunciationInstruction } = h.load('lessonInstructions.ts');
@@ -148,7 +147,8 @@ test('both portrait screenshot grids keep the lower images and full success/retr
 });
 
 test('landscape standard activities fit the full safe area, including wide phones, all options and feedback', () => {
-  assert.equal(lessons.length, JSON.parse(fs.readFileSync(new URL('../release-integrity.json', import.meta.url), 'utf8')).catalog.lessonCount);
+  const release = JSON.parse(fs.readFileSync(new URL('../release-integrity.json', import.meta.url), 'utf8'));
+  assert.equal(lessons.length, (release.combinedCatalog || release.catalog).lessonCount);
   const examples = cards.filter(c => !c.mission_game && c.stage !== 'Speak' && !c.interaction_type?.startsWith('mission-'));
   // Run every content shape with the longest prompt/choice labels first.
   const unique = [...new Map(examples.map(c => [JSON.stringify([c.stage, c.interaction_type, c.prompt, c.context_es, c.options.map(o => [o.label, Boolean(o.image_url)])]), c])).values()];

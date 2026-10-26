@@ -1,0 +1,62 @@
+{
+  "file": "takes/a9b4b4ea6ff92281cb721dbac53b216004e7fa626487c38010d4213f547d45a4.mp3",
+  "audio_sha256": "a9b4b4ea6ff92281cb721dbac53b216004e7fa626487c38010d4213f547d45a4",
+  "bytes": 62318,
+  "text": "Ana studies every day, but she never studies at night.",
+  "compatible_speaker_roles": [
+    "luis"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt"
+  ],
+  "compatible_variants": [
+    "default"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_v4",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_rate_bps": 128000
+    },
+    "processing": [
+      "Original ElevenLabs v4 provider bytes; no post-processing."
+    ],
+    "generated_at": "2026-10-24T16:19:32.598761+00:00",
+    "approved_at": null,
+    "request_id": "VhyqANiwCSPLziHY82c8",
+    "trace_id": "5d00f9e491b9d14da90887ffce09b50b",
+    "character_cost": 24,
+    "incremental_character_cost": 24,
+    "provider_requests": [
+      {
+        "model_id": "eleven_v4",
+        "text": "Ana studies every day, but she never studies at night.",
+        "character_cost": 24,
+        "incremental_character_cost": 24,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "24",
+        "staged_reuse": false,
+        "request_id": "VhyqANiwCSPLziHY82c8",
+        "trace_id": "5d00f9e491b9d14da90887ffce09b50b"
+      }
+    ],
+    "review": {
+      "status": "pending-listening-review",
+      "basis": "Voice settings do not approve an individual recording."
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { type ReactNode, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import type { LessonCard } from '../types';
+import type { LessonCard, TeachingClock } from '../types';
+import { visibleClockCues } from '../teachingClock';
 import { CONVERSATION_DECISION_INSTRUCTION } from '../missionConversationDecision';
 import { useMissionConversationDecision } from '../hooks/useMissionConversationDecision';
 import { lessonMistakeHint } from '../lessonMistakeHints';
@@ -11,6 +12,7 @@ import { TutorButton } from './TutorButton';
 type Props = {
   card: LessonCard;
   imageUrl?: string | null;
+  clockCues?: TeachingClock[];
   interactionReady: boolean;
   cueUnavailable: boolean;
   paused: boolean;
@@ -72,7 +74,8 @@ export function MissionConversationDecision(props: Props) {
         <Pressable accessibilityRole="button" accessibilityLabel="Continuar la historia" disabled={paused}
           onPress={() => controller.continue()} style={styles.retry}><Text style={styles.buttonText}>Continuar →</Text></Pressable>
       </> : <>
-        {!images && props.imageUrl ? <View style={styles.hero}><OptionMediaImage imageUrl={props.imageUrl} accessibilityLabel="Escena de la conversación" /></View> : null}
+        {!images && props.imageUrl ? <View style={styles.hero}><OptionMediaImage imageUrl={props.imageUrl}
+          clockCues={visibleClockCues(card, props.clockCues, state.phase === 'responding')} accessibilityLabel="Escena de la conversación" /></View> : null}
         {!interactionReady && !cueUnavailable && state.phase === 'choosing' ? <Text accessibilityLiveRegion="polite" style={styles.status}>Escucha…</Text> : null}
         <View style={[styles.options, images ? styles.imageOptions : null]}>
           {state.options.map((option, index) => <Pressable key={option.id} accessibilityRole="button"

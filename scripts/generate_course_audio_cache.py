@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(BACKEND_DIR))
 
 from app.course_audio import audio_configured, cache_path_for, get_course_audio, voice_for_variant  # noqa: E402
-from app.data import LESSONS  # noqa: E402
+from app.data import ALL_LESSONS as LESSONS  # noqa: E402
 from scripts.build_frontend_audio_manifest import expected_audio_items, main as build_manifest  # noqa: E402
 
 

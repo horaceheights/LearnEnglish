@@ -15,7 +15,8 @@ import { isWrittenRecognize } from '../lessonPromptPresentation';
 import { awaitingConstructionRetry } from '../constructionTeaching';
 import { IMAGE_CHOICE_INSET, imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
-import type { ChoiceOption, LessonCard } from '../types';
+import type { ChoiceOption, LessonCard, TeachingClock } from '../types';
+import { visibleClockCues } from '../teachingClock';
 import { teachingOptionImageUrl, visibleTurnImageUrl } from '../lessonTurnImages';
 import {
   LESSON_MEDIA_FRAME_STYLE,
@@ -63,6 +64,7 @@ type Props = {
   audioProvider: CourseAudioProvider;
   audioVoice: CourseAudioVoice;
   activeTurnImageUrl?: string | null;
+  clockCues?: TeachingClock[];
   card: LessonCard;
   level: string;
   lessonId: string;
@@ -100,6 +102,7 @@ export function LessonCardView({
   audioProvider,
   audioVoice,
   activeTurnImageUrl: playingTurnImageUrl = null,
+  clockCues,
   card,
   level,
   lessonId,
@@ -493,6 +496,7 @@ export function LessonCardView({
               ? card.prompt
               : card.answer_audio_text || card.prompt}
             imageUrl={activeTurnImageUrl || card.prompt_image_url}
+            clockCues={clockCues}
             onLoad={onPromptImageReady}
           />
         </LessonMediaFrame>
@@ -597,6 +601,7 @@ export function LessonCardView({
                 : featureImageHeight}
             imageLabel={card.options[0]?.label || card.prompt}
             imageUrl={card.options[0]?.image_url}
+            clockCues={card.options[0]?.clock_cues || card.clock_cues}
             isAppActive={isAppActive}
             autoplayReady={pronunciationAutoplayReady}
             isOffline={isOffline}
@@ -734,6 +739,7 @@ export function LessonCardView({
                         >
                           <OptionMediaImage
                             imageUrl={teachingImageUrl || option.image_url}
+                            clockCues={visibleClockCues(card, card.options.length === 1 ? clockCues : option.clock_cues, result === 'correct')}
                             onLoad={card.stage === 'Learn' && card.options.length === 1 ? onTeachingImageReady : undefined}
                             sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
                           />

@@ -1,0 +1,62 @@
+{
+  "file": "takes/a72681cc0b0a49fcad72eb13d272cf7d38d841ca77548b7652baaaed605add7f.mp3",
+  "audio_sha256": "a72681cc0b0a49fcad72eb13d272cf7d38d841ca77548b7652baaaed605add7f",
+  "bytes": 58557,
+  "text": "I finish work at six. I arrive home at seven.",
+  "compatible_speaker_roles": [
+    "diego"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt"
+  ],
+  "compatible_variants": [
+    "default"
+  ],
+  "provenance": {
+    "source": "elevenlabs-offline-render",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_v4",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_rate_bps": 128000
+    },
+    "processing": [
+      "Original ElevenLabs v4 provider bytes; no post-processing."
+    ],
+    "generated_at": "2026-10-24T16:19:53.703440+00:00",
+    "approved_at": null,
+    "request_id": "4qTiLlnoCc2wnUuu3HJw",
+    "trace_id": "e98dd494f632586363249e3901c54b29",
+    "character_cost": 20,
+    "incremental_character_cost": 20,
+    "provider_requests": [
+      {
+        "model_id": "eleven_v4",
+        "text": "I finish work at six. I arrive home at seven.",
+        "character_cost": 20,
+        "incremental_character_cost": 20,
+        "character_cost_source": "provider-header",
+        "character_cost_header": "20",
+        "staged_reuse": false,
+        "request_id": "4qTiLlnoCc2wnUuu3HJw",
+        "trace_id": "e98dd494f632586363249e3901c54b29"
+      }
+    ],
+    "review": {
+      "status": "pending-listening-review",
+      "basis": "Voice settings do not approve an individual recording."
+    }
+  }
+}

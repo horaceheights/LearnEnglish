@@ -1,0 +1,39 @@
+{
+  "status": "local-verification-only",
+  "published": false,
+  "source_sha256": "eba5266eb73e869279a832be922da139d8bf62fc320ae63db13c532860d8dea2",
+  "lessons": 12,
+  "cards": 433,
+  "image_assets": 83,
+  "audio_bindings": 803,
+  "recordings": 360,
+  "remaining": "Immutable Git snapshot binding, approved CDN staging and remote inventory verification, checked PR, exact-main protected Preview",
+  "verification": {
+    "content_and_cast": "pass",
+    "persistent_audio_assets": 7735,
+    "source_fidelity": {
+      "cards": 433,
+      "ordered_audio_occurrences": 708,
+      "images": 83,
+      "repeatability": "pass"
+    },
+    "wrong_choice_hints": {
+      "paths": 179,
+      "generic": 0,
+      "overlong": 0
+    },
+    "construction_feedback": "all registered courses pass every reachable swap",
+    "web_build": "pass",
+    "mobile_typescript": "pass",
+    "mobile_preview_preflight": "pass before final shared layout refinements",
+    "extended_native_layouts": "pass after shared correction-message and rail-padding fixes",
+    "backend_suite": {
+      "tests": 740,
+      "passed": 738,
+      "remaining": [
+        "catalog source snapshot binding",
+        "published Cloudflare inventory"
+      ]
+    }
+  }
+}

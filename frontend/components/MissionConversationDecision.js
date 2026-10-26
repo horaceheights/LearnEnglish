@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { CONVERSATION_DECISION_INSTRUCTION } from "../../mobile/src/missionConversationDecision";
 import { useMissionConversationDecision } from "../../mobile/src/hooks/useMissionConversationDecision";
+import TeachingClocks from "./TeachingClocks";
+import { visibleClockCues } from "../../mobile/src/teachingClock";
 import { lessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { TutorButton } from "./TutorButton";
 
@@ -36,7 +38,8 @@ export default function MissionConversationDecision(props) {
         <div className="hero"><Image alt={completion.context_es} fill priority sizes="(max-width: 760px) 90vw, 900px" src={resolveImage(completion.image_url)} style={{ objectFit: "contain" }} unoptimized /></div>
         <button aria-label="Continuar la historia" disabled={paused} onClick={() => controller.continue()} type="button">Continuar →</button>
       </> : <>
-        {!images && imageSrc ? <div className="hero"><Image alt="Escena de la conversación" fill priority sizes="(max-width: 760px) 90vw, 900px" src={imageSrc} style={{ objectFit: "contain" }} unoptimized /></div> : null}
+        {!images && imageSrc ? <div className="hero"><Image alt="Escena de la conversación" fill priority sizes="(max-width: 760px) 90vw, 900px" src={imageSrc} style={{ objectFit: "contain" }} unoptimized />
+          <TeachingClocks cues={visibleClockCues(card, props.clockCues, state.phase === "responding")} /></div> : null}
         {!interactionReady && !cueUnavailable && state.phase === "choosing" ? <p aria-live="polite">Escucha…</p> : null}
         <div className={`options ${images ? "image-options" : "text-options"}`}>
           {state.options.map((option, index) => <button key={option.id} type="button"

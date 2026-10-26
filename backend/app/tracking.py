@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field, model_validator
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.engine import RowMapping
 
-from .data import LESSONS
+from .data import ALL_LESSONS as LESSONS
 
 
 DB_PATH = Path(__file__).resolve().parents[1] / "learnenglish.db"

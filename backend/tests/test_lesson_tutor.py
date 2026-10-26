@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.pool import StaticPool
 
 from backend.app import learner_auth, lesson_tutor as tutor, main, tracking
-from backend.app.data import LESSONS
+from backend.app.data import ALL_LESSONS as LESSONS
 
 
 class LessonTutorTests(unittest.TestCase):
@@ -119,7 +119,7 @@ class LessonTutorTests(unittest.TestCase):
         for lesson in LESSONS.values():
             for card in lesson.cards:
                 game = getattr(card, 'mission_game', None)
-                if not game or game.kind == 'voice-gate':
+                if not game or game.kind in ('voice-gate', 'conversation-decision'):
                     continue
                 body = dict(lesson_id=lesson.id, slide_id=card.slide_id, content_revision=lesson.content_revision)
                 for index, cue in enumerate(game.cues):
@@ -141,6 +141,20 @@ class LessonTutorTests(unittest.TestCase):
                     self.assertEqual(422, error.exception.status_code)
         with self.assertRaises(HTTPException):
             tutor.resolve_context(tutor.CardContext(**self.body, mission_cue_index=0))
+
+    def test_mission_decisions_explain_the_selected_option_without_invented_targets(self):
+        for lesson in LESSONS.values():
+            for card in lesson.cards:
+                game = getattr(card, 'mission_game', None)
+                if not game or game.kind != 'conversation-decision':
+                    continue
+                body = dict(lesson_id=lesson.id, slide_id=card.slide_id, content_revision=lesson.content_revision)
+                for option in card.options:
+                    context = tutor.resolve_context(tutor.CardContext(**body, selected_option_ids=[option.id]))
+                    self.assertEqual('after_correct' if option.id == card.correct_option_id else 'after_error', context['mode'])
+                    self.assertEqual([option.label or ''], context['submitted_words'])
+                with self.assertRaises(HTTPException):
+                    tutor.resolve_context(tutor.CardContext(**body, mission_cue_index=0))
 
     def test_shared_quota_and_safe_error_recovery(self):
         with patch.object(tutor, 'provider_request', new_callable=AsyncMock,

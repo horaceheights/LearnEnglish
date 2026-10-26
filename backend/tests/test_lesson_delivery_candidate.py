@@ -183,6 +183,32 @@ class CandidateDeliveryTests(unittest.TestCase):
         self.assertIn("clock", package["integrationContract"]["nativeImportBlockedReasons"])
         self.assertFalse(package["integrationContract"]["nativeImportReady"])
         self.assertEqual("pass", verify_package(package, source, repo=REPO, asset_root=self.root)["status"])
+        changed = copy.deepcopy(package)
+        changed["canonicalProjection"][0]["cards"][0]["options"][1]["clock_cues"][0]["hour"] = 5
+        self.assertTrue(any("option clock differs" in error for error in verify_package(
+            changed, source, repo=REPO, asset_root=self.root)["errors"]))
+
+    def test_supported_prepared_turn_metadata_and_construction_reply_are_exact_but_unapproved(self):
+        source = copy.deepcopy(self.source)
+        model = {**self.turn, "clock": {"hour": 7, "minute": 0}, "translation_es": "Trabajo."}
+        prepared = source["lessons"][0]["cards"][1]["turns"][0]
+        prepared["audioDelivery"] = "a1-pronunciation-v1"
+        self.receipt["audioDelivery"] = "a1-pronunciation-v1"
+        self.asset("prepared.receipt.json", json.dumps(self.receipt).encode())
+        source["lessons"][0]["cards"] = [{
+            "id": "3.2-U01", "stage": "Use", "activity": "build", "target": "I work.",
+            "turns": [model], "answerTurns": [prepared],
+        }]
+        package = self.compile(source)["lesson-delivery-package.json"]
+        canonical = package["canonicalProjection"][0]["cards"][0]
+        self.assertEqual("a1-pronunciation-v1", canonical["success_audio_turns"][0]["delivery"])
+        self.assertEqual([{"hour": 7, "minute": 0}], canonical["answer_audio_turns"][0]["clock_cues"])
+        self.assertEqual("Trabajo.", canonical["answer_audio_turns"][0]["spanish_translation"])
+        self.assertFalse(package["integrationContract"]["nativeImportReady"])
+        self.assertEqual("pass", verify_package(package, source, repo=REPO, asset_root=self.root)["status"])
+        del canonical["success_audio_turns"]
+        self.assertTrue(any("success_audio_turns length differs" in error for error in verify_package(
+            package, source, repo=REPO, asset_root=self.root)["errors"]))
 
     def test_projection_story_and_lesson_metadata_must_match_source(self):
         source = copy.deepcopy(self.source)

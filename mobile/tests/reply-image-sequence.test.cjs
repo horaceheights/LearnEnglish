@@ -258,7 +258,7 @@ test('the native and web prompt images connect their keyed load event to reply r
   const native=renderExpression('mobile/src/components/LessonCardView.tsx',
     (n,a)=>ts.isJsxSelfClosingElement(n)&&n.tagName.getText(a)==='OptionMediaImage'
       &&n.getText(a).includes('promptImageLoadKey'),{
-        ...common,OptionMediaImage:'OptionMediaImage',card:cards[0],isWrittenRecognize:()=>false,
+        ...common,OptionMediaImage:'OptionMediaImage',card:cards[0],isWrittenRecognize:()=>false,clockCues:[],
         onPromptImageReady:()=>nativeLoaded++,
       });
   assert.equal(native.props.key,common.promptImageLoadKey);

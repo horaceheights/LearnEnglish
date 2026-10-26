@@ -6,10 +6,33 @@ from pydantic import BaseModel, Field, field_validator, model_validator, model_s
 from .course_audio_profile import narrator_for_speaker
 
 
+class TeachingClock(BaseModel):
+    """An authored time cue, never inferred from an answer or a photograph."""
+
+    hour: int = Field(ge=1, le=12, strict=True)
+    minute: int = Field(ge=0, le=59, strict=True)
+    label: str | None = Field(default=None, min_length=1, max_length=80)
+
+    @model_serializer(mode="wrap")
+    def omit_unset_label(self, handler):
+        payload = handler(self)
+        if self.label is None:
+            payload.pop("label", None)
+        return payload
+
+
 class ChoiceOption(BaseModel):
     id: str
     image_url: str = ""
     label: str | None = None
+    clock_cues: list[TeachingClock] = Field(default_factory=list, max_length=4)
+
+    @model_serializer(mode="wrap")
+    def omit_unset_clock_cues(self, handler):
+        payload = handler(self)
+        if not self.clock_cues:
+            payload.pop("clock_cues", None)
+        return payload
 
 
 class CourseAudioAsset(BaseModel):
@@ -25,7 +48,7 @@ class CourseAudioAsset(BaseModel):
     speaker_role: str
     profile_id: str
     revision: int
-    delivery: Literal["quick", "clear"] | None = None
+    delivery: Literal["quick", "clear", "a1-pronunciation-v1"] | None = None
 
     @model_serializer(mode="wrap")
     def omit_unset_delivery(self, handler):
@@ -39,13 +62,19 @@ class CourseAudioTurn(BaseModel):
     text: str = Field(min_length=1)
     speaker_role: str = Field(min_length=1)
     image_url: str = Field(min_length=1)
-    delivery: Literal["quick", "clear"] | None = None
+    delivery: Literal["quick", "clear", "a1-pronunciation-v1"] | None = None
+    clock_cues: list[TeachingClock] = Field(default_factory=list, max_length=4)
+    spanish_translation: str | None = Field(default=None, min_length=1)
 
     @model_serializer(mode="wrap")
     def omit_unset_delivery(self, handler):
         payload = handler(self)
         if self.delivery is None:
             payload.pop("delivery", None)
+        if not self.clock_cues:
+            payload.pop("clock_cues", None)
+        if self.spanish_translation is None:
+            payload.pop("spanish_translation", None)
         return payload
 
     @field_validator("text", "speaker_role", "image_url")
@@ -86,6 +115,9 @@ class LessonCard(BaseModel):
     answer_audio_speaker: str | None = None
     audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
     answer_audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
+    success_audio_turns: list[CourseAudioTurn] = Field(default_factory=list)
+    answer_audio_policy: Literal["authored-only"] | None = None
+    clock_cues: list[TeachingClock] = Field(default_factory=list, max_length=4)
     reply_image_timing: Literal["after-prompt"] | None = None
     audio_revision: int = Field(default=1, ge=1)
     answer_audio_revision: int = Field(default=1, ge=1)
@@ -102,7 +134,25 @@ class LessonCard(BaseModel):
             payload.pop("learn_translation_preview_ms", None)
         if self.reply_image_timing is None:
             payload.pop("reply_image_timing", None)
+        for name in ("clock_cues", "success_audio_turns"):
+            if not getattr(self, name):
+                payload.pop(name, None)
+        if self.answer_audio_policy is None:
+            payload.pop("answer_audio_policy", None)
         return payload
+
+    @model_validator(mode="after")
+    def require_success_reply_contract(self):
+        if self.success_audio_turns and (
+            self.stage != "Use" or self.interaction_type not in {"complete2", "complete-sentence"}
+        ):
+            raise ValueError("A success reply must follow a guided or full sentence construction.")
+        if self.success_audio_turns and (
+            not self.answer_audio_turns
+            or self.answer_audio_text != " ".join(turn.text for turn in self.answer_audio_turns)
+        ):
+            raise ValueError("A success reply needs the exact constructed model audio turns first.")
+        return self
 
     @field_validator("context_es")
     @classmethod

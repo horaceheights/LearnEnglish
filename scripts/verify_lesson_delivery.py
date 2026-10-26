@@ -171,6 +171,34 @@ def verify_package(package, original, *, repo, asset_root):
                 if translations and all(translations):
                     check(canonical["spanish_translation"] == " ".join(translations), f"{source_card['id']}: turn translation differs")
             source_turns = source_card.get("turns", [])
+            def expected_clocks(value):
+                return value.get("clockCues") or ([value["clock"]] if value.get("clock") else [])
+            check(canonical.get("clock_cues", []) == expected_clocks(source_card), f"{source_card['id']}: clock evidence differs")
+            check(canonical.get("answer_audio_policy") == "authored-only", f"{source_card['id']}: unauthored answer audio enabled")
+            for field, values in (
+                ("audio_turns", source_turns),
+                ("answer_audio_turns", source_turns if source_card["activity"] == "build" else source_card.get("answerTurns", [])),
+                ("success_audio_turns", source_card.get("answerTurns", []) if source_card["activity"] == "build" else []),
+            ):
+                if len(values) == 1 and not values[0].get("image"):
+                    values = []
+                projected_turns = canonical.get(field, [])
+                check(len(projected_turns) == len(values), f"{source_card['id']}: {field} length differs")
+                for authored, projected_turn in zip(values, projected_turns):
+                    expected = {"text": authored["text"], "speaker_role": authored["speaker"],
+                                "image_url": image_urls[authored["image"]]}
+                    if expected_clocks(authored):
+                        expected["clock_cues"] = expected_clocks(authored)
+                    if authored.get("translation_es"):
+                        expected["spanish_translation"] = authored["translation_es"]
+                    if authored.get("audioDelivery") in {"quick", "clear", "a1-pronunciation-v1"}:
+                        expected["delivery"] = authored["audioDelivery"]
+                    check(projected_turn == expected, f"{source_card['id']}: {field} exact turn metadata differs")
+            if source_card["activity"] == "choice":
+                for option, authored in zip(canonical["options"], source_card["options"]):
+                    check(option.get("clock_cues", []) == expected_clocks(authored), f"{source_card['id']}: option clock differs")
+            if source_card.get("mission_kind") == "voice-gate":
+                check(canonical["options"][0].get("clock_cues", []) == expected_clocks(source_card["speakTarget"]), f"{source_card['id']}: response clock differs")
             if len(source_turns) == 1 and not source_turns[0].get("image"):
                 check(not canonical["audio_turns"] and not canonical["prompt_image_url"]
                       and canonical["audio_text"] == source_turns[0]["text"]
@@ -198,7 +226,7 @@ def verify_package(package, original, *, repo, asset_root):
         check(binding["installed"] is False, f"{slide_id}: unproven canonical audio installation")
         take = binding.get("take")
         purpose = ("prompt" if asset["purpose"] == "mission-cue" else asset["purpose"]).split("-turn-")
-        field = "turns" if purpose[0] == "prompt" else "answerTurns"
+        field = "turns" if purpose[0] == "prompt" or (purpose[0] == "answer" and source_card["activity"] == "build") else "answerTurns"
         turns = source_card.get(field, [])
         if len(purpose) == 2:
             turns = turns[int(purpose[1]) - 1:int(purpose[1])]

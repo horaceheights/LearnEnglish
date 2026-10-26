@@ -17,7 +17,9 @@ const lessonScreen = fs.readFileSync(
 test('audio turn sequences are not rebuilt during render', () => {
   const declarations = [...lessonScreen.matchAll(
     /^ {2}const (\w+) = ([\s\S]*?);$/gmu,
-  )].filter(([, , body]) => body.includes('findCourseAudioTurnSequence('));
+  )].filter(([, , body]) => body.includes('findCourseAudioTurnSequence(')
+    // Event callbacks resolve a sequence only when invoked, not during render.
+    && !/^useCallback\(/u.test(body));
 
   assert.ok(
     declarations.length > 0,

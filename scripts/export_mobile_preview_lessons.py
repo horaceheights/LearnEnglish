@@ -39,7 +39,9 @@ COURSE_MENU_IMAGE_NAMES = {
 
 sys.path.insert(0, str(BACKEND_ROOT))
 
-from app.data import LESSONS  # noqa: E402
+from app.data import ALL_LESSONS as LESSONS  # noqa: E402
+from app.data import COURSE_DESCRIPTORS, COURSE_LESSONS  # noqa: E402
+from app.data import LESSONS as A1_LESSONS  # noqa: E402
 
 
 def model_payload(model: object) -> dict[str, object]:
@@ -73,8 +75,8 @@ def export_lesson(lesson_id: str) -> Path:
     return destination
 
 
-def export_course(lesson_ids: list[str]) -> Path:
-    destination = OUTPUT_ROOT / "a1-course.json"
+def export_course(lesson_ids: list[str], destination: Path | None = None) -> Path:
+    destination = destination or OUTPUT_ROOT / "all-courses.json"
     destination.write_text(
         json.dumps(
             [model_payload(LESSONS[lesson_id]) for lesson_id in lesson_ids],
@@ -104,6 +106,7 @@ def lesson_image_names() -> list[str]:
                 *(option.image_url for option in card.options),
                 *(turn.image_url for turn in card.audio_turns),
                 *(turn.image_url for turn in card.answer_audio_turns),
+                *(turn.image_url for turn in card.success_audio_turns),
             ]
             for image_url in paths:
                 clean_path = str(image_url or "").split("?", 1)[0].split("#", 1)[0]
@@ -119,7 +122,9 @@ def lesson_image_names() -> list[str]:
         variant for source, variant in OPTION_MEDIA_VARIANTS.items() if source in option_names
     )
     names.update(TWO_CARD_ACTION_POSTERS.values())
-    browser_lessons = [model_payload(lesson) for lesson in LESSONS.values()]
+    # The historical A1 thumbnail map remains exact. Other registered courses
+    # derive thumbnails from their first authored image, already collected above.
+    browser_lessons = [model_payload(lesson) for lesson in A1_LESSONS.values()]
     names.update(
         usage["rendered_filename"]
         for usage in course_browser_media_usages(browser_lessons)
@@ -187,10 +192,18 @@ def main() -> None:
     for lesson_id in lesson_ids:
         destination = export_lesson(lesson_id)
         print(destination.relative_to(ROOT))
-    course_destination = export_course(lesson_ids)
+    # A scoped lesson export must never replace a complete registered catalog.
+    for descriptor in COURSE_DESCRIPTORS:
+        export_course(list(COURSE_LESSONS[descriptor["id"]]), ROOT / descriptor["catalogPath"])
+    course_destination = export_course(list(LESSONS))
+    (OUTPUT_ROOT / "course-catalogs.json").write_text(json.dumps([
+        {"id": descriptor["id"], "level": descriptor["level"], "title": descriptor["title"],
+         "lessonIds": list(COURSE_LESSONS[descriptor["id"]])}
+        for descriptor in COURSE_DESCRIPTORS
+    ], ensure_ascii=True, indent=2) + "\n", encoding="utf-8")
     print(course_destination.relative_to(ROOT))
     image_count = export_lesson_images()
-    print(f"Bundled {image_count} required A1 lesson images for Expo Preview.")
+    print(f"Bundled {image_count} required lesson images for Expo Preview.")
 
 
 if __name__ == "__main__":

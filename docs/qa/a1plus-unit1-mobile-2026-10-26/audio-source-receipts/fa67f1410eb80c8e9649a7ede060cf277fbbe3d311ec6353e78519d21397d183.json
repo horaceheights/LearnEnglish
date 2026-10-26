@@ -1,0 +1,65 @@
+{
+  "file": "takes/fa67f1410eb80c8e9649a7ede060cf277fbbe3d311ec6353e78519d21397d183.mp3",
+  "audio_sha256": "fa67f1410eb80c8e9649a7ede060cf277fbbe3d311ec6353e78519d21397d183",
+  "bytes": 16461,
+  "text": "Hello.",
+  "compatible_speaker_roles": [
+    "luis",
+    "male-character"
+  ],
+  "profile_id": "a1-elevenlabs-character-cast-v1",
+  "compatible_modes": [
+    "prompt",
+    "pronunciation_slow"
+  ],
+  "compatible_variants": [
+    "answer",
+    "prompt",
+    "split-ing"
+  ],
+  "provenance": {
+    "source": "captured-legacy-render-backend",
+    "provider": "elevenlabs-premium",
+    "model_id": "eleven_multilingual_v2",
+    "narrator": "male-conversational",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "provider_output_format": "mp3_44100_128",
+    "seed": 1101,
+    "settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.8,
+      "style": 0.0,
+      "use_speaker_boost": true,
+      "speed": 0.7
+    },
+    "stored_media": {
+      "container": "mp3",
+      "codec": "mp3float",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "bit_rate_bps": 96000
+    },
+    "processing": [
+      "Captured byte-for-byte from the configured legacy Render backend during the persistent-audio migration.",
+      "The backend used the pinned ElevenLabs profile and course_audio.normalize_course_audio pipeline."
+    ],
+    "generated_at": null,
+    "captured_at": "2026-09-01T01:04:26.829426+00:00",
+    "approved_at": "2026-09-01T01:03:04.073224+00:00",
+    "request_id": null,
+    "trace_id": null,
+    "character_cost": null,
+    "character_cost_upper_bound": 6,
+    "provider_requests": [
+      {
+        "source": "legacy-render-backend",
+        "provider": "elevenlabs-premium",
+        "audio_profile": "a1-elevenlabs-cast-v14"
+      }
+    ],
+    "review": {
+      "status": "approved-profile-render",
+      "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+    }
+  }
+}
