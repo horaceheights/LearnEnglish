@@ -8,6 +8,7 @@ import { missionChallengeLabel, missionVoiceProgress } from "../lib/missionPrese
 
 import { useMissionTransition } from "../../mobile/src/hooks/useMissionTransition";
 import { TutorButton } from "./TutorButton";
+import MissionConversationDecision from "./MissionConversationDecision";
 
 const ACT_ICONS = ["◉", "∿", "➤", "✦", "●"];
 const ACT_COLORS = ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"];
@@ -128,6 +129,10 @@ export default function CelebrationMission({
   cardIndex,
   imageSrc,
   interactionReady,
+  cueUnavailable = false,
+  onDecisionResponse,
+  onDecisionAdvance,
+  onDecisionRetry,
   paused = false,
   onTutor,
   onTutorFocus,
@@ -165,6 +170,7 @@ export default function CelebrationMission({
   const chapterIndex = Math.max(0, chapters.findIndex((chapter) => chapter.isActive));
   const cue = game.cues?.[cueOrder[cueIndex] ?? cueIndex] || game.cues?.[0];
   const isVoiceGate = game.kind === "voice-gate";
+  const isDecision = game.kind === "conversation-decision";
   const completionScene = showCompletionScene ? game.completion_scene : undefined;
   const heroImage = completionScene ? resolveImage(completionScene.image_url) : isVoiceGate && speech.asking
     ? resolveImage(card.audio_turns?.[0]?.image_url || "")
@@ -196,8 +202,8 @@ export default function CelebrationMission({
   }, [card.slide_id]);
 
   useEffect(() => {
-    if (!isVoiceGate) onTutorFocus?.({ slide_id: card.slide_id, cue_index: cueOrder[cueIndex] ?? cueIndex, target_id: submittedTarget });
-  }, [card.slide_id, cueOrder, cueIndex, submittedTarget, onTutorFocus, isVoiceGate]);
+    if (!isVoiceGate && !isDecision) onTutorFocus?.({ slide_id: card.slide_id, cue_index: cueOrder[cueIndex] ?? cueIndex, target_id: submittedTarget });
+  }, [card.slide_id, cueOrder, cueIndex, submittedTarget, onTutorFocus, isVoiceGate, isDecision]);
 
   if (!introComplete) {
     return <MissionIntro introReady={introReady} isMobile={isMobile} lesson={lesson} onBegin={onBegin} onExit={onExit} onReplayIntro={onReplayIntro} resolveImage={resolveImage} />;
@@ -242,7 +248,7 @@ export default function CelebrationMission({
   };
 
   return (
-    <main className={`mission-shell mission-game ${isVoiceGate ? "mission-voice-game" : ""}`} aria-label={`${lesson.mission.label}. Reto ${cardIndex + 1} de ${lesson.cards.length}.`}>
+    <main className={`mission-shell mission-game ${isVoiceGate ? "mission-voice-game" : ""} ${isDecision ? "mission-decision-game" : ""}`} aria-label={`${lesson.mission.label}. Reto ${cardIndex + 1} de ${lesson.cards.length}.`}>
       <header className="game-header">
         <div className="mission-topline">
           <button aria-label="Salir de la misión" onClick={onExit} style={{ ...buttonStyle(false), minHeight: isVoiceGate ? 48 : 40, minWidth: isVoiceGate ? 48 : undefined, padding: "6px 10px" }} type="button">{isVoiceGate ? "←" : "← Salir"}</button>
@@ -256,6 +262,10 @@ export default function CelebrationMission({
         <div className="mission-meter"><span style={{ background: ACT_COLORS[chapterIndex], width: `${missionProgress}%` }} /></div>
       </header>
 
+      {isDecision ? <MissionConversationDecision card={card} paused={paused} interactionReady={interactionReady}
+        cueUnavailable={cueUnavailable} imageSrc={imageSrc} resolveImage={resolveImage} onTutor={onTutor} tutorAnchorRef={tutorAnchorRef}
+        onReplay={() => onReplayEnglish(0)} onSubmit={onComplete} onRetry={onDecisionRetry}
+        onResponse={onDecisionResponse} onAdvance={onDecisionAdvance} /> : <>
       {card.context_es && !completionScene ? <p className="story-context">{card.context_es}</p> : null}
       {isVoiceGate ? (
         <VoiceGateHeader cardIndex={cardIndex} game={game} lesson={lesson} onReplayEnglish={onReplayEnglish} speech={speech} />
@@ -315,6 +325,7 @@ export default function CelebrationMission({
       {isVoiceGate ? <VoiceGateConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} successLabel={missionVoiceProgress(lesson, cardIndex).successLabel} /> : !completionScene ? (
         <div className="cue-dots" aria-label={`Pista ${cueProgress}`}>{game.cues.map((item, index) => <i className={index < cueIndex ? "done" : index === cueIndex ? "current" : ""} key={item.id} />)}</div>
       ) : null}
+      </>}
       <style jsx>{missionStyles}</style>
     </main>
   );
@@ -406,6 +417,7 @@ const missionStyles = `
   @media (max-height:600px) and (orientation:landscape) {
     .mission-shell { gap:6px; height:calc(100svh - 16px); min-height:0; padding:8px; }
     .mission-game { display:grid; grid-template-columns:minmax(230px,.8fr) minmax(0,1.45fr); grid-template-rows:auto 1fr auto; }
+    .mission-decision-game { grid-template-rows:auto minmax(0,1fr); }
     .mission-game .game-header { grid-column:1; grid-row:1; }
     .mission-game .cue-panel { align-self:start; grid-column:1; grid-row:2; }
     .mission-game .voice-game-header { align-self:start; grid-column:1; grid-row:2; }

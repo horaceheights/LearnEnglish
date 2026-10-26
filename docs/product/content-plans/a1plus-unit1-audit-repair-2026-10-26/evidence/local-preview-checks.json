@@ -1,0 +1,50 @@
+{
+  "contentSha256": "fbba411138f55793f8891245cf979c35ec0bcaa433e25b1298432284bf2e97bb",
+  "sourceCards": 433,
+  "sharedWrongChoiceChecks": 179,
+  "sharedConstructionChecks": 90,
+  "canonicalTranslationSurfaces": 117,
+  "allSourceFramesAbsent": true,
+  "missionDecisions": 13,
+  "terminalVoiceGates": 4,
+  "hintSamples": [
+    {
+      "card": "1.1-R01",
+      "selected": "start-work",
+      "hint": "Elegiste empezar a trabajar; corresponde salir de casa."
+    },
+    {
+      "card": "1.1-R02",
+      "selected": "i-start-work-at-nine",
+      "hint": "La hora de empezar a trabajar es las ocho, no las nueve. No la cambies por la de otra acción."
+    },
+    {
+      "card": "1.1-R03",
+      "selected": "arrive-home",
+      "hint": "Elegiste llegar a casa; corresponde terminar de trabajar."
+    }
+  ],
+  "errors": [],
+  "browserVisualVerification": "PASS sampled local preview in Chrome at phone390x844 portrait and844x390 landscape. Working original-audit Chrome profile used after initial inaccessible profile. Viewport restored. No console errors.",
+  "nativeParity": "not asserted",
+  "browserChecks": [
+    "Learn1.1-L01: replay after Spanish deadline kept Spanish hidden; yellow exact vocabulary phrase visible.",
+    "Listen1.1-A01: options disabled during authored prompt, wrong seven-vs-eight choice shows shared contextual time correction, red X, accessible error label and Retry.",
+    "Use1.1-U01: wrong home/leave order rejected with shared construction explanation; landscape feedback and retry readable, no horizontal overflow.",
+    "Recognize1.5-R06: two complete independent place-record images stacked full-width in portrait with legends visible; wrong record explains home versus library.",
+    "Mission1.12-02a: correct choice with no answerTurns enables Continue after feedback without replay dependency.",
+    "Mission1.12-16: Continue disabled during two authored response clips; completion scene m16 appears afterward, before explicit Continue.",
+    "Missionclosing: Continue opens1.12-04 then Next visits1.12-08,1.12-10,1.12-13 consecutively; first gate questionm16 changes to distinct responsem21 after prompt.",
+    "Landscape844x390: document scrollWidth equals clientWidth829; page uses vertical scrolling. Local recording remains explicitly ungraded; no microphone permission or speech scoring tested."
+  ],
+  "screenshots": [
+    "repair-preview-learn-portrait.png",
+    "repair-preview-listen-wrong-portrait.png",
+    "repair-preview-use-wrong-landscape.png",
+    "repair-preview-record-portrait.png",
+    "repair-preview-mission-arrival-portrait.png",
+    "repair-preview-voice-gate-landscape.png",
+    "repair-preview-voice-image-landscape.png"
+  ],
+  "qualification": "Local preview verification is not native parity or human approval of image semantics, crops, voices or teaching copy. Fisher-Yates reshuffle logic verified; repeated identical two-option order is a valid random outcome."
+}

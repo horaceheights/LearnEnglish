@@ -1,0 +1,3769 @@
+[
+  {
+    "id": "1.5",
+    "title": "What I usually do",
+    "outcome": "Describe a personal routine accurately and distinguish daily recurrence, a usual pattern, an occasional action and an action that never happens in the stated context.",
+    "kind": "teaching",
+    "cards": [
+      {
+        "id": "1.5-L01",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Ana explica sus regresos a casa. Siempre se refiere a cada regreso de esta rutina, no a cada día del calendario.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18",
+            "translation_es": "Siempre llego a casa antes de cenar."
+          }
+        ]
+      },
+      {
+        "id": "1.5-L02",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Ana describe su horario de estudio. La voz establece el hábito; la foto solo muestra quién habla.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18",
+            "translation_es": "Nunca estudio por la noche."
+          }
+        ]
+      },
+      {
+        "id": "1.5-L03",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Ana describe dónde estudia habitualmente.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "12",
+            "translation_es": "Normalmente estudio en casa."
+          }
+        ]
+      },
+      {
+        "id": "1.5-L04",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Ana añade un lugar que usa en algunas ocasiones.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "13",
+            "translation_es": "A veces estudio en la biblioteca."
+          }
+        ]
+      },
+      {
+        "id": "1.5-L05",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Escucha el contraste completo entre el lugar habitual y el ocasional.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "12",
+            "translation_es": "Normalmente estudio en casa."
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "13",
+            "translation_es": "A veces estudio en la biblioteca."
+          }
+        ]
+      },
+      {
+        "id": "1.5-L06",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Ana explica la frecuencia por días. Cada día tiene estudio; esto no dice dónde ni a qué hora.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18",
+            "translation_es": "Estudio todos los días."
+          }
+        ]
+      },
+      {
+        "id": "1.5-L07",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "La frecuencia por días y el horario de estudio son dos datos distintos.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day, but I never study at night.",
+            "image": "t18",
+            "translation_es": "Estudio todos los días, pero nunca estudio por la noche."
+          }
+        ]
+      },
+      {
+        "id": "1.5-R01",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro de tres regresos de Ana. Lee cada fila de izquierda a derecha; describe solo estos regresos.",
+        "instruction_es": "Elige la frase que coincide con el registro.",
+        "turns": [],
+        "options": [
+          {
+            "id": "i-always-arrive-home-before-dinner",
+            "text": "I always arrive home before dinner."
+          },
+          {
+            "id": "i-never-arrive-home-before-dinner",
+            "text": "I never arrive home before dinner."
+          }
+        ],
+        "answer": "i-always-arrive-home-before-dinner",
+        "hint_es": "Sigue las flechas: en estas filas, llegar a casa ocurre antes de cenar.",
+        "image": "f07",
+        "answerTurns": [
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-R02",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Otro registro de tres regresos. Describe únicamente estas ocasiones.",
+        "instruction_es": "Elige la frase que respeta las tres filas.",
+        "turns": [],
+        "options": [
+          {
+            "id": "i-always-arrive-home-before-dinner",
+            "text": "I always arrive home before dinner."
+          },
+          {
+            "id": "i-sometimes-arrive-home-after-dinner",
+            "text": "I sometimes arrive home after dinner."
+          }
+        ],
+        "answer": "i-sometimes-arrive-home-after-dinner",
+        "hint_es": "Revisa la tercera fila: el orden cambia. Una excepción impide decir always.",
+        "image": "f08",
+        "answerTurns": [
+          {
+            "speaker": "ana",
+            "text": "I sometimes arrive home after dinner.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-R03",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro de estudio nocturno de esta semana. Mo–Su: lunes–domingo. ✓ significa que estudia; ×, que no estudia.",
+        "instruction_es": "Elige la frase para esta semana.",
+        "turns": [],
+        "options": [
+          {
+            "id": "i-study-at-night-every-day",
+            "text": "I study at night every day."
+          },
+          {
+            "id": "i-never-study-at-night",
+            "text": "I never study at night."
+          }
+        ],
+        "answer": "i-never-study-at-night",
+        "hint_es": "Comprueba si hay alguna marca de estudio nocturno en los días registrados.",
+        "image": "f05",
+        "answerTurns": [
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-R04",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Otro registro nocturno; describe solo esta semana. Los símbolos conservan el mismo significado.",
+        "instruction_es": "Elige la frase que coincide.",
+        "turns": [],
+        "options": [
+          {
+            "id": "i-sometimes-study-at-night",
+            "text": "I sometimes study at night."
+          },
+          {
+            "id": "i-never-study-at-night",
+            "text": "I never study at night."
+          }
+        ],
+        "answer": "i-sometimes-study-at-night",
+        "hint_es": "Hay días con estudio nocturno y días sin él; no todos muestran una cruz.",
+        "image": "f06",
+        "answerTurns": [
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at night.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-R05",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Cinco ocasiones de estudio registradas. Casa = casa; estantería = biblioteca. Compara el patrón completo, solo en estas ocasiones.",
+        "instruction_es": "Elige el resumen de los dos lugares.",
+        "turns": [],
+        "options": [
+          {
+            "id": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+            "text": "I usually study at the library. I sometimes study at home."
+          },
+          {
+            "id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+            "text": "I usually study at home. I sometimes study at the library."
+          }
+        ],
+        "answer": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+        "hint_es": "Compara ambos lugares: el lugar habitual debe coincidir con el patrón que predomina; el otro aparece como una excepción.",
+        "image": "f01",
+        "answerTurns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18"
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-R06",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Cada registro es un conjunto independiente. Sus símbolos indican los lugares o días de estudio.",
+        "instruction_es": "¡Elige la foto!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at the library.",
+            "image": "t18"
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at home.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "record-usually-home",
+            "image": "f01"
+          },
+          {
+            "id": "record-usually-library",
+            "image": "f02"
+          }
+        ],
+        "answer": "record-usually-library",
+        "hint_es": "Ese registro muestra casa en la mayoría de las ocasiones y biblioteca solo algunas veces; la frase pide el patrón contrario.",
+        "prompt": "I usually study at the library. I sometimes study at home.",
+        "feedbackByOption": {
+          "record-usually-home": "Ese registro muestra casa en la mayoría de las ocasiones y biblioteca solo algunas veces; la frase pide el patrón contrario."
+        },
+        "spanish_translation": "Normalmente estudio en la biblioteca. A veces estudio en casa."
+      },
+      {
+        "id": "1.5-R07",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Cada registro corresponde a una semana independiente. ✓ indica estudio; × indica que no estudia.",
+        "instruction_es": "¡Elige la foto!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "record-every-day",
+            "image": "f03"
+          },
+          {
+            "id": "record-some-days",
+            "image": "f04"
+          }
+        ],
+        "answer": "record-every-day",
+        "hint_es": "Ese registro tiene días sin estudio. Every day requiere estudio en cada día de la semana mostrada.",
+        "prompt": "I study every day.",
+        "feedbackByOption": {
+          "record-some-days": "Ese registro tiene días sin estudio. Every day requiere estudio en cada día de la semana mostrada."
+        },
+        "spanish_translation": "Estudio todos los días."
+      },
+      {
+        "id": "1.5-R08",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Otra semana de estudio. Describe solo lo que está registrado.",
+        "instruction_es": "Elige la frase que coincide.",
+        "turns": [],
+        "options": [
+          {
+            "id": "i-study-every-day",
+            "text": "I study every day."
+          },
+          {
+            "id": "i-sometimes-study",
+            "text": "I sometimes study."
+          }
+        ],
+        "answer": "i-sometimes-study",
+        "hint_es": "Hay días sin estudio. Every day exige que no falte ningún día.",
+        "image": "f04",
+        "answerTurns": [
+          {
+            "speaker": "ana",
+            "text": "I sometimes study.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-A01",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana describe sus regresos a casa; las fotos no indican la frecuencia.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "i-sometimes-arrive-home-before-dinner",
+            "text": "I sometimes arrive home before dinner."
+          },
+          {
+            "id": "i-always-arrive-home-before-dinner",
+            "text": "I always arrive home before dinner."
+          }
+        ],
+        "answer": "i-always-arrive-home-before-dinner",
+        "hint_es": "Escucha si Ana habla de todas las ocasiones o solo de algunas."
+      },
+      {
+        "id": "1.5-A02",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana añade otro dato sobre su rutina.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day, but I never study at night.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "i-never-study-at-night",
+            "text": "I never study at night."
+          },
+          {
+            "id": "i-study-at-night-every-day",
+            "text": "I study at night every day."
+          }
+        ],
+        "answer": "i-never-study-at-night",
+        "hint_es": "Distingue estudiar cada día de estudiar por la noche."
+      },
+      {
+        "id": "1.5-A03",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Escucha el perfil de Ana completo.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18"
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+            "text": "I usually study at the library. I sometimes study at home."
+          },
+          {
+            "id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+            "text": "I usually study at home. I sometimes study at the library."
+          }
+        ],
+        "answer": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+        "hint_es": "No intercambies el lugar habitual con el ocasional."
+      },
+      {
+        "id": "1.5-A04",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Nuevo perfil: ahora habla Luis. No uses los hábitos de Ana.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "I usually study at the library.",
+            "image": "05"
+          },
+          {
+            "speaker": "luis",
+            "text": "I sometimes study at home.",
+            "image": "05"
+          }
+        ],
+        "options": [
+          {
+            "id": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+            "text": "I usually study at the library. I sometimes study at home."
+          },
+          {
+            "id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+            "text": "I usually study at home. I sometimes study at the library."
+          }
+        ],
+        "answer": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+        "hint_es": "Sigue los dos lugares que nombra Luis; su patrón es distinto al de Ana."
+      },
+      {
+        "id": "1.5-A05",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Luis continúa su propio perfil.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "I study every day.",
+            "image": "05"
+          },
+          {
+            "speaker": "luis",
+            "text": "I sometimes study at night.",
+            "image": "05"
+          }
+        ],
+        "options": [
+          {
+            "id": "i-never-study-at-night",
+            "text": "I never study at night."
+          },
+          {
+            "id": "i-study-every-day",
+            "text": "I study every day."
+          }
+        ],
+        "answer": "i-study-every-day",
+        "hint_es": "Estudiar cada día no excluye estudiar algunas noches. Conserva lo que Luis afirma."
+      },
+      {
+        "id": "1.5-A06",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Encuentro aparte: escucha un nuevo perfil de Luis. No uses los datos del encuentro anterior.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "I always study at home.",
+            "image": "05"
+          }
+        ],
+        "options": [
+          {
+            "id": "i-always-study-at-home",
+            "text": "I always study at home."
+          },
+          {
+            "id": "i-study-every-day",
+            "text": "I study every day."
+          }
+        ],
+        "answer": "i-always-study-at-home",
+        "hint_es": "Always at home describe el lugar en cada ocasión de estudio; no confirma estudio diario."
+      },
+      {
+        "id": "1.5-S01",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Repite el dato de Ana sobre cada regreso.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-S02",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Repite el límite del horario de estudio.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-S03",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Di los dos lugares conservando el contraste.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "12"
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "13"
+          }
+        ]
+      },
+      {
+        "id": "1.5-S04",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Añade la frecuencia por días.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-S05",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Une frecuencia y horario en un solo mensaje.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day, but I never study at night.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.5-S06",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Otro perfil: practica el contraste de Luis.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "I usually study at the library.",
+            "image": "05"
+          },
+          {
+            "speaker": "luis",
+            "text": "I sometimes study at home.",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.5-U01",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Perfil de Ana: regresos a casa.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18"
+          }
+        ],
+        "target": "I always arrive home before dinner.",
+        "guided": [
+          1,
+          4
+        ],
+        "spanish_translation": "Siempre llego a casa antes de cenar."
+      },
+      {
+        "id": "1.5-U02",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Perfil de Ana: horario de estudio.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18"
+          }
+        ],
+        "target": "I never study at night.",
+        "guided": [
+          1,
+          4
+        ],
+        "spanish_translation": "Nunca estudio de noche."
+      },
+      {
+        "id": "1.5-U03",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Perfil de Ana: lugar habitual.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "12"
+          }
+        ],
+        "target": "I usually study at home.",
+        "guided": [
+          1,
+          4
+        ],
+        "spanish_translation": "Normalmente estudio en casa."
+      },
+      {
+        "id": "1.5-U04",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Perfil de Ana: lugar ocasional.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "13"
+          }
+        ],
+        "target": "I sometimes study at the library.",
+        "guided": [
+          1,
+          5
+        ],
+        "spanish_translation": "A veces estudio en la biblioteca."
+      },
+      {
+        "id": "1.5-U05",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Perfil de Ana: frecuencia por días.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18"
+          }
+        ],
+        "target": "I study every day.",
+        "spanish_translation": "Estudio todos los días."
+      },
+      {
+        "id": "1.5-U06",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Perfil de Ana: no cambia el horario nocturno.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18"
+          }
+        ],
+        "target": "I never study at night.",
+        "spanish_translation": "Nunca estudio de noche."
+      },
+      {
+        "id": "1.5-U07",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Nuevo perfil: Luis describe su lugar habitual.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "I usually study at the library.",
+            "image": "05"
+          }
+        ],
+        "target": "I usually study at the library.",
+        "spanish_translation": "Normalmente estudio en la biblioteca."
+      },
+      {
+        "id": "1.5-U08",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis añade su lugar ocasional.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "I sometimes study at home.",
+            "image": "05"
+          }
+        ],
+        "target": "I sometimes study at home.",
+        "spanish_translation": "A veces estudio en casa."
+      }
+    ],
+    "vocabulary": [
+      "always",
+      "never",
+      "usually",
+      "sometimes",
+      "every day"
+    ]
+  },
+  {
+    "id": "1.6",
+    "title": "Ask about a routine and report it accurately",
+    "outcome": "Ask a person how often a familiar activity happens, understand the answer and relay an accurate routine profile to another person.",
+    "kind": "teaching",
+    "cards": [
+      {
+        "id": "1.6-L01",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Luis conoce el lugar de estudio de Ana. Ahora pregunta con qué frecuencia estudia allí.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at home?",
+            "image": "05",
+            "translation_es": "¿Con qué frecuencia estudias en casa?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18",
+            "translation_es": "Normalmente estudio en casa."
+          }
+        ]
+      },
+      {
+        "id": "1.6-L02",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Luis pregunta por el otro lugar; Ana mantiene su perfil.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at the library?",
+            "image": "05",
+            "translation_es": "¿Con qué frecuencia estudias en la biblioteca?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "t18",
+            "translation_es": "A veces estudio en la biblioteca."
+          }
+        ]
+      },
+      {
+        "id": "1.6-L03",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Primero habla Ana. Después, una voz relata el mismo dato sobre ella. Escucha study → studies.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study at home.",
+            "image": "12",
+            "translation_es": "Estudio en casa."
+          },
+          {
+            "speaker": "teacher",
+            "text": "Ana studies at home.",
+            "image": "12",
+            "translation_es": "Ana estudia en casa."
+          }
+        ]
+      },
+      {
+        "id": "1.6-L04",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Después, en el parque, Luis transmite los datos de Ana a Diego. Ana no está en esta conversación.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Ana usually studies at home.",
+            "image": "r17",
+            "translation_es": "Ana normalmente estudia en casa."
+          },
+          {
+            "speaker": "luis",
+            "text": "She sometimes studies at the library.",
+            "image": "r17",
+            "translation_es": "Ella a veces estudia en la biblioteca."
+          }
+        ]
+      },
+      {
+        "id": "1.6-L05",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Otra parte de la entrevista de Luis a Ana: frecuencia por días.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study?",
+            "image": "05",
+            "translation_es": "¿Con qué frecuencia estudias?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18",
+            "translation_es": "Estudio todos los días."
+          }
+        ]
+      },
+      {
+        "id": "1.6-L06",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Luis comprueba el horario nocturno antes de completar el perfil.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at night?",
+            "image": "05",
+            "translation_es": "¿Con qué frecuencia estudias por la noche?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18",
+            "translation_es": "Nunca estudio por la noche."
+          }
+        ]
+      },
+      {
+        "id": "1.6-L07",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Luis transmite los dos datos a Diego sin cambiarlos.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Ana studies every day, but she never studies at night.",
+            "image": "r17",
+            "translation_es": "Ana estudia todos los días, pero nunca estudia por la noche."
+          }
+        ]
+      },
+      {
+        "id": "1.6-L08",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Consulta aparte sobre los regresos de Ana; no es una pregunta por la hora.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you arrive home before dinner?",
+            "image": "05",
+            "translation_es": "¿Con qué frecuencia llegas a casa antes de cenar?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18",
+            "translation_es": "Siempre llego a casa antes de cenar."
+          }
+        ]
+      },
+      {
+        "id": "1.6-R01",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro de Ana, solo estas ocasiones. La casa y la estantería indican los lugares de estudio.",
+        "instruction_es": "Elige el informe que conserva ambos lugares.",
+        "turns": [],
+        "options": [
+          {
+            "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+            "text": "Ana usually studies at home. She sometimes studies at the library."
+          },
+          {
+            "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+            "text": "Ana usually studies at the library. She sometimes studies at home."
+          }
+        ],
+        "answer": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+        "hint_es": "El informe cambia I por Ana o she, pero no cambia qué lugar es habitual.",
+        "image": "f01",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "Ana usually studies at home.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She sometimes studies at the library.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.6-R02",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Un nuevo registro de Ana. Informa solo sobre estas ocasiones.",
+        "instruction_es": "Elige el informe de este registro.",
+        "turns": [],
+        "options": [
+          {
+            "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+            "text": "Ana usually studies at home. She sometimes studies at the library."
+          },
+          {
+            "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+            "text": "Ana usually studies at the library. She sometimes studies at home."
+          }
+        ],
+        "answer": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+        "hint_es": "Comprueba el registro actual; no reutilices el patrón anterior.",
+        "image": "f02",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "Ana usually studies at the library.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She sometimes studies at home.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.6-R03",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro de Ana para esta semana. ✓ indica estudio y × indica que no estudia.",
+        "instruction_es": "Elige el informe sobre los días.",
+        "turns": [],
+        "options": [
+          {
+            "id": "ana-never-studies",
+            "text": "Ana never studies."
+          },
+          {
+            "id": "ana-studies-every-day",
+            "text": "Ana studies every day."
+          }
+        ],
+        "answer": "ana-studies-every-day",
+        "hint_es": "Revisa los siete días; el informe debe mantener la recurrencia diaria.",
+        "image": "f03",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "Ana studies every day.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.6-R04",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro nocturno de Ana para esta semana.",
+        "instruction_es": "Elige el informe que coincide.",
+        "turns": [],
+        "options": [
+          {
+            "id": "she-never-studies-at-night",
+            "text": "She never studies at night."
+          },
+          {
+            "id": "she-studies-at-night-every-day",
+            "text": "She studies at night every day."
+          }
+        ],
+        "answer": "she-never-studies-at-night",
+        "hint_es": "Busca las marcas de estudio nocturno; no confundas este registro con el de estudio durante todo el día.",
+        "image": "f05",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "She never studies at night.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.6-R05",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Ana está estudiando en uno de los dos lugares. Aquí solo reconocemos el lugar, no una frecuencia.",
+        "instruction_es": "Elige la imagen que corresponde.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "Ana studies at the library.",
+            "image": "13"
+          }
+        ],
+        "options": [
+          {
+            "id": "study-at-home",
+            "image": "12"
+          },
+          {
+            "id": "study-at-the-library",
+            "image": "13"
+          }
+        ],
+        "answer": "study-at-the-library",
+        "hint_es": "Observa las estanterías y el espacio de lectura; la otra escena es su cocina.",
+        "prompt": "Ana studies at the library.",
+        "spanish_translation": "Ana estudia en la biblioteca."
+      },
+      {
+        "id": "1.6-A01",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Luis y Ana completan los datos de un nuevo horario de estudio, por la tarde.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study at home at seven.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "what-time-do-you-study-at-home",
+            "text": "What time do you study at home?"
+          },
+          {
+            "id": "how-often-do-you-study-at-home",
+            "text": "How often do you study at home?"
+          }
+        ],
+        "answer": "how-often-do-you-study-at-home",
+        "hint_es": "At seven ya informa la hora. How often pide la frecuencia, que todavía no aparece en el audio.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at home?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "what-time-do-you-study-at-home": "At seven ya informa la hora. How often pide la frecuencia, que todavía no aparece en el audio."
+        }
+      },
+      {
+        "id": "1.6-A02",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Escucha la respuesta y el segundo dato del mismo perfil.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18"
+          },
+          {
+            "speaker": "luis",
+            "text": "How often do you study at the library?",
+            "image": "05"
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+            "text": "Ana usually studies at home. She sometimes studies at the library."
+          },
+          {
+            "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+            "text": "Ana usually studies at the library. She sometimes studies at home."
+          }
+        ],
+        "answer": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+        "hint_es": "Conserva la frecuencia de cada lugar; studies solo cambia la persona del informe."
+      },
+      {
+        "id": "1.6-A03",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana responde durante la entrevista sobre sus hábitos.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study?",
+            "image": "05"
+          },
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "ana-studies-at-night",
+            "text": "Ana studies at night."
+          },
+          {
+            "id": "ana-studies-every-day",
+            "text": "Ana studies every day."
+          }
+        ],
+        "answer": "ana-studies-every-day",
+        "hint_es": "La respuesta cuenta días; no afirma estudio nocturno."
+      },
+      {
+        "id": "1.6-A04",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "La misma entrevista continúa con otra consulta.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at night?",
+            "image": "05"
+          },
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "ana-studies-every-day-but-she-never-studies-at-night",
+            "text": "Ana studies every day, but she never studies at night."
+          },
+          {
+            "id": "ana-studies-every-day-but-she-always-studies-at-night",
+            "text": "Ana studies every day, but she always studies at night."
+          }
+        ],
+        "answer": "ana-studies-every-day-but-she-never-studies-at-night",
+        "hint_es": "Une el dato diario anterior con la ausencia de estudio nocturno."
+      },
+      {
+        "id": "1.6-A05",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Otra entrevista sobre la rutina de Ana.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you arrive home before dinner?",
+            "image": "05"
+          },
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "ana-sometimes-arrives-home-before-dinner",
+            "text": "Ana sometimes arrives home before dinner."
+          },
+          {
+            "id": "ana-always-arrives-home-before-dinner",
+            "text": "Ana always arrives home before dinner."
+          }
+        ],
+        "answer": "ana-always-arrives-home-before-dinner",
+        "hint_es": "Escucha si Ana habla de algunas ocasiones o de todas las de esta rutina."
+      },
+      {
+        "id": "1.6-A06",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Otra consulta sobre el estudio de Ana, en un horario distinto de la tarde.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study at the library at eight.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "how-often-do-you-study-at-the-library",
+            "text": "How often do you study at the library?"
+          },
+          {
+            "id": "what-time-do-you-study-at-the-library",
+            "text": "What time do you study at the library?"
+          }
+        ],
+        "answer": "how-often-do-you-study-at-the-library",
+        "hint_es": "At eight ya informa la hora de estudio en la biblioteca. How often obtiene la frecuencia que aún falta.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at the library?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "what-time-do-you-study-at-the-library": "At eight ya informa la hora de estudio en la biblioteca. How often obtiene la frecuencia que aún falta."
+        }
+      },
+      {
+        "id": "1.6-A07",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Escucha el nuevo perfil de Ana; pertenece a este encuentro.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at the library.",
+            "image": "t18"
+          },
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at home.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+            "text": "Ana usually studies at home. She sometimes studies at the library."
+          },
+          {
+            "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+            "text": "Ana usually studies at the library. She sometimes studies at home."
+          }
+        ],
+        "answer": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+        "hint_es": "Sigue el perfil recién escuchado; el habitual y el ocasional han cambiado respecto al primer encuentro."
+      },
+      {
+        "id": "1.6-S01",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis pregunta; graba la pregunta completa.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at home?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S02",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana responde al dato solicitado.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S03",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis pide el dato del segundo lugar.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at the library?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S04",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana da la frecuencia del segundo lugar.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I sometimes study at the library.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S05",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "En el parque, Luis transmite ambos datos a Diego.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Ana usually studies at home.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She sometimes studies at the library.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S06",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Otra parte de la entrevista: pregunta por los días.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S07",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana responde.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S08",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis pregunta por las noches.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at night?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S09",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana aclara el horario.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I never study at night.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S10",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis informa a Diego sin añadir datos.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Ana studies every day, but she never studies at night.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S11",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Consulta aparte: frecuencia de los regresos.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you arrive home before dinner?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.6-S12",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana mantiene la respuesta de esa consulta.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I always arrive home before dinner.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.6-U01",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis entrevista a Ana.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at home?",
+            "image": "05"
+          }
+        ],
+        "target": "How often do you study at home?",
+        "guided": [
+          0,
+          1
+        ],
+        "spanish_translation": "¿Con qué frecuencia estudias en casa?"
+      },
+      {
+        "id": "1.6-U02",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Ana responde.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18"
+          }
+        ],
+        "target": "I usually study at home.",
+        "guided": [
+          1,
+          2
+        ],
+        "spanish_translation": "Normalmente estudio en casa."
+      },
+      {
+        "id": "1.6-U03",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis informa a Diego.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Ana usually studies at home.",
+            "image": "r17"
+          }
+        ],
+        "target": "Ana usually studies at home.",
+        "guided": [
+          1,
+          2
+        ],
+        "spanish_translation": "Ana normalmente estudia en casa."
+      },
+      {
+        "id": "1.6-U04",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis pregunta por los días.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study?",
+            "image": "05"
+          }
+        ],
+        "target": "How often do you study?",
+        "guided": [
+          0,
+          1
+        ],
+        "spanish_translation": "¿Con qué frecuencia estudias?"
+      },
+      {
+        "id": "1.6-U05",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Ana responde sobre los días.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study every day.",
+            "image": "t18"
+          }
+        ],
+        "target": "I study every day.",
+        "spanish_translation": "Estudio todos los días."
+      },
+      {
+        "id": "1.6-U06",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis transmite el dato.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Ana studies every day.",
+            "image": "r17"
+          }
+        ],
+        "target": "Ana studies every day.",
+        "spanish_translation": "Ana estudia todos los días."
+      },
+      {
+        "id": "1.6-U07",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis pregunta por las noches.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at night?",
+            "image": "05"
+          }
+        ],
+        "target": "How often do you study at night?",
+        "spanish_translation": "¿Con qué frecuencia estudias de noche?"
+      },
+      {
+        "id": "1.6-U08",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Informe de la respuesta de Ana.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She never studies at night.",
+            "image": "r17"
+          }
+        ],
+        "target": "She never studies at night.",
+        "spanish_translation": "Ella nunca estudia de noche."
+      }
+    ],
+    "vocabulary": [
+      "How often",
+      "studies"
+    ]
+  },
+  {
+    "id": "1.7",
+    "title": "Check an assumption and correct it",
+    "outcome": "Ask whether a reported routine is true and replace a wrong assumption with the correct fact.",
+    "kind": "teaching",
+    "cards": [
+      {
+        "id": "1.7-L01",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Nuevo encuentro y nuevo horario: el trabajo de Ana termina a las seis de la tarde. El informe corrige una suposición de las cinco.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She doesn't finish work at five.",
+            "image": "r17",
+            "translation_es": "Ella no termina de trabajar a las cinco."
+          },
+          {
+            "speaker": "luis",
+            "text": "She finishes at six.",
+            "image": "r17",
+            "translation_es": "Ella termina a las seis.",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-L02",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Does not y doesn’t expresan la misma negación. Después se usa finish, no finishes.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "She does not finish work at five.",
+            "image": "04",
+            "translation_es": "Ella no termina de trabajar a las cinco."
+          },
+          {
+            "speaker": "teacher",
+            "text": "She doesn't finish work at five.",
+            "image": "04",
+            "translation_es": "Ella no termina de trabajar a las cinco."
+          }
+        ]
+      },
+      {
+        "id": "1.7-L03",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Diego pregunta a Luis por Ana, que no está presente. Luis corrige la suposición y aporta la hora verdadera.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana finish work at five?",
+            "image": "t32",
+            "translation_es": "¿Ana termina de trabajar a las cinco?"
+          },
+          {
+            "speaker": "luis",
+            "text": "No, she doesn't.",
+            "image": "r17",
+            "translation_es": "No."
+          },
+          {
+            "speaker": "luis",
+            "text": "She finishes at six.",
+            "image": "r17",
+            "translation_es": "Ella termina a las seis.",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-L04",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Otro informe: Luis empieza a trabajar a las nueve de la mañana, no a las ocho.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He doesn't start work at eight.",
+            "image": "t20",
+            "translation_es": "Él no empieza a trabajar a las ocho."
+          },
+          {
+            "speaker": "teacher",
+            "text": "He starts at nine.",
+            "image": "t20",
+            "translation_es": "Él empieza a las nueve.",
+            "clock": {
+              "hour": 9,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-L05",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Dos voces fuera de escena comprueban ese informe sobre Luis. Después de does, se mantiene start.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "Does he start work at nine?",
+            "image": "t20",
+            "translation_es": "¿Él empieza a trabajar a las nueve?"
+          },
+          {
+            "speaker": "teacher",
+            "text": "Yes, he does.",
+            "image": "t20",
+            "translation_es": "Sí."
+          }
+        ]
+      },
+      {
+        "id": "1.7-L06",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Otro dato de Luis: siempre regresa antes de cenar; normalmente llega a las seis de la tarde. Las voces comprueban el dato.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "Does he arrive home before dinner?",
+            "image": "t21",
+            "translation_es": "¿Él llega a casa antes de cenar?"
+          },
+          {
+            "speaker": "teacher",
+            "text": "Yes, he does.",
+            "image": "t21",
+            "translation_es": "Sí."
+          },
+          {
+            "speaker": "teacher",
+            "text": "He usually arrives home at six.",
+            "image": "t21",
+            "translation_es": "Normalmente llega a casa a las seis.",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-L07",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "También se puede comprobar una rutina de estudio. La fuente confirma que Ana no estudia por la noche.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana study at night?",
+            "image": "t32",
+            "translation_es": "¿Ana estudia por la noche?"
+          },
+          {
+            "speaker": "luis",
+            "text": "No, she doesn't.",
+            "image": "r17",
+            "translation_es": "No."
+          },
+          {
+            "speaker": "luis",
+            "text": "She never studies at night.",
+            "image": "r17",
+            "translation_es": "Ella nunca estudia por la noche."
+          }
+        ]
+      },
+      {
+        "id": "1.7-R01",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro visual de la hora de terminar de trabajar de Ana en este encuentro. Las dos opciones muestran la misma acción; cambia la hora.",
+        "instruction_es": "Elige el registro que coincide.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She doesn't finish work at five. She finishes at six.",
+            "image": "r17"
+          }
+        ],
+        "options": [
+          {
+            "id": "finish-work-at-5-0",
+            "image": "04",
+            "clock": {
+              "hour": 5,
+              "minute": 0
+            }
+          },
+          {
+            "id": "finish-work-at-6-0",
+            "image": "04",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "answer": "finish-work-at-6-0",
+        "hint_es": "La primera hora es la suposición negada; busca la hora de la corrección.",
+        "prompt": "She doesn't finish work at five. She finishes at six.",
+        "spanish_translation": "Ella no termina de trabajar a las cinco. Termina a las seis."
+      },
+      {
+        "id": "1.7-R02",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro de la hora de terminar de trabajar de Ana, por la tarde. El reloj muestra su horario en este encuentro.",
+        "instruction_es": "Elige el informe correcto.",
+        "turns": [],
+        "options": [
+          {
+            "id": "she-doesn-t-finish-work-at-five",
+            "text": "She doesn't finish work at five."
+          },
+          {
+            "id": "she-doesn-t-finish-work-at-six",
+            "text": "She doesn't finish work at six."
+          }
+        ],
+        "answer": "she-doesn-t-finish-work-at-five",
+        "hint_es": "La negación debe descartar la hora falsa, no negar la hora registrada.",
+        "image": "04",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "She doesn't finish work at five.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She finishes at six.",
+            "image": "r17",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-R03",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro visual del comienzo del trabajo de Luis, por la mañana.",
+        "instruction_es": "Elige la hora corregida.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He doesn't start work at eight. He starts at nine.",
+            "image": "t20"
+          }
+        ],
+        "options": [
+          {
+            "id": "luis-starts-work-at-9-0",
+            "image": "t20",
+            "clock": {
+              "hour": 9,
+              "minute": 0
+            }
+          },
+          {
+            "id": "luis-starts-work-at-8-0",
+            "image": "t20",
+            "clock": {
+              "hour": 8,
+              "minute": 0
+            }
+          }
+        ],
+        "answer": "luis-starts-work-at-9-0",
+        "hint_es": "El inicio real se indica después de la negación.",
+        "prompt": "He doesn't start work at eight. He starts at nine.",
+        "spanish_translation": "Él no empieza a trabajar a las ocho. Empieza a las nueve."
+      },
+      {
+        "id": "1.7-R04",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Registro del estudio nocturno de Ana esta semana. ✓ = estudia; × = no estudia.",
+        "instruction_es": "Elige el informe respaldado.",
+        "turns": [],
+        "options": [
+          {
+            "id": "she-studies-at-night-every-day",
+            "text": "She studies at night every day."
+          },
+          {
+            "id": "she-doesn-t-study-at-night",
+            "text": "She doesn't study at night."
+          }
+        ],
+        "answer": "she-doesn-t-study-at-night",
+        "hint_es": "No hay estudio nocturno en el registro; después de doesn’t se usa study.",
+        "image": "f05",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "She doesn't study at night.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.7-R05",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Ana describe dónde estudia. Elige el informe que conserva sus dos afirmaciones.",
+        "instruction_es": "Elige el contraste correcto.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I do not study at home. I study at the library.",
+            "image": "13"
+          }
+        ],
+        "options": [
+          {
+            "id": "she-doesn-t-study-at-home-she-studies-at-the-library",
+            "text": "She doesn't study at home. She studies at the library."
+          },
+          {
+            "id": "she-doesn-t-study-at-the-library-she-studies-at-home",
+            "text": "She doesn't study at the library. She studies at home."
+          }
+        ],
+        "answer": "she-doesn-t-study-at-home-she-studies-at-the-library",
+        "hint_es": "El informe conserva la negación del primer lugar y la afirmación del segundo. Con she, usa doesn’t + study.",
+        "image": "13",
+        "answerTurns": [
+          {
+            "speaker": "teacher",
+            "text": "She doesn't study at home. She studies at the library.",
+            "image": "13"
+          }
+        ],
+        "prompt": "I do not study at home. I study at the library.",
+        "spanish_translation": "No estudio en casa. Estudio en la biblioteca."
+      },
+      {
+        "id": "1.7-A01",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Diego y Luis están ajustando una visita. Escucha la corrección del horario de Ana, por la tarde.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana finish work at five?",
+            "image": "t32"
+          },
+          {
+            "speaker": "luis",
+            "text": "No, she doesn't.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She finishes at six.",
+            "image": "r17",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "she-finishes-at-five",
+            "text": "She finishes at five."
+          },
+          {
+            "id": "she-finishes-at-six",
+            "text": "She finishes at six."
+          }
+        ],
+        "answer": "she-finishes-at-six",
+        "hint_es": "Five aparece en una pregunta que Luis rechaza con No. La corrección afirmada es She finishes at six.",
+        "feedbackByOption": {
+          "she-finishes-at-five": "Five aparece en una pregunta que Luis rechaza con No. La corrección afirmada es She finishes at six."
+        }
+      },
+      {
+        "id": "1.7-A02",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Misma visita: Ana ya aceptó recibirlos en casa después de llegar; Luis y Diego están disponibles. Solo falta elegir una hora posible.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She finishes at six.",
+            "image": "r17",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          },
+          {
+            "speaker": "luis",
+            "text": "She arrives home at seven.",
+            "image": "r17",
+            "clock": {
+              "hour": 7,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "let-s-meet-at-six",
+            "text": "Let's meet at six."
+          },
+          {
+            "id": "let-s-meet-at-eight",
+            "text": "Let's meet at eight."
+          }
+        ],
+        "answer": "let-s-meet-at-eight",
+        "hint_es": "Terminar de trabajar no es llegar a casa. La propuesta debe ser posterior a su regreso.",
+        "answerTurns": [
+          {
+            "speaker": "diego",
+            "text": "Let's meet at eight.",
+            "image": "t32",
+            "clock": {
+              "hour": 8,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-A03",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Consulta aparte sobre el inicio de Luis, por la mañana.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "Does he start work at eight?",
+            "image": "t20"
+          },
+          {
+            "speaker": "teacher",
+            "text": "No, he doesn't.",
+            "image": "t20"
+          },
+          {
+            "speaker": "teacher",
+            "text": "He starts at nine.",
+            "image": "t20",
+            "clock": {
+              "hour": 9,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "he-starts-at-nine",
+            "text": "He starts at nine."
+          },
+          {
+            "id": "he-starts-at-eight",
+            "text": "He starts at eight."
+          }
+        ],
+        "answer": "he-starts-at-nine",
+        "hint_es": "La respuesta niega ocho y lo reemplaza por otra hora."
+      },
+      {
+        "id": "1.7-A04",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Comprueba otra pregunta sobre el mismo horario de Luis.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "Does he start work at nine?",
+            "image": "t20"
+          },
+          {
+            "speaker": "teacher",
+            "text": "Yes, he does.",
+            "image": "t20"
+          }
+        ],
+        "options": [
+          {
+            "id": "no-he-doesn-t",
+            "text": "No, he doesn't."
+          },
+          {
+            "id": "yes-he-does",
+            "text": "Yes, he does."
+          }
+        ],
+        "answer": "yes-he-does",
+        "hint_es": "Esta pregunta contiene la hora correcta; la respuesta confirma, no corrige."
+      },
+      {
+        "id": "1.7-A05",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Otro dato: los regresos de Luis antes de cenar.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "Does he arrive home before dinner?",
+            "image": "t21"
+          },
+          {
+            "speaker": "teacher",
+            "text": "Yes, he does.",
+            "image": "t21"
+          },
+          {
+            "speaker": "teacher",
+            "text": "He usually arrives home at six.",
+            "image": "t21",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "he-arrives-home-before-dinner",
+            "text": "He arrives home before dinner."
+          },
+          {
+            "id": "he-doesn-t-arrive-home-before-dinner",
+            "text": "He doesn't arrive home before dinner."
+          }
+        ],
+        "answer": "he-arrives-home-before-dinner",
+        "hint_es": "La respuesta afirmativa confirma la relación con la cena."
+      },
+      {
+        "id": "1.7-A06",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Nuevo encuentro: cambió el horario de Ana. Usa únicamente esta respuesta.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana finish work at six?",
+            "image": "t32"
+          },
+          {
+            "speaker": "luis",
+            "text": "No, she doesn't.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She finishes at five.",
+            "image": "r17",
+            "clock": {
+              "hour": 5,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "she-finishes-at-six",
+            "text": "She finishes at six."
+          },
+          {
+            "id": "she-finishes-at-five",
+            "text": "She finishes at five."
+          },
+          {
+            "id": "she-finishes-at-seven",
+            "text": "She finishes at seven."
+          }
+        ],
+        "answer": "she-finishes-at-five",
+        "hint_es": "Six está en la pregunta rechazada con No; la corrección es five.",
+        "feedbackByOption": {
+          "she-finishes-at-six": "Six está en la pregunta rechazada con No; la corrección es five.",
+          "she-finishes-at-seven": "La respuesta afirma five, no seven. Ninguna frase del intercambio fija el fin del trabajo a las siete."
+        }
+      },
+      {
+        "id": "1.7-A07",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "En esta nueva visita, Ana aceptó recibirlos después de llegar a casa por la tarde. Los visitantes están disponibles. Escucha la llegada.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She arrives home at six.",
+            "image": "r17",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "let-s-meet-at-seven",
+            "text": "Let's meet at seven."
+          },
+          {
+            "id": "let-s-meet-at-five",
+            "text": "Let's meet at five."
+          }
+        ],
+        "answer": "let-s-meet-at-seven",
+        "hint_es": "Usa la llegada de este encuentro, no la del anterior.",
+        "answerTurns": [
+          {
+            "speaker": "diego",
+            "text": "Let's meet at seven.",
+            "image": "t32",
+            "clock": {
+              "hour": 7,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-A08",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Diego comprueba el perfil de estudio de Ana.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana study at night?",
+            "image": "t32"
+          },
+          {
+            "speaker": "luis",
+            "text": "No, she doesn't.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She studies in the morning.",
+            "image": "r17"
+          }
+        ],
+        "options": [
+          {
+            "id": "she-studies-in-the-morning",
+            "text": "She studies in the morning."
+          },
+          {
+            "id": "she-studies-at-night",
+            "text": "She studies at night."
+          }
+        ],
+        "answer": "she-studies-in-the-morning",
+        "hint_es": "La respuesta no termina en No; añade el momento que reemplaza la suposición."
+      },
+      {
+        "id": "1.7-S01",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Diego comprueba la suposición original.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana finish work at five?",
+            "image": "t32"
+          }
+        ]
+      },
+      {
+        "id": "1.7-S02",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis niega y reemplaza la hora; conserva ambas partes.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "No, she doesn't.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She finishes at six.",
+            "image": "r17",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-S03",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Relata la misma corrección con la negación completa.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "She does not finish work at five.",
+            "image": "04"
+          },
+          {
+            "speaker": "teacher",
+            "text": "She finishes at six.",
+            "image": "04",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-S04",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Otro informe: corrige el inicio de Luis.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He doesn't start work at eight.",
+            "image": "t20"
+          },
+          {
+            "speaker": "teacher",
+            "text": "He starts at nine.",
+            "image": "t20",
+            "clock": {
+              "hour": 9,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-S05",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Comprueba el dato correcto sobre sus regresos.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "Does he arrive home before dinner?",
+            "image": "t21"
+          }
+        ]
+      },
+      {
+        "id": "1.7-S06",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Confirma y aporta el dato adicional.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "Yes, he does.",
+            "image": "t21"
+          },
+          {
+            "speaker": "teacher",
+            "text": "He usually arrives home at six.",
+            "image": "t21",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.7-S07",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Diego comprueba otra rutina.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana study at night?",
+            "image": "t32"
+          }
+        ]
+      },
+      {
+        "id": "1.7-S08",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis da una respuesta negativa con información útil.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "No, she doesn't.",
+            "image": "r17"
+          },
+          {
+            "speaker": "luis",
+            "text": "She never studies at night.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.7-U01",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Pregunta de Diego sobre Ana.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Does Ana finish work at five?",
+            "image": "t32"
+          }
+        ],
+        "target": "Does Ana finish work at five?",
+        "guided": [
+          0,
+          2
+        ],
+        "spanish_translation": "¿Ana termina de trabajar a las cinco?"
+      },
+      {
+        "id": "1.7-U02",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis corrige la suposición.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She doesn't finish work at five.",
+            "image": "r17"
+          }
+        ],
+        "target": "She doesn't finish work at five.",
+        "guided": [
+          1,
+          2
+        ],
+        "spanish_translation": "Ella no termina de trabajar a las cinco."
+      },
+      {
+        "id": "1.7-U03",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis aporta la hora verdadera.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She finishes at six.",
+            "image": "r17",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "target": "She finishes at six.",
+        "guided": [
+          1,
+          3
+        ],
+        "spanish_translation": "Ella termina a las seis."
+      },
+      {
+        "id": "1.7-U04",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Ahora se comprueba el inicio de Luis.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "Does he start work at nine?",
+            "image": "t20"
+          }
+        ],
+        "target": "Does he start work at nine?",
+        "guided": [
+          0,
+          2
+        ],
+        "spanish_translation": "¿Él empieza a trabajar a las nueve?"
+      },
+      {
+        "id": "1.7-U05",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Confirma el inicio correcto.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "Yes, he does.",
+            "image": "t20"
+          }
+        ],
+        "target": "Yes, he does.",
+        "spanish_translation": "Sí, lo hace."
+      },
+      {
+        "id": "1.7-U06",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Informe del inicio de Luis.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He doesn't start work at eight.",
+            "image": "t20"
+          }
+        ],
+        "target": "He doesn't start work at eight.",
+        "spanish_translation": "Él no empieza a trabajar a las ocho."
+      },
+      {
+        "id": "1.7-U07",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Añade la hora corregida.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He starts at nine.",
+            "image": "t20",
+            "clock": {
+              "hour": 9,
+              "minute": 0
+            }
+          }
+        ],
+        "target": "He starts at nine.",
+        "spanish_translation": "Él empieza a las nueve."
+      },
+      {
+        "id": "1.7-U08",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Vuelve al perfil nocturno de Ana.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She doesn't study at night.",
+            "image": "r17"
+          }
+        ],
+        "target": "She doesn't study at night.",
+        "spanish_translation": "Ella no estudia de noche."
+      }
+    ],
+    "vocabulary": [
+      "Does",
+      "does not"
+    ]
+  },
+  {
+    "id": "1.8",
+    "title": "Ask for the information that is missing",
+    "outcome": "Choose a relevant where or when follow-up and combine its answer with what is already known.",
+    "kind": "teaching",
+    "cards": [
+      {
+        "id": "1.8-L01",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Luis conoce la actividad de Ana; falta el lugar de trabajo. Where pide un lugar.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Where do you work?",
+            "image": "05",
+            "translation_es": "¿Dónde trabajas?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I work at the school.",
+            "image": "t28",
+            "translation_es": "Trabajo en la escuela."
+          }
+        ]
+      },
+      {
+        "id": "1.8-L02",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "En el parque, Diego pregunta a Luis por Ana. Where does mantiene study en su forma base.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Where does Ana study?",
+            "image": "t32",
+            "translation_es": "¿Dónde estudia Ana?"
+          },
+          {
+            "speaker": "luis",
+            "text": "She studies at the library after work.",
+            "image": "r17",
+            "translation_es": "Ella estudia en la biblioteca después del trabajo."
+          }
+        ]
+      },
+      {
+        "id": "1.8-L03",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Otra consulta: el lugar ya se conoce; falta el día. When permite pedir ese dato.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "When does Luis work?",
+            "image": "16",
+            "translation_es": "¿Cuándo trabaja Luis?"
+          },
+          {
+            "speaker": "teacher",
+            "text": "He works on Saturday, but he doesn't work on Sunday.",
+            "image": "16",
+            "translation_es": "Él trabaja el sábado, pero no trabaja el domingo."
+          }
+        ]
+      },
+      {
+        "id": "1.8-L04",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "When también puede pedir una parte del día. Luis pregunta y Ana responde.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "When do you take a shower?",
+            "image": "05",
+            "translation_es": "¿Cuándo te duchas?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I take a shower in the morning.",
+            "image": "08safe",
+            "translation_es": "Me ducho por la mañana."
+          }
+        ]
+      },
+      {
+        "id": "1.8-L05",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Ahora falta el lugar de otra acción, no su hora.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Where do you put on your shoes?",
+            "image": "05",
+            "translation_es": "¿Dónde te pones los zapatos?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I put on my shoes in the bedroom.",
+            "image": "09",
+            "translation_es": "Me pongo los zapatos en el dormitorio."
+          }
+        ]
+      },
+      {
+        "id": "1.8-L06",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "When también acepta una hora. What time pide específicamente la hora. Esta pregunta es sobre levantarse, por la mañana.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "When do you get up?",
+            "image": "05",
+            "translation_es": "¿Cuándo te levantas?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I get up at seven.",
+            "image": "07v2",
+            "translation_es": "Me levanto a las siete.",
+            "clock": {
+              "hour": 7,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.8-L07",
+        "stage": "Learn",
+        "activity": "teach",
+        "context_es": "Luis completa el horario preguntando por acostarse, por la noche.",
+        "instruction_es": "Escucha y observa.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "When do you go to bed?",
+            "image": "05",
+            "translation_es": "¿Cuándo te acuestas?"
+          },
+          {
+            "speaker": "ana",
+            "text": "I go to bed at ten.",
+            "image": "11",
+            "translation_es": "Me acuesto a las diez.",
+            "clock": {
+              "hour": 10,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.8-R01",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Ana trabaja en uno de estos lugares; el lugar es el dato que se compara.",
+        "instruction_es": "Elige la imagen que coincide.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I work at the school.",
+            "image": "t28"
+          }
+        ],
+        "options": [
+          {
+            "id": "study-at-the-library",
+            "image": "13"
+          },
+          {
+            "id": "ana-works-at-school",
+            "image": "t28"
+          }
+        ],
+        "answer": "ana-works-at-school",
+        "hint_es": "La biblioteca y el aula son lugares distintos; busca el aula.",
+        "prompt": "I work at the school.",
+        "spanish_translation": "Trabajo en la escuela."
+      },
+      {
+        "id": "1.8-R02",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Ana estudia en el lugar que ves; esta escena pertenece al encuentro después del trabajo.",
+        "instruction_es": "Elige el informe correcto.",
+        "turns": [],
+        "options": [
+          {
+            "id": "she-studies-at-the-library-after-work",
+            "text": "She studies at the library after work."
+          },
+          {
+            "id": "she-studies-at-home-after-work",
+            "text": "She studies at home after work."
+          }
+        ],
+        "answer": "she-studies-at-the-library-after-work",
+        "hint_es": "Compara el lugar visible; la parte after work ya está establecida por el encuentro.",
+        "image": "13",
+        "answerTurns": [
+          {
+            "speaker": "teacher",
+            "text": "She studies at the library after work.",
+            "image": "13"
+          }
+        ]
+      },
+      {
+        "id": "1.8-R03",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Preparación de Ana: la secuencia ya estableció que se está poniendo los zapatos. Ahora reconoce el lugar.",
+        "instruction_es": "Elige la frase correspondiente.",
+        "turns": [],
+        "options": [
+          {
+            "id": "i-put-on-my-shoes-in-the-kitchen",
+            "text": "I put on my shoes in the kitchen."
+          },
+          {
+            "id": "i-put-on-my-shoes-in-the-bedroom",
+            "text": "I put on my shoes in the bedroom."
+          }
+        ],
+        "answer": "i-put-on-my-shoes-in-the-bedroom",
+        "hint_es": "Usa la cama y el dormitorio como evidencia del lugar; no adivines el movimiento desde esta sola foto.",
+        "image": "09",
+        "answerTurns": [
+          {
+            "speaker": "ana",
+            "text": "I put on my shoes in the bedroom.",
+            "image": "09"
+          }
+        ]
+      },
+      {
+        "id": "1.8-R04",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Hora declarada de levantarse de Ana en este horario, por la mañana. Las imágenes muestran el mismo evento.",
+        "instruction_es": "Elige el registro correcto.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I get up at seven.",
+            "image": "07v2",
+            "clock": {
+              "hour": 7,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "get-up-leave-bed-at-7-0",
+            "image": "07v2",
+            "clock": {
+              "hour": 7,
+              "minute": 0
+            }
+          },
+          {
+            "id": "get-up-leave-bed-at-6-0",
+            "image": "07v2",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "answer": "get-up-leave-bed-at-7-0",
+        "hint_es": "Reconoce siete en el registro; la pregunta se refiere a levantarse.",
+        "prompt": "I get up at seven.",
+        "spanish_translation": "Me levanto a las siete."
+      },
+      {
+        "id": "1.8-R05",
+        "stage": "Recognize",
+        "activity": "choice",
+        "context_es": "Hora de acostarse de Ana en este horario, por la noche.",
+        "instruction_es": "Elige el registro correspondiente.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I go to bed at ten.",
+            "image": "11",
+            "clock": {
+              "hour": 10,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "go-to-bed-at-9-0",
+            "image": "11",
+            "clock": {
+              "hour": 9,
+              "minute": 0
+            }
+          },
+          {
+            "id": "go-to-bed-at-10-0",
+            "image": "11",
+            "clock": {
+              "hour": 10,
+              "minute": 0
+            }
+          }
+        ],
+        "answer": "go-to-bed-at-10-0",
+        "hint_es": "No confundas nueve y diez. La escena identifica acostarse, no quedarse dormida.",
+        "prompt": "I go to bed at ten.",
+        "spanish_translation": "Me acuesto a las diez."
+      },
+      {
+        "id": "1.8-A01",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana y Luis continúan su conversación sobre las actividades de Ana.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study after work.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "where-do-you-study",
+            "text": "Where do you study?"
+          },
+          {
+            "id": "when-do-you-study",
+            "text": "When do you study?"
+          }
+        ],
+        "answer": "where-do-you-study",
+        "hint_es": "After work ya responde cuándo. Where pregunta el lugar, que Ana todavía no ha dicho.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "Where do you study?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "when-do-you-study": "After work ya responde cuándo. Where pregunta el lugar, que Ana todavía no ha dicho."
+        }
+      },
+      {
+        "id": "1.8-A02",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana responde a la consulta de Luis.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study at the library after work.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "she-studies-at-home-after-work",
+            "text": "She studies at home after work."
+          },
+          {
+            "id": "she-studies-at-the-library-after-work",
+            "text": "She studies at the library after work."
+          }
+        ],
+        "answer": "she-studies-at-the-library-after-work",
+        "hint_es": "Conserva el lugar recién dicho y el momento que ya conocías.",
+        "answerTurns": [
+          {
+            "speaker": "teacher",
+            "text": "She studies at the library after work.",
+            "image": "13"
+          }
+        ]
+      },
+      {
+        "id": "1.8-A03",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Un visitante conversa con Luis para organizar una visita a su trabajo.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "Luis works at the school.",
+            "image": "16"
+          }
+        ],
+        "options": [
+          {
+            "id": "where-does-luis-work",
+            "text": "Where does Luis work?"
+          },
+          {
+            "id": "when-does-luis-work",
+            "text": "When does Luis work?"
+          }
+        ],
+        "answer": "when-does-luis-work",
+        "hint_es": "At the school ya informa el lugar. When pregunta cuándo trabaja Luis, un dato aún no dado.",
+        "answerTurns": [
+          {
+            "speaker": "co-teacher",
+            "text": "When does Luis work?",
+            "image": "16"
+          }
+        ],
+        "feedbackByOption": {
+          "where-does-luis-work": "At the school ya informa el lugar. When pregunta cuándo trabaja Luis, un dato aún no dado."
+        }
+      },
+      {
+        "id": "1.8-A04",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "El visitante necesita hablar con Luis en el trabajo, durante uno de los dos días mencionados.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He works on Saturday, but he doesn't work on Sunday.",
+            "image": "16"
+          }
+        ],
+        "options": [
+          {
+            "id": "he-works-on-saturday",
+            "text": "He works on Saturday."
+          },
+          {
+            "id": "he-works-on-sunday",
+            "text": "He works on Sunday."
+          }
+        ],
+        "answer": "he-works-on-saturday",
+        "hint_es": "El audio afirma que trabaja el sábado y niega el domingo: he does not work on Sunday.",
+        "feedbackByOption": {
+          "he-works-on-sunday": "El audio afirma que trabaja el sábado y niega el domingo: he does not work on Sunday."
+        }
+      },
+      {
+        "id": "1.8-A05",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Luis y Ana completan los datos de una nueva rutina.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I take a shower at home.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "where-do-you-take-a-shower",
+            "text": "Where do you take a shower?"
+          },
+          {
+            "id": "when-do-you-take-a-shower",
+            "text": "When do you take a shower?"
+          }
+        ],
+        "answer": "when-do-you-take-a-shower",
+        "hint_es": "At home ya informa dónde se ducha Ana. When pide el momento, que todavía no se ha mencionado.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "When do you take a shower?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "where-do-you-take-a-shower": "At home ya informa dónde se ducha Ana. When pide el momento, que todavía no se ha mencionado."
+        }
+      },
+      {
+        "id": "1.8-A06",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana cuenta otro dato de este nuevo horario.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I take a shower in the evening.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "in-the-evening",
+            "text": "In the evening."
+          },
+          {
+            "id": "in-the-morning",
+            "text": "In the morning."
+          }
+        ],
+        "answer": "in-the-evening",
+        "hint_es": "El horario de este encuentro es distinto al modelo de la mañana."
+      },
+      {
+        "id": "1.8-A07",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana y Luis completan los datos de su preparación para salir.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I put on my shoes before I leave home.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "where-do-you-put-on-your-shoes",
+            "text": "Where do you put on your shoes?"
+          },
+          {
+            "id": "when-do-you-put-on-your-shoes",
+            "text": "When do you put on your shoes?"
+          }
+        ],
+        "answer": "where-do-you-put-on-your-shoes",
+        "hint_es": "Before I leave home ya responde cuándo. Where pide el lugar donde se pone los zapatos.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "Where do you put on your shoes?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "when-do-you-put-on-your-shoes": "Before I leave home ya responde cuándo. Where pide el lugar donde se pone los zapatos."
+        }
+      },
+      {
+        "id": "1.8-A08",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana responde a la consulta.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I put on my shoes in the bedroom.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "in-the-kitchen",
+            "text": "In the kitchen."
+          },
+          {
+            "id": "in-the-bedroom",
+            "text": "In the bedroom."
+          }
+        ],
+        "answer": "in-the-bedroom",
+        "hint_es": "La voz nombra la habitación. No elijas una habitación por costumbre."
+      },
+      {
+        "id": "1.8-A09",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana y Luis completan un nuevo horario de la mañana.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I wake up at six.",
+            "image": "t18",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "when-do-you-get-up",
+            "text": "When do you get up?"
+          },
+          {
+            "id": "when-do-you-wake-up",
+            "text": "When do you wake up?"
+          }
+        ],
+        "answer": "when-do-you-get-up",
+        "hint_es": "Wake up at six ya informa cuándo se despierta. Get up pregunta por levantarse de la cama, una acción distinta.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "When do you get up?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "when-do-you-wake-up": "Wake up at six ya informa cuándo se despierta. Get up pregunta por levantarse de la cama, una acción distinta."
+        }
+      },
+      {
+        "id": "1.8-A10",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Mismo horario, por la mañana. Escucha la respuesta nueva.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I get up at eight.",
+            "image": "t18",
+            "clock": {
+              "hour": 8,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "i-get-up-at-seven",
+            "text": "I get up at seven."
+          },
+          {
+            "id": "i-get-up-at-eight",
+            "text": "I get up at eight."
+          },
+          {
+            "id": "i-get-up-at-six",
+            "text": "I get up at six."
+          }
+        ],
+        "answer": "i-get-up-at-eight",
+        "hint_es": "La respuesta dice get up at eight, no seven.",
+        "feedbackByOption": {
+          "i-get-up-at-seven": "La respuesta dice get up at eight, no seven.",
+          "i-get-up-at-six": "Six era la hora de despertarse en la pregunta anterior; la nueva respuesta sitúa levantarse a las ocho."
+        }
+      },
+      {
+        "id": "1.8-A11",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana y Luis completan los datos de un nuevo horario de tarde y noche.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I arrive home at six.",
+            "image": "t18",
+            "clock": {
+              "hour": 6,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "when-do-you-go-to-bed",
+            "text": "When do you go to bed?"
+          },
+          {
+            "id": "when-do-you-arrive-home",
+            "text": "When do you arrive home?"
+          }
+        ],
+        "answer": "when-do-you-go-to-bed",
+        "hint_es": "Arrive home at six ya responde cuándo llega a casa. Go to bed pide el horario de otra acción que falta por conocer.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "When do you go to bed?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "when-do-you-arrive-home": "Arrive home at six ya responde cuándo llega a casa. Go to bed pide el horario de otra acción que falta por conocer."
+        }
+      },
+      {
+        "id": "1.8-A12",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Escucha el dato que completa este horario nocturno.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I go to bed at nine.",
+            "image": "t18",
+            "clock": {
+              "hour": 9,
+              "minute": 0
+            }
+          }
+        ],
+        "options": [
+          {
+            "id": "ten",
+            "text": "Ten."
+          },
+          {
+            "id": "nine",
+            "text": "Nine."
+          }
+        ],
+        "answer": "nine",
+        "hint_es": "El dato de esta nueva respuesta sustituye al modelo anterior."
+      },
+      {
+        "id": "1.8-A13",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "Ana y Luis completan los datos de una nueva rutina de estudio.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I study at home.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "where-do-you-study",
+            "text": "Where do you study?"
+          },
+          {
+            "id": "how-often-do-you-study-at-home",
+            "text": "How often do you study at home?"
+          }
+        ],
+        "answer": "how-often-do-you-study-at-home",
+        "hint_es": "At home ya informa el lugar. How often pide la frecuencia de estudio en ese lugar.",
+        "answerTurns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at home?",
+            "image": "05"
+          }
+        ],
+        "feedbackByOption": {
+          "where-do-you-study": "At home ya informa el lugar. How often pide la frecuencia de estudio en ese lugar."
+        }
+      },
+      {
+        "id": "1.8-A14",
+        "stage": "Listen",
+        "activity": "choice",
+        "context_es": "La conversación continúa con otro dato de Ana.",
+        "instruction_es": "¡Escucha y elige la frase!",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18"
+          }
+        ],
+        "options": [
+          {
+            "id": "ana-usually-studies-at-home",
+            "text": "Ana usually studies at home."
+          },
+          {
+            "id": "ana-never-studies-at-home",
+            "text": "Ana never studies at home."
+          }
+        ],
+        "answer": "ana-usually-studies-at-home",
+        "hint_es": "El informe debe conservar la frecuencia escuchada sin inventar disponibilidad para hoy."
+      },
+      {
+        "id": "1.8-S01",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis pregunta por el lugar de trabajo.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Where do you work?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S02",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana responde.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I work at the school.",
+            "image": "t28"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S03",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Diego pregunta a Luis por Ana.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Where does Ana study?",
+            "image": "t32"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S04",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Luis responde con el lugar y el momento.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She studies at the library after work.",
+            "image": "r17"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S05",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Otra consulta pide el día de trabajo de Luis.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "When does Luis work?",
+            "image": "16"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S06",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Responde con el día afirmado y el día descartado.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He works on Saturday, but he doesn't work on Sunday.",
+            "image": "16"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S07",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Vuelve al horario inicial de Ana: pregunta por la ducha.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "When do you take a shower?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S08",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana responde sobre ese horario inicial.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I take a shower in the morning.",
+            "image": "08safe"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S09",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Pregunta por levantarse en el horario inicial.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "When do you get up?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S10",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana da la hora de ese horario.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I get up at seven.",
+            "image": "07v2",
+            "clock": {
+              "hour": 7,
+              "minute": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "1.8-S11",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Con el lugar ya conocido, pregunta por la frecuencia.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "How often do you study at home?",
+            "image": "05"
+          }
+        ]
+      },
+      {
+        "id": "1.8-S12",
+        "stage": "Speak",
+        "activity": "speak",
+        "context_es": "Ana responde sin cambiar el dato solicitado.",
+        "instruction_es": "Escucha el modelo y graba tu voz.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I usually study at home.",
+            "image": "t18"
+          }
+        ]
+      },
+      {
+        "id": "1.8-U01",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Diego pregunta por el lugar de estudio de Ana.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "diego",
+            "text": "Where does Ana study?",
+            "image": "t32"
+          }
+        ],
+        "target": "Where does Ana study?",
+        "guided": [
+          0,
+          1
+        ],
+        "spanish_translation": "¿Dónde estudia Ana?"
+      },
+      {
+        "id": "1.8-U02",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis informa del lugar y el momento.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "She studies at the library after work.",
+            "image": "r17"
+          }
+        ],
+        "target": "She studies at the library after work.",
+        "guided": [
+          3,
+          4
+        ],
+        "spanish_translation": "Ella estudia en la biblioteca después del trabajo."
+      },
+      {
+        "id": "1.8-U03",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Pregunta por el día de trabajo de Luis.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "co-teacher",
+            "text": "When does Luis work?",
+            "image": "16"
+          }
+        ],
+        "target": "When does Luis work?",
+        "guided": [
+          0,
+          1
+        ],
+        "spanish_translation": "¿Cuándo trabaja Luis?"
+      },
+      {
+        "id": "1.8-U04",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Informa del día confirmado.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "teacher",
+            "text": "He works on Saturday.",
+            "image": "16"
+          }
+        ],
+        "target": "He works on Saturday.",
+        "guided": [
+          1,
+          3
+        ],
+        "spanish_translation": "Él trabaja el sábado."
+      },
+      {
+        "id": "1.8-U05",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis pregunta a Ana por su trabajo.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "Where do you work?",
+            "image": "05"
+          }
+        ],
+        "target": "Where do you work?",
+        "spanish_translation": "¿Dónde trabajas?"
+      },
+      {
+        "id": "1.8-U06",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Ana responde.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I work at the school.",
+            "image": "t28"
+          }
+        ],
+        "target": "I work at the school.",
+        "spanish_translation": "Trabajo en la escuela."
+      },
+      {
+        "id": "1.8-U07",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Luis pregunta por levantarse.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "luis",
+            "text": "When do you get up?",
+            "image": "05"
+          }
+        ],
+        "target": "When do you get up?",
+        "spanish_translation": "¿Cuándo te levantas?"
+      },
+      {
+        "id": "1.8-U08",
+        "stage": "Use",
+        "activity": "build",
+        "context_es": "Ana responde con el horario inicial.",
+        "instruction_es": "Escucha y ordena las palabras.",
+        "turns": [
+          {
+            "speaker": "ana",
+            "text": "I get up at seven.",
+            "image": "07v2",
+            "clock": {
+              "hour": 7,
+              "minute": 0
+            }
+          }
+        ],
+        "target": "I get up at seven.",
+        "spanish_translation": "Me levanto a las siete."
+      }
+    ],
+    "vocabulary": [
+      "Where",
+      "When"
+    ]
+  }
+]

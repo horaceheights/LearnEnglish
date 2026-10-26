@@ -44,6 +44,7 @@ import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
 import useLessonPageTurn from "../lib/useLessonPageTurn";
 import CelebrationMission from "./CelebrationMission";
+import { playDecisionTurns } from "../../mobile/src/missionConversationDecision";
 import { missionCueOrder } from "../lib/missionTargetInteraction.cjs";
 import MissionCompletion from "./MissionCompletion";
 import LessonResultScreen, { LessonGoodbye } from "./LessonResultScreen";
@@ -1269,6 +1270,7 @@ function useSpeech() {
 
   const speakText = useCallback((text, options = {}) => {
     if (typeof window === "undefined") {
+      options.onPlaybackError?.();
       return 0;
     }
 
@@ -1277,6 +1279,7 @@ function useSpeech() {
       text = sanitizeCourseAudioText(text);
     }
     if (!text) {
+      options.onPlaybackError?.();
       return 0;
     }
 
@@ -1292,6 +1295,7 @@ function useSpeech() {
       if (options.audioAssetId) {
         // Approved card audio is fail-closed. Never substitute a different
         // browser voice for a missing or rejected persistent clip.
+        options.onPlaybackError?.();
         if (typeof options.onEnd === "function") options.onEnd();
         return 0;
       }
@@ -2275,6 +2279,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const [missionIntroComplete, setMissionIntroComplete] = useState(false);
   const [missionIntroReady, setMissionIntroReady] = useState(false);
   const [missionInstructionReady, setMissionInstructionReady] = useState(false);
+  const [missionDecisionAudioUnavailable, setMissionDecisionAudioUnavailable] = useState(false);
   const [missionSpeechReady, setMissionSpeechReady] = useState(false);
   const [lessonSessionId, setLessonSessionId] = useState(null);
   const [loadingLessonId, setLoadingLessonId] = useState(null);
@@ -2316,6 +2321,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const preloadedAudioKeysRef = useRef(new Set());
   const missionIntroPlaybackKeyRef = useRef("");
   const missionInstructionPlaybackKeyRef = useRef("");
+  const decisionPlaybackRef = useRef(null);
+  const decisionPromptRequestRef = useRef(0);
   const isMissionExperience = isMissionLesson(activeLesson);
   const isMissionGameExperience = isMissionExperience
     && activeLesson.cards.every((card) => Boolean(card?.mission_game));
@@ -2338,6 +2345,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   }, [playUiSfx]);
 
   const currentCard = activeLesson.cards[cardIndex];
+  const isMissionDecision = currentCard?.mission_game?.kind === "conversation-decision";
+  const decisionHelpPaused = isMissionDecision && showHelp;
   const [tutorMission, setTutorMission] = useState(null);
   const missionTutorAnchor = useRef(null);
   const missionCuePosition = useRef({ card: null, index: 0 });
@@ -2345,6 +2354,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     ? tutorCardContext(activeLesson, currentCard, lastResult, selectedOptionIds.length ? selectedOptionIds : [selectedOptionId].filter(Boolean), tutorMission)
     : null, [activeLesson, currentCard, lastResult, selectedOptionId, selectedOptionIds, tutorMission]);
   const tutor = useLessonTutor(`${profile?.userId || 'guest'}:${lessonSessionId}`, tutorContext, askTutor);
+  const decisionPausedRef = useRef(false);
+  decisionPausedRef.current = tutor.visible || showHelp || !helpDocumentVisible || isPageTurning;
   const tutorInterruptionRef = useRef(0);
   const teachingCardKey = `${lessonSessionId}:${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
   const [loadedTeachingImageKey, setLoadedTeachingImageKey] = useState("");
@@ -2516,18 +2527,81 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     });
   }, [cardPromptText, currentCard, missionOrder, playCourseTurnSequence, speakText]);
 
+  const playDecisionSequence = useCallback((purpose) => {
+    decisionPlaybackRef.current?.cancel();
+    decisionPlaybackRef.current = null;
+    const sequence = cardAudioTurnSequence(currentCard, purpose);
+    if (decisionPausedRef.current) return Promise.resolve(false);
+    if (purpose === "answer" && !sequence?.length && !currentCard?.answer_audio_text && !currentCard?.answer_audio_turns?.length) {
+      return new Promise(resolve => window.setTimeout(() => resolve(!decisionPausedRef.current), 520));
+    }
+    if (!sequence?.length) return Promise.resolve(false);
+    courseTurnRunRef.current += 1;
+    const owner = { cancel: () => {} };
+    decisionPlaybackRef.current = owner;
+    return new Promise(resolve => {
+      let playback, delay;
+      owner.cancel = () => { clearTimeout(delay); playback?.cancel(); resolve(false); };
+      const start = () => {
+        if (decisionPlaybackRef.current !== owner || decisionPausedRef.current) { owner.cancel(); return; }
+        playback = playDecisionTurns(sequence, ({ asset, turn }, completed, failed) => {
+          if (decisionPlaybackRef.current !== owner || decisionPausedRef.current) { failed(); return; }
+          setActiveTurnImageUrl(turn.image_url);
+          speakText(turn.text, {
+            audioAssetId: asset.id, wordByWord: false, voiceMode: purpose,
+            onAudioCompleted: completed, onPlaybackError: failed,
+            // The legacy onEnd callback also fires for missing clips; it cannot unlock a decision.
+            onEnd: () => {},
+          });
+        });
+        playback.promise.then(played => {
+          if (decisionPlaybackRef.current !== owner) { resolve(false); return; }
+          decisionPlaybackRef.current = null;
+          if (!played) stopSpeech();
+          resolve(played);
+        });
+      };
+      if (purpose === "answer") delay = window.setTimeout(start, 520);
+      else start();
+    });
+  }, [currentCard, speakText, stopSpeech]);
+
+  useEffect(() => {
+    if (!decisionPausedRef.current || !decisionPlaybackRef.current) return;
+    decisionPlaybackRef.current.cancel();
+    decisionPlaybackRef.current = null;
+    stopSpeech();
+  }, [showHelp, tutor.visible, helpDocumentVisible, isPageTurning, stopSpeech]);
+  useEffect(() => () => {
+    decisionPromptRequestRef.current += 1;
+    const playback = decisionPlaybackRef.current;
+    playback?.cancel();
+    decisionPlaybackRef.current = null;
+    if (playback) stopSpeech();
+  }, [currentCard?.slide_id, stopSpeech]);
+
   const playMissionDirections = useCallback((cueIndex = 0) => {
     if (!currentCard?.mission_game) {
       setMissionInstructionReady(true);
       return;
     }
     setMissionInstructionReady(false);
+    if (isMissionDecision) {
+      setMissionDecisionAudioUnavailable(false);
+      const requestId = ++decisionPromptRequestRef.current;
+      void playDecisionSequence("prompt").then(played => {
+        if (decisionPromptRequestRef.current !== requestId) return;
+        setMissionInstructionReady(played);
+        setMissionDecisionAudioUnavailable(!played);
+      });
+      return;
+    }
     const unlock = () => {
       setMissionInstructionReady(true);
       if (currentCard.mission_game.kind === "voice-gate") setMissionSpeechReady(true);
     };
     playMissionEnglishClue(cueIndex, unlock);
-  }, [currentCard, playMissionEnglishClue]);
+  }, [currentCard, isMissionDecision, playDecisionSequence, playMissionEnglishClue]);
 
   const prepareMissionSpeech = useCallback(() => {
     if (!currentCard?.mission_game || missionSpeechReady) return;
@@ -3594,7 +3668,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   };
 
   useEffect(() => {
-    if (!started || showHelp || tutor.visible || lastResult !== "correct") {
+    if (!started || showHelp || tutor.visible || lastResult !== "correct" || isMissionDecision) {
       return undefined;
     }
 
@@ -3619,7 +3693,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     }, autoAdvanceDelayMs);
 
     return () => window.clearTimeout(timeoutId);
-  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, tutor.visible, started, startPageTurn, totalCards, reviewQueue]);
+  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, tutor.visible, started, startPageTurn, totalCards, reviewQueue, isMissionDecision]);
 
   useEffect(() => {
     resetPronunciationPractice();
@@ -3672,7 +3746,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
       return;
     }
     const instructionKey = `${activeLesson.id}:${activeLesson.content_revision}:${currentCard.slide_id}`;
-    if (tutor.visible || !helpDocumentVisible) { missionInstructionPlaybackKeyRef.current = ""; return; }
+    if (tutor.visible || decisionHelpPaused || !helpDocumentVisible) { missionInstructionPlaybackKeyRef.current = ""; return; }
+    if (isMissionDecision && lastResult === "correct") return;
     if (missionInstructionPlaybackKeyRef.current === instructionKey) return;
     missionInstructionPlaybackKeyRef.current = instructionKey;
     const timeoutId = window.setTimeout(() => playMissionDirections(missionCuePosition.current.card === currentCard.slide_id ? missionCuePosition.current.index : 0), 180);
@@ -3687,6 +3762,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     missionIntroComplete,
     tutor.visible,
     helpDocumentVisible,
+    decisionHelpPaused,
+    isMissionDecision,
+    lastResult,
     playMissionDirections,
     started,
   ]);
@@ -4731,13 +4809,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
 
       const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
       const praisePitch = [1.0, 1.1, 1.2, 1.28][Math.floor(Math.random() * 4)];
-      if (!currentCard.mission_game || currentCard.mission_game.kind === "voice-gate") playUiSfx(
+      if (!currentCard.mission_game || currentCard.mission_game.kind === "voice-gate" || isMissionDecision) playUiSfx(
         "pageRestored",
         {
           debounceMs: 240,
           volume: isMissionExperience && currentCard.interaction_type === "mission-finale" ? 0.68 : 0.5,
         }
       );
+      if (isMissionDecision) return;
       if (currentCard.answer_audio_text) {
         window.setTimeout(() => {
           if (tutor.visibleRef.current) return;
@@ -4784,7 +4863,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
     window.setTimeout(() => {
       if (tutor.visibleRef.current) return;
       playUiSfx("tryAgain", { debounceMs: 280, volume: 0.48 });
-      speakText("Try again", { voiceMode: "feedback", rate: 0.72, pitch: 0.94 });
+      if (!isMissionDecision) speakText("Try again", { voiceMode: "feedback", rate: 0.72, pitch: 0.94 });
     }, 0);
   };
 
@@ -4812,6 +4891,25 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const completeMissionGame = (optionIds) => {
     if (lastResult === "correct" || !Array.isArray(optionIds) || !optionIds.length) return;
     evaluateChoiceSelection(optionIds);
+  };
+
+  const advanceMissionDecision = () => {
+    if (decisionPausedRef.current) return;
+    const nextIndex = reviewQueue.length ? reviewQueue[reviewQueue.indexOf(cardIndex) + 1] : cardIndex + 1;
+    if (nextIndex === undefined || nextIndex >= totalCards) {
+      setCelebrateResult(true);
+      setIsComplete(true);
+      setSelectedOptionId(null);
+      setSelectedOptionIds([]);
+      setLastResult(null);
+    } else {
+      startPageTurn(1, () => {
+        setCardIndex(nextIndex);
+        setSelectedOptionId(null);
+        setSelectedOptionIds([]);
+        setLastResult(null);
+      });
+    }
   };
 
   const recordMissionMisstep = (attemptedIds = []) => {
@@ -5530,8 +5628,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
           cueOrder={missionOrder}
           card={currentCard}
           cardIndex={cardIndex}
-          imageSrc={currentCard.prompt_image_url ? lessonOptionImageSrc(currentCard.prompt_image_url) : ""}
+          imageSrc={isMissionDecision ? lessonOptionImageSrc(playingTurnImageUrl || currentCard.prompt_image_url || "")
+            : currentCard.prompt_image_url ? lessonOptionImageSrc(currentCard.prompt_image_url) : ""}
           interactionReady={missionInstructionReady}
+          cueUnavailable={missionDecisionAudioUnavailable}
+          onDecisionResponse={() => playDecisionSequence("answer")}
+          onDecisionAdvance={advanceMissionDecision}
+          onDecisionRetry={resetMissionSelection}
           introComplete={missionIntroComplete}
           introReady={missionIntroReady}
           isMobile={isMobile}

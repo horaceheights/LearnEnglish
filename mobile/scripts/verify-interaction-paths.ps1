@@ -79,7 +79,9 @@ try {
   & node tests/mission-target-interaction.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la verificación visual vinculada de los blancos de la misión.' }
   & node --test tests/mission-object-scenes.test.cjs tests/mission-presentation-parity.test.cjs tests/mission-completion-scene.test.cjs
-  if ($LASTEXITCODE -ne 0) { throw 'Mission object scenes and cross-client presentation parity failed.' }
+  if ($LASTEXITCODE -ne 0) { throw 'Mission scene regressions failed.' }
+  & node --test tests/mission-conversation-decision.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Conversation decision playback, retries and cross-client lifecycle failed.' }
   & node --test tests/mission-photo-edits.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Mission photo edit and reviewed marker bindings failed.' }
   & node tests/mission-phone-landscape.test.cjs
@@ -103,6 +105,12 @@ try {
 
   & node --test tests/construction-teaching.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Generated constructions need contextual explanations for every mistaken order.' }
+
+  & node --test tests/a1plus-construction-teaching.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'A1+ constructions need contextual explanations without changing established A1 feedback.' }
+
+  & node --test tests/a1plus-choice-teaching.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'A1+ choices need accurate distractor feedback without changing established A1 feedback.' }
 
   & node tests/sentence-translations.test.cjs (Join-Path $outputDirectory 'sentenceTranslations.js') (Join-Path $mobileRoot 'src\generated')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de traducción de oraciones.' }

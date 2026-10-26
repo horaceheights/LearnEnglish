@@ -1,0 +1,5678 @@
+{
+  "sourceContentSha256": "fbba411138f55793f8891245cf979c35ec0bcaa433e25b1298432284bf2e97bb",
+  "source": "Repaired Unit 1 draft canonical projection; exact feedback inputs only. This does not install or approve media.",
+  "a1BaselineSha256": "96c6027b3a68a963a34b8ab500f71d5f59869100aabf21382d2c0602cc5c5aa6",
+  "reviewLimitations": [
+    {
+      "slide_id": "a1plus-unit-1-1.4-R03",
+      "reason": "A bathroom setting supports the place association only; it does not depict a shower action. The hint explains the written phrase without certifying that visual."
+    }
+  ],
+  "cards": [
+    {
+      "slide_id": "a1plus-unit-1-1.1-R01",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I leave home at seven.",
+      "prompt_image_url": "",
+      "audio_text": "I leave home at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I leave home at seven."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Por la mañana: lee la frase y compara las dos escenas.",
+      "spanish_translation": "Salgo de casa a las siete.",
+      "correct_option_id": "leave-home",
+      "options": [
+        {
+          "id": "leave-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-01-ana-leaves-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "start-work",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-ana-starts-work-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-R02",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-03-ana-starts-work-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I start work at eight.",
+      "context_es": "Al comenzar su jornada, Ana comprueba el reloj de la mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "i-start-work-at-eight",
+      "options": [
+        {
+          "id": "i-start-work-at-nine",
+          "image_url": "",
+          "label": "I start work at nine."
+        },
+        {
+          "id": "i-start-work-at-eight",
+          "image_url": "",
+          "label": "I start work at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-R03",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I finish work at five.",
+      "prompt_image_url": "",
+      "audio_text": "I finish work at five.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I finish work at five."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Por la tarde: lee la frase y compara las dos escenas.",
+      "spanish_translation": "Termino de trabajar a las cinco.",
+      "correct_option_id": "finish-work",
+      "options": [
+        {
+          "id": "arrive-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-ana-gets-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "finish-work",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-ana-finishes-work-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-R04",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-02-ana-gets-home-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I arrive home at six.",
+      "context_es": "Por la tarde: observa la dirección del movimiento y el reloj.",
+      "spanish_translation": null,
+      "correct_option_id": "i-arrive-home-at-six",
+      "options": [
+        {
+          "id": "i-arrive-home-at-six",
+          "image_url": "",
+          "label": "I arrive home at six."
+        },
+        {
+          "id": "i-leave-home-at-six",
+          "image_url": "",
+          "label": "I leave home at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I leave home at seven. I start work at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I leave home at seven."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I start work at eight."
+        }
+      ],
+      "answer_audio_text": "I start work at eight.",
+      "context_es": "Ana habla de la mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "i-start-work-at-eight",
+      "options": [
+        {
+          "id": "i-start-work-at-seven",
+          "image_url": "",
+          "label": "I start work at seven."
+        },
+        {
+          "id": "i-start-work-at-eight",
+          "image_url": "",
+          "label": "I start work at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I finish work at five. I arrive home at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I finish work at five."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at six."
+        }
+      ],
+      "answer_audio_text": "I arrive home at six.",
+      "context_es": "Ana habla de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "i-arrive-home-at-six",
+      "options": [
+        {
+          "id": "i-arrive-home-at-five",
+          "image_url": "",
+          "label": "I arrive home at five."
+        },
+        {
+          "id": "i-arrive-home-at-six",
+          "image_url": "",
+          "label": "I arrive home at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I finish work at five. I arrive home at six. I finish work at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I finish work at five."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I finish work at seven."
+        }
+      ],
+      "answer_audio_text": "Let's meet at seven. OK.",
+      "context_es": "Ana y Luis quieren verse en persona en casa de Ana. Hoy Luis trabaja allí y queda libre al terminar; Ana queda libre al llegar del trabajo. Son horas de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-seven",
+      "options": [
+        {
+          "id": "let-s-meet-at-six",
+          "image_url": "",
+          "label": "Let's meet at six."
+        },
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I finish work at five. I finish work at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I finish work at five."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I finish work at six."
+        }
+      ],
+      "answer_audio_text": "What time do you arrive home?",
+      "context_es": "Otro encuentro: Ana y Luis quieren verse en persona en casa de Ana. Luis trabaja allí y queda libre al terminar; Ana queda libre cuando regresa del trabajo. Son horas de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "what-time-do-you-arrive-home",
+      "options": [
+        {
+          "id": "what-time-do-you-arrive-home",
+          "image_url": "",
+          "label": "What time do you arrive home?"
+        },
+        {
+          "id": "what-time-do-you-finish-work",
+          "image_url": "",
+          "label": "What time do you finish work?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.1-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at eight."
+        }
+      ],
+      "answer_audio_text": "Let's meet at eight. OK.",
+      "context_es": "Continúa el nuevo encuentro en casa de Ana. Luis ya estará allí y disponible; Ana estará disponible al llegar. Son horas de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-eight",
+      "options": [
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        },
+        {
+          "id": "let-s-meet-at-eight",
+          "image_url": "",
+          "label": "Let's meet at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-R01",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "Luis leaves home at eight.",
+      "prompt_image_url": "",
+      "audio_text": "Luis leaves home at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "Luis leaves home at eight."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Por la mañana: lee el informe y compara las dos escenas de Luis.",
+      "spanish_translation": "Luis sale de casa a las ocho.",
+      "correct_option_id": "luis-leaves-home",
+      "options": [
+        {
+          "id": "luis-leaves-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-t19-luis-leaves-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "luis-arrives-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-luis-gets-home-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-R02",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-03-ana-starts-work-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "Ana starts work at eight.",
+      "context_es": "Por la mañana: observa quién está en su lugar de trabajo y mira el reloj.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-starts-work-at-eight",
+      "options": [
+        {
+          "id": "ana-starts-work-at-eight",
+          "image_url": "",
+          "label": "Ana starts work at eight."
+        },
+        {
+          "id": "luis-starts-work-at-eight",
+          "image_url": "",
+          "label": "Luis starts work at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-R03",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-16-luis-finishes-work-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "He finishes work at six.",
+      "context_es": "Por la tarde: observa a Luis en su lugar de trabajo y mira el reloj.",
+      "spanish_translation": null,
+      "correct_option_id": "he-finishes-work-at-six",
+      "options": [
+        {
+          "id": "he-starts-work-at-six",
+          "image_url": "",
+          "label": "He starts work at six."
+        },
+        {
+          "id": "he-finishes-work-at-six",
+          "image_url": "",
+          "label": "He finishes work at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-R04",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "Ana arrives home at six.",
+      "prompt_image_url": "",
+      "audio_text": "Ana arrives home at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana arrives home at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Por la tarde: lee el informe y compara las dos escenas.",
+      "spanish_translation": "Ana llega a casa a las seis.",
+      "correct_option_id": "ana-arrives-home",
+      "options": [
+        {
+          "id": "luis-arrives-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-luis-gets-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "ana-arrives-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-ana-gets-home-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-R05",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-03-ana-starts-work-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "Ana works.",
+      "context_es": "Observa a Ana y lo que ocurre en la escena.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-works",
+      "options": [
+        {
+          "id": "ana-works",
+          "image_url": "",
+          "label": "Ana works."
+        },
+        {
+          "id": "ana-leaves-home",
+          "image_url": "",
+          "label": "Ana leaves home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-R06",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "Ana leaves home, but Luis arrives home.",
+      "prompt_image_url": "",
+      "audio_text": "Ana leaves home, but Luis arrives home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana leaves home, but Luis arrives home."
+        }
+      ],
+      "answer_audio_text": "Luis arrives home.",
+      "context_es": "Situación aparte: lee el contraste completo.",
+      "spanish_translation": "Ana sale de casa, pero Luis llega a casa.",
+      "correct_option_id": "luis-arrives-home",
+      "options": [
+        {
+          "id": "luis-leaves-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-t19-luis-leaves-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "luis-arrives-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-luis-gets-home-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I start work at eight. I start work at nine.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I start work at eight."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I start work at nine."
+        }
+      ],
+      "answer_audio_text": "Ana starts work at eight. Luis starts work at nine.",
+      "context_es": "Primer día: Ana y después Luis cuentan su mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-starts-work-at-eight-luis-starts-work-at-nine",
+      "options": [
+        {
+          "id": "ana-starts-work-at-nine-luis-starts-work-at-eight",
+          "image_url": "",
+          "label": "Ana starts work at nine. Luis starts work at eight."
+        },
+        {
+          "id": "ana-starts-work-at-eight-luis-starts-work-at-nine",
+          "image_url": "",
+          "label": "Ana starts work at eight. Luis starts work at nine."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I finish work at five. I finish work at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I finish work at five."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I finish work at six."
+        }
+      ],
+      "answer_audio_text": "She finishes work at five. He finishes work at six.",
+      "context_es": "Misma tarde: cada persona da su propio horario.",
+      "spanish_translation": null,
+      "correct_option_id": "she-finishes-work-at-five-he-finishes-work-at-six",
+      "options": [
+        {
+          "id": "she-finishes-work-at-five-he-finishes-work-at-six",
+          "image_url": "",
+          "label": "She finishes work at five. He finishes work at six."
+        },
+        {
+          "id": "she-finishes-work-at-six-he-finishes-work-at-five",
+          "image_url": "",
+          "label": "She finishes work at six. He finishes work at five."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home at six. I finish work at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I finish work at seven."
+        }
+      ],
+      "answer_audio_text": "Let's meet at seven. OK.",
+      "context_es": "Ana y Luis quieren verse en persona en casa de Ana. Hoy Luis trabaja allí y queda libre al terminar; Ana queda libre al llegar del trabajo. Son horas de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-seven",
+      "options": [
+        {
+          "id": "let-s-meet-at-six",
+          "image_url": "",
+          "label": "Let's meet at six."
+        },
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I finish work at six. I finish work at five.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I finish work at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I finish work at five."
+        }
+      ],
+      "answer_audio_text": "Ana finishes work at six. Luis finishes work at five.",
+      "context_es": "Nuevo día: los horarios de trabajo han cambiado.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-finishes-work-at-six-but-luis-finishes-work-at-five",
+      "options": [
+        {
+          "id": "ana-finishes-work-at-five-but-luis-finishes-work-at-six",
+          "image_url": "",
+          "label": "Ana finishes work at five, but Luis finishes work at six."
+        },
+        {
+          "id": "ana-finishes-work-at-six-but-luis-finishes-work-at-five",
+          "image_url": "",
+          "label": "Ana finishes work at six, but Luis finishes work at five."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.2-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I leave home at seven. I leave home at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I leave home at seven."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I leave home at eight."
+        }
+      ],
+      "answer_audio_text": "Ana leaves home at seven. Luis leaves home at eight.",
+      "context_es": "Otra mañana: escucha el relato de cada persona.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-leaves-home-at-seven-luis-leaves-home-at-eight",
+      "options": [
+        {
+          "id": "ana-leaves-home-at-seven-luis-leaves-home-at-eight",
+          "image_url": "",
+          "label": "Ana leaves home at seven. Luis leaves home at eight."
+        },
+        {
+          "id": "ana-arrives-home-at-seven-luis-arrives-home-at-eight",
+          "image_url": "",
+          "label": "Ana arrives home at seven. Luis arrives home at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-R01",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I work from eight to five.",
+      "prompt_image_url": "",
+      "audio_text": "I work from eight to five.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I work from eight to five."
+        }
+      ],
+      "answer_audio_text": "I finish work at five.",
+      "context_es": "Lee el horario completo: comienza por la mañana y termina por la tarde.",
+      "spanish_translation": "Trabajo de ocho a cinco.",
+      "correct_option_id": "finish-work-at-5-0",
+      "options": [
+        {
+          "id": "start-work-at-8-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-ana-starts-work-v1.png",
+          "label": null
+        },
+        {
+          "id": "finish-work-at-5-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-ana-finishes-work-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-R02",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I arrive home before dinner.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home before dinner.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I arrive home before dinner."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Lee la relación entre las dos acciones.",
+      "spanish_translation": "Llego a casa antes de cenar.",
+      "correct_option_id": "arrive-home",
+      "options": [
+        {
+          "id": "arrive-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-ana-gets-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "ana-has-dinner",
+          "image_url": "/lesson-assets/a1plus-unit-1-t22-ana-has-dinner-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-R03",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I leave home before I start work.",
+      "prompt_image_url": "",
+      "audio_text": "I leave home before I start work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I leave home before I start work."
+        }
+      ],
+      "answer_audio_text": "I start work.",
+      "context_es": "Lee las dos partes de la frase.",
+      "spanish_translation": "Salgo de casa antes de empezar a trabajar.",
+      "correct_option_id": "start-work",
+      "options": [
+        {
+          "id": "leave-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-01-ana-leaves-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "start-work",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-ana-starts-work-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-R04",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f07.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I arrive home before dinner.",
+      "context_es": "Cada fila es una ocasión independiente. El registro se lee de izquierda a derecha.",
+      "spanish_translation": null,
+      "correct_option_id": "i-arrive-home-before-dinner",
+      "options": [
+        {
+          "id": "i-arrive-home-before-dinner",
+          "image_url": "",
+          "label": "I arrive home before dinner."
+        },
+        {
+          "id": "i-arrive-home-after-dinner",
+          "image_url": "",
+          "label": "I arrive home after dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-R05",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I arrive home after I finish work.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home after I finish work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I arrive home after I finish work."
+        }
+      ],
+      "answer_audio_text": "I finish work.",
+      "context_es": "Lee after aunque la llegada se mencione primero.",
+      "spanish_translation": "Llego a casa después de terminar de trabajar.",
+      "correct_option_id": "finish-work",
+      "options": [
+        {
+          "id": "arrive-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-ana-gets-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "finish-work",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-ana-finishes-work-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I work from nine to six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I work from nine to six."
+        }
+      ],
+      "answer_audio_text": "I finish work at six.",
+      "context_es": "Un nuevo día: horario de mañana a tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "i-finish-work-at-six",
+      "options": [
+        {
+          "id": "i-finish-work-at-nine",
+          "image_url": "",
+          "label": "I finish work at nine."
+        },
+        {
+          "id": "i-finish-work-at-six",
+          "image_url": "",
+          "label": "I finish work at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Let's meet after work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Let's meet after work."
+        }
+      ],
+      "answer_audio_text": "Let's meet after work. OK.",
+      "context_es": "Luis propone el momento de la visita; aún no fija una hora.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-after-work",
+      "options": [
+        {
+          "id": "let-s-meet-before-work",
+          "image_url": "",
+          "label": "Let's meet before work."
+        },
+        {
+          "id": "let-s-meet-after-work",
+          "image_url": "",
+          "label": "Let's meet after work."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home after I finish work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home after I finish work."
+        }
+      ],
+      "answer_audio_text": "I finish work.",
+      "context_es": "Ana describe su regreso de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-finish-work-then-i-arrive-home",
+      "options": [
+        {
+          "id": "first-i-arrive-home-then-i-finish-work",
+          "image_url": "",
+          "label": "First, I arrive home. Then, I finish work."
+        },
+        {
+          "id": "first-i-finish-work-then-i-arrive-home",
+          "image_url": "",
+          "label": "First, I finish work. Then, I arrive home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I start work after I leave home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I start work after I leave home."
+        }
+      ],
+      "answer_audio_text": "I leave home.",
+      "context_es": "Otro horario de mañana, con las acciones conocidas.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-leave-home-then-i-start-work",
+      "options": [
+        {
+          "id": "first-i-leave-home-then-i-start-work",
+          "image_url": "",
+          "label": "First, I leave home. Then, I start work."
+        },
+        {
+          "id": "first-i-start-work-then-i-leave-home",
+          "image_url": "",
+          "label": "First, I start work. Then, I leave home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I leave home before I start work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I leave home before I start work."
+        }
+      ],
+      "answer_audio_text": "I leave home.",
+      "context_es": "La misma mañana, contada con otra relación temporal.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-leave-home-then-i-start-work",
+      "options": [
+        {
+          "id": "first-i-start-work-then-i-leave-home",
+          "image_url": "",
+          "label": "First, I start work. Then, I leave home."
+        },
+        {
+          "id": "first-i-leave-home-then-i-start-work",
+          "image_url": "",
+          "label": "First, I leave home. Then, I start work."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-A06",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I work from eight to five. I arrive home at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I work from eight to five."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at six."
+        }
+      ],
+      "answer_audio_text": "Let's meet at six.",
+      "context_es": "Otra tarde: Ana y Luis quieren reunirse en casa. Luis está disponible en ambas horas; Ana solo después de llegar.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-six",
+      "options": [
+        {
+          "id": "let-s-meet-at-five",
+          "image_url": "",
+          "label": "Let's meet at five."
+        },
+        {
+          "id": "let-s-meet-at-six",
+          "image_url": "",
+          "label": "Let's meet at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.3-A07",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I eat dinner at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I eat dinner at seven."
+        }
+      ],
+      "answer_audio_text": "Let's meet at six. OK.",
+      "context_es": "Continúa el mismo plan. Ana está disponible desde que llega hasta la cena; la reunión será breve y terminará antes de cenar.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-six",
+      "options": [
+        {
+          "id": "let-s-meet-at-six",
+          "image_url": "",
+          "label": "Let's meet at six."
+        },
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-R01",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I get up at seven.",
+      "prompt_image_url": "",
+      "audio_text": "I get up at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I get up at seven."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Mañana: lee la acción completa.",
+      "spanish_translation": "Me levanto a las siete.",
+      "correct_option_id": "get-up-leave-bed",
+      "options": [
+        {
+          "id": "wake-up-still-in-bed",
+          "image_url": "/lesson-assets/a1plus-unit-1-06v2-ana-awake-centered-v2.png",
+          "label": null
+        },
+        {
+          "id": "get-up-leave-bed",
+          "image_url": "/lesson-assets/a1plus-unit-1-07-ana-get-up-v2.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-R02",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-11-ana-go-to-bed-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I go to bed.",
+      "context_es": "Por la noche: observa la postura de Ana y la cama.",
+      "spanish_translation": null,
+      "correct_option_id": "i-go-to-bed",
+      "options": [
+        {
+          "id": "i-go-to-bed",
+          "image_url": "",
+          "label": "I go to bed."
+        },
+        {
+          "id": "i-get-up",
+          "image_url": "",
+          "label": "I get up."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-R03",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I take a shower.",
+      "prompt_image_url": "",
+      "audio_text": "I take a shower.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "I take a shower."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana cuenta su rutina; elige el lugar que corresponde, no una foto que pruebe que ella está allí.",
+      "spanish_translation": "Me ducho.",
+      "correct_option_id": "take-a-shower-setting-only",
+      "options": [
+        {
+          "id": "take-a-shower-setting-only",
+          "image_url": "/lesson-assets/a1plus-unit-1-08-shower-setting-v1.png",
+          "label": null
+        },
+        {
+          "id": "go-to-bed",
+          "image_url": "/lesson-assets/a1plus-unit-1-11-ana-go-to-bed-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-R04",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-09-ana-put-on-shoes-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I put on my shoes.",
+      "context_es": "Continúa la preparación de la mañana presentada en Aprende.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-shoes",
+      "options": [
+        {
+          "id": "i-put-on-my-jacket",
+          "image_url": "",
+          "label": "I put on my jacket."
+        },
+        {
+          "id": "i-put-on-my-shoes",
+          "image_url": "",
+          "label": "I put on my shoes."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-R05",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-10-ana-take-off-shoes-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I take off my shoes.",
+      "context_es": "Continúa el regreso a casa presentado en Aprende.",
+      "spanish_translation": null,
+      "correct_option_id": "i-take-off-my-shoes",
+      "options": [
+        {
+          "id": "i-take-off-my-shoes",
+          "image_url": "",
+          "label": "I take off my shoes."
+        },
+        {
+          "id": "i-take-off-my-jacket",
+          "image_url": "",
+          "label": "I take off my jacket."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-R06",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-14-ana-put-on-jacket-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I put on my jacket.",
+      "context_es": "Otro momento de la preparación para salir presentado en Aprende.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-jacket",
+      "options": [
+        {
+          "id": "i-put-on-my-shoes",
+          "image_url": "",
+          "label": "I put on my shoes."
+        },
+        {
+          "id": "i-put-on-my-jacket",
+          "image_url": "",
+          "label": "I put on my jacket."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-R07",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-15-ana-take-off-jacket-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I take off my jacket.",
+      "context_es": "Continúa el regreso cálido a casa presentado en Aprende.",
+      "spanish_translation": null,
+      "correct_option_id": "i-take-off-my-jacket",
+      "options": [
+        {
+          "id": "i-take-off-my-jacket",
+          "image_url": "",
+          "label": "I take off my jacket."
+        },
+        {
+          "id": "i-take-off-my-shoes",
+          "image_url": "",
+          "label": "I take off my shoes."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I wake up at six. I get up at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I wake up at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I get up at seven."
+        }
+      ],
+      "answer_audio_text": "I get up at seven.",
+      "context_es": "Ana cuenta la primera mañana; la salida está prevista para las ocho.",
+      "spanish_translation": null,
+      "correct_option_id": "i-get-up-at-seven",
+      "options": [
+        {
+          "id": "i-get-up-at-six",
+          "image_url": "",
+          "label": "I get up at six."
+        },
+        {
+          "id": "i-get-up-at-seven",
+          "image_url": "",
+          "label": "I get up at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "First, I take a shower. Then, I put on my shoes.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "First, I take a shower."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Then, I put on my shoes."
+        }
+      ],
+      "answer_audio_text": "I put on my shoes.",
+      "context_es": "Sigue la preparación que Ana dice, sin suponer tu propia rutina.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-shoes",
+      "options": [
+        {
+          "id": "i-put-on-my-shoes",
+          "image_url": "",
+          "label": "I put on my shoes."
+        },
+        {
+          "id": "i-take-off-my-shoes",
+          "image_url": "",
+          "label": "I take off my shoes."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I wake up at seven. I get up at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I wake up at seven."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I get up at eight."
+        }
+      ],
+      "answer_audio_text": "I get up at eight.",
+      "context_es": "Otra mañana, con horarios nuevos.",
+      "spanish_translation": null,
+      "correct_option_id": "i-get-up-at-eight",
+      "options": [
+        {
+          "id": "i-get-up-at-seven",
+          "image_url": "",
+          "label": "I get up at seven."
+        },
+        {
+          "id": "i-get-up-at-eight",
+          "image_url": "",
+          "label": "I get up at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "First, I put on my jacket. Then, I leave home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "First, I put on my jacket."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Then, I leave home."
+        }
+      ],
+      "answer_audio_text": "I put on my jacket. I leave home.",
+      "context_es": "Preparación con otra prenda. Escucha el plan completo.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-jacket-i-leave-home",
+      "options": [
+        {
+          "id": "i-put-on-my-jacket-i-leave-home",
+          "image_url": "",
+          "label": "I put on my jacket. I leave home."
+        },
+        {
+          "id": "i-take-off-my-jacket-i-leave-home",
+          "image_url": "",
+          "label": "I take off my jacket. I leave home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home at six. Then, I take off my shoes.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Then, I take off my shoes."
+        }
+      ],
+      "answer_audio_text": "I take off my shoes.",
+      "context_es": "Regreso de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "i-take-off-my-shoes",
+      "options": [
+        {
+          "id": "i-put-on-my-shoes",
+          "image_url": "",
+          "label": "I put on my shoes."
+        },
+        {
+          "id": "i-take-off-my-shoes",
+          "image_url": "",
+          "label": "I take off my shoes."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A06",
+      "stage": "Listen",
+      "interaction_type": "a2i",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I go to bed at ten.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I go to bed at ten."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Noche: escucha qué hace Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "go-to-bed",
+      "options": [
+        {
+          "id": "go-to-bed",
+          "image_url": "/lesson-assets/a1plus-unit-1-11-ana-go-to-bed-v1.png",
+          "label": null
+        },
+        {
+          "id": "ana-sleeping-contrast",
+          "image_url": "/lesson-assets/a1plus-unit-1-t27-ana-sleeping-contrast-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A07",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I put on my jacket before I leave home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I put on my jacket before I leave home."
+        }
+      ],
+      "answer_audio_text": "I put on my jacket.",
+      "context_es": "Ana describe su preparación para salir.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-put-on-my-jacket-then-i-leave-home",
+      "options": [
+        {
+          "id": "first-i-leave-home-then-i-put-on-my-jacket",
+          "image_url": "",
+          "label": "First, I leave home. Then, I put on my jacket."
+        },
+        {
+          "id": "first-i-put-on-my-jacket-then-i-leave-home",
+          "image_url": "",
+          "label": "First, I put on my jacket. Then, I leave home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.4-A08",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I take off my shoes after I arrive home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I take off my shoes after I arrive home."
+        }
+      ],
+      "answer_audio_text": "I arrive home.",
+      "context_es": "Ana cuenta su regreso a casa.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-arrive-home-then-i-take-off-my-shoes",
+      "options": [
+        {
+          "id": "first-i-arrive-home-then-i-take-off-my-shoes",
+          "image_url": "",
+          "label": "First, I arrive home. Then, I take off my shoes."
+        },
+        {
+          "id": "first-i-take-off-my-shoes-then-i-arrive-home",
+          "image_url": "",
+          "label": "First, I take off my shoes. Then, I arrive home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R01",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f07.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I always arrive home before dinner.",
+      "context_es": "Registro de tres regresos de Ana. Lee cada fila de izquierda a derecha; describe solo estos regresos.",
+      "spanish_translation": null,
+      "correct_option_id": "i-always-arrive-home-before-dinner",
+      "options": [
+        {
+          "id": "i-always-arrive-home-before-dinner",
+          "image_url": "",
+          "label": "I always arrive home before dinner."
+        },
+        {
+          "id": "i-never-arrive-home-before-dinner",
+          "image_url": "",
+          "label": "I never arrive home before dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R02",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f08.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I sometimes arrive home after dinner.",
+      "context_es": "Otro registro de tres regresos. Describe únicamente estas ocasiones.",
+      "spanish_translation": null,
+      "correct_option_id": "i-sometimes-arrive-home-after-dinner",
+      "options": [
+        {
+          "id": "i-always-arrive-home-before-dinner",
+          "image_url": "",
+          "label": "I always arrive home before dinner."
+        },
+        {
+          "id": "i-sometimes-arrive-home-after-dinner",
+          "image_url": "",
+          "label": "I sometimes arrive home after dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R03",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f05.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I never study at night.",
+      "context_es": "Registro de estudio nocturno de esta semana. Mo–Su: lunes–domingo. ✓ significa que estudia; ×, que no estudia.",
+      "spanish_translation": null,
+      "correct_option_id": "i-never-study-at-night",
+      "options": [
+        {
+          "id": "i-study-at-night-every-day",
+          "image_url": "",
+          "label": "I study at night every day."
+        },
+        {
+          "id": "i-never-study-at-night",
+          "image_url": "",
+          "label": "I never study at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R04",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f06.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I sometimes study at night.",
+      "context_es": "Otro registro nocturno; describe solo esta semana. Los símbolos conservan el mismo significado.",
+      "spanish_translation": null,
+      "correct_option_id": "i-sometimes-study-at-night",
+      "options": [
+        {
+          "id": "i-sometimes-study-at-night",
+          "image_url": "",
+          "label": "I sometimes study at night."
+        },
+        {
+          "id": "i-never-study-at-night",
+          "image_url": "",
+          "label": "I never study at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R05",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f01.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I usually study at home. I sometimes study at the library.",
+      "context_es": "Cinco ocasiones de estudio registradas. Casa = casa; estantería = biblioteca. Compara el patrón completo, solo en estas ocasiones.",
+      "spanish_translation": null,
+      "correct_option_id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+      "options": [
+        {
+          "id": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+          "image_url": "",
+          "label": "I usually study at the library. I sometimes study at home."
+        },
+        {
+          "id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+          "image_url": "",
+          "label": "I usually study at home. I sometimes study at the library."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R06",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I usually study at the library. I sometimes study at home.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at the library. I sometimes study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at the library."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I sometimes study at home."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Cada registro es un conjunto independiente. Sus símbolos indican los lugares o días de estudio.",
+      "spanish_translation": "Normalmente estudio en la biblioteca. A veces estudio en casa.",
+      "correct_option_id": "record-usually-library",
+      "options": [
+        {
+          "id": "record-usually-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-f01.svg",
+          "label": null
+        },
+        {
+          "id": "record-usually-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-f02.svg",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R07",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I study every day.",
+      "prompt_image_url": "",
+      "audio_text": "I study every day.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study every day."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Cada registro corresponde a una semana independiente. ✓ indica estudio; × indica que no estudia.",
+      "spanish_translation": "Estudio todos los días.",
+      "correct_option_id": "record-every-day",
+      "options": [
+        {
+          "id": "record-every-day",
+          "image_url": "/lesson-assets/a1plus-unit-1-f03.svg",
+          "label": null
+        },
+        {
+          "id": "record-some-days",
+          "image_url": "/lesson-assets/a1plus-unit-1-f04.svg",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-R08",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f04.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I sometimes study.",
+      "context_es": "Otra semana de estudio. Describe solo lo que está registrado.",
+      "spanish_translation": null,
+      "correct_option_id": "i-sometimes-study",
+      "options": [
+        {
+          "id": "i-study-every-day",
+          "image_url": "",
+          "label": "I study every day."
+        },
+        {
+          "id": "i-sometimes-study",
+          "image_url": "",
+          "label": "I sometimes study."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I always arrive home before dinner.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I always arrive home before dinner."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana describe sus regresos a casa; las fotos no indican la frecuencia.",
+      "spanish_translation": null,
+      "correct_option_id": "i-always-arrive-home-before-dinner",
+      "options": [
+        {
+          "id": "i-sometimes-arrive-home-before-dinner",
+          "image_url": "",
+          "label": "I sometimes arrive home before dinner."
+        },
+        {
+          "id": "i-always-arrive-home-before-dinner",
+          "image_url": "",
+          "label": "I always arrive home before dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study every day, but I never study at night.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study every day, but I never study at night."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana añade otro dato sobre su rutina.",
+      "spanish_translation": null,
+      "correct_option_id": "i-never-study-at-night",
+      "options": [
+        {
+          "id": "i-never-study-at-night",
+          "image_url": "",
+          "label": "I never study at night."
+        },
+        {
+          "id": "i-study-at-night-every-day",
+          "image_url": "",
+          "label": "I study at night every day."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at home. I sometimes study at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at home."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I sometimes study at the library."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Escucha el perfil de Ana completo.",
+      "spanish_translation": null,
+      "correct_option_id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+      "options": [
+        {
+          "id": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+          "image_url": "",
+          "label": "I usually study at the library. I sometimes study at home."
+        },
+        {
+          "id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+          "image_url": "",
+          "label": "I usually study at home. I sometimes study at the library."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at the library. I sometimes study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I usually study at the library."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I sometimes study at home."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Nuevo perfil: ahora habla Luis. No uses los hábitos de Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+      "options": [
+        {
+          "id": "i-usually-study-at-the-library-i-sometimes-study-at-home",
+          "image_url": "",
+          "label": "I usually study at the library. I sometimes study at home."
+        },
+        {
+          "id": "i-usually-study-at-home-i-sometimes-study-at-the-library",
+          "image_url": "",
+          "label": "I usually study at home. I sometimes study at the library."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study every day. I sometimes study at night.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I study every day."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I sometimes study at night."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Luis continúa su propio perfil.",
+      "spanish_translation": null,
+      "correct_option_id": "i-study-every-day",
+      "options": [
+        {
+          "id": "i-never-study-at-night",
+          "image_url": "",
+          "label": "I never study at night."
+        },
+        {
+          "id": "i-study-every-day",
+          "image_url": "",
+          "label": "I study every day."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.5-A06",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I always study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I always study at home."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Encuentro aparte: escucha un nuevo perfil de Luis. No uses los datos del encuentro anterior.",
+      "spanish_translation": null,
+      "correct_option_id": "i-always-study-at-home",
+      "options": [
+        {
+          "id": "i-always-study-at-home",
+          "image_url": "",
+          "label": "I always study at home."
+        },
+        {
+          "id": "i-study-every-day",
+          "image_url": "",
+          "label": "I study every day."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-R01",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f01.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "Ana usually studies at home. She sometimes studies at the library.",
+      "context_es": "Registro de Ana, solo estas ocasiones. La casa y la estantería indican los lugares de estudio.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+          "image_url": "",
+          "label": "Ana usually studies at home. She sometimes studies at the library."
+        },
+        {
+          "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+          "image_url": "",
+          "label": "Ana usually studies at the library. She sometimes studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-R02",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f02.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "Ana usually studies at the library. She sometimes studies at home.",
+      "context_es": "Un nuevo registro de Ana. Informa solo sobre estas ocasiones.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+          "image_url": "",
+          "label": "Ana usually studies at home. She sometimes studies at the library."
+        },
+        {
+          "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+          "image_url": "",
+          "label": "Ana usually studies at the library. She sometimes studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-R03",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f03.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "Ana studies every day.",
+      "context_es": "Registro de Ana para esta semana. ✓ indica estudio y × indica que no estudia.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-studies-every-day",
+      "options": [
+        {
+          "id": "ana-never-studies",
+          "image_url": "",
+          "label": "Ana never studies."
+        },
+        {
+          "id": "ana-studies-every-day",
+          "image_url": "",
+          "label": "Ana studies every day."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-R04",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f05.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She never studies at night.",
+      "context_es": "Registro nocturno de Ana para esta semana.",
+      "spanish_translation": null,
+      "correct_option_id": "she-never-studies-at-night",
+      "options": [
+        {
+          "id": "she-never-studies-at-night",
+          "image_url": "",
+          "label": "She never studies at night."
+        },
+        {
+          "id": "she-studies-at-night-every-day",
+          "image_url": "",
+          "label": "She studies at night every day."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-R05",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "Ana studies at the library.",
+      "prompt_image_url": "",
+      "audio_text": "Ana studies at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana studies at the library."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana está estudiando en uno de los dos lugares. Aquí solo reconocemos el lugar, no una frecuencia.",
+      "spanish_translation": "Ana estudia en la biblioteca.",
+      "correct_option_id": "study-at-the-library",
+      "options": [
+        {
+          "id": "study-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "study-at-the-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study at home at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study at home at seven."
+        }
+      ],
+      "answer_audio_text": "How often do you study at home?",
+      "context_es": "Luis y Ana completan los datos de un nuevo horario de estudio, por la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "how-often-do-you-study-at-home",
+      "options": [
+        {
+          "id": "what-time-do-you-study-at-home",
+          "image_url": "",
+          "label": "What time do you study at home?"
+        },
+        {
+          "id": "how-often-do-you-study-at-home",
+          "image_url": "",
+          "label": "How often do you study at home?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at home. How often do you study at the library? I sometimes study at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at home."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "How often do you study at the library?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I sometimes study at the library."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Escucha la respuesta y el segundo dato del mismo perfil.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+          "image_url": "",
+          "label": "Ana usually studies at home. She sometimes studies at the library."
+        },
+        {
+          "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+          "image_url": "",
+          "label": "Ana usually studies at the library. She sometimes studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "How often do you study? I study every day.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "How often do you study?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study every day."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana responde durante la entrevista sobre sus hábitos.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-studies-every-day",
+      "options": [
+        {
+          "id": "ana-studies-at-night",
+          "image_url": "",
+          "label": "Ana studies at night."
+        },
+        {
+          "id": "ana-studies-every-day",
+          "image_url": "",
+          "label": "Ana studies every day."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "How often do you study at night? I never study at night.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "How often do you study at night?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I never study at night."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "La misma entrevista continúa con otra consulta.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-studies-every-day-but-she-never-studies-at-night",
+      "options": [
+        {
+          "id": "ana-studies-every-day-but-she-never-studies-at-night",
+          "image_url": "",
+          "label": "Ana studies every day, but she never studies at night."
+        },
+        {
+          "id": "ana-studies-every-day-but-she-always-studies-at-night",
+          "image_url": "",
+          "label": "Ana studies every day, but she always studies at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "How often do you arrive home before dinner? I always arrive home before dinner.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "How often do you arrive home before dinner?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I always arrive home before dinner."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Otra entrevista sobre la rutina de Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-always-arrives-home-before-dinner",
+      "options": [
+        {
+          "id": "ana-sometimes-arrives-home-before-dinner",
+          "image_url": "",
+          "label": "Ana sometimes arrives home before dinner."
+        },
+        {
+          "id": "ana-always-arrives-home-before-dinner",
+          "image_url": "",
+          "label": "Ana always arrives home before dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-A06",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study at the library at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study at the library at eight."
+        }
+      ],
+      "answer_audio_text": "How often do you study at the library?",
+      "context_es": "Otra consulta sobre el estudio de Ana, en un horario distinto de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "how-often-do-you-study-at-the-library",
+      "options": [
+        {
+          "id": "how-often-do-you-study-at-the-library",
+          "image_url": "",
+          "label": "How often do you study at the library?"
+        },
+        {
+          "id": "what-time-do-you-study-at-the-library",
+          "image_url": "",
+          "label": "What time do you study at the library?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.6-A07",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at the library. I sometimes study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at the library."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I sometimes study at home."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Escucha el nuevo perfil de Ana; pertenece a este encuentro.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
+          "image_url": "",
+          "label": "Ana usually studies at home. She sometimes studies at the library."
+        },
+        {
+          "id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
+          "image_url": "",
+          "label": "Ana usually studies at the library. She sometimes studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-R01",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "She doesn't finish work at five. She finishes at six.",
+      "prompt_image_url": "",
+      "audio_text": "She doesn't finish work at five. She finishes at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "She doesn't finish work at five. She finishes at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Registro visual de la hora de terminar de trabajar de Ana en este encuentro. Las dos opciones muestran la misma acción; cambia la hora.",
+      "spanish_translation": "Ella no termina de trabajar a las cinco. Termina a las seis.",
+      "correct_option_id": "finish-work-at-6-0",
+      "options": [
+        {
+          "id": "finish-work-at-5-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-ana-finishes-work-v1.png",
+          "label": null
+        },
+        {
+          "id": "finish-work-at-6-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-ana-finishes-work-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-R02",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-04-ana-finishes-work-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She doesn't finish work at five. She finishes at six.",
+      "context_es": "Registro de la hora de terminar de trabajar de Ana, por la tarde. El reloj muestra su horario en este encuentro.",
+      "spanish_translation": null,
+      "correct_option_id": "she-doesn-t-finish-work-at-five",
+      "options": [
+        {
+          "id": "she-doesn-t-finish-work-at-five",
+          "image_url": "",
+          "label": "She doesn't finish work at five."
+        },
+        {
+          "id": "she-doesn-t-finish-work-at-six",
+          "image_url": "",
+          "label": "She doesn't finish work at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-R03",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "He doesn't start work at eight. He starts at nine.",
+      "prompt_image_url": "",
+      "audio_text": "He doesn't start work at eight. He starts at nine.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "He doesn't start work at eight. He starts at nine."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Registro visual del comienzo del trabajo de Luis, por la mañana.",
+      "spanish_translation": "Él no empieza a trabajar a las ocho. Empieza a las nueve.",
+      "correct_option_id": "luis-starts-work-at-9-0",
+      "options": [
+        {
+          "id": "luis-starts-work-at-9-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "label": null
+        },
+        {
+          "id": "luis-starts-work-at-8-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-R04",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-f05.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She doesn't study at night.",
+      "context_es": "Registro del estudio nocturno de Ana esta semana. ✓ = estudia; × = no estudia.",
+      "spanish_translation": null,
+      "correct_option_id": "she-doesn-t-study-at-night",
+      "options": [
+        {
+          "id": "she-studies-at-night-every-day",
+          "image_url": "",
+          "label": "She studies at night every day."
+        },
+        {
+          "id": "she-doesn-t-study-at-night",
+          "image_url": "",
+          "label": "She doesn't study at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-R05",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "I do not study at home. I study at the library.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+      "audio_text": "I do not study at home. I study at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "speaker_role": "ana",
+          "text": "I do not study at home. I study at the library."
+        }
+      ],
+      "answer_audio_text": "She doesn't study at home. She studies at the library.",
+      "context_es": "Ana describe dónde estudia. Elige el informe que conserva sus dos afirmaciones.",
+      "spanish_translation": "No estudio en casa. Estudio en la biblioteca.",
+      "correct_option_id": "she-doesn-t-study-at-home-she-studies-at-the-library",
+      "options": [
+        {
+          "id": "she-doesn-t-study-at-home-she-studies-at-the-library",
+          "image_url": "",
+          "label": "She doesn't study at home. She studies at the library."
+        },
+        {
+          "id": "she-doesn-t-study-at-the-library-she-studies-at-home",
+          "image_url": "",
+          "label": "She doesn't study at the library. She studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Does Ana finish work at five? No, she doesn't. She finishes at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t32-diego-asks-about-ana-v1.png",
+          "speaker_role": "diego",
+          "text": "Does Ana finish work at five?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "No, she doesn't."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "She finishes at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Diego y Luis están ajustando una visita. Escucha la corrección del horario de Ana, por la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "she-finishes-at-six",
+      "options": [
+        {
+          "id": "she-finishes-at-five",
+          "image_url": "",
+          "label": "She finishes at five."
+        },
+        {
+          "id": "she-finishes-at-six",
+          "image_url": "",
+          "label": "She finishes at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "She finishes at six. She arrives home at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "She finishes at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "She arrives home at seven."
+        }
+      ],
+      "answer_audio_text": "Let's meet at eight.",
+      "context_es": "Misma visita: Ana ya aceptó recibirlos en casa después de llegar; Luis y Diego están disponibles. Solo falta elegir una hora posible.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-eight",
+      "options": [
+        {
+          "id": "let-s-meet-at-six",
+          "image_url": "",
+          "label": "Let's meet at six."
+        },
+        {
+          "id": "let-s-meet-at-eight",
+          "image_url": "",
+          "label": "Let's meet at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Does he start work at eight? No, he doesn't. He starts at nine.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "speaker_role": "co-teacher",
+          "text": "Does he start work at eight?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "No, he doesn't."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "He starts at nine."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Consulta aparte sobre el inicio de Luis, por la mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "he-starts-at-nine",
+      "options": [
+        {
+          "id": "he-starts-at-nine",
+          "image_url": "",
+          "label": "He starts at nine."
+        },
+        {
+          "id": "he-starts-at-eight",
+          "image_url": "",
+          "label": "He starts at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Does he start work at nine? Yes, he does.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "speaker_role": "co-teacher",
+          "text": "Does he start work at nine?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-luis-starts-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "Yes, he does."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Comprueba otra pregunta sobre el mismo horario de Luis.",
+      "spanish_translation": null,
+      "correct_option_id": "yes-he-does",
+      "options": [
+        {
+          "id": "no-he-doesn-t",
+          "image_url": "",
+          "label": "No, he doesn't."
+        },
+        {
+          "id": "yes-he-does",
+          "image_url": "",
+          "label": "Yes, he does."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Does he arrive home before dinner? Yes, he does. He usually arrives home at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-luis-gets-home-v1.png",
+          "speaker_role": "co-teacher",
+          "text": "Does he arrive home before dinner?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-luis-gets-home-v1.png",
+          "speaker_role": "teacher",
+          "text": "Yes, he does."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-luis-gets-home-v1.png",
+          "speaker_role": "teacher",
+          "text": "He usually arrives home at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Otro dato: los regresos de Luis antes de cenar.",
+      "spanish_translation": null,
+      "correct_option_id": "he-arrives-home-before-dinner",
+      "options": [
+        {
+          "id": "he-arrives-home-before-dinner",
+          "image_url": "",
+          "label": "He arrives home before dinner."
+        },
+        {
+          "id": "he-doesn-t-arrive-home-before-dinner",
+          "image_url": "",
+          "label": "He doesn't arrive home before dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A06",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Does Ana finish work at six? No, she doesn't. She finishes at five.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t32-diego-asks-about-ana-v1.png",
+          "speaker_role": "diego",
+          "text": "Does Ana finish work at six?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "No, she doesn't."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "She finishes at five."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Nuevo encuentro: cambió el horario de Ana. Usa únicamente esta respuesta.",
+      "spanish_translation": null,
+      "correct_option_id": "she-finishes-at-five",
+      "options": [
+        {
+          "id": "she-finishes-at-six",
+          "image_url": "",
+          "label": "She finishes at six."
+        },
+        {
+          "id": "she-finishes-at-five",
+          "image_url": "",
+          "label": "She finishes at five."
+        },
+        {
+          "id": "she-finishes-at-seven",
+          "image_url": "",
+          "label": "She finishes at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A07",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "She arrives home at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "She arrives home at six."
+        }
+      ],
+      "answer_audio_text": "Let's meet at seven.",
+      "context_es": "En esta nueva visita, Ana aceptó recibirlos después de llegar a casa por la tarde. Los visitantes están disponibles. Escucha la llegada.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-seven",
+      "options": [
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        },
+        {
+          "id": "let-s-meet-at-five",
+          "image_url": "",
+          "label": "Let's meet at five."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.7-A08",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Does Ana study at night? No, she doesn't. She studies in the morning.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t32-diego-asks-about-ana-v1.png",
+          "speaker_role": "diego",
+          "text": "Does Ana study at night?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "No, she doesn't."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "luis",
+          "text": "She studies in the morning."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Diego comprueba el perfil de estudio de Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "she-studies-in-the-morning",
+      "options": [
+        {
+          "id": "she-studies-in-the-morning",
+          "image_url": "",
+          "label": "She studies in the morning."
+        },
+        {
+          "id": "she-studies-at-night",
+          "image_url": "",
+          "label": "She studies at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-R01",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I work at the school.",
+      "prompt_image_url": "",
+      "audio_text": "I work at the school.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t28-ana-working-teacher-v2.png",
+          "speaker_role": "ana",
+          "text": "I work at the school."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana trabaja en uno de estos lugares; el lugar es el dato que se compara.",
+      "spanish_translation": "Trabajo en la escuela.",
+      "correct_option_id": "ana-works-at-school",
+      "options": [
+        {
+          "id": "study-at-the-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "label": null
+        },
+        {
+          "id": "ana-works-at-school",
+          "image_url": "/lesson-assets/a1plus-unit-1-t28-ana-working-teacher-v2.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-R02",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She studies at the library after work.",
+      "context_es": "Ana estudia en el lugar que ves; esta escena pertenece al encuentro después del trabajo.",
+      "spanish_translation": null,
+      "correct_option_id": "she-studies-at-the-library-after-work",
+      "options": [
+        {
+          "id": "she-studies-at-the-library-after-work",
+          "image_url": "",
+          "label": "She studies at the library after work."
+        },
+        {
+          "id": "she-studies-at-home-after-work",
+          "image_url": "",
+          "label": "She studies at home after work."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-R03",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-09-ana-put-on-shoes-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I put on my shoes in the bedroom.",
+      "context_es": "Preparación de Ana: la secuencia ya estableció que se está poniendo los zapatos. Ahora reconoce el lugar.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-shoes-in-the-bedroom",
+      "options": [
+        {
+          "id": "i-put-on-my-shoes-in-the-kitchen",
+          "image_url": "",
+          "label": "I put on my shoes in the kitchen."
+        },
+        {
+          "id": "i-put-on-my-shoes-in-the-bedroom",
+          "image_url": "",
+          "label": "I put on my shoes in the bedroom."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-R04",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I get up at seven.",
+      "prompt_image_url": "",
+      "audio_text": "I get up at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-07-ana-get-up-v2.png",
+          "speaker_role": "ana",
+          "text": "I get up at seven."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Hora declarada de levantarse de Ana en este horario, por la mañana. Las imágenes muestran el mismo evento.",
+      "spanish_translation": "Me levanto a las siete.",
+      "correct_option_id": "get-up-leave-bed-at-7-0",
+      "options": [
+        {
+          "id": "get-up-leave-bed-at-7-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-07-ana-get-up-v2.png",
+          "label": null
+        },
+        {
+          "id": "get-up-leave-bed-at-6-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-07-ana-get-up-v2.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-R05",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I go to bed at ten.",
+      "prompt_image_url": "",
+      "audio_text": "I go to bed at ten.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-11-ana-go-to-bed-v1.png",
+          "speaker_role": "ana",
+          "text": "I go to bed at ten."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Hora de acostarse de Ana en este horario, por la noche.",
+      "spanish_translation": "Me acuesto a las diez.",
+      "correct_option_id": "go-to-bed-at-10-0",
+      "options": [
+        {
+          "id": "go-to-bed-at-9-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-11-ana-go-to-bed-v1.png",
+          "label": null
+        },
+        {
+          "id": "go-to-bed-at-10-0",
+          "image_url": "/lesson-assets/a1plus-unit-1-11-ana-go-to-bed-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A01",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study after work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study after work."
+        }
+      ],
+      "answer_audio_text": "Where do you study?",
+      "context_es": "Ana y Luis continúan su conversación sobre las actividades de Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "where-do-you-study",
+      "options": [
+        {
+          "id": "where-do-you-study",
+          "image_url": "",
+          "label": "Where do you study?"
+        },
+        {
+          "id": "when-do-you-study",
+          "image_url": "",
+          "label": "When do you study?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study at the library after work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study at the library after work."
+        }
+      ],
+      "answer_audio_text": "She studies at the library after work.",
+      "context_es": "Ana responde a la consulta de Luis.",
+      "spanish_translation": null,
+      "correct_option_id": "she-studies-at-the-library-after-work",
+      "options": [
+        {
+          "id": "she-studies-at-home-after-work",
+          "image_url": "",
+          "label": "She studies at home after work."
+        },
+        {
+          "id": "she-studies-at-the-library-after-work",
+          "image_url": "",
+          "label": "She studies at the library after work."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Luis works at the school.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-16-luis-finishes-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "Luis works at the school."
+        }
+      ],
+      "answer_audio_text": "When does Luis work?",
+      "context_es": "Un visitante conversa con Luis para organizar una visita a su trabajo.",
+      "spanish_translation": null,
+      "correct_option_id": "when-does-luis-work",
+      "options": [
+        {
+          "id": "where-does-luis-work",
+          "image_url": "",
+          "label": "Where does Luis work?"
+        },
+        {
+          "id": "when-does-luis-work",
+          "image_url": "",
+          "label": "When does Luis work?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A04",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "He works on Saturday, but he doesn't work on Sunday.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-16-luis-finishes-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "He works on Saturday, but he doesn't work on Sunday."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "El visitante necesita hablar con Luis en el trabajo, durante uno de los dos días mencionados.",
+      "spanish_translation": null,
+      "correct_option_id": "he-works-on-saturday",
+      "options": [
+        {
+          "id": "he-works-on-saturday",
+          "image_url": "",
+          "label": "He works on Saturday."
+        },
+        {
+          "id": "he-works-on-sunday",
+          "image_url": "",
+          "label": "He works on Sunday."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I take a shower at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I take a shower at home."
+        }
+      ],
+      "answer_audio_text": "When do you take a shower?",
+      "context_es": "Luis y Ana completan los datos de una nueva rutina.",
+      "spanish_translation": null,
+      "correct_option_id": "when-do-you-take-a-shower",
+      "options": [
+        {
+          "id": "where-do-you-take-a-shower",
+          "image_url": "",
+          "label": "Where do you take a shower?"
+        },
+        {
+          "id": "when-do-you-take-a-shower",
+          "image_url": "",
+          "label": "When do you take a shower?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A06",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I take a shower in the evening.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I take a shower in the evening."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana cuenta otro dato de este nuevo horario.",
+      "spanish_translation": null,
+      "correct_option_id": "in-the-evening",
+      "options": [
+        {
+          "id": "in-the-evening",
+          "image_url": "",
+          "label": "In the evening."
+        },
+        {
+          "id": "in-the-morning",
+          "image_url": "",
+          "label": "In the morning."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A07",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I put on my shoes before I leave home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I put on my shoes before I leave home."
+        }
+      ],
+      "answer_audio_text": "Where do you put on your shoes?",
+      "context_es": "Ana y Luis completan los datos de su preparación para salir.",
+      "spanish_translation": null,
+      "correct_option_id": "where-do-you-put-on-your-shoes",
+      "options": [
+        {
+          "id": "where-do-you-put-on-your-shoes",
+          "image_url": "",
+          "label": "Where do you put on your shoes?"
+        },
+        {
+          "id": "when-do-you-put-on-your-shoes",
+          "image_url": "",
+          "label": "When do you put on your shoes?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A08",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I put on my shoes in the bedroom.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I put on my shoes in the bedroom."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana responde a la consulta.",
+      "spanish_translation": null,
+      "correct_option_id": "in-the-bedroom",
+      "options": [
+        {
+          "id": "in-the-kitchen",
+          "image_url": "",
+          "label": "In the kitchen."
+        },
+        {
+          "id": "in-the-bedroom",
+          "image_url": "",
+          "label": "In the bedroom."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A09",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I wake up at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I wake up at six."
+        }
+      ],
+      "answer_audio_text": "When do you get up?",
+      "context_es": "Ana y Luis completan un nuevo horario de la mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "when-do-you-get-up",
+      "options": [
+        {
+          "id": "when-do-you-get-up",
+          "image_url": "",
+          "label": "When do you get up?"
+        },
+        {
+          "id": "when-do-you-wake-up",
+          "image_url": "",
+          "label": "When do you wake up?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A10",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I get up at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I get up at eight."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Mismo horario, por la mañana. Escucha la respuesta nueva.",
+      "spanish_translation": null,
+      "correct_option_id": "i-get-up-at-eight",
+      "options": [
+        {
+          "id": "i-get-up-at-seven",
+          "image_url": "",
+          "label": "I get up at seven."
+        },
+        {
+          "id": "i-get-up-at-eight",
+          "image_url": "",
+          "label": "I get up at eight."
+        },
+        {
+          "id": "i-get-up-at-six",
+          "image_url": "",
+          "label": "I get up at six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A11",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at six."
+        }
+      ],
+      "answer_audio_text": "When do you go to bed?",
+      "context_es": "Ana y Luis completan los datos de un nuevo horario de tarde y noche.",
+      "spanish_translation": null,
+      "correct_option_id": "when-do-you-go-to-bed",
+      "options": [
+        {
+          "id": "when-do-you-go-to-bed",
+          "image_url": "",
+          "label": "When do you go to bed?"
+        },
+        {
+          "id": "when-do-you-arrive-home",
+          "image_url": "",
+          "label": "When do you arrive home?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A12",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I go to bed at nine.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I go to bed at nine."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Escucha el dato que completa este horario nocturno.",
+      "spanish_translation": null,
+      "correct_option_id": "nine",
+      "options": [
+        {
+          "id": "ten",
+          "image_url": "",
+          "label": "Ten."
+        },
+        {
+          "id": "nine",
+          "image_url": "",
+          "label": "Nine."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A13",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I study at home."
+        }
+      ],
+      "answer_audio_text": "How often do you study at home?",
+      "context_es": "Ana y Luis completan los datos de una nueva rutina de estudio.",
+      "spanish_translation": null,
+      "correct_option_id": "how-often-do-you-study-at-home",
+      "options": [
+        {
+          "id": "where-do-you-study",
+          "image_url": "",
+          "label": "Where do you study?"
+        },
+        {
+          "id": "how-often-do-you-study-at-home",
+          "image_url": "",
+          "label": "How often do you study at home?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.8-A14",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at home."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "La conversación continúa con otro dato de Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-usually-studies-at-home",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home",
+          "image_url": "",
+          "label": "Ana usually studies at home."
+        },
+        {
+          "id": "ana-never-studies-at-home",
+          "image_url": "",
+          "label": "Ana never studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-10",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I put on my jacket because it is cold.",
+      "prompt_image_url": "",
+      "audio_text": "I put on my jacket because it is cold.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-14-ana-put-on-jacket-v1.png",
+          "speaker_role": "ana",
+          "text": "I put on my jacket because it is cold."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "La razón ya fue expresada. La frase indica una acción; ahora identifica su resultado.",
+      "spanish_translation": "Me pongo la chaqueta porque hace frío.",
+      "correct_option_id": "ana-jacket-fully-on",
+      "options": [
+        {
+          "id": "ana-jacket-fully-on",
+          "image_url": "/lesson-assets/a1plus-unit-1-t25-ana-jacket-fully-on-v1.png",
+          "label": null
+        },
+        {
+          "id": "take-off-my-jacket",
+          "image_url": "/lesson-assets/a1plus-unit-1-15-ana-take-off-jacket-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-11",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I take off my jacket because it is hot.",
+      "prompt_image_url": "",
+      "audio_text": "I take off my jacket because it is hot.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-15-ana-take-off-jacket-v1.png",
+          "speaker_role": "ana",
+          "text": "I take off my jacket because it is hot."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "La razón ya fue expresada. La frase indica una acción; ahora identifica su resultado.",
+      "spanish_translation": "Me quito la chaqueta porque hace calor.",
+      "correct_option_id": "take-off-my-jacket",
+      "options": [
+        {
+          "id": "ana-jacket-fully-on",
+          "image_url": "/lesson-assets/a1plus-unit-1-t25-ana-jacket-fully-on-v1.png",
+          "label": null
+        },
+        {
+          "id": "take-off-my-jacket",
+          "image_url": "/lesson-assets/a1plus-unit-1-15-ana-take-off-jacket-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-12",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I study at the library because I like to read.",
+      "prompt_image_url": "",
+      "audio_text": "I study at the library because I like to read.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "speaker_role": "ana",
+          "text": "I study at the library because I like to read."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana ha explicado su gusto por leer. Identifica el lugar que nombra.",
+      "spanish_translation": "Estudio en la biblioteca porque me gusta leer.",
+      "correct_option_id": "study-at-the-library",
+      "options": [
+        {
+          "id": "study-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "study-at-the-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-13",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-14-ana-put-on-jacket-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I put on my jacket because it is cold.",
+      "context_es": "En el encuentro de salida ya presentado, Ana explicó que hace frío.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-jacket-because-it-is-cold",
+      "options": [
+        {
+          "id": "i-put-on-my-jacket-because-it-is-cold",
+          "image_url": "",
+          "label": "I put on my jacket because it is cold."
+        },
+        {
+          "id": "i-put-on-my-shoes-because-it-is-cold",
+          "image_url": "",
+          "label": "I put on my shoes because it is cold."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-14",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-15-ana-take-off-jacket-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I take off my jacket because it is hot.",
+      "context_es": "En el encuentro cálido de casa ya presentado, Ana explicó que hace calor.",
+      "spanish_translation": null,
+      "correct_option_id": "i-take-off-my-jacket-because-it-is-hot",
+      "options": [
+        {
+          "id": "i-take-off-my-shoes-because-it-is-hot",
+          "image_url": "",
+          "label": "I take off my shoes because it is hot."
+        },
+        {
+          "id": "i-take-off-my-jacket-because-it-is-hot",
+          "image_url": "",
+          "label": "I take off my jacket because it is hot."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-15",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I study at the library because I like to read.",
+      "context_es": "La razón de Ana para estudiar allí ya está expresada: le gusta leer.",
+      "spanish_translation": null,
+      "correct_option_id": "i-study-at-the-library-because-i-like-to-read",
+      "options": [
+        {
+          "id": "i-study-at-home-because-i-like-to-read",
+          "image_url": "",
+          "label": "I study at home because I like to read."
+        },
+        {
+          "id": "i-study-at-the-library-because-i-like-to-read",
+          "image_url": "",
+          "label": "I study at the library because I like to read."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-16",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Let's meet at five. No, thank you. Why not? Because I work from eight to six. I arrive home at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Let's meet at five."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "No, thank you."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Why not?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Because I work from eight to six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I arrive home at seven."
+        }
+      ],
+      "answer_audio_text": "Let's meet at seven. OK.",
+      "context_es": "Ana y Luis quieren verse esta tarde y están disponibles después de que Ana llegue a casa. Escucha su horario.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-seven",
+      "options": [
+        {
+          "id": "let-s-meet-at-five",
+          "image_url": "",
+          "label": "Let's meet at five."
+        },
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-17",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Let's meet at six. No, thank you. Why not? Because I work from nine to seven. I arrive home at eight.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Let's meet at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "No, thank you."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Why not?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Because I work from nine to seven."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "I arrive home at eight."
+        }
+      ],
+      "answer_audio_text": "Let's meet at eight. OK.",
+      "context_es": "Una visita diferente: Ana y Luis quieren verse esta noche y están disponibles después de que Luis llegue a casa. Escucha su horario.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-eight",
+      "options": [
+        {
+          "id": "let-s-meet-at-eight",
+          "image_url": "",
+          "label": "Let's meet at eight."
+        },
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-18",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Why do you study at the library? Because I like to read.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Why do you study at the library?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Because I like to read."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana y Luis conversan sobre sus actividades.",
+      "spanish_translation": null,
+      "correct_option_id": "because-i-like-to-read",
+      "options": [
+        {
+          "id": "because-i-work-from-eight-to-six",
+          "image_url": "",
+          "label": "Because I work from eight to six."
+        },
+        {
+          "id": "because-i-like-to-read",
+          "image_url": "",
+          "label": "Because I like to read."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-19",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Why do you put on your jacket? Because it is cold.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Why do you put on your jacket?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "Because it is cold."
+        }
+      ],
+      "answer_audio_text": "I put on my jacket because it is cold.",
+      "context_es": "Ana prepara su salida.",
+      "spanish_translation": null,
+      "correct_option_id": "because-it-is-cold",
+      "options": [
+        {
+          "id": "because-it-is-cold",
+          "image_url": "",
+          "label": "Because it is cold."
+        },
+        {
+          "id": "because-it-is-hot",
+          "image_url": "",
+          "label": "Because it is hot."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-20",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I take off my jacket because it is hot. Why does Luis take off his jacket?",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t29-luis-wearing-jacket-indoors-v2.png",
+          "speaker_role": "luis",
+          "text": "I take off my jacket because it is hot."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t29-luis-wearing-jacket-indoors-v2.png",
+          "speaker_role": "teacher",
+          "text": "Why does Luis take off his jacket?"
+        }
+      ],
+      "answer_audio_text": "Because it is hot.",
+      "context_es": "Encuentro nuevo: Luis está dentro de casa y explica su acción.",
+      "spanish_translation": null,
+      "correct_option_id": "because-it-is-hot",
+      "options": [
+        {
+          "id": "because-it-is-cold",
+          "image_url": "",
+          "label": "Because it is cold."
+        },
+        {
+          "id": "because-it-is-hot",
+          "image_url": "",
+          "label": "Because it is hot."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.9-21",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Let's play. No, thank you. I am tired because I work. Let's read at home. OK.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Let's play."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "No, thank you. I am tired because I work."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "luis",
+          "text": "Let's read at home."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "OK."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana y Luis conversan sobre una actividad para compartir en casa.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-read-at-home-ok",
+      "options": [
+        {
+          "id": "let-s-read-at-home-no-thank-you",
+          "image_url": "",
+          "label": "Let's read at home. No, thank you."
+        },
+        {
+          "id": "let-s-read-at-home-ok",
+          "image_url": "",
+          "label": "Let's read at home. OK."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-05",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "Today she is studying at the library.",
+      "prompt_image_url": "",
+      "audio_text": "Today she is studying at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "speaker_role": "teacher",
+          "text": "Today she is studying at the library."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Imagen del lugar donde Ana estudia hoy.",
+      "spanish_translation": "Hoy ella está estudiando en la biblioteca.",
+      "correct_option_id": "study-at-the-library",
+      "options": [
+        {
+          "id": "study-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "study-at-the-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-06",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "Ana usually studies at home.",
+      "prompt_image_url": "",
+      "audio_text": "Ana usually studies at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana usually studies at home."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Esta escena representa el lugar habitual que Ana ya ha descrito, no necesariamente el de hoy.",
+      "spanish_translation": "Ana normalmente estudia en casa.",
+      "correct_option_id": "study-at-home",
+      "options": [
+        {
+          "id": "study-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "study-at-the-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-07",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "Today she is studying at the library.",
+      "context_es": "Hoy: observa dónde está estudiando Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "today-she-is-studying-at-the-library",
+      "options": [
+        {
+          "id": "today-she-is-studying-at-home",
+          "image_url": "",
+          "label": "Today she is studying at home."
+        },
+        {
+          "id": "today-she-is-studying-at-the-library",
+          "image_url": "",
+          "label": "Today she is studying at the library."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-08",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "Ana usually studies at home.",
+      "context_es": "Esta ilustración representa la costumbre que Ana ha contado.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-usually-studies-at-home",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home",
+          "image_url": "",
+          "label": "Ana usually studies at home."
+        },
+        {
+          "id": "ana-usually-studies-at-the-library",
+          "image_url": "",
+          "label": "Ana usually studies at the library."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-09",
+      "stage": "Listen",
+      "interaction_type": "a2i",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Ana usually studies at home, but today she is studying at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-05-routine-conversation-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana usually studies at home, but today she is studying at the library."
+        }
+      ],
+      "answer_audio_text": "Let's meet at the library. OK.",
+      "context_es": "Ana y Luis ya reservaron tiempo para verse hoy. El cambio afecta al lugar; ambos siguen disponibles para la visita.",
+      "spanish_translation": null,
+      "correct_option_id": "study-at-the-library",
+      "options": [
+        {
+          "id": "study-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "study-at-the-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-10",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Ana usually studies at home, but today she is studying at the library. Does Ana usually study at home?",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana usually studies at home, but today she is studying at the library."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "co-teacher",
+          "text": "Does Ana usually study at home?"
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Los narradores continúan su conversación sobre Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "yes-she-does",
+      "options": [
+        {
+          "id": "no-she-does-not",
+          "image_url": "",
+          "label": "No, she does not."
+        },
+        {
+          "id": "yes-she-does",
+          "image_url": "",
+          "label": "Yes, she does."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-11",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Ana usually studies at home, but today she is studying at the library. Is she studying at home today?",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana usually studies at home, but today she is studying at the library."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r17-luis-reports-to-diego-v1.png",
+          "speaker_role": "co-teacher",
+          "text": "Is she studying at home today?"
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "La conversación sobre Ana continúa con otra consulta.",
+      "spanish_translation": null,
+      "correct_option_id": "no-she-is-at-the-library",
+      "options": [
+        {
+          "id": "no-she-is-at-the-library",
+          "image_url": "",
+          "label": "No, she is at the library."
+        },
+        {
+          "id": "yes-she-is-at-home",
+          "image_url": "",
+          "label": "Yes, she is at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-12",
+      "stage": "Listen",
+      "interaction_type": "a2i",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at the library, but today I am studying at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at the library, but today I am studying at home."
+        }
+      ],
+      "answer_audio_text": "Let's meet at home. OK.",
+      "context_es": "Otro día: Ana y Luis vuelven a tener una visita acordada; escucha esta nueva actualización.",
+      "spanish_translation": null,
+      "correct_option_id": "study-at-home",
+      "options": [
+        {
+          "id": "study-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-12-ana-study-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "study-at-the-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-13-ana-study-library-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.10-13",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at the library, but today I am studying at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-ana-answers-the-routine-question-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at the library, but today I am studying at home."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "En esa segunda situación, Luis informa a otra persona.",
+      "spanish_translation": null,
+      "correct_option_id": "she-usually-studies-at-the-library-today-she-is-studying-at-home",
+      "options": [
+        {
+          "id": "she-usually-studies-at-home-today-she-is-studying-at-the-library",
+          "image_url": "",
+          "label": "She usually studies at home. Today she is studying at the library."
+        },
+        {
+          "id": "she-usually-studies-at-the-library-today-she-is-studying-at-home",
+          "image_url": "",
+          "label": "She usually studies at the library. Today she is studying at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-06",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "I wake up at six.",
+      "prompt_image_url": "",
+      "audio_text": "I wake up at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r07-sofia-awake-in-bed-v2.png",
+          "speaker_role": "sofia",
+          "text": "I wake up at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "La mañana de Sofía.",
+      "spanish_translation": "Me despierto a las seis.",
+      "correct_option_id": "sofia-awake-in-bed",
+      "options": [
+        {
+          "id": "sofia-gets-up",
+          "image_url": "/lesson-assets/a1plus-unit-1-r08-sofia-gets-up-v1.png",
+          "label": null
+        },
+        {
+          "id": "sofia-awake-in-bed",
+          "image_url": "/lesson-assets/a1plus-unit-1-r07-sofia-awake-in-bed-v2.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-07",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-r08-sofia-gets-up-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "I get up at seven.",
+      "context_es": "Un momento posterior de la misma mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "i-get-up-at-seven",
+      "options": [
+        {
+          "id": "i-get-up-at-seven",
+          "image_url": "",
+          "label": "I get up at seven."
+        },
+        {
+          "id": "i-go-to-bed-at-seven",
+          "image_url": "",
+          "label": "I go to bed at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-08",
+      "stage": "Recognize",
+      "interaction_type": "t2i",
+      "prompt": "He finishes work at six.",
+      "prompt_image_url": "",
+      "audio_text": "He finishes work at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r03-diego-finishes-work-v2.png",
+          "speaker_role": "teacher",
+          "text": "He finishes work at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Diego termina su jornada; el horario ya fue dado por él.",
+      "spanish_translation": "Él termina de trabajar a las seis.",
+      "correct_option_id": "diego-finishes-work",
+      "options": [
+        {
+          "id": "diego-arrives-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-r04-diego-gets-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "diego-finishes-work",
+          "image_url": "/lesson-assets/a1plus-unit-1-r03-diego-finishes-work-v2.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-09",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-r04-diego-gets-home-v1.png",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "He arrives home at seven.",
+      "context_es": "Después del trabajo, Diego llega a su casa.",
+      "spanish_translation": null,
+      "correct_option_id": "he-arrives-home-at-seven",
+      "options": [
+        {
+          "id": "he-arrives-home-at-seven",
+          "image_url": "",
+          "label": "He arrives home at seven."
+        },
+        {
+          "id": "he-leaves-home-at-seven",
+          "image_url": "",
+          "label": "He leaves home at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-10",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf01.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She usually studies at home. She sometimes studies at the library.",
+      "context_es": "Sofía describe estas ocasiones registradas; lee la leyenda de casa y biblioteca.",
+      "spanish_translation": null,
+      "correct_option_id": "she-usually-studies-at-home-she-sometimes-studies-at-the-library",
+      "options": [
+        {
+          "id": "she-usually-studies-at-home-she-sometimes-studies-at-the-library",
+          "image_url": "",
+          "label": "She usually studies at home. She sometimes studies at the library."
+        },
+        {
+          "id": "she-usually-studies-at-the-library-she-sometimes-studies-at-home",
+          "image_url": "",
+          "label": "She usually studies at the library. She sometimes studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-11",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf02.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She usually studies at the library. She sometimes studies at home.",
+      "context_es": "Otro registro de ocasiones; compáralo como un conjunto distinto.",
+      "spanish_translation": null,
+      "correct_option_id": "she-usually-studies-at-the-library-she-sometimes-studies-at-home",
+      "options": [
+        {
+          "id": "she-usually-studies-at-home-she-sometimes-studies-at-the-library",
+          "image_url": "",
+          "label": "She usually studies at home. She sometimes studies at the library."
+        },
+        {
+          "id": "she-usually-studies-at-the-library-she-sometimes-studies-at-home",
+          "image_url": "",
+          "label": "She usually studies at the library. She sometimes studies at home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-12",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf03.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She studies every day.",
+      "context_es": "El registro se limita a esta semana. El símbolo de libro indica estudio.",
+      "spanish_translation": null,
+      "correct_option_id": "she-studies-every-day",
+      "options": [
+        {
+          "id": "she-studies-every-day",
+          "image_url": "",
+          "label": "She studies every day."
+        },
+        {
+          "id": "she-never-studies",
+          "image_url": "",
+          "label": "She never studies."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-13",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf04.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She sometimes studies.",
+      "context_es": "En este registro distinto, observa todos los días, no solo el primero.",
+      "spanish_translation": null,
+      "correct_option_id": "she-sometimes-studies",
+      "options": [
+        {
+          "id": "she-studies-every-day",
+          "image_url": "",
+          "label": "She studies every day."
+        },
+        {
+          "id": "she-sometimes-studies",
+          "image_url": "",
+          "label": "She sometimes studies."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-14",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf05.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She never studies at night.",
+      "context_es": "El registro muestra únicamente estudio de noche durante esta semana.",
+      "spanish_translation": null,
+      "correct_option_id": "she-never-studies-at-night",
+      "options": [
+        {
+          "id": "she-always-studies-at-night",
+          "image_url": "",
+          "label": "She always studies at night."
+        },
+        {
+          "id": "she-never-studies-at-night",
+          "image_url": "",
+          "label": "She never studies at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-15",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf06.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She sometimes studies at night.",
+      "context_es": "Registro diferente de las noches de otra semana.",
+      "spanish_translation": null,
+      "correct_option_id": "she-sometimes-studies-at-night",
+      "options": [
+        {
+          "id": "she-sometimes-studies-at-night",
+          "image_url": "",
+          "label": "She sometimes studies at night."
+        },
+        {
+          "id": "she-never-studies-at-night",
+          "image_url": "",
+          "label": "She never studies at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-16",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf07.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She always arrives home before dinner.",
+      "context_es": "Cada fila es un regreso registrado; lee de izquierda a derecha.",
+      "spanish_translation": null,
+      "correct_option_id": "she-always-arrives-home-before-dinner",
+      "options": [
+        {
+          "id": "she-always-arrives-home-before-dinner",
+          "image_url": "",
+          "label": "She always arrives home before dinner."
+        },
+        {
+          "id": "she-always-arrives-home-after-dinner",
+          "image_url": "",
+          "label": "She always arrives home after dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-17",
+      "stage": "Recognize",
+      "interaction_type": "i2t",
+      "prompt": "",
+      "prompt_presentation": "written",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-rf08.svg",
+      "audio_text": "",
+      "audio_turns": [],
+      "answer_audio_text": "She sometimes arrives home after dinner.",
+      "context_es": "Este segundo registro tiene un orden diferente en una fila.",
+      "spanish_translation": null,
+      "correct_option_id": "she-sometimes-arrives-home-after-dinner",
+      "options": [
+        {
+          "id": "she-always-arrives-home-before-dinner",
+          "image_url": "",
+          "label": "She always arrives home before dinner."
+        },
+        {
+          "id": "she-sometimes-arrives-home-after-dinner",
+          "image_url": "",
+          "label": "She sometimes arrives home after dinner."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-18",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I work from nine to six. I arrive home at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r01-diego-asks-sofia-v1.png",
+          "speaker_role": "diego",
+          "text": "I work from nine to six. I arrive home at seven."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Diego cuenta su jornada habitual de la mañana a la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "from-nine-to-six",
+      "options": [
+        {
+          "id": "from-nine-to-seven",
+          "image_url": "",
+          "label": "From nine to seven."
+        },
+        {
+          "id": "from-nine-to-six",
+          "image_url": "",
+          "label": "From nine to six."
+        },
+        {
+          "id": "from-eight-to-six",
+          "image_url": "",
+          "label": "From eight to six."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-18a",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I leave home at eight. I start work at nine.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r01-diego-asks-sofia-v1.png",
+          "speaker_role": "diego",
+          "text": "I leave home at eight. I start work at nine."
+        }
+      ],
+      "answer_audio_text": "He leaves home at eight. He starts work at nine.",
+      "context_es": "Diego completa el comienzo de esa jornada. Conserva la diferencia entre salir y empezar a trabajar.",
+      "spanish_translation": null,
+      "correct_option_id": "he-leaves-home-at-eight-he-starts-work-at-nine",
+      "options": [
+        {
+          "id": "he-leaves-home-at-nine-he-starts-work-at-eight",
+          "image_url": "",
+          "label": "He leaves home at nine. He starts work at eight."
+        },
+        {
+          "id": "he-leaves-home-at-eight-he-starts-work-at-nine",
+          "image_url": "",
+          "label": "He leaves home at eight. He starts work at nine."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-18b",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Does he finish work at seven? No, he doesn't. He finishes at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r01-diego-asks-sofia-v1.png",
+          "speaker_role": "co-teacher",
+          "text": "Does he finish work at seven?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r01-diego-asks-sofia-v1.png",
+          "speaker_role": "teacher",
+          "text": "No, he doesn't. He finishes at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Dos narradores comprueban una suposición sobre el horario de Diego.",
+      "spanish_translation": null,
+      "correct_option_id": "no-he-doesn-t-he-finishes-at-six",
+      "options": [
+        {
+          "id": "no-he-doesn-t-he-finishes-at-six",
+          "image_url": "",
+          "label": "No, he doesn't. He finishes at six."
+        },
+        {
+          "id": "yes-he-does-he-finishes-at-seven",
+          "image_url": "",
+          "label": "Yes, he does. He finishes at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-18c",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "He finishes work at six. Does he finish work at six?",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r01-diego-asks-sofia-v1.png",
+          "speaker_role": "teacher",
+          "text": "He finishes work at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r01-diego-asks-sofia-v1.png",
+          "speaker_role": "co-teacher",
+          "text": "Does he finish work at six?"
+        }
+      ],
+      "answer_audio_text": "Yes, he does.",
+      "context_es": "Ahora comprueban la hora verdadera del mismo horario.",
+      "spanish_translation": null,
+      "correct_option_id": "yes-he-does",
+      "options": [
+        {
+          "id": "no-he-doesn-t",
+          "image_url": "",
+          "label": "No, he doesn't."
+        },
+        {
+          "id": "yes-he-does",
+          "image_url": "",
+          "label": "Yes, he does."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-19",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I finish work at six. I arrive home at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "diego",
+          "text": "I finish work at six. I arrive home at seven."
+        }
+      ],
+      "answer_audio_text": "Let's meet at seven. OK.",
+      "context_es": "Diego y Luis quieren verse en casa de Diego. Ambos están disponibles cuando Diego llega.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-seven",
+      "options": [
+        {
+          "id": "let-s-meet-at-six",
+          "image_url": "",
+          "label": "Let's meet at six."
+        },
+        {
+          "id": "let-s-meet-at-seven",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-20",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Do you finish work at seven? No, I finish work at six. I arrive home at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "luis",
+          "text": "Do you finish work at seven?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "diego",
+          "text": "No, I finish work at six. I arrive home at seven."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Luis comprueba una suposición sobre Diego.",
+      "spanish_translation": null,
+      "correct_option_id": "he-finishes-work-at-six",
+      "options": [
+        {
+          "id": "he-finishes-work-at-six",
+          "image_url": "",
+          "label": "He finishes work at six."
+        },
+        {
+          "id": "he-finishes-work-at-seven",
+          "image_url": "",
+          "label": "He finishes work at seven."
+        },
+        {
+          "id": "he-finishes-work-at-eight",
+          "image_url": "",
+          "label": "He finishes work at eight."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-21",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Let's meet on Saturday. No, thank you. Why not? Because I work on Saturday. I do not work on Sunday.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "luis",
+          "text": "Let's meet on Saturday."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "diego",
+          "text": "No, thank you."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "luis",
+          "text": "Why not?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "diego",
+          "text": "Because I work on Saturday."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "diego",
+          "text": "I do not work on Sunday."
+        }
+      ],
+      "answer_audio_text": "Let's meet on Sunday. OK.",
+      "context_es": "Luis puede en cualquiera de los dos días. Ambos quieren verse; Diego no tiene otros compromisos fuera del trabajo.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-on-sunday",
+      "options": [
+        {
+          "id": "let-s-meet-on-sunday",
+          "image_url": "",
+          "label": "Let's meet on Sunday."
+        },
+        {
+          "id": "let-s-meet-on-saturday",
+          "image_url": "",
+          "label": "Let's meet on Saturday."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-21a",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "Sofia works at the school.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "teacher",
+          "text": "Sofia works at the school."
+        }
+      ],
+      "answer_audio_text": "When does Sofia work?",
+      "context_es": "Un visitante conversa sobre el trabajo de Sofía para organizar una visita.",
+      "spanish_translation": null,
+      "correct_option_id": "when-does-sofia-work",
+      "options": [
+        {
+          "id": "where-does-sofia-work",
+          "image_url": "",
+          "label": "Where does Sofia work?"
+        },
+        {
+          "id": "when-does-sofia-work",
+          "image_url": "",
+          "label": "When does Sofia work?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-21b",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "She works on Saturday, but she doesn't work on Sunday.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "teacher",
+          "text": "She works on Saturday, but she doesn't work on Sunday."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "El visitante necesita hablar con Sofía en el trabajo durante uno de los días mencionados.",
+      "spanish_translation": null,
+      "correct_option_id": "she-works-on-saturday",
+      "options": [
+        {
+          "id": "she-works-on-saturday",
+          "image_url": "",
+          "label": "She works on Saturday."
+        },
+        {
+          "id": "she-works-on-sunday",
+          "image_url": "",
+          "label": "She works on Sunday."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-22",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I study at home."
+        }
+      ],
+      "answer_audio_text": "How often do you study at home? I usually study at home.",
+      "context_es": "Sofía responde en una nueva conversación sobre sus actividades.",
+      "spanish_translation": null,
+      "correct_option_id": "how-often-do-you-study-at-home",
+      "options": [
+        {
+          "id": "where-do-you-study",
+          "image_url": "",
+          "label": "Where do you study?"
+        },
+        {
+          "id": "how-often-do-you-study-at-home",
+          "image_url": "",
+          "label": "How often do you study at home?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-23",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I usually study at home. I sometimes study at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I usually study at home. I sometimes study at the library."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Escucha el informe de Sofía completo.",
+      "spanish_translation": null,
+      "correct_option_id": "she-usually-studies-at-home-she-sometimes-studies-at-the-library",
+      "options": [
+        {
+          "id": "she-usually-studies-at-home-she-sometimes-studies-at-the-library",
+          "image_url": "",
+          "label": "She usually studies at home. She sometimes studies at the library."
+        },
+        {
+          "id": "she-always-studies-at-home-she-never-studies-at-the-library",
+          "image_url": "",
+          "label": "She always studies at home. She never studies at the library."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-23a",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study after work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I study after work."
+        }
+      ],
+      "answer_audio_text": "Where do you study?",
+      "context_es": "Sofía y Diego continúan su conversación sobre las actividades de Sofía.",
+      "spanish_translation": null,
+      "correct_option_id": "where-do-you-study",
+      "options": [
+        {
+          "id": "where-do-you-study",
+          "image_url": "",
+          "label": "Where do you study?"
+        },
+        {
+          "id": "when-do-you-study",
+          "image_url": "",
+          "label": "When do you study?"
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-23b",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study at the library after work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I study at the library after work."
+        }
+      ],
+      "answer_audio_text": "She studies at the library after work.",
+      "context_es": "Sofía responde a esta nueva consulta. Los datos de esta conversación pertenecen a este encuentro.",
+      "spanish_translation": null,
+      "correct_option_id": "she-studies-at-the-library-after-work",
+      "options": [
+        {
+          "id": "she-studies-at-home-after-work",
+          "image_url": "",
+          "label": "She studies at home after work."
+        },
+        {
+          "id": "she-studies-at-the-library-after-work",
+          "image_url": "",
+          "label": "She studies at the library after work."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-24",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I study every day. I never study at night.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I study every day. I never study at night."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Sofía añade dos datos distintos sobre su rutina.",
+      "spanish_translation": null,
+      "correct_option_id": "she-studies-every-day-she-never-studies-at-night",
+      "options": [
+        {
+          "id": "she-studies-every-day-she-always-studies-at-night",
+          "image_url": "",
+          "label": "She studies every day. She always studies at night."
+        },
+        {
+          "id": "she-studies-every-day-she-never-studies-at-night",
+          "image_url": "",
+          "label": "She studies every day. She never studies at night."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-25",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I always arrive home before dinner.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I always arrive home before dinner."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Antes de cenar o después: escucha la relación que Sofía expresa.",
+      "spanish_translation": null,
+      "correct_option_id": "home-then-dinner",
+      "options": [
+        {
+          "id": "home-then-dinner",
+          "image_url": "",
+          "label": "Home, then dinner."
+        },
+        {
+          "id": "dinner-then-home",
+          "image_url": "",
+          "label": "Dinner, then home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-26",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I arrive home after I finish work.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r01-diego-asks-sofia-v1.png",
+          "speaker_role": "diego",
+          "text": "I arrive home after I finish work."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Diego cuenta su regreso de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-finish-work-then-i-arrive-home",
+      "options": [
+        {
+          "id": "first-i-arrive-home-then-i-finish-work",
+          "image_url": "",
+          "label": "First, I arrive home. Then, I finish work."
+        },
+        {
+          "id": "first-i-finish-work-then-i-arrive-home",
+          "image_url": "",
+          "label": "First, I finish work. Then, I arrive home."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-27",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I wake up at six, but I get up at seven.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I wake up at six, but I get up at seven."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Sofía cuenta dos momentos de la mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "i-get-up-at-seven",
+      "options": [
+        {
+          "id": "i-get-up-at-six",
+          "image_url": "",
+          "label": "I get up at six."
+        },
+        {
+          "id": "i-get-up-at-seven",
+          "image_url": "",
+          "label": "I get up at seven."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-28",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "First, I take a shower. Then, I put on my shoes.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "First, I take a shower. Then, I put on my shoes."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Sofía continúa contando su mañana.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-take-a-shower-then-i-put-on-my-shoes",
+      "options": [
+        {
+          "id": "first-i-put-on-my-shoes-then-i-take-a-shower",
+          "image_url": "",
+          "label": "First, I put on my shoes. Then, I take a shower."
+        },
+        {
+          "id": "first-i-take-a-shower-then-i-put-on-my-shoes",
+          "image_url": "",
+          "label": "First, I take a shower. Then, I put on my shoes."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-29",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I put on my shoes after I take a shower.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I put on my shoes after I take a shower."
+        }
+      ],
+      "answer_audio_text": "I put on my shoes.",
+      "context_es": "Sofía explica qué hace después de la ducha.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-shoes",
+      "options": [
+        {
+          "id": "i-take-off-my-shoes",
+          "image_url": "",
+          "label": "I take off my shoes."
+        },
+        {
+          "id": "i-put-on-my-shoes",
+          "image_url": "",
+          "label": "I put on my shoes."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-30",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I take off my jacket at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I take off my jacket at home."
+        }
+      ],
+      "answer_audio_text": "I take off my jacket.",
+      "context_es": "Otro momento: Sofía vuelve a casa y explica qué hace con la chaqueta.",
+      "spanish_translation": null,
+      "correct_option_id": "i-take-off-my-jacket",
+      "options": [
+        {
+          "id": "i-take-off-my-jacket",
+          "image_url": "",
+          "label": "I take off my jacket."
+        },
+        {
+          "id": "i-put-on-my-jacket",
+          "image_url": "",
+          "label": "I put on my jacket."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-31",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I take off my jacket because it is hot. Why does Sofia take off her jacket?",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I take off my jacket because it is hot."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "teacher",
+          "text": "Why does Sofia take off her jacket?"
+        }
+      ],
+      "answer_audio_text": "Because it is hot.",
+      "context_es": "Sofía añade la razón de esa acción. La razón viene de su voz.",
+      "spanish_translation": null,
+      "correct_option_id": "because-it-is-hot",
+      "options": [
+        {
+          "id": "because-it-is-hot",
+          "image_url": "",
+          "label": "Because it is hot."
+        },
+        {
+          "id": "because-it-is-cold",
+          "image_url": "",
+          "label": "Because it is cold."
+        },
+        {
+          "id": "because-she-is-tired",
+          "image_url": "",
+          "label": "Because she is tired."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-32",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "I go to bed at ten.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r02-sofia-answers-diego-v1.png",
+          "speaker_role": "sofia",
+          "text": "I go to bed at ten."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Más tarde, Sofía describe su noche.",
+      "spanish_translation": null,
+      "correct_option_id": "i-go-to-bed-at-ten",
+      "options": [
+        {
+          "id": "i-get-up-at-ten",
+          "image_url": "",
+          "label": "I get up at ten."
+        },
+        {
+          "id": "i-go-to-bed-at-ten",
+          "image_url": "",
+          "label": "I go to bed at ten."
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.11-33",
+      "stage": "Listen",
+      "interaction_type": "a2i",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "",
+      "audio_text": "He usually studies at home, but today he is studying at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-r20-diego-reports-to-luis-v1.png",
+          "speaker_role": "teacher",
+          "text": "He usually studies at home, but today he is studying at the library."
+        }
+      ],
+      "answer_audio_text": "Let's meet at the library. OK.",
+      "context_es": "Nueva situación: Diego y Luis tienen una visita acordada hoy; ambos conservan ese tiempo disponible.",
+      "spanish_translation": null,
+      "correct_option_id": "diego-studies-at-library",
+      "options": [
+        {
+          "id": "diego-studies-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-r18-diego-studies-at-home-v1.png",
+          "label": null
+        },
+        {
+          "id": "diego-studies-at-library",
+          "image_url": "/lesson-assets/a1plus-unit-1-r19-diego-studies-at-library-v1.png",
+          "label": null
+        }
+      ]
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-02",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m01-mission-ana-finishes-work-v1.png",
+      "audio_text": "I finish work at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m01-mission-ana-finishes-work-v1.png",
+          "speaker_role": "ana",
+          "text": "I finish work at six."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana comienza con un dato de su horario de tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "at-six",
+      "options": [
+        {
+          "id": "at-five",
+          "image_url": "",
+          "label": "At five."
+        },
+        {
+          "id": "at-six",
+          "image_url": "",
+          "label": "At six."
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-02a",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m02-mission-luis-finishes-work-v1.png",
+      "audio_text": "Ana finishes work at six. Luis usually finishes work at five.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m01-mission-ana-finishes-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana finishes work at six."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m02-mission-luis-finishes-work-v1.png",
+          "speaker_role": "teacher",
+          "text": "Luis usually finishes work at five."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Compara los dos horarios habituales antes de continuar. Son horas de la tarde.",
+      "spanish_translation": null,
+      "correct_option_id": "luis-usually-finishes-at-five-ana-finishes-at-six",
+      "options": [
+        {
+          "id": "luis-usually-finishes-at-six-ana-finishes-at-five",
+          "image_url": "",
+          "label": "Luis usually finishes at six. Ana finishes at five."
+        },
+        {
+          "id": "luis-usually-finishes-at-five-ana-finishes-at-six",
+          "image_url": "",
+          "label": "Luis usually finishes at five. Ana finishes at six."
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-03",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m04-mission-luis-asks-schedule-v2.png",
+      "audio_text": "You finish work at six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m04-mission-luis-asks-schedule-v2.png",
+          "speaker_role": "luis",
+          "text": "You finish work at six."
+        }
+      ],
+      "answer_audio_text": "What time do you arrive home? I usually arrive home at seven.",
+      "context_es": "Luis y Ana completan los datos para organizar la visita de esta noche.",
+      "spanish_translation": null,
+      "correct_option_id": "what-time-do-you-arrive-home",
+      "options": [
+        {
+          "id": "what-time-do-you-arrive-home",
+          "image_url": "",
+          "label": "What time do you arrive home?"
+        },
+        {
+          "id": "what-time-do-you-finish-work",
+          "image_url": "",
+          "label": "What time do you finish work?"
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-05",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m05-mission-ana-gives-schedule-v1.png",
+      "audio_text": "Let's meet at five. No, thank you.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m04-mission-luis-asks-schedule-v2.png",
+          "speaker_role": "luis",
+          "text": "Let's meet at five."
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m05-mission-ana-gives-schedule-v1.png",
+          "speaker_role": "ana",
+          "text": "No, thank you."
+        }
+      ],
+      "answer_audio_text": "Why not? Because I work from eight to six.",
+      "context_es": "Luis prueba una primera propuesta para hoy. Todavía se está preparando la visita de esta noche.",
+      "spanish_translation": null,
+      "correct_option_id": "why-not",
+      "options": [
+        {
+          "id": "what-time-do-you-finish-work",
+          "image_url": "",
+          "label": "What time do you finish work?"
+        },
+        {
+          "id": "why-not",
+          "image_url": "",
+          "label": "Why not?"
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-06",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m09-mission-luis-proposes-visit-v1.png",
+      "audio_text": "Because I work from eight to six.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m09-mission-luis-proposes-visit-v1.png",
+          "speaker_role": "ana",
+          "text": "Because I work from eight to six."
+        }
+      ],
+      "answer_audio_text": "Let's meet at eight. OK.",
+      "context_es": "Ana y Luis quieren verse esta noche y están disponibles después del trabajo de Ana. El lugar se decidirá después.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-eight",
+      "options": [
+        {
+          "id": "let-s-meet-at-five",
+          "image_url": "",
+          "label": "Let's meet at five."
+        },
+        {
+          "id": "let-s-meet-at-eight",
+          "image_url": "",
+          "label": "Let's meet at eight."
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-07",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m06-mission-correction-reply-v1.png",
+      "audio_text": "Do you work on Saturday? No, I do not.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m05-mission-ana-gives-schedule-v1.png",
+          "speaker_role": "ana",
+          "text": "Do you work on Saturday?"
+        },
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m06-mission-correction-reply-v1.png",
+          "speaker_role": "luis",
+          "text": "No, I do not."
+        }
+      ],
+      "answer_audio_text": null,
+      "context_es": "Ana comprueba si la rutina laboral de Luis también se aplica hoy, sábado.",
+      "spanish_translation": null,
+      "correct_option_id": "he-does-not-work-on-saturday",
+      "options": [
+        {
+          "id": "he-works-on-saturday",
+          "image_url": "",
+          "label": "He works on Saturday."
+        },
+        {
+          "id": "he-does-not-work-on-saturday",
+          "image_url": "",
+          "label": "He does not work on Saturday."
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-09",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m07-mission-ana-usual-study-baseline-v1.png",
+      "audio_text": "I study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m07-mission-ana-usual-study-baseline-v1.png",
+          "speaker_role": "ana",
+          "text": "I study at home."
+        }
+      ],
+      "answer_audio_text": "How often do you study at home? I usually study at home.",
+      "context_es": "Luis y Ana completan los datos sobre la rutina de estudio antes de concretar la visita.",
+      "spanish_translation": null,
+      "correct_option_id": "how-often-do-you-study-at-home",
+      "options": [
+        {
+          "id": "how-often-do-you-study-at-home",
+          "image_url": "",
+          "label": "How often do you study at home?"
+        },
+        {
+          "id": "where-do-you-study",
+          "image_url": "",
+          "label": "Where do you study?"
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-10a",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m17-mission-ana-neutral-phone-v1.png",
+      "audio_text": "I usually study at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m17-mission-ana-neutral-phone-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at home."
+        }
+      ],
+      "answer_audio_text": "Ana usually studies at home.",
+      "context_es": "Comunica a otra persona la rutina de estudio de Ana.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-usually-studies-at-home",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home",
+          "image_url": "",
+          "label": "Ana usually studies at home."
+        },
+        {
+          "id": "ana-always-studies-at-home",
+          "image_url": "",
+          "label": "Ana always studies at home."
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-10b",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m18-mission-luis-current-question-v1.png",
+      "audio_text": "Ana usually studies at home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m18-mission-luis-current-question-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana usually studies at home."
+        }
+      ],
+      "answer_audio_text": "Where is Ana today?",
+      "context_es": "Luis continúa la conversación para organizar la visita de esta noche.",
+      "spanish_translation": null,
+      "correct_option_id": "where-is-ana-today",
+      "options": [
+        {
+          "id": "where-does-ana-usually-study",
+          "image_url": "",
+          "label": "Where does Ana usually study?"
+        },
+        {
+          "id": "where-is-ana-today",
+          "image_url": "",
+          "label": "Where is Ana today?"
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-11",
+      "stage": "Listen",
+      "interaction_type": "a2i",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m19-mission-luis-listening-update-v1.png",
+      "audio_text": "I usually study at home, but today I am studying at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m19-mission-luis-listening-update-v1.png",
+          "speaker_role": "ana",
+          "text": "I usually study at home, but today I am studying at the library."
+        }
+      ],
+      "answer_audio_text": "She is studying at the library.",
+      "context_es": "Luis habla con Ana por teléfono y escucha su actualización.",
+      "spanish_translation": null,
+      "correct_option_id": "ana-studying-at-library-today",
+      "options": [
+        {
+          "id": "ana-usually-studies-at-home",
+          "image_url": "/lesson-assets/a1plus-unit-1-m07-mission-ana-usual-study-baseline-v1.png",
+          "label": null
+        },
+        {
+          "id": "ana-studying-at-library-today",
+          "image_url": "/lesson-assets/a1plus-unit-1-m08-mission-today-at-library-v1.png",
+          "label": null
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-12",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m20-mission-luis-updated-proposal-v1.png",
+      "audio_text": "Ana usually studies at home, but today she is studying at the library.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m20-mission-luis-updated-proposal-v1.png",
+          "speaker_role": "teacher",
+          "text": "Ana usually studies at home, but today she is studying at the library."
+        }
+      ],
+      "answer_audio_text": "Let's meet at the library at eight. OK.",
+      "context_es": "La visita sigue acordada para las ocho de la noche. Ambos siguen disponibles y quieren encontrarse donde está Ana hoy.",
+      "spanish_translation": null,
+      "correct_option_id": "let-s-meet-at-the-library-at-eight",
+      "options": [
+        {
+          "id": "let-s-meet-at-home-at-eight",
+          "image_url": "",
+          "label": "Let's meet at home at eight."
+        },
+        {
+          "id": "let-s-meet-at-the-library-at-eight",
+          "image_url": "",
+          "label": "Let's meet at the library at eight."
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-15",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m25-mission-luis-neutral-preparation-v1.png",
+      "audio_text": "I put on my shoes before I leave home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m25-mission-luis-neutral-preparation-v1.png",
+          "speaker_role": "luis",
+          "text": "I put on my shoes before I leave home."
+        }
+      ],
+      "answer_audio_text": "I put on my shoes.",
+      "context_es": "Luis continúa hablando sobre sus preparativos.",
+      "spanish_translation": null,
+      "correct_option_id": "i-put-on-my-shoes",
+      "options": [
+        {
+          "id": "i-take-off-my-shoes",
+          "image_url": "",
+          "label": "I take off my shoes."
+        },
+        {
+          "id": "i-put-on-my-shoes",
+          "image_url": "",
+          "label": "I put on my shoes."
+        }
+      ],
+      "mission_game": {
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    },
+    {
+      "slide_id": "a1plus-unit-1-1.12-16",
+      "stage": "Listen",
+      "interaction_type": "a2t",
+      "prompt": "Listen and choose.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-m12-mission-luis-puts-shoes-on-v1.png",
+      "audio_text": "I put on my shoes before I leave home.",
+      "audio_turns": [
+        {
+          "image_url": "/lesson-assets/a1plus-unit-1-m12-mission-luis-puts-shoes-on-v1.png",
+          "speaker_role": "luis",
+          "text": "I put on my shoes before I leave home."
+        }
+      ],
+      "answer_audio_text": "I leave home. Hello.",
+      "context_es": "Luis continúa preparando la visita y confirma lo que hará.",
+      "spanish_translation": null,
+      "correct_option_id": "first-i-put-on-my-shoes-then-i-leave-home",
+      "options": [
+        {
+          "id": "first-i-put-on-my-shoes-then-i-leave-home",
+          "image_url": "",
+          "label": "First, I put on my shoes. Then, I leave home."
+        },
+        {
+          "id": "first-i-leave-home-then-i-put-on-my-shoes",
+          "image_url": "",
+          "label": "First, I leave home. Then, I put on my shoes."
+        }
+      ],
+      "mission_game": {
+        "completion_scene": {
+          "context_es": "Más tarde, a las ocho de la noche, Luis y Ana ya están juntos en la biblioteca. La visita acordada se ha realizado.",
+          "image_url": "/lesson-assets/a1plus-unit-1-m16-mission-visit-completed-v1.png"
+        },
+        "cue_audio_text": null,
+        "cues": [],
+        "instruction_es": "Escucha y elige cómo continuar.",
+        "kind": "conversation-decision",
+        "targets": [],
+        "tutorial_mode": null,
+        "validation": "single"
+      }
+    }
+  ]
+}

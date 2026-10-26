@@ -1,6 +1,7 @@
 import type { LessonCard } from './types';
 import { spanishTranslationFor } from './sentenceTranslations';
 import { constructionMistakeHint, isOrderedCompletion } from './constructionTeaching';
+import { relationalChoiceHint } from './choiceTeaching';
 
 const SUBJECT_LABELS: Record<string, string> = {
   'a baby': '“A baby” (un bebé)',
@@ -689,6 +690,11 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   const target = card.answer_audio_text || (isCompletion ? completed : contextualAudio || label) || card.audio_text || card.prompt;
   const correct = labels[slot] || target;
   const wrong = wrongOption?.label || '';
+  const ordinaryChoice = !card.mission_game || card.mission_game.kind === 'conversation-decision';
+  if (!isCompletion && ordinaryChoice && correctOption && wrongOption) {
+    const relationHint = relationalChoiceHint(card, correctOption, wrongOption);
+    if (relationHint && relationHint.length <= 140) return relationHint;
+  }
   if (!correctOption?.label && !wrongOption?.label && correctOption?.image_url && wrongOption?.image_url) {
     const imageHint = imageChoiceContrast(card, correctOption.id, wrongOption.id);
     if (imageHint) return imageHint;
@@ -706,13 +712,14 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
     }
     const pronounHint = pronounChoiceHint(correct, wrong, card);
     if (pronounHint) return pronounHint;
-    if (!card.mission_game && wrong) {
+    if (ordinaryChoice && wrong) {
       if (card.stage === 'Recognize' && normalized(card.prompt).startsWith('who ') && wrongOption) {
         const expectedIdentity = IDENTITY_CHOICE_LABELS[ids[slot]];
         const chosenIdentity = IDENTITY_CHOICE_LABELS[wrongOption.id];
         if (expectedIdentity && chosenIdentity) return `La imagen muestra ${expectedIdentity}, no ${chosenIdentity}.`;
       }
-      if (normalized(correct).split(' ').sort().join(' ') === normalized(wrong).split(' ').sort().join(' ') && correct !== wrong) {
+      if (/^(?:one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:red|blue|green|yellow|black|white)\s+/i.test(correct)
+          && normalized(correct).split(' ').sort().join(' ') === normalized(wrong).split(' ').sort().join(' ') && correct !== wrong) {
         return `El orden es “${correct}”: primero la cantidad, luego el color y al final el objeto.`;
       }
       const grammarContrast = grammarChoiceContrast(correct, wrong);
@@ -733,7 +740,7 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
     : target;
   const inContext = (explanation: string) => `En “${clause.replace(/[.!?]+$/, '')}”: ${explanation}`;
 
-  if (card.mission_game?.instruction_es?.trim()) {
+  if (!ordinaryChoice && card.mission_game?.instruction_es?.trim()) {
     const nextStop = /\bnext stop is (?:the )?([a-z ]+?)(?:[.!?]|$)/i.exec(correct)?.[1];
     if (nextStop && meaning(nextStop)) {
       return `“Next stop” indica la próxima parada: “${nextStop}” significa ${meaning(nextStop)}. Busca esa parada en la ruta.`;

@@ -10,6 +10,7 @@ import { OptionMediaImage } from './OptionMediaImage';
 import { TutorButton } from './TutorButton';
 import { useMissionTransition } from '../hooks/useMissionTransition';
 import type { TutorMissionFocus } from '../lessonTutor';
+import { MissionConversationDecision } from './MissionConversationDecision';
 
 type Result = 'correct' | 'wrong' | null;
 
@@ -28,6 +29,10 @@ type Props = {
   onTargetFound: () => void;
   onSubmit: (optionIds: string[]) => void;
   result: Result;
+  decisionImageUrl?: string | null;
+  onDecisionResponse?: () => Promise<boolean>;
+  onDecisionAdvance?: () => void;
+  onDecisionRetry?: () => void;
 };
 
 function TargetDot({
@@ -139,6 +144,10 @@ export function MissionGameSurface({
   onTargetFound,
   onSubmit,
   result,
+  decisionImageUrl,
+  onDecisionResponse,
+  onDecisionAdvance,
+  onDecisionRetry,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const game = card.mission_game;
@@ -190,8 +199,9 @@ export function MissionGameSurface({
   }, [card.slide_id]);
 
   useEffect(() => {
+    if (game.kind === 'conversation-decision') return;
     onTutorFocus?.({ slide_id: card.slide_id || '', cue_index: cueOrder[cueIndex] ?? cueIndex, target_id: submittedTarget });
-  }, [card.slide_id, cueOrder, cueIndex, submittedTarget, onTutorFocus]);
+  }, [card.slide_id, cueOrder, cueIndex, submittedTarget, onTutorFocus, game.kind]);
 
   const chooseTarget = useCallback((target: MissionGameTarget) => {
     if (disabled || !currentCue || selectionLockRef.current) return;
@@ -235,6 +245,14 @@ export function MissionGameSurface({
     }, 2200);
   }, [cueIndex, currentCue, disabled, game.cues, game.completion_scene, onCueRequest, onMisstep, onSubmit, onTargetFound, solvedTargetIds, scheduleTransition]);
 
+  if (game.kind === 'conversation-decision') {
+    return <MissionConversationDecision card={card} imageUrl={decisionImageUrl || card.prompt_image_url}
+      interactionReady={interactionReady} cueUnavailable={cueUnavailable} paused={paused}
+      landscapeHeader={landscapeHeader} onTutor={onTutor} onTutorInset={onTutorInset}
+      onReplay={() => onCueRequest(0)} onSubmit={onSubmit}
+      onResponse={onDecisionResponse || (() => Promise.resolve(false))}
+      onAdvance={onDecisionAdvance || (() => undefined)} onRetry={onDecisionRetry || (() => undefined)} />;
+  }
   if (!currentCue || !heroImageUrl) return null;
 
   const moreHelp = submittedTarget && submittedTarget !== currentCue.target_id && onTutor

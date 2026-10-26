@@ -113,6 +113,7 @@ import { missionSuccessSoundEvent, useMissionSoundEffects } from '../missionSoun
 import { useLessonPageTurn } from '../hooks/useLessonPageTurn';
 import { LessonPageCurl } from '../components/LessonPageCurl';
 import { missionCueOrder } from '../missionTargetInteraction';
+import { createDecisionPlaybackGate } from '../missionConversationDecision';
 import { MissionLandscapeHeader } from '../components/MissionLandscapeHeader';
 import {
   prepareCardChoice,
@@ -328,6 +329,12 @@ export function LessonScreen({
   const missionCueAwaitingRef = useRef(false);
   const missionCueWasPlayingRef = useRef(false);
   const missionCueRequestRef = useRef(0);
+  const decisionPlaybackRef = useRef<{
+    gate: ReturnType<typeof createDecisionPlaybackGate>;
+    timer: ReturnType<typeof setTimeout>;
+    armed: boolean;
+    progress: string;
+  } | null>(null);
   const missionIntroFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const missionIntroAwaitingRef = useRef(false);
   const missionIntroWasPlayingRef = useRef(false);
@@ -670,13 +677,16 @@ export function LessonScreen({
     sequence: CourseAudioTurnPlayback[],
     mode = 'prompt',
     variant = 'conversation-turns',
+    observer?: { onStarted: () => void; onFailure: () => void },
   ) => {
-    if (!sequence.length || !isAppActive || !cardAudioReadyRef.current || AppState.currentState !== 'active') return;
-    if (pageTurnBusy.current) return;
+    if (!sequence.length || !isAppActive || !cardAudioReadyRef.current || AppState.currentState !== 'active' || pageTurnBusy.current) {
+      observer?.onFailure(); return;
+    }
     stopMissionSound();
     const sources = sequence.map(({ asset }) => lessonAudioAssetSource(asset));
     if (isOffline && sources.some(isRemoteAudioSource)) {
       addDiagnosticBreadcrumb('audio_sequence_skipped_offline_cache_miss', { mode, variant });
+      observer?.onFailure();
       return;
     }
     const requestId = ++audioPlaybackRequestRef.current;
@@ -687,7 +697,7 @@ export function LessonScreen({
         !results.every(Boolean)
         || !audioPlayerActiveRef.current
         || audioPlaybackRequestRef.current !== requestId
-      ) return;
+      ) { observer?.onFailure(); return; }
       await setAudioModeAsync({
         allowsRecording: false,
         playsInSilentMode: true,
@@ -695,12 +705,12 @@ export function LessonScreen({
       if (
         !audioPlayerActiveRef.current
         || audioPlaybackRequestRef.current !== requestId
-      ) return;
+      ) { observer?.onFailure(); return; }
 
       // Healthy playlists stay observed across cards. A failed Android player
       // is replaced and observed before playing, because clear/add cannot prepare it.
       const controller = audioPlaylistControllerRef.current;
-      if (!controller) return;
+      if (!controller) { observer?.onFailure(); return; }
       audioPlayerRef.current.pause();
       const playlist = controller.replaceTracks(sources);
       audioPlaylistRef.current = playlist;
@@ -711,18 +721,20 @@ export function LessonScreen({
         turn_count: sequence.length,
         variant,
       });
+      observer?.onStarted();
       playlist.play();
     }).catch((playbackError) => {
       if (
         !audioPlayerActiveRef.current
         || audioPlaybackRequestRef.current !== requestId
-      ) return;
+      ) { observer?.onFailure(); return; }
       captureDiagnosticError(
         playbackError,
         'course_audio_sequence_playback',
         { mode, variant },
         'warning',
       );
+      observer?.onFailure();
     });
   }, [ensureAudioPreloaded, isAppActive, isOffline, pageTurnBusy, stopMissionSound]);
 
@@ -1142,6 +1154,10 @@ export function LessonScreen({
     () => (currentCard ? findCourseAudioTurnSequence(currentCard, 'prompt') : null),
     [currentCard],
   );
+  const answerTurnSequence = useMemo(
+    () => (currentCard ? findCourseAudioTurnSequence(currentCard, 'answer') : null),
+    [currentCard],
+  );
   const pronunciationTurnSequence = currentCard?.stage === 'Pronunciation Practice'
     || currentCard?.stage === 'Speak'
       ? promptTurnSequence
@@ -1183,6 +1199,8 @@ export function LessonScreen({
     || currentCard?.interaction_type === 'mission-finale';
   const isMissionGameCard = Boolean(currentCard?.mission_game);
   const isMissionVoiceGate = currentCard?.mission_game?.kind === 'voice-gate';
+  const isMissionDecision = currentCard?.mission_game?.kind === 'conversation-decision';
+  const decisionPausedRef = useRef(false);
   const usesMissionGameSurface = Boolean(
     currentCard?.mission_game
     && currentCard.mission_game.kind !== 'voice-gate',
@@ -1410,7 +1428,73 @@ export function LessonScreen({
     );
   }, [completionPromptSource, currentCard, isPronunciation, playAudio, playAudioSequence, playAudioSource, promptHasVisualBlank, promptTurnSequence, visiblePromptAudio]);
 
+  const playDecisionSequence = useCallback((purpose: 'prompt' | 'answer'): Promise<boolean> => {
+    const previous = decisionPlaybackRef.current;
+    if (previous) { clearTimeout(previous.timer); previous.gate.fail(); }
+    decisionPlaybackRef.current = null;
+    const sequence = purpose === 'prompt' ? promptTurnSequence : answerTurnSequence;
+    if (decisionPausedRef.current) return Promise.resolve(false);
+    if (purpose === 'answer' && !sequence?.length && !currentCard?.answer_audio_text && !currentCard?.answer_audio_turns?.length) {
+      // A fact-report decision may end with the success cue, without inventing a spoken reply.
+      return new Promise(resolve => setTimeout(() => resolve(!decisionPausedRef.current), 520));
+    }
+    if (!sequence?.length) return Promise.resolve(false);
+    const gate = createDecisionPlaybackGate(sequence.length);
+    const owner = { gate, timer: setTimeout(() => gate.fail(), COURSE_AUDIO_FALLBACK_MS), armed: false, progress: '' };
+    decisionPlaybackRef.current = owner;
+    missionCuePlayer.pause();
+    const start = () => {
+      if (decisionPlaybackRef.current !== owner || decisionPausedRef.current) { gate.fail(); return; }
+      playAudioSequence(sequence, purpose, 'conversation-decision', {
+        onStarted: () => { if (decisionPlaybackRef.current === owner) { owner.armed = true; gate.arm(); } },
+        onFailure: () => gate.fail(),
+      });
+    };
+    // Let the immediate success cue finish before the response takes audio focus.
+    if (purpose === 'answer') setTimeout(start, 520);
+    else start();
+    return gate.promise.then(played => {
+      clearTimeout(owner.timer);
+      if (decisionPlaybackRef.current !== owner) return false;
+      decisionPlaybackRef.current = null;
+      if (!played) {
+        audioPlaybackRequestRef.current += 1;
+        audioPlaylistRef.current.pause();
+      }
+      return played;
+    });
+  }, [answerTurnSequence, currentCard, missionCuePlayer, playAudioSequence, promptTurnSequence]);
+
+  useEffect(() => {
+    const owner = decisionPlaybackRef.current;
+    if (!owner?.armed) return;
+    const progress = `${audioPlaylistStatus.currentIndex}:${audioPlaylistStatus.currentTime}`;
+    if (audioPlaylistStatus.playing && progress !== owner.progress) {
+      owner.progress = progress;
+      clearTimeout(owner.timer);
+      owner.timer = setTimeout(() => owner.gate.fail(), COURSE_AUDIO_FALLBACK_MS);
+    }
+    owner.gate.observe(audioPlaylistStatus);
+  }, [audioPlaylistStatus]);
+
+  useEffect(() => () => {
+    const owner = decisionPlaybackRef.current;
+    decisionPlaybackRef.current = null;
+    if (owner) { clearTimeout(owner.timer); owner.gate.fail(); }
+  }, [cardIndex]);
+
   const playMissionCueAt = useCallback((cueIndex: number) => {
+    if (isMissionDecision) {
+      setMissionInteractionReady(false);
+      setMissionCueUnavailable(false);
+      const requestId = ++missionCueRequestRef.current;
+      void playDecisionSequence('prompt').then(played => {
+        if (missionCueRequestRef.current !== requestId) return;
+        setMissionInteractionReady(played);
+        setMissionCueUnavailable(!played);
+      });
+      return;
+    }
     missionCuePosition.current = { card: cardIndex, index: cueIndex };
     if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
     // Assessed English speech owns the audio session. Decorative transition
@@ -1488,7 +1572,7 @@ export function LessonScreen({
       setMissionCueUnavailable(true);
       setMissionInteractionReady(true);
     });
-  }, [cardIndex, ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, missionOrder, promptTurnSequence, replayPrompt, stopMissionSound]);
+  }, [cardIndex, ensureAudioPreloaded, isOffline, isMissionDecision, missionCueAsset, missionCuePlayer, missionOrder, playDecisionSequence, promptTurnSequence, replayPrompt, stopMissionSound]);
 
   useEffect(() => {
     if (!showMissionKickoff || !isAppActive || !cardAudio.ready) return undefined;
@@ -1496,23 +1580,6 @@ export function LessonScreen({
     const timer = setTimeout(playMissionIntro, 420);
     return () => clearTimeout(timer);
   }, [cardAudio.ready, isAppActive, playMissionIntro, playMissionSound, showMissionKickoff]);
-
-  useEffect(() => {
-    if (
-      !missionExperience
-      || !currentCard?.mission_game
-      || !usesMissionGameSurface
-      || isPageTurning
-      || showMissionKickoff
-      // A clue that starts under the act card is a clue nobody hears.
-      || missionChapterBreak
-      || result !== null
-      || !isAppActive
-      || !cardAudio.ready
-    ) return undefined;
-    const timer = setTimeout(() => playMissionCueAt(missionCuePosition.current.card === cardIndex ? missionCuePosition.current.index : 0), 180);
-    return () => clearTimeout(timer);
-  }, [cardAudio.ready, cardIndex, currentCard?.mission_game, isAppActive, isPageTurning, missionChapterBreak, missionExperience, playMissionCueAt, result, showMissionKickoff, usesMissionGameSurface]);
 
   // An act closes when the next beat belongs to the next chapter. Deriving it
   // from the step the learner just took keeps resumes and section jumps quiet.
@@ -1541,6 +1608,31 @@ export function LessonScreen({
       && (isMissionGameCard ? missionInteractionReady : !promptAudio.trim() || promptAutoplayFinished),
   });
   const showHelp = help.visible;
+  const decisionHelpPaused = isMissionDecision && (showHelp || tutor.visible);
+  decisionPausedRef.current = !isAppActive || showHelp || tutor.visible || isPageTurning;
+  useEffect(() => {
+    if (!decisionPausedRef.current) return;
+    decisionPlaybackRef.current?.gate.fail();
+  }, [isAppActive, showHelp, tutor.visible, isPageTurning]);
+
+  useEffect(() => {
+    if (
+      !missionExperience
+      || !currentCard?.mission_game
+      || !usesMissionGameSurface
+      || isPageTurning
+      || showMissionKickoff
+      // A clue that starts under the act card is a clue nobody hears.
+      || missionChapterBreak
+      || result !== null
+      || !isAppActive
+      || decisionHelpPaused
+      || !cardAudio.ready
+    ) return undefined;
+    const timer = setTimeout(() => playMissionCueAt(missionCuePosition.current.card === cardIndex ? missionCuePosition.current.index : 0), 180);
+    return () => clearTimeout(timer);
+  }, [cardAudio.ready, cardIndex, currentCard?.mission_game, isAppActive, isPageTurning, missionChapterBreak, missionExperience, playMissionCueAt, result, showMissionKickoff, usesMissionGameSurface, decisionHelpPaused]);
+
   const helpVisibleRef = useRef(showHelp);
   helpVisibleRef.current = showHelp || tutor.visible;
   const openTutor = () => {
@@ -2046,7 +2138,7 @@ export function LessonScreen({
     addDiagnosticBreadcrumb('lesson_foregrounded', {
       card_number: cardIndex + 1,
     });
-    if (isPronunciation) return;
+    if (isPronunciation || isMissionDecision) return;
     if (!usesMissionGameSurface) setCardRunId((current) => current + 1);
 
     if (qaMode && !qaAutoAdvance) return;
@@ -2104,6 +2196,7 @@ export function LessonScreen({
     grammarCompleted,
     isAppActive,
     isPronunciation,
+    isMissionDecision,
     missionCuePlayer,
     playAnswerAfterChime,
     playAudio,
@@ -2144,6 +2237,7 @@ export function LessonScreen({
   useEffect(() => {
     if (
       !isAppActive ||
+      isMissionDecision ||
       result !== 'correct' ||
       !currentCard ||
       waitsForGrammarAnimation ||
@@ -2161,6 +2255,7 @@ export function LessonScreen({
     currentCard,
     isAppActive,
     isPronunciation,
+    isMissionDecision,
     pauseForPronunciationReview,
     qaAutoAdvance,
     qaMode,
@@ -2357,8 +2452,9 @@ export function LessonScreen({
       setResult('correct');
       completeScoredCard(firstTry);
       if (missionExperience) {
-        if (!usesMissionGameSurface) playMissionSound(missionSuccessSoundEvent(currentCard));
+        if (!usesMissionGameSurface || isMissionDecision) playMissionSound(missionSuccessSoundEvent(currentCard));
       } else void playSuccessChime();
+      if (isMissionDecision) return;
       if (waitsForGrammarAnimation) {
         return;
       }
@@ -3429,7 +3525,7 @@ export function LessonScreen({
             <MissionGameSurface
               card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
               cueUnavailable={missionCueUnavailable}
-              interactionReady={missionInteractionReady}
+              interactionReady={missionInteractionReady && (!isMissionDecision || cardAudio.ready)}
               landscapeHeader={usesMissionPhoneLandscape ? (
                 <MissionLandscapeHeader
                   location={lessonLocation}
@@ -3442,7 +3538,11 @@ export function LessonScreen({
                 />
               ) : null}
               onCueRequest={playMissionCueAt}
-              paused={!isAppActive || showHelp || isPageTurning}
+              paused={!isAppActive || showHelp || tutor.visible || isPageTurning}
+              decisionImageUrl={activeTurnImageUrl || currentCard.prompt_image_url}
+              onDecisionResponse={() => playDecisionSequence('answer')}
+              onDecisionAdvance={advance}
+              onDecisionRetry={resetMissionSelection}
               onTutorFocus={setTutorMission}
               onTutorInset={setTutorMissionInset}
               onTutor={openTutor}

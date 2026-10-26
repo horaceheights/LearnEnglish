@@ -11,7 +11,7 @@ export type TutorMessage = { role: 'user' | 'assistant'; content: string };
 export type TutorTransport = (context: TutorContext, message: string, history: TutorMessage[], signal: AbortSignal) => Promise<{ reply: string }>;
 
 export function tutorCardContext(lesson: Lesson, card: LessonCard, result: 'correct' | 'wrong' | null, selected: string[], mission?: TutorMissionFocus | null): TutorContext {
-  const focus = card.mission_game && card.mission_game.kind !== 'voice-gate' && mission?.slide_id === card.slide_id ? mission : null;
+  const focus = card.mission_game && !['voice-gate', 'conversation-decision'].includes(card.mission_game.kind) && mission?.slide_id === card.slide_id ? mission : null;
   return { lesson_id: lesson.id, slide_id: card.slide_id || '', content_revision: lesson.content_revision,
     selected_option_ids: result && !focus ? selected.filter(Boolean) : [],
     ...(focus ? { mission_cue_index: focus.cue_index, ...(focus.target_id ? { mission_target_id: focus.target_id } : {}) } : {}) };

@@ -266,11 +266,12 @@ class MissionGame(BaseModel):
         "action-hunt",
         "contrast-hunt",
         "voice-gate",
+        "conversation-decision",
     ]
     instruction_es: str = Field(min_length=1)
     validation: Literal["single", "ordered", "unordered"]
-    targets: list[MissionGameTarget] = Field(min_length=1)
-    cues: list[MissionGameCue] = Field(min_length=1)
+    targets: list[MissionGameTarget] = Field(default_factory=list)
+    cues: list[MissionGameCue] = Field(default_factory=list)
     tutorial_mode: Literal["guided-no-fail"] | None = None
     cue_audio_text: str | None = None
     cue_order: Literal["authored"] | None = None
@@ -304,6 +305,16 @@ class MissionGame(BaseModel):
 
     @model_validator(mode="after")
     def require_coherent_target_plan(self):
+        if self.kind == "conversation-decision":
+            if (self.validation != "single" or self.targets or self.cues
+                    or self.tutorial_mode is not None or self.cue_audio_text is not None
+                    or self.cue_order is not None or self.scene_scope is not None):
+                raise ValueError("Conversation decisions use one ordinary choice, not search targets or cues.")
+            if self.instruction_es != "Escucha y elige cómo continuar.":
+                raise ValueError("Conversation decisions use the shared neutral instruction.")
+            return self
+        if not self.targets or not self.cues:
+            raise ValueError("Scene searches and voice gates require targets and cues.")
         if self.completion_scene is not None and self.kind == "voice-gate":
             raise ValueError("Completion scenes follow listening games, not voice gates.")
         if self.scene_scope == "two-person-dialogue":
@@ -371,6 +382,31 @@ class MissionLessonCard(LessonCard):
 
     @model_validator(mode="after")
     def require_game_targets_to_match_answers(self):
+        if self.mission_game.kind == "conversation-decision":
+            expected = self.correct_option_ids or [self.correct_option_id]
+            text_bank = all(option.label and not option.image_url for option in self.options)
+            image_bank = all(option.image_url and not option.label for option in self.options)
+            visible_choices = [(" ".join(option.label.split()).casefold() if text_bank
+                                else (option.image_url or "").strip()) for option in self.options]
+            if (self.stage != "Listen" or self.prompt != "Listen and choose."
+                    or self.interaction_type != ("a2t" if text_bank else "a2i")
+                    or len(expected) != 1 or expected[0] != self.correct_option_id
+                    or self.correct_option_id not in {option.id for option in self.options}
+                    or len({option.id for option in self.options}) != len(self.options)
+                    or not ((text_bank and 2 <= len(self.options) <= 3)
+                            or (image_bank and len(self.options) == 2))
+                    or not self.audio_text or not self.audio_text.strip()
+                    or not self.prompt_image_url.strip()
+                    or not self.audio_turns
+                    or self.audio_text != " ".join(turn.text for turn in self.audio_turns)
+                    or bool(self.answer_audio_text) != bool(self.answer_audio_turns)
+                    or (self.answer_audio_turns and self.answer_audio_text != " ".join(
+                        turn.text for turn in self.answer_audio_turns))
+                    or any(not option.id.strip() for option in self.options)
+                    or not all(visible_choices) or len(set(visible_choices)) != len(self.options)
+                    or (image_bank and any(option.image_url != option.image_url.strip() for option in self.options))):
+                raise ValueError("Conversation decisions need English audio, a scene, and one answer in a coherent supported choice bank.")
+            return self
         option_ids = {option.id for option in self.options}
         target_option_ids = [
             option_id
