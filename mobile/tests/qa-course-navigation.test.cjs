@@ -55,6 +55,14 @@ const settle = () => new Promise(resolve => setTimeout(resolve, 0));
   assert.equal(label(tree, 'Curso A1+').props.accessibilityState.selected, true);
   const lessonButtons = walk(tree, n => n.type === 'Pressable' && /^1\.\d+\./.test(n.props?.accessibilityLabel || ''));
   assert.equal(lessonButtons.length, 12, 'A1+ must expose all twelve lessons without A1 unit-number collisions.');
+  for (const [position, button] of lessonButtons.entries()) {
+    button.props.onPress(); await settle();
+    const lessonList = walk(render(), n => n.type === 'FlatList')[0];
+    assert.ok(lessonList.props.data.length);
+    lessonList.props.renderItem({ item: lessonList.props.data[0] }).props.onPress();
+    assert.equal(opened[0], catalogs.find(course => course.id === 'a1-plus').lessonIds[position]);
+  }
+  label(tree, 'Curso A1+').props.onPress(); await settle(); tree = render();
   const list = walk(tree, n => n.type === 'FlatList')[0];
   assert.ok(list.props.data.length);
   const item = list.props.data[0];
