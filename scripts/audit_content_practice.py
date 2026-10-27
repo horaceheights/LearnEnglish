@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.content_engine.catalog import load_catalog, load_standards  # noqa: E402
-from scripts.content_engine.practice import audit  # noqa: E402
+from scripts.content_engine.practice import audit, prior_knowledge  # noqa: E402
 
 BASELINE = Path("docs/product/content-practice-baseline.json")
 
@@ -51,7 +51,7 @@ def main() -> int:
     args = parser.parse_args()
 
     standards = load_standards(args.root, args.course)
-    findings = audit(load_catalog(args.root, standards), standards)
+    findings = audit(load_catalog(args.root, standards), standards, prior_knowledge(args.root, standards))
     keys = {finding.key for finding in findings}
 
     if args.write_baseline:

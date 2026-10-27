@@ -4,7 +4,11 @@ from pathlib import Path
 
 from scripts.audit_content_practice import BASELINE, read_baseline
 from scripts.content_engine.catalog import CatalogLesson, load_catalog, load_standards
-from scripts.content_engine.practice import audit, is_known
+from scripts.content_engine.practice import audit, is_known, learn_context_groups, prior_knowledge
+
+FORMAT_RULES = {"stage-balance", "recognize-direction", "option-size", "photo-listen", "duplicate-option-image",
+                "learn-shape", "learn-length", "speak-speakers", "speak-length", "decision-practice",
+                "new-item-minimum", "practice-stages", "recognition-practice"}
 
 ROOT = Path(__file__).resolve().parents[2]
 STANDARDS = {
@@ -127,6 +131,119 @@ class ContentPracticeTests(unittest.TestCase):
         current.data["id"] = "approved"
         current.data["cards"].pop()
         self.assertTrue(rules(audit([current], settings), "lesson-length"))
+
+    def test_current_a1_plus_course_matches_the_reviewed_baseline(self):
+        standards = load_standards(ROOT, "a1-plus")
+        findings = audit(load_catalog(ROOT, standards), standards, prior_knowledge(ROOT, standards))
+        keys = {finding.key for finding in findings}
+        baseline = read_baseline(ROOT, "a1-plus")
+        self.assertEqual(sorted(keys - baseline), [], "New A1+ practice findings; fix the content.")
+        self.assertEqual(sorted(baseline - keys), [], f"Fixed A1+ findings remain in {BASELINE}; shrink it.")
+
+    def test_a1_plus_standards_record_the_approved_values(self):
+        a1_plus = load_standards(ROOT, "a1-plus")
+        self.assertEqual(a1_plus["approved_on"], "2026-10-27")
+        self.assertEqual(a1_plus["standard_lesson_cards"], {"min": 40, "max": 42})
+        self.assertEqual(a1_plus["review_lesson_cards"], {"min": 48, "max": 54})
+        self.assertEqual(a1_plus["min_exposures_per_new_item"], 6)
+        self.assertEqual(a1_plus["required_practice_stages"], ["Recognize", "Listen", "Speak", "Use"])
+        self.assertEqual(a1_plus["stage_cards"]["standard"]["Recognize"], {"min": 10, "max": 12})
+        self.assertEqual(a1_plus["learn_shapes"], ["model", "exchange", "contrast"])
+        self.assertEqual((a1_plus["min_large_bank_share"], a1_plus["min_photo_listen_share"]), (0.25, 0.3))
+        self.assertTrue(a1_plus["distinct_option_images"])
+        self.assertEqual(a1_plus["prior_courses"], ["a1"])
+
+    def test_a1_results_do_not_use_the_a1_plus_format_rules(self):
+        standards = load_standards(ROOT, "a1")
+        self.assertFalse({finding.rule for finding in audit(load_catalog(ROOT, standards), standards)} & FORMAT_RULES)
+
+    def test_prior_course_vocabulary_is_known(self):
+        known = prior_knowledge(ROOT, load_standards(ROOT, "a1-plus"))
+        self.assertTrue({"jacket", "library", "dinner"} <= known)
+        self.assertEqual(prior_knowledge(ROOT, load_standards(ROOT, "a1")), set())
+
+    def test_format_rules_report_thin_and_one_sided_lessons(self):
+        settings = {**STANDARDS,
+                    "stage_cards": {"standard": {"Recognize": {"min": 2}, "Speak": {"max": 1}}},
+                    "min_cards_per_recognize_direction": 1, "min_large_bank_share": 0.5,
+                    "min_photo_listen_share": 0.5, "distinct_option_images": True,
+                    "max_two_speaker_speak_cards": 0, "speak_max_words": 3}
+        text_choice = card("Recognize", "A dog")
+        same_photo = {"stage": "Listen", "slide_id": "same", "correct_option_id": "a",
+                      "options": [{"id": "a", "image_url": "dog.webp"}, {"id": "b", "image_url": "dog.webp"}]}
+        two_voices = {"stage": "Speak", "slide_id": "talk", "prompt": "A dog. A dog is here.",
+                      "audio_turns": [{"text": "A dog.", "speaker_role": "ana"}, {"text": "A dog is here.", "speaker_role": "luis"}]}
+        current = lesson("1.1", ["a dog"], [text_choice, same_photo, two_voices, card("Speak", "A dog")])
+        found = {(finding.rule, finding.item) for finding in audit([current], settings)}
+        for expected in [("stage-balance", "Recognize"), ("stage-balance", "Speak"),
+                         ("recognize-direction", "phrase->photo"), ("option-size", "lesson"),
+                         ("duplicate-option-image", "same"), ("speak-speakers", "lesson"), ("speak-length", "talk")]:
+            self.assertIn(expected, found)
+        self.assertNotIn(("photo-listen", "lesson"), found)
+
+    def test_learn_shapes_allow_one_model_an_exchange_or_a_contrast_pair(self):
+        settings = {**STANDARDS, "learn_shapes": ["model", "exchange", "contrast"], "learn_max_words": 5,
+                    "learn_connector_max_words": 9, "learn_connector_targets": ["but"]}
+
+        def learn(slide, *lines):
+            return {"stage": "Learn", "slide_id": slide, "prompt": " ".join(lines),
+                    "audio_turns": [{"text": line, "speaker_role": "ana"} for line in lines]}
+
+        current = lesson("1.1", ["leaves", "but"], [
+            learn("model", "Luis leaves home."),
+            learn("exchange", "What time do you leave?", "I leave at seven."),
+            learn("proposal", "Let's meet at seven.", "OK."),
+            learn("contrast", "I leave home at eight.", "Luis leaves home at eight."),
+            learn("connector", "Ana leaves at eight, but Luis leaves at nine."),
+            learn("three", "I leave.", "Luis leaves.", "Ana leaves."),
+            learn("pair", "I leave home.", "We eat dinner at seven."),
+            learn("long", "Luis leaves home at eight every day."),
+        ])
+        shape = {finding.item for finding in audit([current], settings) if finding.rule == "learn-shape"}
+        length = {finding.item for finding in audit([current], settings) if finding.rule == "learn-length"}
+        self.assertEqual(shape, {"three", "pair"})
+        self.assertEqual(length, {"long"})
+        no_contrast = {**settings, "learn_shapes": ["model", "exchange"]}
+        self.assertIn("contrast", {f.item for f in audit([current], no_contrast) if f.rule == "learn-shape"})
+
+    def test_contrast_context_group_needs_permission_and_two_matching_statements(self):
+        cards = [{"slide_id": "c1", "stage": "Learn", "prompt": "I leave home. Luis leaves home.",
+                  "audio_text": "I leave home. Luis leaves home.",
+                  "options": [{"id": "model", "label": "I leave home. Luis leaves home."}],
+                  "audio_turns": [{"text": "I leave home."}, {"text": "Luis leaves home."}]}]
+        group = {"kind": "contrast", "targets": ["leaves"],
+                 "models": [{"slide_id": "c1", "text": "I leave home. Luis leaves home.",
+                             "turns": ["I leave home.", "Luis leaves home."]}]}
+        known = {"i", "leave", "home", "luis"}
+        allowed, errors = learn_context_groups(cards, [group], ["leaves"], known, {"leaves"},
+                                               ("sequence", "exchange", "contrast"))
+        self.assertEqual((allowed, errors), ({"c1"}, []))
+        allowed, errors = learn_context_groups(cards, [group], ["leaves"], known, {"leaves"})
+        self.assertFalse(allowed)
+        self.assertTrue(errors)
+
+    def test_item_practice_counts_only_configured_stages_and_needs_recognition(self):
+        settings = {**STANDARDS, "min_exposures_per_new_item": 3, "exposure_stages": ["Recognize", "Listen", "Speak", "Use"],
+                    "required_practice_stages": ["Recognize", "Listen", "Speak", "Use"],
+                    "min_recognize_or_listen_exposures_per_new_item": 2}
+        current = lesson("7.1", ["a dog"], [card(stage, "A dog") for stage in ("Learn", "Learn", "Speak", "Use", "Listen")])
+        findings = audit([current], settings)
+        self.assertEqual(rules(findings, "practice-stages"), {("7.1", "a dog")})
+        self.assertEqual(rules(findings, "recognition-practice"), {("7.1", "a dog")})
+        self.assertFalse(rules(findings, "exposures"))
+
+    def test_decision_lessons_need_reply_selection_and_teaching_lessons_need_new_items(self):
+        settings = {**STANDARDS, "decision_goal_lessons": ["meet"], "min_reply_selection_cards": 1,
+                    "min_new_items_per_lesson": 2}
+        decision = lesson("1.1", ["a dog", "a cat"], [card("Recognize", "A dog")])
+        decision.data["id"] = "meet"
+        empty = lesson("1.2", [], [card("Listen", "A dog")], role="review")
+        review = lesson("1.3", [], [card("Listen", "A cat")], role="review")
+        findings = audit([decision, empty, review], settings)
+        self.assertEqual(rules(findings, "decision-practice"), {("1.1", "lesson")})
+        self.assertEqual(rules(findings, "new-item-minimum"), {("1.2", "lesson")})
+        decision.data["cards"][0]["reply_image_timing"] = "after-prompt"
+        self.assertFalse(rules(audit([decision, empty, review], settings), "decision-practice"))
 
     def test_new_question_frame_reuses_only_previously_taught_object_words(self):
         standards = {**STANDARDS, "learn_frame_words": ["the"],

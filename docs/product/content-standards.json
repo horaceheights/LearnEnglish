@@ -311,6 +311,191 @@
           "reason": "Approved complete body sequence / coupled feeling questions / expanded activity preferences; all declared targets retain exposure and stage requirements."
         }
       }
+    },
+    "a1-plus": {
+      "approved_on": "2026-10-27",
+      "lessons_root": "backend/lessons/a1_plus",
+      "lesson_glob": "unit_*/*.yaml",
+      "prior_courses": [
+        "a1"
+      ],
+      "standard_lesson_cards": {
+        "min": 40,
+        "max": 42
+      },
+      "review_lesson_cards": {
+        "min": 48,
+        "max": 54
+      },
+      "max_new_items_per_lesson": 8,
+      "min_new_items_per_lesson": 2,
+      "learn_frame_words": [
+        "a",
+        "an",
+        "the"
+      ],
+      "min_exposures_per_new_item": 6,
+      "exposure_stages": [
+        "Recognize",
+        "Listen",
+        "Speak",
+        "Use"
+      ],
+      "required_practice_stages": [
+        "Recognize",
+        "Listen",
+        "Speak",
+        "Use"
+      ],
+      "min_stages_per_new_item": 4,
+      "new_item_needs_one_of_stages": [
+        "Listen",
+        "Speak"
+      ],
+      "min_recognize_or_listen_exposures_per_new_item": 2,
+      "min_later_lessons_per_new_item": 2,
+      "later_reuse_exempt_final_units": 1,
+      "stage_cards": {
+        "standard": {
+          "Learn": {
+            "max": 8
+          },
+          "Recognize": {
+            "min": 10,
+            "max": 12
+          },
+          "Listen": {
+            "min": 8,
+            "max": 10
+          },
+          "Speak": {
+            "min": 7,
+            "max": 8
+          },
+          "Use": {
+            "min": 7,
+            "max": 8
+          }
+        },
+        "review": {
+          "Recognize": {
+            "min": 10
+          },
+          "Listen": {
+            "min": 18,
+            "max": 24
+          },
+          "Speak": {
+            "min": 6,
+            "max": 12
+          },
+          "Use": {
+            "min": 8,
+            "max": 12
+          }
+        }
+      },
+      "learn_shapes": [
+        "model",
+        "exchange",
+        "contrast"
+      ],
+      "learn_max_words": 8,
+      "learn_connector_max_words": 12,
+      "learn_connector_targets": [
+        "but",
+        "before",
+        "after",
+        "because",
+        "from",
+        "to"
+      ],
+      "min_cards_per_recognize_direction": 3,
+      "min_large_bank_share": 0.25,
+      "min_photo_listen_share": 0.3,
+      "distinct_option_images": true,
+      "max_two_speaker_speak_cards": 1,
+      "speak_max_words": 12,
+      "min_reply_selection_cards": 2,
+      "decision_goal_lessons": [
+        "a1plus-unit-1-lesson-1-1",
+        "a1plus-unit-1-lesson-1-3",
+        "a1plus-unit-1-lesson-1-8",
+        "a1plus-unit-1-lesson-1-9",
+        "a1plus-unit-1-lesson-1-10"
+      ],
+      "instruction_words": [
+        "listen",
+        "choose"
+      ],
+      "proper_names": [
+        "ana",
+        "luis",
+        "diego",
+        "sofia",
+        "sofía"
+      ],
+      "instructions": {
+        "listen": "Escucha y elige.",
+        "choose_sentence": "Elige la frase correcta."
+      },
+      "instruction_phrases": [
+        "Listen and choose.",
+        "¡Escucha y elige!",
+        "¡Elige la frase!"
+      ],
+      "learn_context_anchor_targets": [
+        "leave home",
+        "start work",
+        "finish work",
+        "arrive home",
+        "meet",
+        "leaves",
+        "starts",
+        "finishes",
+        "arrives",
+        "works",
+        "but",
+        "from",
+        "to",
+        "before",
+        "after",
+        "get up",
+        "take a shower",
+        "put on",
+        "take off",
+        "go to bed",
+        "always",
+        "never",
+        "usually",
+        "sometimes",
+        "every day",
+        "How often",
+        "studies",
+        "Does",
+        "does not",
+        "Where",
+        "When",
+        "Why",
+        "because"
+      ],
+      "verbs_require_subject": [
+        "leave home",
+        "start work",
+        "finish work",
+        "arrive home",
+        "get up",
+        "take a shower",
+        "put on",
+        "take off",
+        "go to bed",
+        "leaves",
+        "starts",
+        "finishes",
+        "arrives",
+        "works",
+        "studies"
+      ]
     }
   }
 }
