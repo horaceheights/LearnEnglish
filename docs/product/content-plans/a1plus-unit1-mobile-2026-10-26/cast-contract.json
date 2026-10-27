@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "course_id": "a1-plus",
-  "source_sha256": "eba5266eb73e869279a832be922da139d8bf62fc320ae63db13c532860d8dea2",
+  "source_sha256": "82e57e2a6e07b49d19cb297ed0878a215132d256be564db30a4fea7c266f004d",
   "listening_approval": "docs/qa/a1plus-unit1-mobile-2026-10-26/audio-listening-approval.json",
   "assignments": {
     "a1plus-unit-1-lesson-1-1": {
@@ -310,16 +310,8 @@
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I finish work at five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
-          },
-          {
             "speaker_role": "luis",
-            "text": "I finish work at seven."
+            "text": "Let's meet at seven."
           }
         ],
         "answer_audio_turns": [
@@ -334,16 +326,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I finish work at five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
-          },
-          {
             "speaker_role": "luis",
-            "text": "I finish work at seven."
+            "text": "Let's meet at seven."
           },
           {
             "speaker_role": "luis",
@@ -356,16 +340,12 @@
         ]
       },
       "a1plus-unit-1-1.1-A04": {
-        "audio_speaker": null,
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
             "speaker_role": "luis",
-            "text": "I finish work at five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I finish work at six."
+            "text": "What time do you arrive home?"
           }
         ],
         "answer_audio_turns": [
@@ -377,11 +357,7 @@
         "audio_assets": [
           {
             "speaker_role": "luis",
-            "text": "I finish work at five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I finish work at six."
+            "text": "What time do you arrive home?"
           },
           {
             "speaker_role": "luis",
@@ -394,8 +370,8 @@
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I arrive home at eight."
+            "speaker_role": "luis",
+            "text": "Let's meet at eight."
           }
         ],
         "answer_audio_turns": [
@@ -410,8 +386,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I arrive home at eight."
+            "speaker_role": "luis",
+            "text": "Let's meet at eight."
           },
           {
             "speaker_role": "luis",
@@ -1744,8 +1720,8 @@
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "speaker_role": "diego",
-            "text": "I finish work at six. I arrive home at seven."
+            "speaker_role": "luis",
+            "text": "Let's meet at seven."
           }
         ],
         "answer_audio_turns": [
@@ -1760,8 +1736,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "diego",
-            "text": "I finish work at six. I arrive home at seven."
+            "speaker_role": "luis",
+            "text": "Let's meet at seven."
           },
           {
             "speaker_role": "luis",
@@ -1803,23 +1779,7 @@
         "audio_turns": [
           {
             "speaker_role": "luis",
-            "text": "Let's meet on Saturday."
-          },
-          {
-            "speaker_role": "diego",
-            "text": "No, thank you."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "Why not?"
-          },
-          {
-            "speaker_role": "diego",
-            "text": "Because I work on Saturday."
-          },
-          {
-            "speaker_role": "diego",
-            "text": "I do not work on Sunday."
+            "text": "Let's meet on Sunday."
           }
         ],
         "answer_audio_turns": [
@@ -1835,23 +1795,7 @@
         "audio_assets": [
           {
             "speaker_role": "luis",
-            "text": "Let's meet on Saturday."
-          },
-          {
-            "speaker_role": "diego",
-            "text": "No, thank you."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "Why not?"
-          },
-          {
-            "speaker_role": "diego",
-            "text": "Because I work on Saturday."
-          },
-          {
-            "speaker_role": "diego",
-            "text": "I do not work on Sunday."
+            "text": "Let's meet on Sunday."
           },
           {
             "speaker_role": "luis",
@@ -1864,12 +1808,12 @@
         ]
       },
       "a1plus-unit-1-1.11-21a": {
-        "audio_speaker": "teacher",
+        "audio_speaker": "co-teacher",
         "answer_audio_speaker": "co-teacher",
         "audio_turns": [
           {
-            "speaker_role": "teacher",
-            "text": "Sofia works at the school."
+            "speaker_role": "co-teacher",
+            "text": "When does Sofia work?"
           }
         ],
         "answer_audio_turns": [
@@ -1880,8 +1824,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "teacher",
-            "text": "Sofia works at the school."
+            "speaker_role": "co-teacher",
+            "text": "When does Sofia work?"
           },
           {
             "speaker_role": "co-teacher",
@@ -1910,8 +1854,8 @@
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "speaker_role": "sofia",
-            "text": "I study at home."
+            "speaker_role": "diego",
+            "text": "How often do you study at home?"
           }
         ],
         "answer_audio_turns": [
@@ -1926,8 +1870,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "sofia",
-            "text": "I study at home."
+            "speaker_role": "diego",
+            "text": "How often do you study at home?"
           },
           {
             "speaker_role": "diego",
@@ -1956,12 +1900,12 @@
         ]
       },
       "a1plus-unit-1-1.11-23a": {
-        "audio_speaker": "sofia",
+        "audio_speaker": "diego",
         "answer_audio_speaker": "diego",
         "audio_turns": [
           {
-            "speaker_role": "sofia",
-            "text": "I study after work."
+            "speaker_role": "diego",
+            "text": "Where do you study?"
           }
         ],
         "answer_audio_turns": [
@@ -1972,8 +1916,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "sofia",
-            "text": "I study after work."
+            "speaker_role": "diego",
+            "text": "Where do you study?"
           },
           {
             "speaker_role": "diego",
@@ -3654,12 +3598,8 @@
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
-          },
-          {
             "speaker_role": "luis",
-            "text": "I finish work at seven."
+            "text": "Let's meet at seven."
           }
         ],
         "answer_audio_turns": [
@@ -3674,12 +3614,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
-          },
-          {
             "speaker_role": "luis",
-            "text": "I finish work at seven."
+            "text": "Let's meet at seven."
           },
           {
             "speaker_role": "luis",
@@ -4542,16 +4478,12 @@
         ]
       },
       "a1plus-unit-1-1.3-A06": {
-        "audio_speaker": null,
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I work from eight to five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
+            "speaker_role": "luis",
+            "text": "Let's meet at six."
           }
         ],
         "answer_audio_turns": [
@@ -4562,12 +4494,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I work from eight to five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
+            "speaker_role": "luis",
+            "text": "Let's meet at six."
           },
           {
             "speaker_role": "luis",
@@ -4580,8 +4508,8 @@
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I eat dinner at seven."
+            "speaker_role": "luis",
+            "text": "Let's meet at six."
           }
         ],
         "answer_audio_turns": [
@@ -4596,8 +4524,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I eat dinner at seven."
+            "speaker_role": "luis",
+            "text": "Let's meet at six."
           },
           {
             "speaker_role": "luis",
@@ -6838,12 +6766,12 @@
         ]
       },
       "a1plus-unit-1-1.6-A01": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I study at home at seven."
+            "speaker_role": "luis",
+            "text": "How often do you study at home?"
           }
         ],
         "answer_audio_turns": [
@@ -6854,8 +6782,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I study at home at seven."
+            "speaker_role": "luis",
+            "text": "How often do you study at home?"
           },
           {
             "speaker_role": "luis",
@@ -6924,6 +6852,10 @@
         "answer_audio_speaker": null,
         "audio_turns": [
           {
+            "speaker_role": "ana",
+            "text": "I study every day."
+          },
+          {
             "speaker_role": "luis",
             "text": "How often do you study at night?"
           },
@@ -6933,6 +6865,10 @@
           }
         ],
         "audio_assets": [
+          {
+            "speaker_role": "ana",
+            "text": "I study every day."
+          },
           {
             "speaker_role": "luis",
             "text": "How often do you study at night?"
@@ -6968,12 +6904,12 @@
         ]
       },
       "a1plus-unit-1-1.6-A06": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I study at the library at eight."
+            "speaker_role": "luis",
+            "text": "How often do you study at the library?"
           }
         ],
         "answer_audio_turns": [
@@ -6984,8 +6920,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I study at the library at eight."
+            "speaker_role": "luis",
+            "text": "How often do you study at the library?"
           },
           {
             "speaker_role": "luis",
@@ -7750,16 +7686,12 @@
         ]
       },
       "a1plus-unit-1-1.7-A02": {
-        "audio_speaker": null,
+        "audio_speaker": "diego",
         "answer_audio_speaker": "diego",
         "audio_turns": [
           {
-            "speaker_role": "luis",
-            "text": "She finishes at six."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "She arrives home at seven."
+            "speaker_role": "diego",
+            "text": "Let's meet at eight."
           }
         ],
         "answer_audio_turns": [
@@ -7770,12 +7702,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "luis",
-            "text": "She finishes at six."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "She arrives home at seven."
+            "speaker_role": "diego",
+            "text": "Let's meet at eight."
           },
           {
             "speaker_role": "diego",
@@ -7904,12 +7832,12 @@
         ]
       },
       "a1plus-unit-1-1.7-A07": {
-        "audio_speaker": "luis",
+        "audio_speaker": "diego",
         "answer_audio_speaker": "diego",
         "audio_turns": [
           {
-            "speaker_role": "luis",
-            "text": "She arrives home at six."
+            "speaker_role": "diego",
+            "text": "Let's meet at seven."
           }
         ],
         "answer_audio_turns": [
@@ -7920,8 +7848,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "luis",
-            "text": "She arrives home at six."
+            "speaker_role": "diego",
+            "text": "Let's meet at seven."
           },
           {
             "speaker_role": "diego",
@@ -8588,12 +8516,12 @@
         ]
       },
       "a1plus-unit-1-1.8-A01": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I study after work."
+            "speaker_role": "luis",
+            "text": "Where do you study?"
           }
         ],
         "answer_audio_turns": [
@@ -8604,8 +8532,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I study after work."
+            "speaker_role": "luis",
+            "text": "Where do you study?"
           },
           {
             "speaker_role": "luis",
@@ -8640,12 +8568,12 @@
         ]
       },
       "a1plus-unit-1-1.8-A03": {
-        "audio_speaker": "teacher",
+        "audio_speaker": "co-teacher",
         "answer_audio_speaker": "co-teacher",
         "audio_turns": [
           {
-            "speaker_role": "teacher",
-            "text": "Luis works at the school."
+            "speaker_role": "co-teacher",
+            "text": "When does Luis work?"
           }
         ],
         "answer_audio_turns": [
@@ -8656,8 +8584,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "teacher",
-            "text": "Luis works at the school."
+            "speaker_role": "co-teacher",
+            "text": "When does Luis work?"
           },
           {
             "speaker_role": "co-teacher",
@@ -8682,12 +8610,12 @@
         ]
       },
       "a1plus-unit-1-1.8-A05": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I take a shower at home."
+            "speaker_role": "luis",
+            "text": "When do you take a shower?"
           }
         ],
         "answer_audio_turns": [
@@ -8698,8 +8626,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I take a shower at home."
+            "speaker_role": "luis",
+            "text": "When do you take a shower?"
           },
           {
             "speaker_role": "luis",
@@ -8724,12 +8652,12 @@
         ]
       },
       "a1plus-unit-1-1.8-A07": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I put on my shoes before I leave home."
+            "speaker_role": "luis",
+            "text": "Where do you put on your shoes?"
           }
         ],
         "answer_audio_turns": [
@@ -8740,8 +8668,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I put on my shoes before I leave home."
+            "speaker_role": "luis",
+            "text": "Where do you put on your shoes?"
           },
           {
             "speaker_role": "luis",
@@ -8766,12 +8694,12 @@
         ]
       },
       "a1plus-unit-1-1.8-A09": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I wake up at six."
+            "speaker_role": "luis",
+            "text": "When do you get up?"
           }
         ],
         "answer_audio_turns": [
@@ -8782,8 +8710,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I wake up at six."
+            "speaker_role": "luis",
+            "text": "When do you get up?"
           },
           {
             "speaker_role": "luis",
@@ -8808,12 +8736,12 @@
         ]
       },
       "a1plus-unit-1-1.8-A11": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
+            "speaker_role": "luis",
+            "text": "When do you go to bed?"
           }
         ],
         "answer_audio_turns": [
@@ -8824,8 +8752,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I arrive home at six."
+            "speaker_role": "luis",
+            "text": "When do you go to bed?"
           },
           {
             "speaker_role": "luis",
@@ -8850,12 +8778,12 @@
         ]
       },
       "a1plus-unit-1-1.8-A13": {
-        "audio_speaker": "ana",
+        "audio_speaker": "luis",
         "answer_audio_speaker": "luis",
         "audio_turns": [
           {
-            "speaker_role": "ana",
-            "text": "I study at home."
+            "speaker_role": "luis",
+            "text": "How often do you study at home?"
           }
         ],
         "answer_audio_turns": [
@@ -8866,8 +8794,8 @@
         ],
         "audio_assets": [
           {
-            "speaker_role": "ana",
-            "text": "I study at home."
+            "speaker_role": "luis",
+            "text": "How often do you study at home?"
           },
           {
             "speaker_role": "luis",
@@ -9603,23 +9531,7 @@
         "audio_turns": [
           {
             "speaker_role": "luis",
-            "text": "Let's meet at five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "No, thank you."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "Why not?"
-          },
-          {
-            "speaker_role": "ana",
-            "text": "Because I work from eight to six."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I arrive home at seven."
+            "text": "Let's meet at seven."
           }
         ],
         "answer_audio_turns": [
@@ -9635,23 +9547,7 @@
         "audio_assets": [
           {
             "speaker_role": "luis",
-            "text": "Let's meet at five."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "No, thank you."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "Why not?"
-          },
-          {
-            "speaker_role": "ana",
-            "text": "Because I work from eight to six."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "I arrive home at seven."
+            "text": "Let's meet at seven."
           },
           {
             "speaker_role": "luis",
@@ -9669,23 +9565,7 @@
         "audio_turns": [
           {
             "speaker_role": "ana",
-            "text": "Let's meet at six."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "No, thank you."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "Why not?"
-          },
-          {
-            "speaker_role": "luis",
-            "text": "Because I work from nine to seven."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "I arrive home at eight."
+            "text": "Let's meet at eight."
           }
         ],
         "answer_audio_turns": [
@@ -9701,23 +9581,7 @@
         "audio_assets": [
           {
             "speaker_role": "ana",
-            "text": "Let's meet at six."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "No, thank you."
-          },
-          {
-            "speaker_role": "ana",
-            "text": "Why not?"
-          },
-          {
-            "speaker_role": "luis",
-            "text": "Because I work from nine to seven."
-          },
-          {
-            "speaker_role": "luis",
-            "text": "I arrive home at eight."
+            "text": "Let's meet at eight."
           },
           {
             "speaker_role": "ana",

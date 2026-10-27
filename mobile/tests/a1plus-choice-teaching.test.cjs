@@ -15,6 +15,30 @@ const byId = new Map(fixture.cards.map(card => [card.slide_id.replace('a1plus-un
 const wrongOptions = card => card.options.filter(option => option.id !== card.correct_option_id);
 const hint = (id, index = 0) => lessonMistakeHint(byId.get(id), wrongOptions(byId.get(id))[index].id);
 
+test('installed listening cards explain the heard evidence, including the reported meeting card', () => {
+  const lessons = require('../src/generated/a1-plus-course.json');
+  const cards = lessons.filter(lesson => lesson.experience_type !== 'mission')
+    .flatMap(lesson => lesson.cards.filter(card => card.stage === 'Listen'));
+  assert.equal(cards.length, 94);
+  for (const card of cards) {
+    assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
+    for (const option of wrongOptions(card)) {
+      const feedback = lessonMistakeHint(card, option.id);
+      assert.ok(feedback.length > 0 && feedback.length <= 140, `${card.slide_id}: ${feedback}`);
+      const answer = card.options.find(option => option.id === card.correct_option_id).label || '';
+      if (answer.endsWith('?') && card.audio_text.includes(answer)) {
+        assert.doesNotMatch(feedback, /falta saber|falta (?:la hora|el lugar|el momento|la frecuencia)/i,
+          'A heard-question contrast must not pretend the learner is choosing missing information.');
+      }
+    }
+  }
+  const reported = cards.find(card => card.slide_id === 'a1plus-unit-1-1.1-A03');
+  assert.equal(reported.audio_text, "Let's meet at seven.");
+  assert.deepEqual(reported.audio_turns.map(turn => turn.text), ["Let's meet at seven."]);
+  assert.equal(reported.options.find(option => option.id === reported.correct_option_id).label, reported.audio_text);
+  assert.doesNotMatch(lessonMistakeHint(reported, wrongOptions(reported)[0].id), /trabajo|disponib|llegar|pronto/i);
+});
+
 test('every repaired bank and every distractor has bounded specific feedback', () => {
   assert.equal(fixture.sourceContentSha256, 'fbba411138f55793f8891245cf979c35ec0bcaa433e25b1298432284bf2e97bb');
   assert.equal(fixture.cards.length, 174);

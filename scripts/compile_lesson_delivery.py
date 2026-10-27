@@ -14,6 +14,7 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 LISTEN_PROMPT = "Listen and choose."
 AUTHORITY_FILES = (
@@ -22,6 +23,7 @@ AUTHORITY_FILES = (
     "mobile/src/missionExperience.ts", "mobile/src/screens/LessonScreen.tsx",
     "scripts/export_mobile_preview_lessons.py",
     "scripts/compile_lesson_delivery.py", "scripts/verify_lesson_delivery.py", "scripts/validate_lesson_cards.py",
+    "scripts/listening_contract.py",
     "mobile/src/choiceTeaching.ts", "mobile/src/lessonMistakeHints.ts", "mobile/src/constructionTeaching.ts",
     "mobile/src/teachingClock.ts", "mobile/src/courseAudioSources.ts",
     "mobile/src/components/TeachingClocks.tsx", "mobile/src/components/OptionMediaImage.tsx",
@@ -80,6 +82,13 @@ def validate_source_fields(source):
             # Untyped legacy mission data remains explicit sidecar-only content.
             ordinary = lesson["kind"] != "mission"
             if ordinary:
+                if card["stage"] == "Listen":
+                    from scripts.listening_contract import ordinary_listening_errors
+                    issues = ordinary_listening_errors(card.get("context_es"),
+                        " ".join(turn["text"] for turn in card.get("turns", [])),
+                        card.get("options", []), card.get("answer"))
+                    if issues:
+                        raise ValueError(f"{card['id']}: {'; '.join(issues)}")
                 stages = {"teach": {"Learn"}, "choice": {"Recognize", "Listen"},
                           "speak": {"Speak"}, "build": {"Use"}}
                 if card["stage"] not in stages.get(card["activity"], set()):

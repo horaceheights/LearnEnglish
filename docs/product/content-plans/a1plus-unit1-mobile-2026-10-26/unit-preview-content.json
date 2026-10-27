@@ -1,7 +1,7 @@
 {
   "title": "A1+ Unit 1",
-  "sourceVersion": "progression-v10-licensed-actions",
-  "scope": "Identifiable mobile installation candidate; exact approved recordings retained; not yet published",
+  "sourceVersion": "progression-v11-self-contained-listening",
+  "scope": "Ordinary listening uses English evidence without Spanish scenario paragraphs; mission decision activity retained.",
   "lessons": [
     {
       "id": "1.1",
@@ -394,7 +394,6 @@
           "id": "1.1-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana habla de la mañana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -456,7 +455,6 @@
           "id": "1.1-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana habla de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -518,44 +516,19 @@
           "id": "1.1-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis quieren verse en persona en casa de Ana. Hoy Luis trabaja allí y queda libre al terminar; Ana queda libre al llegar del trabajo. Son horas de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I finish work at five.",
-              "image": "t18",
-              "clipId": "preview-5c9facb917d19d7d",
-              "audio": "audio/takes/8fdc4d61f8f71409a9631aa566b550916cfe10bdfaa597c61823bb0a9948293d.mp3",
-              "audioSha256": "8fdc4d61f8f71409a9631aa566b550916cfe10bdfaa597c61823bb0a9948293d",
-              "clock": {
-                "hour": 5,
-                "minute": 0
-              }
-            },
-            {
-              "speaker": "ana",
-              "text": "I arrive home at six.",
-              "image": "t18",
-              "clipId": "preview-ec4f31f858b79be6",
-              "audio": "audio/takes/16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267.mp3",
-              "audioSha256": "16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267",
-              "clock": {
-                "hour": 6,
-                "minute": 0
-              }
-            },
-            {
               "speaker": "luis",
-              "text": "I finish work at seven.",
+              "text": "Let's meet at seven.",
               "image": "05",
-              "clipId": "preview-b8c9ee02e9d1427f",
-              "audio": "audio/takes/718d7eb476790cd9b9d70cacb67344a89dadb7f7f84c537c8f0363dc2a9d25fe.mp3",
-              "audioSha256": "718d7eb476790cd9b9d70cacb67344a89dadb7f7f84c537c8f0363dc2a9d25fe",
               "clock": {
                 "hour": 7,
                 "minute": 0
-              }
+              },
+              "clipId": "preview-aff686f57e47f63b",
+              "audio": "audio/takes/e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345.mp3",
+              "audioSha256": "e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345"
             }
           ],
           "options": [
@@ -569,7 +542,7 @@
             }
           ],
           "answer": "let-s-meet-at-seven",
-          "hint_es": "Ana llega a las seis, pero Luis sigue trabajando hasta las siete. A las seis todavía no están ambos disponibles.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -593,39 +566,22 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-six": "Ana llega a las seis, pero Luis sigue trabajando hasta las siete. A las seis todavía no están ambos disponibles."
+            "let-s-meet-at-six": "Escuchaste «Let's meet at seven.», no «Let's meet at six.»."
           }
         },
         {
           "id": "1.1-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otro encuentro: Ana y Luis quieren verse en persona en casa de Ana. Luis trabaja allí y queda libre al terminar; Ana queda libre cuando regresa del trabajo. Son horas de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
               "speaker": "luis",
-              "text": "I finish work at five.",
+              "text": "What time do you arrive home?",
               "image": "05",
-              "clipId": "preview-22a750f291af558c",
-              "audio": "audio/takes/f9fc003d6eb48dd8784fe7688c71a48651808bd88997627d4a51b8f8a8ab8c45.mp3",
-              "audioSha256": "f9fc003d6eb48dd8784fe7688c71a48651808bd88997627d4a51b8f8a8ab8c45",
-              "clock": {
-                "hour": 5,
-                "minute": 0
-              }
-            },
-            {
-              "speaker": "ana",
-              "text": "I finish work at six.",
-              "image": "t18",
-              "clipId": "preview-997b48344bbabbac",
-              "audio": "audio/takes/c243e2527d5b9c40e0c856203c92fbd479096047f83b2326aab8845f893e2fd4.mp3",
-              "audioSha256": "c243e2527d5b9c40e0c856203c92fbd479096047f83b2326aab8845f893e2fd4",
-              "clock": {
-                "hour": 6,
-                "minute": 0
-              }
+              "clipId": "preview-4d08fe6ec33c5db9",
+              "audio": "audio/takes/caf0d7e687399f0830732af909c64b4fca928c0c3298d62c609ff5921c641c6c.mp3",
+              "audioSha256": "caf0d7e687399f0830732af909c64b4fca928c0c3298d62c609ff5921c641c6c"
             }
           ],
           "options": [
@@ -639,7 +595,7 @@
             }
           ],
           "answer": "what-time-do-you-arrive-home",
-          "hint_es": "Ya escuchaste cuándo termina Ana. Falta cuándo llega a casa.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -651,27 +607,26 @@
             }
           ],
           "feedbackByOption": {
-            "what-time-do-you-finish-work": "Ya escuchaste cuándo termina Ana. Falta cuándo llega a casa."
+            "what-time-do-you-finish-work": "Escuchaste «What time do you arrive home?», no «What time do you finish work?»."
           }
         },
         {
           "id": "1.1-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Continúa el nuevo encuentro en casa de Ana. Luis ya estará allí y disponible; Ana estará disponible al llegar. Son horas de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I arrive home at eight.",
-              "image": "t18",
-              "clipId": "preview-b99e871581942886",
-              "audio": "audio/takes/52ced85bf0cc43f08a5e74d800cb0d4f65d3be48ba2645356327c2fe14fa397e.mp3",
-              "audioSha256": "52ced85bf0cc43f08a5e74d800cb0d4f65d3be48ba2645356327c2fe14fa397e",
+              "speaker": "luis",
+              "text": "Let's meet at eight.",
+              "image": "05",
               "clock": {
                 "hour": 8,
                 "minute": 0
-              }
+              },
+              "clipId": "preview-7bd6eed7640d2434",
+              "audio": "audio/takes/1753a4eb7fed0638066ea1956020ab3fb246dfad66e21850202bb01d2c01593a.mp3",
+              "audioSha256": "1753a4eb7fed0638066ea1956020ab3fb246dfad66e21850202bb01d2c01593a"
             }
           ],
           "options": [
@@ -685,7 +640,7 @@
             }
           ],
           "answer": "let-s-meet-at-eight",
-          "hint_es": "Usa la nueva llegada de Ana. No reutilices el horario del primer día.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -709,7 +664,7 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-seven": "Usa la nueva llegada de Ana. No reutilices el horario del primer día."
+            "let-s-meet-at-seven": "Escuchaste «Let's meet at eight.», no «Let's meet at seven.»."
           }
         },
         {
@@ -1091,7 +1046,8 @@
         "finish work",
         "arrive home",
         "meet"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.2",
@@ -1666,7 +1622,6 @@
           "id": "1.2-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Primer día: Ana y después Luis cuentan su mañana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -1740,7 +1695,6 @@
           "id": "1.2-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Misma tarde: cada persona da su propio horario.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -1814,32 +1768,19 @@
           "id": "1.2-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis quieren verse en persona en casa de Ana. Hoy Luis trabaja allí y queda libre al terminar; Ana queda libre al llegar del trabajo. Son horas de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I arrive home at six.",
-              "image": "t18",
-              "clipId": "preview-ec4f31f858b79be6",
-              "audio": "audio/takes/16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267.mp3",
-              "audioSha256": "16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267",
-              "clock": {
-                "hour": 6,
-                "minute": 0
-              }
-            },
-            {
               "speaker": "luis",
-              "text": "I finish work at seven.",
+              "text": "Let's meet at seven.",
               "image": "05",
-              "clipId": "preview-b8c9ee02e9d1427f",
-              "audio": "audio/takes/718d7eb476790cd9b9d70cacb67344a89dadb7f7f84c537c8f0363dc2a9d25fe.mp3",
-              "audioSha256": "718d7eb476790cd9b9d70cacb67344a89dadb7f7f84c537c8f0363dc2a9d25fe",
               "clock": {
                 "hour": 7,
                 "minute": 0
-              }
+              },
+              "clipId": "preview-aff686f57e47f63b",
+              "audio": "audio/takes/e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345.mp3",
+              "audioSha256": "e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345"
             }
           ],
           "options": [
@@ -1853,7 +1794,7 @@
             }
           ],
           "answer": "let-s-meet-at-seven",
-          "hint_es": "Ana llega a las seis, pero Luis sigue trabajando hasta las siete. A las seis todavía no están ambos disponibles.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -1877,14 +1818,13 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-six": "Ana llega a las seis, pero Luis sigue trabajando hasta las siete. A las seis todavía no están ambos disponibles."
+            "let-s-meet-at-six": "Escuchaste «Let's meet at seven.», no «Let's meet at six.»."
           }
         },
         {
           "id": "1.2-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Nuevo día: los horarios de trabajo han cambiado.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -1958,7 +1898,6 @@
           "id": "1.2-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otra mañana: escucha el relato de cada persona.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -2394,7 +2333,8 @@
         "arrives",
         "works",
         "but"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.3",
@@ -2908,7 +2848,6 @@
           "id": "1.3-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Un nuevo día: horario de mañana a tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -2966,7 +2905,6 @@
           "id": "1.3-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Luis propone el momento de la visita; aún no fija una hora.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -3016,7 +2954,6 @@
           "id": "1.3-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana describe su regreso de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -3058,7 +2995,6 @@
           "id": "1.3-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otro horario de mañana, con las acciones conocidas.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -3100,7 +3036,6 @@
           "id": "1.3-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "La misma mañana, contada con otra relación temporal.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -3142,40 +3077,19 @@
           "id": "1.3-A06",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otra tarde: Ana y Luis quieren reunirse en casa. Luis está disponible en ambas horas; Ana solo después de llegar.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I work from eight to five.",
-              "image": "t18",
-              "clockCues": [
-                {
-                  "hour": 8,
-                  "minute": 0,
-                  "label": "From"
-                },
-                {
-                  "hour": 5,
-                  "minute": 0,
-                  "label": "To"
-                }
-              ],
-              "clipId": "preview-7a54ba6f65b09f40",
-              "audio": "audio/takes/2d7a24c4981421d9231be0ed3798697b1c25e1e7f498884e6635205ea7650a0c.mp3",
-              "audioSha256": "2d7a24c4981421d9231be0ed3798697b1c25e1e7f498884e6635205ea7650a0c"
-            },
-            {
-              "speaker": "ana",
-              "text": "I arrive home at six.",
-              "image": "t18",
-              "clipId": "preview-ec4f31f858b79be6",
-              "audio": "audio/takes/16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267.mp3",
-              "audioSha256": "16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267",
+              "speaker": "luis",
+              "text": "Let's meet at six.",
+              "image": "05",
               "clock": {
                 "hour": 6,
                 "minute": 0
-              }
+              },
+              "clipId": "preview-202ffda56e2c4ec0",
+              "audio": "audio/takes/b8123cb786d8bc617c05a9f8fac1949bbb3b1933bdea2e60ee184fb68d0818c0.mp3",
+              "audioSha256": "b8123cb786d8bc617c05a9f8fac1949bbb3b1933bdea2e60ee184fb68d0818c0"
             }
           ],
           "options": [
@@ -3189,7 +3103,7 @@
             }
           ],
           "answer": "let-s-meet-at-six",
-          "hint_es": "Terminar el trabajo no equivale a estar en casa. Usa también la llegada.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -3205,27 +3119,26 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-five": "Terminar el trabajo no equivale a estar en casa. Usa también la llegada."
+            "let-s-meet-at-five": "Escuchaste «Let's meet at six.», no «Let's meet at five.»."
           }
         },
         {
           "id": "1.3-A07",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Continúa el mismo plan. Ana está disponible desde que llega hasta la cena; la reunión será breve y terminará antes de cenar.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I eat dinner at seven.",
-              "image": "t18",
-              "clipId": "preview-a183b130f1b2da7a",
-              "audio": "audio/takes/e8e6db587a68207427d089593d92c5c4e7491c669c20c0cbccfeec4752f10bd0.mp3",
-              "audioSha256": "e8e6db587a68207427d089593d92c5c4e7491c669c20c0cbccfeec4752f10bd0",
+              "speaker": "luis",
+              "text": "Let's meet at six.",
+              "image": "05",
               "clock": {
-                "hour": 7,
+                "hour": 6,
                 "minute": 0
-              }
+              },
+              "clipId": "preview-202ffda56e2c4ec0",
+              "audio": "audio/takes/b8123cb786d8bc617c05a9f8fac1949bbb3b1933bdea2e60ee184fb68d0818c0.mp3",
+              "audioSha256": "b8123cb786d8bc617c05a9f8fac1949bbb3b1933bdea2e60ee184fb68d0818c0"
             }
           ],
           "options": [
@@ -3239,7 +3152,7 @@
             }
           ],
           "answer": "let-s-meet-at-six",
-          "hint_es": "La hora debe quedar después de la llegada y antes de la cena.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -3263,7 +3176,7 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-seven": "La hora debe quedar después de la llegada y antes de la cena."
+            "let-s-meet-at-seven": "Escuchaste «Let's meet at six.», no «Let's meet at seven.»."
           }
         },
         {
@@ -3640,7 +3553,8 @@
         "to",
         "before",
         "after"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.4",
@@ -4135,7 +4049,6 @@
           "id": "1.4-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana cuenta la primera mañana; la salida está prevista para las ocho.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -4197,7 +4110,6 @@
           "id": "1.4-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sigue la preparación que Ana dice, sin suponer tu propia rutina.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -4247,7 +4159,6 @@
           "id": "1.4-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otra mañana, con horarios nuevos.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -4309,7 +4220,6 @@
           "id": "1.4-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Preparación con otra prenda. Escucha el plan completo.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -4367,7 +4277,6 @@
           "id": "1.4-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Regreso de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -4421,7 +4330,6 @@
           "id": "1.4-A06",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Noche: escucha qué hace Ana.",
           "instruction_es": "¡Escucha y elige la foto!",
           "turns": [
             {
@@ -4457,7 +4365,6 @@
           "id": "1.4-A07",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana describe su preparación para salir.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -4499,7 +4406,6 @@
           "id": "1.4-A08",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana cuenta su regreso a casa.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -4913,7 +4819,8 @@
         "put on",
         "take off",
         "go to bed"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.5",
@@ -5348,7 +5255,6 @@
           "id": "1.5-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana describe sus regresos a casa; las fotos no indican la frecuencia.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -5380,7 +5286,6 @@
           "id": "1.5-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana añade otro dato sobre su rutina.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -5412,7 +5317,6 @@
           "id": "1.5-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Escucha el perfil de Ana completo.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -5452,7 +5356,6 @@
           "id": "1.5-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Nuevo perfil: ahora habla Luis. No uses los hábitos de Ana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -5492,7 +5395,6 @@
           "id": "1.5-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Luis continúa su propio perfil.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -5532,7 +5434,6 @@
           "id": "1.5-A06",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Encuentro aparte: escucha un nuevo perfil de Luis. No uses los datos del encuentro anterior.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -5869,7 +5770,8 @@
         "usually",
         "sometimes",
         "every day"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.6",
@@ -6274,20 +6176,15 @@
           "id": "1.6-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Luis y Ana completan los datos de un nuevo horario de estudio, por la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I study at home at seven.",
-              "image": "t18",
-              "clipId": "preview-63433e01f665adaf",
-              "audio": "audio/takes/d1d59c36f826864206185dcbd685602fd17f415d14b41045c01f4fece1bd0613.mp3",
-              "audioSha256": "d1d59c36f826864206185dcbd685602fd17f415d14b41045c01f4fece1bd0613",
-              "clock": {
-                "hour": 7,
-                "minute": 0
-              }
+              "speaker": "luis",
+              "text": "How often do you study at home?",
+              "image": "05",
+              "clipId": "preview-547fdca7f7c6d8b2",
+              "audio": "audio/takes/2e1c30b70129ab12243cea1a369632107b032aeaa49f2d58d9dcf64cb2b3a826.mp3",
+              "audioSha256": "2e1c30b70129ab12243cea1a369632107b032aeaa49f2d58d9dcf64cb2b3a826"
             }
           ],
           "options": [
@@ -6301,7 +6198,7 @@
             }
           ],
           "answer": "how-often-do-you-study-at-home",
-          "hint_es": "At seven ya informa la hora. How often pide la frecuencia, que todavía no aparece en el audio.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -6313,14 +6210,13 @@
             }
           ],
           "feedbackByOption": {
-            "what-time-do-you-study-at-home": "At seven ya informa la hora. How often pide la frecuencia, que todavía no aparece en el audio."
+            "what-time-do-you-study-at-home": "Escuchaste «How often do you study at home?», no «What time do you study at home?»."
           }
         },
         {
           "id": "1.6-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Escucha la respuesta y el segundo dato del mismo perfil.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -6368,7 +6264,6 @@
           "id": "1.6-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana responde durante la entrevista sobre sus hábitos.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -6408,9 +6303,16 @@
           "id": "1.6-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "La misma entrevista continúa con otra consulta.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
+            {
+              "speaker": "ana",
+              "text": "I study every day.",
+              "image": "t18",
+              "clipId": "preview-0b5401bb5bda7b55",
+              "audio": "audio/takes/98bbcea3f76b14a1bc38acbbaf90135ab9ea87f59b6ec1f9a56cdfd73c0ce2e1.mp3",
+              "audioSha256": "98bbcea3f76b14a1bc38acbbaf90135ab9ea87f59b6ec1f9a56cdfd73c0ce2e1"
+            },
             {
               "speaker": "luis",
               "text": "How often do you study at night?",
@@ -6448,7 +6350,6 @@
           "id": "1.6-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otra entrevista sobre la rutina de Ana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -6488,20 +6389,15 @@
           "id": "1.6-A06",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otra consulta sobre el estudio de Ana, en un horario distinto de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I study at the library at eight.",
-              "image": "t18",
-              "clipId": "preview-fcc402aca52b9e6e",
-              "audio": "audio/takes/cd8601f43d964d8be419307c86d6edba17a43c948de5a2ada8c8761cdf6f36e7.mp3",
-              "audioSha256": "cd8601f43d964d8be419307c86d6edba17a43c948de5a2ada8c8761cdf6f36e7",
-              "clock": {
-                "hour": 8,
-                "minute": 0
-              }
+              "speaker": "luis",
+              "text": "How often do you study at the library?",
+              "image": "05",
+              "clipId": "preview-b9248b319d17c019",
+              "audio": "audio/takes/67f3477f28861b4ea32d0395ac944f4d472bdb8d6114ea73f3644de4c78fa8ef.mp3",
+              "audioSha256": "67f3477f28861b4ea32d0395ac944f4d472bdb8d6114ea73f3644de4c78fa8ef"
             }
           ],
           "options": [
@@ -6515,7 +6411,7 @@
             }
           ],
           "answer": "how-often-do-you-study-at-the-library",
-          "hint_es": "At eight ya informa la hora de estudio en la biblioteca. How often obtiene la frecuencia que aún falta.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -6527,14 +6423,13 @@
             }
           ],
           "feedbackByOption": {
-            "what-time-do-you-study-at-the-library": "At eight ya informa la hora de estudio en la biblioteca. How often obtiene la frecuencia que aún falta."
+            "what-time-do-you-study-at-the-library": "Escuchaste «How often do you study at the library?», no «What time do you study at the library?»."
           }
         },
         {
           "id": "1.6-A07",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Escucha el nuevo perfil de Ana; pertenece a este encuentro.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -6980,7 +6875,8 @@
       "vocabulary": [
         "How often",
         "studies"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.7",
@@ -7447,7 +7343,6 @@
           "id": "1.7-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Diego y Luis están ajustando una visita. Escucha la corrección del horario de Ana, por la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -7499,32 +7394,19 @@
           "id": "1.7-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Misma visita: Ana ya aceptó recibirlos en casa después de llegar; Luis y Diego están disponibles. Solo falta elegir una hora posible.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "luis",
-              "text": "She finishes at six.",
-              "image": "r17",
+              "speaker": "diego",
+              "text": "Let's meet at eight.",
+              "image": "t32",
               "clock": {
-                "hour": 6,
+                "hour": 8,
                 "minute": 0
               },
-              "clipId": "preview-2acb3b0985062444",
-              "audio": "audio/takes/99195a0414bccd6e8ac75b7bdda2e6ad4544b29599b3160a13a055d969bf3138.mp3",
-              "audioSha256": "99195a0414bccd6e8ac75b7bdda2e6ad4544b29599b3160a13a055d969bf3138"
-            },
-            {
-              "speaker": "luis",
-              "text": "She arrives home at seven.",
-              "image": "r17",
-              "clock": {
-                "hour": 7,
-                "minute": 0
-              },
-              "clipId": "preview-23b78d03e41e2699",
-              "audio": "audio/takes/0ac78bf2773d2b494742c3e056971ad34e49a32eff6a647d2203cdb16c16d5d1.mp3",
-              "audioSha256": "0ac78bf2773d2b494742c3e056971ad34e49a32eff6a647d2203cdb16c16d5d1"
+              "clipId": "preview-857683062a0caea9",
+              "audio": "audio/takes/1753a4eb7fed0638066ea1956020ab3fb246dfad66e21850202bb01d2c01593a.mp3",
+              "audioSha256": "1753a4eb7fed0638066ea1956020ab3fb246dfad66e21850202bb01d2c01593a"
             }
           ],
           "options": [
@@ -7538,7 +7420,7 @@
             }
           ],
           "answer": "let-s-meet-at-eight",
-          "hint_es": "Terminar de trabajar no es llegar a casa. La propuesta debe ser posterior a su regreso.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "diego",
@@ -7554,14 +7436,13 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-six": "Terminar de trabajar no es llegar a casa. La propuesta debe ser posterior a su regreso."
+            "let-s-meet-at-six": "Escuchaste «Let's meet at eight.», no «Let's meet at six.»."
           }
         },
         {
           "id": "1.7-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Consulta aparte sobre el inicio de Luis, por la mañana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -7613,7 +7494,6 @@
           "id": "1.7-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Comprueba otra pregunta sobre el mismo horario de Luis.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -7653,7 +7533,6 @@
           "id": "1.7-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otro dato: los regresos de Luis antes de cenar.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -7705,7 +7584,6 @@
           "id": "1.7-A06",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Nuevo encuentro: cambió el horario de Ana. Usa únicamente esta respuesta.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -7762,20 +7640,19 @@
           "id": "1.7-A07",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "En esta nueva visita, Ana aceptó recibirlos después de llegar a casa por la tarde. Los visitantes están disponibles. Escucha la llegada.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "luis",
-              "text": "She arrives home at six.",
-              "image": "r17",
+              "speaker": "diego",
+              "text": "Let's meet at seven.",
+              "image": "t32",
               "clock": {
-                "hour": 6,
+                "hour": 7,
                 "minute": 0
               },
-              "clipId": "preview-29bc6dc39e723e2d",
-              "audio": "audio/takes/5cef218b98ea6556dda443b0736112d372e234c00166b1436dcc9c06f34626e2.mp3",
-              "audioSha256": "5cef218b98ea6556dda443b0736112d372e234c00166b1436dcc9c06f34626e2"
+              "clipId": "preview-638b11d3cc137f35",
+              "audio": "audio/takes/e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345.mp3",
+              "audioSha256": "e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345"
             }
           ],
           "options": [
@@ -7789,7 +7666,7 @@
             }
           ],
           "answer": "let-s-meet-at-seven",
-          "hint_es": "Usa la llegada de este encuentro, no la del anterior.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "diego",
@@ -7805,14 +7682,13 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-five": "Usa la llegada de este encuentro, no la del anterior."
+            "let-s-meet-at-five": "Escuchaste «Let's meet at seven.», no «Let's meet at five.»."
           }
         },
         {
           "id": "1.7-A08",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Diego comprueba el perfil de estudio de Ana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -8254,7 +8130,8 @@
       "vocabulary": [
         "Does",
         "does not"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.8",
@@ -8657,16 +8534,15 @@
           "id": "1.8-A01",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis continúan su conversación sobre las actividades de Ana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I study after work.",
-              "image": "t18",
-              "clipId": "preview-f8681be9c43acf9d",
-              "audio": "audio/takes/b7485b468e5cccddc1db80aae731eae302bccaf3b1dea9be1f405bc4ab7bd96f.mp3",
-              "audioSha256": "b7485b468e5cccddc1db80aae731eae302bccaf3b1dea9be1f405bc4ab7bd96f"
+              "speaker": "luis",
+              "text": "Where do you study?",
+              "image": "05",
+              "clipId": "preview-7681f1947c250f23",
+              "audio": "audio/takes/a01df8138e180ee4936205ccb4dee050525a0d56394b15c9d905dd8c3ff8f91f.mp3",
+              "audioSha256": "a01df8138e180ee4936205ccb4dee050525a0d56394b15c9d905dd8c3ff8f91f"
             }
           ],
           "options": [
@@ -8680,7 +8556,7 @@
             }
           ],
           "answer": "where-do-you-study",
-          "hint_es": "After work ya responde cuándo. Where pregunta el lugar, que Ana todavía no ha dicho.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -8692,14 +8568,13 @@
             }
           ],
           "feedbackByOption": {
-            "when-do-you-study": "After work ya responde cuándo. Where pregunta el lugar, que Ana todavía no ha dicho."
+            "when-do-you-study": "Escuchaste «Where do you study?», no «When do you study?»."
           }
         },
         {
           "id": "1.8-A02",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana responde a la consulta de Luis.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -8741,16 +8616,15 @@
           "id": "1.8-A03",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Un visitante conversa con Luis para organizar una visita a su trabajo.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "teacher",
-              "text": "Luis works at the school.",
+              "speaker": "co-teacher",
+              "text": "When does Luis work?",
               "image": "16",
-              "clipId": "preview-d03bdaae7e1fc375",
-              "audio": "audio/takes/2ebefd1f8f709561a6f3656ae697ca731b9320e41936f92da3edde7811d68c8c.mp3",
-              "audioSha256": "2ebefd1f8f709561a6f3656ae697ca731b9320e41936f92da3edde7811d68c8c"
+              "clipId": "preview-57453f587d172393",
+              "audio": "audio/takes/fc02f82883e191b20381b93ad7b123ed5a8a17a1e87fca89a1761cc2d9ebb9ae.mp3",
+              "audioSha256": "fc02f82883e191b20381b93ad7b123ed5a8a17a1e87fca89a1761cc2d9ebb9ae"
             }
           ],
           "options": [
@@ -8764,7 +8638,7 @@
             }
           ],
           "answer": "when-does-luis-work",
-          "hint_es": "At the school ya informa el lugar. When pregunta cuándo trabaja Luis, un dato aún no dado.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "co-teacher",
@@ -8776,14 +8650,13 @@
             }
           ],
           "feedbackByOption": {
-            "where-does-luis-work": "At the school ya informa el lugar. When pregunta cuándo trabaja Luis, un dato aún no dado."
+            "where-does-luis-work": "Escuchaste «When does Luis work?», no «Where does Luis work?»."
           }
         },
         {
           "id": "1.8-A04",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "El visitante necesita hablar con Luis en el trabajo, durante uno de los dos días mencionados.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -8815,16 +8688,15 @@
           "id": "1.8-A05",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Luis y Ana completan los datos de una nueva rutina.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I take a shower at home.",
-              "image": "t18",
-              "clipId": "preview-3d6f0ed1ac7d8495",
-              "audio": "audio/takes/8532515fcefaf7ac051afba509b54cad669c1d7b4515c46e7837fc0022f8bdb4.mp3",
-              "audioSha256": "8532515fcefaf7ac051afba509b54cad669c1d7b4515c46e7837fc0022f8bdb4"
+              "speaker": "luis",
+              "text": "When do you take a shower?",
+              "image": "05",
+              "clipId": "preview-69b42a573d21766c",
+              "audio": "audio/takes/1630be4ae04639dd43586844970aa4da3ad56c47631eb41f665327bfd638097a.mp3",
+              "audioSha256": "1630be4ae04639dd43586844970aa4da3ad56c47631eb41f665327bfd638097a"
             }
           ],
           "options": [
@@ -8838,7 +8710,7 @@
             }
           ],
           "answer": "when-do-you-take-a-shower",
-          "hint_es": "At home ya informa dónde se ducha Ana. When pide el momento, que todavía no se ha mencionado.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -8850,14 +8722,13 @@
             }
           ],
           "feedbackByOption": {
-            "where-do-you-take-a-shower": "At home ya informa dónde se ducha Ana. When pide el momento, que todavía no se ha mencionado."
+            "where-do-you-take-a-shower": "Escuchaste «When do you take a shower?», no «Where do you take a shower?»."
           }
         },
         {
           "id": "1.8-A06",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana cuenta otro dato de este nuevo horario.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -8889,16 +8760,15 @@
           "id": "1.8-A07",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis completan los datos de su preparación para salir.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I put on my shoes before I leave home.",
-              "image": "t18",
-              "clipId": "preview-db41f253a0233a78",
-              "audio": "audio/takes/421f6826ef4acb4824efcc85bdb1f64996e4982de4cdde7da0cadd93ac314e65.mp3",
-              "audioSha256": "421f6826ef4acb4824efcc85bdb1f64996e4982de4cdde7da0cadd93ac314e65"
+              "speaker": "luis",
+              "text": "Where do you put on your shoes?",
+              "image": "05",
+              "clipId": "preview-2a0f7b48ed105740",
+              "audio": "audio/takes/363fcdbce06c4122b1280a67dd39497bc52f37bfb0e50d93b7dfbb7ef5139ebf.mp3",
+              "audioSha256": "363fcdbce06c4122b1280a67dd39497bc52f37bfb0e50d93b7dfbb7ef5139ebf"
             }
           ],
           "options": [
@@ -8912,7 +8782,7 @@
             }
           ],
           "answer": "where-do-you-put-on-your-shoes",
-          "hint_es": "Before I leave home ya responde cuándo. Where pide el lugar donde se pone los zapatos.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -8924,14 +8794,13 @@
             }
           ],
           "feedbackByOption": {
-            "when-do-you-put-on-your-shoes": "Before I leave home ya responde cuándo. Where pide el lugar donde se pone los zapatos."
+            "when-do-you-put-on-your-shoes": "Escuchaste «Where do you put on your shoes?», no «When do you put on your shoes?»."
           }
         },
         {
           "id": "1.8-A08",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana responde a la consulta.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -8963,20 +8832,15 @@
           "id": "1.8-A09",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis completan un nuevo horario de la mañana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I wake up at six.",
-              "image": "t18",
-              "clock": {
-                "hour": 6,
-                "minute": 0
-              },
-              "clipId": "preview-057b214cbef99cb9",
-              "audio": "audio/takes/fac40f1cb80e76c2404594cd95fff38b1881d7619cfedce462185ec63581d405.mp3",
-              "audioSha256": "fac40f1cb80e76c2404594cd95fff38b1881d7619cfedce462185ec63581d405"
+              "speaker": "luis",
+              "text": "When do you get up?",
+              "image": "05",
+              "clipId": "preview-ab6ceef6ade8eed6",
+              "audio": "audio/takes/54bff7fcd1d3df0e2e880a7c8e1bf5bdd716b24614c8fc4f018a4f716be4c641.mp3",
+              "audioSha256": "54bff7fcd1d3df0e2e880a7c8e1bf5bdd716b24614c8fc4f018a4f716be4c641"
             }
           ],
           "options": [
@@ -8990,7 +8854,7 @@
             }
           ],
           "answer": "when-do-you-get-up",
-          "hint_es": "Wake up at six ya informa cuándo se despierta. Get up pregunta por levantarse de la cama, una acción distinta.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -9002,14 +8866,13 @@
             }
           ],
           "feedbackByOption": {
-            "when-do-you-wake-up": "Wake up at six ya informa cuándo se despierta. Get up pregunta por levantarse de la cama, una acción distinta."
+            "when-do-you-wake-up": "Escuchaste «When do you get up?», no «When do you wake up?»."
           }
         },
         {
           "id": "1.8-A10",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Mismo horario, por la mañana. Escucha la respuesta nueva.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -9050,20 +8913,15 @@
           "id": "1.8-A11",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis completan los datos de un nuevo horario de tarde y noche.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I arrive home at six.",
-              "image": "t18",
-              "clock": {
-                "hour": 6,
-                "minute": 0
-              },
-              "clipId": "preview-ec4f31f858b79be6",
-              "audio": "audio/takes/16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267.mp3",
-              "audioSha256": "16e763de873b1b6c14aa9629774e01af7ab3dac4c8a9a5f96832861abdc2a267"
+              "speaker": "luis",
+              "text": "When do you go to bed?",
+              "image": "05",
+              "clipId": "preview-2fa6ebb5ffb9ca32",
+              "audio": "audio/takes/018c3fb7d09d0b5b21cbea10ebde88f7a105fb9f26f1c16d85e98ea3f58f9659.mp3",
+              "audioSha256": "018c3fb7d09d0b5b21cbea10ebde88f7a105fb9f26f1c16d85e98ea3f58f9659"
             }
           ],
           "options": [
@@ -9077,7 +8935,7 @@
             }
           ],
           "answer": "when-do-you-go-to-bed",
-          "hint_es": "Arrive home at six ya responde cuándo llega a casa. Go to bed pide el horario de otra acción que falta por conocer.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -9089,14 +8947,13 @@
             }
           ],
           "feedbackByOption": {
-            "when-do-you-arrive-home": "Arrive home at six ya responde cuándo llega a casa. Go to bed pide el horario de otra acción que falta por conocer."
+            "when-do-you-arrive-home": "Escuchaste «When do you go to bed?», no «When do you arrive home?»."
           }
         },
         {
           "id": "1.8-A12",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Escucha el dato que completa este horario nocturno.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -9132,16 +8989,15 @@
           "id": "1.8-A13",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis completan los datos de una nueva rutina de estudio.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "ana",
-              "text": "I study at home.",
-              "image": "t18",
-              "clipId": "preview-fb2974992213f2d1",
-              "audio": "audio/takes/c53e8e15688d5e912db4c4de51c411b70b0ba14f7f340a9dad7f89ea4590ba0e.mp3",
-              "audioSha256": "c53e8e15688d5e912db4c4de51c411b70b0ba14f7f340a9dad7f89ea4590ba0e"
+              "speaker": "luis",
+              "text": "How often do you study at home?",
+              "image": "05",
+              "clipId": "preview-547fdca7f7c6d8b2",
+              "audio": "audio/takes/2e1c30b70129ab12243cea1a369632107b032aeaa49f2d58d9dcf64cb2b3a826.mp3",
+              "audioSha256": "2e1c30b70129ab12243cea1a369632107b032aeaa49f2d58d9dcf64cb2b3a826"
             }
           ],
           "options": [
@@ -9155,7 +9011,7 @@
             }
           ],
           "answer": "how-often-do-you-study-at-home",
-          "hint_es": "At home ya informa el lugar. How often pide la frecuencia de estudio en ese lugar.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -9167,14 +9023,13 @@
             }
           ],
           "feedbackByOption": {
-            "where-do-you-study": "At home ya informa el lugar. How often pide la frecuencia de estudio en ese lugar."
+            "where-do-you-study": "Escuchaste «How often do you study at home?», no «Where do you study?»."
           }
         },
         {
           "id": "1.8-A14",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "La conversación continúa con otro dato de Ana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -9610,7 +9465,8 @@
       "vocabulary": [
         "Where",
         "When"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.9",
@@ -10092,68 +9948,19 @@
           "id": "1.9-16",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis quieren verse esta tarde y están disponibles después de que Ana llegue a casa. Escucha su horario.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
               "speaker": "luis",
-              "text": "Let's meet at five.",
+              "text": "Let's meet at seven.",
               "image": "05",
-              "clipId": "preview-82b12a9166d6e576",
-              "audio": "audio/takes/df933dd8de28612e2112b5549dd05154a3eb501437e46031f1102a9dd36a72fc.mp3",
-              "audioSha256": "df933dd8de28612e2112b5549dd05154a3eb501437e46031f1102a9dd36a72fc",
-              "clock": {
-                "hour": 5,
-                "minute": 0
-              }
-            },
-            {
-              "speaker": "ana",
-              "text": "No, thank you.",
-              "image": "t18",
-              "clipId": "preview-49b8306c47e1435b",
-              "audio": "audio/takes/a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd.mp3",
-              "audioSha256": "a2d5f90cdeb06fc14024e1dd0c2951ff731a3f81f42d5633c400e7e3e29daebd"
-            },
-            {
-              "speaker": "luis",
-              "text": "Why not?",
-              "image": "05",
-              "clipId": "preview-9321662deaee1945",
-              "audio": "audio/takes/5a4b59e849ddf2a4dfe2eaec6cde0d2eb1792cf785c4359958c18e6ffac53435.mp3",
-              "audioSha256": "5a4b59e849ddf2a4dfe2eaec6cde0d2eb1792cf785c4359958c18e6ffac53435"
-            },
-            {
-              "speaker": "ana",
-              "text": "Because I work from eight to six.",
-              "image": "t18",
-              "clockCues": [
-                {
-                  "hour": 8,
-                  "minute": 0,
-                  "label": "From"
-                },
-                {
-                  "hour": 6,
-                  "minute": 0,
-                  "label": "To"
-                }
-              ],
-              "clipId": "preview-2cd1fa12073ae13b",
-              "audio": "audio/takes/720f648c27b9bbca3823087940a46d03dfeb34c2aa06cadc1de983f1f0337b85.mp3",
-              "audioSha256": "720f648c27b9bbca3823087940a46d03dfeb34c2aa06cadc1de983f1f0337b85"
-            },
-            {
-              "speaker": "ana",
-              "text": "I arrive home at seven.",
-              "image": "t18",
               "clock": {
                 "hour": 7,
                 "minute": 0
               },
-              "clipId": "preview-60ba6b5bd1746f6b",
-              "audio": "audio/takes/daea056870d1af42fca8e76a5abb2606b0f2864794d2a831d4454b5b9af7a183.mp3",
-              "audioSha256": "daea056870d1af42fca8e76a5abb2606b0f2864794d2a831d4454b5b9af7a183"
+              "clipId": "preview-aff686f57e47f63b",
+              "audio": "audio/takes/e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345.mp3",
+              "audioSha256": "e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345"
             }
           ],
           "options": [
@@ -10167,7 +9974,7 @@
             }
           ],
           "answer": "let-s-meet-at-seven",
-          "hint_es": "La propuesta debe quedar después del trabajo y respetar la hora disponible.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -10191,75 +9998,26 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-five": "La propuesta debe quedar después del trabajo y respetar la hora disponible."
+            "let-s-meet-at-five": "Escuchaste «Let's meet at seven.», no «Let's meet at five.»."
           }
         },
         {
           "id": "1.9-17",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Una visita diferente: Ana y Luis quieren verse esta noche y están disponibles después de que Luis llegue a casa. Escucha su horario.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
               "speaker": "ana",
-              "text": "Let's meet at six.",
+              "text": "Let's meet at eight.",
               "image": "t18",
-              "clipId": "preview-9293118d8365af02",
-              "audio": "audio/takes/2af606dc673e3b25d9f07e6a18daed577430c9a81868e8a29317198426114099.mp3",
-              "audioSha256": "2af606dc673e3b25d9f07e6a18daed577430c9a81868e8a29317198426114099",
-              "clock": {
-                "hour": 6,
-                "minute": 0
-              }
-            },
-            {
-              "speaker": "luis",
-              "text": "No, thank you.",
-              "image": "05",
-              "clipId": "preview-12a2cab5b43acd6b",
-              "audio": "audio/takes/bfd319654ee9cb5857154bfcf19f2d8bd11e359821e307fa468da45d51a68503.mp3",
-              "audioSha256": "bfd319654ee9cb5857154bfcf19f2d8bd11e359821e307fa468da45d51a68503"
-            },
-            {
-              "speaker": "ana",
-              "text": "Why not?",
-              "image": "t18",
-              "clipId": "preview-3262368ec4202bb6",
-              "audio": "audio/takes/0484723c435f27a2bd4a4a77b3ff0b249997a31e379d899831fc6392c98dc6ae.mp3",
-              "audioSha256": "0484723c435f27a2bd4a4a77b3ff0b249997a31e379d899831fc6392c98dc6ae"
-            },
-            {
-              "speaker": "luis",
-              "text": "Because I work from nine to seven.",
-              "image": "05",
-              "clockCues": [
-                {
-                  "hour": 9,
-                  "minute": 0,
-                  "label": "From"
-                },
-                {
-                  "hour": 7,
-                  "minute": 0,
-                  "label": "To"
-                }
-              ],
-              "clipId": "preview-4b035767d11ecce3",
-              "audio": "audio/takes/64d5c1683c7e8e65e68c8fb79b0a2a5fd0585a1ab177c73e66a5b82bd0c343bb.mp3",
-              "audioSha256": "64d5c1683c7e8e65e68c8fb79b0a2a5fd0585a1ab177c73e66a5b82bd0c343bb"
-            },
-            {
-              "speaker": "luis",
-              "text": "I arrive home at eight.",
-              "image": "05",
               "clock": {
                 "hour": 8,
                 "minute": 0
               },
-              "clipId": "preview-c4fce896678770a7",
-              "audio": "audio/takes/33b22b2f91141fe720741a130245691bd192a26a67462063997e2de09467fe9c.mp3",
-              "audioSha256": "33b22b2f91141fe720741a130245691bd192a26a67462063997e2de09467fe9c"
+              "clipId": "preview-3323c7203b489e1c",
+              "audio": "audio/takes/e8c7a22def82633948a895bb9ef19a6e9c7a85f3e86de8d196772d042aa519aa.mp3",
+              "audioSha256": "e8c7a22def82633948a895bb9ef19a6e9c7a85f3e86de8d196772d042aa519aa"
             }
           ],
           "options": [
@@ -10273,7 +10031,7 @@
             }
           ],
           "answer": "let-s-meet-at-eight",
-          "hint_es": "El fin del trabajo no es la llegada a casa.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "ana",
@@ -10297,14 +10055,13 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-seven": "El fin del trabajo no es la llegada a casa."
+            "let-s-meet-at-seven": "Escuchaste «Let's meet at eight.», no «Let's meet at seven.»."
           }
         },
         {
           "id": "1.9-18",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis conversan sobre sus actividades.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -10344,7 +10101,6 @@
           "id": "1.9-19",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana prepara su salida.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -10394,7 +10150,6 @@
           "id": "1.9-20",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Encuentro nuevo: Luis está dentro de casa y explica su acción.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -10444,7 +10199,6 @@
           "id": "1.9-21",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis conversan sobre una actividad para compartir en casa.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -10868,7 +10622,8 @@
       "vocabulary": [
         "Why",
         "because"
-      ]
+      ],
+      "content_revision": 2
     },
     {
       "id": "1.10",
@@ -11142,7 +10897,6 @@
           "id": "1.10-09",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ana y Luis ya reservaron tiempo para verse hoy. El cambio afecta al lugar; ambos siguen disponibles para la visita.",
           "instruction_es": "¡Escucha y elige la foto!",
           "turns": [
             {
@@ -11192,7 +10946,6 @@
           "id": "1.10-10",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Los narradores continúan su conversación sobre Ana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -11232,7 +10985,6 @@
           "id": "1.10-11",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "La conversación sobre Ana continúa con otra consulta.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -11272,7 +11024,6 @@
           "id": "1.10-12",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otro día: Ana y Luis vuelven a tener una visita acordada; escucha esta nueva actualización.",
           "instruction_es": "¡Escucha y elige la foto!",
           "turns": [
             {
@@ -11322,7 +11073,6 @@
           "id": "1.10-13",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "En esa segunda situación, Luis informa a otra persona.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -11593,7 +11343,8 @@
           "spanish_translation": "Ella está en la biblioteca hoy."
         }
       ],
-      "vocabulary": []
+      "vocabulary": [],
+      "content_revision": 2
     },
     {
       "id": "1.11",
@@ -12192,7 +11943,6 @@
           "id": "1.11-18",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Diego cuenta su jornada habitual de la mañana a la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12250,7 +12000,6 @@
           "id": "1.11-18a",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Diego completa el comienzo de esa jornada. Conserva la diferencia entre salir y empezar a trabajar.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12316,7 +12065,6 @@
           "id": "1.11-18b",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Dos narradores comprueban una suposición sobre el horario de Diego.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12356,7 +12104,6 @@
           "id": "1.11-18c",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Ahora comprueban la hora verdadera del mismo horario.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12410,28 +12157,19 @@
           "id": "1.11-19",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Diego y Luis quieren verse en casa de Diego. Ambos están disponibles cuando Diego llega.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "diego",
-              "text": "I finish work at six. I arrive home at seven.",
+              "speaker": "luis",
+              "text": "Let's meet at seven.",
               "image": "r20",
-              "clockCues": [
-                {
-                  "hour": 6,
-                  "minute": 0,
-                  "label": "Finish"
-                },
-                {
-                  "hour": 7,
-                  "minute": 0,
-                  "label": "Arrive"
-                }
-              ],
-              "clipId": "preview-e0f6305caf7f5a25",
-              "audio": "audio/takes/a72681cc0b0a49fcad72eb13d272cf7d38d841ca77548b7652baaaed605add7f.mp3",
-              "audioSha256": "a72681cc0b0a49fcad72eb13d272cf7d38d841ca77548b7652baaaed605add7f"
+              "clock": {
+                "hour": 7,
+                "minute": 0
+              },
+              "clipId": "preview-aff686f57e47f63b",
+              "audio": "audio/takes/e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345.mp3",
+              "audioSha256": "e2ffa842175b5e2ce653d36fe58ef1ac22622a193177d33a3e06827ad2738345"
             }
           ],
           "options": [
@@ -12445,7 +12183,7 @@
             }
           ],
           "answer": "let-s-meet-at-seven",
-          "hint_es": "Distingue el fin del trabajo y la llegada a casa.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -12469,14 +12207,13 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-at-six": "Distingue el fin del trabajo y la llegada a casa."
+            "let-s-meet-at-six": "Escuchaste «Let's meet at seven.», no «Let's meet at six.»."
           }
         },
         {
           "id": "1.11-20",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Luis comprueba una suposición sobre Diego.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12533,48 +12270,15 @@
           "id": "1.11-21",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Luis puede en cualquiera de los dos días. Ambos quieren verse; Diego no tiene otros compromisos fuera del trabajo.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
               "speaker": "luis",
-              "text": "Let's meet on Saturday.",
+              "text": "Let's meet on Sunday.",
               "image": "r20",
-              "clipId": "preview-c8730cb6dec4823a",
-              "audio": "audio/takes/ae38d2141cc4171b6d276e24c56ab6a1e975b5d7ad90f86ce1aeb4849b17851d.mp3",
-              "audioSha256": "ae38d2141cc4171b6d276e24c56ab6a1e975b5d7ad90f86ce1aeb4849b17851d"
-            },
-            {
-              "speaker": "diego",
-              "text": "No, thank you.",
-              "image": "r20",
-              "clipId": "preview-038e04b5650b8417",
-              "audio": "audio/takes/bfd319654ee9cb5857154bfcf19f2d8bd11e359821e307fa468da45d51a68503.mp3",
-              "audioSha256": "bfd319654ee9cb5857154bfcf19f2d8bd11e359821e307fa468da45d51a68503"
-            },
-            {
-              "speaker": "luis",
-              "text": "Why not?",
-              "image": "r20",
-              "clipId": "preview-9321662deaee1945",
-              "audio": "audio/takes/5a4b59e849ddf2a4dfe2eaec6cde0d2eb1792cf785c4359958c18e6ffac53435.mp3",
-              "audioSha256": "5a4b59e849ddf2a4dfe2eaec6cde0d2eb1792cf785c4359958c18e6ffac53435"
-            },
-            {
-              "speaker": "diego",
-              "text": "Because I work on Saturday.",
-              "image": "r20",
-              "clipId": "preview-787fb0565fe195b0",
-              "audio": "audio/takes/b35ef92453880bdf1d1f9a07f50cd1c64392880c4bb301219bd79ecd6c2e54ab.mp3",
-              "audioSha256": "b35ef92453880bdf1d1f9a07f50cd1c64392880c4bb301219bd79ecd6c2e54ab"
-            },
-            {
-              "speaker": "diego",
-              "text": "I do not work on Sunday.",
-              "image": "r20",
-              "clipId": "preview-78e8e9a4338a4f96",
-              "audio": "audio/takes/60db03f6cf25c7147368c46215c8c27b316e8b86f7e1bec5dcb69c9ba7aecffd.mp3",
-              "audioSha256": "60db03f6cf25c7147368c46215c8c27b316e8b86f7e1bec5dcb69c9ba7aecffd"
+              "clipId": "preview-a7c52716f0e8f15b",
+              "audio": "audio/takes/30e7a34a7a317482163fb44e21b75ca2f3c6eacc667cf885b85bff13496785d9.mp3",
+              "audioSha256": "30e7a34a7a317482163fb44e21b75ca2f3c6eacc667cf885b85bff13496785d9"
             }
           ],
           "options": [
@@ -12588,7 +12292,7 @@
             }
           ],
           "answer": "let-s-meet-on-sunday",
-          "hint_es": "La alternativa debe cambiar el día que causa el conflicto.",
+          "hint_es": "Escucha la propuesta.",
           "answerTurns": [
             {
               "speaker": "luis",
@@ -12608,23 +12312,22 @@
             }
           ],
           "feedbackByOption": {
-            "let-s-meet-on-saturday": "La alternativa debe cambiar el día que causa el conflicto."
+            "let-s-meet-on-saturday": "Escuchaste «Let's meet on Sunday.», no «Let's meet on Saturday.»."
           }
         },
         {
           "id": "1.11-21a",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Un visitante conversa sobre el trabajo de Sofía para organizar una visita.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "teacher",
-              "text": "Sofia works at the school.",
+              "speaker": "co-teacher",
+              "text": "When does Sofia work?",
               "image": "r02",
-              "clipId": "preview-fec61e93f3c31baf",
-              "audio": "audio/takes/c8be5696c5b1579a6b68d56fb99b6f227dcde61bd17ef47ac364509c5ce8de84.mp3",
-              "audioSha256": "c8be5696c5b1579a6b68d56fb99b6f227dcde61bd17ef47ac364509c5ce8de84"
+              "clipId": "preview-d0b800abdccf6f92",
+              "audio": "audio/takes/c8519200c61f7ad6d929ec57e641e88a6782cc31c65874f76ac54ec5356f22ea.mp3",
+              "audioSha256": "c8519200c61f7ad6d929ec57e641e88a6782cc31c65874f76ac54ec5356f22ea"
             }
           ],
           "options": [
@@ -12638,7 +12341,7 @@
             }
           ],
           "answer": "when-does-sofia-work",
-          "hint_es": "At the school ya indica el lugar de trabajo. When pregunta cuándo trabaja Sofía.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "co-teacher",
@@ -12650,14 +12353,13 @@
             }
           ],
           "feedbackByOption": {
-            "where-does-sofia-work": "At the school ya indica el lugar de trabajo. When pregunta cuándo trabaja Sofía."
+            "where-does-sofia-work": "Escuchaste «When does Sofia work?», no «Where does Sofia work?»."
           }
         },
         {
           "id": "1.11-21b",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "El visitante necesita hablar con Sofía en el trabajo durante uno de los días mencionados.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12689,16 +12391,15 @@
           "id": "1.11-22",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía responde en una nueva conversación sobre sus actividades.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "sofia",
-              "text": "I study at home.",
-              "image": "r02",
-              "clipId": "preview-e0dfee3d6005c156",
-              "audio": "audio/takes/c53e8e15688d5e912db4c4de51c411b70b0ba14f7f340a9dad7f89ea4590ba0e.mp3",
-              "audioSha256": "c53e8e15688d5e912db4c4de51c411b70b0ba14f7f340a9dad7f89ea4590ba0e"
+              "speaker": "diego",
+              "text": "How often do you study at home?",
+              "image": "r01",
+              "clipId": "preview-691dff54295f17dc",
+              "audio": "audio/takes/2e1c30b70129ab12243cea1a369632107b032aeaa49f2d58d9dcf64cb2b3a826.mp3",
+              "audioSha256": "2e1c30b70129ab12243cea1a369632107b032aeaa49f2d58d9dcf64cb2b3a826"
             }
           ],
           "options": [
@@ -12712,7 +12413,7 @@
             }
           ],
           "answer": "how-often-do-you-study-at-home",
-          "hint_es": "At home ya indica dónde estudia Sofía. How often pregunta la frecuencia aún no expresada.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "diego",
@@ -12732,14 +12433,13 @@
             }
           ],
           "feedbackByOption": {
-            "where-do-you-study": "At home ya indica dónde estudia Sofía. How often pregunta la frecuencia aún no expresada."
+            "where-do-you-study": "Escuchaste «How often do you study at home?», no «Where do you study?»."
           }
         },
         {
           "id": "1.11-23",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Escucha el informe de Sofía completo.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12771,16 +12471,15 @@
           "id": "1.11-23a",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía y Diego continúan su conversación sobre las actividades de Sofía.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
-              "speaker": "sofia",
-              "text": "I study after work.",
-              "image": "r02",
-              "clipId": "preview-7346b5248020f41f",
-              "audio": "audio/takes/b7485b468e5cccddc1db80aae731eae302bccaf3b1dea9be1f405bc4ab7bd96f.mp3",
-              "audioSha256": "b7485b468e5cccddc1db80aae731eae302bccaf3b1dea9be1f405bc4ab7bd96f"
+              "speaker": "diego",
+              "text": "Where do you study?",
+              "image": "r01",
+              "clipId": "preview-8b2e67945cd4bf08",
+              "audio": "audio/takes/a01df8138e180ee4936205ccb4dee050525a0d56394b15c9d905dd8c3ff8f91f.mp3",
+              "audioSha256": "a01df8138e180ee4936205ccb4dee050525a0d56394b15c9d905dd8c3ff8f91f"
             }
           ],
           "options": [
@@ -12794,7 +12493,7 @@
             }
           ],
           "answer": "where-do-you-study",
-          "hint_es": "After work ya indica cuándo estudia Sofía. Where pregunta el lugar que falta.",
+          "hint_es": "Escucha la pregunta.",
           "answerTurns": [
             {
               "speaker": "diego",
@@ -12806,14 +12505,13 @@
             }
           ],
           "feedbackByOption": {
-            "when-do-you-study": "After work ya indica cuándo estudia Sofía. Where pregunta el lugar que falta."
+            "when-do-you-study": "Escuchaste «Where do you study?», no «When do you study?»."
           }
         },
         {
           "id": "1.11-23b",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía responde a esta nueva consulta. Los datos de esta conversación pertenecen a este encuentro.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12855,7 +12553,6 @@
           "id": "1.11-24",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía añade dos datos distintos sobre su rutina.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12887,7 +12584,6 @@
           "id": "1.11-25",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Antes de cenar o después: escucha la relación que Sofía expresa.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12919,7 +12615,6 @@
           "id": "1.11-26",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Diego cuenta su regreso de la tarde.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12951,7 +12646,6 @@
           "id": "1.11-27",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía cuenta dos momentos de la mañana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -12995,7 +12689,6 @@
           "id": "1.11-28",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía continúa contando su mañana.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -13027,7 +12720,6 @@
           "id": "1.11-29",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía explica qué hace después de la ducha.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -13069,7 +12761,6 @@
           "id": "1.11-30",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Otro momento: Sofía vuelve a casa y explica qué hace con la chaqueta.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -13111,7 +12802,6 @@
           "id": "1.11-31",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Sofía añade la razón de esa acción. La razón viene de su voz.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -13166,7 +12856,6 @@
           "id": "1.11-32",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Más tarde, Sofía describe su noche.",
           "instruction_es": "¡Escucha y elige la frase!",
           "turns": [
             {
@@ -13202,7 +12891,6 @@
           "id": "1.11-33",
           "stage": "Listen",
           "activity": "choice",
-          "context_es": "Nueva situación: Diego y Luis tienen una visita acordada hoy; ambos conservan ese tiempo disponible.",
           "instruction_es": "¡Escucha y elige la foto!",
           "turns": [
             {
@@ -13810,7 +13498,8 @@
           "spanish_translation": "Hoy él está estudiando en la biblioteca."
         }
       ],
-      "vocabulary": []
+      "vocabulary": [],
+      "content_revision": 2
     },
     {
       "id": "1.12",

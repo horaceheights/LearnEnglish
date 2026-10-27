@@ -123,6 +123,12 @@ export function relationalChoiceHint(card: LessonCard, correctOption: ChoiceOpti
   }
   const rightQuestion = questionKind(correct), wrongQuestion = questionKind(wrong);
   if (rightQuestion && wrongQuestion) {
+    if (heard.includes(right)) {
+      if (rightQuestion !== wrongQuestion) return `Escuchaste una pregunta por ${rightQuestion}; tu opción pregunta por ${wrongQuestion}.`;
+      if (rightAction && wrongAction && rightAction.word !== wrongAction.word) {
+        return bounded(`La pregunta que escuchaste trata de ${rightAction.meaning}; tu opción pregunta por ${wrongAction.meaning}.`);
+      }
+    }
     if (rightQuestion !== wrongQuestion) return `Tu pregunta pide ${wrongQuestion}; falta ${rightQuestion}. “${correct.split(/\b(?:do|does|is|are)\b/i)[0].trim()}” pregunta por ${rightQuestion}.`;
     if (/\btoday\b/.test(right) && /\busually\b/.test(selected)) return '“Usually” pregunta por la rutina; falta saber dónde está hoy. “Today” pregunta por la situación de hoy.';
     if (rightAction && wrongAction && rightAction.word !== wrongAction.word && ['hora', 'momento'].includes(rightQuestion)) {

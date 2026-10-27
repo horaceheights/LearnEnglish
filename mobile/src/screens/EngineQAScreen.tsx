@@ -20,7 +20,7 @@ import {
   setDiagnosticContext,
 } from '../diagnostics';
 import { isMissionLesson, lessonNavigationGroups } from '../missionExperience';
-import { mergePreviewLessonSummaries } from '../previewLessons';
+import { mergePreviewLessonSummaries, previewCourseCatalogs } from '../previewLessons';
 import type { Lesson, LessonSummary } from '../types';
 
 type Props = {
@@ -50,7 +50,7 @@ function unitIdFor(lesson?: LessonSummary | Lesson | null): string {
 }
 
 function unitNumber(lesson?: LessonSummary | Lesson | null): string {
-  return unitIdFor(lesson).match(/\d+/)?.[0] || '1';
+  return lesson?.sub_lesson_id?.match(/^\d+/)?.[0] || unitIdFor(lesson).match(/unit-(\d+)$/)?.[1] || '1';
 }
 
 function unitName(lesson?: LessonSummary | Lesson | null): string {
@@ -82,6 +82,7 @@ function saveQaLocation(location: QaLocation) {
 
 export function EngineQAScreen({ onExit, onOpenCard }: Props) {
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
+  const [selectedCourseId, setSelectedCourseId] = useState('');
   const [selectedUnitId, setSelectedUnitId] = useState('');
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [selectedGroupId, setSelectedGroupId] = useState('');
@@ -145,6 +146,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
         }
 
         setSelectedUnitId(unitIdFor(targetLesson));
+        setSelectedCourseId(targetLesson.course_id || targetLesson.level);
         await chooseLesson(
           targetLesson.id,
           storedLocation?.lessonId === targetLesson.id ? storedLocation.cardIndex : 0,
@@ -174,14 +176,20 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
     return () => subscription.remove();
   }, [onExit]);
 
+  const courses = useMemo(() => [...new Map(lessons.map(lesson => {
+    const id = lesson.course_id || lesson.level;
+    return [id, { id, title: previewCourseCatalogs.find(course => course.id === id)?.title || lesson.level }];
+  })).values()], [lessons]);
+  const courseLessons = useMemo(() => lessons.filter(lesson =>
+    (lesson.course_id || lesson.level) === selectedCourseId), [lessons, selectedCourseId]);
   const unitGroups = useMemo(() => {
     const grouped = new Map<string, LessonSummary[]>();
-    for (const lesson of lessons) {
+    for (const lesson of courseLessons) {
       const unitId = unitIdFor(lesson);
       grouped.set(unitId, [...(grouped.get(unitId) || []), lesson]);
     }
     return [...grouped.entries()].map(([id, unitLessons]) => ({ id, lessons: unitLessons }));
-  }, [lessons]);
+  }, [courseLessons]);
   const selectedUnitLessons = useMemo(
     () => unitGroups.find((unit) => unit.id === selectedUnitId)?.lessons || [],
     [selectedUnitId, unitGroups],
@@ -219,6 +227,13 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
   const chooseUnit = (unitId: string) => {
     const firstLesson = unitGroups.find((unit) => unit.id === unitId)?.lessons[0];
     setSelectedUnitId(unitId);
+    if (firstLesson) void chooseLesson(firstLesson.id);
+  };
+
+  const chooseCourse = (courseId: string) => {
+    const firstLesson = lessons.find(lesson => (lesson.course_id || lesson.level) === courseId);
+    setSelectedCourseId(courseId);
+    setSelectedUnitId(firstLesson ? unitIdFor(firstLesson) : '');
     if (firstLesson) void chooseLesson(firstLesson.id);
   };
 
@@ -281,7 +296,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
         <View style={styles.toolsPanel}>
           <Text style={styles.instructionsTitle}>Flujo recomendado</Text>
           <Text style={styles.instructionsText}>
-            Elige unidad, lección, {groupSingular} y tarjeta. Dentro de la lección usa Anterior, Reiniciar,
+            Elige curso, unidad, lección, {groupSingular} y tarjeta. Dentro de la lección usa Anterior, Reiniciar,
             Siguiente y Auto para probar cada transición.
           </Text>
           <View style={styles.reportingPanel}>
@@ -314,6 +329,20 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
       {error ? <Text style={styles.error}>{error}</Text> : null}
 
       <View style={styles.navigatorPanel}>
+        {courses.length > 1 ? <>
+          <Text style={styles.stepLabel}>CURSO</Text>
+          <View accessibilityRole="tablist" style={styles.unitList}>
+            {courses.map(course => <Pressable key={course.id} accessibilityRole="tab"
+              accessibilityLabel={`Curso ${course.title}`}
+              accessibilityState={{ selected: selectedCourseId === course.id }}
+              onPress={() => chooseCourse(course.id)}
+              style={[styles.unitButton, selectedCourseId === course.id && styles.unitButtonSelected]}>
+              <Text style={[styles.unitButtonText, selectedCourseId === course.id && styles.unitButtonTextSelected]}>
+                {course.title}
+              </Text>
+            </Pressable>)}
+          </View>
+        </> : null}
         <View style={styles.navigatorHeading}>
           <Text style={styles.stepLabel}>1 · UNIDAD</Text>
           <Text style={styles.navigatorCount}>{unitGroups.length} unidades</Text>
