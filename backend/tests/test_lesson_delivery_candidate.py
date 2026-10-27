@@ -129,7 +129,6 @@ class CandidateDeliveryTests(unittest.TestCase):
     def test_malformed_ordinary_activity_contracts_fail_closed(self):
         changes = [
             {"stage": "UnsupportedStage"}, {"stage": "Speak"},
-            {"context_es": "Ambos están disponibles después del trabajo."},
             {"options": [{"id": "working", "text": "Let's meet at seven."},
                          {"id": "studying", "text": "Let's meet at six."}]},
             {"turns": []},
@@ -215,22 +214,12 @@ class CandidateDeliveryTests(unittest.TestCase):
 
     def test_projection_story_and_lesson_metadata_must_match_source(self):
         source = copy.deepcopy(self.source)
-        source["lessons"][0]["cards"][1]["context_es"] = "Ana describe su día."
         package = self.compile(source)["lesson-delivery-package.json"]
         for field, value in (("title", "A different lesson"), ("goal", "A different goal")):
             changed = copy.deepcopy(package)
             changed["canonicalProjection"][0][field] = value
             errors = verify_package(changed, source, repo=REPO, asset_root=self.root)["errors"]
             self.assertTrue(any(f"authored lesson {field}" in error for error in errors))
-        for replacement in (None, "Una situación diferente."):
-            changed = copy.deepcopy(package)
-            card = changed["canonicalProjection"][0]["cards"][1]
-            if replacement is None:
-                card.pop("context_es")
-            else:
-                card["context_es"] = replacement
-            errors = verify_package(changed, source, repo=REPO, asset_root=self.root)["errors"]
-            self.assertTrue(any("authored story context" in error for error in errors))
         package = self.compile()["lesson-delivery-package.json"]
         package["canonicalProjection"][0]["cards"][0]["context_es"] = "Un contexto añadido."
         self.assertTrue(any("authored story context" in error for error in self.verify(package)["errors"]))

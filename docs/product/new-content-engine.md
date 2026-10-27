@@ -6,6 +6,8 @@ Use this guide whenever creating or substantially revising lessons or units. The
 
 **Scope:** follow the user's explicit task boundaries. Analysis or documentation work does not authorize implementation, paid generation, commits, PRs, or publication. Apply existing authorization without requesting it again.
 
+**Per-card copy correction (2026-10-26):** new delivery packages use the shared activity instructions without an added Spanish scenario paragraph. `context_es` is rejected on every card, including review and mission cards; shortening the text does not satisfy removal. Preserve exact reviewed translations, optional help and the established mission kickoff/completion surfaces. Verify all stages in both canonical content and embedded mobile output.
+
 ## 1. Keep the engine separate from the curriculum
 
 | Layer | Responsibility |
@@ -96,7 +98,7 @@ Use `mission_game.cue_order: authored` when a scene's cues form a conversation, 
 
 For a two-person conversation, declare `scene_scope: two-person-dialogue`. It requires two person targets, two exact turns with distinct speaking roles, and authored cue order. Other visual searches retain at least four candidates. Inspect normalized target geometry and the rendered 48dp markers independently. Exact scene facts in `a1-visual-facts.json` bind inspected referents to image checksums for ambiguity checks; they do not grant human semantic approval.
 
-Outside ordinary Listen, use the optional card `context_es` for a short, visible story setup when the learner needs to know the occasion or whose turn it is. It must be exact, nonblank, at most 240 characters, and must not reveal an assessment answer. Ordinary Listen uses its current English recording and the shared instruction, with no Spanish scenario paragraph or required memory of another card. A question/proposal bank must contain exactly one heard alternative; use the separately approved mission decision activity for conversational decisions. Direct comprehension of explicit English facts, temporal relationships and spoken questions remains supported. The shared compiler and installed-content validation enforce these limits. Review incorrect-answer feedback against the repaired recording too.
+Do not author per-card `context_es` in any stage, review or mission. The activity must work through the shared instruction, English content and visible evidence. Ordinary Listen uses its current English recording without required memory of another card. A question/proposal bank must contain exactly one heard alternative; use the separately approved mission decision activity for conversational decisions within a coherent English story. Direct comprehension of explicit English facts, temporal relationships and spoken questions remains supported. The shared compiler and installed-content validation enforce these limits. Review incorrect-answer feedback against the recording too.
 
 A mission may declare `completion_scene: {image_url, context_es}` for an unscored outcome after its final successful cue, such as arriving by the given route or taking an agreed photo. It has no targets, cue audio or answer choices. Both clients show the outcome and a Continue control before submitting the completed card. Voice gates cannot add this field. Review its media and caption separately from the preceding assessed scene; do not invent a scored cue to explain a missing story transition.
 
