@@ -193,6 +193,16 @@ def _choice(slide: str, stage: str, item: dict, pool: list[dict], count: int, *,
         if not captions:
             spec["prompt"] = item["text"]
         _voice(spec, item)
+    elif item.get("question") and item.get("reply_image_timing") == "after-prompt":
+        # A reply selection (as in 5.4 and 5.8): the opening line plays over the asker's
+        # picture, then the reply picture appears and supplies the evidence for the choice.
+        spec.update(prompt=item["question"], prompt_image_url=item["question_image"],
+                    spanish_translation=item["question_es"], reply_image_timing="after-prompt",
+                    answer_audio_turns=[{"text": item["text"], "speaker_role": item["speaker"],
+                                         "image_url": item["image"]}],
+                    answer_audio_speaker=item["speaker"], **_audio_revisions(item))
+        if item.get("question_speaker"):
+            spec["audio_speaker"] = item["question_speaker"]
     elif item.get("question"):
         # A reply choice: the question plays over the picture and the chosen answer plays after.
         spec.update(prompt=item["question"], prompt_image_url=item["image"], spanish_translation=item["question_es"])
@@ -306,6 +316,12 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
             raise BriefError(f"Item {item['text']!r} must be offered as pictures or as text.")
         if item.get("question") and not item.get("question_es"):
             raise BriefError(f"Item {item['text']!r} needs the Spanish of its question.")
+        if item.get("reply_image_timing") is not None and (
+                item["reply_image_timing"] != "after-prompt" or not item.get("question")
+                or not item.get("question_image") or item["question_image"] == item["image"]
+                or not item.get("speaker") or item.get("turns")):
+            raise BriefError(f"Reply {item['text']!r} needs a question, its speaker and a question picture "
+                             "distinct from the reply picture.")
         for turn in item.get("turns") or []:
             if not all(turn.get(field) for field in ("text", "speaker", "image")):
                 raise BriefError(f"Each turn of {item['text']!r} needs its text, speaker and image.")

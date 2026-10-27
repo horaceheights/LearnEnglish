@@ -211,6 +211,30 @@ class ContentEngineAuthorTests(unittest.TestCase):
         with self.assertRaisesRegex(BriefError, "Spanish of its question"):
             propose_lesson(brief, self.standards)
 
+    def test_a_reply_selection_shows_its_evidence_picture_after_the_question(self):
+        brief = json.loads(json.dumps(self.brief))
+        asker = brief["items"][0]["image"]
+        for item in brief["items"]:
+            if item["kind"] == "family-action" and item["image"] != asker:
+                item.update(question="Who is it?", question_es="¿Quién es?", question_speaker="luis",
+                            question_image=asker, reply_image_timing="after-prompt", speaker="ana")
+        lesson = compose_lesson(propose_lesson(brief, self.standards)[0])
+        replies = [card for card in lesson["cards"] if card.get("reply_image_timing")]
+        self.assertTrue(replies)
+        Lesson(**lesson)  # the schema's reply-image contract accepts every card
+        for card in replies:
+            with self.subTest(slide=card["slide_id"]):
+                self.assertEqual((card["prompt"], card["audio_text"], card["prompt_image_url"]),
+                                 ("Who is it?", "Who is it?", asker))
+                [turn] = card["answer_audio_turns"]
+                self.assertEqual(turn["text"], card["answer_audio_text"])
+                self.assertNotEqual(turn["image_url"], asker)
+                self.assertEqual((card["audio_speaker"], card["answer_audio_speaker"]), ("luis", "ana"))
+        broken = json.loads(json.dumps(brief))
+        next(item for item in broken["items"] if item.get("reply_image_timing")).pop("question_image")
+        with self.assertRaisesRegex(BriefError, "question picture"):
+            propose_lesson(broken, self.standards)
+
     def test_preferred_wrong_options_keep_one_variable(self):
         brief = json.loads((ROOT / "docs/product/content-briefs/unit-2/2.6-numbers-1-5.json").read_text(encoding="utf-8"))
         plan, banks = propose_lesson(brief, self.standards)
