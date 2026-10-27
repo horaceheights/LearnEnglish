@@ -3211,6 +3211,17 @@ def validate_registered_courses(warnings: list[str]) -> list[str]:
             if pending:
                 warnings.append(f"{descriptor['id']}: {pending} exact images still await human semantic review; agent review is not human approval.")
             source = json.loads((ROOT / descriptor["deliverySource"]).read_text(encoding="utf-8"))
+            from scripts.compile_lesson_delivery import validate_source_fields
+            from scripts.listening_contract import ordinary_listening_errors
+            validate_source_fields(source)
+            for lesson in lessons:
+                if getattr(lesson, "experience_type", None) == "mission":
+                    continue
+                for card in lesson.cards:
+                    if card.stage == "Listen":
+                        errors.extend(f"{lesson.id}/{card.slide_id}: {issue}" for issue in
+                            ordinary_listening_errors(card.context_es, card.audio_text or "",
+                                [option.model_dump() for option in card.options], card.correct_option_id))
             digest = hashlib.sha256(json.dumps(source, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
             if digest != media["content_sha256"] or digest != contracts["source_content_sha256"]:
                 errors.append(f"{descriptor['id']}: review records do not bind the exact authoring source")

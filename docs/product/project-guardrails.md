@@ -1,5 +1,11 @@
 # SpanGlish Project Guardrails
 
+## Ordinary listening and QA correction — 2026-10-26
+
+- Ordinary Listen cards must work from their current English recording and the shared instruction. Do not add visible Spanish scenario paragraphs or rely on facts from another card. A next-question or proposal choice under the ordinary Listen instruction must have exactly one matching heard alternative. Direct comprehension of an explicitly spoken fact, temporal relationship or question remains supported; a non-verbatim answer is not automatically a defect. This user correction supersedes using Spanish setup to supply availability, intentions or missing-information premises in ordinary A1+ Listen. The separately approved mission conversation-decision contract remains unchanged.
+- Validate this contract at authoring admission and again on installed content. Reuse exact approved recordings when repairing bindings; changing where a clip plays does not authorize changing its words, voice, delivery or bytes. Review the learner's instruction, English evidence, alternatives and incorrect-answer feedback together.
+- Engine QA must expose every registered course through a visibly named course selector, then its units, lessons and cards. Equal unit/lesson numbers in different courses must never hide course identity. Restoring a QA location must restore its course as well as its lesson and card.
+
 ## A1+ audit corrections — approved 2026-10-26
 
 - A continuous mission may use the shared `conversation-decision` activity: hear the complete English situation, then choose one useful next question, accurate report or workable proposal from two or three neutral text alternatives (or two unambiguous image alternatives). Exactly one correct selection continues the conversation. This explicitly supersedes the no-answer-bank and solve-every-target rules for this activity only; existing scene-search missions retain those rules. The activity uses ordinary canonical options and exact ordered prompt/response audio, never invented scene targets or a unit-specific player.

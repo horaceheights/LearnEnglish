@@ -22,7 +22,7 @@
   "prerequisite": "A1 work, home, I/you, at, whole hours and explicit day-period context A1 question/reply turn taking and Please repeat",
   "speaking_outcome": "Phrase grouping in leave home and arrive home; clear start/finish and final consonants in the complete utterance. Do not require native-like speed.",
   "purposeful_review_slides": [],
-  "content_revision": 1,
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "a1plus-unit-1-1.1-L01",
@@ -804,7 +804,6 @@
       "slide_id": "a1plus-unit-1-1.1-A01",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Ana habla de la ma\u00f1ana.",
       "stage": "Listen",
       "correct_option_id": "i-start-work-at-eight",
       "options": [
@@ -908,7 +907,6 @@
       "slide_id": "a1plus-unit-1-1.1-A02",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Ana habla de la tarde.",
       "stage": "Listen",
       "correct_option_id": "i-arrive-home-at-six",
       "options": [
@@ -1012,7 +1010,6 @@
       "slide_id": "a1plus-unit-1-1.1-A03",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Ana y Luis quieren verse en persona en casa de Ana. Hoy Luis trabaja all\u00ed y queda libre al terminar; Ana queda libre al llegar del trabajo. Son horas de la tarde.",
       "stage": "Listen",
       "correct_option_id": "let-s-meet-at-seven",
       "options": [
@@ -1027,7 +1024,7 @@
           "label": "Let's meet at seven."
         }
       ],
-      "audio_text": "I finish work at five. I arrive home at six. I finish work at seven.",
+      "audio_text": "Let's meet at seven.",
       "answer_audio_text": "Let's meet at seven. OK.",
       "prompt_image_url": "",
       "pedagogy_note": null,
@@ -1035,29 +1032,7 @@
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "I finish work at five.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ]
-        },
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
-        },
-        {
-          "text": "I finish work at seven.",
+          "text": "Let's meet at seven.",
           "speaker_role": "luis",
           "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
           "clock_cues": [
@@ -1091,33 +1066,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c017-prompt-turn-1-7e0ae562fa87ce0d32e7",
+          "id": "a1plus-unit-1-lesson-1-1-c017-prompt-turn-1-18c9c308a6bd5f04398e",
           "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c017-prompt-turn-2-8f305aeb428afddbda10",
-          "purpose": "prompt-turn-2",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c017-prompt-turn-3-a17f0d3ab74104caab08",
-          "purpose": "prompt-turn-3",
-          "text": "I finish work at seven.",
+          "text": "Let's meet at seven.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
@@ -1156,7 +1107,6 @@
       "slide_id": "a1plus-unit-1-1.1-A04",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Otro encuentro: Ana y Luis quieren verse en persona en casa de Ana. Luis trabaja all\u00ed y queda libre al terminar; Ana queda libre cuando regresa del trabajo. Son horas de la tarde.",
       "stage": "Listen",
       "correct_option_id": "what-time-do-you-arrive-home",
       "options": [
@@ -1171,34 +1121,17 @@
           "label": "What time do you finish work?"
         }
       ],
-      "audio_text": "I finish work at five. I finish work at six.",
+      "audio_text": "What time do you arrive home?",
       "answer_audio_text": "What time do you arrive home?",
       "prompt_image_url": "",
       "pedagogy_note": null,
-      "audio_speaker": null,
+      "audio_speaker": "luis",
       "answer_audio_speaker": "luis",
       "audio_turns": [
         {
-          "text": "I finish work at five.",
+          "text": "What time do you arrive home?",
           "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ]
-        },
-        {
-          "text": "I finish work at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
         }
       ],
       "answer_audio_turns": [
@@ -1213,26 +1146,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c018-prompt-turn-1-92c26c411fa176b71b62",
+          "id": "a1plus-unit-1-lesson-1-1-c018-prompt-turn-1-159974036229eef94ff8",
           "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
+          "text": "What time do you arrive home?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
+          "semantic_role": "question",
           "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c018-prompt-turn-2-b22fd201e2a12c6e2f0c",
-          "purpose": "prompt-turn-2",
-          "text": "I finish work at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
@@ -1254,7 +1175,6 @@
       "slide_id": "a1plus-unit-1-1.1-A05",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Contin\u00faa el nuevo encuentro en casa de Ana. Luis ya estar\u00e1 all\u00ed y disponible; Ana estar\u00e1 disponible al llegar. Son horas de la tarde.",
       "stage": "Listen",
       "correct_option_id": "let-s-meet-at-eight",
       "options": [
@@ -1269,7 +1189,7 @@
           "label": "Let's meet at eight."
         }
       ],
-      "audio_text": "I arrive home at eight.",
+      "audio_text": "Let's meet at eight.",
       "answer_audio_text": "Let's meet at eight. OK.",
       "prompt_image_url": "",
       "pedagogy_note": null,
@@ -1277,9 +1197,9 @@
       "answer_audio_speaker": null,
       "audio_turns": [
         {
-          "text": "I arrive home at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          "text": "Let's meet at eight.",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
           "clock_cues": [
             {
               "hour": 8,
@@ -1311,14 +1231,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c019-prompt-turn-1-0b04d3d9d1a355cfd012",
+          "id": "a1plus-unit-1-lesson-1-1-c019-prompt-turn-1-7d58e25307768b0ab185",
           "purpose": "prompt-turn-1",
-          "text": "I arrive home at eight.",
+          "text": "Let's meet at eight.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },

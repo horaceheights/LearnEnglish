@@ -19,7 +19,7 @@
   "prerequisite": "1.5 always/never/usually/sometimes/every day meaning distinctions in familiar I/you statements 1.2 reporting another speaker with known selected third-person forms; A1 study, work, home/library/night and Do you...?",
   "speaking_outcome": "Intelligible How often in the complete question; studies retains a clear ending without an added final syllable. Keep speaker attribution and meaningful frequency contrast audible.",
   "purposeful_review_slides": [],
-  "content_revision": 1,
+  "content_revision": 2,
   "cards": [
     {
       "slide_id": "a1plus-unit-1-1.6-L01",
@@ -846,7 +846,6 @@
       "slide_id": "a1plus-unit-1-1.6-A01",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Luis y Ana completan los datos de un nuevo horario de estudio, por la tarde.",
       "stage": "Listen",
       "correct_option_id": "how-often-do-you-study-at-home",
       "correct_option_ids": [],
@@ -862,24 +861,18 @@
           "label": "How often do you study at home?"
         }
       ],
-      "audio_text": "I study at home at seven.",
+      "audio_text": "How often do you study at home?",
       "answer_audio_text": "How often do you study at home?",
       "prompt_image_url": "",
       "spanish_translation": null,
       "pedagogy_note": null,
-      "audio_speaker": "ana",
+      "audio_speaker": "luis",
       "answer_audio_speaker": "luis",
       "audio_turns": [
         {
-          "text": "I study at home at seven.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
+          "text": "How often do you study at home?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
         }
       ],
       "answer_audio_turns": [
@@ -894,14 +887,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-1-lesson-1-6-c014-prompt-turn-1-ff1df9194b4efb94ef9a",
+          "id": "a1plus-unit-1-lesson-1-6-c014-prompt-turn-1-76eaad4cbc8b8421aa8c",
           "purpose": "prompt-turn-1",
-          "text": "I study at home at seven.",
+          "text": "How often do you study at home?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
@@ -923,7 +916,6 @@
       "slide_id": "a1plus-unit-1-1.6-A02",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Escucha la respuesta y el segundo dato del mismo perfil.",
       "stage": "Listen",
       "correct_option_id": "ana-usually-studies-at-home-she-sometimes-studies-at-the-library",
       "correct_option_ids": [],
@@ -1010,7 +1002,6 @@
       "slide_id": "a1plus-unit-1-1.6-A03",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Ana responde durante la entrevista sobre sus hábitos.",
       "stage": "Listen",
       "correct_option_id": "ana-studies-every-day",
       "correct_option_ids": [],
@@ -1080,7 +1071,6 @@
       "slide_id": "a1plus-unit-1-1.6-A04",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "La misma entrevista continúa con otra consulta.",
       "stage": "Listen",
       "correct_option_id": "ana-studies-every-day-but-she-never-studies-at-night",
       "correct_option_ids": [],
@@ -1096,7 +1086,7 @@
           "label": "Ana studies every day, but she always studies at night."
         }
       ],
-      "audio_text": "How often do you study at night? I never study at night.",
+      "audio_text": "I study every day. How often do you study at night? I never study at night.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": null,
@@ -1105,14 +1095,19 @@
       "answer_audio_speaker": null,
       "audio_turns": [
         {
+          "text": "I study every day.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp"
+        },
+        {
           "text": "How often do you study at night?",
           "speaker_role": "luis",
           "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
         },
         {
-          "text": "I never study at night.",
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp"
+          "text": "I never study at night."
         }
       ],
       "answer_audio_turns": [],
@@ -1121,8 +1116,20 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-1-lesson-1-6-c017-prompt-turn-1-1512f613fa458fd9ad5a",
+          "id": "a1plus-unit-1-lesson-1-6-c017-prompt-turn-1-b1890eb9a4872554209d",
           "purpose": "prompt-turn-1",
+          "text": "I study every day.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "a1plus-unit-1-lesson-1-6-c017-prompt-turn-2-71fe2bc01b0c7a841175",
+          "purpose": "prompt-turn-2",
           "text": "How often do you study at night?",
           "mode": "prompt",
           "variant": "prompt",
@@ -1133,16 +1140,16 @@
           "revision": 1
         },
         {
-          "id": "a1plus-unit-1-lesson-1-6-c017-prompt-turn-2-0ceae449cc6531484fb8",
-          "purpose": "prompt-turn-2",
-          "text": "I never study at night.",
-          "mode": "prompt",
-          "variant": "prompt",
+          "id": "a1plus-unit-1-lesson-1-6-c017-prompt-turn-3-79997ba4345c44f63634",
           "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          "mode": "prompt",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "purpose": "prompt-turn-3",
+          "revision": 1,
           "semantic_role": "teacher",
           "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "text": "I never study at night.",
+          "variant": "prompt"
         }
       ]
     },
@@ -1150,7 +1157,6 @@
       "slide_id": "a1plus-unit-1-1.6-A05",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Otra entrevista sobre la rutina de Ana.",
       "stage": "Listen",
       "correct_option_id": "ana-always-arrives-home-before-dinner",
       "correct_option_ids": [],
@@ -1220,7 +1226,6 @@
       "slide_id": "a1plus-unit-1-1.6-A06",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Otra consulta sobre el estudio de Ana, en un horario distinto de la tarde.",
       "stage": "Listen",
       "correct_option_id": "how-often-do-you-study-at-the-library",
       "correct_option_ids": [],
@@ -1236,24 +1241,18 @@
           "label": "What time do you study at the library?"
         }
       ],
-      "audio_text": "I study at the library at eight.",
+      "audio_text": "How often do you study at the library?",
       "answer_audio_text": "How often do you study at the library?",
       "prompt_image_url": "",
       "spanish_translation": null,
       "pedagogy_note": null,
-      "audio_speaker": "ana",
+      "audio_speaker": "luis",
       "answer_audio_speaker": "luis",
       "audio_turns": [
         {
-          "text": "I study at the library at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
+          "text": "How often do you study at the library?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
         }
       ],
       "answer_audio_turns": [
@@ -1268,14 +1267,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "a1plus-unit-1-lesson-1-6-c019-prompt-turn-1-1581e53bec0e121628a1",
+          "id": "a1plus-unit-1-lesson-1-6-c019-prompt-turn-1-b3030518ad82fbdc03be",
           "purpose": "prompt-turn-1",
-          "text": "I study at the library at eight.",
+          "text": "How often do you study at the library?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "semantic_role": "question",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
@@ -1297,7 +1296,6 @@
       "slide_id": "a1plus-unit-1-1.6-A07",
       "interaction_type": "a2t",
       "prompt": "Listen and choose.",
-      "context_es": "Escucha el nuevo perfil de Ana; pertenece a este encuentro.",
       "stage": "Listen",
       "correct_option_id": "ana-usually-studies-at-the-library-she-sometimes-studies-at-home",
       "correct_option_ids": [],

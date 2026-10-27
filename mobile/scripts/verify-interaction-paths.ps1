@@ -256,6 +256,9 @@ try {
   & node tests/engine-qa-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la navegación compacta y persistente de Engine QA.' }
 
+  & node tests/qa-course-navigation.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la selección de cursos y tarjetas de Engine QA.' }
+
   & node tests/recording-advance.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Learner replay progression checks failed.' }
 
