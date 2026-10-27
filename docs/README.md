@@ -6,7 +6,7 @@ Durable project knowledge is organized by purpose. Application and tool-specific
 
 - [Project guardrails](product/project-guardrails.md): approved reusable product and engineering behavior.
 - [New content engine](product/new-content-engine.md): required agent workflow for creating content, quality gates, and the boundary between existing tools and the target engine.
-- [Content standards](product/content-standards.json): per-course lesson length, new-item budget, and practice minimums checked by `scripts/audit_content_practice.py`.
+- [Content standards](product/content-standards.json): per-course lesson length, new-item budget, and practice minimums checked by `scripts/audit_content_practice.py` (`--course a1-plus` adds the approved A1+ card-format checks).
 - [A1 course design](product/course-design-a1.md): complete seven-unit syllabus and learning progression.
 - [A1 course canvas](product/a1-course-canvas.json): approved machine-readable course plan.
 - [A1 media manifest](product/a1-media-manifest.json): reviewed course-media mapping.

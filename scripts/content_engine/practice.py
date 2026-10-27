@@ -10,8 +10,9 @@ from __future__ import annotations
 import re
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 
-from scripts.content_engine.catalog import CatalogLesson
+from scripts.content_engine.catalog import CatalogLesson, load_catalog, load_standards
 
 STAGES = ("Learn", "Recognize", "Listen", "Speak", "Use")
 WORD = re.compile(r"[a-z]+(?:'[a-z]+)?")
@@ -124,7 +125,22 @@ def learn_context(cards: list[dict], pairs: list[dict], vocabulary: list[str], k
 
 
 
-def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list[str], known: set[str], anchors: set[str]) -> tuple[set[str], list[str]]:
+def is_contrast_pair(lines: list[str]) -> bool:
+    """Two statements that differ only in the new form, e.g. I leave / Luis leaves."""
+    if len(lines) != 2 or any(line.strip().endswith("?") for line in lines):
+        return False
+    first, second = (set(WORD.findall(line.lower())) for line in lines)
+    return bool(first) and len(first - second) <= 2 and len(second - first) <= 2
+
+
+def is_exchange(lines: list[str]) -> bool:
+    """An opening question or proposal followed by its reply."""
+    return (len(lines) == 2 and not lines[1].strip().endswith("?")
+            and (lines[0].strip().endswith("?") or lines[0].strip().startswith("Let's")))
+
+
+def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list[str], known: set[str], anchors: set[str],
+                         kinds: tuple[str, ...] = ("sequence", "exchange")) -> tuple[set[str], list[str]]:
     """Validate exact introductions of new sequence markers or coupled exchanges.
 
     Each group names adjacent Learn models, exact English and its declared
@@ -132,7 +148,9 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
     establish a contrast with its new targets. Every model must contain a new
     anchor or an exact declared support target and may retrieve only earlier
     language. Stale lines, unknown surrounding words and overlapping bindings
-    fail closed. This does not permit arbitrary known-language Learn cards.
+    fail closed. A course may also allow a contrast pair: one model of two
+    statements differing only in the new form. This does not permit arbitrary
+    known-language Learn cards.
     """
     allowed, errors = set(), []
     positions = {card.get("slide_id"): index for index, card in enumerate(cards)}
@@ -141,7 +159,7 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
         support = group.get("support_targets") or []
         ids = [model.get("slide_id") for model in models]
         indices = [positions.get(slide) for slide in ids]
-        if (group.get("kind") not in ("sequence", "exchange") or len(models) < 1
+        if (group.get("kind") not in kinds or len(models) < 1
                 or not targets or not set(targets).issubset(vocabulary) or not set(targets) & anchors
                 or len(ids) != len(set(ids)) or set(ids) & allowed
                 or any(index is None for index in indices)
@@ -194,16 +212,138 @@ def learn_context_groups(cards: list[dict], groups: list[dict], vocabulary: list
                 not exchange_lines[0].endswith("?") or exchange_lines[1].endswith("?")):
             errors.append(f"group {gi}: question must immediately precede its reply")
             continue
+        if group.get("kind") == "contrast" and (len(models) != 1 or not is_contrast_pair(exchange_lines)):
+            errors.append(f"group {gi}: a contrast is one card with two statements that differ only in the new form")
+            continue
         allowed.update(ids)
     return allowed, errors
 
-def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
+
+def prior_knowledge(root: Path, standards: dict) -> set[str]:
+    """Words a course may assume from the courses its learners have completed."""
+    known: set[str] = set()
+    for course in standards.get("prior_courses", ()):
+        prior = load_standards(root, course)
+        known |= set(prior["instruction_words"]) | set(prior["proper_names"])
+        for lesson in load_catalog(root, prior):
+            for item in (lesson.data.get("vocabulary") or []) + (lesson.data.get("review_vocabulary") or []):
+                known |= term_words(str(item))
+    return known
+
+
+def card_lines(card: dict) -> list[str]:
+    """The ordered English lines a card models: its spoken turns, else its prompt."""
+    turns = [str(turn.get("text")) for turn in card.get("audio_turns") or [] if turn.get("text")]
+    return turns or ([str(card["prompt"])] if card.get("prompt") else [])
+
+
+def format_findings(lesson: CatalogLesson, cards: list[dict], standards: dict) -> list[Finding]:
+    """Card-format standards that a course opts into through configuration.
+
+    A1 sets none of these keys, so its results are unchanged. Each check reads
+    only canonical card fields; picture meaning still needs human review.
+    """
+    findings: list[Finding] = []
+    number = lesson.number
+    by_stage = {stage: [card for card in cards if card.get("stage") == stage] for stage in STAGES}
+
+    for stage, bounds in standards.get("stage_cards", {}).get(lesson.role, {}).items():
+        count = len(by_stage.get(stage, []))
+        low, high = bounds.get("min"), bounds.get("max")
+        if (low is not None and count < low) or (high is not None and count > high):
+            wanted = f"{low if low is not None else 0}-{high}" if high is not None else f"at least {low}"
+            findings.append(Finding("stage-balance", number, stage, f"{count} cards; needs {wanted}"))
+
+    banks = [card for card in by_stage["Recognize"] + by_stage["Listen"] if len(card.get("options") or []) > 1]
+    if "min_cards_per_recognize_direction" in standards:
+        to_photo = sum(1 for card in by_stage["Recognize"] if any(o.get("image_url") for o in card.get("options") or []))
+        to_phrase = len(by_stage["Recognize"]) - to_photo
+        for direction, count in (("phrase->photo", to_photo), ("photo->phrase", to_phrase)):
+            if count < standards["min_cards_per_recognize_direction"]:
+                findings.append(Finding("recognize-direction", number, direction,
+                                        f"{count} cards; needs {standards['min_cards_per_recognize_direction']}"))
+    if "min_large_bank_share" in standards and banks:
+        large = sum(1 for card in banks if len(card["options"]) >= 3)
+        if large / len(banks) < standards["min_large_bank_share"]:
+            findings.append(Finding("option-size", number, "lesson",
+                                    f"{large} of {len(banks)} choice cards have 3-4 options; needs "
+                                    f"{standards['min_large_bank_share']:.0%}"))
+    if "min_photo_listen_share" in standards and by_stage["Listen"]:
+        photo = sum(1 for card in by_stage["Listen"]
+                    if card.get("options") and all(o.get("image_url") for o in card["options"]))
+        if photo / len(by_stage["Listen"]) < standards["min_photo_listen_share"]:
+            findings.append(Finding("photo-listen", number, "lesson",
+                                    f"{photo} of {len(by_stage['Listen'])} Listen cards are photo choices; needs "
+                                    f"{standards['min_photo_listen_share']:.0%}"))
+    if standards.get("distinct_option_images"):
+        for card in banks:
+            images = [o.get("image_url") for o in card["options"] if o.get("image_url")]
+            if len(images) != len(set(images)):
+                findings.append(Finding("duplicate-option-image", number, str(card.get("slide_id")),
+                                        "one set of choices shows the same photograph twice"))
+
+    if "learn_shapes" in standards:
+        vocabulary = [str(item) for item in lesson.data.get("vocabulary") or []]
+        connectors = {str(term).lower() for term in standards.get("learn_connector_targets", ())}
+        lesson_connectors = [term_pattern(item) for item in vocabulary if item.lower() in connectors]
+        shapes = set(standards["learn_shapes"])
+        for card in by_stage["Learn"]:
+            lines = card_lines(card)
+            slide = str(card.get("slide_id"))
+            if len(lines) > 2 or (len(lines) == 2 and not (
+                    ("exchange" in shapes and is_exchange(lines))
+                    or ("contrast" in shapes and is_contrast_pair(lines)))):
+                findings.append(Finding("learn-shape", number, slide,
+                                        f"{len(lines)} lines; a Learn card is one model, an exchange or a contrast pair"))
+                continue
+            for line in lines:
+                connector = any(pattern and pattern.search(line.lower()) for pattern in lesson_connectors)
+                limit = standards["learn_connector_max_words"] if connector else standards["learn_max_words"]
+                if len(WORD.findall(line.lower())) > limit:
+                    findings.append(Finding("learn-length", number, slide, f"{line!r} exceeds {limit} words"))
+
+    if "max_two_speaker_speak_cards" in standards:
+        mixed = [card for card in by_stage["Speak"]
+                 if len({turn.get("speaker_role") for turn in card.get("audio_turns") or []}) > 1]
+        if len(mixed) > standards["max_two_speaker_speak_cards"]:
+            findings.append(Finding("speak-speakers", number, "lesson",
+                                    f"{len(mixed)} Speak cards voice two speakers; at most "
+                                    f"{standards['max_two_speaker_speak_cards']}"))
+    if "speak_max_words" in standards:
+        for card in by_stage["Speak"]:
+            words = len(WORD.findall(" ".join(card_lines(card)).lower()))
+            if words > standards["speak_max_words"]:
+                findings.append(Finding("speak-length", number, str(card.get("slide_id")),
+                                        f"{words} words; at most {standards['speak_max_words']}"))
+
+    if lesson.data.get("id") in standards.get("decision_goal_lessons", ()):
+        replies = sum(1 for card in cards if card.get("reply_image_timing") == "after-prompt")
+        if replies < standards.get("min_reply_selection_cards", 0):
+            findings.append(Finding("decision-practice", number, "lesson",
+                                    f"{replies} reply-selection cards; the lesson goal needs "
+                                    f"{standards['min_reply_selection_cards']}"))
+    return findings
+
+def audit(catalog: list[CatalogLesson], standards: dict, prior_known: set[str] = frozenset()) -> list[Finding]:
     findings: list[Finding] = []
     final_units = sorted({lesson.unit for lesson in catalog})[-standards["later_reuse_exempt_final_units"]:]
-    known = set(standards["instruction_words"]) | set(standards["proper_names"])
+    known = set(standards["instruction_words"]) | set(standards["proper_names"]) | set(prior_known)
+    # The review is the last non-mission lesson of its unit; any other lesson
+    # must declare its own new language.
+    reviews = {}
+    for lesson in catalog:
+        if lesson.role != "mission":
+            reviews[lesson.unit] = lesson.number
 
     for index, lesson in enumerate(catalog):
         cards = lesson.data.get("cards") or []
+        if lesson.role != "mission":
+            findings += format_findings(lesson, cards, standards)
+        minimum = standards.get("min_new_items_per_lesson")
+        if (minimum and lesson.role != "mission" and lesson.number != reviews[lesson.unit]
+                and len(lesson.data.get("vocabulary") or []) < minimum):
+            findings.append(Finding("new-item-minimum", lesson.number, "lesson",
+                                    f"{len(lesson.data.get('vocabulary') or [])} new items; a teaching lesson needs {minimum}"))
         # Course-configured action labels are vocabulary metadata, not complete
         # teaching utterances. A construction's individual tiles remain valid.
         bare_verbs = {term.lower().strip(" .?!") for term in standards.get("verbs_require_subject", [])}
@@ -234,10 +374,20 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
             if pattern is None:
                 continue
             stages = Counter(card.get("stage") for card in cards if pattern.search(card_evidence(card)))
-            exposures = sum(stages.values())
+            counted = standards.get("exposure_stages", STAGES)
+            exposures = sum(stages[stage] for stage in counted)
             if exposures < standards["min_exposures_per_new_item"]:
                 findings.append(Finding("exposures", lesson.number, item,
                                         f"{exposures} exposures; needs {standards['min_exposures_per_new_item']}"))
+            missing = [stage for stage in standards.get("required_practice_stages", ()) if not stages[stage]]
+            if missing:
+                findings.append(Finding("practice-stages", lesson.number, item,
+                                        f"never practised in {'+'.join(missing)}"))
+            recognition = stages["Recognize"] + stages["Listen"]
+            if recognition < standards.get("min_recognize_or_listen_exposures_per_new_item", 0):
+                findings.append(Finding("recognition-practice", lesson.number, item,
+                                        f"{recognition} Recognize/Listen exposures; needs "
+                                        f"{standards['min_recognize_or_listen_exposures_per_new_item']}"))
             used = [stage for stage in STAGES if stages[stage]]
             required = standards["new_item_needs_one_of_stages"]
             if len(used) < standards["min_stages_per_new_item"] or not set(required) & set(used):
@@ -257,7 +407,9 @@ def audit(catalog: list[CatalogLesson], standards: dict) -> list[Finding]:
         # standard lesson's Learn card never re-teaches a known frame such as "It is".
         if lesson.role == "standard":
             contextual, context_errors = learn_context(cards, lesson.data.get("learn_context_pairs", []), vocabulary, known)
-            grouped, group_errors = learn_context_groups(cards, lesson.data.get("learn_context_groups", []), vocabulary, known, set(standards.get("learn_context_anchor_targets", [])))
+            kinds = ("sequence", "exchange") + (("contrast",) if "contrast" in standards.get("learn_shapes", ()) else ())
+            grouped, group_errors = learn_context_groups(cards, lesson.data.get("learn_context_groups", []), vocabulary, known,
+                                                         set(standards.get("learn_context_anchor_targets", [])), kinds)
             if contextual & grouped:
                 group_errors.append("context groups overlap an existing question/answer pair")
             contextual |= grouped
