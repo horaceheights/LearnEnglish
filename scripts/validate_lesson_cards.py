@@ -3176,6 +3176,10 @@ def validate_registered_courses(warnings: list[str]) -> list[str]:
         if descriptor["id"] == COURSE_DESCRIPTORS[0]["id"]:
             continue
         errors.extend(error for lesson in lessons for error in tutor_contract_errors(lesson))
+        from scripts.learner_copy_contract import card_context_errors
+        errors.extend(f"{lesson.id}/{card.slide_id}: {issue}"
+                      for lesson in lessons for card in lesson.cards
+                      for issue in card_context_errors(card.context_es))
         for validate in (validate_option_ids, validate_text_tile_option_limit,
                          validate_duplicate_option_images, validate_recognize_contract,
                          validate_interaction_requirements, validate_media_references):

@@ -23,7 +23,7 @@ AUTHORITY_FILES = (
     "mobile/src/missionExperience.ts", "mobile/src/screens/LessonScreen.tsx",
     "scripts/export_mobile_preview_lessons.py",
     "scripts/compile_lesson_delivery.py", "scripts/verify_lesson_delivery.py", "scripts/validate_lesson_cards.py",
-    "scripts/listening_contract.py",
+    "scripts/listening_contract.py", "scripts/learner_copy_contract.py",
     "mobile/src/choiceTeaching.ts", "mobile/src/lessonMistakeHints.ts", "mobile/src/constructionTeaching.ts",
     "mobile/src/teachingClock.ts", "mobile/src/courseAudioSources.ts",
     "mobile/src/components/TeachingClocks.tsx", "mobile/src/components/OptionMediaImage.tsx",
@@ -70,6 +70,10 @@ def validate_source_fields(source):
             if not card["id"] or card["id"] in slide_ids:
                 raise ValueError(f"Blank or duplicate card ID: {card['id']}")
             slide_ids.add(card["id"])
+            from scripts.learner_copy_contract import card_context_errors
+            context_issues = card_context_errors(card.get("context_es"))
+            if context_issues:
+                raise ValueError(f"{card['id']}: {'; '.join(context_issues)}")
             for field in ("turns", "answerTurns"):
                 for index, turn in enumerate(card.get(field, [])):
                     require_known_fields(turn, "speaker text image translation_es clock clockCues frames audio audioSha256 clipId audioDelivery audioReceipt", f"{card['id']}.{field}[{index}]")
