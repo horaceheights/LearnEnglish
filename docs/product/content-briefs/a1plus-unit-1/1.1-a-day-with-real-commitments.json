@@ -1,0 +1,485 @@
+{
+  "brief_version": 1,
+  "note": "A1+ Unit 1 Lesson 1.1 rebuilt under the A1+ lesson standards approved 2026-10-27. Derived from the approved v9 plan (1.1). Spanish scenario setup is replaced by English evidence: reply-selection cards let the reply picture show whether Ana is still at work or already home.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-1.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-1",
+    "title": "1.1 A day with real commitments",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "Everyday routines and habits",
+    "unit_outcome": "Explain a working day, compare two people’s commitments, check assumptions and account for a change of routine.",
+    "lesson_id": "a1plus-unit-1-lesson-1-1",
+    "lesson_title": "A day with real commitments",
+    "sub_lesson_id": "1.1",
+    "sub_lesson_title": "A day with real commitments",
+    "goal": "Find out when a person leaves, starts and finishes work, then use the answer to choose a workable meeting time.",
+    "vocabulary": [
+      "leave home",
+      "start work",
+      "finish work",
+      "arrive home",
+      "What time do you",
+      "meet"
+    ],
+    "review_vocabulary": [
+      "I",
+      "you",
+      "at",
+      "home",
+      "work",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "Let's",
+      "OK",
+      "No, thank you"
+    ],
+    "grammar_function": "Four schedule chunks, the question What time do you...? and the proposal Let's meet at... support a two-person exchange and a decision using the evidence of where Ana is.",
+    "prerequisite": "A1 work, home, I/you, at, whole hours, Do you...?, Let's... invitations and No, thank you.",
+    "speaking_outcome": "Phrase grouping in leave home and arrive home; clear start/finish and final consonants in the complete utterance. Do not require native-like speed.",
+    "content_revision": 4,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "leave home",
+          "start work",
+          "finish work",
+          "arrive home"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I leave home at seven."
+          },
+          {
+            "slide_id": "L2",
+            "text": "I start work at eight."
+          },
+          {
+            "slide_id": "L3",
+            "text": "I finish work at five."
+          },
+          {
+            "slide_id": "L4",
+            "text": "I arrive home at six."
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What time do you",
+          "finish work"
+        ],
+        "models": [
+          {
+            "slide_id": "L5",
+            "text": "What time do you finish work? I finish work at five.",
+            "turns": [
+              "What time do you finish work?",
+              "I finish work at five."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "What time do you",
+          "arrive home"
+        ],
+        "models": [
+          {
+            "slide_id": "L6",
+            "text": "What time do you arrive home? I arrive home at six.",
+            "turns": [
+              "What time do you arrive home?",
+              "I arrive home at six."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "meet"
+        ],
+        "models": [
+          {
+            "slide_id": "L7",
+            "text": "Let's meet at seven."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "ana-leave",
+      "text": "I leave home at seven.",
+      "es": "Salgo de casa a las siete.",
+      "image": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+      "kind": "ana-day",
+      "speaker": "ana",
+      "clock": {
+        "hour": 7,
+        "minute": 0
+      }
+    },
+    {
+      "id": "ana-start",
+      "text": "I start work at eight.",
+      "es": "Empiezo a trabajar a las ocho.",
+      "image": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "kind": "ana-day",
+      "speaker": "ana",
+      "clock": {
+        "hour": 8,
+        "minute": 0
+      }
+    },
+    {
+      "id": "ana-finish",
+      "text": "I finish work at five.",
+      "es": "Termino de trabajar a las cinco.",
+      "image": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+      "kind": "ana-day",
+      "speaker": "ana",
+      "clock": {
+        "hour": 5,
+        "minute": 0
+      }
+    },
+    {
+      "id": "ana-arrive",
+      "text": "I arrive home at six.",
+      "es": "Llego a casa a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
+      "kind": "ana-day",
+      "speaker": "ana",
+      "clock": {
+        "hour": 6,
+        "minute": 0
+      }
+    },
+    {
+      "id": "ask-finish",
+      "text": "What time do you finish work? I finish work at five.",
+      "es": "¿A qué hora terminas de trabajar? Termino de trabajar a las cinco.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What time do you finish work?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
+        },
+        {
+          "text": "I finish work at five.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          "clock": {
+            "hour": 5,
+            "minute": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ask-arrive",
+      "text": "What time do you arrive home? I arrive home at six.",
+      "es": "¿A qué hora llegas a casa? Llego a casa a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "What time do you arrive home?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
+        },
+        {
+          "text": "I arrive home at six.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          "clock": {
+            "hour": 6,
+            "minute": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "meet-seven",
+      "text": "Let's meet at seven.",
+      "es": "Quedemos a las siete.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "proposal",
+      "speaker": "luis",
+      "image_choices": false,
+      "clock": {
+        "hour": 7,
+        "minute": 0
+      }
+    },
+    {
+      "id": "q-finish",
+      "text": "What time do you finish work?",
+      "es": "¿A qué hora terminas de trabajar?",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "time-question",
+      "speaker": "luis",
+      "learn": false,
+      "image_choices": false
+    },
+    {
+      "id": "q-arrive",
+      "text": "What time do you arrive home?",
+      "es": "¿A qué hora llegas a casa?",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "time-question",
+      "speaker": "luis",
+      "learn": false,
+      "image_choices": false
+    },
+    {
+      "id": "ana-account",
+      "text": "I finish work at five. I arrive home at six.",
+      "es": "Termino de trabajar a las cinco. Llego a casa a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+      "kind": "ana-account",
+      "speaker": "ana",
+      "learn": false,
+      "choices": false,
+      "turns": [
+        {
+          "text": "I finish work at five.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+          "clock": {
+            "hour": 5,
+            "minute": 0
+          }
+        },
+        {
+          "text": "I arrive home at six.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
+          "clock": {
+            "hour": 6,
+            "minute": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "reply-arrive",
+      "text": "I arrive home at six.",
+      "es": "Llego a casa a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
+      "kind": "ana-day",
+      "speaker": "ana",
+      "learn": false,
+      "image_choices": false,
+      "question": "What time do you arrive home?",
+      "question_es": "¿A qué hora llegas a casa?",
+      "question_speaker": "luis",
+      "question_image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "reply_image_timing": "after-prompt"
+    },
+    {
+      "id": "reply-no",
+      "text": "No, thank you.",
+      "es": "No, gracias.",
+      "image": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+      "kind": "meeting-reply",
+      "speaker": "ana",
+      "learn": false,
+      "image_choices": false,
+      "question": "Let's meet at five.",
+      "question_es": "Quedemos a las cinco.",
+      "question_speaker": "luis",
+      "accepts": {
+        "conversational-response": "The reply picture shows whether Ana is still at work or already home, so only one reply fits Luis's proposal."
+      },
+      "question_image": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "reply_image_timing": "after-prompt"
+    },
+    {
+      "id": "reply-ok",
+      "text": "OK.",
+      "es": "De acuerdo.",
+      "image": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+      "kind": "meeting-reply",
+      "speaker": "ana",
+      "learn": false,
+      "image_choices": false,
+      "question": "Let's meet at seven.",
+      "question_es": "Quedemos a las siete.",
+      "question_speaker": "luis",
+      "accepts": {
+        "conversational-response": "The reply picture shows whether Ana is still at work or already home, so only one reply fits Luis's proposal."
+      },
+      "question_image": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "reply_image_timing": "after-prompt"
+    },
+    {
+      "id": "meet-eight",
+      "text": "Let's meet at eight.",
+      "es": "Quedemos a las ocho.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "proposal",
+      "speaker": "luis",
+      "learn": false,
+      "image_choices": false,
+      "clock": {
+        "hour": 8,
+        "minute": 0
+      }
+    },
+    {
+      "id": "luis-leave",
+      "text": "I leave home at eight.",
+      "es": "Salgo de casa a las ocho.",
+      "image": "/lesson-assets/a1plus-unit-1-t19-eec22d7a324abbdc.webp",
+      "kind": "luis-day",
+      "speaker": "luis",
+      "learn": false,
+      "clock": {
+        "hour": 8,
+        "minute": 0
+      }
+    },
+    {
+      "id": "luis-start",
+      "text": "I start work at nine.",
+      "es": "Empiezo a trabajar a las nueve.",
+      "image": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "kind": "luis-day",
+      "speaker": "luis",
+      "learn": false,
+      "clock": {
+        "hour": 9,
+        "minute": 0
+      }
+    },
+    {
+      "id": "luis-finish",
+      "text": "I finish work at six.",
+      "es": "Termino de trabajar a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+      "kind": "luis-day",
+      "speaker": "luis",
+      "learn": false,
+      "clock": {
+        "hour": 6,
+        "minute": 0
+      }
+    },
+    {
+      "id": "luis-arrive",
+      "text": "I arrive home at seven.",
+      "es": "Llego a casa a las siete.",
+      "image": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+      "kind": "luis-day",
+      "speaker": "luis",
+      "learn": false,
+      "clock": {
+        "hour": 7,
+        "minute": 0
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "Let's meet at six.",
+      "es": "Quedemos a las seis.",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "proposal",
+      "speaker": "luis",
+      "image_choices": false
+    },
+    {
+      "text": "What time do you leave home?",
+      "es": "¿A qué hora sales de casa?",
+      "image": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "kind": "time-question",
+      "speaker": "luis",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 10,
+    "Listen": 10,
+    "Speak": 7,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "ana-leave",
+      "ana-start",
+      "ana-finish",
+      "ana-arrive",
+      "ask-finish",
+      "ask-arrive",
+      "meet-seven"
+    ],
+    "Recognize": [
+      "ana-leave",
+      "ana-start",
+      "ana-finish",
+      "reply-arrive",
+      "luis-leave",
+      "luis-start",
+      "luis-finish",
+      "luis-arrive",
+      "reply-no",
+      "reply-ok"
+    ],
+    "Listen": [
+      "ana-leave",
+      "ana-start",
+      "q-finish",
+      "ana-finish",
+      "ana-arrive",
+      "q-arrive",
+      "luis-leave",
+      "luis-start",
+      "luis-arrive",
+      "meet-eight"
+    ],
+    "Speak": [
+      "ana-leave",
+      "ana-start",
+      "q-finish",
+      "ana-account",
+      "q-arrive",
+      "ana-arrive",
+      "meet-seven"
+    ],
+    "Use": [
+      "ana-leave",
+      "ana-start",
+      "q-finish",
+      "ana-finish",
+      "q-arrive",
+      "ana-arrive",
+      "meet-seven",
+      "meet-eight"
+    ]
+  }
+}

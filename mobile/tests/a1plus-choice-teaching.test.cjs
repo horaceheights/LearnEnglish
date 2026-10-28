@@ -19,7 +19,7 @@ test('installed listening cards explain the heard evidence, including the report
   const lessons = require('../src/generated/a1-plus-course.json');
   const cards = lessons.filter(lesson => lesson.experience_type !== 'mission')
     .flatMap(lesson => lesson.cards.filter(card => card.stage === 'Listen'));
-  assert.equal(cards.length, 94);
+  assert.equal(cards.length, 99);
   for (const card of cards) {
     assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
     for (const option of wrongOptions(card)) {
@@ -32,9 +32,11 @@ test('installed listening cards explain the heard evidence, including the report
       }
     }
   }
-  const reported = cards.find(card => card.slide_id === 'a1plus-unit-1-1.1-A03');
-  assert.equal(reported.audio_text, "Let's meet at seven.");
-  assert.deepEqual(reported.audio_turns.map(turn => turn.text), ["Let's meet at seven."]);
+  // Lesson 1.1 was rebuilt on 2026-10-27; its heard meeting proposal is A10.
+  const reported = lessons.find(lesson => lesson.id === 'a1plus-unit-1-lesson-1-1').cards
+    .find(card => card.slide_id === 'A10');
+  assert.equal(reported.audio_text, "Let's meet at eight.");
+  assert.deepEqual((reported.audio_turns ?? []).map(turn => turn.text), []);
   assert.equal(reported.options.find(option => option.id === reported.correct_option_id).label, reported.audio_text);
   assert.doesNotMatch(lessonMistakeHint(reported, wrongOptions(reported)[0].id), /trabajo|disponib|llegar|pronto/i);
 });
