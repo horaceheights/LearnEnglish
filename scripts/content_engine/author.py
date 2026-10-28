@@ -148,12 +148,17 @@ def distractors(item: dict, candidates: list[dict], count: int, *, need_image: b
     return chosen
 
 
+def _clock(line: dict) -> dict:
+    """An authored stated time for a line, shown by the shared teaching clock."""
+    return {"clock_cues": [line["clock"]]} if line.get("clock") else {}
+
+
 def _voice(spec: dict, item: dict, *, answer: bool = False) -> dict:
     """Give the card the voice of the item's line: its speaker, or each turn of its exchange."""
     spec.update(_audio_revisions(item))
     if item.get("turns"):
         spec["answer_audio_turns" if answer else "audio_turns"] = [
-            {"text": turn["text"], "speaker_role": turn["speaker"], "image_url": turn["image"]}
+            {"text": turn["text"], "speaker_role": turn["speaker"], "image_url": turn["image"], **_clock(turn)}
             for turn in item["turns"]]
     elif item.get("speaker"):
         spec["answer_audio_speaker" if answer else "audio_speaker"] = item["speaker"]
@@ -238,7 +243,7 @@ def _completion(slide: str, item: dict) -> dict:
             "prompt": prompt, "stage": "Use", "correct_option_ids": ids,
             "options": [{"id": identifier, "image_url": "", "label": token} for identifier, token in zip(ids, blanks)],
             "answer_audio_text": item["text"], "prompt_image_url": item["image"],
-            "spanish_translation": item["es"], "mirror_translation": True, **_use_voice(item)}
+            "spanish_translation": item["es"], "mirror_translation": True, **_use_voice(item), **_clock(item)}
 
 
 def _construction(slide: str, item: dict) -> dict:
@@ -249,7 +254,20 @@ def _construction(slide: str, item: dict) -> dict:
             "correct_option_ids": [option["id"] for option in ordered],
             "options": [*ordered[1::2], *ordered[0::2]], "answer_audio_text": item["text"],
             "prompt_image_url": item["image"], "spanish_translation": item["es"], "mirror_translation": True,
-            "pedagogy_note": note("Use", item), **_use_voice(item)}
+            "pedagogy_note": note("Use", item), **_use_voice(item), **_clock(item)}
+
+
+def _speech(spec: dict, item: dict, delivery: str | None) -> dict:
+    """A Speak model: a course with a prepared delivery plays each line as its own turn."""
+    if not delivery:
+        return {**spec, **({} if item.get("turns") else _clock(item))}
+    if not spec.get("audio_turns"):
+        spec["audio_turns"] = [{"text": item["text"], "speaker_role": item.get("speaker") or "teacher",
+                                "image_url": item["image"], **_clock(item)}]
+        spec.pop("audio_speaker", None)
+    for turn in spec["audio_turns"]:
+        turn["delivery"] = delivery
+    return spec
 
 
 def narrate(cards: list[dict], narrators: list[str] | None) -> None:
@@ -424,6 +442,8 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         learn = _voice({"recipe": "teach", "slide_id": f"L{index + 1}", "stage": "Learn",
                         "options": [_option(item, image=True, suffix="learn")],
                         "spanish_translation": item["es"], "pedagogy_note": note("Learn", item)}, item)
+        if not item.get("turns"):
+            learn.update(_clock(item))
         if int(item.get("learn_revision") or 1) > 1:
             # A Learn take that was replaced keeps its bumped revision, so the rejected
             # asset never comes back from a cache (Lesson 3.1 "Hello." is revision 2).
@@ -462,9 +482,10 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         banks.append(bank)
     for index, item in enumerate(section("Speak", speakable)):
         practised(item)
-        cards.append(_voice({"recipe": "speak", "slide_id": f"S{index + 1}", "stage": "Speak",
-                             "options": [_option(item, image=True, suffix="speak")],
-                             "spanish_translation": item["es"], "pedagogy_note": note("Speak", item)}, item))
+        cards.append(_speech(_voice({"recipe": "speak", "slide_id": f"S{index + 1}", "stage": "Speak",
+                                     "options": [_option(item, image=True, suffix="speak")],
+                                     "spanish_translation": item["es"], "pedagogy_note": note("Speak", item)}, item),
+                             item, brief.get("speak_delivery")))
     # Completa progression: floor(N/2) guided cards, then full constructions.
     # Use works with whole sentences and keeps the authored story order.
     # An exchange (`turns`) has no single voice to build, and `"use": false` opts an item out.
@@ -480,6 +501,10 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
         cards.append((_construction if build else _completion)(f"U{index + 1}", item))
 
     narrate(cards, brief.get("narrators"))
+    if brief.get("answer_audio_policy"):
+        # A course that plays only authored answers never synthesizes one from a label.
+        for card in cards:
+            card["answer_audio_policy"] = brief["answer_audio_policy"]
     # Each section follows the story in order; number its beats like every standard lesson.
     beats: dict[str, int] = {}
     for card in cards:

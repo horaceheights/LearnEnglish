@@ -15,25 +15,138 @@
     "start work",
     "finish work",
     "arrive home",
+    "What time do you",
     "meet"
   ],
-  "review_vocabulary": [],
-  "grammar_function": "Four useful schedule chunks plus meet support a two-person exchange and a decision using two facts. The learner goes beyond identifying an action or attaching every day to it.",
-  "prerequisite": "A1 work, home, I/you, at, whole hours and explicit day-period context A1 question/reply turn taking and Please repeat",
+  "review_vocabulary": [
+    "I",
+    "you",
+    "at",
+    "home",
+    "work",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "Let's",
+    "OK",
+    "No, thank you"
+  ],
+  "grammar_function": "Four schedule chunks, the question What time do you...? and the proposal Let's meet at... support a two-person exchange and a decision using the evidence of where Ana is.",
+  "prerequisite": "A1 work, home, I/you, at, whole hours, Do you...?, Let's... invitations and No, thank you.",
   "speaking_outcome": "Phrase grouping in leave home and arrive home; clear start/finish and final consonants in the complete utterance. Do not require native-like speed.",
-  "purposeful_review_slides": [],
-  "content_revision": 3,
+  "content_revision": 4,
+  "learn_context_groups": [
+    {
+      "kind": "sequence",
+      "targets": [
+        "leave home",
+        "start work",
+        "finish work",
+        "arrive home"
+      ],
+      "models": [
+        {
+          "slide_id": "L1",
+          "text": "I leave home at seven."
+        },
+        {
+          "slide_id": "L2",
+          "text": "I start work at eight."
+        },
+        {
+          "slide_id": "L3",
+          "text": "I finish work at five."
+        },
+        {
+          "slide_id": "L4",
+          "text": "I arrive home at six."
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time do you",
+        "finish work"
+      ],
+      "models": [
+        {
+          "slide_id": "L5",
+          "text": "What time do you finish work? I finish work at five.",
+          "turns": [
+            "What time do you finish work?",
+            "I finish work at five."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "exchange",
+      "targets": [
+        "What time do you",
+        "arrive home"
+      ],
+      "models": [
+        {
+          "slide_id": "L6",
+          "text": "What time do you arrive home? I arrive home at six.",
+          "turns": [
+            "What time do you arrive home?",
+            "I arrive home at six."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "targets": [
+        "meet"
+      ],
+      "models": [
+        {
+          "slide_id": "L7",
+          "text": "Let's meet at seven."
+        }
+      ]
+    }
+  ],
+  "purposeful_review_slides": [
+    "L4",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "A3",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "U3",
+    "U5",
+    "U6",
+    "U8"
+  ],
   "cards": [
     {
-      "slide_id": "a1plus-unit-1-1.1-L01",
+      "slide_id": "L1",
       "interaction_type": "teach",
       "prompt": "I leave home at seven.",
       "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
+      "correct_option_id": "i-leave-home-at-seven-learn",
       "options": [
         {
-          "id": "model",
+          "id": "i-leave-home-at-seven-learn",
           "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
           "label": "I leave home at seven."
         }
@@ -42,52 +155,25 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Salgo de casa a las siete.",
-      "pedagogy_note": null,
+      "pedagogy_note": "Story beat 01: I leave home at seven.",
       "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I leave home at seven.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Salgo de casa a las siete."
-        }
-      ],
-      "answer_audio_turns": [],
       "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
+      "clock_cues": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c001-prompt-turn-1-4be72347cddc1593c294",
-          "purpose": "prompt-turn-1",
-          "text": "I leave home at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "hour": 7,
+          "minute": 0
         }
       ]
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-L02",
+      "slide_id": "L2",
       "interaction_type": "teach",
       "prompt": "I start work at eight.",
       "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
+      "correct_option_id": "i-start-work-at-eight-learn",
       "options": [
         {
-          "id": "model",
+          "id": "i-start-work-at-eight-learn",
           "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
           "label": "I start work at eight."
         }
@@ -96,52 +182,25 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Empiezo a trabajar a las ocho.",
-      "pedagogy_note": null,
+      "pedagogy_note": "Story beat 02: I start work at eight.",
       "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I start work at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Empiezo a trabajar a las ocho."
-        }
-      ],
-      "answer_audio_turns": [],
       "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
+      "clock_cues": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c002-prompt-turn-1-6d60fb7deb90bde7815b",
-          "purpose": "prompt-turn-1",
-          "text": "I start work at eight.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "hour": 8,
+          "minute": 0
         }
       ]
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-L03",
+      "slide_id": "L3",
       "interaction_type": "teach",
       "prompt": "I finish work at five.",
       "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
+      "correct_option_id": "i-finish-work-at-five-learn",
       "options": [
         {
-          "id": "model",
+          "id": "i-finish-work-at-five-learn",
           "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
           "label": "I finish work at five."
         }
@@ -150,804 +209,65 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Termino de trabajar a las cinco.",
-      "pedagogy_note": null,
+      "pedagogy_note": "Story beat 03: I finish work at five.",
       "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I finish work at five.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Termino de trabajar a las cinco."
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c003-prompt-turn-1-7bf87fdea5e66d5914c6",
-          "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-L04",
-      "interaction_type": "teach",
-      "prompt": "I arrive home at six.",
-      "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-          "label": "I arrive home at six."
-        }
-      ],
-      "audio_text": "I arrive home at six.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Llego a casa a las seis.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Llego a casa a las seis."
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c004-prompt-turn-1-a9a20ed01a3253742b12",
-          "purpose": "prompt-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-L05",
-      "interaction_type": "teach",
-      "prompt": "What time do you finish work?",
-      "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "label": "What time do you finish work?"
-        }
-      ],
-      "audio_text": "What time do you finish work?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿A qué hora terminas de trabajar?",
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "What time do you finish work?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "spanish_translation": "¿A qué hora terminas de trabajar?"
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c005-prompt-turn-1-cff250ef9601dde54886",
-          "purpose": "prompt-turn-1",
-          "text": "What time do you finish work?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-L06",
-      "interaction_type": "teach",
-      "prompt": "I finish work at five. I arrive home at six.",
-      "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "label": "I finish work at five. I arrive home at six."
-        }
-      ],
-      "audio_text": "I finish work at five. I arrive home at six.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Termino de trabajar a las cinco. Llego a casa a las seis.",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I finish work at five.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Termino de trabajar a las cinco."
-        },
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Llego a casa a las seis."
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c006-prompt-turn-1-73a1c606f0735c93ed5e",
-          "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c006-prompt-turn-2-1f4cffc05d0d22cfdbf6",
-          "purpose": "prompt-turn-2",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-L07",
-      "interaction_type": "teach",
-      "prompt": "What time do you arrive home?",
-      "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "label": "What time do you arrive home?"
-        }
-      ],
-      "audio_text": "What time do you arrive home?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿A qué hora llegas a casa?",
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "What time do you arrive home?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "spanish_translation": "¿A qué hora llegas a casa?"
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c007-prompt-turn-1-3e868be798f454d3ab53",
-          "purpose": "prompt-turn-1",
-          "text": "What time do you arrive home?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-L08",
-      "interaction_type": "teach",
-      "prompt": "I arrive home at six.",
-      "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "label": "I arrive home at six."
-        }
-      ],
-      "audio_text": "I arrive home at six.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Llego a casa a las seis.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Llego a casa a las seis."
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c008-prompt-turn-1-6261b5d4a873478013a8",
-          "purpose": "prompt-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-L09",
-      "interaction_type": "teach",
-      "prompt": "Let's meet at seven.",
-      "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "label": "Let's meet at seven."
-        }
-      ],
-      "audio_text": "Let's meet at seven.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Reunámonos a las siete.",
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Let's meet at seven.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ],
-          "spanish_translation": "Reunámonos a las siete."
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c009-prompt-turn-1-af6e5cc7d10a0eff5ce5",
-          "purpose": "prompt-turn-1",
-          "text": "Let's meet at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-L10",
-      "interaction_type": "teach",
-      "prompt": "OK.",
-      "stage": "Learn",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "label": "OK."
-        }
-      ],
-      "audio_text": "OK.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "De acuerdo.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "OK.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "spanish_translation": "De acuerdo."
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c010-prompt-turn-1-01d3ddc53278c2022e70",
-          "purpose": "prompt-turn-1",
-          "text": "OK.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-R01",
-      "interaction_type": "t2i",
-      "prompt": "I leave home at seven.",
-      "stage": "Recognize",
-      "correct_option_id": "leave-home",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "leave-home",
-          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "label": null
-        },
-        {
-          "id": "start-work",
-          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I leave home at seven.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Salgo de casa a las siete.",
-      "pedagogy_note": null,
-      "audio_speaker": "teacher",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I leave home at seven.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c011-prompt-turn-1-f33aec3ace2b34198830",
-          "purpose": "prompt-turn-1",
-          "text": "I leave home at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-R02",
-      "interaction_type": "i2t",
-      "prompt": "",
-      "prompt_presentation": "written",
-      "stage": "Recognize",
-      "correct_option_id": "i-start-work-at-eight",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "i-start-work-at-nine",
-          "image_url": "",
-          "label": "I start work at nine."
-        },
-        {
-          "id": "i-start-work-at-eight",
-          "image_url": "",
-          "label": "I start work at eight."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I start work at eight.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
-      "audio_turns": [],
-      "answer_audio_turns": [
-        {
-          "text": "I start work at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        }
-      ],
       "answer_audio_policy": "authored-only",
       "clock_cues": [
         {
-          "hour": 8,
+          "hour": 5,
           "minute": 0
         }
-      ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c012-answer-turn-1-5a2e70648baae6dab1a7",
-          "purpose": "answer-turn-1",
-          "text": "I start work at eight.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
       ]
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-R03",
-      "interaction_type": "t2i",
-      "prompt": "I finish work at five.",
-      "stage": "Recognize",
-      "correct_option_id": "finish-work",
-      "correct_option_ids": [],
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "I arrive home at six.",
+      "stage": "Learn",
+      "correct_option_id": "i-arrive-home-at-six-learn",
       "options": [
         {
-          "id": "arrive-home",
+          "id": "i-arrive-home-at-six-learn",
           "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-          "label": null
-        },
-        {
-          "id": "finish-work",
-          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
-          "label": null
+          "label": "I arrive home at six."
         }
       ],
-      "audio_text": "I finish work at five.",
+      "audio_text": "I arrive home at six.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Termino de trabajar a las cinco.",
-      "pedagogy_note": null,
-      "audio_speaker": "teacher",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I finish work at five.",
-          "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c013-prompt-turn-1-8ee2b4349aa463624e3d",
-          "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-R04",
-      "interaction_type": "i2t",
-      "prompt": "",
-      "prompt_presentation": "written",
-      "stage": "Recognize",
-      "correct_option_id": "i-arrive-home-at-six",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "i-arrive-home-at-six",
-          "image_url": "",
-          "label": "I arrive home at six."
-        },
-        {
-          "id": "i-leave-home-at-six",
-          "image_url": "",
-          "label": "I leave home at six."
-        }
-      ],
-      "audio_text": "",
-      "answer_audio_text": "I arrive home at six.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
-      "audio_turns": [],
-      "answer_audio_turns": [
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
-        }
-      ],
+      "spanish_translation": "Llego a casa a las seis.",
+      "pedagogy_note": "Story beat 04: I arrive home at six.",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only",
       "clock_cues": [
         {
           "hour": 6,
           "minute": 0
         }
-      ],
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c014-answer-turn-1-0e06db463ab619a83e01",
-          "purpose": "answer-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
       ]
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-A01",
-      "interaction_type": "a2t",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-start-work-at-eight",
-      "correct_option_ids": [],
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "What time do you finish work? I finish work at five.",
+      "stage": "Learn",
+      "correct_option_id": "what-time-do-you-finish-work-i-finish-work-at-five-learn",
       "options": [
         {
-          "id": "i-start-work-at-seven",
-          "image_url": "",
-          "label": "I start work at seven."
-        },
-        {
-          "id": "i-start-work-at-eight",
-          "image_url": "",
-          "label": "I start work at eight."
+          "id": "what-time-do-you-finish-work-i-finish-work-at-five-learn",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "label": "What time do you finish work? I finish work at five."
         }
       ],
-      "audio_text": "I leave home at seven. I start work at eight.",
-      "answer_audio_text": "I start work at eight.",
+      "audio_text": "What time do you finish work? I finish work at five.",
+      "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
       "audio_turns": [
         {
-          "text": "I leave home at seven.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
+          "text": "What time do you finish work?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
         },
-        {
-          "text": "I start work at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "I start work at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c015-prompt-turn-1-ec9daf11dbf226ee5614",
-          "purpose": "prompt-turn-1",
-          "text": "I leave home at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c015-prompt-turn-2-d5adf9889dba47a5708b",
-          "purpose": "prompt-turn-2",
-          "text": "I start work at eight.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c015-answer-turn-1-b7357e981912be72aa4b",
-          "purpose": "answer-turn-1",
-          "text": "I start work at eight.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-A02",
-      "interaction_type": "a2t",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "i-arrive-home-at-six",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "i-arrive-home-at-five",
-          "image_url": "",
-          "label": "I arrive home at five."
-        },
-        {
-          "id": "i-arrive-home-at-six",
-          "image_url": "",
-          "label": "I arrive home at six."
-        }
-      ],
-      "audio_text": "I finish work at five. I arrive home at six.",
-      "answer_audio_text": "I arrive home at six.",
-      "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": "ana",
-      "audio_turns": [
         {
           "text": "I finish work at five.",
           "speaker_role": "ana",
@@ -958,6 +278,33 @@
               "minute": 0
             }
           ]
+        }
+      ],
+      "spanish_translation": "¿A qué hora terminas de trabajar? Termino de trabajar a las cinco.",
+      "pedagogy_note": "Story beat 05: What time do you finish work? I finish work at five.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "What time do you arrive home? I arrive home at six.",
+      "stage": "Learn",
+      "correct_option_id": "what-time-do-you-arrive-home-i-arrive-home-at-six-learn",
+      "options": [
+        {
+          "id": "what-time-do-you-arrive-home-i-arrive-home-at-six-learn",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "label": "What time do you arrive home? I arrive home at six."
+        }
+      ],
+      "audio_text": "What time do you arrive home? I arrive home at six.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What time do you arrive home?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
         },
         {
           "text": "I arrive home at six.",
@@ -971,7 +318,749 @@
           ]
         }
       ],
+      "spanish_translation": "¿A qué hora llegas a casa? Llego a casa a las seis.",
+      "pedagogy_note": "Story beat 06: What time do you arrive home? I arrive home at six.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "Let's meet at seven.",
+      "stage": "Learn",
+      "correct_option_id": "let's-meet-at-seven-learn",
+      "options": [
+        {
+          "id": "let's-meet-at-seven-learn",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "label": "Let's meet at seven."
+        }
+      ],
+      "audio_text": "Let's meet at seven.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Quedemos a las siete.",
+      "pedagogy_note": "Story beat 07: Let's meet at seven.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only",
+      "clock_cues": [
+        {
+          "hour": 7,
+          "minute": 0
+        }
+      ]
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "t2i2",
+      "prompt": "I leave home at seven.",
+      "stage": "Recognize",
+      "correct_option_id": "i-leave-home-at-seven-r1",
+      "options": [
+        {
+          "id": "i-start-work-at-eight-r1",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+          "label": null
+        },
+        {
+          "id": "i-leave-home-at-seven-r1",
+          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I leave home at seven.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Salgo de casa a las siete.",
+      "pedagogy_note": "Story beat 01: I leave home at seven.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-start-work-at-eight-r2",
+      "options": [
+        {
+          "id": "i-leave-home-at-seven-r2",
+          "image_url": "",
+          "label": "I leave home at seven."
+        },
+        {
+          "id": "i-start-work-at-eight-r2",
+          "image_url": "",
+          "label": "I start work at eight."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I start work at eight.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 02: I start work at eight.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "t2i2",
+      "prompt": "I finish work at five.",
+      "stage": "Recognize",
+      "correct_option_id": "i-finish-work-at-five-r3",
+      "options": [
+        {
+          "id": "i-finish-work-at-five-r3",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+          "label": null
+        },
+        {
+          "id": "i-start-work-at-eight-r3",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I finish work at five.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Termino de trabajar a las cinco.",
+      "pedagogy_note": "Story beat 03: I finish work at five.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "i2t2",
+      "prompt": "What time do you arrive home?",
+      "stage": "Recognize",
+      "correct_option_id": "i-arrive-home-at-six-r4",
+      "options": [
+        {
+          "id": "i-finish-work-at-five-r4",
+          "image_url": "",
+          "label": "I finish work at five."
+        },
+        {
+          "id": "i-arrive-home-at-six-r4",
+          "image_url": "",
+          "label": "I arrive home at six."
+        }
+      ],
+      "audio_text": "What time do you arrive home?",
+      "answer_audio_text": "I arrive home at six.",
       "answer_audio_turns": [
+        {
+          "text": "I arrive home at six.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "spanish_translation": "¿A qué hora llegas a casa?",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 04: I arrive home at six.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only",
+      "reply_image_timing": "after-prompt"
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i2",
+      "prompt": "I leave home at eight.",
+      "stage": "Recognize",
+      "correct_option_id": "i-leave-home-at-eight-r5",
+      "options": [
+        {
+          "id": "i-start-work-at-nine-r5",
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+          "label": null
+        },
+        {
+          "id": "i-leave-home-at-eight-r5",
+          "image_url": "/lesson-assets/a1plus-unit-1-t19-eec22d7a324abbdc.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I leave home at eight.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Salgo de casa a las ocho.",
+      "pedagogy_note": "Story beat 05: I leave home at eight.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-start-work-at-nine-r6",
+      "options": [
+        {
+          "id": "i-start-work-at-nine-r6",
+          "image_url": "",
+          "label": "I start work at nine."
+        },
+        {
+          "id": "i-leave-home-at-eight-r6",
+          "image_url": "",
+          "label": "I leave home at eight."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I start work at nine.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 06: I start work at nine.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i4",
+      "prompt": "I finish work at six.",
+      "stage": "Recognize",
+      "correct_option_id": "i-finish-work-at-six-r7",
+      "options": [
+        {
+          "id": "i-arrive-home-at-seven-r7",
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+          "label": null
+        },
+        {
+          "id": "i-leave-home-at-eight-r7",
+          "image_url": "/lesson-assets/a1plus-unit-1-t19-eec22d7a324abbdc.webp",
+          "label": null
+        },
+        {
+          "id": "i-finish-work-at-six-r7",
+          "image_url": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+          "label": null
+        },
+        {
+          "id": "i-start-work-at-nine-r7",
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I finish work at six.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Termino de trabajar a las seis.",
+      "pedagogy_note": "Story beat 07: I finish work at six.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t2",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "i-arrive-home-at-seven-r8",
+      "options": [
+        {
+          "id": "i-arrive-home-at-seven-r8",
+          "image_url": "",
+          "label": "I arrive home at seven."
+        },
+        {
+          "id": "i-finish-work-at-six-r8",
+          "image_url": "",
+          "label": "I finish work at six."
+        }
+      ],
+      "audio_text": "",
+      "answer_audio_text": "I arrive home at seven.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+      "spanish_translation": "Elige la frase correcta.",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 08: I arrive home at seven.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "Let's meet at five.",
+      "stage": "Recognize",
+      "correct_option_id": "no-thank-you-r9",
+      "options": [
+        {
+          "id": "no-thank-you-r9",
+          "image_url": "",
+          "label": "No, thank you."
+        },
+        {
+          "id": "ok-r9",
+          "image_url": "",
+          "label": "OK."
+        }
+      ],
+      "audio_text": "Let's meet at five.",
+      "answer_audio_text": "No, thank you.",
+      "answer_audio_turns": [
+        {
+          "text": "No, thank you.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "spanish_translation": "Quedemos a las cinco.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 09: No, thank you.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only",
+      "reply_image_timing": "after-prompt"
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t2",
+      "prompt": "Let's meet at seven.",
+      "stage": "Recognize",
+      "correct_option_id": "ok-r10",
+      "options": [
+        {
+          "id": "ok-r10",
+          "image_url": "",
+          "label": "OK."
+        },
+        {
+          "id": "no-thank-you-r10",
+          "image_url": "",
+          "label": "No, thank you."
+        }
+      ],
+      "audio_text": "Let's meet at seven.",
+      "answer_audio_text": "OK.",
+      "answer_audio_turns": [
+        {
+          "text": "OK.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp"
+        }
+      ],
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+      "spanish_translation": "Quedemos a las siete.",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 10: OK.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only",
+      "reply_image_timing": "after-prompt"
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-leave-home-at-seven-a1",
+      "options": [
+        {
+          "id": "i-leave-home-at-seven-a1",
+          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+          "label": null
+        },
+        {
+          "id": "i-start-work-at-eight-a1",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I leave home at seven.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 01: I leave home at seven.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-start-work-at-eight-a2",
+      "options": [
+        {
+          "id": "i-start-work-at-eight-a2",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+          "label": null
+        },
+        {
+          "id": "i-leave-home-at-seven-a2",
+          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I start work at eight.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 02: I start work at eight.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-time-do-you-finish-work-a3",
+      "options": [
+        {
+          "id": "what-time-do-you-finish-work-a3",
+          "image_url": "",
+          "label": "What time do you finish work?"
+        },
+        {
+          "id": "what-time-do-you-arrive-home-a3",
+          "image_url": "",
+          "label": "What time do you arrive home?"
+        }
+      ],
+      "audio_text": "What time do you finish work?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 03: What time do you finish work?",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-finish-work-at-five-a4",
+      "options": [
+        {
+          "id": "i-start-work-at-eight-a4",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+          "label": null
+        },
+        {
+          "id": "i-finish-work-at-five-a4",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I finish work at five.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 04: I finish work at five.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-arrive-home-at-six-a5",
+      "options": [
+        {
+          "id": "i-arrive-home-at-six-a5",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
+          "label": null
+        },
+        {
+          "id": "i-finish-work-at-five-a5",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I arrive home at six.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 05: I arrive home at six.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-time-do-you-arrive-home-a6",
+      "options": [
+        {
+          "id": "what-time-do-you-arrive-home-a6",
+          "image_url": "",
+          "label": "What time do you arrive home?"
+        },
+        {
+          "id": "what-time-do-you-finish-work-a6",
+          "image_url": "",
+          "label": "What time do you finish work?"
+        },
+        {
+          "id": "what-time-do-you-leave-home-a6",
+          "image_url": "",
+          "label": "What time do you leave home?"
+        }
+      ],
+      "audio_text": "What time do you arrive home?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 06: What time do you arrive home?",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-leave-home-at-eight-a7",
+      "options": [
+        {
+          "id": "i-arrive-home-at-seven-a7",
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+          "label": null
+        },
+        {
+          "id": "i-leave-home-at-eight-a7",
+          "image_url": "/lesson-assets/a1plus-unit-1-t19-eec22d7a324abbdc.webp",
+          "label": null
+        },
+        {
+          "id": "i-start-work-at-nine-a7",
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+          "label": null
+        },
+        {
+          "id": "i-finish-work-at-six-a7",
+          "image_url": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I leave home at eight.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 07: I leave home at eight.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-start-work-at-nine-a8",
+      "options": [
+        {
+          "id": "i-arrive-home-at-seven-a8",
+          "image_url": "/lesson-assets/a1plus-unit-1-t21-4712bffae46aeb72.webp",
+          "label": null
+        },
+        {
+          "id": "i-start-work-at-nine-a8",
+          "image_url": "/lesson-assets/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+          "label": null
+        },
+        {
+          "id": "i-leave-home-at-eight-a8",
+          "image_url": "/lesson-assets/a1plus-unit-1-t19-eec22d7a324abbdc.webp",
+          "label": null
+        },
+        {
+          "id": "i-finish-work-at-six-a8",
+          "image_url": "/lesson-assets/a1plus-unit-1-16-c619dda46ab94abc.webp",
+          "label": null
+        }
+      ],
+      "audio_text": "I start work at nine.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 08: I start work at nine.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A9",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "i-arrive-home-at-seven-a9",
+      "options": [
+        {
+          "id": "i-finish-work-at-six-a9",
+          "image_url": "",
+          "label": "I finish work at six."
+        },
+        {
+          "id": "i-arrive-home-at-seven-a9",
+          "image_url": "",
+          "label": "I arrive home at seven."
+        }
+      ],
+      "audio_text": "I arrive home at seven.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 09: I arrive home at seven.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "A10",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "let's-meet-at-eight-a10",
+      "options": [
+        {
+          "id": "let's-meet-at-six-a10",
+          "image_url": "",
+          "label": "Let's meet at six."
+        },
+        {
+          "id": "let's-meet-at-seven-a10",
+          "image_url": "",
+          "label": "Let's meet at seven."
+        },
+        {
+          "id": "let's-meet-at-eight-a10",
+          "image_url": "",
+          "label": "Let's meet at eight."
+        }
+      ],
+      "audio_text": "Let's meet at eight.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Story beat 10: Let's meet at eight.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "I leave home at seven.",
+      "stage": "Speak",
+      "correct_option_id": "i-leave-home-at-seven-speak",
+      "options": [
+        {
+          "id": "i-leave-home-at-seven-speak",
+          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+          "label": "I leave home at seven."
+        }
+      ],
+      "audio_text": "I leave home at seven.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "I leave home at seven.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+          "clock_cues": [
+            {
+              "hour": 7,
+              "minute": 0
+            }
+          ],
+          "delivery": "a1-pronunciation-v1"
+        }
+      ],
+      "spanish_translation": "Salgo de casa a las siete.",
+      "pedagogy_note": "Story beat 01: I leave home at seven.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "I start work at eight.",
+      "stage": "Speak",
+      "correct_option_id": "i-start-work-at-eight-speak",
+      "options": [
+        {
+          "id": "i-start-work-at-eight-speak",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+          "label": "I start work at eight."
+        }
+      ],
+      "audio_text": "I start work at eight.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "I start work at eight.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
+          "clock_cues": [
+            {
+              "hour": 8,
+              "minute": 0
+            }
+          ],
+          "delivery": "a1-pronunciation-v1"
+        }
+      ],
+      "spanish_translation": "Empiezo a trabajar a las ocho.",
+      "pedagogy_note": "Story beat 02: I start work at eight.",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "What time do you finish work?",
+      "stage": "Speak",
+      "correct_option_id": "what-time-do-you-finish-work-speak",
+      "options": [
+        {
+          "id": "what-time-do-you-finish-work-speak",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "label": "What time do you finish work?"
+        }
+      ],
+      "audio_text": "What time do you finish work?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What time do you finish work?",
+          "speaker_role": "luis",
+          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          "delivery": "a1-pronunciation-v1"
+        }
+      ],
+      "spanish_translation": "¿A qué hora terminas de trabajar?",
+      "pedagogy_note": "Story beat 03: What time do you finish work?",
+      "answer_audio_policy": "authored-only"
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "I finish work at five. I arrive home at six.",
+      "stage": "Speak",
+      "correct_option_id": "i-finish-work-at-five-i-arrive-home-at-six-speak",
+      "options": [
+        {
+          "id": "i-finish-work-at-five-i-arrive-home-at-six-speak",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+          "label": "I finish work at five. I arrive home at six."
+        }
+      ],
+      "audio_text": "I finish work at five. I arrive home at six.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "I finish work at five.",
+          "speaker_role": "ana",
+          "image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+          "clock_cues": [
+            {
+              "hour": 5,
+              "minute": 0
+            }
+          ],
+          "delivery": "a1-pronunciation-v1"
+        },
         {
           "text": "I arrive home at six.",
           "speaker_role": "ana",
@@ -981,538 +1070,23 @@
               "hour": 6,
               "minute": 0
             }
-          ]
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c016-prompt-turn-1-7a051e9d9a242a393e9a",
-          "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c016-prompt-turn-2-8add2a59c56ea6c0cd86",
-          "purpose": "prompt-turn-2",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c016-answer-turn-1-e9836050a40d0d994354",
-          "purpose": "answer-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-A03",
-      "interaction_type": "a2t",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "let-s-meet-at-seven",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "let-s-meet-at-six",
-          "image_url": "",
-          "label": "Let's meet at six."
-        },
-        {
-          "id": "let-s-meet-at-seven",
-          "image_url": "",
-          "label": "Let's meet at seven."
-        }
-      ],
-      "audio_text": "Let's meet at seven.",
-      "answer_audio_text": "Let's meet at seven. OK.",
-      "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Let's meet at seven.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "Let's meet at seven.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        },
-        {
-          "text": "OK.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp"
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c017-prompt-turn-1-18c9c308a6bd5f04398e",
-          "purpose": "prompt-turn-1",
-          "text": "Let's meet at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c017-answer-turn-1-8bace209f43e5bf0d930",
-          "purpose": "answer-turn-1",
-          "text": "Let's meet at seven.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c017-answer-turn-2-a3285612665b3b42b579",
-          "purpose": "answer-turn-2",
-          "text": "OK.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-A04",
-      "interaction_type": "a2t",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "what-time-do-you-arrive-home",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "what-time-do-you-arrive-home",
-          "image_url": "",
-          "label": "What time do you arrive home?"
-        },
-        {
-          "id": "what-time-do-you-finish-work",
-          "image_url": "",
-          "label": "What time do you finish work?"
-        }
-      ],
-      "audio_text": "What time do you arrive home?",
-      "answer_audio_text": "What time do you arrive home?",
-      "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": "luis",
-      "audio_turns": [
-        {
-          "text": "What time do you arrive home?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "What time do you arrive home?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c018-prompt-turn-1-159974036229eef94ff8",
-          "purpose": "prompt-turn-1",
-          "text": "What time do you arrive home?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c018-answer-turn-1-591f196cbddd54600215",
-          "purpose": "answer-turn-1",
-          "text": "What time do you arrive home?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-A05",
-      "interaction_type": "a2t",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "let-s-meet-at-eight",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "let-s-meet-at-seven",
-          "image_url": "",
-          "label": "Let's meet at seven."
-        },
-        {
-          "id": "let-s-meet-at-eight",
-          "image_url": "",
-          "label": "Let's meet at eight."
-        }
-      ],
-      "audio_text": "Let's meet at eight.",
-      "answer_audio_text": "Let's meet at eight. OK.",
-      "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "Let's meet at eight.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "Let's meet at eight.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        },
-        {
-          "text": "OK.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp"
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c019-prompt-turn-1-7d58e25307768b0ab185",
-          "purpose": "prompt-turn-1",
-          "text": "Let's meet at eight.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c019-answer-turn-1-b73941f8d35a46cb9f82",
-          "purpose": "answer-turn-1",
-          "text": "Let's meet at eight.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c019-answer-turn-2-5cb8ce479d777d3d1651",
-          "purpose": "answer-turn-2",
-          "text": "OK.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-S01",
-      "interaction_type": "pronunciation",
-      "prompt": "I leave home at seven. I start work at eight.",
-      "stage": "Speak",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "label": "I leave home at seven. I start work at eight."
-        }
-      ],
-      "audio_text": "I leave home at seven. I start work at eight.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I leave home at seven.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "delivery": "a1-pronunciation-v1",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        },
-        {
-          "text": "I start work at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "delivery": "a1-pronunciation-v1",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c020-prompt-turn-1-563066851104c0465e83",
-          "purpose": "prompt-turn-1",
-          "text": "I leave home at seven.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c020-prompt-turn-2-b5f65d97c7d316f8e900",
-          "purpose": "prompt-turn-2",
-          "text": "I start work at eight.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-S02",
-      "interaction_type": "pronunciation",
-      "prompt": "What time do you finish work?",
-      "stage": "Speak",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "label": "What time do you finish work?"
-        }
-      ],
-      "audio_text": "What time do you finish work?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "What time do you finish work?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+          ],
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c021-prompt-turn-1-5b094c0fbaba8738983b",
-          "purpose": "prompt-turn-1",
-          "text": "What time do you finish work?",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        }
-      ]
+      "spanish_translation": "Termino de trabajar a las cinco. Llego a casa a las seis.",
+      "pedagogy_note": "Story beat 04: I finish work at five. I arrive home at six.",
+      "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-S03",
-      "interaction_type": "pronunciation",
-      "prompt": "I finish work at five. I arrive home at six.",
-      "stage": "Speak",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
-      "options": [
-        {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "label": "I finish work at five. I arrive home at six."
-        }
-      ],
-      "audio_text": "I finish work at five. I arrive home at six.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_turns": [
-        {
-          "text": "I finish work at five.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "delivery": "a1-pronunciation-v1",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ]
-        },
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "delivery": "a1-pronunciation-v1",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c022-prompt-turn-1-b6de0c7ab638cb2bae4c",
-          "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c022-prompt-turn-2-10d1e9244174141367cd",
-          "purpose": "prompt-turn-2",
-          "text": "I arrive home at six.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-S04",
-      "interaction_type": "pronunciation",
+      "slide_id": "S5",
+      "interaction_type": "speak",
       "prompt": "What time do you arrive home?",
       "stage": "Speak",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
+      "correct_option_id": "what-time-do-you-arrive-home-speak",
       "options": [
         {
-          "id": "model",
+          "id": "what-time-do-you-arrive-home-speak",
           "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
           "label": "What time do you arrive home?"
         }
@@ -1520,10 +1094,6 @@
       "audio_text": "What time do you arrive home?",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
       "audio_turns": [
         {
           "text": "What time do you arrive home?",
@@ -1532,593 +1102,267 @@
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c023-prompt-turn-1-2ff1a86cad02a62faa6b",
-          "purpose": "prompt-turn-1",
-          "text": "What time do you arrive home?",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        }
-      ]
+      "spanish_translation": "¿A qué hora llegas a casa?",
+      "pedagogy_note": "Story beat 05: What time do you arrive home?",
+      "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-S05",
-      "interaction_type": "pronunciation",
+      "slide_id": "S6",
+      "interaction_type": "speak",
       "prompt": "I arrive home at six.",
       "stage": "Speak",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
+      "correct_option_id": "i-arrive-home-at-six-speak",
       "options": [
         {
-          "id": "model",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          "id": "i-arrive-home-at-six-speak",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
           "label": "I arrive home at six."
         }
       ],
       "audio_text": "I arrive home at six.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
       "audio_turns": [
         {
           "text": "I arrive home at six.",
           "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "delivery": "a1-pronunciation-v1",
+          "image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
           "clock_cues": [
             {
               "hour": 6,
               "minute": 0
             }
-          ]
-        }
-      ],
-      "answer_audio_turns": [],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c024-prompt-turn-1-6c951385f7fe071e2788",
-          "purpose": "prompt-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
+          ],
           "delivery": "a1-pronunciation-v1"
         }
-      ]
+      ],
+      "spanish_translation": "Llego a casa a las seis.",
+      "pedagogy_note": "Story beat 06: I arrive home at six.",
+      "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-S06",
-      "interaction_type": "pronunciation",
+      "slide_id": "S7",
+      "interaction_type": "speak",
       "prompt": "Let's meet at seven.",
       "stage": "Speak",
-      "correct_option_id": "model",
-      "correct_option_ids": [],
+      "correct_option_id": "let's-meet-at-seven-speak",
       "options": [
         {
-          "id": "model",
+          "id": "let's-meet-at-seven-speak",
           "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
           "label": "Let's meet at seven."
         }
       ],
       "audio_text": "Let's meet at seven.",
-      "answer_audio_text": "OK.",
+      "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": null,
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
-      "answer_audio_speaker": "ana",
       "audio_turns": [
         {
           "text": "Let's meet at seven.",
           "speaker_role": "luis",
           "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "delivery": "a1-pronunciation-v1",
           "clock_cues": [
             {
               "hour": 7,
               "minute": 0
             }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "OK.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+          ],
           "delivery": "a1-pronunciation-v1"
         }
       ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c025-prompt-turn-1-b740b2879557ba9fbced",
-          "purpose": "prompt-turn-1",
-          "text": "Let's meet at seven.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c025-answer-turn-1-ddd84242d86019a80779",
-          "purpose": "answer-turn-1",
-          "text": "OK.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1,
-          "delivery": "a1-pronunciation-v1"
-        }
-      ]
+      "spanish_translation": "Quedemos a las siete.",
+      "pedagogy_note": "Story beat 07: Let's meet at seven.",
+      "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-U01",
+      "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___ at seven.",
+      "prompt": "I leave home ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-2",
-      "correct_option_ids": [
-        "word-2",
-        "word-3"
-      ],
+      "correct_option_id": "at",
       "options": [
         {
-          "id": "word-2",
+          "id": "at",
           "image_url": "",
-          "label": "leave"
+          "label": "at"
         },
         {
-          "id": "word-3",
+          "id": "seven",
           "image_url": "",
-          "label": "home"
+          "label": "seven"
         }
       ],
       "audio_text": "I leave home at seven.",
       "answer_audio_text": "I leave home at seven.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
       "spanish_translation": "Salgo de casa a las siete.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
+      "translation": "Salgo de casa a las siete.",
+      "correct_option_ids": [
+        "at",
+        "seven"
+      ],
       "answer_audio_speaker": "ana",
-      "audio_turns": [
-        {
-          "text": "I leave home at seven.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "I leave home at seven.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        }
-      ],
+      "pedagogy_note": "Story beat 01: I leave home at seven.",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
+      "clock_cues": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c026-prompt-turn-1-f9f50829429d080bc933",
-          "purpose": "prompt-turn-1",
-          "text": "I leave home at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c026-answer-turn-1-bff839121e78497eab73",
-          "purpose": "answer-turn-1",
-          "text": "I leave home at seven.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "hour": 7,
+          "minute": 0
         }
       ]
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-U02",
+      "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___ at eight.",
+      "prompt": "I start work ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-2",
-      "correct_option_ids": [
-        "word-2",
-        "word-3"
-      ],
+      "correct_option_id": "at",
       "options": [
         {
-          "id": "word-2",
+          "id": "at",
           "image_url": "",
-          "label": "start"
+          "label": "at"
         },
         {
-          "id": "word-3",
+          "id": "eight",
           "image_url": "",
-          "label": "work"
+          "label": "eight"
         }
       ],
       "audio_text": "I start work at eight.",
       "answer_audio_text": "I start work at eight.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
       "spanish_translation": "Empiezo a trabajar a las ocho.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
+      "translation": "Empiezo a trabajar a las ocho.",
+      "correct_option_ids": [
+        "at",
+        "eight"
+      ],
       "answer_audio_speaker": "ana",
-      "audio_turns": [
-        {
-          "text": "I start work at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "I start work at eight.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "clock_cues": [
-            {
-              "hour": 8,
-              "minute": 0
-            }
-          ]
-        }
-      ],
+      "pedagogy_note": "Story beat 02: I start work at eight.",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
+      "clock_cues": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c027-prompt-turn-1-7b5a2574d57c7ddccbd0",
-          "purpose": "prompt-turn-1",
-          "text": "I start work at eight.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c027-answer-turn-1-71fb938aaca65b098e7b",
-          "purpose": "answer-turn-1",
-          "text": "I start work at eight.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-03-4b46d47974611e0e.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "hour": 8,
+          "minute": 0
         }
       ]
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-U03",
+      "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "What time ___ ___ finish work?",
+      "prompt": "What time do you ___ ___?",
       "stage": "Use",
-      "correct_option_id": "word-3",
-      "correct_option_ids": [
-        "word-3",
-        "word-4"
-      ],
+      "correct_option_id": "finish",
       "options": [
         {
-          "id": "word-3",
+          "id": "finish",
           "image_url": "",
-          "label": "do"
+          "label": "finish"
         },
         {
-          "id": "word-4",
+          "id": "work",
           "image_url": "",
-          "label": "you"
+          "label": "work"
         }
       ],
       "audio_text": "What time do you finish work?",
       "answer_audio_text": "What time do you finish work?",
       "prompt_image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
       "spanish_translation": "¿A qué hora terminas de trabajar?",
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
+      "translation": "¿A qué hora terminas de trabajar?",
+      "correct_option_ids": [
+        "finish",
+        "work"
+      ],
       "answer_audio_speaker": "luis",
-      "audio_turns": [
-        {
-          "text": "What time do you finish work?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "What time do you finish work?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c028-prompt-turn-1-8d5d94860ebdc62c3da0",
-          "purpose": "prompt-turn-1",
-          "text": "What time do you finish work?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c028-answer-turn-1-c09b88ed653d54c11ae9",
-          "purpose": "answer-turn-1",
-          "text": "What time do you finish work?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
+      "pedagogy_note": "Story beat 03: What time do you finish work?",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-U04",
+      "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "I ___ ___ at five.",
+      "prompt": "I finish work ___ ___.",
       "stage": "Use",
-      "correct_option_id": "word-2",
-      "correct_option_ids": [
-        "word-2",
-        "word-3"
-      ],
+      "correct_option_id": "at",
       "options": [
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "finish"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "work"
-        }
-      ],
-      "audio_text": "I finish work at five.",
-      "answer_audio_text": "I finish work at five.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-      "spanish_translation": "Termino de trabajar a las cinco.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
-      "answer_audio_speaker": "ana",
-      "audio_turns": [
-        {
-          "text": "I finish work at five.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "I finish work at five.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 5,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c029-prompt-turn-1-1f8978d3f647b030ea40",
-          "purpose": "prompt-turn-1",
-          "text": "I finish work at five.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c029-answer-turn-1-7ac95655a67c3a9bad10",
-          "purpose": "answer-turn-1",
-          "text": "I finish work at five.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-U05",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "arrive"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "home"
-        },
-        {
-          "id": "word-4",
+          "id": "at",
           "image_url": "",
           "label": "at"
         },
         {
-          "id": "word-5",
+          "id": "five",
           "image_url": "",
-          "label": "six"
+          "label": "five"
         }
       ],
-      "audio_text": "I arrive home at six.",
-      "answer_audio_text": "I arrive home at six.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-      "spanish_translation": "Llego a casa a las seis.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
+      "audio_text": "I finish work at five.",
+      "answer_audio_text": "I finish work at five.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-04-171744c29f68887e.webp",
+      "spanish_translation": "Termino de trabajar a las cinco.",
+      "translation": "Termino de trabajar a las cinco.",
+      "correct_option_ids": [
+        "at",
+        "five"
+      ],
       "answer_audio_speaker": "ana",
-      "audio_turns": [
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
-        }
-      ],
+      "pedagogy_note": "Story beat 04: I finish work at five.",
+      "audio_speaker": "ana",
       "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
+      "clock_cues": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c030-prompt-turn-1-ab5c54e4fca4ea4c3243",
-          "purpose": "prompt-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c030-answer-turn-1-c9fcce2714bf946b37d5",
-          "purpose": "answer-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "hour": 5,
+          "minute": 0
         }
       ]
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-U06",
+      "slide_id": "U5",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___ ___?",
       "stage": "Use",
       "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "time"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "home"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "What"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "do"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "arrive"
+        }
+      ],
+      "audio_text": "What time do you arrive home?",
+      "answer_audio_text": "What time do you arrive home?",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "spanish_translation": "¿A qué hora llegas a casa?",
+      "translation": "¿A qué hora llegas a casa?",
       "correct_option_ids": [
         "word-1",
         "word-2",
@@ -2127,122 +1371,37 @@
         "word-5",
         "word-6"
       ],
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "What"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "time"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "do"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "you"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "arrive"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "home"
-        }
-      ],
-      "audio_text": "What time do you arrive home?",
-      "answer_audio_text": "What time do you arrive home?",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-      "spanish_translation": "¿A qué hora llegas a casa?",
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
       "answer_audio_speaker": "luis",
-      "audio_turns": [
-        {
-          "text": "What time do you arrive home?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "What time do you arrive home?",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp"
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c031-prompt-turn-1-2a98cf0c3888ad8bc5fb",
-          "purpose": "prompt-turn-1",
-          "text": "What time do you arrive home?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c031-answer-turn-1-6b293c01dd51d0a9c7f6",
-          "purpose": "answer-turn-1",
-          "text": "What time do you arrive home?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
+      "pedagogy_note": "Story beat 05: What time do you arrive home?",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only"
     },
     {
-      "slide_id": "a1plus-unit-1-1.1-U07",
+      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
-      ],
       "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "arrive"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "at"
+        },
         {
           "id": "word-1",
           "image_url": "",
           "label": "I"
         },
         {
-          "id": "word-2",
-          "image_url": "",
-          "label": "arrive"
-        },
-        {
           "id": "word-3",
           "image_url": "",
           "label": "home"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "at"
         },
         {
           "id": "word-5",
@@ -2252,180 +1411,124 @@
       ],
       "audio_text": "I arrive home at six.",
       "answer_audio_text": "I arrive home at six.",
-      "prompt_image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-02-3ad100b718cc310c.webp",
       "spanish_translation": "Llego a casa a las seis.",
-      "pedagogy_note": null,
-      "audio_speaker": "ana",
-      "answer_audio_speaker": "ana",
-      "audio_turns": [
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "I arrive home at six.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "clock_cues": [
-            {
-              "hour": 6,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c032-prompt-turn-1-3f995d64203d17479622",
-          "purpose": "prompt-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "a1plus-unit-1-lesson-1-1-c032-answer-turn-1-c7bf755d9592ff84bc85",
-          "purpose": "answer-turn-1",
-          "text": "I arrive home at six.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "a1plus-unit-1-1.1-U08",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
+      "translation": "Llego a casa a las seis.",
       "correct_option_ids": [
         "word-1",
         "word-2",
         "word-3",
-        "word-4"
+        "word-4",
+        "word-5"
       ],
-      "options": [
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Story beat 06: I arrive home at six.",
+      "audio_speaker": "ana",
+      "answer_audio_policy": "authored-only",
+      "clock_cues": [
         {
-          "id": "word-1",
-          "image_url": "",
-          "label": "Let's"
-        },
+          "hour": 6,
+          "minute": 0
+        }
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
         {
           "id": "word-2",
           "image_url": "",
           "label": "meet"
         },
         {
-          "id": "word-3",
-          "image_url": "",
-          "label": "at"
-        },
-        {
           "id": "word-4",
           "image_url": "",
           "label": "seven"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Let's"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "at"
         }
       ],
       "audio_text": "Let's meet at seven.",
       "answer_audio_text": "Let's meet at seven.",
       "prompt_image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-      "spanish_translation": "Reunámonos a las siete.",
-      "pedagogy_note": null,
-      "audio_speaker": "luis",
+      "spanish_translation": "Quedemos a las siete.",
+      "translation": "Quedemos a las siete.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "answer_audio_speaker": "luis",
-      "audio_turns": [
-        {
-          "text": "Let's meet at seven.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "answer_audio_turns": [
-        {
-          "text": "Let's meet at seven.",
-          "speaker_role": "luis",
-          "image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "clock_cues": [
-            {
-              "hour": 7,
-              "minute": 0
-            }
-          ]
-        }
-      ],
-      "success_audio_turns": [
-        {
-          "text": "OK.",
-          "speaker_role": "ana",
-          "image_url": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp"
-        }
-      ],
+      "pedagogy_note": "Story beat 07: Let's meet at seven.",
+      "audio_speaker": "luis",
       "answer_audio_policy": "authored-only",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
+      "clock_cues": [
         {
-          "id": "a1plus-unit-1-lesson-1-1-c033-prompt-turn-1-bdd5d33e6d4fb16256f9",
-          "purpose": "prompt-turn-1",
-          "text": "Let's meet at seven.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "hour": 7,
+          "minute": 0
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "meet"
         },
         {
-          "id": "a1plus-unit-1-lesson-1-1-c033-answer-turn-1-9fc742697264627d8e81",
-          "purpose": "answer-turn-1",
-          "text": "Let's meet at seven.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "luis",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "id": "word-4",
+          "image_url": "",
+          "label": "eight"
         },
         {
-          "id": "a1plus-unit-1-lesson-1-1-c033-success-turn-1-cd82755bd49d1346cc4d",
-          "purpose": "success-turn-1",
-          "text": "OK.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1plus-unit-1-t18-e9e2692470b3a9a6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "id": "word-1",
+          "image_url": "",
+          "label": "Let's"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "at"
+        }
+      ],
+      "audio_text": "Let's meet at eight.",
+      "answer_audio_text": "Let's meet at eight.",
+      "prompt_image_url": "/lesson-assets/a1plus-unit-1-05-5f0e93499fa3f0fc.webp",
+      "spanish_translation": "Quedemos a las ocho.",
+      "translation": "Quedemos a las ocho.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Story beat 08: Let's meet at eight.",
+      "audio_speaker": "luis",
+      "answer_audio_policy": "authored-only",
+      "clock_cues": [
+        {
+          "hour": 8,
+          "minute": 0
         }
       ]
     }
