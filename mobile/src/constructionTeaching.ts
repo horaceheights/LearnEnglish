@@ -28,6 +28,8 @@ const PRONOUNS = set('i you he she it we they this that these those there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives open close clean run take');
 for (const verb of words('speak speaks')) VERBS.add(verb);
 for (const verb of words('leave arrive start starts finish finishes studies meet put')) VERBS.add(verb);
+// A1+ 1.2 (2026-10-29): the he/she forms of A1 routine verbs.
+for (const verb of words('wakes gets eats brushes')) VERBS.add(verb);
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 const FREQUENCY = set('always usually sometimes never');
@@ -579,13 +581,15 @@ function teachClause(text: string): ClausePlan {
       return { explanations, relations, supported: rest === keys.length - 1 };
     }
   }
-  const pair = `${verb} ${keys[rest]}`;
+  // A he/she form (wakes, gets) follows its base verb's phrasal rules.
+  const base = [verb.slice(0, -1), verb.slice(0, -2)].find(stem => verb.endsWith('s') && ROUTINE_BASE.has(stem)) || verb;
+  const pair = `${base} ${keys[rest]}`;
   if (['put on', 'take off', 'get up'].includes(pair)) {
     const meaning = pair === 'put on' ? 'ponerse' : pair === 'take off' ? 'quitarse' : 'levantarse';
     teach(verbIndex, rest + 1, `${quote(phrase(verbIndex, rest + 1))} significa ${meaning}: ${quote(tokens[rest])} completa el verbo y va después de ${quote(tokens[verbIndex])}.`);
     rest++;
   }
-  if (verb === 'get' && (['on', 'off', 'in'].includes(keys[rest]) || (keys[rest] === 'out' && keys[rest + 1] === 'of'))) {
+  if (base === 'get' && (['on', 'off', 'in'].includes(keys[rest]) || (keys[rest] === 'out' && keys[rest + 1] === 'of'))) {
     const end = rest + (keys[rest] === 'out' ? 2 : 1);
     const action = phrase(verbIndex, end);
     const meaning = keys[rest] === 'on' ? 'subir al transporte' : keys[rest] === 'off' ? 'bajar del transporte'
@@ -594,7 +598,7 @@ function teachClause(text: string): ClausePlan {
     rest = end;
   }
   if (['wake up', 'get dressed', 'come home'].includes(pair)) {
-    teach(verbIndex, rest + 1, `${quote(phrase(verbIndex, rest + 1))} expresa ${verb === 'wake' ? 'despertarse' : verb === 'get' ? 'vestirse' : 'volver a casa'}; ${quote(tokens[rest])} completa la acción y va después de ${quote(tokens[verbIndex])}.`);
+    teach(verbIndex, rest + 1, `${quote(phrase(verbIndex, rest + 1))} expresa ${base === 'wake' ? 'despertarse' : base === 'get' ? 'vestirse' : 'volver a casa'}; ${quote(tokens[rest])} completa la acción y va después de ${quote(tokens[verbIndex])}.`);
     rest++;
   }
   const supported = complement(rest, keys.length, phrase(verbIndex, rest));

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b1795512-f781-4291-a047-40344934540c",
+  "asset_id": "n06-ana-eats-breakfast",
+  "pack_sha256": "6d11508c105b31622e473c38f1fcbed3ff7dce8ddd713498bca6fca99b38920e",
+  "started_at": "2026-10-28T17:21:47.221443+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nEarly morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair and her sage-green overshirt over a white top exactly. Create a new photograph at breakfast time: Ana sits at a light-wood kitchen table beside a bright window with bright morning sunlight, turned toward the camera at a three-quarter angle. She is eating breakfast: she lifts a spoon of cereal with milk from a white bowl to her mouth, the spoon at her lips, her eyes and face fully visible. On the table in front of her, all clearly visible: the white bowl of cereal and milk, a small plate with two slices of toast, one glass of orange juice and one white mug of coffee. Her brown leather tote hangs on the back of an empty chair beside her, ready for leaving. She is the only person. No newspaper, laptop, phone or other food.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+    "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "LC_iarDkGNjnqtsPwtqb2AU",
+  "usage": {
+    "promptTokenCount": 650,
+    "candidatesTokenCount": 1333,
+    "totalTokenCount": 2153,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 392
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 170,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137340",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 650,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 170
+  },
+  "elapsed_seconds": 24.07,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v2/n06-ana-eats-breakfast.png",
+  "sha256": "c8864368062b81f7dd2563dca1192c0c50a528cfb57bd8cbfb5649fe14fe8e83",
+  "byte_count": 5261626,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f9e9c761-25bc-471e-b73e-2164e3ed990b",
+  "asset_id": "n05-ana-gets-dressed",
+  "pack_sha256": "2fe61c4790e6897a53a43118b4f3a6aa4086c6aa288cc26a9faf9ff1113ae19e",
+  "started_at": "2026-10-28T23:59:59.435587+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nEarly morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.\n\nThe camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph in her bedroom: cream bedding on a bed with a light-oak headboard, a beige lamp on an oak nightstand, white curtains, and an open light-oak wardrobe with a few clothes on hangers. Ana stands on open floor in front of the open wardrobe, a full step away from the foot of the bed, facing the camera at a slight angle; her whole body is visible, from her head down to both bare feet flat on the floor, and no furniture covers any part of her. She is finishing getting dressed: she wears light-wash jeans, a white top and her sage-green overshirt, which is already on both arms and open at the front; with both hands she straightens its collar at her neck. Her face is fully visible with a calm, awake smile. On the bed lie her folded light-blue pajamas; on the floor beside her bare feet wait her white sneakers. She is the only person. No bag or jacket.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+    "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "f4ziatPINOrVz7IPw4uNuA8",
+  "usage": {
+    "promptTokenCount": 749,
+    "candidatesTokenCount": 1369,
+    "totalTokenCount": 2346,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 491
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 228,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138234",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 749,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 228
+  },
+  "elapsed_seconds": 23.25,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v4/n05-ana-gets-dressed.png",
+  "sha256": "cf246cef4066e5a94dfcf0569ac40e36d9ef8779a7ebf105a7e64bb3b44cb508",
+  "byte_count": 5036784,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

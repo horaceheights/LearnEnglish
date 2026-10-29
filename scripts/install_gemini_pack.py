@@ -6,10 +6,15 @@ exact 1536x1024 WebP (centered 3:2 crop of the 2K output) in every course image
 root, its source PNG and receipt are kept under course-photoreal-sources, and its
 runtime filename joins the reviewed-photoreal registry. Existing pixels are never
 overwritten. This changes no lesson; lessons bind the new filenames separately.
+
+A pack that names no runtime filenames (A1+ packs) installs content-addressed
+names, `<prefix>-<asset code>-<first 16 hex of the WebP's SHA-256>.webp`, given
+`--name-prefix`.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -47,7 +52,16 @@ def runtime_webp(source: Path) -> bytes:
     return buffer.getvalue()
 
 
-def install(pack_path: Path, asset_ids: list[str], root: Path = ROOT) -> list[str]:
+def runtime_name(asset: dict, pixels: bytes, prefix: str | None) -> str:
+    """The pack's runtime filename, else a content-addressed one under `prefix`."""
+    if asset.get("runtime_filename"):
+        return asset["runtime_filename"]
+    if not prefix:
+        raise ValueError(f"{asset['id']}: the pack names no runtime filename; pass a name prefix.")
+    return f"{prefix}-{asset['id'].split('-')[0]}-{hashlib.sha256(pixels).hexdigest()[:16]}.webp"
+
+
+def install(pack_path: Path, asset_ids: list[str], root: Path = ROOT, name_prefix: str | None = None) -> list[str]:
     pack = load_pack(pack_path)
     output = pack_output_directory(pack) if root == ROOT else root / "output/imagegen" / pack["output_namespace"]
     reviews = json.loads((output / "agent-reviews.json").read_text(encoding="utf-8"))
@@ -69,15 +83,16 @@ def install(pack_path: Path, asset_ids: list[str], root: Path = ROOT) -> list[st
                 or len(review.get("observed_description", "")) < 35):
             raise ValueError(f"{asset_id}: a current usable visual review is required.")
         pixels = runtime_webp(source)
+        name = runtime_name(asset, pixels, name_prefix)
         for folder in IMAGE_ROOTS:
-            path = root / folder / asset["runtime_filename"]
+            path = root / folder / name
             if path.exists() and path.read_bytes() != pixels:
                 raise ValueError(f"Refusing to overwrite existing pixels at {path}.")
             writes[path] = pixels
         kept = root / SOURCES.relative_to(ROOT) / pack["output_namespace"]
         writes[kept / f"{asset_id}.png"] = source.read_bytes()
         writes[kept / f"{asset_id}.receipt.json"] = source.with_suffix(".receipt.json").read_bytes()
-        installed.append(asset["runtime_filename"])
+        installed.append(name)
     for path, data in writes.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
@@ -92,8 +107,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pack", type=Path, required=True)
     parser.add_argument("--asset-id", action="append", required=True)
+    parser.add_argument("--name-prefix", help="content-addressed names for a pack without runtime filenames")
     args = parser.parse_args()
-    for name in install(args.pack.resolve(), args.asset_id):
+    for name in install(args.pack.resolve(), args.asset_id, name_prefix=args.name_prefix):
         print("installed", name)
     return 0
 

@@ -114,6 +114,23 @@ class ContentEngineAuthorTests(unittest.TestCase):
         self.assertEqual([c["answer_audio_text"] for c in cards], ["I sleep."] * 7)
         self.assertEqual([c["interaction_type"] for c in cards], ["complete2"] * 3 + ["complete-sentence"] * 4)
 
+    def test_named_blanks_put_the_new_form_in_the_guided_gap(self):
+        brief = json.loads(json.dumps(self.brief))
+        line = "The father is working."
+        brief["stage_sequences"] = {"Use": [line] * 7}
+        default = [c for c in compose_lesson(propose_lesson(brief, self.standards)[0])["cards"] if c["stage"] == "Use"]
+        self.assertEqual(default[0]["prompt"], "The father ___ ___.")
+        next(item for item in brief["items"] if item["text"] == line)["blanks"] = ["father", "is"]
+        cards = [c for c in compose_lesson(propose_lesson(brief, self.standards)[0])["cards"] if c["stage"] == "Use"]
+        guided = cards[:3]
+        self.assertEqual({c["prompt"] for c in guided}, {"The ___ ___ working."})
+        self.assertEqual({tuple(c["correct_option_ids"]) for c in guided}, {("father", "is")})
+        self.assertTrue(all(c["interaction_type"] == "complete-sentence" for c in cards[3:]))
+        for invalid in (["is", "father"], ["working"], ["father", "is", "working"], "father is"):
+            next(item for item in brief["items"] if item["text"] == line)["blanks"] = invalid
+            with self.subTest(blanks=invalid), self.assertRaisesRegex(BriefError, "two adjacent words"):
+                propose_lesson(brief, self.standards)
+
     def test_proposals_are_drafts_that_cannot_be_installed(self):
         # Install into a scratch root: a test must never write into the real course.
         with tempfile.TemporaryDirectory() as directory:
@@ -258,6 +275,18 @@ class ContentEngineAuthorTests(unittest.TestCase):
                     self.assertNotIn("clock_cues", card)
         plain = compose_lesson(propose_lesson(json.loads(json.dumps(self.brief)), self.standards)[0])
         self.assertEqual(plain, self.lesson)
+
+    def test_neutral_speak_models_in_a_delivery_take_turns_between_narrators(self):
+        brief = json.loads(json.dumps(self.brief))
+        brief.update(speak_delivery="a1-pronunciation-v1", narrators=["teacher", "co-teacher"])
+        brief["items"][-1]["speaker"] = "ana"
+        cards = compose_lesson(propose_lesson(brief, self.standards)[0])["cards"]
+        voices = {card["slide_id"]: [turn["speaker_role"] for turn in card["audio_turns"]]
+                  for card in cards if card["stage"] == "Speak"}
+        named = {slide for slide, roles in voices.items() if roles == ["ana"]}
+        neutral = [roles for slide, roles in voices.items() if slide not in named]
+        self.assertTrue(named and len(neutral) >= 2)
+        self.assertEqual({tuple(roles) for roles in neutral}, {("teacher",), ("co-teacher",)})
 
     def test_preferred_wrong_options_keep_one_variable(self):
         brief = json.loads((ROOT / "docs/product/content-briefs/unit-2/2.6-numbers-1-5.json").read_text(encoding="utf-8"))

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-2-photos",
+  "revision": 3,
+  "output_namespace": "a1plus-unit-1-lesson-v3",
+  "authorization": "2026-10-28: the user approved the two revised prompts in this revision with a US$0.35 ceiling (\"Approve the two revised gets-dressed prompts in revision 3 with a US$0.35 cap. Generate Luis first, then Ana.\"). Gemini is the approved image tool (2026-09-23). Revision 2 (approved prompts, US$1.00) generated n01, n02, n03 and n06 (accepted at phone sizes) and n04, rejected because its crossed-arm grip on a lifted hem reads as taking the T-shirt off; revision 2 spent US$0.6912. n05 was held unsent because its one-sleeve pose has the same on/off ambiguity and would resemble Lesson 1.4's put-on-a-jacket photo. Revision 3 shows both people finishing getting dressed, as A1's approved get-dressed photos do: the shirt already on, settled with both hands, sleepwear folded on the bed and shoes waiting. n04 is inspected at phone sizes and at the centered 4:5 crop before n05 is sent.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 2,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "0.35",
+    "no_automatic_retries": true,
+    "order": "n04 first, inspected at 900/360/250/180 px and the centered 4:5 crop before n05."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "morning": "Early morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.",
+    "clock_corner": "Keep the top-right corner of the photo (the right 25 percent of the width and the top 30 percent of the height) as plain, quiet background such as wall or curtain, with no face, hand or important object in it; the lesson places a small clock there.",
+    "no_mirror": "There is no mirror anywhere: the wall behind the sink is plain tile, so the person appears exactly once in the photo."
+  },
+  "assets": [
+    {
+      "id": "n04-luis-gets-dressed",
+      "order": 1,
+      "item": "He gets dressed. / Luis gets dressed.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+        "sha256": "9b499b2f4d509ecdc63949395583060de7bd3f1d97d481c06da57a9083c7cc5f",
+        "observed_description": "Luis (short dark wavy hair, clean-shaven, warm medium-brown skin, friendly smile; navy crew-neck T-shirt, khaki chinos, navy sneakers) sits at a light office desk typing on a laptop, face clearly visible in three-quarter view."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, hair and build exactly. Create a new photograph: Luis's bedroom: white walls, a light-wood floor, a bed with a navy-blue duvet and white pillows, one small wooden nightstand with a plain white lamp, a window with white curtains on the LEFT side of the photo. Luis stands beside the bed in front of an open wooden wardrobe with a few shirts on hangers, facing the camera at a slight angle. He is finishing getting dressed: he wears khaki chinos and his navy crew-neck T-shirt, which is already on and covers his chest; with both hands, one at each side of his body, he pulls its hem the last few centimeters down to the waistband of his chinos. His arms are NOT crossed and no skin of his stomach shows. His face is fully visible with a small, awake smile. On the bed lie his folded heather-grey sleep T-shirt and dark-grey pajama pants; on the floor beside his bare feet wait a pair of rolled navy socks and his navy sneakers. He is the only person. No jacket or bag."
+    },
+    {
+      "id": "n05-ana-gets-dressed",
+      "order": 2,
+      "item": "She gets dressed. / Ana gets dressed.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph in her bedroom: cream bedding on a bed with a light-oak headboard, a beige lamp on an oak nightstand, white curtains, and an open light-oak wardrobe with a few clothes on hangers. Ana stands beside the bed in front of the open wardrobe, facing the camera at a slight angle. She is finishing getting dressed: she wears light-wash jeans, a white top and her sage-green overshirt, which is already on both arms and open at the front; with both hands she straightens its collar at her neck. Her face is fully visible with a calm, awake smile. On the bed lie her folded light-blue pajamas; on the floor beside her bare feet wait her white sneakers. She is the only person. No bag or jacket."
+    }
+  ]
+}

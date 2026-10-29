@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c9ac838d-3a98-4a0d-851a-3df124bb22f6",
+  "asset_id": "n02-luis-brushes-his-teeth",
+  "pack_sha256": "6d11508c105b31622e473c38f1fcbed3ff7dce8ddd713498bca6fca99b38920e",
+  "started_at": "2026-10-28T17:20:53.504203+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nEarly morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.\n\nThere is no mirror anywhere: the wall behind the sink is plain tile, so the person appears exactly once in the photo.\n\nImage 1 shows Luis. Keep his face, hair and build exactly; change his clothes as described. Create a new photograph in his bathroom: white wall tiles, a white sink with a chrome faucet, a white towel on a rail and one small green plant. Luis stands at the sink, turned three-quarters toward the camera, brushing his teeth: his right hand holds a blue toothbrush whose head is in his mouth, with a little white toothpaste foam at his lips; his left hand rests on the edge of the sink. The toothbrush handle is clearly visible, about 8 percent of the photo width long. His eyes and face are clearly visible. He wears the plain heather-grey sleep T-shirt and dark-grey pajama pants (he is not dressed yet). He is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+    "sha256": "9b499b2f4d509ecdc63949395583060de7bd3f1d97d481c06da57a9083c7cc5f"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "9y7iat2HDuuEqtsPwePgsAI",
+  "usage": {
+    "promptTokenCount": 663,
+    "candidatesTokenCount": 1326,
+    "totalTokenCount": 2355,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 405
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 366,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.139718",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 663,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 366
+  },
+  "elapsed_seconds": 26.25,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v2/n02-luis-brushes-his-teeth.png",
+  "sha256": "f641db6ed155c83ba625ce83611adac9a1fc4ebf0b45c7904681d818d8556c29",
+  "byte_count": 5047981,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

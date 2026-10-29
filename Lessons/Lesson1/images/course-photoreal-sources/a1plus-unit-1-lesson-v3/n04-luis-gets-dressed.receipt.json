@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "25ebe846-8fe6-4b17-a212-c8ec3176230e",
+  "asset_id": "n04-luis-gets-dressed",
+  "pack_sha256": "601d33266b3f48b94a6814e2879479e35a8b376ab342a0ebb2d4e998747228e0",
+  "started_at": "2026-10-28T23:46:15.037146+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nEarly morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.\n\nImage 1 shows Luis. Keep his face, hair and build exactly. Create a new photograph: Luis's bedroom: white walls, a light-wood floor, a bed with a navy-blue duvet and white pillows, one small wooden nightstand with a plain white lamp, a window with white curtains on the LEFT side of the photo. Luis stands beside the bed in front of an open wooden wardrobe with a few shirts on hangers, facing the camera at a slight angle. He is finishing getting dressed: he wears khaki chinos and his navy crew-neck T-shirt, which is already on and covers his chest; with both hands, one at each side of his body, he pulls its hem the last few centimeters down to the waistband of his chinos. His arms are NOT crossed and no skin of his stomach shows. His face is fully visible with a small, awake smile. On the bed lie his folded heather-grey sleep T-shirt and dark-grey pajama pants; on the floor beside his bare feet wait a pair of rolled navy socks and his navy sneakers. He is the only person. No jacket or bag.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+    "sha256": "9b499b2f4d509ecdc63949395583060de7bd3f1d97d481c06da57a9083c7cc5f"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "R4niatmmDPiGz7IP29WZuQ8",
+  "usage": {
+    "promptTokenCount": 705,
+    "candidatesTokenCount": 1392,
+    "totalTokenCount": 2338,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 447
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 241,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138302",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 705,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 241
+  },
+  "elapsed_seconds": 23.41,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v3/n04-luis-gets-dressed.png",
+  "sha256": "920c68ae0aa45e881f37d70a586250612fe102d8ed0d1cfee52184c1454e077d",
+  "byte_count": 5029560,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

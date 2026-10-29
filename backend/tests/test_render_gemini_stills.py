@@ -8,6 +8,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from scripts.install_gemini_pack import install
 from scripts.render_gemini_stills import cost_from_usage, load_pack, render
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -16,22 +17,22 @@ USAGE = {"promptTokenCount": 400, "candidatesTokenCount": 1120, "thoughtsTokenCo
          "candidatesTokensDetails": [{"modality": "IMAGE", "tokenCount": 1120}]}
 
 
-def png() -> str:
+def png(size=(48, 32)) -> str:
     buffer = io.BytesIO()
-    Image.new("RGB", (48, 32), "white").save(buffer, format="PNG")
+    Image.new("RGB", size, "white").save(buffer, format="PNG")
     return base64.b64encode(buffer.getvalue()).decode()
 
 
 class FakeProvider:
-    def __init__(self, status=200):
-        self.calls, self.status = [], status
+    def __init__(self, status=200, size=(48, 32)):
+        self.calls, self.status, self.size = [], status, size
 
     def __call__(self, body, key):
         self.calls.append(json.loads(body))
         if self.status != 200:
             return self.status, {}, {"error": {"status": "RESOURCE_EXHAUSTED", "code": 429, "message": key}}
         return 200, {}, {"responseId": "r1", "usageMetadata": USAGE,
-                         "candidates": [{"content": {"parts": [{"inlineData": {"mimeType": "image/png", "data": png()}}]}}]}
+                         "candidates": [{"content": {"parts": [{"inlineData": {"mimeType": "image/png", "data": png(self.size)}}]}}]}
 
 
 class GeminiStillsTests(unittest.TestCase):
@@ -106,6 +107,28 @@ class GeminiStillsTests(unittest.TestCase):
         parts = provider.calls[0]["contents"][0]["parts"]
         self.assertIn("inlineData", parts[0])
         self.assertTrue(parts[1]["text"].startswith("THOSE state"))
+
+    def test_a_pack_without_runtime_names_installs_content_addressed_files(self):
+        pack = json.loads(self.pack.read_text(encoding="utf-8"))
+        for asset in pack["assets"]:
+            asset.pop("runtime_filename", None)
+        self.pack.write_text(json.dumps(pack), encoding="utf-8")
+        self.run_asset("seven-chairs", FakeProvider(size=(1536, 1024)))
+        output = self.root / "output/imagegen/unit-2-lesson-v5"
+        from scripts.render_course_stills import digest
+        (output / "agent-reviews.json").write_text(json.dumps({"seven-chairs": {
+            "disposition": "usable", "sha256": digest(output / "seven-chairs.png"),
+            "crop_review": "inspected-3x2-and-centered-4x5",
+            "observed_description": "Seven wooden chairs in a row, all whole in the 4:5 crop."}}), encoding="utf-8")
+        registry = self.root / "docs/product/a1-reviewed-photoreal-media.json"
+        registry.parent.mkdir(parents=True)
+        registry.write_text(json.dumps({"files": []}), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "pass a name prefix"):
+            install(self.pack, ["seven-chairs"], root=self.root)
+        [name] = install(self.pack, ["seven-chairs"], root=self.root, name_prefix="a1plus-unit-1")
+        installed = self.root / "Lessons/Lesson1/images" / name
+        self.assertRegex(name, r"^a1plus-unit-1-seven-[0-9a-f]{16}\.webp$")
+        self.assertEqual(name.split("-")[-1][:16], digest(installed)[:16])
 
     def test_unknown_usage_is_never_guessed(self):
         self.assertIsNone(cost_from_usage(None)["usd"])

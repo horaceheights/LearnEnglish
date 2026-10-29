@@ -90,6 +90,15 @@ test('destination questions, phrasal travel verbs and schedules explain their ac
     'Current destination support must not silently introduce the future going-to-plus-verb pattern.');
 });
 
+test('he/she routine forms keep the phrasal meaning of their base verb', () => {
+  for (const target of ['Luis wakes up at seven.', 'He gets dressed.', 'She eats breakfast.', 'Ana brushes her teeth.']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+  }
+  assert.match(hint('Luis wakes up at seven.', 1, 2), /“wakes up” expresa despertarse/);
+  assert.match(hint('He gets dressed.', 1, 2), /“gets dressed” expresa vestirse/);
+  assert.match(hint('I wake up at six.', 1, 2), /“wake up” expresa despertarse/);
+});
+
 test('polite requests, coordinated handovers and negative needs explain word order', () => {
   for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
     const card = construction(target);
