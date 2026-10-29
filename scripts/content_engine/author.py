@@ -22,6 +22,8 @@ the voice that asks its `question`. An item with `turns` is a spoken exchange:
 each turn names its words, speaker and picture, and every card that plays the
 item plays those turns in order. An exchange has no single voice, so it never
 becomes a Use construction; `"use": false` keeps any other item out of Use too.
+A guided Use card blanks the sentence's last two words unless the item names
+two adjacent `blanks`, so that the learner places the new form itself.
 A brief's `narrators` (such as ["teacher", "co-teacher"]) take turns reading
 the neutral narration, card by card.
 
@@ -229,16 +231,28 @@ def note(stage: str, item: dict) -> str:
     return f"{stage}: {item['text']}"
 
 
-def _completion(slide: str, item: dict) -> dict:
-    """Guided completion: the learner places the sentence's last two words."""
+def _blank_span(item: dict) -> int:
+    """Where the guided blanks start: the item's `blanks`, else its last two words."""
     tokens = words(item["text"])
-    blanks = tokens[-2:]
+    chosen = item.get("blanks")
+    if not chosen:
+        return max(len(tokens) - 2, 0)
+    return next((index for index in range(len(tokens) - len(chosen) + 1)
+                 if tokens[index:index + len(chosen)] == chosen), -1)
+
+
+def _completion(slide: str, item: dict) -> dict:
+    """Guided completion: the learner places two adjacent words, the sentence's
+    last two unless the item names its `blanks` (such as the new form in
+    "Luis ___ ___ at seven.")."""
+    start = _blank_span(item)
+    spans = list(WORD.finditer(item["text"]))[start:start + 2]
+    blanks = [span.group() for span in spans]
     ids = [f"{token.lower()}-{index + 1}" if blanks.count(token) > 1 else token.lower()
            for index, token in enumerate(blanks)]
     prompt = item["text"]
-    for token in reversed(blanks):
-        cut = prompt.rindex(token)
-        prompt = prompt[:cut] + "___" + prompt[cut + len(token):]
+    for span in reversed(spans):
+        prompt = prompt[:span.start()] + "___" + prompt[span.end():]
     return {"recipe": "complete", "slide_id": slide, "interaction_type": f"complete{len(blanks)}",
             "prompt": prompt, "stage": "Use", "correct_option_ids": ids,
             "options": [{"id": identifier, "image_url": "", "label": token} for identifier, token in zip(ids, blanks)],
@@ -277,6 +291,8 @@ def narrate(cards: list[dict], narrators: list[str] | None) -> None:
     in card order (approved 2026-09-25), so a lesson is not read by one voice
     throughout. The first narrator is the course's default teacher, whose cards
     carry no role; a card spoken by a named speaker or by exchange turns keeps it.
+    A Speak model in a prepared delivery whose every line is the teacher's is
+    neutral narration too, so its turns take the card's narrator.
     """
     if not narrators:
         return
@@ -288,12 +304,17 @@ def narrate(cards: list[dict], narrators: list[str] | None) -> None:
         neutral = [field for field, audio, turns in (("audio_speaker", "audio_text", "audio_turns"),
                                                      ("answer_audio_speaker", "answer_audio_text", "answer_audio_turns"))
                    if card.get(audio) and not card.get(turns) and not card.get(field)]
-        if not neutral:
+        model_turns = [line for line in spec.get("audio_turns") or [] if line.get("delivery")]
+        narrated_model = (spec.get("recipe") == "speak" and model_turns
+                          and all(line.get("speaker_role") == "teacher" for line in model_turns))
+        if not neutral and not narrated_model:
             continue
         voice = narrators[turn % len(narrators)]
         turn += 1
         if voice != "teacher":
             spec.update({field: voice for field in neutral})
+            for line in model_turns if narrated_model else []:
+                line["speaker_role"] = voice
 
 
 def _audio_revisions(item: dict) -> dict:
@@ -332,6 +353,11 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
                 raise BriefError(f"Item {item.get('text', item['_order'])!r} needs {field!r}.")
         if item.get("image_choices") is False and item.get("text_choices") is False:
             raise BriefError(f"Item {item['text']!r} must be offered as pictures or as text.")
+        if item.get("blanks") is not None and (
+                not isinstance(item["blanks"], list) or len(item["blanks"]) != 2
+                or len(words(item["text"])) < 3 or _blank_span(item) < 0):
+            raise BriefError(f"The blanks of {item['text']!r} must be two adjacent words of it, "
+                             "with at least one word left in place.")
         if item.get("question") and not item.get("question_es"):
             raise BriefError(f"Item {item['text']!r} needs the Spanish of its question.")
         if item.get("reply_image_timing") is not None and (

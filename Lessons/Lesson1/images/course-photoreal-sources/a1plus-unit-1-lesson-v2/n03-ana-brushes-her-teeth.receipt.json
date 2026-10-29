@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "d0d06dd8-99f9-4ad7-97e5-7880cd82230a",
+  "asset_id": "n03-ana-brushes-her-teeth",
+  "pack_sha256": "6d11508c105b31622e473c38f1fcbed3ff7dce8ddd713498bca6fca99b38920e",
+  "started_at": "2026-10-28T17:21:20.666531+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nEarly morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.\n\nThere is no mirror anywhere: the wall behind the sink is plain tile, so the person appears exactly once in the photo.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair and her light-blue button-up pajamas exactly. Create a new photograph in her bathroom: warm cream wall tiles, a white sink with a brass faucet, a light-green towel on a rail. Ana stands at the sink, turned three-quarters toward the camera, brushing her teeth: her right hand holds a pink toothbrush whose head is in her mouth, with a little white toothpaste foam at her lips; her left hand rests on the edge of the sink. The toothbrush handle is clearly visible, about 8 percent of the photo width long. Her hair falls loose behind her shoulders, and her eyes and face are clearly visible. She is the only person.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-06v2-5a8de130499e9490.webp",
+    "sha256": "5a8de130499e949080cdd5d723f27c852eb4a56285d69972f67c0abef00f2dd7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Ei_iao3iCYW0qtsPhfOIiAY",
+  "usage": {
+    "promptTokenCount": 650,
+    "candidatesTokenCount": 1355,
+    "totalTokenCount": 2250,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 392
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 245,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138240",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 650,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 245
+  },
+  "elapsed_seconds": 25.1,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v2/n03-ana-brushes-her-teeth.png",
+  "sha256": "bd07073a1fcfe50145d243daa7636cf32c802fba3369c84a90aa5826905b653b",
+  "byte_count": 4872388,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -91,7 +91,7 @@ def reviewed_reference_path(record: dict, root: Path = ROOT) -> Path:
 
 def pack_output_directory(pack: dict) -> Path:
     name = pack.get("output_namespace") or f"unit-{pack['lesson_number'].split('.')[0]}-mission-v{pack['revision']}"
-    if not re.fullmatch(r"(?:unit-[1-7]-(?:mission|review|lesson)|course-photo-sweep)-v[1-9][0-9]*", name):
+    if not re.fullmatch(r"(?:(?:a1plus-)?unit-[1-7]-(?:mission|review|lesson)|course-photo-sweep)-v[1-9][0-9]*", name):
         raise ValueError("Unsafe output namespace.")
     return ROOT / "output/imagegen" / name
 

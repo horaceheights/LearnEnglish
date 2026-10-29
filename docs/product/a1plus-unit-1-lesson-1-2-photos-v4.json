@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-2-photos",
+  "revision": 4,
+  "output_namespace": "a1plus-unit-1-lesson-v4",
+  "authorization": "2026-10-29: the user approved the one revised prompt in this revision with a US$0.20 ceiling (\"Approve revision 4 of Ana's gets-dressed prompt with a US$0.20 cap and generate it.\"). Gemini is the approved image tool (2026-09-23). Revision 3 (approved 2026-10-28, US$0.35) generated n04 (accepted at phone sizes) and n05, rejected because a large out-of-focus lamp fills the lower-right foreground with a white blur band at the right edge, and Ana stands where the bed is (lower legs hidden by the duvet, feet showing under the bed frame); revision 3 spent US$0.2763 and Lesson 1.2 photos US$0.9675 in all. Revision 4 repeats revision 3's n05 prompt with Ana on open floor clear of the bed and a clear, fully sharp view with nothing in the foreground.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 1,
+    "expected_cost_usd": "0.14",
+    "requested_ceiling_usd": "0.20",
+    "no_automatic_retries": true,
+    "order": "n05 only, inspected at 900/360/250/180 px and the centered 4:5 crop."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "morning": "Early morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.",
+    "clock_corner": "Keep the top-right corner of the photo (the right 25 percent of the width and the top 30 percent of the height) as plain, quiet background such as wall or curtain, with no face, hand or important object in it; the lesson places a small clock there.",
+    "no_mirror": "There is no mirror anywhere: the wall behind the sink is plain tile, so the person appears exactly once in the photo.",
+    "clear_view": "The camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges."
+  },
+  "assets": [
+    {
+      "id": "n05-ana-gets-dressed",
+      "order": 1,
+      "item": "She gets dressed. / Ana gets dressed.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning",
+        "clear_view"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph in her bedroom: cream bedding on a bed with a light-oak headboard, a beige lamp on an oak nightstand, white curtains, and an open light-oak wardrobe with a few clothes on hangers. Ana stands on open floor in front of the open wardrobe, a full step away from the foot of the bed, facing the camera at a slight angle; her whole body is visible, from her head down to both bare feet flat on the floor, and no furniture covers any part of her. She is finishing getting dressed: she wears light-wash jeans, a white top and her sage-green overshirt, which is already on both arms and open at the front; with both hands she straightens its collar at her neck. Her face is fully visible with a calm, awake smile. On the bed lie her folded light-blue pajamas; on the floor beside her bare feet wait her white sneakers. She is the only person. No bag or jacket."
+    }
+  ]
+}

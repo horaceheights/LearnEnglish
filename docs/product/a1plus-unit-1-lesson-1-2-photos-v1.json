@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-2-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v1",
+  "authorization": "2026-10-28: the user approved every prompt in this revision with a US$1.00 ceiling (\"Approve the 1.2 text and the 6 photo prompts with a US$1.00 cap. Generate the photos with Gemini (Luis gets dressed first)\"). Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision. n04 is inspected at phone sizes and at the centered 4:5 crop before the rest are sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 6,
+    "expected_cost_usd": "0.82",
+    "requested_ceiling_usd": "1.00",
+    "no_automatic_retries": true,
+    "order": "Generate n04 (Luis gets dressed, the hardest to read as dressing rather than undressing) first and inspect it at 900/360/250/180 px and at the centered 4:5 crop before the rest. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "morning": "Early morning on a weekday at home: soft, warm sunrise light through a window. No clock, watch, phone, tablet or screen anywhere in the photo; the lesson adds its own clock.",
+    "clock_corner": "Keep the top-right corner of the photo (the right 25 percent of the width and the top 30 percent of the height) as plain, quiet background such as wall or curtain, with no face, hand or important object in it; the lesson places a small clock there.",
+    "no_mirror": "There is no mirror anywhere: the wall behind the sink is plain tile, so the person appears exactly once in the photo."
+  },
+  "assets": [
+    {
+      "id": "n04-luis-gets-dressed",
+      "order": 1,
+      "item": "He gets dressed. / Luis gets dressed.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+        "sha256": "9b499b2f4d509ecdc63949395583060de7bd3f1d97d481c06da57a9083c7cc5f",
+        "observed_description": "Luis (short dark wavy hair, clean-shaven, warm medium-brown skin, friendly smile; navy crew-neck T-shirt, khaki chinos, navy sneakers) sits at a light office desk typing on a laptop, face clearly visible in three-quarter view."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, hair and build exactly. Create a new photograph: Luis's bedroom: white walls, a light-wood floor, a bed with a navy-blue duvet and white pillows, one small wooden nightstand with a plain white lamp, a window with white curtains on the LEFT side of the photo. Luis stands beside the bed in front of an open wooden wardrobe with a few shirts on hangers. He is getting dressed: he already wears khaki chinos and is putting on his navy crew-neck T-shirt. His head and both arms are already through and both hands pull the hem DOWN over his chest; the T-shirt is still bunched up at the bottom of his ribs, so it clearly is going on, not coming off. His face is fully visible, looking down at the shirt with a small smile. On the bed lie his folded heather-grey sleep T-shirt and dark-grey pajama pants. He is the only person. Barefoot; no shoes, jacket or bag."
+    },
+    {
+      "id": "n05-ana-gets-dressed",
+      "order": 2,
+      "item": "She gets dressed. / Ana gets dressed.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph in her bedroom: cream bedding on a bed with a light-oak headboard, a beige lamp on an oak nightstand, white curtains. Ana stands beside the bed, facing the camera at a slight angle. She is getting dressed: she already wears light-wash jeans and a white top, and she is putting on her sage-green overshirt: her left arm is already in its sleeve and her right hand is sliding into the right sleeve at her side, the shirt open at the front. Her face is fully visible with a calm, awake smile. Her folded light-blue pajamas lie on the bed beside her. She is the only person. Barefoot; no shoes, bag or jacket."
+    },
+    {
+      "id": "n01-luis-wakes-up",
+      "order": 3,
+      "item": "Luis wakes up at seven. / He wakes up at seven.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning",
+        "clock_corner"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+        "sha256": "9b499b2f4d509ecdc63949395583060de7bd3f1d97d481c06da57a9083c7cc5f",
+        "observed_description": "Luis (short dark wavy hair, clean-shaven, warm medium-brown skin, friendly smile; navy crew-neck T-shirt, khaki chinos, navy sneakers) sits at a light office desk typing on a laptop, face clearly visible in three-quarter view."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, hair and build exactly; change his clothes as described. Create a new photograph: Luis's bedroom: white walls, a light-wood floor, a bed with a navy-blue duvet and white pillows, one small wooden nightstand with a plain white lamp, a window with white curtains on the LEFT side of the photo. Luis has just woken up: he sits up in bed under the navy duvet, both arms stretched up above his head, eyes open, with a sleepy smile. He wears a plain heather-grey crew-neck sleep T-shirt. The camera looks at him from the foot of the bed at a slight angle; his head and raised arms are inside the central area. He is the only person."
+    },
+    {
+      "id": "n02-luis-brushes-his-teeth",
+      "order": 4,
+      "item": "Luis brushes his teeth. / He brushes his teeth.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning",
+        "no_mirror"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-t20-9b499b2f4d509ecd.webp",
+        "sha256": "9b499b2f4d509ecdc63949395583060de7bd3f1d97d481c06da57a9083c7cc5f",
+        "observed_description": "Luis (short dark wavy hair, clean-shaven, warm medium-brown skin, friendly smile; navy crew-neck T-shirt, khaki chinos, navy sneakers) sits at a light office desk typing on a laptop, face clearly visible in three-quarter view."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, hair and build exactly; change his clothes as described. Create a new photograph in his bathroom: white wall tiles, a white sink with a chrome faucet, a white towel on a rail and one small green plant. Luis stands at the sink, turned three-quarters toward the camera, brushing his teeth: his right hand holds a blue toothbrush whose head is in his mouth, with a little white toothpaste foam at his lips; his left hand rests on the edge of the sink. The toothbrush handle is clearly visible, about 8 percent of the photo width long. His eyes and face are clearly visible. He wears the plain heather-grey sleep T-shirt and dark-grey pajama pants (he is not dressed yet). He is the only person."
+    },
+    {
+      "id": "n03-ana-brushes-her-teeth",
+      "order": 5,
+      "item": "Ana brushes her teeth. / She brushes her teeth.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning",
+        "no_mirror"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-06v2-5a8de130499e9490.webp",
+        "sha256": "5a8de130499e949080cdd5d723f27c852eb4a56285d69972f67c0abef00f2dd7",
+        "observed_description": "Ana (long dark wavy hair past her shoulders, warm light-olive skin) sits up awake in bed in light-blue button-up pajamas, in a bright bedroom with cream bedding, a light-oak headboard, a beige lamp on an oak nightstand and white curtains."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and her light-blue button-up pajamas exactly. Create a new photograph in her bathroom: warm cream wall tiles, a white sink with a brass faucet, a light-green towel on a rail. Ana stands at the sink, turned three-quarters toward the camera, brushing her teeth: her right hand holds a pink toothbrush whose head is in her mouth, with a little white toothpaste foam at her lips; her left hand rests on the edge of the sink. The toothbrush handle is clearly visible, about 8 percent of the photo width long. Her hair falls loose behind her shoulders, and her eyes and face are clearly visible. She is the only person."
+    },
+    {
+      "id": "n06-ana-eats-breakfast",
+      "order": 6,
+      "item": "Ana eats breakfast. / She eats breakfast.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "morning"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and her sage-green overshirt over a white top exactly. Create a new photograph at breakfast time: Ana sits at a light-wood kitchen table beside a bright window with bright morning sunlight, turned toward the camera at a three-quarter angle. She is eating breakfast: she lifts a spoon of cereal with milk from a white bowl to her mouth, the spoon at her lips, her eyes and face fully visible. On the table in front of her, all clearly visible: the white bowl of cereal and milk, a small plate with two slices of toast, one glass of orange juice and one white mug of coffee. Her brown leather tote hangs on the back of an empty chair beside her, ready for leaving. She is the only person. No newspaper, laptop, phone or other food."
+    }
+  ]
+}

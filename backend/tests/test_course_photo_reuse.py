@@ -143,7 +143,10 @@ class PhotoReuseTests(unittest.TestCase):
 
     def test_paid_namespace_cannot_escape_output_directory(self):
         self.assertEqual(pack_output_directory({'output_namespace':'course-photo-sweep-v1'}).name,'course-photo-sweep-v1')
-        for name in ('../course-photo-sweep-v1','course-photo-sweep-v1/escape','course-photo-sweep-v0'):
+        # A1+ packs get their own namespace so they never share a folder with A1 Unit 1.
+        self.assertEqual(pack_output_directory({'output_namespace':'a1plus-unit-1-lesson-v1'}).name,'a1plus-unit-1-lesson-v1')
+        for name in ('../course-photo-sweep-v1','course-photo-sweep-v1/escape','course-photo-sweep-v0',
+                     'a1plus-course-photo-sweep-v1','a1plus-unit-1-lesson-v1/escape'):
             with self.subTest(name=name),self.assertRaises(ValueError):
                 pack_output_directory({'output_namespace':name})
 
