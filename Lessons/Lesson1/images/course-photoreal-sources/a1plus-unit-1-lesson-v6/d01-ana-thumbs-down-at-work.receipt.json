@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b89532ba-4fbf-4253-a70a-e5a03c864520",
+  "asset_id": "d01-ana-thumbs-down-at-work",
+  "pack_sha256": "52d9ede365b7360abbd8623b755d19ad1f166f081392af990fcf4a6efa1253d9",
+  "started_at": "2026-10-31T20:05:01.697364+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.\n\nThis photo is Ana's whole answer to Luis's invitation, so her face and ONE hand gesture must say it at a glance. Luis sits just outside the LEFT edge of the photo and is not visible at all. Ana turns her head and shoulders toward the left and looks at him: the camera sees her face in three-quarter view with both eyes visible, and she does NOT look at the camera. Medium shot at seated eye level: Ana is framed from the top of her head to her waist, a little right of center, and fills about 70 percent of the photo height. She holds her gesture hand out in front of her toward Luis at chest height, seen from the side, so the hand stands in clear profile against plain background between her and the left edge; it is anatomically correct, large and sharp, at least 12 percent of the photo width, and touches nothing (not her face, hair, body or any object). Her other hand rests on the table. No clock, watch, phone, tablet or screen anywhere in the photo. She is the only person; no speech bubbles, check marks, crosses or symbols.\n\nImage 1 is the photo to revise: Ana at her office desk in the late afternoon, still busy at work, giving a thumbs-down. Keep exactly the same office, warm low sunlight, light-oak desk, stack of papers, open folder, open grey laptop angled away at the right with its screen not visible, the brown tote on the navy chair, and Ana's face, long dark wavy hair, earrings, necklace and clothes (sage-green overshirt with rolled sleeves over a white top). Change only her pose: she answers Luis, who sits just outside the left edge of the photo. She sets the pen down on the papers, rests one hand on them, and holds ONE large, unmistakable thumbs-down out toward Luis: four fingers curled tightly into her palm and her thumb pointing straight down, the hand seen from the side against the plain wall. Her face is friendly but regretful: a small apologetic closed-mouth smile, eyebrows slightly raised and drawn together. Not angry. No thumbs-up, no open palm, no pointing.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-1-lesson-v5/d01-ana-thumbs-down-at-work.png",
+    "sha256": "033c9ae382ed573854bb1435a82cbc3efa42f45402b97e9613f3f99c5c64d201"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "9EnmaozJJr_pz7IP14vY0AI",
+  "usage": {
+    "promptTokenCount": 936,
+    "candidatesTokenCount": 1386,
+    "totalTokenCount": 2528,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 678
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 206,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138344",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 936,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 206
+  },
+  "elapsed_seconds": 31.77,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v6/d01-ana-thumbs-down-at-work.png",
+  "sha256": "d7da132651dc9ad77a295c38b53f66af8cde93e4dbd1a8b4125c2e8a62e066f2",
+  "byte_count": 5144683,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
