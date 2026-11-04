@@ -19,8 +19,9 @@ test('installed listening cards explain the heard evidence, including the report
   const lessons = require('../src/generated/a1-plus-course.json');
   const cards = lessons.filter(lesson => lesson.experience_type !== 'mission')
     .flatMap(lesson => lesson.cards.filter(card => card.stage === 'Listen'));
-  // Lesson 1.2 was rebuilt on 2026-10-29 with ten Listen cards instead of five.
-  assert.equal(cards.length, 104);
+  // Lesson 1.2 was rebuilt on 2026-10-29 with ten Listen cards instead of five, and lesson 1.4 on
+  // 2026-11-04 with ten instead of eight.
+  assert.equal(cards.length, 106);
   for (const card of cards) {
     assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
     for (const option of wrongOptions(card)) {

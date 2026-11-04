@@ -99,6 +99,15 @@ test('he/she routine forms keep the phrasal meaning of their base verb', () => {
   assert.match(hint('I wake up at six.', 1, 2), /“wake up” expresa despertarse/);
 });
 
+test('extended-family sentences explain where and who with someone lives', () => {
+  for (const target of ['This is my aunt.', 'My uncle lives in Mexico.', 'Ana lives in the United States.', 'My cousin lives with my grandparents.']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+  }
+  assert.match(hint('My cousin lives with my grandparents.', 3, 4), /“with” va antes de “my grandparents”: introduce con quién/);
+  assert.match(hint('My aunt lives in Canada.', 3, 4), /“in” va antes de “Canada”: introduce el lugar/);
+  assert.match(hint('This is my uncle.', 2, 3), /“my” indica de quién es y va antes del nombre “uncle”/);
+});
+
 test('polite requests, coordinated handovers and negative needs explain word order', () => {
   for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
     const card = construction(target);

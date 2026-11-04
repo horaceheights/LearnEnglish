@@ -20,6 +20,8 @@ NOUNS.add('ears');
 // Expanded body, weather and activity vocabulary uses the same nominal rules.
 for (const noun of words('nose fingers toes coat sweater scarf gloves shorts weather photos football')) NOUNS.add(noun);
 for (const noun of words('mall supermarket airplane boat hotel office museum theater stop airport corner ticket')) NOUNS.add(noun);
+// A1+ 1.4 (2026-11-04): the extended family.
+for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 const OWNERS = set('mine yours ours');
@@ -30,6 +32,8 @@ for (const verb of words('speak speaks')) VERBS.add(verb);
 for (const verb of words('leave arrive start starts finish finishes studies meet put')) VERBS.add(verb);
 // A1+ 1.2 (2026-10-29): the he/she forms of A1 routine verbs.
 for (const verb of words('wakes gets eats brushes')) VERBS.add(verb);
+// A1+ 1.4 (2026-11-04): where someone lives, and who with.
+for (const verb of words('live lives')) VERBS.add(verb);
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 const FREQUENCY = set('always usually sometimes never');
@@ -187,7 +191,7 @@ function teachClause(text: string): ClausePlan {
       teach(start, end, '“Fast” significa rápido e indica cómo habla la persona; va después de “speak”.');
       return true;
     }
-    const prep = /^(next to|far from|across from|between|in|on|under|near|from|by|at|for|to) (.+)$/.exec(tail);
+    const prep = /^(next to|far from|across from|between|in|on|under|near|from|by|at|for|to|with) (.+)$/.exec(tail);
     if (prep) {
       const length = words(prep[1]).length;
       const nounStart = start + length;
@@ -197,6 +201,7 @@ function teachClause(text: string): ClausePlan {
       const relation = prep[1] === 'by' ? 'el medio de transporte'
         : prep[1] === 'for' ? 'la comida del día'
           : prep[1] === 'from' ? 'el lugar de origen'
+            : prep[1] === 'with' ? 'con quién'
             : prep[1] === 'to' && /listen/i.test(anchor) ? 'lo que escuchamos'
               : NUMBERS.has(keys[nounStart]) || /night|morning|afternoon|evening|day$/.test(keys[nounEnd - 1]) ? 'cuándo ocurre'
                 : 'el lugar o la dirección';
