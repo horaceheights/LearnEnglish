@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "0460b066-2b92-4624-b02c-53fa71814e1b",
+  "asset_id": "d02-ana-thumbs-up-at-home",
+  "pack_sha256": "83fb044c4ca68e815e4a23d29b601a643b4ab283b730ffe6a1b31cb5376c67ed",
+  "started_at": "2026-10-31T19:15:47.987322+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.\n\nThis photo is Ana's whole answer to an invitation, so her face and ONE hand gesture must say it at a glance. Medium shot at seated eye level: Ana is framed from the top of her head to her waist and fills about 70 percent of the photo height. She looks straight into the camera, at the person who invited her. Her gesture hand is anatomically correct, large and sharp, at least 12 percent of the photo width, held in front of her chest and below her chin, and separated from her face, hair, body edge and every object, with plain background or her shirt behind it. Her other hand rests on the table. No clock, watch, phone, tablet or screen anywhere in the photo. She is the only person; no speech bubbles, check marks, crosses or symbols.\n\nImage 1 shows Ana at home in her kitchen. Keep her face, long dark wavy hair and build exactly, and her clothes: the sage-green overshirt over a white top. Create a new photograph in the same kitchen in the early evening: she is already home after work and relaxed. Warm indoor light from a ceiling lamp, and the window behind her shows soft blue dusk sky. Ana sits at the wooden kitchen table, turned toward the camera. On the table is only one plain white mug beside her resting hand; no plate or food. Her brown tote hangs on the back of her chair. She happily says OK: she gives ONE large, unmistakable thumbs-up with her right hand, four fingers curled tightly into her palm and her thumb pointing straight up, the side of her fist toward the camera so the thumb stands out clearly against her shirt. She has a big, warm open smile and bright eyes.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-t22-296e96e660a3b079.webp",
+    "sha256": "296e96e660a3b079933bdea308db13c5c103ac07543a0d5223f2cc3ec1479db3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "aT7maruRCuSdqtsPyeLrsQ0",
+  "usage": {
+    "promptTokenCount": 845,
+    "candidatesTokenCount": 1367,
+    "totalTokenCount": 2439,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 587
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 227,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138414",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 845,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 227
+  },
+  "elapsed_seconds": 28.2,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v5/d02-ana-thumbs-up-at-home.png",
+  "sha256": "509b99fbbd3e4bec44f8b9dc4075bb3cba56508eeeb9f7dc74bc1f96db9fce59",
+  "byte_count": 5065500,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-1-reply-photos",
+  "revision": 2,
+  "output_namespace": "a1plus-unit-1-lesson-v6",
+  "authorization": "2026-10-31: the user chose to regenerate both photos facing Luis (\"Regenerate, facing Luis\") at about US$0.28 within a US$0.40 ceiling. Revision 1 (US$0.276728 for two images) produced usable gestures, but Ana looks into the camera in both, which breaks the reply-selection guardrail that speakers face each other, not the camera (Unit 5 corrections, 2026-10-08). Revision 2 revises each revision-1 photo, keeping its scene and gesture, and turns Ana in three-quarter view toward Luis just outside the left edge.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 2,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "0.40",
+    "no_automatic_retries": true,
+    "order": "d02 first, then d01; each inspected at 900/360/250/180 px and the centered 4:5 crop before the next request."
+  },
+  "shared_prompts": {
+    "photo_revision": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "clear_view": "The camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.",
+    "reply_toward_luis": "This photo is Ana's whole answer to Luis's invitation, so her face and ONE hand gesture must say it at a glance. Luis sits just outside the LEFT edge of the photo and is not visible at all. Ana turns her head and shoulders toward the left and looks at him: the camera sees her face in three-quarter view with both eyes visible, and she does NOT look at the camera. Medium shot at seated eye level: Ana is framed from the top of her head to her waist, a little right of center, and fills about 70 percent of the photo height. She holds her gesture hand out in front of her toward Luis at chest height, seen from the side, so the hand stands in clear profile against plain background between her and the left edge; it is anatomically correct, large and sharp, at least 12 percent of the photo width, and touches nothing (not her face, hair, body or any object). Her other hand rests on the table. No clock, watch, phone, tablet or screen anywhere in the photo. She is the only person; no speech bubbles, check marks, crosses or symbols."
+  },
+  "assets": [
+    {
+      "id": "d01-ana-thumbs-down-at-work",
+      "order": 2,
+      "item": "No, thank you. (reply to Let's meet at five. on 1.1 R9)",
+      "shared": [
+        "photo_revision",
+        "safe_center",
+        "clear_view",
+        "reply_toward_luis"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-1-lesson-v5/d01-ana-thumbs-down-at-work.png",
+        "sha256": "033c9ae382ed573854bb1435a82cbc3efa42f45402b97e9613f3f99c5c64d201",
+        "observed_description": "Revision-1 output: Ana at her light-oak office desk in late-afternoon sun, still working (pen on a thick stack of papers beside an open folder, an open grey laptop angled away at the right, brown tote on the navy chair at the left), regretful apologetic smile, one large thumbs-down at chest height, but looking straight into the camera."
+      },
+      "prompt": "Image 1 is the photo to revise: Ana at her office desk in the late afternoon, still busy at work, giving a thumbs-down. Keep exactly the same office, warm low sunlight, light-oak desk, stack of papers, open folder, open grey laptop angled away at the right with its screen not visible, the brown tote on the navy chair, and Ana's face, long dark wavy hair, earrings, necklace and clothes (sage-green overshirt with rolled sleeves over a white top). Change only her pose: she answers Luis, who sits just outside the left edge of the photo. She sets the pen down on the papers, rests one hand on them, and holds ONE large, unmistakable thumbs-down out toward Luis: four fingers curled tightly into her palm and her thumb pointing straight down, the hand seen from the side against the plain wall. Her face is friendly but regretful: a small apologetic closed-mouth smile, eyebrows slightly raised and drawn together. Not angry. No thumbs-up, no open palm, no pointing."
+    },
+    {
+      "id": "d02-ana-thumbs-up-at-home",
+      "order": 1,
+      "item": "OK. (reply to Let's meet at seven. on 1.1 R10)",
+      "shared": [
+        "photo_revision",
+        "safe_center",
+        "clear_view",
+        "reply_toward_luis"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/course-photoreal-sources/a1plus-unit-1-lesson-v5/d02-ana-thumbs-up-at-home.png",
+        "sha256": "509b99fbbd3e4bec44f8b9dc4075bb3cba56508eeeb9f7dc74bc1f96db9fce59",
+        "observed_description": "Revision-1 output: Ana at her wooden kitchen table in the early evening (pendant lamp on, blue dusk in the window behind the sink, one plain white mug, brown tote hanging on her chair), big open smile and one large thumbs-up at chest height, but looking straight into the camera."
+      },
+      "prompt": "Image 1 is the photo to revise: Ana at home in her kitchen in the early evening, giving a thumbs-up. Keep exactly the same kitchen, warm pendant-lamp light, blue dusk sky in the window, wooden table with one plain white mug, the brown tote hanging on her chair, and Ana's face, long dark wavy hair, earrings and clothes (sage-green overshirt over a white top). Change only her pose: she answers Luis, who sits just outside the left edge of the photo. She holds ONE large, unmistakable thumbs-up out toward Luis: four fingers curled tightly into her palm and her thumb pointing straight up, the hand seen from the side against the plain white cabinets. Her other hand rests on the table beside the mug. She has a big, warm open smile and bright eyes."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-1-reply-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v5",
+  "authorization": "2026-10-31: the user approved both prompts with a US$0.40 ceiling (\"Approve, US$0.40 cap\") and chose a thumbs-down at her desk for R9 (\"Thumbs-down at her desk\"). Gemini is the approved image tool (2026-09-23). Reason: phone test of Preview group 14cf2872 (2026-10-31): on Lesson 1.1 R9 (Let's meet at five. -> No, thank you.) the reply picture shown after Luis's line is photo 04, Ana smiling as she leaves work with her bag, which reads as free and points to OK; on R10 (Let's meet at seven. -> OK.) the user asked for Ana to make a positive gesture such as a thumbs-up. No existing A1+ photo shows Ana declining or giving a thumbs-up (all 89 inspected on a contact sheet).",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 2,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "0.40",
+    "no_automatic_retries": true,
+    "order": "d02 (thumbs-up, the user's explicit request) first, then d01; each inspected at 900/360/250/180 px and the centered 4:5 crop before the next request."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, logos or brand marks anywhere, including on objects, screens, clothing, signs and packaging. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and object the meaning depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "clear_view": "The camera has a clear, unobstructed view of the scene from across the room: nothing stands between the camera and the person, no object is in the near foreground, and the whole photo is in sharp focus, with no blurred objects, shapes or bands at its edges.",
+    "reply_gesture": "This photo is Ana's whole answer to an invitation, so her face and ONE hand gesture must say it at a glance. Medium shot at seated eye level: Ana is framed from the top of her head to her waist and fills about 70 percent of the photo height. She looks straight into the camera, at the person who invited her. Her gesture hand is anatomically correct, large and sharp, at least 12 percent of the photo width, held in front of her chest and below her chin, and separated from her face, hair, body edge and every object, with plain background or her shirt behind it. Her other hand rests on the table. No clock, watch, phone, tablet or screen anywhere in the photo. She is the only person; no speech bubbles, check marks, crosses or symbols."
+  },
+  "assets": [
+    {
+      "id": "d01-ana-thumbs-down-at-work",
+      "order": 2,
+      "item": "No, thank you. (reply to Let's meet at five. on 1.1 R9)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "reply_gesture"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-03-4b46d47974611e0e.webp",
+        "sha256": "4b46d47974611e0ebe0f382d73daed6cfd980e9c69d1393152f0148f63158a59",
+        "observed_description": "Ana (long dark wavy hair, warm smile, small gold hoop earrings and a thin gold necklace) sits at a light-oak office desk in a sage-green overshirt with rolled sleeves over a white top and jeans, reaching for an open grey laptop; a brown leather tote rests on the navy chair beside her, with a sunny window, potted plants and an oak shelf of binders behind."
+      },
+      "prompt": "Image 1 shows Ana in her office. Keep her face, long dark wavy hair, earrings, necklace and build exactly, and her clothes: the sage-green overshirt with rolled sleeves over a white top. Create a new photograph in the same bright office in the late afternoon, warm low sunlight from the window: Ana is still busy at work. She sits at her light-oak desk, facing the camera. On the desk in front of her lie an open folder and a neat stack of papers; her left hand rests on the papers, holding a pen. Her open grey laptop stands at the right end of the desk, turned away from the camera so only its plain grey back shows. Her brown tote hangs on the back of her chair, not packed. She says no: she gives ONE large, unmistakable thumbs-down with her right hand, four fingers curled tightly into her palm and her thumb pointing straight down, the side of her fist toward the camera so the thumb stands out clearly against her shirt. Her face is friendly but regretful: a small apologetic closed-mouth smile, eyebrows slightly raised and drawn together. Not angry. No thumbs-up, no open palm, no pointing."
+    },
+    {
+      "id": "d02-ana-thumbs-up-at-home",
+      "order": 1,
+      "item": "OK. (reply to Let's meet at seven. on 1.1 R10)",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "reply_gesture"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-t22-296e96e660a3b079.webp",
+        "sha256": "296e96e660a3b079933bdea308db13c5c103ac07543a0d5223f2cc3ec1479db3",
+        "observed_description": "Ana (long dark wavy hair, warm smile) sits at a wooden kitchen table in a sage-green overshirt over a white top and jeans, eating rice and vegetables from a white plate; white cabinets, a wooden counter with plants and utensils, a sink and a bright window are behind her, and her brown leather tote hangs on her chair."
+      },
+      "prompt": "Image 1 shows Ana at home in her kitchen. Keep her face, long dark wavy hair and build exactly, and her clothes: the sage-green overshirt over a white top. Create a new photograph in the same kitchen in the early evening: she is already home after work and relaxed. Warm indoor light from a ceiling lamp, and the window behind her shows soft blue dusk sky. Ana sits at the wooden kitchen table, turned toward the camera. On the table is only one plain white mug beside her resting hand; no plate or food. Her brown tote hangs on the back of her chair. She happily says OK: she gives ONE large, unmistakable thumbs-up with her right hand, four fingers curled tightly into her palm and her thumb pointing straight up, the side of her fist toward the camera so the thumb stands out clearly against her shirt. She has a big, warm open smile and bright eyes."
+    }
+  ]
+}
