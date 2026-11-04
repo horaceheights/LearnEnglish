@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-4-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v10",
+  "authorization": "2026-10-31: the user approved the 1.4 text, the family map and every prompt in this revision with a US$0.80 ceiling (\"Approve the 1.4 text, family map and photo prompts with a US$0.80 cap?\" answered \"Approve, generate\"). Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision. k03 is inspected at phone sizes and at the centered 4:5 crop before the rest are sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 5,
+    "expected_cost_usd": "0.67",
+    "requested_ceiling_usd": "0.80",
+    "no_automatic_retries": true,
+    "order": "Generate k03 first (it fixes the cousin and the grandparents' house) and inspect it at 900/360/250/180 px and at the centered 4:5 crop; k04 uses the accepted k03 as its reference, so it runs only after k03 is recorded as usable. Then k01, k02 and k05. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on objects, clothing, signs, the suitcase and the house. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, hand and the flag inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "clear_view": "The camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the people, every face is fully visible and in sharp focus, and both people are seen from head to knees or lower.",
+    "flag": "The country's national flag is the only flag in the photo. It is real cloth, correctly proportioned and correctly colored, hanging fully open and flat from a short wooden pole fixed to the house wall beside the front door, at about the height of the people's heads, uncovered by leaves or people. The flag is about 15 percent of the photo width, so it is easy to recognize on a phone.",
+    "family_greeting": "The two people stand side by side on the path in front of the open front door, close together, both turned toward the camera and smiling warmly; Ana's arm is around the relative's shoulders. No one else is in the photo."
+  },
+  "assets": [
+    {
+      "id": "k03-ana-and-her-cousin-in-mexico",
+      "order": 1,
+      "item": "This is my cousin. / He is my cousin. / My cousin lives in Mexico.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "flag",
+        "family_greeting"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible. Her house has white stucco walls, a dark front door, a small porch step and green shrubs."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph on a sunny afternoon in a small town in Mexico, in front of her grandparents' one-storey house: warm terracotta-orange painted walls, a wooden front door painted deep green and standing open, a terracotta tiled path, and pink bougainvillea climbing the wall at the far left. The national flag of Mexico (three vertical stripes, green, white and red, with the eagle emblem in the center of the white stripe) hangs beside the door. Ana stands on the LEFT with her cousin: a slim young man of about 19, clearly younger than Ana, with short black curly hair, no beard or moustache and warm light-brown skin; he wears a plain mustard-yellow T-shirt and dark jeans. He stands on the RIGHT, a little taller than Ana. Ana wears her sage-green overshirt over a white top, light-wash jeans and white sneakers, her brown leather tote on her shoulder, and a small navy-blue carry-on suitcase with its handle up stands on the ground right beside her: she is the visitor who has just arrived."
+    },
+    {
+      "id": "k04-ana-cousin-and-grandparents",
+      "order": 2,
+      "item": "My cousin lives with my grandparents.",
+      "shared": [
+        "photo",
+        "clear_view",
+        "flag"
+      ],
+      "reference": "k03-ana-and-her-cousin-in-mexico",
+      "prompt": "Image 1 shows Ana and her cousin, the young man in the mustard-yellow T-shirt, in front of her grandparents' house in Mexico. Keep both of their faces, hair and clothes, the terracotta-orange house, the open green door and the Mexican flag exactly. Create a new photograph of the same moment a minute later: her grandparents: a very old couple of about 80, much older than the uncle: the grandmother has white hair in a low bun and wears a lavender blouse and a long grey skirt; the grandfather has thin white hair and wears a white short-sleeved shirt and brown trousers, and holds a wooden walking cane. The grandparents now stand in the open green doorway, smiling and welcoming; the cousin stands right beside them on the doorstep with one arm around his grandmother's shoulders, clearly at home with them. Ana stands on the path a step in front of them on the LEFT, half turned toward the camera and smiling, her navy suitcase beside her. All four people and the flag are inside the central 70 percent of the photo width, every face fully visible and lit by sunlight. Only these four people are in the photo."
+    },
+    {
+      "id": "k01-ana-and-her-aunt-in-canada",
+      "order": 3,
+      "item": "This is my aunt. / My aunt lives in Canada. / This is my aunt. She lives in Canada.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "flag",
+        "family_greeting"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible. Her house has white stucco walls, a dark front door, a small porch step and green shrubs."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph on a crisp, sunny autumn afternoon in a quiet residential street in Canada, in front of her aunt's two-storey red-brick house with a white wooden porch and a white front door standing open. A large maple tree with bright red and orange leaves stands in the front yard at the right, with fallen red maple leaves on the lawn. The national flag of Canada (red, white, red, with one red maple leaf in the white center) hangs beside the door. Ana stands on the LEFT with her aunt: a woman of about 55, clearly older than Ana, with shoulder-length dark-brown hair streaked with grey, warm light-olive skin like Ana's and a kind smile; she wears a burgundy knit cardigan over a cream blouse and dark-grey trousers. The aunt stands on the RIGHT. Ana wears her sage-green overshirt over a white top, light-wash jeans and white sneakers, her brown leather tote on her shoulder, and a small navy-blue carry-on suitcase with its handle up stands on the ground right beside her: she is the visitor who has just arrived."
+    },
+    {
+      "id": "k02-ana-and-her-uncle-in-mexico",
+      "order": 4,
+      "item": "This is my uncle. / He is my uncle. / My uncle lives in Mexico.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "flag",
+        "family_greeting"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible. Her house has white stucco walls, a dark front door, a small porch step and green shrubs."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph on a sunny morning in a town in Mexico, in front of her uncle's one-storey house, which is clearly different from any other house: sunny yellow painted walls, a turquoise wooden front door standing open, two large clay pots with green agave plants beside the door and a cobblestone street. The national flag of Mexico (three vertical stripes, green, white and red, with the eagle emblem in the center of the white stripe) hangs beside the door. Ana stands on the LEFT with her uncle: a man of about 58, clearly older than Ana, with short salt-and-pepper hair, a neat grey moustache and warm medium-brown skin; he wears a light-blue short-sleeved button shirt and beige trousers. He stands on the RIGHT. Ana wears her sage-green overshirt over a white top, light-wash jeans and white sneakers, her brown leather tote on her shoulder, and a small navy-blue carry-on suitcase with its handle up stands on the ground right beside her: she is the visitor who has just arrived."
+    },
+    {
+      "id": "k05-ana-at-home-in-the-united-states",
+      "order": 5,
+      "item": "Ana lives in the United States. / She lives in the United States.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "flag"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible. Her house has white stucco walls, a dark front door, a small porch step and green shrubs."
+      },
+      "prompt": "Image 1 shows Ana at her own house. Keep her face, long dark wavy hair, her clothes (the sage-green overshirt, white top, light-wash jeans and white sneakers) and her house exactly: the white stucco walls, the dark front door, the porch step and the green shrubs. Create a new photograph of Ana at home on a sunny afternoon: she stands on her porch step in front of her closed front door, facing the camera with a relaxed smile, holding a small watering can over a potted plant by the door. She has no suitcase and no bag: she lives here. The national flag of the United States (red and white stripes with a blue canton of white stars) hangs beside her front door. She is the only person in the photo, seen from head to knees or lower."
+    }
+  ]
+}

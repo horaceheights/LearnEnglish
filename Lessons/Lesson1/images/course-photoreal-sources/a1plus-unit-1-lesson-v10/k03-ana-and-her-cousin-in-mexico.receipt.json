@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "2bb4d57d-8361-4762-a7c2-df58a45b28bf",
+  "asset_id": "k03-ana-and-her-cousin-in-mexico",
+  "pack_sha256": "2f4eda45ea46844d93d2bbbaac24b4356cd44f5309df8d7e47a744a91c4fa7df",
+  "started_at": "2026-10-31T21:36:16.749418+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on objects, clothing, signs, the suitcase and the house. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and the flag inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the people, every face is fully visible and in sharp focus, and both people are seen from head to knees or lower.\n\nThe country's national flag is the only flag in the photo. It is real cloth, correctly proportioned and correctly colored, hanging fully open and flat from a short wooden pole fixed to the house wall beside the front door, at about the height of the people's heads, uncovered by leaves or people. The flag is about 15 percent of the photo width, so it is easy to recognize on a phone.\n\nThe two people stand side by side on the path in front of the open front door, close together, both turned toward the camera and smiling warmly; Ana's arm is around the relative's shoulders. No one else is in the photo.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph on a sunny afternoon in a small town in Mexico, in front of her grandparents' one-storey house: warm terracotta-orange painted walls, a wooden front door painted deep green and standing open, a terracotta tiled path, and pink bougainvillea climbing the wall at the far left. The national flag of Mexico (three vertical stripes, green, white and red, with the eagle emblem in the center of the white stripe) hangs beside the door. Ana stands on the LEFT with her cousin: a slim young man of about 19, clearly younger than Ana, with short black curly hair, no beard or moustache and warm light-brown skin; he wears a plain mustard-yellow T-shirt and dark jeans. He stands on the RIGHT, a little taller than Ana. Ana wears her sage-green overshirt over a white top, light-wash jeans and white sneakers, her brown leather tote on her shoulder, and a small navy-blue carry-on suitcase with its handle up stands on the ground right beside her: she is the visitor who has just arrived.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+    "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "WF_masSLMLmtqtsP2sumuQE",
+  "usage": {
+    "promptTokenCount": 864,
+    "candidatesTokenCount": 1454,
+    "totalTokenCount": 2642,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 606
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 324,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.139616",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 864,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 324
+  },
+  "elapsed_seconds": 34.88,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v10/k03-ana-and-her-cousin-in-mexico.png",
+  "sha256": "ebfa2caf0102b13419ece1b822750b3aaff67299f7c315fcc1ed06898dd072a9",
+  "byte_count": 5995938,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
