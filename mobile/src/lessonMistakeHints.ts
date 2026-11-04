@@ -52,6 +52,8 @@ const MEANINGS: Record<string, string> = {
   boy: 'niño', girl: 'niña', man: 'hombre', woman: 'mujer', child: 'niño', children: 'niños',
   father: 'padre', mother: 'madre', parents: 'padres', grandfather: 'abuelo', grandmother: 'abuela',
   grandparents: 'abuelos', brother: 'hermano', brothers: 'hermanos', sister: 'hermana', sisters: 'hermanas', family: 'familia',
+  // A1+ 1.4 (2026-10-31): the extended family.
+  aunt: 'tía', uncle: 'tío', cousin: 'primo o prima',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

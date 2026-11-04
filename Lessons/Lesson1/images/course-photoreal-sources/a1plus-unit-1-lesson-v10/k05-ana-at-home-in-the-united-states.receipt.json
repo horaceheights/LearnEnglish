@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4dc1c08e-f109-4dad-9b15-6b16ec43ff4b",
+  "asset_id": "k05-ana-at-home-in-the-united-states",
+  "pack_sha256": "2f4eda45ea46844d93d2bbbaac24b4356cd44f5309df8d7e47a744a91c4fa7df",
+  "started_at": "2026-10-31T21:47:07.750806+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on objects, clothing, signs, the suitcase and the house. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and the flag inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the people, every face is fully visible and in sharp focus, and both people are seen from head to knees or lower.\n\nThe country's national flag is the only flag in the photo. It is real cloth, correctly proportioned and correctly colored, hanging fully open and flat from a short wooden pole fixed to the house wall beside the front door, at about the height of the people's heads, uncovered by leaves or people. The flag is about 15 percent of the photo width, so it is easy to recognize on a phone.\n\nImage 1 shows Ana at her own house. Keep her face, long dark wavy hair, her clothes (the sage-green overshirt, white top, light-wash jeans and white sneakers) and her house exactly: the white stucco walls, the dark front door, the porch step and the green shrubs. Create a new photograph of Ana at home on a sunny afternoon: she stands on her porch step in front of her closed front door, facing the camera with a relaxed smile, holding a small watering can over a potted plant by the door. She has no suitcase and no bag: she lives here. The national flag of the United States (red and white stripes with a blue canton of white stars) hangs beside her front door. She is the only person in the photo, seen from head to knees or lower.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+    "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "32Hmati0AaHxqtsP7OLm8Qw",
+  "usage": {
+    "promptTokenCount": 739,
+    "candidatesTokenCount": 1374,
+    "totalTokenCount": 2349,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 481
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 236,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138310",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 739,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 236
+  },
+  "elapsed_seconds": 34.99,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v10/k05-ana-at-home-in-the-united-states.png",
+  "sha256": "906498a5fb4730ff41c9088cee171f39d966797a45fdd5e91d6be73f77a146fa",
+  "byte_count": 7024563,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

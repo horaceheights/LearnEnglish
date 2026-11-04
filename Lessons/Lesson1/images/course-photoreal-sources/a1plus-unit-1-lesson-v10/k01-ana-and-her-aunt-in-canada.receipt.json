@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "11221d02-fd11-4d29-8dc8-bf26c35c9f08",
+  "asset_id": "k01-ana-and-her-aunt-in-canada",
+  "pack_sha256": "2f4eda45ea46844d93d2bbbaac24b4356cd44f5309df8d7e47a744a91c4fa7df",
+  "started_at": "2026-10-31T21:45:42.296521+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on objects, clothing, signs, the suitcase and the house. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, hand and the flag inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the people, every face is fully visible and in sharp focus, and both people are seen from head to knees or lower.\n\nThe country's national flag is the only flag in the photo. It is real cloth, correctly proportioned and correctly colored, hanging fully open and flat from a short wooden pole fixed to the house wall beside the front door, at about the height of the people's heads, uncovered by leaves or people. The flag is about 15 percent of the photo width, so it is easy to recognize on a phone.\n\nThe two people stand side by side on the path in front of the open front door, close together, both turned toward the camera and smiling warmly; Ana's arm is around the relative's shoulders. No one else is in the photo.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair and build exactly. Create a new photograph on a crisp, sunny autumn afternoon in a quiet residential street in Canada, in front of her aunt's two-storey red-brick house with a white wooden porch and a white front door standing open. A large maple tree with bright red and orange leaves stands in the front yard at the right, with fallen red maple leaves on the lawn. The national flag of Canada (red, white, red, with one red maple leaf in the white center) hangs beside the door. Ana stands on the LEFT with her aunt: a woman of about 55, clearly older than Ana, with shoulder-length dark-brown hair streaked with grey, warm light-olive skin like Ana's and a kind smile; she wears a burgundy knit cardigan over a cream blouse and dark-grey trousers. The aunt stands on the RIGHT. Ana wears her sage-green overshirt over a white top, light-wash jeans and white sneakers, her brown leather tote on her shoulder, and a small navy-blue carry-on suitcase with its handle up stands on the ground right beside her: she is the visitor who has just arrived.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+    "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "j2HmauiGFKylmtkPhNy_sQ0",
+  "usage": {
+    "promptTokenCount": 875,
+    "candidatesTokenCount": 1427,
+    "totalTokenCount": 2648,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 617
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 346,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.139902",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 875,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 346
+  },
+  "elapsed_seconds": 36.24,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v10/k01-ana-and-her-aunt-in-canada.png",
+  "sha256": "1b1d78c50600784e57d6aa5562e3ec2b8d297ea8a5e0067f0f5a526412a95e29",
+  "byte_count": 7178505,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
