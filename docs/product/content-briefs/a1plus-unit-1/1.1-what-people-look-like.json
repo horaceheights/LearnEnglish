@@ -1,0 +1,423 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.1",
+    "title": "Meet the People"
+  },
+  "note": "A1+ Unit 1 Lesson 1.1 rebuilt on 2026-11-09 under the A1+ lesson standards approved 2026-10-27 and the user's rule of the same day: every A1+ lesson follows up the A1 lesson with the same number. A1 1.1 Meet the People names a boy, girl, man and woman with He/She is a…; A1+ 1.1 says what people look like. Each cast member has one salient trait so picture choices stay unambiguous: Luis is tall, Sofia is short (her hair up), Ana has long hair, Diego has a beard. Ana's grandparents and cousin from 1.4 are the old man, old woman and young man. The previous 1.1 (workday times) follows A1 4.10 and returns with A1+ 4.10.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-1.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-1",
+    "title": "1.1 What people look like",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-1",
+    "lesson_title": "What people look like",
+    "sub_lesson_id": "1.1",
+    "sub_lesson_title": "What people look like",
+    "goal": "Say what a person looks like (tall, short, young, old, long hair, a beard) and find the person someone describes.",
+    "vocabulary": [
+      "tall",
+      "short",
+      "long hair",
+      "beard",
+      "old",
+      "young"
+    ],
+    "review_vocabulary": [
+      "he",
+      "she",
+      "is",
+      "has",
+      "a",
+      "an",
+      "man",
+      "woman",
+      "who"
+    ],
+    "grammar_function": "A follow-up of A1 1.1 Meet the People: He is a man. becomes He is an old man. It adds no new grammar relationship: be + a description (Luis is tall.), has + a feature (A1 3.12 has: Diego has a beard.) and a/an before a description (an old man).",
+    "prerequisite": "A1 1.1 boy, girl, man, woman, he, she, is; 1.5 an; 1.9 Who…?; 3.12 has.",
+    "speaking_outcome": "A breathy h in has and hair (not the Spanish j), the y sound that starts young, and an old with the n joined to old, inside the complete sentence. Do not require native-like speed.",
+    "content_revision": 5,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "tall",
+          "short",
+          "long hair",
+          "beard",
+          "old",
+          "young"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "Luis is tall."
+          },
+          {
+            "slide_id": "L2",
+            "text": "Sofia is short."
+          },
+          {
+            "slide_id": "L3",
+            "text": "Ana has long hair."
+          },
+          {
+            "slide_id": "L4",
+            "text": "Diego has a beard."
+          },
+          {
+            "slide_id": "L5",
+            "text": "He is an old man."
+          },
+          {
+            "slide_id": "L6",
+            "text": "He is a young man."
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-tall",
+      "text": "Luis is tall.",
+      "es": "Luis es alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "l-short",
+      "text": "Sofia is short.",
+      "es": "Sofia es baja.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "l-hair",
+      "text": "Ana has long hair.",
+      "es": "Ana tiene el pelo largo.",
+      "image": "/lesson-assets/a1plus-unit-1-p03-e2dd0a3d8734b085.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "l-beard",
+      "text": "Diego has a beard.",
+      "es": "Diego tiene barba.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "l-old",
+      "text": "He is an old man.",
+      "es": "Es un hombre mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-p05-de544823923ab1f0.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "l-young",
+      "text": "He is a young man.",
+      "es": "Es un hombre joven.",
+      "image": "/lesson-assets/a1plus-unit-1-p06-ef90298654f3c40b.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "n-tall",
+      "text": "Luis is tall.",
+      "es": "Luis es alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "is",
+        "tall"
+      ],
+      "avoid": [
+        "Sofia is short.",
+        "Sofia is tall."
+      ]
+    },
+    {
+      "id": "n-short",
+      "text": "Sofia is short.",
+      "es": "Sofia es baja.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "is",
+        "short"
+      ]
+    },
+    {
+      "id": "n-hair",
+      "text": "Ana has long hair.",
+      "es": "Ana tiene el pelo largo.",
+      "image": "/lesson-assets/a1plus-unit-1-p03-e2dd0a3d8734b085.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "long",
+        "hair"
+      ]
+    },
+    {
+      "id": "n-beard",
+      "text": "Diego has a beard.",
+      "es": "Diego tiene barba.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "a",
+        "beard"
+      ]
+    },
+    {
+      "id": "h-tall",
+      "text": "He is tall.",
+      "es": "Él es alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "She is short.",
+        "She is tall."
+      ]
+    },
+    {
+      "id": "h-short",
+      "text": "She is short.",
+      "es": "Ella es baja.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "She has long hair."
+      ]
+    },
+    {
+      "id": "h-hair",
+      "text": "She has long hair.",
+      "es": "Ella tiene el pelo largo.",
+      "image": "/lesson-assets/a1plus-unit-1-p03-e2dd0a3d8734b085.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "She is short.",
+        "She is tall."
+      ]
+    },
+    {
+      "id": "h-beard",
+      "text": "He has a beard.",
+      "es": "Él tiene barba.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "He is tall."
+      ]
+    },
+    {
+      "id": "a-old-man",
+      "text": "He is an old man.",
+      "es": "Es un hombre mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-p05-de544823923ab1f0.webp",
+      "kind": "age",
+      "learn": false,
+      "blanks": [
+        "an",
+        "old"
+      ]
+    },
+    {
+      "id": "a-young-man",
+      "text": "He is a young man.",
+      "es": "Es un hombre joven.",
+      "image": "/lesson-assets/a1plus-unit-1-p06-ef90298654f3c40b.webp",
+      "kind": "age",
+      "learn": false,
+      "blanks": [
+        "a",
+        "young"
+      ]
+    },
+    {
+      "id": "a-old-woman",
+      "text": "She is an old woman.",
+      "es": "Es una mujer mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-p07-1871dabd520748e9.webp",
+      "kind": "age",
+      "learn": false
+    },
+    {
+      "id": "a-young-woman",
+      "text": "She is a young woman.",
+      "es": "Es una mujer joven.",
+      "image": "/lesson-assets/a1plus-unit-1-p03-e2dd0a3d8734b085.webp",
+      "kind": "age",
+      "learn": false
+    },
+    {
+      "id": "q-tall",
+      "text": "Luis is tall.",
+      "es": "Luis es alto.",
+      "image": "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+      "kind": "reply",
+      "learn": false,
+      "speaker": "co-teacher",
+      "question": "Who is tall?",
+      "question_es": "¿Quién es alto?",
+      "question_speaker": "teacher",
+      "use": false
+    },
+    {
+      "id": "q-beard",
+      "text": "Diego has a beard.",
+      "es": "Diego tiene barba.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "reply",
+      "learn": false,
+      "speaker": "co-teacher",
+      "question": "Who has a beard?",
+      "question_es": "¿Quién tiene barba?",
+      "question_speaker": "teacher",
+      "use": false
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luis is short.",
+      "es": "Luis es bajo.",
+      "image": "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia is tall.",
+      "es": "Sofia es alta.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Luis has a beard.",
+      "es": "Luis tiene barba.",
+      "image": "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "Diego has long hair.",
+      "es": "Diego tiene el pelo largo.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "named",
+      "image_choices": false
+    },
+    {
+      "text": "He is short.",
+      "es": "Él es bajo.",
+      "image": "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+      "kind": "pronoun",
+      "image_choices": false
+    },
+    {
+      "text": "She is tall.",
+      "es": "Ella es alta.",
+      "image": "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+      "kind": "pronoun",
+      "image_choices": false
+    },
+    {
+      "text": "He has long hair.",
+      "es": "Él tiene el pelo largo.",
+      "image": "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+      "kind": "pronoun",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 9,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-tall",
+      "l-short",
+      "l-hair",
+      "l-beard",
+      "l-old",
+      "l-young"
+    ],
+    "Recognize": [
+      "n-tall",
+      "n-short",
+      "n-hair",
+      "n-beard",
+      "h-short",
+      "q-tall",
+      "h-hair",
+      "q-beard",
+      "a-old-man",
+      "a-old-woman",
+      "a-young-woman"
+    ],
+    "Listen": [
+      "n-tall",
+      "n-short",
+      "h-tall",
+      "h-short",
+      "h-hair",
+      "h-beard",
+      "a-young-man",
+      "a-old-woman",
+      "a-young-woman"
+    ],
+    "Speak": [
+      "n-hair",
+      "n-beard",
+      "a-old-man",
+      "a-young-man",
+      "h-tall",
+      "h-short",
+      "h-hair",
+      "h-beard"
+    ],
+    "Use": [
+      "n-tall",
+      "n-short",
+      "n-hair",
+      "n-beard",
+      "a-old-man",
+      "a-young-man",
+      "a-old-woman",
+      "a-young-woman"
+    ]
+  }
+}

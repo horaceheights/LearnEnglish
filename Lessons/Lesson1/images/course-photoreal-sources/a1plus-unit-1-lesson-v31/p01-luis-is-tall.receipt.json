@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "50d0c12c-8621-4c17-a48e-a4fdf9e8a2cd",
+  "asset_id": "p01-luis-is-tall",
+  "pack_sha256": "7d552e8b3ff1e4fcc34fb5dcd07be4e6ea0786d18f43371c073782e9bf220019",
+  "started_at": "2026-11-09T22:53:51.739113+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, badges, book spines and walls. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and everything the sentence depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe camera is at chest height a few steps back, with a clear, unobstructed view: the person's whole body from head to feet and the floor are visible, the face is fully visible and in sharp focus.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph inside a bright home with white walls and a light wooden floor. Luis is a very tall man of about 30. He walks toward the camera through an open interior doorway with a plain white door frame, and the top of the door frame is lower than the top of his head: he bends his head and neck forward and down so that his head passes just under the top of the frame, with one hand resting on the side of the frame. The whole door frame, including its top, is visible around him. He wears a plain navy crew-neck T-shirt with no badge, khaki chinos and navy sneakers, and smiles. Ducking under the doorway makes it obvious at a glance that he is tall.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_luis-badge_80bb288.webp",
+    "sha256": "b6ba52bc537f55463ab0023064777172fc78313ac2d6849b18397dfd239f05ba"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "_07yav3SLe7CqtsPodv_aA",
+  "usage": {
+    "promptTokenCount": 683,
+    "candidatesTokenCount": 1331,
+    "totalTokenCount": 2223,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 425
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 209,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137874",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 683,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 209
+  },
+  "elapsed_seconds": 21.63,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v31/p01-luis-is-tall.png",
+  "sha256": "63e7b12d318e80d215f69008bab2da0146be61af2faf656e8ec1d191bcd56262",
+  "byte_count": 4002090,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

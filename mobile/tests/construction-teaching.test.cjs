@@ -108,6 +108,16 @@ test('extended-family sentences explain where and who with someone lives', () =>
   assert.match(hint('This is my uncle.', 2, 3), /“my” indica de quién es y va antes del nombre “uncle”/);
 });
 
+test('descriptions of people explain where the description goes', () => {
+  for (const target of ['Luis is tall.', 'Sofia is short.', 'Ana has long hair.', 'Diego has a beard.',
+    'He is an old man.', 'He is a young man.', 'She is an old woman.', 'She is a young woman.']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+  }
+  assert.match(hint('Ana has long hair.', 2, 3), /“long” describe “hair” y va antes del nombre/);
+  assert.match(hint('He is an old man.', 3, 4), /“old” describe “man” y va antes del nombre/);
+  assert.match(hint('Luis is tall.', 1, 2), /describe al sujeto/);
+});
+
 test('polite requests, coordinated handovers and negative needs explain word order', () => {
   for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
     const card = construction(target);

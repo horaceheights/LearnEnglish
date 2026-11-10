@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "08bab0e5-bf01-4fd7-a56c-21c03ef5efa6",
+  "asset_id": "p05-grandfather-old-man",
+  "pack_sha256": "b7372a198c551626551d36fb2192fab199c96d927996dcf6b1ce2fb86672ab56",
+  "started_at": "2026-11-09T22:45:54.395918+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, badges, book spines and walls. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and everything the sentence depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nKeep the house exactly as in Image 1: the terracotta-orange walls, the open dark-green wooden doors, the terracotta tiled path and the pink bougainvillea at the far left. Sunny afternoon light. The flag and the suitcase are not in this photo.\n\nImage 1 shows Ana's family in front of her grandparents' house in Mexico. Keep the grandfather exactly: the very old man with thin white hair, deep wrinkles, the white short-sleeved shirt, brown trousers and the wooden cane. Create a new photograph of the same afternoon in which the grandfather is alone: he sits on a simple wooden bench on the tiled path in front of the house, both hands resting on top of his cane, smiling kindly at the camera. He is clearly an old man of about 80. He is seen from head to feet.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+    "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Ik3yaqeADJucz7IPlL_LcQ",
+  "usage": {
+    "promptTokenCount": 631,
+    "candidatesTokenCount": 1322,
+    "totalTokenCount": 2158,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 373
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 205,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137722",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 631,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 205
+  },
+  "elapsed_seconds": 20.39,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v30/p05-grandfather-old-man.png",
+  "sha256": "5766979bc95b33a5a349ea4fc1ccf7b0a07470c6c8b616dea2e7f22fe8b77e96",
+  "byte_count": 5496324,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

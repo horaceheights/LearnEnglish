@@ -67,6 +67,18 @@ class ContentEngineAuthorTests(unittest.TestCase):
         with self.assertRaisesRegex(BriefError, "positive integer content_revision"):
             propose_lesson({**self.brief, "lesson": {**lesson, "content_revision": 0}}, self.standards)
 
+    def test_a_follow_up_course_brief_names_the_same_numbered_lesson(self):
+        # User decision, 2026-11-09: A1+ X.Y follows up A1 X.Y.
+        self.assertEqual("a1", load_standards(ROOT, "a1-plus")["follows_course"])
+        standards = {**self.standards, "follows_course": "a1"}
+        number = self.brief["lesson"]["sub_lesson_id"]
+        with self.assertRaisesRegex(BriefError, f"follows up a1 lesson {number}"):
+            propose_lesson(self.brief, standards)
+        with self.assertRaisesRegex(BriefError, "follows up"):
+            propose_lesson({**self.brief, "follows": {"course": "a1", "lesson": "9.9"}}, standards)
+        plan, _ = propose_lesson({**self.brief, "follows": {"course": "a1", "lesson": number}}, standards)
+        self.assertTrue(plan["draft"])
+
     def test_review_brief_uses_the_course_review_allocation(self):
         brief = json.loads(json.dumps(self.brief))
         brief["lesson"]["vocabulary"] = []

@@ -27,6 +27,11 @@ two adjacent `blanks`, so that the learner places the new form itself.
 A brief's `narrators` (such as ["teacher", "co-teacher"]) take turns reading
 the neutral narration, card by card.
 
+A course built as a follow-up of another names it in its standards as
+`follows_course` (A1+ follows A1, user decision 2026-11-09). Its briefs then
+declare `"follows": {"course": "a1", "lesson": "1.1"}`, and the lesson must have
+the brief's own number: A1+ 1.1 follows up A1 1.1.
+
 A proposal is always a draft. A person reviews every proposed answer bank
 (see docs/qa/answer-choice-review.md) and records it before the plan can be
 installed; the engine never approves its own proposals.
@@ -339,6 +344,15 @@ def propose_lesson(brief: dict, standards: dict, rejected_pairs=frozenset()) -> 
     content_revision = brief.get("lesson", {}).get("content_revision")
     if isinstance(content_revision, bool) or not isinstance(content_revision, int) or content_revision < 1:
         raise BriefError("A lesson brief needs a positive integer content_revision.")
+    # A course built as a follow-up (A1+ follows A1) names the earlier lesson with the same number
+    # (user decision, 2026-11-09).
+    follows_course = standards.get("follows_course")
+    if follows_course:
+        number = str(brief.get("lesson", {}).get("sub_lesson_id") or "")
+        follows = brief.get("follows") or {}
+        if follows.get("course") != follows_course or str(follows.get("lesson")) != number:
+            raise BriefError(f"Lesson {number or '?'} follows up {follows_course} lesson {number or '?'}: declare "
+                             f'"follows": {{"course": "{follows_course}", "lesson": "{number}"}} in the brief.')
     rejected = frozenset(rejected_pairs)
     captions = brief.get("captions", True)  # Units 2-7 show caption-free pictures
     items = [{**item, "_order": index} for index, item in enumerate(brief["items"])]
