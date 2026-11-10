@@ -118,6 +118,15 @@ test('descriptions of people explain where the description goes', () => {
   assert.match(hint('Luis is tall.', 1, 2), /describe al sujeto/);
 });
 
+test('a word that is both a noun and a verb is the noun after an article and the verb after its subject', () => {
+  for (const target of ['Luis drinks coffee.', 'He drinks coffee.', 'She reads books.', 'Sofia writes books.',
+    'Diego eats fruit.', 'The drinks are on the table.']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+  }
+  assert.match(hint('He drinks coffee.', 0, 1), /“He” indica quién realiza la acción y va antes de “drinks”/);
+  assert.match(hint('The drinks are on the table.', 1, 2), /primero “The drinks”, de quién hablamos, y después “are”/);
+});
+
 test('polite requests, coordinated handovers and negative needs explain word order', () => {
   for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
     const card = construction(target);

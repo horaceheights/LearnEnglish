@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "8ccec036-3ff1-4f0b-ae7b-88fee5cb6d05",
+  "asset_id": "q01-luis-drinks-coffee",
+  "pack_sha256": "555a7e9351c257438b7d44b7493ff17eab94c3e5aeb07cb30f52f91f152d2b33",
+  "started_at": "2026-11-10T21:54:09.554980+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, cups and packaging are plain, and any page shows only faint, unreadable lines. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph in his bright kitchen on a sunny morning, with white cabinets and a plant softly out of focus behind him. Luis sits at a wooden table in his plain navy crew-neck T-shirt and drinks coffee: he holds a plain white mug of black coffee to his lips with one hand, a little steam rising from it, his eyes looking at the camera with a relaxed smile. Nothing else is on the table.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+    "sha256": "a7fb3dd63f39d083226e251c879395e381b8e446a814a27afcd6b1d361dca6b3"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "gZLzaoSAAdTRz7IPu4r3mA8",
+  "usage": {
+    "promptTokenCount": 647,
+    "candidatesTokenCount": 1334,
+    "totalTokenCount": 2199,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 389
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 218,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137910",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 647,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 218
+  },
+  "elapsed_seconds": 20.22,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v40/q01-luis-drinks-coffee.png",
+  "sha256": "6d1c8dbc9db2725f578ac19b2eb7d4be1adb7f096785c5fa5d91052a28059556",
+  "byte_count": 4934476,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

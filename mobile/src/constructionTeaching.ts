@@ -39,6 +39,11 @@ for (const verb of words('leave arrive start starts finish finishes studies meet
 for (const verb of words('wakes gets eats brushes')) VERBS.add(verb);
 // A1+ 1.4 (2026-11-04): where someone lives, and who with.
 for (const verb of words('live lives')) VERBS.add(verb);
+// A1+ 1.2 (2026-11-10): what people do (Luis drinks coffee., Diego eats fruit.).
+for (const verb of words('drinks reads writes')) VERBS.add(verb);
+// A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
+// possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
+const NOUN_MARKERS = set('a an the my your his her our their');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening going');
 const BE = set('am is are');
 const FREQUENCY = set('always usually sometimes never');
@@ -558,7 +563,8 @@ function teachClause(text: string): ClausePlan {
     teach(0, 1, `${quote(tokens[0])} indica ${order} y abre esta frase, antes de quien realiza la acción.`);
     start = 1;
   }
-  const verbIndex = keys.findIndex((key, index) => index > start && VERBS.has(key));
+  const verbIndex = keys.findIndex((key, index) => index > start && VERBS.has(key)
+    && !(NOUNS.has(key) && NOUN_MARKERS.has(keys[index - 1])));
   if (verbIndex < 0) {
     const supported = subject(start, keys.length);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };

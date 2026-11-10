@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-2-actions-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v40",
+  "authorization": "2026-11-10: the user approved the 1.2 text, answer choices and revision 1 with a US$0.65 ceiling (\"Approve the 1.2 text, answer choices and 4 photo prompts with a US$0.65 cap?\" answered \"Approve, generate\"). Revision 1 is frozen: a changed prompt is a new revision. A rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 4,
+    "expected_cost_usd": "0.56",
+    "requested_ceiling_usd": "0.65",
+    "no_automatic_retries": true,
+    "order": "Generate q03 first (the hardest: writing has to read as writing, with a pen and a page, and the page must stay unreadable) and inspect it at 900/360/250/180 px and in the centered 4:5 crop before sending the rest; then q01, q02 and q04. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, cups and packaging are plain, and any page shows only faint, unreadable lines. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "action": "The action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible."
+  },
+  "assets": [
+    {
+      "id": "q01-luis-drinks-coffee",
+      "order": 1,
+      "item": "I drink coffee. / Luis drinks coffee. / He drinks coffee. / Who drinks coffee?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+        "sha256": "a7fb3dd63f39d083226e251c879395e381b8e446a814a27afcd6b1d361dca6b3",
+        "observed_description": "Luis, short dark curly hair and clean-shaven, in a plain navy crew-neck T-shirt, khaki chinos and navy sneakers, steps through an open white interior doorway in a bright empty room, smiling at the camera with one hand on the door frame."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph in his bright kitchen on a sunny morning, with white cabinets and a plant softly out of focus behind him. Luis sits at a wooden table in his plain navy crew-neck T-shirt and drinks coffee: he holds a plain white mug of black coffee to his lips with one hand, a little steam rising from it, his eyes looking at the camera with a relaxed smile. Nothing else is on the table."
+    },
+    {
+      "id": "q02-ana-reads-books",
+      "order": 2,
+      "item": "I read books. / Ana reads books. / She reads books.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. Create a new photograph in her bright living room on a sunny afternoon. Ana sits on a light-grey sofa in her sage-green overshirt over a white top and reads a book: she holds an open hardcover book in both hands, her eyes on the page and a calm smile on her face. A small stack of three closed books with plain blue, green and red covers sits on the sofa beside her."
+    },
+    {
+      "id": "q03-sofia-writes-books",
+      "order": 3,
+      "item": "Sofia writes books. / She writes books. / Who writes books?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_sofia-canadian_adf798e.webp",
+        "sha256": "2daf8237485192503d10d64046efea7958bdca60e4af4e949b89c5cd62a39099",
+        "observed_description": "Sofia (long curly dark hair to her shoulders, warm brown skin, bright smile) in a bright blue blazer over a white blouse, with a SOFIA badge, points to herself and holds a small Canada card at a busy community fair."
+      },
+      "prompt": "Image 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph at a wooden desk by a bright window in her home study. Sofia, in a white blouse under her bright blue blazer, with no badge and no card, sits at the desk and writes: her right hand holds a pen on the open page of a large notebook, which shows only faint, unreadable handwriting lines, and she looks up at the camera with a warm smile. A neat stack of four identical books with plain dark-red covers stands on the desk beside the notebook: she is a writer and these are her books."
+    },
+    {
+      "id": "q04-diego-eats-fruit",
+      "order": 4,
+      "item": "I eat fruit. / Diego eats fruit. / He eats fruit.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "action"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+        "sha256": "0e1c0e7417a05c7b18b4aa80ead68ee4ff9691dd8d93c3250a388736da9a2d92",
+        "observed_description": "Diego, in his dark navy blazer over a burgundy button shirt, faces the camera from the waist up in a bright cafe, smiling broadly; his short, full dark beard with grey at the chin covers his cheeks, chin and upper lip."
+      },
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, his short full beard, skin tone and build exactly. Create a new photograph in a bright kitchen at midday. Diego, in his burgundy button shirt without the blazer, sits at a wooden table and eats fruit: he holds a red apple with one bite already taken out of it close to his mouth and is chewing, smiling with his eyes at the camera. In front of him on the table is a white bowl full of fruit: red apples, yellow bananas and oranges."
+    }
+  ]
+}

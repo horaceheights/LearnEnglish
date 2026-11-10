@@ -57,6 +57,9 @@ const MEANINGS: Record<string, string> = {
   // A1+ 1.1 (2026-11-09): what people look like.
   tall: 'alto o alta', short: 'bajo o baja', old: 'mayor', young: 'joven',
   'long hair': 'pelo largo', beard: 'barba',
+  // A1+ 1.2 (2026-11-10): what people do, with he/she and -s. This replaces A1's noun meaning of
+  // "drinks" (bebidas), which no A1 hint used; a single key cannot hold both.
+  drinks: 'toma o bebe', reads: 'lee', writes: 'escribe', eats: 'come', write: 'escribir',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',
@@ -85,7 +88,7 @@ const MEANINGS: Record<string, string> = {
   juice: 'jugo', water: 'agua', breakfast: 'desayuno', lunch: 'almuerzo', dinner: 'cena',
   drink: 'beber', coffee: 'café', tea: 'té', chicken: 'pollo',
   bananas: 'plátanos', oranges: 'naranjas', strawberries: 'fresas', pears: 'peras',
-  fruit: 'fruta', food: 'comida', drinks: 'bebidas', café: 'cafetería', cafe: 'cafetería',
+  fruit: 'fruta', food: 'comida', café: 'cafetería', cafe: 'cafetería',
   'me too': 'yo también',
   'me neither': 'yo tampoco',
   station: 'estación', pharmacy: 'farmacia', train: 'tren', taxi: 'taxi', walk: 'caminar',

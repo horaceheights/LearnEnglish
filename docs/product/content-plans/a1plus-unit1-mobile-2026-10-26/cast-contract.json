@@ -2581,11 +2581,11 @@
         "audio_turns": [
           {
             "speaker_role": "luis",
-            "text": "I wake up at seven."
+            "text": "I drink coffee."
           },
           {
             "speaker_role": "teacher",
-            "text": "Luis wakes up at seven."
+            "text": "Luis drinks coffee."
           }
         ]
       },
@@ -2593,45 +2593,32 @@
         "audio_turns": [
           {
             "speaker_role": "ana",
-            "text": "I wake up at six."
+            "text": "I read books."
           },
           {
             "speaker_role": "co-teacher",
-            "text": "Ana wakes up at six."
+            "text": "Ana reads books."
           }
         ]
       },
-      "L3": {},
+      "L3": {
+        "audio_speaker": "teacher"
+      },
       "L4": {
-        "audio_speaker": "co-teacher"
-      },
-      "L5": {
         "audio_turns": [
           {
-            "speaker_role": "luis",
-            "text": "I get dressed."
-          },
-          {
-            "speaker_role": "teacher",
-            "text": "He gets dressed."
-          }
-        ]
-      },
-      "L6": {
-        "audio_turns": [
-          {
-            "speaker_role": "ana",
-            "text": "I eat breakfast."
+            "speaker_role": "diego",
+            "text": "I eat fruit."
           },
           {
             "speaker_role": "co-teacher",
-            "text": "She eats breakfast."
+            "text": "Diego eats fruit."
           }
         ]
       },
       "R1": {},
       "R2": {
-        "audio_speaker": "co-teacher"
+        "answer_audio_speaker": "co-teacher"
       },
       "R3": {},
       "R4": {
@@ -2639,70 +2626,46 @@
       },
       "R5": {},
       "R6": {
+        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": "teacher"
+      },
+      "R7": {
         "audio_speaker": "co-teacher"
       },
-      "R7": {},
       "R8": {
-        "answer_audio_speaker": "co-teacher"
+        "answer_audio_speaker": "co-teacher",
+        "audio_speaker": "teacher"
       },
       "R9": {},
       "R10": {
         "answer_audio_speaker": "co-teacher"
       },
-      "A1": {},
-      "A2": {
+      "R11": {},
+      "A1": {
         "audio_speaker": "co-teacher"
       },
-      "A3": {},
-      "A4": {
+      "A2": {},
+      "A3": {
         "audio_speaker": "co-teacher"
       },
-      "A5": {},
-      "A6": {
+      "A4": {},
+      "A5": {
         "audio_speaker": "co-teacher"
       },
+      "A6": {},
       "A7": {
-        "audio_turns": [
-          {
-            "speaker_role": "teacher",
-            "text": "Ana wakes up at six."
-          },
-          {
-            "speaker_role": "teacher",
-            "text": "She eats breakfast."
-          }
-        ]
+        "audio_speaker": "co-teacher"
       },
       "A8": {},
       "A9": {
-        "audio_turns": [
-          {
-            "speaker_role": "co-teacher",
-            "text": "Luis gets dressed."
-          },
-          {
-            "speaker_role": "co-teacher",
-            "text": "He leaves home at eight."
-          }
-        ]
+        "audio_speaker": "co-teacher"
       },
-      "A10": {
-        "audio_turns": [
-          {
-            "speaker_role": "teacher",
-            "text": "Ana gets dressed."
-          },
-          {
-            "speaker_role": "teacher",
-            "text": "She brushes her teeth."
-          }
-        ]
-      },
+      "A10": {},
       "S1": {
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Luis wakes up at seven."
+            "text": "Luis drinks coffee."
           }
         ]
       },
@@ -2710,7 +2673,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Ana brushes her teeth."
+            "text": "Ana reads books."
           }
         ]
       },
@@ -2718,7 +2681,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "He gets dressed."
+            "text": "Sofia writes books."
           }
         ]
       },
@@ -2726,7 +2689,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "She eats breakfast."
+            "text": "Diego eats fruit."
           }
         ]
       },
@@ -2734,7 +2697,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "Ana wakes up at six."
+            "text": "He drinks coffee."
           }
         ]
       },
@@ -2742,7 +2705,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Luis brushes his teeth."
+            "text": "She reads books."
           }
         ]
       },
@@ -2750,7 +2713,7 @@
         "audio_turns": [
           {
             "speaker_role": "co-teacher",
-            "text": "She gets dressed."
+            "text": "She writes books."
           }
         ]
       },
@@ -2758,11 +2721,7 @@
         "audio_turns": [
           {
             "speaker_role": "teacher",
-            "text": "Ana wakes up at six."
-          },
-          {
-            "speaker_role": "teacher",
-            "text": "She eats breakfast."
+            "text": "He eats fruit."
           }
         ]
       },

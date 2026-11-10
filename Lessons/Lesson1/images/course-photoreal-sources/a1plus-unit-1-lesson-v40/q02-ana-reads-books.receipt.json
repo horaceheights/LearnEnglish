@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "6e44e10b-818e-4a11-85ab-8a3ff9e82b4b",
+  "asset_id": "q02-ana-reads-books",
+  "pack_sha256": "555a7e9351c257438b7d44b7493ff17eab94c3e5aeb07cb30f52f91f152d2b33",
+  "started_at": "2026-11-10T21:54:30.784806+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, cups and packaging are plain, and any page shows only faint, unreadable lines. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly. Create a new photograph in her bright living room on a sunny afternoon. Ana sits on a light-grey sofa in her sage-green overshirt over a white top and reads a book: she holds an open hardcover book in both hands, her eyes on the page and a calm smile on her face. A small stack of three closed books with plain blue, green and red covers sits on the sofa beside her.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+    "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "lpLzapWOHbejqtsPstm4-A8",
+  "usage": {
+    "promptTokenCount": 636,
+    "candidatesTokenCount": 1308,
+    "totalTokenCount": 2024,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 378
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 80,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.136232",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 636,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 80
+  },
+  "elapsed_seconds": 21.13,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v40/q02-ana-reads-books.png",
+  "sha256": "2b99485f771b58e4123a1d242cc76c3e8a3acfd771c93d5348935fb92f4f9adc",
+  "byte_count": 5719591,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
