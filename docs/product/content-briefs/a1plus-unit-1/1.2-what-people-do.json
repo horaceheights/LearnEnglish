@@ -1,0 +1,476 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.2",
+    "title": "People in Action"
+  },
+  "note": "A1+ Unit 1 Lesson 1.2 rebuilt on 2026-11-10 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. A1 1.2 People in Action shows people eating, drinking, reading and writing (He is eating.); A1+ 1.2 says what people do, with he/she -s: Luis drinks coffee, Ana reads books, Sofia writes books, Diego eats fruit. Each Learn card is the approved contrast pair (D2): the cast member's own I-form, then the -s form. No clocks and no 'every day' (not A1 vocabulary; frequency comes in 1.6-1.7). Listen contrasts the -s form with the I-form and A1's is ...-ing by ear; picture banks never pair two sentences about the same photo. The previous 1.2 (Two mornings) follows A1 4.5 and returns with A1+ 4.5.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-2.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-2",
+    "title": "1.2 What people do",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-2",
+    "lesson_title": "What people do",
+    "sub_lesson_id": "1.2",
+    "sub_lesson_title": "What people do",
+    "goal": "Say what a person does with he/she and the -s ending (Luis drinks coffee.), against I drink coffee. and A1's Luis is drinking coffee.",
+    "vocabulary": [
+      "drinks",
+      "reads",
+      "writes",
+      "eats"
+    ],
+    "review_vocabulary": [
+      "I",
+      "he",
+      "she",
+      "drink",
+      "read",
+      "coffee",
+      "books",
+      "fruit",
+      "who",
+      "is"
+    ],
+    "grammar_function": "A follow-up of A1 1.2 People in Action: He is eating. becomes He eats fruit. The one new grammar relationship is he/she + verb + -s (A1 has it only for wants/needs), taught as the contrast I drink coffee. / Luis drinks coffee. and heard against A1's is ...-ing.",
+    "prerequisite": "A1 1.2 eating, drinking, reading, writing; 1.9 Who…?; 2.9 books; 5.1 fruit; 5.3 coffee, drink; 7.7 read; A1+ 1.1 the cast.",
+    "speaking_outcome": "A clear final s in drinks and eats (/s/) and in reads (/z/), and writes with a clean /ts/, inside the complete sentence. Do not require native-like speed.",
+    "content_revision": 5,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "drinks"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "I drink coffee. Luis drinks coffee.",
+            "turns": [
+              "I drink coffee.",
+              "Luis drinks coffee."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "reads"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I read books. Ana reads books.",
+            "turns": [
+              "I read books.",
+              "Ana reads books."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "writes"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "Sofia writes books."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "eats"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "I eat fruit. Diego eats fruit.",
+            "turns": [
+              "I eat fruit.",
+              "Diego eats fruit."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-drinks",
+      "text": "I drink coffee. Luis drinks coffee.",
+      "es": "Tomo café. Luis toma café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I drink coffee.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp"
+        },
+        {
+          "text": "Luis drinks coffee.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-reads",
+      "text": "I read books. Ana reads books.",
+      "es": "Leo libros. Ana lee libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I read books.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp"
+        },
+        {
+          "text": "Ana reads books.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-writes",
+      "text": "Sofia writes books.",
+      "es": "Sofia escribe libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "teacher"
+    },
+    {
+      "id": "l-eats",
+      "text": "I eat fruit. Diego eats fruit.",
+      "es": "Como fruta. Diego come fruta.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I eat fruit.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp"
+        },
+        {
+          "text": "Diego eats fruit.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-drinks",
+      "text": "Luis drinks coffee.",
+      "es": "Luis toma café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "drinks",
+        "coffee"
+      ]
+    },
+    {
+      "id": "h-drinks",
+      "text": "He drinks coffee.",
+      "es": "Él toma café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "x-drinks",
+      "text": "Luis drinks coffee.",
+      "es": "Luis toma café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Luis is drinking coffee.",
+        "I drink coffee."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard he/she -s form with A1's is ...-ing for the same person; the answer is what was heard (A1+ 1.2 grammar focus).",
+        "action-variety": "Listen contrasts the heard -s form with the I-form and A1's is ...-ing of the same action; the answer is what was heard (A1+ 1.2 grammar focus)."
+      }
+    },
+    {
+      "id": "n-reads",
+      "text": "Ana reads books.",
+      "es": "Ana lee libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "reads",
+        "books"
+      ]
+    },
+    {
+      "id": "h-reads",
+      "text": "She reads books.",
+      "es": "Ella lee libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "x-reads",
+      "text": "Ana reads books.",
+      "es": "Ana lee libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Ana is reading books.",
+        "I read books."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard he/she -s form with A1's is ...-ing for the same person; the answer is what was heard (A1+ 1.2 grammar focus).",
+        "action-variety": "Listen contrasts the heard -s form with the I-form and A1's is ...-ing of the same action; the answer is what was heard (A1+ 1.2 grammar focus)."
+      }
+    },
+    {
+      "id": "n-writes",
+      "text": "Sofia writes books.",
+      "es": "Sofia escribe libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "writes",
+        "books"
+      ]
+    },
+    {
+      "id": "h-writes",
+      "text": "She writes books.",
+      "es": "Ella escribe libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "x-writes",
+      "text": "Sofia writes books.",
+      "es": "Sofia escribe libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Sofia is writing books."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard he/she -s form with A1's is ...-ing for the same person; the answer is what was heard (A1+ 1.2 grammar focus).",
+        "action-variety": "Listen contrasts the heard -s form with the I-form and A1's is ...-ing of the same action; the answer is what was heard (A1+ 1.2 grammar focus)."
+      }
+    },
+    {
+      "id": "n-eats",
+      "text": "Diego eats fruit.",
+      "es": "Diego come fruta.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "eats",
+        "fruit"
+      ]
+    },
+    {
+      "id": "h-eats",
+      "text": "He eats fruit.",
+      "es": "Él come fruta.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "x-eats",
+      "text": "Diego eats fruit.",
+      "es": "Diego come fruta.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Diego is eating fruit.",
+        "I eat fruit."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard he/she -s form with A1's is ...-ing for the same person; the answer is what was heard (A1+ 1.2 grammar focus).",
+        "action-variety": "Listen contrasts the heard -s form with the I-form and A1's is ...-ing of the same action; the answer is what was heard (A1+ 1.2 grammar focus)."
+      }
+    },
+    {
+      "id": "q-drinks",
+      "text": "Luis drinks coffee.",
+      "es": "Luis toma café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Who drinks coffee?",
+      "question_es": "¿Quién toma café?",
+      "question_speaker": "teacher"
+    },
+    {
+      "id": "q-writes",
+      "text": "Sofia writes books.",
+      "es": "Sofia escribe libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Who writes books?",
+      "question_es": "¿Quién escribe libros?",
+      "question_speaker": "teacher"
+    }
+  ],
+  "pool": [
+    {
+      "text": "Luis is drinking coffee.",
+      "es": "Luis está tomando café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I drink coffee.",
+      "es": "Tomo café.",
+      "image": "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Ana is reading books.",
+      "es": "Ana está leyendo libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I read books.",
+      "es": "Leo libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Sofia is writing books.",
+      "es": "Sofia está escribiendo libros.",
+      "image": "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Diego is eating fruit.",
+      "es": "Diego está comiendo fruta.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "I eat fruit.",
+      "es": "Como fruta.",
+      "image": "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-drinks",
+      "l-reads",
+      "l-writes",
+      "l-eats"
+    ],
+    "Recognize": [
+      "n-drinks",
+      "n-reads",
+      "n-writes",
+      "n-eats",
+      "h-drinks",
+      "q-drinks",
+      "h-writes",
+      "q-writes",
+      "h-reads",
+      "h-eats",
+      "n-reads"
+    ],
+    "Listen": [
+      "n-reads",
+      "x-drinks",
+      "h-eats",
+      "x-writes",
+      "n-writes",
+      "x-reads",
+      "h-drinks",
+      "x-eats",
+      "h-reads",
+      "n-eats"
+    ],
+    "Speak": [
+      "n-drinks",
+      "n-reads",
+      "n-writes",
+      "n-eats",
+      "h-drinks",
+      "h-reads",
+      "h-writes",
+      "h-eats"
+    ],
+    "Use": [
+      "n-drinks",
+      "n-reads",
+      "n-writes",
+      "n-eats",
+      "h-drinks",
+      "h-reads",
+      "h-writes",
+      "h-eats"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f5753254-a493-4c56-ad39-7656056d9b87",
+  "asset_id": "q03-sofia-writes-books",
+  "pack_sha256": "555a7e9351c257438b7d44b7493ff17eab94c3e5aeb07cb30f52f91f152d2b33",
+  "started_at": "2026-11-10T21:52:34.111720+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, cups and packaging are plain, and any page shows only faint, unreadable lines. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly. Create a new photograph at a wooden desk by a bright window in her home study. Sofia, in a white blouse under her bright blue blazer, with no badge and no card, sits at the desk and writes: her right hand holds a pen on the open page of a large notebook, which shows only faint, unreadable handwriting lines, and she looks up at the camera with a warm smile. A neat stack of four identical books with plain dark-red covers stands on the desk beside the notebook: she is a writer and these are her books.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_sofia-canadian_adf798e.webp",
+    "sha256": "2daf8237485192503d10d64046efea7958bdca60e4af4e949b89c5cd62a39099"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "IZLzavDPL4-cz7IPp9j_WA",
+  "usage": {
+    "promptTokenCount": 663,
+    "candidatesTokenCount": 1340,
+    "totalTokenCount": 2203,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 405
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 200,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137726",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 663,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 200
+  },
+  "elapsed_seconds": 24.12,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v40/q03-sofia-writes-books.png",
+  "sha256": "0f4a8dd3a8a3912be6ffb986dc9d0a3923201e93a52c18ef6b56ef3af0037076",
+  "byte_count": 5060250,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
