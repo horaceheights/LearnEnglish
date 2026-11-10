@@ -22,8 +22,13 @@ for (const noun of words('nose fingers toes coat sweater scarf gloves shorts wea
 for (const noun of words('mall supermarket airplane boat hotel office museum theater stop airport corner ticket')) NOUNS.add(noun);
 // A1+ 1.4 (2026-11-04): the extended family.
 for (const noun of words('aunt uncle cousin')) NOUNS.add(noun);
+// A1+ 1.1 (2026-11-10): what people look like.
+for (const noun of words('hair beard')) NOUNS.add(noun);
 const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de correos', 'movie theater': 'cine', 'bus stop': 'parada de autobús', 'next stop': 'próxima parada' };
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
+// A1+ 1.1 (2026-11-10): what people look like, after "is" (Luis is tall.) or before a noun (an old man, long hair).
+const DESCRIPTIONS = set('tall short old young long');
+for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
 const PRONOUNS = set('i you he she it we they this that these those there');
@@ -69,6 +74,7 @@ function teachClause(text: string): ClausePlan {
     if (owner >= 0) head++;
     if (keys[head] === 'united' && keys[head + 1] === 'states') head++;
     if (COLORS.has(keys[head])) head++;
+    const described = DESCRIPTIONS.has(keys[head]) ? head++ : -1;
     if (['living', 'dining'].includes(keys[head]) && keys[head + 1] === 'room') head++;
     const compound = COMPOUND_NOUNS[`${keys[head]} ${keys[head + 1]}`] ? head++ : -1;
     // "The red one": after a color, "one" stands in for the noun already named.
@@ -84,6 +90,8 @@ function teachClause(text: string): ClausePlan {
         ? `En ${quote(phrase(start, end))}, el color va antes de “one”, que reemplaza al nombre para no repetirlo.`
         : COLORS.has(first) || COLORS.has(keys[start + 1])
         ? `En ${quote(phrase(start, end))}, ${NUMBERS.has(first) ? 'la cantidad va primero, después el color y al final el nombre' : 'el color va antes del nombre que describe'}.`
+        : described >= 0
+        ? `En ${quote(phrase(start, end))}, ${quote(tokens[described])} describe ${quote(tokens[head])} y va antes del nombre.`
         : NUMBERS.has(first) || first === 'some'
           ? `En ${quote(phrase(start, end))}, la cantidad va antes del nombre: primero cuánto hay y después qué es.`
           : ['my', 'your', 'his', 'her', 'our', 'their'].includes(first)

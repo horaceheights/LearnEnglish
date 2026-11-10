@@ -19,9 +19,9 @@ test('installed listening cards explain the heard evidence, including the report
   const lessons = require('../src/generated/a1-plus-course.json');
   const cards = lessons.filter(lesson => lesson.experience_type !== 'mission')
     .flatMap(lesson => lesson.cards.filter(card => card.stage === 'Listen'));
-  // Lesson 1.2 was rebuilt on 2026-10-29 with ten Listen cards instead of five, and lesson 1.4 on
-  // 2026-11-04 with ten instead of eight.
-  assert.equal(cards.length, 106);
+  // Lesson 1.2 was rebuilt on 2026-10-29 with ten Listen cards instead of five, lesson 1.4 on
+  // 2026-11-04 with ten instead of eight, and lesson 1.1 on 2026-11-10 with nine instead of ten.
+  assert.equal(cards.length, 105);
   for (const card of cards) {
     assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
     for (const option of wrongOptions(card)) {
@@ -34,9 +34,9 @@ test('installed listening cards explain the heard evidence, including the report
       }
     }
   }
-  // Lesson 1.1 was rebuilt on 2026-10-27; its heard meeting proposal is A10.
-  const reported = lessons.find(lesson => lesson.id === 'a1plus-unit-1-lesson-1-1').cards
-    .find(card => card.slide_id === 'A10');
+  // The reported card was 1.1's A10; 1.1 was rebuilt on 2026-11-10 (what people look like), so the
+  // exact card is kept as a fixture and its feedback stays pinned.
+  const reported = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/a1plus-reported-meeting-card.json'), 'utf8')).card;
   assert.equal(reported.audio_text, "Let's meet at eight.");
   assert.deepEqual((reported.audio_turns ?? []).map(turn => turn.text), []);
   assert.equal(reported.options.find(option => option.id === reported.correct_option_id).label, reported.audio_text);

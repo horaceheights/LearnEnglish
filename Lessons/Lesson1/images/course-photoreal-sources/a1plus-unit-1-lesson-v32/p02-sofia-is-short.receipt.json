@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3f7990fd-6344-4d6f-9b8b-ec0443fb4a54",
+  "asset_id": "p02-sofia-is-short",
+  "pack_sha256": "f41cb475edea4968d0ae1b7182f7cb4d37a7dceb68729ec5c244e0afc2d0aeda",
+  "started_at": "2026-11-09T23:05:37.448955+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, badges, book spines and walls. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nOnly these two people are in the photo. Keep both people, all four hands and their feet inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera is at chest height a few steps back, with a clear, unobstructed view: the person's whole body from head to feet and the floor are visible, the face is fully visible and in sharp focus.\n\nImage 1 shows Sofia. Keep her face, warm brown skin and build exactly. Her long curly dark hair is pulled up into a neat high bun. Create a new photograph against a plain light-grey wall in a bright room with a light wooden floor. Sofia, a short adult woman of about 30 with normal adult proportions, and her friend Luis, a very tall man of about 30 with short dark curly hair, a clean-shaven face and warm medium-brown skin, stand back to back in the middle of the photo to compare their heights, both turning their heads to smile at the camera. Sofia stands on the LEFT and Luis on the RIGHT, both flat on the floor. The top of Sofia's head is level with Luis's shoulder: she is clearly much shorter than him. Sofia holds one hand flat on top of her own head, palm down, showing that it only reaches Luis's shoulder. Sofia wears her bright blue blazer over a white blouse, black trousers and flat black shoes; Luis wears a plain navy crew-neck T-shirt, khaki chinos and navy sneakers. No badges and no cards.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_scene_sofia-canadian_adf798e.webp",
+    "sha256": "2daf8237485192503d10d64046efea7958bdca60e4af4e949b89c5cd62a39099"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "wVHyat3tDeCBz7IPtojRqQw",
+  "usage": {
+    "promptTokenCount": 723,
+    "candidatesTokenCount": 1369,
+    "totalTokenCount": 2355,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 465
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 263,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138602",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 723,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 263
+  },
+  "elapsed_seconds": 21.86,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v32/p02-sofia-is-short.png",
+  "sha256": "39584bef4a3fd194d30f8d187008a1d3b39a8e30163b88e3050184d9274524bd",
+  "byte_count": 4054559,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

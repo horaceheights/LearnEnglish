@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-1-people-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v30",
+  "authorization": "2026-11-09: the user approved the 1.1 text and every prompt in this revision with a US$1.10 ceiling (\"Approve the 1.1 text and 7 photo prompts with a US$1.10 cap?\" answered \"Approve, generate\"). Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision. p02 is inspected at phone sizes and in the centered 4:5 crop before the rest are sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 7,
+    "expected_cost_usd": "0.98",
+    "requested_ceiling_usd": "1.10",
+    "no_automatic_retries": true,
+    "order": "Generate p02 first (the hardest: short must read at a glance without making Sofia look like a child) and inspect it at 900/360/250/180 px and in the centered 4:5 crop before sending the rest. Then p01 at the same kind of bookcase, then p03, p04, p05, p07 and p06. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, badges, book spines and walls. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep the person, both hands and everything the sentence depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "solo": "Only this one person is in the photo; there is nobody else, even far in the background.",
+    "bookcase": "The setting is a bright, quiet neighborhood library with a plain white wall and a warm wooden floor. One tall light-oak bookcase with six shelves, about 2.2 meters high, stands against the wall in the center of the photo, filled with books whose spines are plain solid colors without any lettering. The camera is at chest height a few steps back and shows the whole bookcase from the floor to its top and the person's whole body from head to feet, so the person's height is easy to judge against the shelves.",
+    "mexico_house": "Keep the house exactly as in Image 1: the terracotta-orange walls, the open dark-green wooden doors, the terracotta tiled path and the pink bougainvillea at the far left. Sunny afternoon light. The flag and the suitcase are not in this photo."
+  },
+  "assets": [
+    {
+      "id": "p02-sofia-is-short",
+      "order": 1,
+      "item": "Sofia is short. / She is short.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "bookcase"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_sofia-canadian_adf798e.webp",
+        "sha256": "2daf8237485192503d10d64046efea7958bdca60e4af4e949b89c5cd62a39099",
+        "observed_description": "Sofia (long curly dark hair to her shoulders, warm brown skin, bright smile) in a bright blue blazer over a white blouse, with a SOFIA badge, points to herself and holds a small Canada card at a busy community fair."
+      },
+      "prompt": "Image 1 shows Sofia. Keep her face, warm brown skin and build exactly. Her long curly dark hair is now pulled up into a neat high bun, so no hair falls on her shoulders or back. Sofia is a short adult woman of about 30, about 1.50 meters tall, with normal adult proportions. She stands on tiptoe right beside the bookcase and stretches one arm straight up as high as she can toward a red book on the top shelf, but her fingertips stop clearly below the top shelf; the top of her head is level with the third shelf from the top. She wears her bright blue blazer over a white blouse, black trousers and flat black shoes, with no badge and no card, and smiles good-naturedly at the effort. The top shelf is obviously out of her reach: she is short."
+    },
+    {
+      "id": "p01-luis-is-tall",
+      "order": 2,
+      "item": "Luis is tall. / He is tall. / Who is tall?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "bookcase"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_luis-badge_80bb288.webp",
+        "sha256": "b6ba52bc537f55463ab0023064777172fc78313ac2d6849b18397dfd239f05ba",
+        "observed_description": "Luis (short dark curly hair, clean-shaven, warm medium-brown skin, friendly smile) in a navy crew-neck T-shirt with a white LUIS badge and khaki trousers stands in a courtyard doorway among potted plants, pointing to his badge and smiling to the left."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Luis is a very tall man of about 30, about 1.95 meters tall: the top of his head is level with the second shelf from the top. He stands flat on both feet right beside the bookcase and takes a red book from the top shelf easily with one hand, his elbow still bent, smiling calmly at the camera. He wears a plain navy crew-neck T-shirt with no badge, khaki chinos and navy sneakers. The top shelf is easily within his reach: he is tall."
+    },
+    {
+      "id": "p03-ana-has-long-hair",
+      "order": 3,
+      "item": "Ana has long hair. / She has long hair. / She is a young woman.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, light-olive skin and build exactly. Create a new photograph on a sunny afternoon in a green park, with trees and a lawn softly out of focus behind her. Ana, a young woman of about 28, stands turned three-quarters away from the camera and looks back over her shoulder with a warm smile, so her face is clearly visible and her long dark wavy hair falls loose down her back to below her shoulder blades: the length of her hair is the most obvious thing in the photo. She wears her sage-green overshirt over a white top and light-wash jeans, has no bag, and is seen from head to knees."
+    },
+    {
+      "id": "p04-diego-has-a-beard",
+      "order": 4,
+      "item": "Diego has a beard. / He has a beard. / Who has a beard?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_diego-spanish_5d1c02d.webp",
+        "sha256": "fc7d61b3ceb1b68b822491f6b453c8b17a3d9a9e372e5c7e2f2ba6af6f833fc4",
+        "observed_description": "Diego (dark curly hair with some grey, short dark beard and moustache, warm smile) in a dark navy blazer over a burgundy button shirt points to himself and holds a small Spain card at a busy community fair."
+      },
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, skin tone and build exactly. Create a new photograph of Diego in a bright cafe, with plants and a wooden counter softly out of focus behind him. He faces the camera from the waist up and smiles warmly. His short, full dark beard with a little grey at the chin is neatly trimmed and clearly covers his cheeks, chin and upper lip: the beard is the most obvious thing about his face. He wears his dark navy blazer over a burgundy button shirt, with no badge, and holds nothing."
+    },
+    {
+      "id": "p05-grandfather-old-man",
+      "order": 5,
+      "item": "He is an old man.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "mexico_house"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "In front of the open green doors of a terracotta-orange house in Mexico, with the Mexican flag and pink bougainvillea at the left, stand in a row: Ana with her navy suitcase; her grandmother (about 80, white hair in a low bun, lavender blouse, long grey skirt); her grandfather (about 80, thin white hair, white short-sleeved shirt, brown trousers, wooden cane); and her cousin (about 19, short black curly hair, mustard-yellow T-shirt, dark jeans)."
+      },
+      "prompt": "Image 1 shows Ana's family in front of her grandparents' house in Mexico. Keep the grandfather exactly: the very old man with thin white hair, deep wrinkles, the white short-sleeved shirt, brown trousers and the wooden cane. Create a new photograph of the same afternoon in which the grandfather is alone: he sits on a simple wooden bench on the tiled path in front of the house, both hands resting on top of his cane, smiling kindly at the camera. He is clearly an old man of about 80. He is seen from head to feet."
+    },
+    {
+      "id": "p07-grandmother-old-woman",
+      "order": 6,
+      "item": "She is an old woman.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "mexico_house"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "In front of the open green doors of a terracotta-orange house in Mexico, with the Mexican flag and pink bougainvillea at the left, stand in a row: Ana with her navy suitcase; her grandmother (about 80, white hair in a low bun, lavender blouse, long grey skirt); her grandfather (about 80, thin white hair, white short-sleeved shirt, brown trousers, wooden cane); and her cousin (about 19, short black curly hair, mustard-yellow T-shirt, dark jeans)."
+      },
+      "prompt": "Image 1 shows Ana's family in front of her grandparents' house in Mexico. Keep the grandmother exactly: the very old woman with white hair in a low bun, the lavender blouse and the long grey skirt. Create a new photograph of the same afternoon in which the grandmother is alone: she stands in the open green doorway with her hands loosely clasped in front of her, smiling warmly at the camera. She is clearly an old woman of about 80. She is seen from head to feet."
+    },
+    {
+      "id": "p06-cousin-young-man",
+      "order": 7,
+      "item": "He is a young man.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "solo",
+        "mexico_house"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "In front of the open green doors of a terracotta-orange house in Mexico, with the Mexican flag and pink bougainvillea at the left, stand in a row: Ana with her navy suitcase; her grandmother (about 80, white hair in a low bun, lavender blouse, long grey skirt); her grandfather (about 80, thin white hair, white short-sleeved shirt, brown trousers, wooden cane); and her cousin (about 19, short black curly hair, mustard-yellow T-shirt, dark jeans)."
+      },
+      "prompt": "Image 1 shows Ana's family in front of her grandparents' house in Mexico. Keep the cousin exactly: the slim young man with short black curly hair, no beard or moustache, warm light-brown skin, the mustard-yellow T-shirt and dark jeans. Create a new photograph of the same afternoon in which the cousin is alone: he stands on the tiled path in front of the house, relaxed, with his hands in his pockets, smiling at the camera. He is clearly a young man of about 19. He is seen from head to knees."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "62137d88-8b43-4e20-ba47-af6b3136c949",
+  "asset_id": "p06-cousin-young-man",
+  "pack_sha256": "b7372a198c551626551d36fb2192fab199c96d927996dcf6b1ce2fb86672ab56",
+  "started_at": "2026-11-09T22:46:37.556305+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, badges, book spines and walls. A first-time learner must understand the picture instantly on a small phone screen. Every hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and everything the sentence depends on inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nKeep the house exactly as in Image 1: the terracotta-orange walls, the open dark-green wooden doors, the terracotta tiled path and the pink bougainvillea at the far left. Sunny afternoon light. The flag and the suitcase are not in this photo.\n\nImage 1 shows Ana's family in front of her grandparents' house in Mexico. Keep the cousin exactly: the slim young man with short black curly hair, no beard or moustache, warm light-brown skin, the mustard-yellow T-shirt and dark jeans. Create a new photograph of the same afternoon in which the cousin is alone: he stands on the tiled path in front of the house, relaxed, with his hands in his pockets, smiling at the camera. He is clearly a young man of about 19. He is seen from head to knees.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+    "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "TU3yavz_G-7CqtsPodv_aA",
+  "usage": {
+    "promptTokenCount": 630,
+    "candidatesTokenCount": 1330,
+    "totalTokenCount": 2167,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 372
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 207,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137744",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 630,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 207
+  },
+  "elapsed_seconds": 21.31,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v30/p06-cousin-young-man.png",
+  "sha256": "a20cb13e6b7963920790cf7adbdde1cce0eb6f21cc89f30dc7a0c7a4514e3dd0",
+  "byte_count": 5095987,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
