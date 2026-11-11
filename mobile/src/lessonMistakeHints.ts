@@ -62,6 +62,8 @@ const MEANINGS: Record<string, string> = {
   drinks: 'toma o bebe', reads: 'lee', writes: 'escribe', eats: 'come', write: 'escribir',
   // A1+ 1.3 (2026-11-10): what two people do, with they/we and no -s.
   swim: 'nadar', swims: 'nada', runs: 'corre',
+  // A1+ 1.5 (2026-11-11): brothers and sisters, older and younger.
+  older: 'mayor', younger: 'menor',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

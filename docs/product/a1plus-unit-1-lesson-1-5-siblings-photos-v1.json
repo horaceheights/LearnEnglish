@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-5-siblings-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v50",
+  "authorization": "2026-11-11: the user approved the 1.5 text, the family map and every prompt in this revision with a US$1.10 ceiling (\"Approve the 1.5 text, family map and photo prompts with a US$1.10 cap?\" answered \"Approve, generate\"). Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision. g01 and g04 are inspected at phone sizes and at the centered 4:5 crop before the photos that use them as references are sent, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 7,
+    "expected_cost_usd": "0.94",
+    "requested_ceiling_usd": "1.10",
+    "no_automatic_retries": true,
+    "order": "Generate g01 first (the hardest: three sisters in clear age order from one reference) and inspect it at 900/360/250/180 px and in the centered 4:5 crop; g02 and g03 use the accepted g01 as their reference, so they run only after g01 is recorded as usable. Then g04 the same way, followed by g05 and g06, and finally g07. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, signs and objects are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "clear_view": "The camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the people, every face is fully visible and in sharp focus, and everyone is seen from head to knees or lower.",
+    "siblings": "They are grown-up brothers and sisters, NOT parents and children: they stand side by side as equals, close together, with their arms around each other's shoulders, all turned toward the camera and smiling warmly. They clearly look like one family: the same warm skin tone and similar dark eyes and eyebrows. No one else is in the photo.",
+    "ana_garden": "The setting is the sunny back garden of a family house in warm late-afternoon light: a green lawn, a low white wooden fence, terracotta pots of red geraniums and a leafy tree, all softly out of focus behind the people.",
+    "luis_home": "The setting is a bright living room at home in soft daylight: a light-grey sofa with plain cushions behind the people, a large window at one side, a green plant in a plain pot and plain white walls, all softly out of focus. No books, pictures or screens.",
+    "diego_plaza": "The setting is a sunny town square in Spain on a bright morning: pale stone paving, cream-colored buildings with green wooden shutters and small iron balconies with flower pots, and an orange tree, all softly out of focus behind the people. No signs, flags or shop names."
+  },
+  "assets": [
+    {
+      "id": "g01-ana-and-her-two-sisters",
+      "order": 1,
+      "item": "How many brothers and sisters do you have? I have two sisters. / Ana has two sisters.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "siblings",
+        "ana_garden"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, skin tone and build exactly, and dress her in the same sage-green overshirt over a white top, light-wash jeans and white sneakers, without the bag. Create a new photograph: Ana stands in the MIDDLE between her two sisters. On the LEFT is her OLDER sister, a woman of about 48, clearly older than Ana: shoulder-length dark hair with visible grey strands at the temples, fine lines around her eyes and mouth, in a plain teal blouse and dark-grey trousers. On the RIGHT is her YOUNGER sister, a young woman of about 20, clearly much younger than Ana: a smooth, youthful face, long straight dark hair in a high ponytail, in a plain coral-pink T-shirt and light-blue jeans; she is a grown-up, as tall as Ana, not a child. The three women are in clear age order from left to right: about 48, about 35 and about 20."
+    },
+    {
+      "id": "g02-ana-and-her-older-sister",
+      "order": 2,
+      "item": "This is my older sister. / Ana has an older sister.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "siblings",
+        "ana_garden"
+      ],
+      "reference": "g01-ana-and-her-two-sisters",
+      "prompt": "Image 1 shows Ana (in the middle, sage-green overshirt) with her two sisters in the back garden. Keep Ana and her OLDER sister, the woman on the left in the teal blouse with grey strands in her hair, exactly: their faces, hair, ages and clothes, and the same garden and light. Create a new photograph a moment later with only these two: the older sister stands on the LEFT and Ana on the RIGHT, side by side. The younger sister in the coral-pink T-shirt is not in the photo. The older sister still looks clearly older than Ana."
+    },
+    {
+      "id": "g03-ana-and-her-younger-sister",
+      "order": 3,
+      "item": "This is my younger sister. / Ana has a younger sister.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "siblings",
+        "ana_garden"
+      ],
+      "reference": "g01-ana-and-her-two-sisters",
+      "prompt": "Image 1 shows Ana (in the middle, sage-green overshirt) with her two sisters in the back garden. Keep Ana and her YOUNGER sister, the young woman on the right in the coral-pink T-shirt with a high ponytail, exactly: their faces, hair, ages and clothes, and the same garden and light. Create a new photograph a moment later with only these two: Ana stands on the LEFT and her younger sister on the RIGHT, side by side. The older sister in the teal blouse is not in the photo. The younger sister still looks clearly much younger than Ana and is a grown-up, as tall as Ana, not a child."
+    },
+    {
+      "id": "g04-luis-and-his-two-brothers",
+      "order": 4,
+      "item": "I have two brothers. / Luis has two brothers.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "siblings",
+        "luis_home"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p01-a7fb3dd63f39d083.webp",
+        "sha256": "a7fb3dd63f39d083226e251c879395e381b8e446a814a27afcd6b1d361dca6b3",
+        "observed_description": "Luis, a very tall, slim man (short dark curly hair, clean-shaven, warm medium-brown skin, big smile) in a navy crew-neck T-shirt, khaki chinos and navy sneakers, leans in a white doorway, seen whole from head to shoes."
+      },
+      "prompt": "Image 1 shows Luis. Keep his face, short dark curly hair, skin tone, slim build and great height exactly, and dress him in the same navy crew-neck T-shirt, khaki chinos and navy sneakers. Create a new photograph: Luis stands in the MIDDLE between his two brothers; he is a little taller than both. On the LEFT is his OLDER brother, a man of about 48, clearly older than Luis: short hair that is grey at the sides, thin metal-rimmed glasses, a clean-shaven face with clear lines on his forehead and around his eyes, in a plain light-blue button shirt and dark jeans. On the RIGHT is his YOUNGER brother, a slim young man of about 20, clearly much younger than Luis: a smooth, youthful face, short straight black hair, no beard or moustache, in a plain bright-orange T-shirt and black jeans; he is a grown-up, nearly as tall as Luis, not a child. The three men are in clear age order from left to right: about 48, about 35 and about 20."
+    },
+    {
+      "id": "g05-luis-and-his-older-brother",
+      "order": 5,
+      "item": "This is my older brother. / Luis has an older brother.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "siblings",
+        "luis_home"
+      ],
+      "reference": "g04-luis-and-his-two-brothers",
+      "prompt": "Image 1 shows Luis (in the middle, navy T-shirt) with his two brothers in the living room. Keep Luis and his OLDER brother, the man on the left with glasses, grey at the sides of his hair and a light-blue shirt, exactly: their faces, hair, ages, heights and clothes, and the same room and light. Create a new photograph a moment later with only these two: the older brother stands on the LEFT and Luis on the RIGHT, side by side. The younger brother in the orange T-shirt is not in the photo. The older brother still looks clearly older than Luis."
+    },
+    {
+      "id": "g06-luis-and-his-younger-brother",
+      "order": 6,
+      "item": "This is my younger brother. / Luis has a younger brother.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "siblings",
+        "luis_home"
+      ],
+      "reference": "g04-luis-and-his-two-brothers",
+      "prompt": "Image 1 shows Luis (in the middle, navy T-shirt) with his two brothers in the living room. Keep Luis and his YOUNGER brother, the slim young man on the right in the bright-orange T-shirt, exactly: their faces, hair, ages, heights and clothes, and the same room and light. Create a new photograph a moment later with only these two: Luis stands on the LEFT and his younger brother on the RIGHT, side by side. The older brother with glasses is not in the photo. The younger brother still looks clearly much younger than Luis and is a grown-up, nearly as tall as Luis, not a child."
+    },
+    {
+      "id": "g07-diego-and-his-brother",
+      "order": 7,
+      "item": "I have one brother. / Diego has one brother.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "siblings",
+        "diego_plaza"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+        "sha256": "0e1c0e7417a05c7b18b4aa80ead68ee4ff9691dd8d93c3250a388736da9a2d92",
+        "observed_description": "Diego, in his dark navy blazer over a burgundy button shirt, faces the camera from the waist up in a bright cafe, smiling broadly; dark curly hair with some grey and a short, full dark beard with grey at the chin."
+      },
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with some grey, short full dark beard with grey at the chin, skin tone and build exactly, and dress him in the same dark navy blazer over a burgundy button shirt, with dark trousers and brown shoes. Create a new photograph: Diego stands on the LEFT with his only brother on the RIGHT. His brother is a man of about the same age, in his early forties, with a strong family resemblance to Diego: dark curly hair with a little grey, the same eyes and smile, but clean-shaven with no beard or moustache, in a plain white linen shirt with the sleeves rolled up and light-grey trousers. Only the two brothers are in the photo."
+    }
+  ]
+}

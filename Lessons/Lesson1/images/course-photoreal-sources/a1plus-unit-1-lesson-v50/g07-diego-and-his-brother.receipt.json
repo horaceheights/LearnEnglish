@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "4db26d02-855d-4ba3-a368-721e2846ee7d",
+  "asset_id": "g07-diego-and-his-brother",
+  "pack_sha256": "4a36d25dfd5cc5aa18153e279dc2584dc072f11d396cbccf39ee212f70f049b5",
+  "started_at": "2026-11-11T22:31:15.637653+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, signs and objects are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the people, every face is fully visible and in sharp focus, and everyone is seen from head to knees or lower.\n\nThey are grown-up brothers and sisters, NOT parents and children: they stand side by side as equals, close together, with their arms around each other's shoulders, all turned toward the camera and smiling warmly. They clearly look like one family: the same warm skin tone and similar dark eyes and eyebrows. No one else is in the photo.\n\nThe setting is a sunny town square in Spain on a bright morning: pale stone paving, cream-colored buildings with green wooden shutters and small iron balconies with flower pots, and an orange tree, all softly out of focus behind the people. No signs, flags or shop names.\n\nImage 1 shows Diego. Keep his face, dark curly hair with some grey, short full dark beard with grey at the chin, skin tone and build exactly, and dress him in the same dark navy blazer over a burgundy button shirt, with dark trousers and brown shoes. Create a new photograph: Diego stands on the LEFT with his only brother on the RIGHT. His brother is a man of about the same age, in his early forties, with a strong family resemblance to Diego: dark curly hair with a little grey, the same eyes and smile, but clean-shaven with no beard or moustache, in a plain white linen shirt with the sleeves rolled up and light-grey trousers. Only the two brothers are in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+    "sha256": "0e1c0e7417a05c7b18b4aa80ead68ee4ff9691dd8d93c3250a388736da9a2d92"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "s-z0aoKiOo3oz7IPxY3E0QI",
+  "usage": {
+    "promptTokenCount": 756,
+    "candidatesTokenCount": 1360,
+    "totalTokenCount": 2370,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 498
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 254,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138560",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 756,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 254
+  },
+  "elapsed_seconds": 21.52,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v50/g07-diego-and-his-brother.png",
+  "sha256": "a16d20fe4727e5d20a2c0c64f35433be1ae97df90784272950ce37ccaf9044d6",
+  "byte_count": 5266066,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

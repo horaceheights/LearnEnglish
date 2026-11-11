@@ -21,7 +21,7 @@ The user approved these standards after reviewing the installed A1+ Unit 1 again
   - 1.2 ← A1 1.2 People in Action: he/she -s for what someone does (*Luis drinks coffee.*), taught against the I-form (*I drink coffee.*) and heard against A1's *is …-ing* (*Luis is drinking coffee.*). No *every day*: A1 never teaches it, so it waits for the frequency lessons. Rebuilt 2026-11-10.
   - 1.3 ← A1 1.3 They and Are: *they*/*we* without -s, against he/she -s (*They swim in the morning.* / *Ana swims in the morning.*), heard against A1's *are …-ing*. No days: *on* + a day would be a second new relationship. Rebuilt 2026-11-10.
   - 1.4 ← A1 1.4 Children and Babies (family): the extended family and where people live (*aunt*, *uncle*, *cousin*, *lives in*, *with*); user decision 2026-10-31, rebuilt 2026-11-04.
-  - 1.5 ← A1 1.5 Brothers, Sisters and Adults: *How many brothers and sisters do you have?*, *has*, *older*, *younger*.
+  - 1.5 ← A1 1.5 Brothers, Sisters and Adults: the question *How many brothers and sisters do you have?* (*I have two sisters.*), *older* and *younger* (*This is my older sister.*), and A1's *has* with names (*Luis has a younger brother.*). A sentence with *has* is true of its person in any photo, so it never competes with another photo of the same person; *This is my …* carries the older/younger contrast. Luis asks Ana and Ana asks Luis and Diego, because Ana and Sofia share one voice in the cast, as do Luis and Diego. Rebuilt 2026-11-11.
   - 1.6 ← A1 1.6 Parents and Grandparents: frequency words (*always*, *usually*, *sometimes*, *never*).
   - 1.7 ← A1 1.7 Family Actions: *How often do you…?* and the -ies spelling (*studies*).
   - 1.8 ← A1 1.8 What They Are Not Doing: *doesn't*/*don't* for habits.

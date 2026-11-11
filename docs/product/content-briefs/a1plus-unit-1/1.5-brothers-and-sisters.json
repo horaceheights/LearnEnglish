@@ -1,0 +1,519 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.5",
+    "title": "Brothers, Sisters and Adults"
+  },
+  "note": "A1+ Unit 1 Lesson 1.5 rebuilt on 2026-11-11 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. A1 1.5 Brothers, Sisters and Adults names brothers and sisters (He is a brother. They are sisters.) and adds an (an adult). A1+ 1.5 asks how many brothers and sisters someone has and says who is older or younger. Family map: Ana has two sisters, an older one and a younger one; Luis has two brothers, an older one and a younger one; Diego has one brother. The siblings have no names and never speak. Luis asks Ana, and Ana asks Luis and Diego: Ana and Sofia share one voice in the course cast, as do Luis and Diego, so the asker never sounds like the person answering (user decision 2026-11-11 at the listening gate). Older siblings look about 48 and younger ones about 20, so they read as brothers and sisters of a cast member in their thirties, not as parents or children. A sentence with has is true of its person whatever photo shows them, so a sentence about Ana never competes with another photo of Ana; the older/younger contrast stays with This is my ..., where this is the sibling shown. The previous 1.5 (What I usually do: always, usually, sometimes, never, every day) returns as 1.6, which follows A1 1.6 with the frequency words.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-5.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-5",
+    "title": "1.5 Brothers and sisters",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-5",
+    "lesson_title": "Brothers and sisters",
+    "sub_lesson_id": "1.5",
+    "sub_lesson_title": "Brothers and sisters",
+    "goal": "Ask How many brothers and sisters do you have?, answer with I have ..., and say who is older or younger (This is my older sister. Luis has a younger brother.).",
+    "vocabulary": [
+      "do you have",
+      "older",
+      "younger"
+    ],
+    "review_vocabulary": [
+      "How many",
+      "I",
+      "have",
+      "has",
+      "brother",
+      "brothers",
+      "sister",
+      "sisters",
+      "an",
+      "a",
+      "one",
+      "two",
+      "and",
+      "this",
+      "is",
+      "my"
+    ],
+    "grammar_function": "A follow-up of A1 1.5 Brothers, Sisters and Adults: brothers and sisters become a question. The one new grammar relationship is the question frame How many + family word + do you have?, built from A1's How many ...? (How many apples are there?) and Do you ...? (Do you work?), answered with A1's I have. Older and younger grow A1+ 1.1's old and young into family words, with A1 1.5's an before older (an older sister). Has returns with names (Ana has two sisters.).",
+    "prerequisite": "A1 1.5 brother, sister, an; A1 Have and Has (I have, he/she has); A1 How Many? (How many apples are there?); A1 Do you ...? questions (Do you work?); A1 numbers; A1+ 1.1 old, young and the cast.",
+    "speaking_outcome": "Ask How many brothers and sisters do you have? as one smooth question, and say older and younger clearly, with the -er ending. Do not require native-like speed.",
+    "content_revision": 4,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "do you have"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "How many brothers and sisters do you have? I have two sisters.",
+            "turns": [
+              "How many brothers and sisters do you have?",
+              "I have two sisters."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "older"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "This is my older sister."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "older",
+          "younger"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "This is my older brother. This is my younger brother.",
+            "turns": [
+              "This is my older brother.",
+              "This is my younger brother."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-how",
+      "text": "How many brothers and sisters do you have? I have two sisters.",
+      "es": "¿Cuántos hermanos y hermanas tienes? Tengo dos hermanas.",
+      "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How many brothers and sisters do you have?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp"
+        },
+        {
+          "text": "I have two sisters.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-older",
+      "text": "This is my older sister.",
+      "es": "Esta es mi hermana mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g02-45009300e898db07.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-younger",
+      "text": "This is my older brother. This is my younger brother.",
+      "es": "Este es mi hermano mayor. Este es mi hermano menor.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "This is my older brother.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp"
+        },
+        {
+          "text": "This is my younger brother.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp"
+        }
+      ]
+    },
+    {
+      "id": "i-older-sister",
+      "text": "This is my older sister.",
+      "es": "Esta es mi hermana mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g02-45009300e898db07.webp",
+      "kind": "intro",
+      "learn": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "i-younger-sister",
+      "text": "This is my younger sister.",
+      "es": "Esta es mi hermana menor.",
+      "image": "/lesson-assets/a1plus-unit-1-g03-8a7645cb8c2f616c.webp",
+      "kind": "intro",
+      "learn": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "i-older-brother",
+      "text": "This is my older brother.",
+      "es": "Este es mi hermano mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "intro",
+      "learn": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "i-younger-brother",
+      "text": "This is my younger brother.",
+      "es": "Este es mi hermano menor.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "intro",
+      "learn": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "n-sisters",
+      "text": "Ana has two sisters.",
+      "es": "Ana tiene dos hermanas.",
+      "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp",
+      "kind": "named",
+      "learn": false,
+      "avoid": [
+        "Ana has an older sister.",
+        "Ana has a younger sister."
+      ],
+      "use": false
+    },
+    {
+      "id": "n-older-sister",
+      "text": "Ana has an older sister.",
+      "es": "Ana tiene una hermana mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g02-45009300e898db07.webp",
+      "kind": "named",
+      "learn": false,
+      "avoid": [
+        "Ana has two sisters.",
+        "Ana has a younger sister."
+      ],
+      "blanks": [
+        "an",
+        "older"
+      ]
+    },
+    {
+      "id": "n-younger-sister",
+      "text": "Ana has a younger sister.",
+      "es": "Ana tiene una hermana menor.",
+      "image": "/lesson-assets/a1plus-unit-1-g03-8a7645cb8c2f616c.webp",
+      "kind": "named",
+      "learn": false,
+      "avoid": [
+        "Ana has two sisters.",
+        "Ana has an older sister."
+      ],
+      "blanks": [
+        "a",
+        "younger"
+      ]
+    },
+    {
+      "id": "n-brothers",
+      "text": "Luis has two brothers.",
+      "es": "Luis tiene dos hermanos.",
+      "image": "/lesson-assets/a1plus-unit-1-g04-01a9cbabd8e566b9.webp",
+      "kind": "named",
+      "learn": false,
+      "avoid": [
+        "Luis has an older brother.",
+        "Luis has a younger brother."
+      ],
+      "four_card": false,
+      "use": false
+    },
+    {
+      "id": "n-older-brother",
+      "text": "Luis has an older brother.",
+      "es": "Luis tiene un hermano mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "named",
+      "learn": false,
+      "avoid": [
+        "Luis has two brothers.",
+        "Luis has a younger brother."
+      ],
+      "blanks": [
+        "an",
+        "older"
+      ]
+    },
+    {
+      "id": "n-younger-brother",
+      "text": "Luis has a younger brother.",
+      "es": "Luis tiene un hermano menor.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "named",
+      "learn": false,
+      "avoid": [
+        "Luis has two brothers.",
+        "Luis has an older brother."
+      ],
+      "blanks": [
+        "a",
+        "younger"
+      ]
+    },
+    {
+      "id": "n-diego",
+      "text": "Diego has one brother.",
+      "es": "Diego tiene un hermano.",
+      "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp",
+      "kind": "named",
+      "learn": false,
+      "use": false
+    },
+    {
+      "id": "a-ana",
+      "text": "I have two sisters.",
+      "es": "Tengo dos hermanas.",
+      "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "speaker": "ana",
+      "question": "How many brothers and sisters do you have?",
+      "question_es": "¿Cuántos hermanos y hermanas tienes?",
+      "question_speaker": "luis",
+      "listening_turns": [
+        {
+          "text": "How many brothers and sisters do you have?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp"
+        },
+        {
+          "text": "I have two sisters.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp"
+        }
+      ]
+    },
+    {
+      "id": "a-luis",
+      "text": "I have two brothers.",
+      "es": "Tengo dos hermanos.",
+      "image": "/lesson-assets/a1plus-unit-1-g04-01a9cbabd8e566b9.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "speaker": "luis",
+      "question": "How many brothers and sisters do you have?",
+      "question_es": "¿Cuántos hermanos y hermanas tienes?",
+      "question_speaker": "ana",
+      "listening_turns": [
+        {
+          "text": "How many brothers and sisters do you have?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-g04-01a9cbabd8e566b9.webp"
+        },
+        {
+          "text": "I have two brothers.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-g04-01a9cbabd8e566b9.webp"
+        }
+      ]
+    },
+    {
+      "id": "a-diego",
+      "text": "I have one brother.",
+      "es": "Tengo un hermano.",
+      "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "four_card": false,
+      "speaker": "diego",
+      "question": "How many brothers and sisters do you have?",
+      "question_es": "¿Cuántos hermanos y hermanas tienes?",
+      "question_speaker": "ana",
+      "listening_turns": [
+        {
+          "text": "How many brothers and sisters do you have?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp"
+        },
+        {
+          "text": "I have one brother.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-how",
+      "text": "How many brothers and sisters do you have?",
+      "es": "¿Cuántos hermanos y hermanas tienes?",
+      "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "x-younger-sister",
+      "text": "Ana has a younger sister.",
+      "es": "Ana tiene una hermana menor.",
+      "image": "/lesson-assets/a1plus-unit-1-g03-8a7645cb8c2f616c.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Ana has an older sister.",
+        "Ana has two sisters."
+      ]
+    },
+    {
+      "id": "x-older-brother",
+      "text": "Luis has an older brother.",
+      "es": "Luis tiene un hermano mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Luis has a younger brother.",
+        "Luis has two brothers."
+      ]
+    },
+    {
+      "id": "x-brothers",
+      "text": "Luis has two brothers.",
+      "es": "Luis tiene dos hermanos.",
+      "image": "/lesson-assets/a1plus-unit-1-g04-01a9cbabd8e566b9.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Luis has an older brother.",
+        "Luis has a younger brother."
+      ]
+    }
+  ],
+  "pool": [
+    {
+      "text": "Ana has an older sister.",
+      "es": "Ana tiene una hermana mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g02-45009300e898db07.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Ana has two sisters.",
+      "es": "Ana tiene dos hermanas.",
+      "image": "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Luis has a younger brother.",
+      "es": "Luis tiene un hermano menor.",
+      "image": "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Luis has two brothers.",
+      "es": "Luis tiene dos hermanos.",
+      "image": "/lesson-assets/a1plus-unit-1-g04-01a9cbabd8e566b9.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Luis has an older brother.",
+      "es": "Luis tiene un hermano mayor.",
+      "image": "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-how",
+      "l-older",
+      "l-younger"
+    ],
+    "Recognize": [
+      "i-older-sister",
+      "a-ana",
+      "n-older-brother",
+      "i-younger-brother",
+      "a-luis",
+      "n-sisters",
+      "i-younger-sister",
+      "n-younger-sister",
+      "a-diego",
+      "i-older-brother",
+      "n-younger-brother"
+    ],
+    "Listen": [
+      "i-older-sister",
+      "a-luis",
+      "x-younger-sister",
+      "i-younger-brother",
+      "a-ana",
+      "x-older-brother",
+      "i-younger-sister",
+      "a-diego",
+      "x-brothers",
+      "i-older-brother"
+    ],
+    "Speak": [
+      "q-how",
+      "a-ana",
+      "i-older-sister",
+      "i-younger-brother",
+      "n-older-brother",
+      "n-younger-sister",
+      "a-diego",
+      "i-younger-sister"
+    ],
+    "Use": [
+      "q-how",
+      "i-older-sister",
+      "n-older-sister",
+      "i-younger-brother",
+      "n-younger-brother",
+      "i-younger-sister",
+      "n-older-brother",
+      "n-younger-sister"
+    ]
+  }
+}
