@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-3-they-photos",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "revision": 2,
+  "output_namespace": "a1plus-unit-1-lesson-v42",
+  "authorization": "2026-11-10: covered by the user's pre-approval of the 1.3 image spending in chat (\"approve image spending\"). Revision 1's s01 was rejected (both bodies on top of the water, feet in the air; the 4:5 crop cut them), and s02 shared its pool wording, so revision 2 replaces that wording for both swimming photos. Agent ceiling US$0.35 (2 photos, about US$0.28); revision 1 spent US$0.41. Revision 2 is frozen: a changed prompt is a new revision.",
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 2,
+    "expected_cost_usd": "0.28",
+    "requested_ceiling_usd": "0.35",
+    "no_automatic_retries": true,
+    "order": "Generate s01 first and inspect it at 900/360/250/180 px and in the centered 4:5 crop before sending s02. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, signs and equipment are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "pool_in_water": "The setting is an outdoor swimming pool with clear blue water on a bright, calm morning; green trees are softly out of focus behind the far edge, and no pool edge, ladder or wall is near the swimmers. The camera is just above the water, straight in front of them, and they swim straight toward it, so each body stretches away from the camera under the water. The swimming must look real: only the head, the tops of the shoulders and the hands are above the surface; the chest, body and legs are under the clear water, and no leg or foot is in the air. Each swimmer is in the middle of a head-up breaststroke, hands pushing forward together just under the surface in front of the chin, leaving a small V-shaped wake in the water behind the head. No swimming cap and no goggles; each face is clearly visible, with wet hair at the edges."
+  },
+  "assets": [
+    {
+      "id": "s01-sofia-and-luis-swim",
+      "order": 1,
+      "item": "We swim. / They swim. / Sofia and Luis swim in the morning. / They swim in the morning.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pool_in_water"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera."
+      },
+      "prompt": "Image 1 shows Sofia (left) and Luis (right). Keep both faces, Sofia's dark curly hair and warm brown skin, Luis's short dark curly hair and skin tone, and their builds exactly. Create a new photograph: Sofia and Luis swim together, side by side about an arm's length apart, both swimming straight toward the camera at the same moment, their two heads close to the middle of the photo. Sofia's curly hair is tied back in a bun; the straps of her plain dark-blue swimsuit and Luis's bare shoulders show just above the water. Both look ahead at the camera with happy, relaxed faces. Only these two people are in the photo; the rest of the pool is empty."
+    },
+    {
+      "id": "s02-ana-swims",
+      "order": 2,
+      "item": "Ana swims. / She swims in the morning. / Who swims in the morning?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pool_in_water"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, skin tone and build exactly. Create a new photograph: Ana swims alone, straight toward the camera, her head in the middle of the photo. Her long hair is tied back; the straps of her plain sage-green swimsuit show just above the water. She looks ahead at the camera with a happy, relaxed face. Only Ana is in the photo; the rest of the pool is empty."
+    }
+  ]
+}

@@ -60,6 +60,8 @@ const MEANINGS: Record<string, string> = {
   // A1+ 1.2 (2026-11-10): what people do, with he/she and -s. This replaces A1's noun meaning of
   // "drinks" (bebidas), which no A1 hint used; a single key cannot hold both.
   drinks: 'toma o bebe', reads: 'lee', writes: 'escribe', eats: 'come', write: 'escribir',
+  // A1+ 1.3 (2026-11-10): what two people do, with they/we and no -s.
+  swim: 'nadar', swims: 'nada', runs: 'corre',
   running: 'corriendo', walking: 'caminando', reading: 'leyendo', writing: 'escribiendo',
   eating: 'comiendo', drinking: 'bebiendo', cooking: 'cocinando', working: 'trabajando',
   studying: 'estudiando', playing: 'jugando', swimming: 'nadando', sleeping: 'durmiendo',

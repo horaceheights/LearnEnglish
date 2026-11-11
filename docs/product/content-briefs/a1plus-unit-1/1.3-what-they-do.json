@@ -1,0 +1,487 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.3",
+    "title": "Two People: They and Are"
+  },
+  "note": "A1+ Unit 1 Lesson 1.3 rebuilt on 2026-11-10 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. A1 1.3 Two People: They and Are joins two people with and and says what they are doing (They are swimming.); A1+ 1.3 says what two people do, with they/we and no -s, against he/she with -s: Sofia and Luis swim in the morning, Ana swims in the morning, Sofia and Luis run in the park, Diego runs in the park. Learn uses the approved contrast pairs (D2). Swim is new (A1 has only swimming); run is A1 4.8. No days and no 'every day' (on + day would be a second new relationship; frequency comes in 1.6-1.7). Listen contrasts no -s, -s and A1 1.3's are/is ...-ing by ear (swim cards by subject only, because They swim in the morning. has no natural -ing partner). In the morning is A1 4.5. A pair photo also shows one woman or one man doing the action, so it is never a wrong picture for a he/she sentence. The previous 1.3 (Which time actually works?: from/to, before/after) returns with A1+ 4.10 and 5.7.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-3.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-3",
+    "title": "1.3 What they do",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-3",
+    "lesson_title": "What they do",
+    "sub_lesson_id": "1.3",
+    "sub_lesson_title": "What they do",
+    "goal": "Say what two people do with they/we and no -s (They swim.), against he/she with -s (Ana swims.) and A1's They are swimming.",
+    "vocabulary": [
+      "swim",
+      "swims",
+      "runs"
+    ],
+    "review_vocabulary": [
+      "we",
+      "they",
+      "he",
+      "she",
+      "and",
+      "run",
+      "park",
+      "in the morning",
+      "in",
+      "the",
+      "who",
+      "are",
+      "is"
+    ],
+    "grammar_function": "A follow-up of A1 1.3 Two People: They and Are: They are swimming. becomes They swim. The one new grammar relationship is they/we + verb without -s, taught as the contrast They swim. / Ana swims. after 1.2's he/she -s.",
+    "prerequisite": "A1 1.3 and, they, are, swimming, running; 1.9 Who…?; 2.1 park; 3.2 we; 4.5 in the morning; 4.8 run; A1+ 1.2 he/she -s; A1+ 1.1 the cast.",
+    "speaking_outcome": "A clear final s in swims and runs (/z/) inside the complete sentence, and no s after they, we or a pair of names. Do not require native-like speed.",
+    "content_revision": 4,
+    "learn_context_groups": [
+      {
+        "kind": "contrast",
+        "targets": [
+          "swim"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "We swim. They swim.",
+            "turns": [
+              "We swim.",
+              "They swim."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "swim",
+          "swims"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "They swim. Ana swims.",
+            "turns": [
+              "They swim.",
+              "Ana swims."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "runs"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "They run. Diego runs.",
+            "turns": [
+              "They run.",
+              "Diego runs."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-swim",
+      "text": "We swim. They swim.",
+      "es": "Nadamos. Ellos nadan.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "We swim.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp"
+        },
+        {
+          "text": "They swim.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-swims",
+      "text": "They swim. Ana swims.",
+      "es": "Ellos nadan. Ana nada.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "They swim.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp"
+        },
+        {
+          "text": "Ana swims.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-runs",
+      "text": "They run. Diego runs.",
+      "es": "Ellos corren. Diego corre.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "They run.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp"
+        },
+        {
+          "text": "Diego runs.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-swim",
+      "text": "Sofia and Luis swim in the morning.",
+      "es": "Sofia y Luis nadan en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "Luis",
+        "swim"
+      ]
+    },
+    {
+      "id": "h-swim",
+      "text": "They swim in the morning.",
+      "es": "Ellos nadan en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "w-swim",
+      "text": "We swim in the morning.",
+      "es": "Nadamos en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "we",
+      "learn": false,
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "x-swim",
+      "text": "They swim in the morning.",
+      "es": "Ellos nadan en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "We swim in the morning.",
+        "She swims in the morning."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard sentence with the same action for another subject or A1 1.3's are/is ...-ing; the answer is what was heard (A1+ 1.3 grammar focus).",
+        "action-variety": "Listen contrasts they/we without -s, he/she with -s and A1 1.3's are/is ...-ing of the same action; the answer is what was heard (A1+ 1.3 grammar focus)."
+      }
+    },
+    {
+      "id": "n-swims",
+      "text": "Ana swims in the morning.",
+      "es": "Ana nada en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "Ana",
+        "swims"
+      ]
+    },
+    {
+      "id": "h-swims",
+      "text": "She swims in the morning.",
+      "es": "Ella nada en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "They swim in the morning.",
+        "Sofia and Luis swim in the morning.",
+        "We swim in the morning."
+      ]
+    },
+    {
+      "id": "x-swims",
+      "text": "She swims in the morning.",
+      "es": "Ella nada en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "They swim in the morning.",
+        "We swim in the morning."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard sentence with the same action for another subject or A1 1.3's are/is ...-ing; the answer is what was heard (A1+ 1.3 grammar focus).",
+        "action-variety": "Listen contrasts they/we without -s, he/she with -s and A1 1.3's are/is ...-ing of the same action; the answer is what was heard (A1+ 1.3 grammar focus)."
+      }
+    },
+    {
+      "id": "n-run",
+      "text": "Sofia and Luis run in the park.",
+      "es": "Sofia y Luis corren en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "Luis",
+        "run"
+      ]
+    },
+    {
+      "id": "h-run",
+      "text": "They run in the park.",
+      "es": "Ellos corren en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "w-run",
+      "text": "We run in the park.",
+      "es": "Corremos en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "we",
+      "learn": false,
+      "choices": false,
+      "use": false
+    },
+    {
+      "id": "x-run",
+      "text": "They run in the park.",
+      "es": "Ellos corren en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "They are running in the park.",
+        "He runs in the park."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard sentence with the same action for another subject or A1 1.3's are/is ...-ing; the answer is what was heard (A1+ 1.3 grammar focus).",
+        "action-variety": "Listen contrasts they/we without -s, he/she with -s and A1 1.3's are/is ...-ing of the same action; the answer is what was heard (A1+ 1.3 grammar focus)."
+      }
+    },
+    {
+      "id": "n-runs",
+      "text": "Diego runs in the park.",
+      "es": "Diego corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "Diego",
+        "runs"
+      ]
+    },
+    {
+      "id": "h-runs",
+      "text": "He runs in the park.",
+      "es": "Él corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "They run in the park.",
+        "Sofia and Luis run in the park.",
+        "We run in the park."
+      ]
+    },
+    {
+      "id": "x-runs",
+      "text": "He runs in the park.",
+      "es": "Él corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "He is running in the park.",
+        "They run in the park."
+      ],
+      "accepts": {
+        "subject-variety": "Listen contrasts the heard sentence with the same action for another subject or A1 1.3's are/is ...-ing; the answer is what was heard (A1+ 1.3 grammar focus).",
+        "action-variety": "Listen contrasts they/we without -s, he/she with -s and A1 1.3's are/is ...-ing of the same action; the answer is what was heard (A1+ 1.3 grammar focus)."
+      }
+    },
+    {
+      "id": "q-swims",
+      "text": "Ana swims in the morning.",
+      "es": "Ana nada en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Who swims in the morning?",
+      "question_es": "¿Quién nada en la mañana?",
+      "question_speaker": "teacher"
+    },
+    {
+      "id": "q-runs",
+      "text": "Diego runs in the park.",
+      "es": "Diego corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "co-teacher",
+      "question": "Who runs in the park?",
+      "question_es": "¿Quién corre en el parque?",
+      "question_speaker": "teacher"
+    }
+  ],
+  "pool": [
+    {
+      "text": "We swim in the morning.",
+      "es": "Nadamos en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "She swims in the morning.",
+      "es": "Ella nada en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "They swim in the morning.",
+      "es": "Ellos nadan en la mañana.",
+      "image": "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "They are running in the park.",
+      "es": "Ellos están corriendo en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "He runs in the park.",
+      "es": "Él corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "He is running in the park.",
+      "es": "Él está corriendo en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "They run in the park.",
+      "es": "Ellos corren en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-swim",
+      "l-swims",
+      "l-runs"
+    ],
+    "Recognize": [
+      "n-swim",
+      "n-swims",
+      "n-run",
+      "n-runs",
+      "h-swim",
+      "q-swims",
+      "h-swims",
+      "q-runs",
+      "h-run",
+      "h-runs",
+      "n-swims"
+    ],
+    "Listen": [
+      "n-swims",
+      "x-swim",
+      "h-runs",
+      "x-swims",
+      "n-swim",
+      "x-run",
+      "h-swim",
+      "x-runs",
+      "h-swims",
+      "n-runs"
+    ],
+    "Speak": [
+      "n-swim",
+      "n-swims",
+      "w-swim",
+      "h-swims",
+      "n-run",
+      "n-runs",
+      "w-run",
+      "h-runs"
+    ],
+    "Use": [
+      "n-swim",
+      "n-swims",
+      "n-run",
+      "n-runs",
+      "h-swim",
+      "h-swims",
+      "h-run",
+      "h-runs"
+    ]
+  }
+}

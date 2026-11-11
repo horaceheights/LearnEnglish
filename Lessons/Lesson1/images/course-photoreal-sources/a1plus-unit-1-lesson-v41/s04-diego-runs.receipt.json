@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "83b39812-a152-4e97-81ca-90489cb2b02d",
+  "asset_id": "s04-diego-runs",
+  "pack_sha256": "80bd8c6288ba71b9dc2b86d327ceaea1f5c903ca4ba984287ebe8e3eed099584",
+  "started_at": "2026-11-11T01:35:41.974410+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, signs and equipment are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe setting is a wide paved path through a green park on a bright, calm morning, with grass and trees softly out of focus behind. The camera is at chest height a few steps in front, and the runner is seen whole from head to running shoes. Running is the most obvious thing in the photo: a real jogging stride toward the camera, one foot clearly off the ground, elbows bent, a relaxed smile, the face fully visible.\n\nImage 1 shows Diego. Keep his face, dark curly hair with a little grey, his short full beard, skin tone and build exactly. Create a new photograph: Diego runs alone, jogging toward the camera. He wears a plain burgundy running T-shirt, black running shorts and grey running shoes. Only Diego is in the photo; there is nobody else on the path or in the park, even far in the background.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+    "sha256": "0e1c0e7417a05c7b18b4aa80ead68ee4ff9691dd8d93c3250a388736da9a2d92"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "bsbzapaSHbjXz7IPjtTqmAI",
+  "usage": {
+    "promptTokenCount": 607,
+    "candidatesTokenCount": 1343,
+    "totalTokenCount": 2173,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 349
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 223,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137890",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 607,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 223
+  },
+  "elapsed_seconds": 22.93,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v41/s04-diego-runs.png",
+  "sha256": "9f1c023774136efca3a919a0461f5b9aca613ca239011be99f104795eb284aea",
+  "byte_count": 5524056,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

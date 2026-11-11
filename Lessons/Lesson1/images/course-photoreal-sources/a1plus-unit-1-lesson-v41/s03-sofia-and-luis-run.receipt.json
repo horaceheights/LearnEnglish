@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "dc2c6277-d29d-4803-85da-43f7eb974b21",
+  "asset_id": "s03-sofia-and-luis-run",
+  "pack_sha256": "80bd8c6288ba71b9dc2b86d327ceaea1f5c903ca4ba984287ebe8e3eed099584",
+  "started_at": "2026-11-11T01:35:16.136195+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, signs and equipment are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe setting is a wide paved path through a green park on a bright, calm morning, with grass and trees softly out of focus behind. The camera is at chest height a few steps in front, and the runner is seen whole from head to running shoes. Running is the most obvious thing in the photo: a real jogging stride toward the camera, one foot clearly off the ground, elbows bent, a relaxed smile, the face fully visible.\n\nImage 1 shows Sofia (left) and Luis (right). Keep both faces, Sofia's dark curly hair and warm brown skin, Luis's short dark curly hair and skin tone, their builds and Luis's much greater height exactly. Create a new photograph: Sofia and Luis run together, side by side and close to each other, both jogging toward the camera at the same moment. Sofia wears a plain bright-blue running T-shirt, black running leggings and white running shoes, her curly hair in a high bun; Luis wears a plain navy running T-shirt, dark-grey running shorts and navy running shoes. Only these two people are in the photo; there is nobody else on the path or in the park, even far in the background.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+    "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "VMbzaonEHfnUz7IPso2A2Q8",
+  "usage": {
+    "promptTokenCount": 676,
+    "candidatesTokenCount": 1374,
+    "totalTokenCount": 2273,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 418
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 223,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138028",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 676,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 223
+  },
+  "elapsed_seconds": 22.81,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v41/s03-sofia-and-luis-run.png",
+  "sha256": "4931218ce207abff538fe6481d4d537f262be58fde45e237be06c62fbd293664",
+  "byte_count": 5460773,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

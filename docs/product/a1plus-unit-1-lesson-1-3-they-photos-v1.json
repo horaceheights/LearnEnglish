@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-3-they-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v41",
+  "authorization": "2026-11-10: the user pre-approved the 1.3 image spending in chat (\"approve image spending\") while the lesson was being drafted, before the text gate; the agent set a US$0.65 ceiling for this revision (4 photos, about US$0.55). Revision 1 is frozen: a changed prompt is a new revision. A rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 4,
+    "expected_cost_usd": "0.56",
+    "requested_ceiling_usd": "0.65",
+    "no_automatic_retries": true,
+    "order": "Generate s01 first (the hardest: two people from one reference, swimming with both faces visible) and inspect it at 900/360/250/180 px and in the centered 4:5 crop before sending the rest; then s02, s03 and s04. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, signs and equipment are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep every person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "pool": "The setting is an outdoor swimming pool with clear blue water on a bright, calm morning; a few green trees and a plain pale wall are softly out of focus behind the far edge. The camera is low, just above the water a few steps in front of the swimmer, so the head, shoulders and reaching arms are large and sharp in the middle of the frame. Swimming is the most obvious thing in the photo: the body is stretched out flat in the water behind the head, the arms reach forward in a breaststroke with a little splash, and the feet do not touch the bottom. No swimming cap, no goggles; the face is fully visible.",
+    "park": "The setting is a wide paved path through a green park on a bright, calm morning, with grass and trees softly out of focus behind. The camera is at chest height a few steps in front, and the runner is seen whole from head to running shoes. Running is the most obvious thing in the photo: a real jogging stride toward the camera, one foot clearly off the ground, elbows bent, a relaxed smile, the face fully visible."
+  },
+  "assets": [
+    {
+      "id": "s01-sofia-and-luis-swim",
+      "order": 1,
+      "item": "We swim. / They swim. / Sofia and Luis swim in the morning. / They swim in the morning.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pool"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera."
+      },
+      "prompt": "Image 1 shows Sofia (left) and Luis (right). Keep both faces, Sofia's dark curly hair and warm brown skin, Luis's short dark curly hair and skin tone, and their builds exactly. Create a new photograph: Sofia and Luis swim together, side by side and close to each other in the same lane, both swimming breaststroke toward the camera at the same moment. Sofia wears a plain dark-blue one-piece swimsuit, her curly hair tied back in a bun; Luis wears plain navy swim shorts. Both look ahead with happy, relaxed faces just above the water. Only these two people are in the photo; the rest of the pool is empty."
+    },
+    {
+      "id": "s02-ana-swims",
+      "order": 2,
+      "item": "Ana swims. / She swims in the morning. / Who swims in the morning?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "pool"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana. Keep her face, long dark wavy hair, skin tone and build exactly. Create a new photograph: Ana swims alone, breaststroke toward the camera. She wears a plain sage-green one-piece swimsuit, her long hair tied back, and looks ahead with a happy, relaxed face just above the water. Only Ana is in the photo; the rest of the pool is empty."
+    },
+    {
+      "id": "s03-sofia-and-luis-run",
+      "order": 3,
+      "item": "They run. / Sofia and Luis run in the park. / They run in the park. / We run in the park.",
+      "shared": [
+        "photo",
+        "safe_center",
+        "park"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+        "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+        "observed_description": "Sofia (left: warm brown skin, dark curly hair in a high bun, bright blue blazer over a white blouse, black trousers) stands shoulder to shoulder with Luis (right: a very tall man with short dark curly hair, navy crew-neck T-shirt, khaki chinos, navy sneakers) against a plain light-grey wall; both smile at the camera."
+      },
+      "prompt": "Image 1 shows Sofia (left) and Luis (right). Keep both faces, Sofia's dark curly hair and warm brown skin, Luis's short dark curly hair and skin tone, their builds and Luis's much greater height exactly. Create a new photograph: Sofia and Luis run together, side by side and close to each other, both jogging toward the camera at the same moment. Sofia wears a plain bright-blue running T-shirt, black running leggings and white running shoes, her curly hair in a high bun; Luis wears a plain navy running T-shirt, dark-grey running shorts and navy running shoes. Only these two people are in the photo; there is nobody else on the path or in the park, even far in the background."
+    },
+    {
+      "id": "s04-diego-runs",
+      "order": 4,
+      "item": "Diego runs. / Diego runs in the park. / He runs in the park. / Who runs in the park?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "park"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp",
+        "sha256": "0e1c0e7417a05c7b18b4aa80ead68ee4ff9691dd8d93c3250a388736da9a2d92",
+        "observed_description": "Diego, in his dark navy blazer over a burgundy button shirt, faces the camera from the waist up in a bright cafe, smiling broadly; his short, full dark beard with grey at the chin covers his cheeks, chin and upper lip."
+      },
+      "prompt": "Image 1 shows Diego. Keep his face, dark curly hair with a little grey, his short full beard, skin tone and build exactly. Create a new photograph: Diego runs alone, jogging toward the camera. He wears a plain burgundy running T-shirt, black running shorts and grey running shoes. Only Diego is in the photo; there is nobody else on the path or in the park, even far in the background."
+    }
+  ]
+}
