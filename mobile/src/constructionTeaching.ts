@@ -28,6 +28,8 @@ const COMPOUND_NOUNS: Record<string, string> = { 'post office': 'oficina de corr
 const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish american canadian');
 // A1+ 1.1 (2026-11-10): what people look like, after "is" (Luis is tall.) or before a noun (an old man, long hair).
 const DESCRIPTIONS = set('tall short old young long');
+// A1+ 1.5 (2026-11-11): brothers and sisters before a noun (an older sister, my younger brother).
+for (const description of words('older younger')) DESCRIPTIONS.add(description);
 for (const state of DESCRIPTIONS) STATES.add(state);
 const OWNERS = set('mine yours ours');
 const OWNER_MEANINGS: Record<string, string> = { mine: 'mío', yours: 'tuyo', ours: 'nuestro' };
@@ -460,6 +462,20 @@ function teachClause(text: string): ClausePlan {
     teach(0, 2, '“How many” pregunta la cantidad: “How” va antes de “many” y las dos palabras abren la pregunta.');
     teach(keys.length - 2, keys.length, '“Are there” cierra la pregunta: en la pregunta “are” va antes de “there”, al revés que en “There are”.');
     const supported = nominal(2, keys.length - 2);
+    return { explanations, relations, supported: supported && explanations.every(Boolean) };
+  }
+  // A1+ 1.5 asks "How many brothers and sisters do you have?": "How many" and what we count open the
+  // question; then the auxiliary "do", the person and "have".
+  const howManyHave = /^how many (.+) (do|does) (you|he|she|we|they|ana|luis|sofia|diego) have$/.exec(joined);
+  if (howManyHave && text.trim().endsWith('?')) {
+    const auxiliary = keys.length - 3;
+    const thirdPerson = ['he', 'she', 'ana', 'luis', 'sofia', 'diego'].includes(keys[auxiliary + 1]);
+    if ((keys[auxiliary] === 'does') !== thirdPerson) return { explanations, relations, supported: false };
+    teach(0, keys.length, `En esta pregunta, primero “How many” y lo que contamos, ${quote(phrase(2, auxiliary))}; después ${quote(tokens[auxiliary])}, luego ${quote(tokens[auxiliary + 1])} y al final “have”.`);
+    teach(0, 2, '“How many” pregunta la cantidad: “How” va antes de “many” y las dos palabras abren la pregunta.');
+    const supported = nominal(2, auxiliary);
+    teach(auxiliary, auxiliary + 2, `En esta pregunta, el auxiliar ${quote(tokens[auxiliary])} va antes de ${quote(tokens[auxiliary + 1])}, la persona a quien preguntamos.`);
+    teach(auxiliary + 1, keys.length, `Después de ${quote(tokens[auxiliary + 1])} va “have”, la acción en forma base: ${quote(phrase(auxiliary, keys.length))}.`);
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   // Polite requests use the taught "Can I have ..., please?" frame.

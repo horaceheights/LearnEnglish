@@ -20,9 +20,10 @@ test('installed listening cards explain the heard evidence, including the report
   const cards = lessons.filter(lesson => lesson.experience_type !== 'mission')
     .flatMap(lesson => lesson.cards.filter(card => card.stage === 'Listen'));
   // Lesson 1.2 was rebuilt on 2026-10-29 with ten Listen cards instead of five, lesson 1.4 on
-  // 2026-11-04 with ten instead of eight, lesson 1.1 on 2026-11-10 with nine instead of ten, and
-  // lesson 1.3 on 2026-11-10 with ten instead of seven.
-  assert.equal(cards.length, 108);
+  // 2026-11-04 with ten instead of eight, lesson 1.1 on 2026-11-10 with nine instead of ten,
+  // lesson 1.3 on 2026-11-10 with ten instead of seven, and lesson 1.5 on 2026-11-11 with ten
+  // instead of six.
+  assert.equal(cards.length, 112);
   for (const card of cards) {
     assert.ok(!card.context_es, `${card.slide_id}: Spanish scenario text returned.`);
     for (const option of wrongOptions(card)) {

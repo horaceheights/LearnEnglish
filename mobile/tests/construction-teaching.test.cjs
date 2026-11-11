@@ -127,6 +127,19 @@ test('a word that is both a noun and a verb is the noun after an article and the
   assert.match(hint('The drinks are on the table.', 1, 2), /primero “The drinks”, de quién hablamos, y después “are”/);
 });
 
+test('How many ... do you have? is a question, and older/younger describe the noun after them', () => {
+  for (const target of ['How many brothers and sisters do you have?', 'How many brothers does Luis have?',
+    'This is my older sister.', 'Ana has an older sister.', 'Luis has a younger brother.']) {
+    assert.ok(constructionTeachingPlan(construction(target)).supported, target);
+  }
+  assert.equal(constructionTeachingPlan(construction('How many brothers do Luis have?')).supported, false,
+    'The auxiliary must agree with the person.');
+  const question = constructionTeachingPlan(construction('How many brothers and sisters do you have?'));
+  assert.doesNotMatch(question.relations.map(relation => relation.explanation).join(' '), /afirmación/);
+  assert.match(hint('How many brothers and sisters do you have?', 5, 6), /el auxiliar “do” va antes de “you”/);
+  assert.match(hint('Ana has an older sister.', 3, 4), /“older” describe “sister” y va antes del nombre/);
+});
+
 test('polite requests, coordinated handovers and negative needs explain word order', () => {
   for (const target of ['Can I have coffee and eggs, please?', 'Here are your coffee and eggs.', 'Here are your three apples.', 'I do not want milk.', 'I do not need juice.']) {
     const card = construction(target);
