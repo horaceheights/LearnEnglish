@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "01773aa3-8d3a-4901-96f9-7c0881f52430",
+  "asset_id": "s01-sofia-and-luis-swim",
+  "pack_sha256": "716b85a2bbd8fde6561bcb9a31bda2a450935390c2bdf0eff3d189a8c5426f27",
+  "started_at": "2026-11-11T01:37:21.106222+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, signs and equipment are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep every person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe setting is an outdoor swimming pool with clear blue water on a bright, calm morning; green trees are softly out of focus behind the far edge, and no pool edge, ladder or wall is near the swimmers. The camera is just above the water, straight in front of them, and they swim straight toward it, so each body stretches away from the camera under the water. The swimming must look real: only the head, the tops of the shoulders and the hands are above the surface; the chest, body and legs are under the clear water, and no leg or foot is in the air. Each swimmer is in the middle of a head-up breaststroke, hands pushing forward together just under the surface in front of the chin, leaving a small V-shaped wake in the water behind the head. No swimming cap and no goggles; each face is clearly visible, with wet hair at the edges.\n\nImage 1 shows Sofia (left) and Luis (right). Keep both faces, Sofia's dark curly hair and warm brown skin, Luis's short dark curly hair and skin tone, and their builds exactly. Create a new photograph: Sofia and Luis swim together, side by side about an arm's length apart, both swimming straight toward the camera at the same moment, their two heads close to the middle of the photo. Sofia's curly hair is tied back in a bun; the straps of her plain dark-blue swimsuit and Luis's bare shoulders show just above the water. Both look ahead at the camera with happy, relaxed faces. Only these two people are in the photo; the rest of the pool is empty.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-p02-094cffd8654fde7e.webp",
+    "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "0cbzarvGL9mKqtsPyruxuQM",
+  "usage": {
+    "promptTokenCount": 765,
+    "candidatesTokenCount": 1353,
+    "totalTokenCount": 2384,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 507
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 266,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138722",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 765,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 266
+  },
+  "elapsed_seconds": 25.99,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v42/s01-sofia-and-luis-swim.png",
+  "sha256": "d7f6dcf5c378a8dbc73b00746199a82fa2fb12928c774f1a9c1001a41f10e663",
+  "byte_count": 4964864,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

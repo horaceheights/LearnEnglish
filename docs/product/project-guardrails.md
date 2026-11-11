@@ -19,7 +19,7 @@ The user approved these standards after reviewing the installed A1+ Unit 1 again
 - **Unit 1 order (2026-11-09).** Unit 1 follows A1 Unit 1, People, Family and Actions:
   - 1.1 ← A1 1.1 Meet the People: what people look like (*tall*, *short*, *young*, *old*, *long hair*, *beard*); rebuilt 2026-11-10. The unit title and outcome now follow A1 Unit 1 in every Unit 1 lesson.
   - 1.2 ← A1 1.2 People in Action: he/she -s for what someone does (*Luis drinks coffee.*), taught against the I-form (*I drink coffee.*) and heard against A1's *is …-ing* (*Luis is drinking coffee.*). No *every day*: A1 never teaches it, so it waits for the frequency lessons. Rebuilt 2026-11-10.
-  - 1.3 ← A1 1.3 They and Are: *they*/*we* without -s, against he/she -s (*They swim on Saturday.* / *He swims on Sunday.*).
+  - 1.3 ← A1 1.3 They and Are: *they*/*we* without -s, against he/she -s (*They swim in the morning.* / *Ana swims in the morning.*), heard against A1's *are …-ing*. No days: *on* + a day would be a second new relationship. Rebuilt 2026-11-10.
   - 1.4 ← A1 1.4 Children and Babies (family): the extended family and where people live (*aunt*, *uncle*, *cousin*, *lives in*, *with*); user decision 2026-10-31, rebuilt 2026-11-04.
   - 1.5 ← A1 1.5 Brothers, Sisters and Adults: *How many brothers and sisters do you have?*, *has*, *older*, *younger*.
   - 1.6 ← A1 1.6 Parents and Grandparents: frequency words (*always*, *usually*, *sometimes*, *never*).

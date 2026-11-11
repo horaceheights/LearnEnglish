@@ -41,6 +41,8 @@ for (const verb of words('wakes gets eats brushes')) VERBS.add(verb);
 for (const verb of words('live lives')) VERBS.add(verb);
 // A1+ 1.2 (2026-11-10): what people do (Luis drinks coffee., Diego eats fruit.).
 for (const verb of words('drinks reads writes')) VERBS.add(verb);
+// A1+ 1.3 (2026-11-10): what two people do (They swim., Diego runs in the park.).
+for (const verb of words('swim swims runs')) VERBS.add(verb);
 // A word that is both a noun and a verb ("drinks", "work") is the noun right after an article or a
 // possessive (The drinks are on the table.) and the verb after its subject (Luis drinks coffee.).
 const NOUN_MARKERS = set('a an the my your his her our their');
