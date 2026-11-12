@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c5d8f868-720b-4a74-950e-5b9f9a3abc00",
+  "asset_id": "f04-father-runs-in-the-park",
+  "pack_sha256": "235c8352b08efaea0223d9f59f629e520eca1522c982e40c3da4b04518cb0b66",
+  "started_at": "2026-11-12T02:23:21.040092+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, packaging, tags and objects are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the person, and the face is fully visible and in sharp focus.\n\nThe setting is a wide gravel path beside a small lake in a green park on a bright, calm morning, with grass and trees softly out of focus behind. The camera is at chest height a few steps in front, and the runner is seen whole from head to running shoes. Running is the most obvious thing in the photo: a real, easy jogging stride toward the camera, one foot clearly off the ground, elbows bent, a relaxed smile.\n\nImage 1 shows Ana, only so that her father clearly looks like her; Ana is NOT in the new photo. Create a new photograph of Ana's FATHER running alone on the same lakeside path: a fit man of about 60, clearly older than Ana but much younger than a grandfather, with Ana's dark eyes and warm smile, short dark hair grey at the sides, a neat grey moustache and no glasses. He wears a plain dark-green running T-shirt, black running shorts and grey running shoes. No one else is on the path.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+    "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "GCP1au7TL4-Hz7IP-8PKwAw",
+  "usage": {
+    "promptTokenCount": 678,
+    "candidatesTokenCount": 1327,
+    "totalTokenCount": 2210,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 420
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 205,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137816",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 678,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 205
+  },
+  "elapsed_seconds": 24.06,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v60/f04-father-runs-in-the-park.png",
+  "sha256": "953de605a0e10451acb882a71f89ef47df8cf156bdcafd0b94e7de850d270d71",
+  "byte_count": 5768648,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
