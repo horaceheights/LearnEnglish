@@ -1,7 +1,9 @@
 import { Image, StyleSheet, type ImageSourcePropType } from 'react-native';
 
 import { lessonOptionImageSource } from '../lessonImageSources';
+import { speakerAnchor } from '../speakerBubble';
 import type { TeachingClock } from '../types';
+import { SpeakerBubble } from './SpeakerBubble';
 import { TeachingClocks } from './TeachingClocks';
 
 const THREE_BY_TWO_ASPECT_RATIO = 3 / 2;
@@ -14,6 +16,8 @@ export function OptionMediaImage({
   sourceOverride,
   onLoad,
   clockCues,
+  speakerRole,
+  speaking = false,
 }: {
   accessibilityLabel?: string;
   imageUrl: string;
@@ -21,6 +25,9 @@ export function OptionMediaImage({
   sourceOverride?: ImageSourcePropType;
   onLoad?: () => void;
   clockCues?: TeachingClock[];
+  /** Who is talking in this photo now; a bubble marks them when the photo shows two or more people. */
+  speakerRole?: string | null;
+  speaking?: boolean;
 }) {
   const source = sourceOverride ?? lessonOptionImageSource(imageUrl);
   const resolvedSource = Image.resolveAssetSource(source);
@@ -44,7 +51,8 @@ export function OptionMediaImage({
       source={source}
       onLoad={onLoad}
       style={[styles.fill, poster ? styles.poster : null]}
-    /><TeachingClocks cues={clockCues} /></>
+    /><TeachingClocks cues={clockCues} />
+    {sourceIsThreeByTwo ? <SpeakerBubble anchor={speakerAnchor(imageUrl, speakerRole)} speaking={speaking} /> : null}</>
   );
 }
 

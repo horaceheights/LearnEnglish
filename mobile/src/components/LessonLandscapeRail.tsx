@@ -10,10 +10,12 @@ type Props = PropsWithChildren<{
   location: string; stage: string; color: string; progress: string;
   imageUrl?: string | null;
   clockCues?: TeachingClock[];
+  speakerRole?: string | null;
+  speaking?: boolean;
   onBack: () => void; onHome: () => void; onMenu: () => void;
 }>;
 
-export function LessonLandscapeRail({ location, stage, color, progress, imageUrl, clockCues,
+export function LessonLandscapeRail({ location, stage, color, progress, imageUrl, clockCues, speakerRole = null, speaking = false,
   onBack, onHome, onMenu, children }: Props) {
   const { fontScale } = useWindowDimensions();
   const [mediaHeight, setMediaHeight] = useState(0);
@@ -35,7 +37,8 @@ export function LessonLandscapeRail({ location, stage, color, progress, imageUrl
     {children}
     {imageUrl ? <View style={styles.media} onLayout={event => setMediaHeight(event.nativeEvent.layout.height)}>
       {mediaHeight > 0 ? <LessonMediaFrame maxHeight={mediaHeight}>
-        <OptionMediaImage imageUrl={imageUrl} clockCues={clockCues} accessibilityLabel="Imagen de la frase" />
+        <OptionMediaImage imageUrl={imageUrl} clockCues={clockCues} speakerRole={speakerRole} speaking={speaking}
+          accessibilityLabel="Imagen de la frase" />
       </LessonMediaFrame> : null}
     </View> : null}
   </View>;

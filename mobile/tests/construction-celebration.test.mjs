@@ -138,6 +138,8 @@ const modules = new Map();
 function loadWeb(file) {
   if (!path.extname(file)) file = ['.js', '.ts'].map(ext => file + ext).find(fs.existsSync);
   if (modules.has(file)) return modules.get(file);
+  // A data module (the speaker bubble's photo registry) is its parsed default export.
+  if (file.endsWith('.json')) { const data = { default: JSON.parse(fs.readFileSync(file, 'utf8')) }; modules.set(file, data); return data; }
   const exports = {}; modules.set(file, exports);
   const source = ts.transpileModule(fs.readFileSync(file, 'utf8'), { fileName: file.endsWith('.js') ? file + 'x' : file,
     compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, target: ts.ScriptTarget.ES2020 } }).outputText;

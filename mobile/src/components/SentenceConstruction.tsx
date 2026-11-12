@@ -24,6 +24,8 @@ const FLIGHT_MS = 220;
 type Props = {
   activeTurnImageUrl?: string | null;
   clockCues?: TeachingClock[];
+  speakerRole?: string | null;
+  speaking?: boolean;
   playbackError?: boolean;
   onTutor?: () => void;
   vocabulary?: readonly string[];
@@ -94,7 +96,7 @@ function WordTile(props: WordProps) {
   </View>;
 }
 
-export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry, onTutor, activeTurnImageUrl, clockCues, playbackError }: Props) {
+export function SentenceConstruction({ vocabulary = [], card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry, onTutor, activeTurnImageUrl, clockCues, speakerRole = null, speaking = false, playbackError }: Props) {
 
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -253,7 +255,8 @@ export function SentenceConstruction({ vocabulary = [], card, selected, result, 
     <CardContainer ref={view => { cardPane.current = view; }} style={[styles.card, !compact ? styles.cardContent : null]}
       {...(compact ? { contentContainerStyle: styles.cardContent, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
       {!landscape ? <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
-        <OptionMediaImage imageUrl={activeTurnImageUrl || card.prompt_image_url} clockCues={clockCues} accessibilityLabel="Imagen de la frase" />
+        <OptionMediaImage imageUrl={activeTurnImageUrl || card.prompt_image_url} clockCues={clockCues}
+          speakerRole={speakerRole} speaking={speaking} accessibilityLabel="Imagen de la frase" />
       </LessonMediaFrame> : null}
       {playbackError ? <Text accessibilityLiveRegion="assertive" style={styles.hint}>No se pudo escuchar la respuesta completa. Toca la bocina para repetir.</Text> : null}
       {result === 'correct' ? <ConstructionCelebration lift={celebrationLift} compact={landscape} /> : <>

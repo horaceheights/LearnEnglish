@@ -259,6 +259,7 @@ test('the native and web prompt images connect their keyed load event to reply r
     (n,a)=>ts.isJsxSelfClosingElement(n)&&n.tagName.getText(a)==='OptionMediaImage'
       &&n.getText(a).includes('promptImageLoadKey'),{
         ...common,OptionMediaImage:'OptionMediaImage',card:cards[0],isWrittenRecognize:()=>false,clockCues:[],
+        speakerRole:null,speaking:false,
         onPromptImageReady:()=>nativeLoaded++,
       });
   assert.equal(native.props.key,common.promptImageLoadKey);
