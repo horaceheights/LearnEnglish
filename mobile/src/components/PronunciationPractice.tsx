@@ -72,6 +72,8 @@ type Props = {
   imageLabel?: string;
   imageUrl?: string;
   clockCues?: TeachingClock[];
+  /** The card's own speaker; a playing model turn names its own. */
+  speakerRole?: string | null;
   isAppActive: boolean;
   autoplayReady?: boolean;
   isOffline: boolean;
@@ -256,6 +258,7 @@ export function PronunciationPractice({
   imageLabel,
   imageUrl,
   clockCues,
+  speakerRole = null,
   isAppActive,
   autoplayReady = true,
   isOffline,
@@ -2076,6 +2079,10 @@ export function PronunciationPractice({
               accessibilityLabel={imageLabel || phrase}
               imageUrl={activeModelTurnImageUrl || imageUrl || ''}
               clockCues={modelSequenceActive ? audioTurns?.[modelPlaylistStatus.currentIndex]?.turn.clock_cues : clockCues}
+              speakerRole={modelSequenceActive
+                ? audioTurns?.[modelPlaylistStatus.currentIndex]?.turn.speaker_role
+                : audioTurns?.[0]?.turn.speaker_role ?? speakerRole}
+              speaking={modelSequenceActive ? modelPlaylistStatus.playing : modelStatus.playing}
             />
             {videoName && !reduceMotion ? (
               <VideoView

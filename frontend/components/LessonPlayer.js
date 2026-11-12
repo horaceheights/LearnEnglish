@@ -61,7 +61,9 @@ import { vocabularyParts, NEW_VOCABULARY_COLOR } from "../../mobile/src/lessonVo
 import { isWordConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
 import { mediaUrl } from "../lib/mediaUrl";
 import TeachingClocks from './TeachingClocks';
+import SpeakerBubble from './SpeakerBubble';
 import { cardClockCues, visibleClockCues } from '../../mobile/src/teachingClock';
+import { lineSpeaker, optionSpeaker } from '../../mobile/src/speakerBubble';
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260920-action-continuity-v3";
@@ -2387,6 +2389,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
   const [constructionReplyState, setConstructionReplyState] = useState("idle");
   const constructionPlaybackRef = useRef(null);
   const visualClockCues = currentCard ? visibleClockCues(currentCard, cardClockCues(currentCard, playingVisualTurn), lastResult === 'correct') : [];
+  // Who is talking in the card's own photo (speaker bubble, shared with mobile).
+  const visualSpeakerRole = currentCard ? lineSpeaker(currentCard, playingVisualTurn) : null;
   const [replyImageAttempt, setReplyImageAttempt] = useState(0);
   const [loadedPromptImageKey, setLoadedPromptImageKey] = useState(null);
   // A speaker's picture never covers an answer-choice card's options (shared with mobile).
@@ -5961,7 +5965,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
             onTutor={tutorContext ? openTutor : undefined}
             playbackError={constructionReplyState === "error"}
             onChange={evaluateChoiceSelection} onReplay={lastResult === "correct" && currentCard.success_audio_turns?.length ? playConstructionResponse : playCurrentCardPrompt} onRetry={resetMissionSelection}
-            clockCues={visualClockCues} imageSrc={lessonOptionImageSrc(playingTurnImageUrl || currentCard.prompt_image_url)} /> : (
+            clockCues={visualClockCues} imageSrc={lessonOptionImageSrc(playingTurnImageUrl || currentCard.prompt_image_url)}
+            imageUrl={playingTurnImageUrl || currentCard.prompt_image_url} speakerRole={visualSpeakerRole} /> : (
           <section ref={pageRef} data-lesson-page style={boardStyle}>
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
@@ -5999,6 +6004,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                       : {}),
                   }}
                 />
+                <SpeakerBubble imageUrl={activeTurnImageUrl || currentCard.prompt_image_url} speakerRole={visualSpeakerRole} />
                 <TeachingClocks cues={visualClockCues} />
                 {isLockedMissionFinale ? (
                   <div
@@ -6329,6 +6335,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false, accoun
                         <><img src={actionPosterSrc || lessonOptionImageSrc(teachingImageUrl || option.image_url)} alt={optionLabel}
                           onLoad={learnTranslation.enabled ? () => setLoadedTeachingImageKey(teachingCardKey) : undefined}
                           data-written-recognition-media={fitWrittenRecognition ? true : undefined} style={optionImageStyle} />
+                          <SpeakerBubble imageUrl={teachingImageUrl || option.image_url}
+                            speakerRole={currentCard.options.length === 1 ? visualSpeakerRole : optionSpeaker(currentCard, option.image_url)} />
                           <TeachingClocks cues={currentCard.options.length === 1 ? visualClockCues : visibleClockCues(currentCard, option.clock_cues, lastResult === 'correct')} /></>
                       )
                     ) : (

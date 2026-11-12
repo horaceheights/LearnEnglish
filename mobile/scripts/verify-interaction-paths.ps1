@@ -84,6 +84,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Conversation decision playback, retries and cross-client lifecycle failed.' }
   & node --test tests/teaching-clock.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Authored clock evidence and listening boundaries failed.' }
+  & node --test tests/speaker-bubble.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Speaker bubble rules, crop geometry or reviewed photo speakers failed.' }
   & node --test tests/mission-photo-edits.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Mission photo edit and reviewed marker bindings failed.' }
   & node tests/mission-phone-landscape.test.cjs

@@ -18,6 +18,7 @@ import { promptChoiceRowHeight } from '../promptChoiceLayout';
 import type { ChoiceOption, LessonCard, TeachingClock } from '../types';
 import { visibleClockCues } from '../teachingClock';
 import { teachingOptionImageUrl, visibleTurnImageUrl } from '../lessonTurnImages';
+import { optionSpeaker } from '../speakerBubble';
 import {
   LESSON_MEDIA_FRAME_STYLE,
   LESSON_MEDIA_VIEWPORT_STYLE,
@@ -65,6 +66,9 @@ type Props = {
   audioVoice: CourseAudioVoice;
   activeTurnImageUrl?: string | null;
   clockCues?: TeachingClock[];
+  /** Who is talking in the card's own photo now, and whether their voice is playing. */
+  speakerRole?: string | null;
+  speaking?: boolean;
   card: LessonCard;
   level: string;
   lessonId: string;
@@ -103,6 +107,8 @@ export function LessonCardView({
   audioVoice,
   activeTurnImageUrl: playingTurnImageUrl = null,
   clockCues,
+  speakerRole = null,
+  speaking = false,
   card,
   level,
   lessonId,
@@ -497,6 +503,8 @@ export function LessonCardView({
               : card.answer_audio_text || card.prompt}
             imageUrl={activeTurnImageUrl || card.prompt_image_url}
             clockCues={clockCues}
+            speakerRole={speakerRole}
+            speaking={speaking}
             onLoad={onPromptImageReady}
           />
         </LessonMediaFrame>
@@ -602,6 +610,7 @@ export function LessonCardView({
             imageLabel={card.options[0]?.label || card.prompt}
             imageUrl={card.options[0]?.image_url}
             clockCues={card.options[0]?.clock_cues || card.clock_cues}
+            speakerRole={speakerRole}
             isAppActive={isAppActive}
             autoplayReady={pronunciationAutoplayReady}
             isOffline={isOffline}
@@ -740,6 +749,8 @@ export function LessonCardView({
                           <OptionMediaImage
                             imageUrl={teachingImageUrl || option.image_url}
                             clockCues={visibleClockCues(card, card.options.length === 1 ? clockCues : option.clock_cues, result === 'correct')}
+                            speakerRole={card.options.length === 1 ? speakerRole : optionSpeaker(card, option.image_url)}
+                            speaking={card.options.length === 1 && speaking}
                             onLoad={card.stage === 'Learn' && card.options.length === 1 ? onTeachingImageReady : undefined}
                             sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
                           />

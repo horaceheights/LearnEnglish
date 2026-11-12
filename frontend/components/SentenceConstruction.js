@@ -9,8 +9,9 @@ import { useManualSentenceTranslation } from "../../mobile/src/hooks/useManualSe
 import styles from "./SentenceConstruction.module.css";
 import ConstructionCelebration from "./ConstructionCelebration";
 import TeachingClocks from './TeachingClocks';
+import SpeakerBubble from './SpeakerBubble';
 
-export default function SentenceConstruction({ card, vocabulary = [], selected, result, onChange, onReplay, onRetry, onTutor, imageSrc, location, showHelp, helpOpen, surfaceRef, clockCues, playbackError }) {
+export default function SentenceConstruction({ card, vocabulary = [], selected, result, onChange, onReplay, onRetry, onTutor, imageSrc, location, showHelp, helpOpen, surfaceRef, clockCues, imageUrl, speakerRole, playbackError }) {
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
@@ -143,7 +144,7 @@ export default function SentenceConstruction({ card, vocabulary = [], selected, 
       </button>
     </div>
     <div className={`${styles.card} ${result === "correct" ? styles.successCard : ""}`}>
-      <div className={styles.imageFrame} style={{ position: 'relative' }}><img src={imageSrc} alt="Imagen de la frase" /><TeachingClocks cues={clockCues} /></div>
+      <div className={styles.imageFrame} style={{ position: 'relative' }}><img src={imageSrc} alt="Imagen de la frase" /><SpeakerBubble imageUrl={imageUrl} speakerRole={speakerRole} /><TeachingClocks cues={clockCues} /></div>
       {playbackError ? <p role="alert">No se pudo escuchar la respuesta completa. Toca la bocina para repetir.</p> : null}
       {result === "correct" ? <ConstructionCelebration /> : <>
       {result !== "wrong" ? <p className={styles.instruction}>{showHelp ? lessonHelpText(card, "translation-on-tap") : "Toca o arrastra. Devuelve aquí las palabras para corregir."}</p> : null}

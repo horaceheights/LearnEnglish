@@ -129,6 +129,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
 import { replyImageAfterPrompt } from '../lessonTurnImages';
 import { cardClockCues, visibleClockCues } from '../teachingClock';
+import { lineSpeaker } from '../speakerBubble';
 import { useLearnTranslationPreview } from '../hooks/useLearnTranslationPreview';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
@@ -420,6 +421,8 @@ export function LessonScreen({
   const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
   const [activeAudioSequence, setActiveAudioSequence] = useState<CourseAudioTurnPlayback[] | null>(null);
   const [activeTurnImageUrl, setActiveTurnImageUrl] = useState<string | null>(null);
+  // Whose voice the single-clip player is playing, so only that person's bubble pulses.
+  const [activeClipSpeaker, setActiveClipSpeaker] = useState<string | null>(null);
   const [replyImageAttempt, setReplyImageAttempt] = useState(0);
   const [loadedPromptImageKey, setLoadedPromptImageKey] = useState<string | null>(null);
   const [pronunciationAudioReadyKey, setPronunciationAudioReadyKey] = useState<string | null>(null);
@@ -763,6 +766,7 @@ export function LessonScreen({
     }
     setActiveAudioSequence(null);
     setActiveTurnImageUrl(null);
+    setActiveClipSpeaker(null);
     const requestId = ++audioPlaybackRequestRef.current;
     void ensureAudioPreloaded(source)
       .then(async () => {
@@ -812,6 +816,7 @@ export function LessonScreen({
       return;
     }
     playAudioSource(lessonAudioAssetSource(asset), mode, variant);
+    setActiveClipSpeaker(asset.speaker_role);
   }, [cardIndex, lesson, playAudioSource]);
 
   const playSuccessChime = useCallback(async () => {
@@ -1344,6 +1349,11 @@ export function LessonScreen({
     if (turn) setActiveTurnImageUrl(turn.turn.image_url);
   }, [activeAudioSequence, audioPlaylistStatus.currentIndex]);
   const visualClockCues = currentCard ? visibleClockCues(currentCard, cardClockCues(currentCard, activeVisualTurn), result === 'correct') : [];
+  // The speaker bubble (2026-11-12) marks who is talking in the card's photo (speakerBubble.ts).
+  const visualSpeakerRole = currentCard ? lineSpeaker(currentCard, activeVisualTurn) : null;
+  const visualSpeakerTalking = Boolean(visualSpeakerRole) && (activeAudioSequence
+    ? audioPlaylistStatus.playing
+    : audioPlayerStatus.playing && activeClipSpeaker === visualSpeakerRole);
   const sentenceTranslation = activeVisualTurn?.spanish_translation || currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? (isUseStage ? promptAudio : currentCard?.prompt ?? '') : visiblePromptText,
   );
@@ -3570,7 +3580,8 @@ export function LessonScreen({
         color={activeStageColor || '#279487'} progress={`${cardIndex + 1} / ${lesson.cards.length}`}
         onBack={() => confirmLessonExit('previous')} onHome={() => confirmLessonExit('home')}
         onMenu={() => setShowMissionLandscapeMenu(true)}
-        imageUrl={isSentenceCard ? activeTurnImageUrl || currentCard.prompt_image_url : null} clockCues={isSentenceCard ? visualClockCues : undefined}>
+        imageUrl={isSentenceCard ? activeTurnImageUrl || currentCard.prompt_image_url : null} clockCues={isSentenceCard ? visualClockCues : undefined}
+        speakerRole={isSentenceCard ? visualSpeakerRole : null} speaking={isSentenceCard && visualSpeakerTalking}>
         {!wideLandscapePrompt ? lessonPromptHeader : null}
       </LessonLandscapeRail> : usesMissionPhoneLandscape ? null : <>{lessonChrome}{lessonPromptHeader}</>}
       <View key="activity-column" style={[styles.activityColumn, needsTextAnswerScrolling ? styles.lessonBodyGrowing : null]}>
@@ -3597,6 +3608,7 @@ export function LessonScreen({
           {isSentenceCard ? (
             <SentenceConstruction key={currentCard.slide_id} card={currentCard} vocabulary={lesson.vocabulary}
               activeTurnImageUrl={activeTurnImageUrl} clockCues={visualClockCues}
+              speakerRole={visualSpeakerRole} speaking={visualSpeakerTalking}
               selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={false} helpOpen={showHelp || tutor.visible}
               onTutor={tutorContext ? openTutor : undefined}
               playbackError={constructionReplyError}
@@ -3646,6 +3658,8 @@ export function LessonScreen({
             vocabulary={lesson.vocabulary}
             activeTurnImageUrl={activeTurnImageUrl}
             clockCues={visualClockCues}
+            speakerRole={visualSpeakerRole}
+            speaking={visualSpeakerTalking}
             allowVerticalGrowth={needsTextAnswerScrolling}
             audioProvider={audioProvider}
             audioVoice={audioVoice}

@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "description": "Who could be speaking in each reviewed lesson photo, and where. A speaker bubble (user decision 2026-11-12) marks the cast member who is talking, only on photos that show two or more people. Anchors are crown points (top of the head, horizontal centre) on the complete 3:2 runtime image, 0..1 of its width and height, bound to the image's sha256. `owner` is the cast member whose own line the photo was made for; picture choices mark it. Rules: mobile/src/speakerBubble.ts; checks: mobile/tests/speaker-bubble.test.cjs. A1+ Unit 1 lessons 1.1-1.6 are registered; A1 photos follow in a later sweep.",
+  "photos": {
+    "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp": {
+      "sha256": "a668117345db103e1a0be808cebfaa792f75ff79393f2bae1b1201312d7212be",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana's grandmother alone at the kitchen table, drinking tea."
+    },
+    "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp": {
+      "sha256": "edea3fd93197a36c1fce31bec7d64306de1efa27829a0f803c36cc23d664ef33",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana's grandfather alone at the kitchen table, drinking coffee."
+    },
+    "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp": {
+      "sha256": "683648d631e9c111f9e8a9b3ae1c4dbdad6b002ceffdccb1b775d6450017d56d",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana's mother alone, running in the park."
+    },
+    "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp": {
+      "sha256": "63202dc029845919d85c434cc136a3dabbafeee7606f139249333ffad5492596",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana's father alone, running in the park."
+    },
+    "/lesson-assets/a1plus-unit-1-g01-9f04896425c66f5f.webp": {
+      "sha256": "9f04896425c66f5f13a10a07673b23e120079b0790f893e6a5768e6b12b04af4",
+      "people": 3,
+      "owner": "ana",
+      "anchors": {
+        "ana": {
+          "x": 0.437,
+          "y": 0.11
+        }
+      },
+      "observed": "Older sister (left), Ana (middle), younger sister (right) in a garden."
+    },
+    "/lesson-assets/a1plus-unit-1-g02-45009300e898db07.webp": {
+      "sha256": "45009300e898db07dd91b9de66687eb65a82ba0f762187f6cc804d635dcf4ec0",
+      "people": 2,
+      "owner": "ana",
+      "anchors": {
+        "ana": {
+          "x": 0.556,
+          "y": 0.11
+        }
+      },
+      "observed": "Older sister (left) and Ana (right) in the garden."
+    },
+    "/lesson-assets/a1plus-unit-1-g03-8a7645cb8c2f616c.webp": {
+      "sha256": "8a7645cb8c2f616cacfa6397ddfcdb06e05e8b34c1c670fd96d43bd21a3b7e08",
+      "people": 2,
+      "owner": "ana",
+      "anchors": {
+        "ana": {
+          "x": 0.4,
+          "y": 0.11
+        }
+      },
+      "observed": "Ana (left) and her younger sister (right) in the garden."
+    },
+    "/lesson-assets/a1plus-unit-1-g04-01a9cbabd8e566b9.webp": {
+      "sha256": "01a9cbabd8e566b9147a45da23c03ed9cda91457ccc38051bc001ffae402adf5",
+      "people": 3,
+      "owner": "luis",
+      "anchors": {
+        "luis": {
+          "x": 0.521,
+          "y": 0.067
+        }
+      },
+      "observed": "Older brother (left), Luis (middle), younger brother (right) in a living room."
+    },
+    "/lesson-assets/a1plus-unit-1-g05-6d99e453d89e2973.webp": {
+      "sha256": "6d99e453d89e2973e85624d0557bf186af2d1943c6b9ddfaeb1b2fb80208c2d1",
+      "people": 2,
+      "owner": "luis",
+      "anchors": {
+        "luis": {
+          "x": 0.611,
+          "y": 0.075
+        }
+      },
+      "observed": "Older brother (left) and Luis (right) in the living room."
+    },
+    "/lesson-assets/a1plus-unit-1-g06-5614633158152642.webp": {
+      "sha256": "561463315815264281729a496e71ac126a6a561cd6055c6ed3a92214ae6ce107",
+      "people": 2,
+      "owner": "luis",
+      "anchors": {
+        "luis": {
+          "x": 0.433,
+          "y": 0.047
+        }
+      },
+      "observed": "Luis (left) and his younger brother (right) in the living room."
+    },
+    "/lesson-assets/a1plus-unit-1-g07-a86a53af0604c407.webp": {
+      "sha256": "a86a53af0604c407c82d1b48964bece550a3c50a50d1c9925fb240b69111f843",
+      "people": 2,
+      "owner": "diego",
+      "anchors": {
+        "diego": {
+          "x": 0.423,
+          "y": 0.147
+        }
+      },
+      "observed": "Diego (left) and his brother (right) in a town square in Spain."
+    },
+    "/lesson-assets/a1plus-unit-1-k01-74c66f74ce4ad390.webp": {
+      "sha256": "74c66f74ce4ad390a132a28be8e6112b4f8f0504ee26f2dc016c39093f34295b",
+      "people": 2,
+      "owner": "ana",
+      "anchors": {
+        "ana": {
+          "x": 0.449,
+          "y": 0.367
+        }
+      },
+      "observed": "Ana (left) and her aunt (right) in front of a house in Canada."
+    },
+    "/lesson-assets/a1plus-unit-1-k02-8fc41067842757fb.webp": {
+      "sha256": "8fc41067842757fb0bede5513a9954f64fa81772294135e337a950f28e2da902",
+      "people": 2,
+      "owner": "ana",
+      "anchors": {
+        "ana": {
+          "x": 0.409,
+          "y": 0.303
+        }
+      },
+      "observed": "Ana (left) and her uncle (right) in front of a house in Mexico."
+    },
+    "/lesson-assets/a1plus-unit-1-k03-ed95a237e9e627a7.webp": {
+      "sha256": "ed95a237e9e627a72ace5ae037a3397dfc3b72b8971b3a9f862c32f8b6429087",
+      "people": 2,
+      "owner": "ana",
+      "anchors": {
+        "ana": {
+          "x": 0.669,
+          "y": 0.262
+        }
+      },
+      "observed": "Ana (left) and her cousin (right, partly outside the centered 4:5 crop) at the grandparents' house."
+    },
+    "/lesson-assets/a1plus-unit-1-k04-a3ea44bdfdd04521.webp": {
+      "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+      "people": 4,
+      "owner": "ana",
+      "anchors": {
+        "ana": {
+          "x": 0.447,
+          "y": 0.258
+        }
+      },
+      "observed": "Ana (left), the grandmother, the grandfather and the cousin at the grandparents' house."
+    },
+    "/lesson-assets/a1plus-unit-1-k05-9b9a22eb4f01e486.webp": {
+      "sha256": "9b9a22eb4f01e486a21250b05d6efb2ffafb6e27a6433726cf240731989428a1",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana alone on the porch of her house in the United States."
+    },
+    "/lesson-assets/a1plus-unit-1-p01-a7fb3dd63f39d083.webp": {
+      "sha256": "a7fb3dd63f39d083226e251c879395e381b8e446a814a27afcd6b1d361dca6b3",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Luis alone in a doorway (tall)."
+    },
+    "/lesson-assets/a1plus-unit-1-p02-094cffd8654fde7e.webp": {
+      "sha256": "094cffd8654fde7eacbcf5b643e8c43eebb30aff39e32cde627ca9861bda7b3d",
+      "people": 2,
+      "owner": null,
+      "anchors": {
+        "sofia": {
+          "x": 0.458,
+          "y": 0.172
+        },
+        "luis": {
+          "x": 0.568,
+          "y": 0.062
+        }
+      },
+      "observed": "Sofia (left, short) and Luis (right, tall) back to back; only narrated lines use it."
+    },
+    "/lesson-assets/a1plus-unit-1-p03-e2dd0a3d8734b085.webp": {
+      "sha256": "e2dd0a3d8734b085493a513a04ccf32c5c90849cef81308c2a30dc26291987e9",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana alone in a park, her long hair."
+    },
+    "/lesson-assets/a1plus-unit-1-p04-0e1c0e7417a05c7b.webp": {
+      "sha256": "0e1c0e7417a05c7b18b4aa80ead68ee4ff9691dd8d93c3250a388736da9a2d92",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Diego alone in a cafe (beard)."
+    },
+    "/lesson-assets/a1plus-unit-1-p05-de544823923ab1f0.webp": {
+      "sha256": "de544823923ab1f0ee5bd3ed5b9a864c9f6fda88d596fd4a411ec6a8be63c872",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "The grandfather alone on a bench."
+    },
+    "/lesson-assets/a1plus-unit-1-p06-ef90298654f3c40b.webp": {
+      "sha256": "ef90298654f3c40b2338c87ff6cb91b1556b78a2bc4e259bf5a557a935c059cd",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "The cousin alone in front of the grandparents' house."
+    },
+    "/lesson-assets/a1plus-unit-1-p07-1871dabd520748e9.webp": {
+      "sha256": "1871dabd520748e9cda30505ef51bfa0b03e7e85e93eeb449945c440f79ed9e0",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "The grandmother alone in the doorway."
+    },
+    "/lesson-assets/a1plus-unit-1-q01-135c3f8f772bcbe4.webp": {
+      "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Luis alone, drinking coffee."
+    },
+    "/lesson-assets/a1plus-unit-1-q02-c2b4398b65207eff.webp": {
+      "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana alone on a sofa, reading."
+    },
+    "/lesson-assets/a1plus-unit-1-q03-7d520a07846a47b8.webp": {
+      "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Sofia alone at a desk, writing."
+    },
+    "/lesson-assets/a1plus-unit-1-q04-ded74a2cb6021167.webp": {
+      "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Diego alone, eating an apple."
+    },
+    "/lesson-assets/a1plus-unit-1-s01-2ebd24dc956daca4.webp": {
+      "sha256": "2ebd24dc956daca4d5362cca386e51c7cb980a37a8564d679ab4544a3ed75974",
+      "people": 2,
+      "owner": "sofia",
+      "anchors": {
+        "sofia": {
+          "x": 0.347,
+          "y": 0.247
+        },
+        "luis": {
+          "x": 0.667,
+          "y": 0.275
+        }
+      },
+      "observed": "Sofia (left) and Luis (right) swimming side by side; Sofia says We swim."
+    },
+    "/lesson-assets/a1plus-unit-1-s02-6a10ecb13ff623c8.webp": {
+      "sha256": "6a10ecb13ff623c86711386c8966ee60ccef35e092b925a8b880ab032e389eed",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Ana alone, swimming."
+    },
+    "/lesson-assets/a1plus-unit-1-s03-eb8f34195803a0a8.webp": {
+      "sha256": "eb8f34195803a0a8731734416c865dca9b5d0c9de814b383a935985d79536452",
+      "people": 2,
+      "owner": null,
+      "anchors": {
+        "sofia": {
+          "x": 0.402,
+          "y": 0.192
+        },
+        "luis": {
+          "x": 0.583,
+          "y": 0.07
+        }
+      },
+      "observed": "Sofia (left) and Luis (right) running in the park; only narrated lines use it."
+    },
+    "/lesson-assets/a1plus-unit-1-s04-1055dd20fb2b0977.webp": {
+      "sha256": "1055dd20fb2b0977c0d50131125cb9606a79db147f13972d22766869a5d1d5e9",
+      "people": 1,
+      "owner": null,
+      "anchors": {},
+      "observed": "Diego alone, running."
+    }
+  }
+}
