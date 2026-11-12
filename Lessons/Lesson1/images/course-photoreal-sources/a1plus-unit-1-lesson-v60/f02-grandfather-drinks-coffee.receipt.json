@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "c4cce8a9-8199-4f33-a174-b59ea29c9e8b",
+  "asset_id": "f02-grandfather-drinks-coffee",
+  "pack_sha256": "235c8352b08efaea0223d9f59f629e520eca1522c982e40c3da4b04518cb0b66",
+  "started_at": "2026-11-12T02:22:26.926368+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, packaging, tags and objects are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the person, and the face is fully visible and in sharp focus.\n\nThe setting is the grandparents' simple kitchen in Mexico on a bright morning: white walls, warm terracotta floor tiles, a sturdy wooden table, a window with green plants on the sill, all softly lit. The person sits alone at the wooden table, turned toward the camera, seen from the head to below the table edge, so the cup and what is on the table are large and clear.\n\nImage 1 shows Ana's grandparents, the very old white-haired couple in the green doorway. Keep the GRANDFATHER exactly: his face, thin white hair, age of about 80, white short-sleeved shirt and brown trousers; his wooden walking cane leans against the table. Create a new photograph: only the grandfather, sitting at the kitchen table, drinks coffee. He holds a plain white mug full of black coffee near his lips, and a small dark-metal stovetop coffee pot stands on the table. There is NO tea, NO teapot, NO glass cup and NO tea bag anywhere. Coffee is the most obvious thing in the photo. No one else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+    "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "4iL1aqzELu7rz7IPwPO7wQw",
+  "usage": {
+    "promptTokenCount": 694,
+    "candidatesTokenCount": 1340,
+    "totalTokenCount": 2255,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 436
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 221,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138040",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 694,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 221
+  },
+  "elapsed_seconds": 26.31,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v60/f02-grandfather-drinks-coffee.png",
+  "sha256": "e1919fc940a7e9d68f0c5df17498d8b54f20eb7be139cdfd983777d819c1ce0e",
+  "byte_count": 5172528,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

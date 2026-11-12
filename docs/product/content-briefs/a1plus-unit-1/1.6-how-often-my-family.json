@@ -1,0 +1,527 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.6",
+    "title": "Parents and Grandparents"
+  },
+  "note": "A1+ Unit 1 Lesson 1.6 rebuilt on 2026-11-12 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. A1 1.6 Parents and Grandparents names the father, mother, parents, grandfather and grandmother. A1+ 1.6 says how often Ana's parents and grandparents do something, with always, usually, sometimes and never before the verb: her grandmother always drinks tea, her grandfather never drinks tea (he drinks coffee), her mother usually runs in the park and her father sometimes runs in the park. Ana speaks about her family; Luis asks Who ...? (Ana and Sofia share one voice). Frequency cannot be photographed, so each photo shows who does what; the Listen text cards set the frequency words against each other (the answer is what was heard), and a never sentence is never set against a photo that does not contradict it. The grandparents keep their 1.4 look (A1+ 1.4 k04). The previous 1.6 (Ask about a routine: How often, studies) returns as 1.7, which follows A1 1.7. The user approved everything up to the Preview publish in advance (\"everything approved until push to preview\", 2026-11-12).",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-6.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-6",
+    "title": "1.6 How often my family does it",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-6",
+    "lesson_title": "How often my family does it",
+    "sub_lesson_id": "1.6",
+    "sub_lesson_title": "How often my family does it",
+    "goal": "Say how often your parents and grandparents do something, with always, usually, sometimes and never before the verb (My grandmother always drinks tea.).",
+    "vocabulary": [
+      "always",
+      "usually",
+      "sometimes",
+      "never"
+    ],
+    "review_vocabulary": [
+      "my",
+      "grandmother",
+      "grandfather",
+      "mother",
+      "father",
+      "she",
+      "he",
+      "who",
+      "drinks",
+      "tea",
+      "runs",
+      "in",
+      "the",
+      "park"
+    ],
+    "grammar_function": "A follow-up of A1 1.6 Parents and Grandparents: the family words return with how often each person does something. The one new grammar relationship is the frequency word between the person and the verb (My grandmother always drinks tea.), on A1+ 1.2's he/she -s and 1.3's runs in the park.",
+    "prerequisite": "A1 1.6 father, mother, grandfather, grandmother; A1 1.9 Who ...?; A1 2.1 park; A1 5 tea and coffee; A1 3.10 my; A1+ 1.2 drinks; A1+ 1.3 runs; A1+ 1.4 the grandparents.",
+    "speaking_outcome": "Place the frequency word before the verb in one smooth sentence (My father sometimes runs in the park.), with a clear -s on the verb. Do not require native-like speed.",
+    "content_revision": 4,
+    "learn_context_groups": [
+      {
+        "kind": "sequence",
+        "targets": [
+          "always"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "My grandmother always drinks tea."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "always",
+          "never"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "My grandmother always drinks tea. My grandfather never drinks tea.",
+            "turns": [
+              "My grandmother always drinks tea.",
+              "My grandfather never drinks tea."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "sequence",
+        "targets": [
+          "usually"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "My mother usually runs in the park."
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "usually",
+          "sometimes"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "My mother usually runs in the park. My father sometimes runs in the park.",
+            "turns": [
+              "My mother usually runs in the park.",
+              "My father sometimes runs in the park."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-always",
+      "text": "My grandmother always drinks tea.",
+      "es": "Mi abuela siempre toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-never",
+      "text": "My grandmother always drinks tea. My grandfather never drinks tea.",
+      "es": "Mi abuela siempre toma té. Mi abuelo nunca toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "My grandmother always drinks tea.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp"
+        },
+        {
+          "text": "My grandfather never drinks tea.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-usually",
+      "text": "My mother usually runs in the park.",
+      "es": "Mi mamá normalmente corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp",
+      "kind": "model",
+      "choices": false,
+      "use": false,
+      "speaker": "ana"
+    },
+    {
+      "id": "l-sometimes",
+      "text": "My mother usually runs in the park. My father sometimes runs in the park.",
+      "es": "Mi mamá normalmente corre en el parque. Mi papá a veces corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "My mother usually runs in the park.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp"
+        },
+        {
+          "text": "My father sometimes runs in the park.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-always",
+      "text": "My grandmother always drinks tea.",
+      "es": "Mi abuela siempre toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "ana",
+      "blanks": [
+        "always",
+        "drinks"
+      ]
+    },
+    {
+      "id": "h-always",
+      "text": "She always drinks tea.",
+      "es": "Ella siempre toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "n-never",
+      "text": "My grandfather never drinks tea.",
+      "es": "Mi abuelo nunca toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "ana",
+      "blanks": [
+        "never",
+        "drinks"
+      ]
+    },
+    {
+      "id": "h-never",
+      "text": "He never drinks tea.",
+      "es": "Él nunca toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "He sometimes runs in the park."
+      ]
+    },
+    {
+      "id": "n-usually",
+      "text": "My mother usually runs in the park.",
+      "es": "Mi mamá normalmente corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "ana",
+      "blanks": [
+        "usually",
+        "runs"
+      ]
+    },
+    {
+      "id": "h-usually",
+      "text": "She usually runs in the park.",
+      "es": "Ella normalmente corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp",
+      "kind": "pronoun",
+      "learn": false
+    },
+    {
+      "id": "n-sometimes",
+      "text": "My father sometimes runs in the park.",
+      "es": "Mi papá a veces corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "mine",
+      "learn": false,
+      "speaker": "ana",
+      "blanks": [
+        "sometimes",
+        "runs"
+      ]
+    },
+    {
+      "id": "h-sometimes",
+      "text": "He sometimes runs in the park.",
+      "es": "Él a veces corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "avoid": [
+        "He never drinks tea."
+      ]
+    },
+    {
+      "id": "q-always",
+      "text": "My grandmother always drinks tea.",
+      "es": "Mi abuela siempre toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "Who always drinks tea?",
+      "question_es": "¿Quién siempre toma té?",
+      "question_speaker": "luis",
+      "listening_turns": [
+        {
+          "text": "Who always drinks tea?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp"
+        },
+        {
+          "text": "My grandmother always drinks tea.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-never",
+      "text": "My grandfather never drinks tea.",
+      "es": "Mi abuelo nunca toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "Who never drinks tea?",
+      "question_es": "¿Quién nunca toma té?",
+      "question_speaker": "luis",
+      "listening_turns": [
+        {
+          "text": "Who never drinks tea?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp"
+        },
+        {
+          "text": "My grandfather never drinks tea.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-usually",
+      "text": "My mother usually runs in the park.",
+      "es": "Mi mamá normalmente corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "Who usually runs in the park?",
+      "question_es": "¿Quién normalmente corre en el parque?",
+      "question_speaker": "luis",
+      "listening_turns": [
+        {
+          "text": "Who usually runs in the park?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp"
+        },
+        {
+          "text": "My mother usually runs in the park.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f03-683648d631e9c111.webp"
+        }
+      ]
+    },
+    {
+      "id": "q-sometimes",
+      "text": "My father sometimes runs in the park.",
+      "es": "Mi papá a veces corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "Who sometimes runs in the park?",
+      "question_es": "¿Quién a veces corre en el parque?",
+      "question_speaker": "luis",
+      "listening_turns": [
+        {
+          "text": "Who sometimes runs in the park?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp"
+        },
+        {
+          "text": "My father sometimes runs in the park.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp"
+        }
+      ]
+    },
+    {
+      "id": "x-always",
+      "text": "My grandmother always drinks tea.",
+      "es": "Mi abuela siempre toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "speaker": "ana",
+      "prefer": [
+        "My grandmother never drinks tea.",
+        "My grandmother sometimes drinks tea."
+      ],
+      "accepts": {
+        "action-variety": "Listen contrasts the frequency words on the same person and action; the answer is what was heard (A1+ 1.6 grammar focus)."
+      }
+    },
+    {
+      "id": "x-never",
+      "text": "My grandfather never drinks tea.",
+      "es": "Mi abuelo nunca toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "speaker": "ana",
+      "prefer": [
+        "My grandfather always drinks tea.",
+        "My grandfather usually drinks tea."
+      ],
+      "accepts": {
+        "action-variety": "Listen contrasts the frequency words on the same person and action; the answer is what was heard (A1+ 1.6 grammar focus)."
+      }
+    },
+    {
+      "id": "x-sometimes",
+      "text": "My father sometimes runs in the park.",
+      "es": "Mi papá a veces corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "speaker": "ana",
+      "prefer": [
+        "My father usually runs in the park.",
+        "My father never runs in the park."
+      ],
+      "accepts": {
+        "action-variety": "Listen contrasts the frequency words on the same person and action; the answer is what was heard (A1+ 1.6 grammar focus)."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "My grandmother never drinks tea.",
+      "es": "Mi abuela nunca toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "My grandmother sometimes drinks tea.",
+      "es": "Mi abuela a veces toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f01-a668117345db103e.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "My grandfather always drinks tea.",
+      "es": "Mi abuelo siempre toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "My grandfather usually drinks tea.",
+      "es": "Mi abuelo normalmente toma té.",
+      "image": "/lesson-assets/a1plus-unit-1-f02-edea3fd93197a36c.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "My father usually runs in the park.",
+      "es": "Mi papá normalmente corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "My father never runs in the park.",
+      "es": "Mi papá nunca corre en el parque.",
+      "image": "/lesson-assets/a1plus-unit-1-f04-63202dc029845919.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-always",
+      "l-never",
+      "l-usually",
+      "l-sometimes"
+    ],
+    "Recognize": [
+      "n-always",
+      "q-always",
+      "h-never",
+      "q-never",
+      "n-usually",
+      "h-sometimes",
+      "h-always",
+      "q-usually",
+      "n-never",
+      "h-usually",
+      "n-sometimes"
+    ],
+    "Listen": [
+      "h-always",
+      "q-sometimes",
+      "x-always",
+      "n-never",
+      "q-usually",
+      "x-sometimes",
+      "h-sometimes",
+      "q-never",
+      "x-never",
+      "n-usually"
+    ],
+    "Speak": [
+      "n-always",
+      "h-never",
+      "n-usually",
+      "h-sometimes",
+      "n-never",
+      "h-always",
+      "n-sometimes",
+      "h-usually"
+    ],
+    "Use": [
+      "n-always",
+      "n-never",
+      "n-usually",
+      "n-sometimes",
+      "h-always",
+      "h-never",
+      "h-usually",
+      "h-sometimes"
+    ]
+  }
+}

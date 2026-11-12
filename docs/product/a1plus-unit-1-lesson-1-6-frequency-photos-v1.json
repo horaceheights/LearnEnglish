@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "pack": "a1plus-unit-1-lesson-1-6-frequency-photos",
+  "revision": 1,
+  "output_namespace": "a1plus-unit-1-lesson-v60",
+  "authorization": "2026-11-12: the user approved everything for A1+ 1.6 up to the Preview publish in advance (\"everything approved until push to preview\"), including this pack; the agent set a US$0.70 ceiling (4 photos, about US$0.54). Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision. A rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "planned_images": 4,
+    "expected_cost_usd": "0.54",
+    "requested_ceiling_usd": "0.70",
+    "no_automatic_retries": true,
+    "order": "Generate f01 first (the grandmother kept from one group photo, with unmistakable tea) and inspect it at 900/360/250/180 px and in the centered 4:5 crop; then f02, f03 and f04. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, packaging, tags and objects are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.",
+    "safe_center": "Keep the person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.",
+    "clear_view": "The camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the person, and the face is fully visible and in sharp focus.",
+    "kitchen": "The setting is the grandparents' simple kitchen in Mexico on a bright morning: white walls, warm terracotta floor tiles, a sturdy wooden table, a window with green plants on the sill, all softly lit. The person sits alone at the wooden table, turned toward the camera, seen from the head to below the table edge, so the cup and what is on the table are large and clear.",
+    "park": "The setting is a wide gravel path beside a small lake in a green park on a bright, calm morning, with grass and trees softly out of focus behind. The camera is at chest height a few steps in front, and the runner is seen whole from head to running shoes. Running is the most obvious thing in the photo: a real, easy jogging stride toward the camera, one foot clearly off the ground, elbows bent, a relaxed smile."
+  },
+  "assets": [
+    {
+      "id": "f01-grandmother-drinks-tea",
+      "order": 1,
+      "item": "My grandmother always drinks tea. / She always drinks tea. / Who always drinks tea?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "kitchen"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "In front of the open green doors of a terracotta-orange house in Mexico, with the Mexican flag and pink bougainvillea at the left: Ana with her navy suitcase; her grandmother (about 80, white hair in a low bun, lavender blouse, long grey skirt); her grandfather (about 80, thin white hair, white short-sleeved shirt, brown trousers, wooden walking cane); and her young cousin in a mustard-yellow T-shirt."
+      },
+      "prompt": "Image 1 shows Ana's grandparents, the very old white-haired couple in the green doorway. Keep the GRANDMOTHER exactly: her face, white hair in a low bun, age of about 80 and lavender blouse. Create a new photograph: only the grandmother, sitting at the kitchen table, drinks tea. She holds a clear glass cup of light amber tea near her lips with both hands, and the plain white string and blank paper tag of a tea bag hang over the rim; a small white teapot stands on the table beside a saucer. Tea is the most obvious thing in the photo. No one else is in the photo."
+    },
+    {
+      "id": "f02-grandfather-drinks-coffee",
+      "order": 2,
+      "item": "My grandfather never drinks tea. / He never drinks tea. / Who never drinks tea?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "kitchen"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+        "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0",
+        "observed_description": "In front of the open green doors of a terracotta-orange house in Mexico, with the Mexican flag and pink bougainvillea at the left: Ana with her navy suitcase; her grandmother (about 80, white hair in a low bun, lavender blouse, long grey skirt); her grandfather (about 80, thin white hair, white short-sleeved shirt, brown trousers, wooden walking cane); and her young cousin in a mustard-yellow T-shirt."
+      },
+      "prompt": "Image 1 shows Ana's grandparents, the very old white-haired couple in the green doorway. Keep the GRANDFATHER exactly: his face, thin white hair, age of about 80, white short-sleeved shirt and brown trousers; his wooden walking cane leans against the table. Create a new photograph: only the grandfather, sitting at the kitchen table, drinks coffee. He holds a plain white mug full of black coffee near his lips, and a small dark-metal stovetop coffee pot stands on the table. There is NO tea, NO teapot, NO glass cup and NO tea bag anywhere. Coffee is the most obvious thing in the photo. No one else is in the photo."
+    },
+    {
+      "id": "f03-mother-runs-in-the-park",
+      "order": 3,
+      "item": "My mother usually runs in the park. / She usually runs in the park. / Who usually runs in the park?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "park"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana, only so that her mother clearly looks like her; Ana is NOT in the new photo. Create a new photograph of Ana's MOTHER running alone: a fit woman of about 58, clearly older than Ana but much younger than a grandmother, with Ana's face shape, dark eyes and warm smile, and shoulder-length dark hair with grey streaks, tied back. She wears a plain purple running jacket, black running leggings and white running shoes. No one else is on the path."
+    },
+    {
+      "id": "f04-father-runs-in-the-park",
+      "order": 4,
+      "item": "My father sometimes runs in the park. / He sometimes runs in the park. / Who sometimes runs in the park?",
+      "shared": [
+        "photo",
+        "safe_center",
+        "clear_view",
+        "park"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1plus-unit-1-01-89bf8aaaa67a79a6.webp",
+        "sha256": "89bf8aaaa67a79a6fb4b8c686ed16df0245a76d8584673be2caee9465f0d15bf",
+        "observed_description": "Ana (long dark wavy hair, warm smile) walks out of her front door in a sage-green overshirt over a white top, light-wash jeans and white sneakers, a brown leather tote on her shoulder, face clearly visible."
+      },
+      "prompt": "Image 1 shows Ana, only so that her father clearly looks like her; Ana is NOT in the new photo. Create a new photograph of Ana's FATHER running alone on the same lakeside path: a fit man of about 60, clearly older than Ana but much younger than a grandfather, with Ana's dark eyes and warm smile, short dark hair grey at the sides, a neat grey moustache and no glasses. He wears a plain dark-green running T-shirt, black running shorts and grey running shoes. No one else is on the path."
+    }
+  ]
+}

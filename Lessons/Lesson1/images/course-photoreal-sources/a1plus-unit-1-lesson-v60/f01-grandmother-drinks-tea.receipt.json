@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7bebc518-aea9-4363-84f2-19273dd39616",
+  "asset_id": "f01-grandmother-drinks-tea",
+  "pack_sha256": "235c8352b08efaea0223d9f59f629e520eca1522c982e40c3da4b04518cb0b66",
+  "started_at": "2026-11-12T02:21:43.317469+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture, soft natural morning light and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: clothing, packaging, tags and objects are plain. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, whole, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nThe camera has a clear, unobstructed view from a few steps away at eye level: nothing stands between the camera and the person, and the face is fully visible and in sharp focus.\n\nThe setting is the grandparents' simple kitchen in Mexico on a bright morning: white walls, warm terracotta floor tiles, a sturdy wooden table, a window with green plants on the sill, all softly lit. The person sits alone at the wooden table, turned toward the camera, seen from the head to below the table edge, so the cup and what is on the table are large and clear.\n\nImage 1 shows Ana's grandparents, the very old white-haired couple in the green doorway. Keep the GRANDMOTHER exactly: her face, white hair in a low bun, age of about 80 and lavender blouse. Create a new photograph: only the grandmother, sitting at the kitchen table, drinks tea. She holds a clear glass cup of light amber tea near her lips with both hands, and the plain white string and blank paper tag of a tea bag hang over the rim; a small white teapot stands on the table beside a saucer. Tea is the most obvious thing in the photo. No one else is in the photo.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-k04-a3ea44bdfdd04521.webp",
+    "sha256": "a3ea44bdfdd04521e9c58cbe1dcd878a7650ee305da2cbd7b70bf7b9f8cb7de0"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "tyL1as6jD7KUmtkP4PaYwQ4",
+  "usage": {
+    "promptTokenCount": 682,
+    "candidatesTokenCount": 1329,
+    "totalTokenCount": 2195,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 424
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 184,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137572",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 682,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 184
+  },
+  "elapsed_seconds": 21.27,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v60/f01-grandmother-drinks-tea.png",
+  "sha256": "2a30b99a9f3414101846fc1deb20e178349654cd7e2e3be7f78d597439573ebc",
+  "byte_count": 5456685,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
