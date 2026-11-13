@@ -23,7 +23,7 @@ const { bubbleLayout, cardHasCastLine, lineSpeaker, optionSpeaker, speakerAnchor
 const courses = JSON.parse(read('mobile/src/generated/all-courses.json'));
 // Lessons whose photos have been reviewed for the bubble. A rebuilt lesson joins this list when its
 // photos are registered (docs/product/new-content-engine.md); A1 photos follow in a later sweep.
-const REGISTERED_LESSONS = [1, 2, 3, 4, 5, 6].map(n => `a1plus-unit-1-lesson-1-${n}`);
+const REGISTERED_LESSONS = [1, 2, 3, 4, 5, 6, 7].map(n => `a1plus-unit-1-lesson-1-${n}`);
 const lessons = courses.filter(lesson => REGISTERED_LESSONS.includes(lesson.id));
 const cardImages = card => [card.prompt_image_url, ...(card.options || []).map(option => option.image_url),
   ...['audio_turns', 'answer_audio_turns', 'success_audio_turns'].flatMap(key => (card[key] || []).map(turn => turn.image_url))]

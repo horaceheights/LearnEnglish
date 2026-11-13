@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "bed25a01-f7be-44d1-b4b5-5f3514ff142f",
+  "asset_id": "h04-luis-drives-a-bus",
+  "pack_sha256": "4f86def50e716a29ccb24aed349b93935de6164326c6ec79701f8cce97c62a78",
+  "started_at": "2026-11-13T12:26:00.305101+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, any page or screen shows only faint, unreadable lines, signs are blank. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible in three-quarter view and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible. The person is busy with the action and does not look at the camera.\n\nImage 1 shows Luis. Keep his face, short dark curly hair, clean-shaven face, warm medium-brown skin and build exactly. Create a new photograph of Luis at work, far from home: he is the driver of a city bus on a sunny morning. The camera stands inside the empty bus near the front door, a few steps beside and slightly behind the driver's seat, at his eye level. Luis sits in the driver's seat in a plain navy short-sleeved polo shirt with no badge or logo, both hands on the large steering wheel, eyes on the road ahead through the big windshield, which shows a sunny city street with trees. A row of empty blue passenger seats and a yellow grab pole are softly visible. The bus is clearly a bus and clearly not a home. The route sign and every screen are blank.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q01-135c3f8f772bcbe4.webp",
+    "sha256": "135c3f8f772bcbe472b8cec719eb02318a7d52ce1c7152a94c6952aeb78566c2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "2QH3auOQGruhz7IPlOmLgQ8",
+  "usage": {
+    "promptTokenCount": 720,
+    "candidatesTokenCount": 1299,
+    "totalTokenCount": 2238,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 462
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 219,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138068",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 720,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 219
+  },
+  "elapsed_seconds": 23.9,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v70/h04-luis-drives-a-bus.png",
+  "sha256": "0929995b8691ddd676eb4ed180cc39acbc57f44fd4421e0a32281239622cc489",
+  "byte_count": 5843314,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

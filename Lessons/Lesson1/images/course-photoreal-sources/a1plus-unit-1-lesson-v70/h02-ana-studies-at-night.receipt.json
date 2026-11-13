@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "19976533-156f-440c-90db-48b7f518df7d",
+  "asset_id": "h02-ana-studies-at-night",
+  "pack_sha256": "4f86def50e716a29ccb24aed349b93935de6164326c6ec79701f8cce97c62a78",
+  "started_at": "2026-11-13T12:25:15.423920+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, any page or screen shows only faint, unreadable lines, signs are blank. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible in three-quarter view and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible. The person is busy with the action and does not look at the camera.\n\nIt is clearly NIGHT: every window shows a dark blue-black night sky, and the only strong light is a warm desk lamp that lights the face, the hands, the open book and the notebook; the rest of the room falls into soft shadow. No daylight anywhere.\n\nStudying is unmistakable: a thick open textbook lies flat on the table, its pages showing only faint grey lines, and beside it an open notebook; the person writes notes in the notebook with a pen, eyes on the textbook. There is NO laptop, NO computer, NO tablet and NO phone anywhere.\n\nImage 1 shows Ana. Keep her face, long dark wavy hair, light-olive skin and build exactly, and her sage-green overshirt over a white top. Create a new photograph in a quiet public library late at night, NOT a home: Ana sits alone at one end of a long wooden reading table with several empty wooden chairs, and studies. Tall wooden bookshelves full of books with plain-colored spines rise behind her, and a tall library window at one side shows the dark night sky. The textbook has a plain blue cover.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q02-c2b4398b65207eff.webp",
+    "sha256": "c2b4398b65207effa51e51260cc607c38ada48caea82f14eb872e4c9c8b5d0d5"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "rAH3aq7EJenlqtsPztTjkAE",
+  "usage": {
+    "promptTokenCount": 774,
+    "candidatesTokenCount": 1357,
+    "totalTokenCount": 2337,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 516
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 206,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138020",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 774,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 206
+  },
+  "elapsed_seconds": 22.05,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v70/h02-ana-studies-at-night.png",
+  "sha256": "5a2a9f1c7987314b7022bb3c0c9dd5ea2685eecc16dcf68d2599fdc88e72f32b",
+  "byte_count": 5227203,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

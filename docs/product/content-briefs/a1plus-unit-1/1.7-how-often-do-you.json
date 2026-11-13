@@ -1,0 +1,597 @@
+{
+  "brief_version": 1,
+  "follows": {
+    "course": "a1",
+    "lesson": "1.7",
+    "title": "Family Actions"
+  },
+  "note": "A1+ Unit 1 Lesson 1.7 rebuilt on 2026-11-12 under the A1+ lesson standards approved 2026-10-27 and the user's 2026-11-09 rule that every A1+ lesson follows up the A1 lesson with the same number. A1 1.7 Family Actions shows people playing, studying, working, cooking and talking (The father is working.). A1+ 1.7 turns two of those actions into habits and asks about them: How often do you study at night? / How often do you work at home?, built from A1 4.8's Do you work? / Do you study? and answered with 1.6's frequency words in the I-form. The narrator reports each answer with he/she -s, which brings the -ies spelling (Diego usually studies at night.) next to the plain -s (Sofia always works at home.). Facts: Diego usually studies at night (at his desk at home), Ana sometimes studies at night (in a library, so her photo never shows her at home), Sofia always works at home (she writes books, A1+ 1.2) and Luis never works at home (he drives a bus, as in A1 3.9). Ana asks Diego and Luis; Luis asks Ana and Sofia (Ana and Sofia share one voice, as do Luis and Diego). Frequency cannot be photographed: each photo shows who does what, the Listen text cards set the frequency words against each other, and a never sentence never meets a photo that does not contradict it.",
+  "target": "backend/lessons/a1_plus/unit_1/a1plus-unit-1-lesson-1-7.yaml",
+  "captions": false,
+  "narrators": [
+    "teacher",
+    "co-teacher"
+  ],
+  "answer_audio_policy": "authored-only",
+  "speak_delivery": "a1-pronunciation-v1",
+  "lesson": {
+    "id": "a1plus-unit-1-lesson-1-7",
+    "title": "1.7 How often do you study?",
+    "level": "A1+",
+    "unit_id": "a1plus-unit-1",
+    "unit_title": "People, family and habits",
+    "unit_outcome": "Describe people and family, say what people do every day and how often, and ask about other people’s habits.",
+    "lesson_id": "a1plus-unit-1-lesson-1-7",
+    "lesson_title": "How often do you study?",
+    "sub_lesson_id": "1.7",
+    "sub_lesson_title": "How often do you study?",
+    "goal": "Ask How often do you study at night? or How often do you work at home?, answer with always, usually, sometimes or never, and report the answer (Diego usually studies at night.).",
+    "vocabulary": [
+      "How often",
+      "studies",
+      "works"
+    ],
+    "review_vocabulary": [
+      "do",
+      "you",
+      "I",
+      "study",
+      "work",
+      "at",
+      "night",
+      "home",
+      "always",
+      "usually",
+      "sometimes",
+      "never",
+      "he",
+      "she"
+    ],
+    "grammar_function": "A follow-up of A1 1.7 Family Actions: studying and working become habits. The one new grammar relationship is the question How often + do you + verb?, built from A1 4.8's Do you study? and answered with A1+ 1.6's frequency words before the verb (I usually study at night.). The report uses A1+ 1.2's he/she -s, where study takes the -ies spelling (studies) and work the plain -s (works).",
+    "prerequisite": "A1 1.7 studying, working; A1 4.8 Do you work? Do you study?; A1 4.10 at night; A1 4.1 at home; A1 3.9 Luis the driver; A1+ 1.2 he/she -s; A1+ 1.6 always, usually, sometimes, never.",
+    "speaking_outcome": "Ask How often do you ...? as one smooth question, and say studies with a clear /iz/ ending. Do not require native-like speed.",
+    "content_revision": 4,
+    "learn_context_groups": [
+      {
+        "kind": "exchange",
+        "targets": [
+          "How often"
+        ],
+        "models": [
+          {
+            "slide_id": "L1",
+            "text": "How often do you study at night? I usually study at night.",
+            "turns": [
+              "How often do you study at night?",
+              "I usually study at night."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "studies"
+        ],
+        "models": [
+          {
+            "slide_id": "L2",
+            "text": "I usually study at night. Diego usually studies at night.",
+            "turns": [
+              "I usually study at night.",
+              "Diego usually studies at night."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "exchange",
+        "targets": [
+          "How often"
+        ],
+        "models": [
+          {
+            "slide_id": "L3",
+            "text": "How often do you work at home? I always work at home.",
+            "turns": [
+              "How often do you work at home?",
+              "I always work at home."
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "contrast",
+        "targets": [
+          "works"
+        ],
+        "models": [
+          {
+            "slide_id": "L4",
+            "text": "I always work at home. Sofia always works at home.",
+            "turns": [
+              "I always work at home.",
+              "Sofia always works at home."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "l-how-study",
+      "text": "How often do you study at night? I usually study at night.",
+      "es": "¿Con qué frecuencia estudias de noche? Normalmente estudio de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How often do you study at night?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp"
+        },
+        {
+          "text": "I usually study at night.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-studies",
+      "text": "I usually study at night. Diego usually studies at night.",
+      "es": "Normalmente estudio de noche. Diego normalmente estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I usually study at night.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp"
+        },
+        {
+          "text": "Diego usually studies at night.",
+          "speaker": "teacher",
+          "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-how-work",
+      "text": "How often do you work at home? I always work at home.",
+      "es": "¿Con qué frecuencia trabajas en casa? Siempre trabajo en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp",
+      "kind": "exchange",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "How often do you work at home?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp"
+        },
+        {
+          "text": "I always work at home.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp"
+        }
+      ]
+    },
+    {
+      "id": "l-works",
+      "text": "I always work at home. Sofia always works at home.",
+      "es": "Siempre trabajo en casa. Sofía siempre trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp",
+      "kind": "contrast",
+      "choices": false,
+      "use": false,
+      "turns": [
+        {
+          "text": "I always work at home.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp"
+        },
+        {
+          "text": "Sofia always works at home.",
+          "speaker": "co-teacher",
+          "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-diego",
+      "text": "Diego usually studies at night.",
+      "es": "Diego normalmente estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "usually",
+        "studies"
+      ]
+    },
+    {
+      "id": "h-diego",
+      "text": "He usually studies at night.",
+      "es": "Él normalmente estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "blanks": [
+        "usually",
+        "studies"
+      ],
+      "avoid": [
+        "He never works at home."
+      ]
+    },
+    {
+      "id": "a-diego",
+      "text": "I usually study at night.",
+      "es": "Normalmente estudio de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "diego",
+      "question": "How often do you study at night?",
+      "question_es": "¿Con qué frecuencia estudias de noche?",
+      "question_speaker": "ana",
+      "listening_turns": [
+        {
+          "text": "How often do you study at night?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp"
+        },
+        {
+          "text": "I usually study at night.",
+          "speaker": "diego",
+          "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp"
+        }
+      ],
+      "avoid": [
+        "I sometimes study at night.",
+        "I never work at home."
+      ]
+    },
+    {
+      "id": "n-ana",
+      "text": "Ana sometimes studies at night.",
+      "es": "Ana a veces estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "sometimes",
+        "studies"
+      ]
+    },
+    {
+      "id": "h-ana",
+      "text": "She sometimes studies at night.",
+      "es": "Ella a veces estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "blanks": [
+        "sometimes",
+        "studies"
+      ]
+    },
+    {
+      "id": "a-ana",
+      "text": "I sometimes study at night.",
+      "es": "A veces estudio de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "ana",
+      "question": "How often do you study at night?",
+      "question_es": "¿Con qué frecuencia estudias de noche?",
+      "question_speaker": "luis",
+      "listening_turns": [
+        {
+          "text": "How often do you study at night?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp"
+        },
+        {
+          "text": "I sometimes study at night.",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp"
+        }
+      ],
+      "avoid": [
+        "I usually study at night."
+      ]
+    },
+    {
+      "id": "n-sofia",
+      "text": "Sofia always works at home.",
+      "es": "Sofía siempre trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "always",
+        "works"
+      ]
+    },
+    {
+      "id": "h-sofia",
+      "text": "She always works at home.",
+      "es": "Ella siempre trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "blanks": [
+        "always",
+        "works"
+      ]
+    },
+    {
+      "id": "a-sofia",
+      "text": "I always work at home.",
+      "es": "Siempre trabajo en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "sofia",
+      "question": "How often do you work at home?",
+      "question_es": "¿Con qué frecuencia trabajas en casa?",
+      "question_speaker": "luis",
+      "listening_turns": [
+        {
+          "text": "How often do you work at home?",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp"
+        },
+        {
+          "text": "I always work at home.",
+          "speaker": "sofia",
+          "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp"
+        }
+      ]
+    },
+    {
+      "id": "n-luis",
+      "text": "Luis never works at home.",
+      "es": "Luis nunca trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp",
+      "kind": "named",
+      "learn": false,
+      "blanks": [
+        "never",
+        "works"
+      ]
+    },
+    {
+      "id": "h-luis",
+      "text": "He never works at home.",
+      "es": "Él nunca trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp",
+      "kind": "pronoun",
+      "learn": false,
+      "blanks": [
+        "never",
+        "works"
+      ],
+      "avoid": [
+        "He usually studies at night."
+      ]
+    },
+    {
+      "id": "a-luis",
+      "text": "I never work at home.",
+      "es": "Nunca trabajo en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp",
+      "kind": "reply",
+      "learn": false,
+      "use": false,
+      "speaker": "luis",
+      "question": "How often do you work at home?",
+      "question_es": "¿Con qué frecuencia trabajas en casa?",
+      "question_speaker": "ana",
+      "listening_turns": [
+        {
+          "text": "How often do you work at home?",
+          "speaker": "ana",
+          "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp"
+        },
+        {
+          "text": "I never work at home.",
+          "speaker": "luis",
+          "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp"
+        }
+      ],
+      "avoid": [
+        "I usually study at night."
+      ]
+    },
+    {
+      "id": "q-study",
+      "text": "How often do you study at night?",
+      "es": "¿Con qué frecuencia estudias de noche?",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "ana",
+      "blanks": [
+        "How",
+        "often"
+      ]
+    },
+    {
+      "id": "q-work",
+      "text": "How often do you work at home?",
+      "es": "¿Con qué frecuencia trabajas en casa?",
+      "image": "/lesson-assets/a1plus-unit-1-h03-11a3eeaec2846aa2.webp",
+      "kind": "question",
+      "learn": false,
+      "choices": false,
+      "speaker": "luis"
+    },
+    {
+      "id": "x-diego",
+      "text": "Diego usually studies at night.",
+      "es": "Diego normalmente estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Diego sometimes studies at night.",
+        "Diego never studies at night."
+      ],
+      "accepts": {
+        "action-variety": "Listen contrasts the frequency words on the same person and action; the answer is what was heard (A1+ 1.7 practice of 1.6's frequency words with studies and works)."
+      }
+    },
+    {
+      "id": "x-luis",
+      "text": "Luis never works at home.",
+      "es": "Luis nunca trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Luis always works at home.",
+        "Luis sometimes works at home."
+      ],
+      "accepts": {
+        "action-variety": "Listen contrasts the frequency words on the same person and action; the answer is what was heard (A1+ 1.7 practice of 1.6's frequency words with studies and works)."
+      }
+    },
+    {
+      "id": "x-ana",
+      "text": "Ana sometimes studies at night.",
+      "es": "Ana a veces estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp",
+      "kind": "heard",
+      "learn": false,
+      "image_choices": false,
+      "use": false,
+      "prefer": [
+        "Ana usually studies at night.",
+        "Ana always studies at night."
+      ],
+      "accepts": {
+        "action-variety": "Listen contrasts the frequency words on the same person and action; the answer is what was heard (A1+ 1.7 practice of 1.6's frequency words with studies and works)."
+      }
+    }
+  ],
+  "pool": [
+    {
+      "text": "Diego sometimes studies at night.",
+      "es": "Diego a veces estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Diego never studies at night.",
+      "es": "Diego nunca estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h01-115cef31c1fa18ca.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Luis always works at home.",
+      "es": "Luis siempre trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Luis sometimes works at home.",
+      "es": "Luis a veces trabaja en casa.",
+      "image": "/lesson-assets/a1plus-unit-1-h04-a1241d4e35824d3b.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Ana usually studies at night.",
+      "es": "Ana normalmente estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp",
+      "kind": "heard",
+      "image_choices": false
+    },
+    {
+      "text": "Ana always studies at night.",
+      "es": "Ana siempre estudia de noche.",
+      "image": "/lesson-assets/a1plus-unit-1-h02-27c01cda625fd5ac.webp",
+      "kind": "heard",
+      "image_choices": false
+    }
+  ],
+  "layout": {
+    "Recognize": 11,
+    "Listen": 10,
+    "Speak": 8,
+    "Use": 8
+  },
+  "stage_sequences": {
+    "Learn": [
+      "l-how-study",
+      "l-studies",
+      "l-how-work",
+      "l-works"
+    ],
+    "Recognize": [
+      "n-diego",
+      "a-diego",
+      "h-sofia",
+      "a-sofia",
+      "n-luis",
+      "h-ana",
+      "n-ana",
+      "a-luis",
+      "h-diego",
+      "a-ana",
+      "n-sofia"
+    ],
+    "Listen": [
+      "h-diego",
+      "a-sofia",
+      "x-diego",
+      "n-luis",
+      "a-ana",
+      "x-luis",
+      "h-sofia",
+      "a-diego",
+      "x-ana",
+      "n-sofia"
+    ],
+    "Speak": [
+      "q-study",
+      "a-diego",
+      "n-diego",
+      "q-work",
+      "a-luis",
+      "n-sofia",
+      "h-ana",
+      "h-luis"
+    ],
+    "Use": [
+      "q-study",
+      "n-diego",
+      "n-sofia",
+      "h-luis",
+      "q-work",
+      "n-ana",
+      "h-diego",
+      "n-luis"
+    ]
+  }
+}

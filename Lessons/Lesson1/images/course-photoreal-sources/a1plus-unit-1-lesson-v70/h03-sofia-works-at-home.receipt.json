@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "3bb778ac-c47d-4a11-82dc-c1f5762fe61c",
+  "asset_id": "h03-sofia-works-at-home",
+  "pack_sha256": "4f86def50e716a29ccb24aed349b93935de6164326c6ec79701f8cce97c62a78",
+  "started_at": "2026-11-13T12:25:38.420776+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, any page or screen shows only faint, unreadable lines, signs are blank. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible in three-quarter view and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible. The person is busy with the action and does not look at the camera.\n\nImage 1 shows Sofia. Keep her face, long curly dark hair, warm brown skin and build exactly, and her white blouse under her bright blue blazer, with no badge and no card. Create a new photograph in her bright home study on a sunny morning, in DAYLIGHT: Sofia sits at a wooden desk by a big sunny window and works on an open silver laptop, both hands on the keyboard, eyes on the screen, which faces away from the camera. The stack of her four plain dark-red books stands on the desk beside the laptop, with a coffee mug. Home is obvious: behind her a comfortable armchair with a cushion, a soft rug and a large houseplant. There is NO textbook and NO notebook. No framed pictures of people.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q03-7d520a07846a47b8.webp",
+    "sha256": "7d520a07846a47b8e8389c3226f3b3639d7eed0d257318b08e4f9b77c5b2258b"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "wwH3asW4I7S-qtsPmIXboQI",
+  "usage": {
+    "promptTokenCount": 699,
+    "candidatesTokenCount": 1321,
+    "totalTokenCount": 2216,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 441
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 196,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137750",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 699,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 196
+  },
+  "elapsed_seconds": 21.01,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v70/h03-sofia-works-at-home.png",
+  "sha256": "f012c0fdc122116c6e6e1fe3229a27a7aed29881c234eea95895d17e067a6d75",
+  "byte_count": 5473898,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
