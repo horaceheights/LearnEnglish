@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f6660ed6-8f9a-4f7e-a425-6c7487413946",
+  "asset_id": "h01-diego-studies-at-night",
+  "pack_sha256": "4f86def50e716a29ccb24aed349b93935de6164326c6ec79701f8cce97c62a78",
+  "started_at": "2026-11-13T12:23:52.126687+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material texture and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere: book covers and spines are plain solid colors, any page or screen shows only faint, unreadable lines, signs are blank. A first-time learner must understand the picture instantly on a small phone screen. Every visible hand has five natural fingers. Do not imitate earlier course photos.\n\nKeep the person, both hands and the object of the action inside the central 55 percent of the photo width, so a centered 4:5 crop keeps them whole; only expendable background reaches the left and right edges.\n\nOnly this one person is in the photo; there is nobody else, even far in the background.\n\nThe action is the most obvious thing in the photo: the camera is at eye level a few steps away, the face is fully visible in three-quarter view and in sharp focus, and the person is seen from the head to the waist or lower, with the hands and the object clearly visible. The person is busy with the action and does not look at the camera.\n\nIt is clearly NIGHT: every window shows a dark blue-black night sky, and the only strong light is a warm desk lamp that lights the face, the hands, the open book and the notebook; the rest of the room falls into soft shadow. No daylight anywhere.\n\nStudying is unmistakable: a thick open textbook lies flat on the table, its pages showing only faint grey lines, and beside it an open notebook; the person writes notes in the notebook with a pen, eyes on the textbook. There is NO laptop, NO computer, NO tablet and NO phone anywhere.\n\nImage 1 shows Diego. Keep his face, dark curly hair with a little grey, short full beard, skin tone and build exactly, and his burgundy button shirt. Create a new photograph in his small study at home late at night: Diego sits at a plain wooden desk by a window and studies. The textbook has a plain dark-green cover; a yellow highlighter lies beside the notebook; a mug and a small houseplant stand at the far end of the desk, and a bookshelf of plain-colored books is softly visible in the shadow behind him, so the room reads as a home.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1plus-unit-1-q04-ded74a2cb6021167.webp",
+    "sha256": "ded74a2cb6021167d6af2351e9012476d36c1b0936ca9f4f4b6dee68783bb9e2"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "WQH3aqOjGaWsz7IP-6-8kQ8",
+  "usage": {
+    "promptTokenCount": 784,
+    "candidatesTokenCount": 1353,
+    "totalTokenCount": 2311,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 526
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 174,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137656",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 784,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 174
+  },
+  "elapsed_seconds": 25.27,
+  "output": "output/imagegen/a1plus-unit-1-lesson-v70/h01-diego-studies-at-night.png",
+  "sha256": "8103dfd82029f4f1a110fe2c6ff1f5c88f5dcb78a2ce7490a1ae4d172a91a20a",
+  "byte_count": 5301235,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
