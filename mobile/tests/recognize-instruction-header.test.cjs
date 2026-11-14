@@ -44,7 +44,7 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  386, // 2026-10-19: Unit 7's approved preference/activity cues replace 19 empty prompts; 2026-11-14: A1 1.10 Pets adds 5 and 1.11 Friends and People adds 5; the extended Unit 1 review adds 1.
+  392, // 2026-11-14: A1 2.11 Big and Small adds 5 and the extended Unit 2 review 1. 2026-10-19: Unit 7's approved preference/activity cues replace 19 empty prompts; 2026-11-14: A1 1.10 Pets adds 5 and 1.11 Friends and People adds 5; the extended Unit 1 review adds 1.
   // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
   // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.
@@ -56,7 +56,7 @@ assert.equal(
 );
 assert.equal(
   affectedLessons.size,
-  72, // 2026-10-19: three Unit 7 lessons now use explicit written preference/activity cues; 2026-11-14: A1 1.10 Pets and 1.11 Friends and People join.
+  73, // 2026-10-19: three Unit 7 lessons now use explicit written preference/activity cues; 2026-11-14: A1 1.10 Pets, 1.11 Friends and People and 2.11 Big and Small join.
   // 2026-10-01: rebuilt Unit 4 context cards carry explicit instructions/questions.
   // 3.3 now uses explicit questions and audio-choice instructions instead of an empty prompt.
   // the Unit 1 rebuild adds Lesson 1.5; the Unit 2 rebuild adds 2.4, the new 2.7 and the new 2.10;
@@ -108,8 +108,8 @@ assert.deepEqual(
 );
 assert.deepEqual(
   emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-2-9-unit-2-review').map(({ card }) => card.slide_id),
-  ['R4', 'R7', 'R8'],
-  'The three revised review choices use the shared instruction instead of spoken meta-English.',
+  ['R4', 'R7', 'R8', 'R9'],
+  'The three revised review choices and the 2026-11-14 new/used choice use the shared instruction instead of spoken meta-English.',
 );
 assert.deepEqual(
   emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-3-9-unit-3-review').map(({ card }) => card.slide_id),

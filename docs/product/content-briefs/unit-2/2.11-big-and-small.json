@@ -98,7 +98,8 @@
       "kind": "size",
       "learn": false,
       "prefer": [
-        "It is a small dog."
+        "It is a small dog.",
+        "It is a big house."
       ],
       "blanks": [
         "big",
@@ -112,7 +113,8 @@
       "kind": "size",
       "learn": false,
       "prefer": [
-        "It is a big dog."
+        "It is a big dog.",
+        "It is a small house."
       ],
       "blanks": [
         "small",
@@ -126,7 +128,8 @@
       "kind": "state",
       "learn": false,
       "prefer": [
-        "The car is used."
+        "The car is used.",
+        "The bike is new."
       ],
       "four_card": false
     },
@@ -137,7 +140,8 @@
       "kind": "state",
       "learn": false,
       "prefer": [
-        "The car is new."
+        "The car is new.",
+        "The bike is used."
       ],
       "four_card": false
     },
@@ -150,7 +154,11 @@
       "prefer": [
         "The bags are different."
       ],
-      "four_card": false
+      "four_card": false,
+      "avoid": [
+        "The chairs are the same.",
+        "The chairs are different."
+      ]
     },
     {
       "text": "The bags are different.",
@@ -161,7 +169,11 @@
       "prefer": [
         "The bags are the same."
       ],
-      "four_card": false
+      "four_card": false,
+      "avoid": [
+        "The chairs are the same.",
+        "The chairs are different."
+      ]
     },
     {
       "text": "It is a big house.",
@@ -170,7 +182,8 @@
       "kind": "size",
       "learn": false,
       "prefer": [
-        "It is a small house."
+        "It is a small house.",
+        "It is a big dog."
       ],
       "blanks": [
         "big",
@@ -184,7 +197,8 @@
       "kind": "size",
       "learn": false,
       "prefer": [
-        "It is a big house."
+        "It is a big house.",
+        "It is a small dog."
       ],
       "blanks": [
         "small",
@@ -198,7 +212,8 @@
       "kind": "state",
       "learn": false,
       "prefer": [
-        "The bike is used."
+        "The bike is used.",
+        "The car is new."
       ],
       "four_card": false
     },
@@ -209,7 +224,8 @@
       "kind": "state",
       "learn": false,
       "prefer": [
-        "The bike is new."
+        "The bike is new.",
+        "The car is used."
       ],
       "four_card": false
     },
@@ -222,7 +238,11 @@
       "prefer": [
         "The chairs are different."
       ],
-      "four_card": false
+      "four_card": false,
+      "avoid": [
+        "The bags are the same.",
+        "The bags are different."
+      ]
     },
     {
       "text": "The chairs are different.",
@@ -233,13 +253,17 @@
       "prefer": [
         "The chairs are the same."
       ],
-      "four_card": false
+      "four_card": false,
+      "avoid": [
+        "The bags are the same.",
+        "The bags are different."
+      ]
     },
     {
       "text": "It is a big red bag.",
       "es": "Es una bolsa roja grande.",
       "image": "/lesson-assets/a1_photo_u2_bigsmall_big_red_bag_v1.webp",
-      "kind": "size",
+      "kind": "size-color",
       "learn": false,
       "prefer": [
         "It is a small red bag."
@@ -253,7 +277,7 @@
       "text": "It is a small red bag.",
       "es": "Es una bolsa roja pequeña.",
       "image": "/lesson-assets/a1_photo_u2_bigsmall_small_red_bag_v1.webp",
-      "kind": "size",
+      "kind": "size-color",
       "learn": false,
       "prefer": [
         "It is a big red bag."

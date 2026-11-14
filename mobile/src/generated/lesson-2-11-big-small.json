@@ -618,16 +618,11 @@
     },
     {
       "slide_id": "R6",
-      "interaction_type": "i2t3",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "the-bags-are-different-r6",
       "options": [
-        {
-          "id": "the-chairs-are-the-same-r6",
-          "image_url": "",
-          "label": "The chairs are the same."
-        },
         {
           "id": "the-bags-are-different-r6",
           "image_url": "",
@@ -671,14 +666,14 @@
       "correct_option_id": "it-is-a-big-house-r7",
       "options": [
         {
-          "id": "it-is-a-small-dog-r7",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_small_dog_v1.webp",
-          "label": "It is a small dog."
-        },
-        {
           "id": "it-is-a-big-dog-r7",
           "image_url": "/lesson-assets/a1_photo_u2_bigsmall_big_dog_v1.webp",
           "label": "It is a big dog."
+        },
+        {
+          "id": "it-is-a-small-dog-r7",
+          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_small_dog_v1.webp",
+          "label": "It is a small dog."
         },
         {
           "id": "it-is-a-big-house-r7",
@@ -735,9 +730,9 @@
       "correct_option_id": "it-is-a-small-house-r8",
       "options": [
         {
-          "id": "it-is-a-big-red-bag-r8",
+          "id": "it-is-a-small-dog-r8",
           "image_url": "",
-          "label": "It is a big red bag."
+          "label": "It is a small dog."
         },
         {
           "id": "it-is-a-small-house-r8",
@@ -782,9 +777,9 @@
       "correct_option_id": "the-bike-is-new-r9",
       "options": [
         {
-          "id": "the-car-is-used-r9",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_used_car_v1.webp",
-          "label": "The car is used."
+          "id": "the-car-is-new-r9",
+          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_new_car_v1.webp",
+          "label": "The car is new."
         },
         {
           "id": "the-bike-is-new-r9",
@@ -882,7 +877,7 @@
     },
     {
       "slide_id": "R11",
-      "interaction_type": "t2i3",
+      "interaction_type": "t2i2",
       "prompt": "The chairs are the same.",
       "stage": "Recognize",
       "correct_option_id": "the-chairs-are-the-same-r11",
@@ -891,11 +886,6 @@
           "id": "the-chairs-are-different-r11",
           "image_url": "/lesson-assets/a1_photo_u2_bigsmall_different_chairs_v1.webp",
           "label": "The chairs are different."
-        },
-        {
-          "id": "the-bags-are-different-r11",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_different_bags_v1.webp",
-          "label": "The bags are different."
         },
         {
           "id": "the-chairs-are-the-same-r11",
@@ -1157,7 +1147,7 @@
     },
     {
       "slide_id": "A5",
-      "interaction_type": "a2i3",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "the-bags-are-the-same-a5",
@@ -1171,11 +1161,6 @@
           "id": "the-bags-are-different-a5",
           "image_url": "/lesson-assets/a1_photo_u2_bigsmall_different_bags_v1.webp",
           "label": "The bags are different."
-        },
-        {
-          "id": "the-chairs-are-different-a5",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_different_chairs_v1.webp",
-          "label": "The chairs are different."
         }
       ],
       "audio_text": "The bags are the same.",
@@ -1216,25 +1201,20 @@
     },
     {
       "slide_id": "A6",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "the-bags-are-different-a6",
       "options": [
-        {
-          "id": "the-bags-are-different-a6",
-          "image_url": "",
-          "label": "The bags are different."
-        },
         {
           "id": "the-bags-are-the-same-a6",
           "image_url": "",
           "label": "The bags are the same."
         },
         {
-          "id": "the-chairs-are-the-same-a6",
+          "id": "the-bags-are-different-a6",
           "image_url": "",
-          "label": "The chairs are the same."
+          "label": "The bags are different."
         }
       ],
       "audio_text": "The bags are different.",
@@ -1248,24 +1228,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-11-big-small-c023-prompt-c29a206e04d28c68fd23",
+          "id": "lesson-2-11-big-small-c023-prompt-ab30c0c97cef567cb0c6",
           "purpose": "prompt",
           "text": "The bags are different.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:3b893d6d87f6f43630cd",
+          "image_ref": "text-only:fc3ce51cf5913e8104d0",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-11-big-small-c023-answer-d18d95d40c8f658727ac",
+          "id": "lesson-2-11-big-small-c023-answer-258eda3065faee715a29",
           "purpose": "answer",
           "text": "The bags are different.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:3b893d6d87f6f43630cd",
+          "image_ref": "text-only:fc3ce51cf5913e8104d0",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1275,25 +1255,20 @@
     },
     {
       "slide_id": "A7",
-      "interaction_type": "a2i3",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "the-chairs-are-different-a7",
       "options": [
-        {
-          "id": "the-chairs-are-different-a7",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_different_chairs_v1.webp",
-          "label": "The chairs are different."
-        },
         {
           "id": "the-chairs-are-the-same-a7",
           "image_url": "/lesson-assets/a1_photo_u2_bigsmall_same_chairs_v1.webp",
           "label": "The chairs are the same."
         },
         {
-          "id": "the-bags-are-the-same-a7",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_same_bags_v1.webp",
-          "label": "The bags are the same."
+          "id": "the-chairs-are-different-a7",
+          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_different_chairs_v1.webp",
+          "label": "The chairs are different."
         }
       ],
       "audio_text": "The chairs are different.",
@@ -1334,30 +1309,20 @@
     },
     {
       "slide_id": "A8",
-      "interaction_type": "a2i4",
+      "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "it-is-a-big-red-bag-a8",
       "options": [
-        {
-          "id": "it-is-a-big-house-a8",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_big_house_v1.webp",
-          "label": "It is a big house."
-        },
-        {
-          "id": "it-is-a-big-red-bag-a8",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_big_red_bag_v1.webp",
-          "label": "It is a big red bag."
-        },
         {
           "id": "it-is-a-small-red-bag-a8",
           "image_url": "/lesson-assets/a1_photo_u2_bigsmall_small_red_bag_v1.webp",
           "label": "It is a small red bag."
         },
         {
-          "id": "it-is-a-small-house-a8",
-          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_small_house_v1.webp",
-          "label": "It is a small house."
+          "id": "it-is-a-big-red-bag-a8",
+          "image_url": "/lesson-assets/a1_photo_u2_bigsmall_big_red_bag_v1.webp",
+          "label": "It is a big red bag."
         }
       ],
       "audio_text": "It is a big red bag.",
@@ -1398,7 +1363,7 @@
     },
     {
       "slide_id": "A9",
-      "interaction_type": "a2t3",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
       "correct_option_id": "it-is-a-small-red-bag-a9",
@@ -1407,11 +1372,6 @@
           "id": "it-is-a-big-red-bag-a9",
           "image_url": "",
           "label": "It is a big red bag."
-        },
-        {
-          "id": "it-is-a-small-house-a9",
-          "image_url": "",
-          "label": "It is a small house."
         },
         {
           "id": "it-is-a-small-red-bag-a9",
@@ -1430,24 +1390,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-11-big-small-c026-prompt-ffa77a433103ea914462",
+          "id": "lesson-2-11-big-small-c026-prompt-8548c4f4a716ebef75b0",
           "purpose": "prompt",
           "text": "It is a small red bag.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:edbfe343e25bff4238af",
+          "image_ref": "text-only:51cc79764c07e867895c",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-11-big-small-c026-answer-6e2839b982684745995a",
+          "id": "lesson-2-11-big-small-c026-answer-2b6d0a6c80bb4d947387",
           "purpose": "answer",
           "text": "It is a small red bag.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "text-only:edbfe343e25bff4238af",
+          "image_ref": "text-only:51cc79764c07e867895c",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",

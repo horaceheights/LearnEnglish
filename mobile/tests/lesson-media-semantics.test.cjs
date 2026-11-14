@@ -442,11 +442,11 @@ const requiredUnitTwoReplacementsByLesson = new Map([
     ],
   ],
   [
-    '2.11',
+    '2.12',
     ['a1_u2_review_v1_white_bags.webp'],
   ],
   [
-    '2.12',
+    '2.13',
     [
       'a1_u2_meeting_v4_places.webp',
       'a1_u2_meeting_v4_transport.webp',
