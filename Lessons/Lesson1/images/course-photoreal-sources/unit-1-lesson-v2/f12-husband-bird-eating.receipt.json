@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "b860b62e-fc10-43a3-ac0d-0ba964cf370c",
+  "asset_id": "f12-husband-bird-eating",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:26:13.784870+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows a married couple; use ONLY the man: about forty, short dark hair, a short greying beard, a blue button shirt with rolled sleeves. Keep his face, hair, beard and shirt exactly; the woman is NOT in the new photo. Create a new photograph at the wooden table in the family kitchen in the morning: the man sits at the table and EATS breakfast, lifting a fork with a piece of scrambled egg to his open mouth, a white plate of scrambled eggs and toast in front of him; a plain gold wedding ring is on his left hand. On the table beside his plate the family's pet bird, a small parakeet with a yellow head, a green body, black-and-yellow striped wings and a long dark-blue tail, stands at a small white dish full of seeds and EATS, its beak down in the seeds. Eating is unmistakable for both. The man is seen from head to waist in three-quarter view, his face and the fork sharp; the bird and its seed dish are sharp, large enough to see clearly and close to him, and everything is inside the central 75 percent of the photo width. There is no cup, no glass and no water dish: nobody is drinking. Only this man and this bird. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+    "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "xaf4ati4Hpbrz7IPuKzf2AU",
+  "usage": {
+    "promptTokenCount": 667,
+    "candidatesTokenCount": 1309,
+    "totalTokenCount": 2204,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 409
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 228,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138070",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 667,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 228
+  },
+  "elapsed_seconds": 22.31,
+  "output": "output/imagegen/unit-1-lesson-v2/f12-husband-bird-eating.png",
+  "sha256": "e87a2b65f1b8f0e61777a91b8d00fc73d70343bcb57d99af4f693c8b542b5277",
+  "byte_count": 6028580,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

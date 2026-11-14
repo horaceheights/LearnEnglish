@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "633ecf9b-b805-47ab-b6a9-2a34f953f7f1",
+  "asset_id": "f14-people-pets",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:27:05.774708+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nThree adults stand side by side on a path in a green city park, facing the camera and smiling, each with a pet: on the left a man of about thirty-five in a green jacket holds a red leash, and a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar sits at his feet; in the middle a woman of about fifty in a blue sweater holds a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar in her arms; on the right a woman of about seventy in a grey coat holds a white rabbit with light-brown patches and two long upright ears in her arms. The three people are seen from head to feet, sharp, with clear space between them, spread across the central 80 percent of the photo width, and each pet is fully visible and easy to recognise. Exactly three adults and exactly these three animals: no children, no other people in the background, no other animals. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "-af4apDkBL2VmtkP6sPtuQ8",
+  "usage": {
+    "promptTokenCount": 351,
+    "candidatesTokenCount": 1400,
+    "totalTokenCount": 1955,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 351
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 204,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137150",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 351,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 204
+  },
+  "elapsed_seconds": 20.58,
+  "output": "output/imagegen/unit-1-lesson-v2/f14-people-pets.png",
+  "sha256": "cd2d2b9be4f67d9f03021f9e69f649fcaec6120e188341c2eaf78628e321f132",
+  "byte_count": 8071553,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "eb50faf6-419c-483e-8b78-ef8eb993cb7e",
+  "asset_id": "f06-daughter",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:23:58.701701+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo, from the top of the head down, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nImage 1 shows the family's girl: about seven, long dark-brown hair tied half up, a lilac short-sleeved T-shirt. Keep her face, hair and T-shirt exactly. Create a new photograph in the family's bright living room in which THE GIRL is clearly the subject: she stands in the center foreground facing the camera, in sharp focus, smiling, seen from head to waist. Her two parents stand close behind her, one at each shoulder, both clearly OUT OF FOCUS but recognisable as her father and mother (the father: about forty, short dark hair, a short greying beard, a blue button shirt with rolled sleeves; the mother: about forty, long wavy brown hair, gold earrings, a coral linen shirt), each resting one hand on her shoulder and looking down at her with proud smiles. Exactly these three people; no other child. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/girl.webp",
+    "sha256": "3cbaee986b59bf009ed1a60a397cc7b23cde937e1287cd222d3e6818b197f9a7"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "Pqf4avSCFIXQz7IP9MqRiQo",
+  "usage": {
+    "promptTokenCount": 634,
+    "candidatesTokenCount": 1341,
+    "totalTokenCount": 2197,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 376
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 222,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137932",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 634,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 222
+  },
+  "elapsed_seconds": 24.5,
+  "output": "output/imagegen/unit-1-lesson-v2/f06-daughter.png",
+  "sha256": "a341821f33e00e77b665b33953f4c65d2d6442cb5472b2dfddd91efc88fa9143",
+  "byte_count": 6058752,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

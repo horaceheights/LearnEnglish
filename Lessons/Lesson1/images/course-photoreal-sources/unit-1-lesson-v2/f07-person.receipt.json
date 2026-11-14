@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "7081ffb4-4fbd-4869-a739-07be6919071c",
+  "asset_id": "f07-person",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:21:05.704263+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nKeep the main subject of the photo, from the top of the head down, inside the central 55 percent of the photo width, so a centered 4:5 crop keeps it whole; only expendable background reaches the left and right edges.\n\nOne adult seen from BEHIND, sitting alone in the middle of a plain wooden park bench and looking at a calm lake in a green park on a mild day. The person wears a long beige coat and a grey knitted hat that covers all of the hair, with a dark scarf, so that it is impossible to tell whether it is a man or a woman: just a person. The back, shoulders and hat are sharp, the person is clearly SITTING with the bench fully visible, and the person and the bench fill at least 50 percent of the photo height. The face is not visible. There is nobody else anywhere in the photo, no animal, no bag and no bicycle.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "kab4atPFArO_qtsP__SoyAg",
+  "usage": {
+    "promptTokenCount": 329,
+    "candidatesTokenCount": 1277,
+    "totalTokenCount": 1854,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 329
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 248,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137634",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 329,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 248
+  },
+  "elapsed_seconds": 20.82,
+  "output": "output/imagegen/unit-1-lesson-v2/f07-person.png",
+  "sha256": "fe4cb9182f7798244268f915ef664790ae2f94a8ebae7b0311fb450c11397c9c",
+  "byte_count": 6528665,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

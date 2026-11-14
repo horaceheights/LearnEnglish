@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "1dc2484b-6afa-42a6-9ab8-b2d1cd48efe5",
+  "asset_id": "f08-people",
+  "pack_sha256": "a26b24ef1159dec179d225a2ea3a082da56426eefaaab644e36d04ec5ee4302d",
+  "started_at": "2026-11-14T18:24:25.423964+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, balls and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nFive adults of clearly different ages and looks stand together in a loose half-circle on a path in a green city park and TALK with each other: a woman of about twenty-five, a man of about thirty-five, a woman of about fifty, a man of about sixty and a woman of about seventy, in plain everyday clothes of different colors. Talking is unmistakable: two of them are speaking with open mouths and hand gestures while the others look at them, listen and smile. All five are standing, seen from head to knees, sharp, spread across the central 80 percent of the photo width; nobody looks at the camera. Exactly five adults: no children, no babies, no animals, no phones and no bags with writing. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "WKf4au6uNI7oz7IPida7yQU",
+  "usage": {
+    "promptTokenCount": 296,
+    "candidatesTokenCount": 1323,
+    "totalTokenCount": 1925,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 296
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 306,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.138264",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 296,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 306
+  },
+  "elapsed_seconds": 26.8,
+  "output": "output/imagegen/unit-1-lesson-v2/f08-people.png",
+  "sha256": "68019b48bda0c1f968770e1b304391aeed7e21979686d4fc57f16226e002ceb3",
+  "byte_count": 7173224,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

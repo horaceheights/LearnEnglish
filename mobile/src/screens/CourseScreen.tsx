@@ -89,6 +89,11 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Las mascotas de la familia y lo que hacen.',
     color: '#dff4ef',
   },
+  'lesson-1-11-friends-people': {
+    image: 'a1_photo_u1_friends_friends_v1.webp',
+    description: 'Amigos, esposos, hijos y personas con sus mascotas.',
+    color: '#ffe8c7',
+  },
   'lesson-9-unit-review': {
     image: 'a1_u1_review_family_story.webp',
     description: 'Una historia nueva reúne personas, familia y acciones.',

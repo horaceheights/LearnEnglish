@@ -97,6 +97,14 @@ COURSE_SYLLABLES = {
     "rabbit": 2,
     "pet": 1,
     "pets": 1,
+    # A1 1.11 Friends and People (2026-11-14).
+    "friend": 1,
+    "friends": 1,
+    "husband": 2,
+    "wife": 1,
+    "son": 1,
+    "daughter": 2,
+    "person": 2,
     "evening": 2,
     "m": 1,  # Letter names in a.m./p.m.
     "p": 1,
