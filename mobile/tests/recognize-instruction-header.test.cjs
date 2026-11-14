@@ -44,7 +44,7 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 // 196 since the Unit 2 rebuild: the 40-card extensions add one each and Numbers 1-5 / 6-10 have five each.
 assert.equal(
   emptyRecognizeCards.length,
-  385, // 2026-10-19: Unit 7's approved preference/activity cues replace 19 empty prompts; 2026-11-14: A1 1.10 Pets adds 5 and 1.11 Friends and People adds 5.
+  386, // 2026-10-19: Unit 7's approved preference/activity cues replace 19 empty prompts; 2026-11-14: A1 1.10 Pets adds 5 and 1.11 Friends and People adds 5; the extended Unit 1 review adds 1.
   // 2026-10-07 clarification: 12 reverse cards return to the Lesson 1.1 instruction (+12).
   // 2026-10-05: four approved 4.10 day foundations (DR1–DR4) joined the shared empty-prompt choices.
   // 2026-10-03: time questions brought the inventory to 359; approved Unit 4 question/heard cues previously brought it to 362.

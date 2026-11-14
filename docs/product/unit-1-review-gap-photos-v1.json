@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "pack": "unit-1-review-gap-photos",
+  "revision": 1,
+  "output_namespace": "unit-1-review-v1",
+  "authorization": "2026-11-14: the user approved a longer Unit 1 review that brings back the Pets and Friends words (answer \"Longer review (Recommended)\") and had approved the gap-lesson media in advance the same day (\"I preapprove all image and audios creation no need for me to reiew and approve on the fly\"). Ceiling US$1.20 for this revision. Gemini is the approved image tool (2026-09-23). Revision 1 is frozen: a changed prompt is a new revision in a new file. Every output is inspected at phone sizes, and every rejected output is reported with its cost.",
+  "image_settings": {
+    "provider": "google-gemini",
+    "model": "gemini-3-pro-image",
+    "aspect_ratio": "3:2",
+    "image_size": "2K",
+    "runtime_size": "1536x1024",
+    "runtime_format": "webp",
+    "n": 1
+  },
+  "production": {
+    "price_per_image_usd": "0.134",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing (checked 2026-09-24: Gemini 3 Pro Image, $0.134 per 1K/2K image)",
+    "planned_images": 5,
+    "expected_cost_usd": "0.69",
+    "requested_ceiling_usd": "1.20",
+    "no_automatic_retries": true,
+    "order": "Five independent scenes in any order; each is inspected at 900/360/250/180 px. A rejected output is reported with its cost; a redo needs a changed prompt in a new revision file."
+  },
+  "shared_prompts": {
+    "photo": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, toys and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos."
+  },
+  "assets": [
+    {
+      "id": "r01-couple-cat",
+      "order": 1,
+      "lesson": "1.12",
+      "item": "The husband and the wife are talking. The cat is sleeping.",
+      "runtime_filename": "a1_u1_review_couple_talking_cat_sleeping.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/family_parents_3x2.webp",
+        "sha256": "7ec7dfb8f762125ea8efc1daebaff0899bb2bee4fe6b40b18d7276251514acc9",
+        "observed_description": "The family's father (about forty, short dark hair, short greying beard, blue button shirt with rolled sleeves over a grey T-shirt) and mother (about forty, long wavy brown hair, gold earrings, coral linen shirt) stand close together smiling at the camera in a bright living room with bookshelves and framed family photos."
+      },
+      "prompt": "Image 1 shows a married couple, the family's parents. Keep both faces, hair and clothes exactly. Create a new photograph in their bright living room: the husband and the wife SIT side by side on a grey sofa, turned toward each other, and TALK: he speaks with an open mouth and one hand raised in a small gesture while she looks at him and smiles; a plain gold wedding ring is visible on each of their left hands. Next to them on the same sofa the family cat, a grey tabby cat with dark stripes, a white chest, white front paws and a plain blue collar, SLEEPS curled in a round ball with both eyes fully closed. Talking is unmistakable for the couple and sleeping for the cat. The couple are seen from head to knees in three-quarter view, the cat is whole and sharp, and all three are inside the central 80 percent of the photo width. Nobody looks at the camera. Only these two adults and this one cat; no children, no cups, no food and no phone. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "r02-son-dog-playing",
+      "order": 2,
+      "lesson": "1.12",
+      "item": "The son and the dog are playing. The dog is a pet.",
+      "runtime_filename": "a1_u1_review_son_dog_playing.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/boy.webp",
+        "sha256": "c882743482d0d7b7aed75f959c05253ac508895376e93ce9de9dd13f4fa0207e",
+        "observed_description": "The family's boy, about nine, with short dark hair combed to the side and a blue short-sleeved button shirt, stands smiling at the camera in a sunny courtyard with terracotta walls and potted plants."
+      },
+      "prompt": "Image 1 shows the family's boy: about nine, short dark hair combed to the side, a blue short-sleeved button shirt. Keep his face, hair and shirt exactly. Create a new photograph on the lawn of the family's sunny garden: the boy, in dark shorts, and the family dog, a medium-size golden-tan mixed-breed dog with a white chest patch, floppy ears and a plain red collar, PLAY tug-of-war with a thick plain blue rope toy. The boy leans back holding one end of the rope with both hands and laughs; the dog holds the other end in its mouth and pulls, front legs braced and tail up. Playing together is unmistakable. Both are whole and sharp inside the central 75 percent of the photo width, seen from the side, with a garden fence and bushes softly blurred behind. Neither is running. Only this boy and this dog; no ball, no other person or animal. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "r03-daughter-friend-reading",
+      "order": 3,
+      "lesson": "1.12",
+      "item": "The daughter and a friend are reading. They are friends.",
+      "runtime_filename": "a1_u1_review_daughter_friend_reading.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_photo_u1_friends_friends_v1.webp",
+        "sha256": "f128989c0cb2e194d3a24b6d606f4f24d719db199d9cb3255e8b040705d114df",
+        "observed_description": "On a sunny playground lawn two girls of about seven throw a red ball between them, laughing: a girl with very curly black hair in two round puffs, dark-brown skin and a yellow T-shirt, and the family's girl with long dark-brown hair in a ponytail and a lilac T-shirt."
+      },
+      "prompt": "Image 1 shows two girls who are friends: one with long dark-brown hair and a lilac T-shirt, one with very curly black hair in two round puffs and a bright yellow T-shirt. Keep both faces, hair, skin tones and T-shirts exactly. Create a new photograph in a bright family living room: the two girls SIT close together on a grey sofa and READ one large open picture book that rests across both their laps; each girl holds one side of the book, both look down at its pages with interested smiles, and one girl points at the page. The pages show only colorful shapes and faint grey lines, with NO readable letters or words, and the cover is a plain solid color. Reading together is unmistakable. Both girls are seen from head to knees, sharp, inside the central 75 percent of the photo width. Only these two girls; no adults, no animals, no ball and no toys. Every visible hand has five natural fingers."
+    },
+    {
+      "id": "r04-rabbit-bird-eating",
+      "order": 4,
+      "lesson": "1.12",
+      "item": "The rabbit and the bird are eating. They are pets.",
+      "runtime_filename": "a1_u1_review_rabbit_bird_eating.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "Two family pets eat side by side on a light wooden floor in a bright family living room, seen from the front-side at their eye level: on the left a white rabbit with light-brown patches and two long upright ears, sitting and holding a fresh green lettuce leaf in its mouth, half of the leaf already inside its mouth, with two more lettuce leaves on the floor in front of it; on the right, close to the rabbit, a small parakeet with a yellow head, a green body, black-and-yellow striped wings and a long dark-blue tail, standing at a small white dish full of seeds with its beak down in the seeds. Eating is unmistakable for both. The rabbit and the bird are both whole, sharp and large enough to recognise at a glance, inside the central 75 percent of the photo width; the bird is at least one third of the rabbit's height in the frame. A sofa is softly blurred behind. Exactly these two animals: no other animal, no person, no hand, no cage bars and no water dish."
+    },
+    {
+      "id": "r05-people-person",
+      "order": 5,
+      "lesson": "1.12",
+      "item": "The people are talking. A person is sitting.",
+      "runtime_filename": "a1_u1_review_people_talking_person_sitting.webp",
+      "four_card": false,
+      "shared": [
+        "photo"
+      ],
+      "prompt": "A path in a green city park on a mild day, seen from the side. On the left half of the photo four adults of clearly different ages and looks stand together in a small circle and TALK: two of them speak with open mouths and hand gestures while the other two look at them and smile. On the right half, clearly apart from the group, ONE more adult SITS alone on a wooden park bench, seen from the side, wearing a long beige coat and a grey knitted hat, hands resting on the knees, looking calmly ahead at the park. Talking is unmistakable for the standing group and sitting for the one person on the bench. All five are whole and sharp, seen from head to feet, with clear empty space between the group and the bench. Nobody looks at the camera. Exactly five adults: no children, no animals, no phones, no books and no bags with writing. Every visible hand has five natural fingers."
+    }
+  ]
+}

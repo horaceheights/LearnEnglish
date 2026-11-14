@@ -1,0 +1,57 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "197aef0e-8b4f-483d-8794-6f6dfdbc1d89",
+  "asset_id": "r05-people-person",
+  "pack_sha256": "1de2ee1abeb2b14b631660fd5309ebdd74a8bc04d032869069686e869658122c",
+  "started_at": "2026-11-14T19:02:33.239999+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, toys and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nA path in a green city park on a mild day, seen from the side. On the left half of the photo four adults of clearly different ages and looks stand together in a small circle and TALK: two of them speak with open mouths and hand gestures while the other two look at them and smile. On the right half, clearly apart from the group, ONE more adult SITS alone on a wooden park bench, seen from the side, wearing a long beige coat and a grey knitted hat, hands resting on the knees, looking calmly ahead at the park. Talking is unmistakable for the standing group and sitting for the one person on the bench. All five are whole and sharp, seen from head to feet, with clear empty space between the group and the bench. Nobody looks at the camera. Exactly five adults: no children, no animals, no phones, no books and no bags with writing. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": null,
+  "human_approval": "pending",
+  "provider_response_id": "SLD4aondJJ2dz7IP_5rT-A4",
+  "usage": {
+    "promptTokenCount": 326,
+    "candidatesTokenCount": 1355,
+    "totalTokenCount": 1894,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 326
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 213,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137208",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 326,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 213
+  },
+  "elapsed_seconds": 20.85,
+  "output": "output/imagegen/unit-1-review-v1/r05-people-person.png",
+  "sha256": "328fe657df084598b5060baa0e597ac4118ac46cf1c7072c2ae058009334b2e5",
+  "byte_count": 7366103,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}

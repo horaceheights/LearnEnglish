@@ -50,7 +50,7 @@ const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 // 2026-10-08: the Unit 5 service revision adds two spoken thanks and the market acceptance gate.
 // 2026-10-11: Unit 6 grows from 83 to 132 spoken cards, retaining four final mission gates.
 // 2026-10-19: the approved Unit 7 allocation adds 17 spoken cards.
-assert.equal(speakCards.length, 708, 'The Speak inventory preserves every lesson, the approved Unit 7 revision, A1 1.10 Pets (8 cards) and 1.11 Friends and People (7).');
+assert.equal(speakCards.length, 710, 'The Speak inventory preserves every lesson, the approved Unit 7 revision, A1 1.10 Pets (8 cards) and 1.11 Friends and People (7) and the extended Unit 1 review (2).');
 const timeSpeakCards = speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-what-time-is-it');
 assert.equal(timeSpeakCards.length, 12);
 assert.deepEqual(

@@ -63,7 +63,7 @@ function assertParallelUnitOneChoices(lessons, context) {
       const frames = card.options.map((option) => choiceFrame(option.label));
       assert.equal(new Set(frames).size, 1, `${context}: ${number} ${card.slide_id} mixes grammatical/semantic frames: ${card.options.map((option) => option.label).join(' | ')}`);
     }
-    const expectedCounts = number === '1.12' ? [14, 14, 10, 8, 8] : [10, 10, 8, 7, 7];
+    const expectedCounts = number === '1.12' ? [14, 16, 13, 10, 9] : [10, 10, 8, 7, 7];
     assert.deepEqual(
       ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'].map((stage) => current.cards.filter((card) => card.stage === stage).length),
       expectedCounts,

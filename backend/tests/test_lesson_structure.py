@@ -76,7 +76,7 @@ EXPECTED_STAGE_COUNTS = {
     "lesson-6-family-actions": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-7-is-are-not": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
-    "lesson-9-unit-review": {"Learn": 14, "Recognize": 14, "Listen": 10, "Speak": 8, "Use": 8},
+    "lesson-9-unit-review": {"Learn": 14, "Recognize": 16, "Listen": 13, "Speak": 10, "Use": 9},
 }
 UNIT_ONE_GOLD = [
     "a", "boy", "girl", "man", "woman", "he", "she", "is", "the",
@@ -550,7 +550,9 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(lesson=lesson_id):
                 self.assertEqual(expected_counts, counts)
                 self.assertGreaterEqual(len(lesson.cards), 30)
-                self.assertLessEqual(len(lesson.cards), 54)
+                # The Unit 1 review has an approved 62-card allocation (user decision 2026-11-14,
+                # content-standards.json approved_lesson_card_limits); every other lesson stays within 54.
+                self.assertLessEqual(len(lesson.cards), 62 if lesson_id == "lesson-9-unit-review" else 54)
 
     def test_vocabulary_load_matches_the_curriculum_contract(self):
         for lesson_id, expected in EXPECTED_VOCABULARY.items():
@@ -1598,7 +1600,7 @@ class LessonStructureTests(unittest.TestCase):
             '1.4': ['U4', 'U5', 'U6', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7'],
             '1.6': ['U4', 'U5', 'U6', 'U7'], '1.7': ['U4', 'U5', 'U6', 'U7'],
             '1.8': ['U4', 'U5', 'U6', 'U7'], '1.9': ['U7', 'U8', 'U9', 'U10'],
-            '1.10': ['U5', 'U6', 'U7', 'U8'], '1.11': ['U4', 'U5', 'U6', 'U7'], '1.12': ['U5', 'U6', 'U8'],
+            '1.10': ['U5', 'U6', 'U7', 'U8'], '1.11': ['U4', 'U5', 'U6', 'U7'], '1.12': ['U5', 'U6', 'U8', 'U9'],
         }
         for lesson in LESSONS.values():
             if lesson.sub_lesson_id not in expected:

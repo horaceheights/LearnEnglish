@@ -1,0 +1,64 @@
+{
+  "status": "image_saved",
+  "generation_requests_sent": 1,
+  "automatic_retries": 0,
+  "client_request_id": "f4cc6848-47c8-4f3b-9841-e199670c6992",
+  "asset_id": "r03-daughter-friend-reading",
+  "pack_sha256": "1de2ee1abeb2b14b631660fd5309ebdd74a8bc04d032869069686e869658122c",
+  "started_at": "2026-11-14T19:01:42.787181+00:00",
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent",
+  "request": {
+    "model": "gemini-3-pro-image",
+    "prompt": "Use case: photorealistic-natural. One real photograph for a Spanish-speaking adult beginner learning English. Natural everyday photographic detail, real material, skin, fur and feather texture, soft natural daylight and correct perspective; NOT an illustration, 3D render, cartoon, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark or captions. No letters, words, numbers, logos or brand marks anywhere, including on clothing, collars, signs, books, toys and dishes. A first-time learner must understand the picture instantly on a small phone screen. Do not imitate earlier course photos.\n\nImage 1 shows two girls who are friends: one with long dark-brown hair and a lilac T-shirt, one with very curly black hair in two round puffs and a bright yellow T-shirt. Keep both faces, hair, skin tones and T-shirts exactly. Create a new photograph in a bright family living room: the two girls SIT close together on a grey sofa and READ one large open picture book that rests across both their laps; each girl holds one side of the book, both look down at its pages with interested smiles, and one girl points at the page. The pages show only colorful shapes and faint grey lines, with NO readable letters or words, and the cover is a plain solid color. Reading together is unmistakable. Both girls are seen from head to knees, sharp, inside the central 75 percent of the photo width. Only these two girls; no adults, no animals, no ball and no toys. Every visible hand has five natural fingers.",
+    "image_config": {
+      "aspectRatio": "3:2",
+      "imageSize": "2K"
+    }
+  },
+  "reference": {
+    "path": "Lessons/Lesson1/images/a1_photo_u1_friends_friends_v1.webp",
+    "sha256": "f128989c0cb2e194d3a24b6d606f4f24d719db199d9cb3255e8b040705d114df"
+  },
+  "human_approval": "pending",
+  "provider_response_id": "FrD4aqShGJuVmtkPopXuwAg",
+  "usage": {
+    "promptTokenCount": 592,
+    "candidatesTokenCount": 1344,
+    "totalTokenCount": 2140,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 334
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 258
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "IMAGE",
+        "tokenCount": 1120
+      }
+    ],
+    "thoughtsTokenCount": 204,
+    "serviceTier": "standard"
+  },
+  "cost": {
+    "usd": "0.137632",
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "basis": "Reported usage at list prices checked 2026-09-24; before tax, not an invoice.",
+    "input_tokens": 592,
+    "image_output_tokens": 1120,
+    "text_and_thinking_output_tokens": 204
+  },
+  "elapsed_seconds": 22.13,
+  "output": "output/imagegen/unit-1-review-v1/r03-daughter-friend-reading.png",
+  "sha256": "08e9248feec96b5df1c6842615fb1f0f8748cece8701cc9216c34992f7f22496",
+  "byte_count": 6699175,
+  "pixel_size": [
+    2528,
+    1696
+  ],
+  "returned_mime_type": "image/jpeg"
+}
